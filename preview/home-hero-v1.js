@@ -4,7 +4,7 @@
   const ASSET_BASE = "";
   const HERO = Object.freeze({
     name: "Bubble Gum",
-    src: "strains/bubble-gum/images/generated/primary-v2.webp",
+    src: "assets/cultivars/bubble-gum/primary-v2.webp",
     alt: "Bubble Gumの乾燥前の花を資料に基づいて表現したAI生成参考ビジュアル"
   });
 
