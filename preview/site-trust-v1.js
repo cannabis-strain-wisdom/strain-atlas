@@ -7,20 +7,7 @@
   const updatesList = document.getElementById("updates-list");
   const updatesState = document.getElementById("updates-state");
   const updatesSummaryMeta = document.getElementById("updates-summary-meta");
-  const latestSection = document.querySelector(".latest-section");
   const catalogMeta = document.getElementById("catalog-meta");
-
-  function updatesFooterLink() {
-    return catalogMeta?.querySelector('.catalog-footer-links a[href="#updates"]') || null;
-  }
-
-  function syncHomeOnlyVisibility() {
-    if (!updatesSection) return;
-    const hidden = Boolean(latestSection?.hidden);
-    updatesSection.hidden = hidden;
-    const link = updatesFooterLink();
-    if (link) link.hidden = hidden;
-  }
 
   function normalizeEntry(entry, index) {
     if (!entry || typeof entry !== "object") return null;
@@ -113,7 +100,7 @@
     if (!nav) return;
 
     const links = [
-      ["#updates", "お知らせ"],
+      ["#updates", "更新履歴"],
       ["#about", "この図鑑について"]
     ];
 
@@ -124,18 +111,12 @@
       link.textContent = label;
       nav.appendChild(link);
     });
-
-    syncHomeOnlyVisibility();
   }
 
-  if (latestSection) {
-    new MutationObserver(syncHomeOnlyVisibility).observe(latestSection, { attributes: true, attributeFilter: ["hidden"] });
-  }
   if (catalogMeta) {
     new MutationObserver(patchFooterLinks).observe(catalogMeta, { childList: true, subtree: true });
   }
 
-  syncHomeOnlyVisibility();
   patchFooterLinks();
   loadUpdates();
 })();

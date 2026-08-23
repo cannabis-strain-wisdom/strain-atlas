@@ -43,6 +43,10 @@
 .about-body p:last-child{margin-bottom:0}
 .about-body strong{color:#dccb90;font-weight:850}
 .about-note{padding-top:9px;border-top:1px solid rgba(255,255,255,.05);color:#829088}
+.about-updates-item .about-code{display:flex;flex-wrap:wrap;align-items:center}
+.about-updates-item .updates-summary-meta{color:#9da99f;font-size:inherit;font-weight:760;letter-spacing:.04em;white-space:normal}
+.about-updates-item .updates-summary-meta:not(:empty)::before{content:" · "}
+.about-updates-item .updates-body{display:grid;gap:8px}
 
 @media(max-width:430px){
   .trust-updates{margin-top:20px}

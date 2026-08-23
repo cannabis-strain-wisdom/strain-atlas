@@ -52,14 +52,25 @@
     renderLatestCards();
   }
 
+  function latestCardDetails(cultivar) {
+    const aromas = (cultivar?.aromas?.items || []).slice(0, 2);
+    const lineage = cultivar?.lineage?.confidence || (cultivar?.lineage?.status === "unknown" ? "?" : "-");
+    const status = String(cultivar?.status || "").toUpperCase();
+    return `<div class="tile-aromas">${aromas.map(item => `<span>${esc(item)}</span>`).join("")}</div><div class="tile-meta"><span>LINEAGE ${esc(lineage)}</span><span>${esc(status)}</span></div>`;
+  }
+
   function renderLatestCards() {
     if (!latestGrid || !latestIds.length) return;
     const fragment = document.createDocumentFragment();
     let rendered = 0;
     for (const id of latestIds) {
       const template = cardTemplates.get(id);
-      if (!template) continue;
-      fragment.appendChild(template.cloneNode(true));
+      const cultivar = cultivarById.get(id);
+      if (!template || !cultivar) continue;
+      const card = template.cloneNode(true);
+      card.classList.add("is-latest-card");
+      card.querySelector(".tile-copy")?.insertAdjacentHTML("beforeend", latestCardDetails(cultivar));
+      fragment.appendChild(card);
       rendered += 1;
     }
     if (rendered !== latestIds.length) return;
@@ -91,7 +102,7 @@
   function renderFooter() {
     if (!catalogMeta || !catalog) return;
     const counts = catalog.counts || {};
-    catalogMeta.innerHTML = `<div class="catalog-footer-brand">Cannabis Strain Wisdom</div><div class="catalog-footer-counts">${esc(counts.cultivars ?? catalog.cultivars.length)} 品種 · ${esc(counts.sources ?? 0)} 出典 · ${esc(counts.entities ?? 0)} 関連組織・ブリーダー</div><nav class="catalog-footer-links" aria-label="ページ内リンク"><a href="#site-title">このサイトについて</a><a href="#cultivars">品種一覧</a><a href="#legal-alert">重要なお知らせ</a></nav>`;
+    catalogMeta.innerHTML = `<div class="catalog-footer-brand">Cannabis Strain Wisdom</div><div class="catalog-footer-counts">${esc(counts.cultivars ?? catalog.cultivars.length)} 品種 · ${esc(counts.sources ?? 0)} 出典 · ${esc(counts.entities ?? 0)} 関連組織・ブリーダー</div><nav class="catalog-footer-links" aria-label="ページ内リンク"><a href="#about">この図鑑について</a><a href="#cultivars">品種一覧</a><a href="#legal-alert">重要なお知らせ</a></nav>`;
   }
 
   function openLatestDetail(id) {

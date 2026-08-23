@@ -24,7 +24,8 @@
   const exploreLabels = {
     sativa: "SATIVA系",
     indica: "INDICA系",
-    hybrid: "HYBRID"
+    hybrid: "HYBRID",
+    unclassified: "未分類"
   };
   const roleLabels = {
     originator: "ORIGINATOR",
@@ -41,7 +42,7 @@
     "strawberry-banana-s1": "Original Strawberry BananaからS1へ",
     "super-lemon-haze": "2008・2009年の主要カップで1位"
   };
-  const validExploreValues = new Set(["sativa", "indica", "hybrid"]);
+  const validExploreValues = new Set(["sativa", "indica", "hybrid", "unclassified"]);
   const ownedFilterParams = ["type", "generation", "breeder", "q"];
   const detailHistoryMarker = "__cswDetailEntry";
   const nativePushState = history.pushState.bind(history);
@@ -173,9 +174,11 @@
     };
   });
 
+  const normalizeSearchText = value => String(value ?? "").normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+
   const searchBlob = cultivar => {
     const relations = relationNames(cultivar).flatMap(item => [item.name, ...item.roles.map(role => roleLabels[role] || role)]);
-    return compact([
+    return normalizeSearchText(compact([
       cultivar.id,
       cultivar.name,
       cultivar.jp,
@@ -191,7 +194,23 @@
       cultivar.origin?.text,
       cultivar.history?.text,
       ...relations
-    ]).join(" ").toLowerCase();
+    ]).join(" "));
+  };
+
+  const searchIdentityTerms = cultivar => compact([
+    cultivar.id,
+    cultivar.name,
+    cultivar.jp,
+    ...(cultivar.aliases || [])
+  ]).map(normalizeSearchText);
+
+  const searchRank = (cultivar, query) => {
+    if (!query) return 0;
+    const identities = searchIdentityTerms(cultivar);
+    if (identities.some(value => value === query)) return 0;
+    if (identities.some(value => value.startsWith(query))) return 1;
+    if (identities.some(value => value.includes(query))) return 2;
+    return 3;
   };
 
   function filterState(query = currentQuery(), explore = activeExplore) {
@@ -199,7 +218,7 @@
       explore,
       generations: new Set(activeGenerations),
       breeder: activeBreeder,
-      query: String(query || "").trim().toLowerCase()
+      query: normalizeSearchText(query)
     };
   }
 
@@ -215,7 +234,14 @@
     (!state.query || searchBlob(cultivar).includes(state.query));
 
   const currentQuery = () => (search?.value || "").trim();
-  const getVisibleCultivars = (state = filterState()) => catalog?.cultivars?.filter(cultivar => matchesFilters(cultivar, state)) || [];
+  const getVisibleCultivars = (state = filterState()) => {
+    const visible = catalog?.cultivars?.filter(cultivar => matchesFilters(cultivar, state)) || [];
+    if (!state.query) return visible;
+    return visible
+      .map((cultivar, index) => ({ cultivar, index, rank: searchRank(cultivar, state.query) }))
+      .sort((a, b) => a.rank - b.rank || a.index - b.index)
+      .map(item => item.cultivar);
+  };
   const resultModeFor = query =>
     activeExplore !== "all" ||
     activeGenerations.size > 0 ||
@@ -402,7 +428,7 @@
     const eligible = catalog.cultivars.filter(cultivar => matchesFilters(cultivar, nonTypeState));
     const eligibleIds = new Set(eligible.map(cultivar => cultivar.id));
     setCount("count-all", eligible.length);
-    for (const key of ["sativa", "indica", "hybrid"]) {
+    for (const key of ["sativa", "indica", "hybrid", "unclassified"]) {
       const count = (catalog.explore?.[key] || []).reduce((total, id) => total + (eligibleIds.has(id) ? 1 : 0), 0);
       setCount(`count-${key}`, count);
     }
@@ -476,7 +502,6 @@
     if (!catalog) return;
     grid.innerHTML = visible.map(cultivar => {
       const visual = primaryVisual(cultivar);
-      const aromas = (cultivar.aromas?.items || []).slice(0, 2);
       const type = typeLabels[cultivar.classification?.type] || cultivar.classification?.type || "未分類";
       return `<button class="cultivar-card" type="button" data-strain-id="${esc(cultivar.id)}" aria-label="${esc(cultivar.name)}の詳細を見る">
         <div class="tile-visual">
@@ -485,8 +510,6 @@
         </div>
         <div class="tile-copy">
           <div class="tile-name">${esc(cultivar.name)}</div>
-          <div class="tile-aromas">${aromas.map(item => `<span>${esc(item)}</span>`).join("")}</div>
-          <div class="tile-meta"><span>LINEAGE ${esc(evidenceShort(cultivar.lineage))}</span><span>${esc(String(cultivar.status || "").toUpperCase())}</span></div>
         </div>
       </button>`;
     }).join("");
