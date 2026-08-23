@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-23T08:06:17.811Z",
+  "generatedAt": "2026-08-23T22:03:25.773Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 46,
-    "sources": 66,
+    "cultivars": 45,
+    "sources": 64,
     "entities": 12
   },
   "explore": {
@@ -19,7 +19,6 @@
       "c5-haze-x-kali-china",
       "chocolope-256",
       "congo",
-      "dr-grinspoon",
       "durban-poison",
       "golden-tiger",
       "guawi",
@@ -1512,91 +1511,6 @@
       ],
       "checkedAt": "2026-08-23",
       "updatedAt": "2026-08-23"
-    },
-    {
-      "schemaVersion": 1,
-      "id": "dr-grinspoon",
-      "status": "review",
-      "name": "Dr Grinspoon",
-      "jp": null,
-      "aliases": [
-        "Dr. Grinspoon"
-      ],
-      "classification": {
-        "type": "sativa"
-      },
-      "breeding": {
-        "generation": "unknown",
-        "method": null
-      },
-      "lineage": {
-        "status": "unknown",
-        "display": "Heirloom Sativa Strain (parentage undisclosed)",
-        "parents": [],
-        "note": "Barney's Farm公式はpure Heirloom Sativaとするが、親品種を開示していないためparentageはunknown。"
-      },
-      "relations": [
-        {
-          "entityId": "barneys-farm",
-          "roles": [
-            "breeder",
-            "seedCompany"
-          ],
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "barneys-farm-dr-grinspoon"
-          ]
-        }
-      ],
-      "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "barneys-farm-dr-grinspoon"
-        ],
-        "items": [
-          "sumac",
-          "lemon",
-          "tangy",
-          "tropical fruit"
-        ],
-        "note": "Barney's Farm公式Aroma表記を保持。"
-      },
-      "terpenes": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "specialistDatabase",
-        "sourceRefs": [
-          "leafly-dr-grinspoon"
-        ],
-        "items": [
-          "Terpinolene",
-          "Myrcene",
-          "Pinene"
-        ],
-        "note": "Leafly専門データベースのterpene表示を補助根拠として採用。Barney's Farm公式では化学成分名のterpene profileを確認できないためAにはしない。"
-      },
-      "origin": {
-        "status": "unknown",
-        "text": "",
-        "note": "Barney's Farm公式ページから品種そのものの地理的originを一意に確定できないためunknown。"
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "barneys-farm-dr-grinspoon"
-        ],
-        "text": "カンナビス擁護者・研究者・著者であるDr. Lester Grinspoonへの敬意を表して命名された。",
-        "note": "Barney's Farm公式Descriptionに基づく。"
-      },
-      "visuals": [],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
     },
     {
       "schemaVersion": 1,
@@ -5208,25 +5122,6 @@
       "checkedAt": "2026-08-19",
       "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
     },
-    "barneys-farm-dr-grinspoon": {
-      "schemaVersion": 1,
-      "id": "barneys-farm-dr-grinspoon",
-      "publisher": "Barney's Farm",
-      "title": "Dr Grinspoon Strain",
-      "url": "https://www.barneysfarm.com/dr-grinspoon-5",
-      "sourceType": "breederOfficial",
-      "supports": [
-        "breeder",
-        "seedCompany",
-        "classification",
-        "lineage",
-        "history",
-        "aromas"
-      ],
-      "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Barney's Farm公式Dr Grinspoon品種ページ。Heirloom Sativa Strain、100% sativa、Dr. Lester Grinspoonへの敬意による命名、sumac / lemon / tangy / tropical fruitのaromaを確認。親品種は公式ページで開示されていないためlineage parentageはunknown扱い。"
-    },
     "barneys-farm-laughing-buddha": {
       "schemaVersion": 1,
       "id": "barneys-farm-laughing-buddha",
@@ -5780,22 +5675,6 @@
       "publishedAt": null,
       "checkedAt": "2026-08-17",
       "note": "Leafly cultivar page used for reported flavor descriptors and Certified Strain Science terpene ordering. These are treated conservatively and not as a cultivar-wide lot-specific COA."
-    },
-    "leafly-dr-grinspoon": {
-      "schemaVersion": 1,
-      "id": "leafly-dr-grinspoon",
-      "publisher": "Leafly",
-      "title": "Dr. Grinspoon strain",
-      "url": "https://www.leafly.com/strains/dr-grinspoon",
-      "sourceType": "specialistDatabase",
-      "supports": [
-        "terpenes",
-        "classification",
-        "aliases"
-      ],
-      "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "専門データベース補助資料。Dr. GrinspoonのterpeneとしてTerpinolene / Myrcene / Pineneを確認。公式一次情報ではないためterpene claimはconfidence Bとする。"
     },
     "leafly-og-18": {
       "schemaVersion": 1,
