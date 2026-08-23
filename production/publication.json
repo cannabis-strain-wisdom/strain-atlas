@@ -228,6 +228,30 @@
       "strainId": "violeta",
       "state": "published",
       "publishedAt": "2026-08-21T21:54:30Z"
+    },
+    {
+      "strainId": "african-gas",
+      "state": "published",
+      "publishedAt": "2026-08-23T08:06:15Z"
+    },
+    {
+      "strainId": "congo",
+      "state": "published",
+      "publishedAt": "2026-08-23T08:06:15Z"
+    },
+    {
+      "strainId": "guawi",
+      "state": "published",
+      "publishedAt": "2026-08-23T08:06:15Z"
+    },
+    {
+      "strainId": "honduras",
+      "state": "pending"
+    },
+    {
+      "strainId": "orient-express",
+      "state": "published",
+      "publishedAt": "2026-08-23T08:06:15Z"
     }
   ]
 }

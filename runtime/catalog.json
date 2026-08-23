@@ -1,29 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T21:54:32.488Z",
+  "generatedAt": "2026-08-23T08:06:17.811Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 42,
-    "sources": 62,
+    "cultivars": 46,
+    "sources": 66,
     "entities": 12
   },
   "explore": {
     "sativa": [
       "acapulco-gold",
+      "african-gas",
       "bangi-haze",
       "c5-haze-x-kali-china",
       "chocolope-256",
+      "congo",
       "dr-grinspoon",
       "durban-poison",
       "golden-tiger",
+      "guawi",
       "kali-mist",
       "killer-a5-haze",
       "laughing-buddha",
       "malawi",
+      "orient-express",
       "panama",
       "shaman",
       "super-lemon-haze",
@@ -167,6 +171,124 @@
       ],
       "checkedAt": "2026-08-19",
       "updatedAt": "2026-08-19"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "african-gas",
+      "status": "review",
+      "name": "African Gas",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other",
+        "method": "poly hybrid"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-african-gas"
+        ],
+        "display": "Bangi Haze F8 × A5 Haze by Neville (Northern Lights #5/Haze A)",
+        "parents": [
+          "Bangi Haze F8",
+          "A5 Haze by Neville"
+        ],
+        "note": "ACE Seeds explicitly identifies African Gas as Bangi Haze F8 crossed with A5 Haze by Neville (Northern Lights #5/Haze A)."
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-african-gas"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-african-gas"
+        ],
+        "items": [
+          "flammable gas",
+          "solvent",
+          "meaty",
+          "leather",
+          "damp peat",
+          "lemon",
+          "decaying flowers",
+          "hashish",
+          "citrus",
+          "floral",
+          "mango",
+          "earthy"
+        ],
+        "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page; phenotype frequency is not converted into a universal aroma claim."
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-african-gas"
+        ],
+        "items": [
+          "beta-myrcene",
+          "limonene",
+          "trans-ocimene",
+          "alpha-pinene",
+          "beta-pinene",
+          "linalool",
+          "beta-caryophyllene",
+          "alpha-bisabolol",
+          "guaiol",
+          "trans-nerolidol"
+        ],
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "origin": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official cultivar evidence does not establish a sufficiently bounded creation location for this atlas entry; no location is inferred."
+      },
+      "history": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official page describes African Gas as a recent ACE Seeds presentation but does not provide an absolute release date suitable for a bounded history claim here."
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "African Gasは、Bangi Haze F8とNeville由来のA5 Haze（Northern Lights #5/Haze A）を組み合わせたポリハイブリッドとしてACE Seeds公式に記載されています。",
+          "aromaNote": "公式説明では、強いガス香が主要テーマで、個体によって溶剤、肉・レザー、湿ったピート、レモン、ハシシなどが重なります。別の表現ではシトラス、フローラル、マンゴー、アーシーさもより前に出るとされています。",
+          "terpeneNote": "ACE Seeds公式ではbeta-myrceneが高〜非常に高く、limoneneは中〜高、trans-ocimeneは低〜中高、alpha-pinene・beta-pinene・linaloolは低〜中程度とされています。セスキテルペンではbeta-caryophylleneとalpha-bisabololが挙げられています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/african-gas/primary.webp",
+          "alt": "African Gasの力強いサティバ優勢構造、大きな主花房と側花房を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-08-23",
+      "updatedAt": "2026-08-23"
     },
     {
       "schemaVersion": 1,
@@ -1293,6 +1415,106 @@
     },
     {
       "schemaVersion": 1,
+      "id": "congo",
+      "status": "review",
+      "name": "Congo",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "F1",
+        "method": "African/Pakistani hybrid"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-congo"
+        ],
+        "display": "Bangi Congo × (Congo #3 × Pakistan Chitral Kush)",
+        "parents": [
+          "Bangi Congo",
+          "Congo #3 x Pakistan Chitral Kush"
+        ],
+        "note": "ACE Seeds identifies Congo as an F1 combining two Congolese sativas, Bangi Congo and Congo #3, with Pakistan Chitral Kush."
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-congo"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-congo"
+        ],
+        "items": [
+          "flower petals",
+          "grape",
+          "wild forest fruits",
+          "blackberry",
+          "raspberry"
+        ],
+        "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
+      },
+      "terpenes": {
+        "status": "unknown",
+        "items": [],
+        "note": "ACE Seeds states that Congo's terpene profile has not yet been analyzed; no terpene compounds are inferred."
+      },
+      "origin": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official cultivar evidence does not establish a sufficiently bounded creation location for this atlas entry; no location is inferred."
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-about"
+        ],
+        "text": "ACE Seeds lists Congo among the cultivars in its first catalogue in 2005.",
+        "note": "Catalogue chronology is limited to ACE Seeds' own official history page."
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Congoは、ACE Seeds公式でBangi CongoとCongo #3という2つのコンゴ系サティバにPakistan Chitral Kushを組み合わせたF1ハイブリッドとして記載されています。",
+          "history": "ACE Seedsの公式沿革では、Congoは2005年の最初のカタログに掲載された初期品種の一つとして挙げられています。",
+          "aromaNote": "公式のBouquet欄では、花びら、ブドウ、野生の森の果実を軸に、ブラックベリーやラズベリーを含む果実感が示されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/congo/primary.webp",
+          "alt": "Congoの中背で力強いサティバ構造、大きな主花房と良好な側枝を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-08-23",
+      "updatedAt": "2026-08-23"
+    },
+    {
+      "schemaVersion": 1,
       "id": "dr-grinspoon",
       "status": "review",
       "name": "Dr Grinspoon",
@@ -1925,6 +2147,103 @@
       ],
       "checkedAt": "2026-08-19",
       "updatedAt": "2026-08-19"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "guawi",
+      "status": "review",
+      "name": "Guawi",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "F1",
+        "method": "pure sativa hybrid"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-guawi"
+        ],
+        "display": "Old Malawi Killer × Tikal F5 (peach, mango, incense phenotype)",
+        "parents": [
+          "Old Malawi Killer",
+          "Tikal F5"
+        ],
+        "note": "ACE Seeds explicitly identifies Guawi as Old Malawi Killer crossed with a fruity and incensey Tikal F5 selection."
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-guawi"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-guawi"
+        ],
+        "items": [
+          "spicy",
+          "woody",
+          "mango",
+          "peach",
+          "strawberry",
+          "incense",
+          "resinous",
+          "oily"
+        ],
+        "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
+      },
+      "terpenes": {
+        "status": "unknown",
+        "items": [],
+        "note": "ACE Seeds states that Guawi's terpene profile has not yet been analyzed; no terpene compounds are inferred."
+      },
+      "origin": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official cultivar evidence does not establish a sufficiently bounded creation location for this atlas entry; no location is inferred."
+      },
+      "history": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official cultivar page explains the cross but does not provide a bounded creation or release chronology for this atlas entry."
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Guawiは、Old Malawi Killerに、桃・マンゴー・インセンス系の表現を選抜したTikal F5を交配したF1サティバ・ハイブリッドとしてACE Seeds公式に記載されています。",
+          "aromaNote": "公式説明では、スパイスと木質感を土台に、マンゴー、桃、ストロベリー、インセンスが重なり、深い樹脂感とオイリーな背景を伴う香りとして示されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/guawi/primary.webp",
+          "alt": "Guawiの中大型で力強いサティバ構造と優れた側枝を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-08-23",
+      "updatedAt": "2026-08-23"
     },
     {
       "schemaVersion": 1,
@@ -2805,6 +3124,125 @@
       ],
       "checkedAt": "2026-08-16",
       "updatedAt": "2026-08-16"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "orient-express",
+      "status": "review",
+      "name": "Orient Express",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "F3",
+        "method": "semi stabilized hybrid"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-orient-express"
+        ],
+        "display": "Vietnam Black sativa × China Yunnan indica",
+        "parents": [
+          "Vietnam Black",
+          "China Yunnan"
+        ],
+        "note": "ACE Seeds explicitly identifies Orient Express as Vietnam Black sativa crossed with China Yunnan indica and labels the line an F3 semi-stabilized hybrid."
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-orient-express"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-orient-express"
+        ],
+        "items": [
+          "rainforest",
+          "deep organic",
+          "earthy",
+          "floral"
+        ],
+        "note": "Cultivar-specific aroma and flavor descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-orient-express"
+        ],
+        "items": [
+          "beta-myrcene",
+          "alpha-pinene",
+          "beta-pinene",
+          "p-cymene",
+          "camphene",
+          "isopulegol",
+          "linalool",
+          "terpinolene",
+          "nerolidol",
+          "beta-caryophyllene",
+          "bisabolol",
+          "alpha-humulene",
+          "guaiol"
+        ],
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "origin": {
+        "status": "unknown",
+        "text": "",
+        "note": "The cited official cultivar evidence does not establish a sufficiently bounded creation location for this atlas entry; no location is inferred."
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-about"
+        ],
+        "text": "ACE Seeds lists Orient Express among the cultivars in its first catalogue in 2005 and describes it as one of its popular varieties since the company's beginnings.",
+        "note": "Catalogue chronology is limited to ACE Seeds' own official history material."
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Orient Expressは、Vietnam BlackサティバとChina Yunnanインディカを組み合わせたF3の半安定化ハイブリッドとしてACE Seeds公式に記載されています。",
+          "history": "ACE Seedsの公式沿革では、Orient Expressは2005年の最初のカタログに含まれた初期品種の一つです。現行品種ページでも、ACE Seeds初期から続く代表的な品種として説明されています。",
+          "aromaNote": "公式説明では、生命感のある熱帯雨林を思わせる深く有機的な香りと、濃いアーシーさにフローラルな細部が重なるプロフィールとして示されています。",
+          "terpeneNote": "ACE Seeds公式ではbeta-myrceneとalpha-pineneが多く、beta-pinene、p-cymene、campheneが中程度とされています。さらにnerolidol、beta-caryophyllene、bisabololなどのセスキテルペンも列挙されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/orient-express/primary.webp",
+          "alt": "Orient Expressの低めで分枝性に優れたアジアン・ハイブリッド構造を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-08-23",
+      "updatedAt": "2026-08-23"
     },
     {
       "schemaVersion": 1,
@@ -4468,6 +4906,26 @@
       "checkedAt": "2026-08-17",
       "note": "ACE Seeds公式沿革・entity確認。2012年のMalawi導入とACE Seedsのbreeder / seed company確認に使用。"
     },
+    "ace-seeds-african-gas": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-african-gas",
+      "publisher": "ACE Seeds",
+      "title": "African Gas Feminized",
+      "url": "https://www.aceseeds.org/en/seeds/african-gas-feminized-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "aromas",
+        "visualMorphology",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-08-23",
+      "note": "ACE Seeds official cultivar page used for the African Gas production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet plus named terpene profile."
+    },
     "ace-seeds-bangi-haze": {
       "schemaVersion": 1,
       "id": "ace-seeds-bangi-haze",
@@ -4511,6 +4969,26 @@
       "checkedAt": "2026-08-22",
       "note": "ACE Seeds official cultivar page used for the C5 Haze x Kali China production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure, bouquet and named terpene profile plus history."
     },
+    "ace-seeds-congo": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-congo",
+      "publisher": "ACE Seeds",
+      "title": "Congo Regular",
+      "url": "https://www.aceseeds.org/semillas/congo-semillas-regulares/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "aromas",
+        "visualMorphology",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-08-23",
+      "note": "ACE Seeds official cultivar page used for the Congo production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet; the page states the terpene profile is not yet analyzed."
+    },
     "ace-seeds-golden-tiger": {
       "schemaVersion": 1,
       "id": "ace-seeds-golden-tiger",
@@ -4531,6 +5009,26 @@
       "publishedAt": null,
       "checkedAt": "2026-08-19",
       "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+    },
+    "ace-seeds-guawi": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-guawi",
+      "publisher": "ACE Seeds",
+      "title": "Guawi Feminized",
+      "url": "https://www.aceseeds.org/en/seeds/guawi-feminized-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "aromas",
+        "visualMorphology",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-08-23",
+      "note": "ACE Seeds official cultivar page used for the Guawi production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet; the page states the terpene profile is not yet analyzed."
     },
     "ace-seeds-killer-a5-haze": {
       "schemaVersion": 1,
@@ -4570,6 +5068,26 @@
       "publishedAt": null,
       "checkedAt": "2026-08-17",
       "note": "ACE Seeds公式Malawi品種ページ。Malawi由来P4 landrace、Old Malawi Killer × 3rd generation Malawis、香味、テルペン、原産地、breeder / seed company確認に使用。"
+    },
+    "ace-seeds-orient-express": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-orient-express",
+      "publisher": "ACE Seeds",
+      "title": "Orient Express Regular",
+      "url": "https://www.aceseeds.org/en/seeds/orient-express-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "aromas",
+        "visualMorphology",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-08-23",
+      "note": "ACE Seeds official cultivar page used for the Orient Express production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet plus named terpene profile."
     },
     "ace-seeds-panama": {
       "schemaVersion": 1,
