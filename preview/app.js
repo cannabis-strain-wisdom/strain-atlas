@@ -526,10 +526,15 @@
 
   function updateLoadMore(total, rendered, isResultMode) {
     if (!loadMore) return;
-    const hasMore = !isResultMode && rendered < total;
-    loadMore.hidden = !hasMore;
-    loadMore.disabled = !hasMore;
-    loadMore.setAttribute("aria-label", hasMore ? `もっと見る（残り${total - rendered}件）` : "もっと見る");
+    const hasExpandableCatalog = !isResultMode && total > allPageSize;
+    const hasMore = hasExpandableCatalog && rendered < total;
+    loadMore.hidden = !hasExpandableCatalog;
+    loadMore.disabled = !hasExpandableCatalog;
+    loadMore.textContent = hasMore ? "もっと見る" : "表示を減らす";
+    loadMore.setAttribute(
+      "aria-label",
+      hasMore ? `もっと見る（残り${total - rendered}件）` : `表示を減らす（最初の${allPageSize}件に戻す）`
+    );
   }
 
   function updateResults({ scrollToResults = false, writeHistory = true } = {}) {
@@ -719,6 +724,13 @@
   loadMore?.addEventListener("click", () => {
     const query = currentQuery();
     if (!catalog || resultModeFor(query)) return;
+    const total = catalog.cultivars.length;
+    if (allVisibleLimit >= total) {
+      allVisibleLimit = allPageSize;
+      updateResults({ writeHistory: false });
+      requestAnimationFrame(scrollResultsIntoView);
+      return;
+    }
     allVisibleLimit += allPageSize;
     updateResults({ writeHistory: false });
   });
