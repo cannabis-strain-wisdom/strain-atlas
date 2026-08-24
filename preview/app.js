@@ -44,6 +44,7 @@
   };
   const validExploreValues = new Set(["sativa", "indica", "hybrid", "unclassified"]);
   const ownedFilterParams = ["type", "generation", "breeder", "q"];
+  const allPageSize = 18;
   const detailHistoryMarker = "__cswDetailEntry";
   const nativePushState = history.pushState.bind(history);
   history.pushState = (state, title, url) => {
@@ -74,6 +75,7 @@
   const breederFilterGroup = document.getElementById("breeder-filter-group");
   const filterSummaryCount = document.getElementById("filter-summary-count");
   const clearFilters = document.getElementById("clear-filters");
+  const loadMore = document.getElementById("load-more");
   const filterDisclosure = document.getElementById("filter-disclosure");
   let viewResults = document.getElementById("view-results");
 
@@ -86,6 +88,8 @@
   let suppressCloseHistory = false;
   let availableGenerations = new Set();
   let availableBreeders = new Set();
+  let allVisibleLimit = allPageSize;
+  let previousResultMode = false;
 
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const asset = src => /^https?:\/\//i.test(src || "") ? src : ASSET_BASE + String(src || "").replace(/^\/+/, "");
@@ -498,12 +502,10 @@
     if (catalogTotal) catalogTotal.textContent = parts.join(" · ");
   }
 
-  function renderGrid(visible) {
-    if (!catalog) return;
-    grid.innerHTML = visible.map(cultivar => {
-      const visual = primaryVisual(cultivar);
-      const type = typeLabels[cultivar.classification?.type] || cultivar.classification?.type || "未分類";
-      return `<button class="cultivar-card" type="button" data-strain-id="${esc(cultivar.id)}" aria-label="${esc(cultivar.name)}の詳細を見る">
+  function cultivarCardMarkup(cultivar) {
+    const visual = primaryVisual(cultivar);
+    const type = typeLabels[cultivar.classification?.type] || cultivar.classification?.type || "未分類";
+    return `<button class="cultivar-card" type="button" data-strain-id="${esc(cultivar.id)}" aria-label="${esc(cultivar.name)}の詳細を見る">
         <div class="tile-visual">
           ${visual ? `<img src="${esc(asset(visual.src))}" alt="${esc(visual.alt || "")}" loading="lazy">` : ""}
           <span class="tile-type">${esc(type)}</span>
@@ -512,8 +514,22 @@
           <div class="tile-name">${esc(cultivar.name)}</div>
         </div>
       </button>`;
-    }).join("");
-    empty.hidden = visible.length !== 0;
+  }
+
+  window.__CSWCultivarCardMarkup = cultivarCardMarkup;
+
+  function renderGrid(rendered) {
+    if (!catalog) return;
+    grid.innerHTML = rendered.map(cultivarCardMarkup).join("");
+    empty.hidden = rendered.length !== 0;
+  }
+
+  function updateLoadMore(total, rendered, isResultMode) {
+    if (!loadMore) return;
+    const hasMore = !isResultMode && rendered < total;
+    loadMore.hidden = !hasMore;
+    loadMore.disabled = !hasMore;
+    loadMore.setAttribute("aria-label", hasMore ? `もっと見る（残り${total - rendered}件）` : "もっと見る");
   }
 
   function updateResults({ scrollToResults = false, writeHistory = true } = {}) {
@@ -522,14 +538,18 @@
     const state = filterState(query);
     const visible = getVisibleCultivars(state);
     const isResultMode = resultModeFor(query);
+    if (isResultMode || previousResultMode) allVisibleLimit = allPageSize;
+    const rendered = isResultMode ? visible : visible.slice(0, allVisibleLimit);
+    previousResultMode = isResultMode;
     updateTypeFacetCounts(state);
     syncFilterUi();
     if (latestSection) latestSection.hidden = isResultMode;
     updateResultHeading(visible, query, isResultMode);
-    renderGrid(visible);
+    renderGrid(rendered);
+    updateLoadMore(visible.length, rendered.length, isResultMode);
     if (writeHistory) syncFilterUrl();
     if (scrollToResults && isResultMode) requestAnimationFrame(scrollResultsIntoView);
-    return { query, visible, isResultMode };
+    return { query, visible, rendered, isResultMode };
   }
 
   function setExplore(key) {
@@ -694,6 +714,13 @@
   grid.addEventListener("click", event => {
     const card = event.target.closest("[data-strain-id]");
     if (card) openDetail(card.dataset.strainId, true);
+  });
+
+  loadMore?.addEventListener("click", () => {
+    const query = currentQuery();
+    if (!catalog || resultModeFor(query)) return;
+    allVisibleLimit += allPageSize;
+    updateResults({ writeHistory: false });
   });
 
   if (search) {

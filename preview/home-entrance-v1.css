@@ -94,6 +94,8 @@ html{scroll-behavior:auto}
 .all-cultivars-section .tile-display-name{display:-webkit-box;flex:1 0 100%;overflow:hidden;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .all-cultivars-section .generation-badge{padding:2px 4px;font-size:5.5px}
 .all-cultivars-section .tile-breeder{margin-top:3px;font-size:5.8px}
+.load-more-button{display:block;min-width:148px;margin:14px auto 0}
+.load-more-button[hidden]{display:none}
 .catalog-total{margin:5px 0 0;color:#8fa097;font-size:8px;line-height:1.4}
 .result-label{padding-top:3px;padding-bottom:0;white-space:nowrap}
 
