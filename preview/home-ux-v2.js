@@ -52,6 +52,19 @@
     renderLatestCards();
   }
 
+  function ensureCardTemplate(id, cultivar) {
+    const captured = cardTemplates.get(id);
+    if (captured) return captured;
+    if (!cultivar || typeof window.__CSWCultivarCardMarkup !== "function") return null;
+    const holder = document.createElement("template");
+    holder.innerHTML = window.__CSWCultivarCardMarkup(cultivar).trim();
+    const card = holder.content.firstElementChild;
+    if (!card?.matches?.("[data-strain-id]")) return null;
+    decorateCard(card);
+    cardTemplates.set(id, card.cloneNode(true));
+    return cardTemplates.get(id);
+  }
+
   function latestCardDetails(cultivar) {
     const aromas = (cultivar?.aromas?.items || []).slice(0, 2);
     const lineage = cultivar?.lineage?.confidence || (cultivar?.lineage?.status === "unknown" ? "?" : "-");
@@ -64,8 +77,8 @@
     const fragment = document.createDocumentFragment();
     let rendered = 0;
     for (const id of latestIds) {
-      const template = cardTemplates.get(id);
       const cultivar = cultivarById.get(id);
+      const template = ensureCardTemplate(id, cultivar);
       if (!template || !cultivar) continue;
       const card = template.cloneNode(true);
       card.classList.add("is-latest-card");
