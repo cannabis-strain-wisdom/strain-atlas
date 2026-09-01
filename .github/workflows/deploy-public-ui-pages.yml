@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/runtime _site/production _site/assets
-          install -m 0644 index.html app.min.js styles.min.css site-updates.json .nojekyll _site/
+          install -m 0644 index.html app.min.js styles.min.css site-updates.json .nojekyll rush-of-siam-tune-v1.js _site/
           install -m 0644 runtime/catalog.json _site/runtime/catalog.json
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
@@ -42,6 +42,7 @@ jobs:
           test -f _site/app.min.js
           test -f _site/styles.min.css
           test -f _site/site-updates.json
+          test -f _site/rush-of-siam-tune-v1.js
           test -f _site/runtime/catalog.json
           test -f _site/production/publication.json
           grep -q 'Cannabis Strain Wisdom' _site/index.html
@@ -56,7 +57,7 @@ jobs:
 
           while IFS= read -r file; do
             case "$file" in
-              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
+              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/styles.min.css|_site/site-updates.json|_site/rush-of-siam-tune-v1.js|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
               *) echo "Unexpected Pages artifact: $file" >&2; exit 1 ;;
             esac
           done < <(find _site -type f -print | sort)
