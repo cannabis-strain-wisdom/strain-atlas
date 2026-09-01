@@ -1,0 +1,138 @@
+name: Deploy public UI to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: github-pages-public-ui
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public UI shell
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Stage public UI artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site/runtime _site/production _site/assets
+          install -m 0644 index.html app.min.js styles.min.css site-updates.json .nojekyll _site/
+          install -m 0644 runtime/catalog.json _site/runtime/catalog.json
+          install -m 0644 production/publication.json _site/production/publication.json
+          rsync -a assets/ _site/assets/
+
+          test -f _site/index.html
+          test -f _site/app.min.js
+          test -f _site/styles.min.css
+          test -f _site/site-updates.json
+          test -f _site/runtime/catalog.json
+          test -f _site/production/publication.json
+          grep -q 'Cannabis Strain Wisdom' _site/index.html
+          grep -q '新着の品種' _site/index.html
+          grep -q 'すべての品種' _site/index.html
+          ! grep -q 'COMING LATER' _site/index.html
+          ! grep -q 'MASTER PREVIEW' _site/index.html
+          ! grep -R -q 'sourceMappingURL' _site
+          ! find _site -type f -name '*.map' -print -quit | grep -q .
+          ! find _site -type f \( -iname '*pilot*' -o -iname '*test*' -o -iname '*audited*' \) -print -quit | grep -q .
+          ! grep -qE 'TOP BUD FRAMING|First repair batch|already-safe images' _site/app.min.js
+
+          while IFS= read -r file; do
+            case "$file" in
+              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
+              *) echo "Unexpected Pages artifact: $file" >&2; exit 1 ;;
+            esac
+          done < <(find _site -type f -print | sort)
+
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const catalog = JSON.parse(fs.readFileSync('_site/runtime/catalog.json', 'utf8'));
+          const publication = JSON.parse(fs.readFileSync('_site/production/publication.json', 'utf8'));
+
+          if (!Array.isArray(catalog.cultivars) || catalog.cultivars.length === 0) {
+            throw new Error('Catalog cultivars missing or empty');
+          }
+          if (!Array.isArray(publication.entries) || publication.entries.length === 0) {
+            throw new Error('Publication entries missing or empty');
+          }
+
+          const catalogIds = catalog.cultivars.map(cultivar => cultivar?.id);
+          const publicationIds = publication.entries.map(entry => entry?.strainId);
+          const publishedIds = publication.entries
+            .filter(entry => entry?.state === 'published')
+            .map(entry => entry?.strainId);
+
+          if (catalogIds.some(id => typeof id !== 'string' || !id)) {
+            throw new Error('Catalog contains invalid cultivar IDs');
+          }
+          if (publicationIds.some(id => typeof id !== 'string' || !id)) {
+            throw new Error('Publication contains invalid strain IDs');
+          }
+
+          const duplicates = ids => [
+            ...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))
+          ].sort();
+          const duplicateCatalogIds = duplicates(catalogIds);
+          const duplicatePublicationIds = duplicates(publicationIds);
+
+          if (duplicateCatalogIds.length) {
+            throw new Error(`Duplicate catalog cultivar IDs: ${duplicateCatalogIds.join(', ')}`);
+          }
+          if (duplicatePublicationIds.length) {
+            throw new Error(`Duplicate publication strain IDs: ${duplicatePublicationIds.join(', ')}`);
+          }
+
+          const catalogSet = [...catalogIds].sort();
+          const publishedSet = [...publishedIds].sort();
+          if (JSON.stringify(catalogSet) !== JSON.stringify(publishedSet)) {
+            const catalogOnly = catalogSet.filter(id => !publishedSet.includes(id));
+            const publicationOnly = publishedSet.filter(id => !catalogSet.includes(id));
+            throw new Error(
+              `Catalog/publication mismatch; catalog-only=[${catalogOnly.join(', ')}] published-only=[${publicationOnly.join(', ')}]`
+            );
+          }
+
+          for (const cultivar of catalog.cultivars) {
+            for (const visual of cultivar.visuals || []) {
+              if (visual?.src) fs.accessSync(`_site/${visual.src}`);
+            }
+          }
+          NODE
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Deploy public UI
+        id: deployment
+        uses: actions/deploy-pages@v5

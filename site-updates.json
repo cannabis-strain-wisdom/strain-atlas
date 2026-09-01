@@ -1,0 +1,28 @@
+{
+  "entries": [
+    {
+      "date": "2026-08-31",
+      "category": "CULTIVAR",
+      "title": "Rush of Siamの主要データ表示を再構成しました",
+      "summary": "TYPE / RATIOとCANNABINOIDSを独立した情報カードへ分け、どちらもカード全体をタップして補足説明を確認できる表示に変更しました。"
+    },
+    {
+      "date": "2026-08-31",
+      "category": "CULTIVAR",
+      "title": "Rush of Siamの系譜表示を強化しました",
+      "summary": "品種詳細で系譜を主要情報として確認しやすくするため、Rush of Siamの系譜をLINEAGE / 系譜の独立ブロックへ変更しました。ブロック全体をタップすると従来どおり詳細説明を確認できます。"
+    },
+    {
+      "date": "2026-08-20",
+      "category": "SITE",
+      "title": "検索・絞り込みの動作を改善しました",
+      "summary": "タイプ・育種世代・Breeder・検索語の条件をURLに保持し、絞り込み結果へ移動しやすくしました。"
+    },
+    {
+      "date": "2026-08-20",
+      "category": "SITE",
+      "title": "HOMEと検索結果の表示を整理しました",
+      "summary": "検索や絞り込み中は新着表示を省き、結果一覧へ自然につながる表示に改善しました。"
+    }
+  ]
+}
