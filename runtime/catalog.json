@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-02T11:49:59.643Z",
+  "generatedAt": "2026-09-02T12:25:16.147Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -283,53 +283,85 @@
           "guaiol",
           "trans-nerolidol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate-high",
+              "levelJa": "中〜多い",
+              "visualRole": "support"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "low",
+              "levelJa": "少ない",
+              "visualRole": "trace"
             },
             {
               "id": "alpha-bisabolol",
-              "labelJa": "α-ビサボロール"
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "low",
+              "levelJa": "少ない",
+              "visualRole": "trace"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "trans-nerolidol",
-              "labelJa": "トランス-ネロリドール"
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -616,49 +648,77 @@
           "beta-caryophyllene",
           "guaiol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "Official breeder publishes a named cultivar-specific terpene profile; confidence remains below A without a separately retrieved independent lab report."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -917,6 +977,7 @@
           "Limonene",
           "Myrcene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -1190,33 +1251,50 @@
           "limonene",
           "beta-caryophyllene"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -1475,6 +1553,7 @@
           "Pinene",
           "Caryophyllene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -1635,49 +1714,79 @@
           "alpha-humulene",
           "guaiol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
             },
             {
               "id": "alpha-bisabolol",
-              "labelJa": "α-ビサボロール"
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "moderate-high",
+              "levelJa": "中〜多い",
+              "visualRole": "support"
             },
             {
               "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -2039,6 +2148,7 @@
           "Beta-caryophyllene",
           "Limonene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -2548,49 +2658,78 @@
           "alpha-humulene",
           "trans-nerolidol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
-            },
-            {
-              "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "trans-nerolidol",
-              "labelJa": "トランス-ネロリドール"
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -3706,65 +3845,106 @@
           "beta-farnesene",
           "alpha-farnesene"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "ocimene",
-              "labelJa": "ocimene"
+              "labelJa": "オシメン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
               "id": "cis-beta-farnesene",
-              "labelJa": "cis-beta-farnesene"
+              "labelJa": "シス-β-ファルネセン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "trans-phytol",
-              "labelJa": "trans-phytol"
+              "labelJa": "トランス-フィトール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "alpha-bisabolol",
-              "labelJa": "α-ビサボロール"
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "trans-nerolidol",
-              "labelJa": "トランス-ネロリドール"
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-farnesene",
-              "labelJa": "beta-farnesene"
+              "labelJa": "β-ファルネセン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "alpha-farnesene",
-              "labelJa": "alpha-farnesene"
+              "labelJa": "α-ファルネセン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -4034,49 +4214,79 @@
           "beta-caryophyllene",
           "alpha-humulene"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
-            },
-            {
-              "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -4236,44 +4446,64 @@
           "ace-seeds-malawi"
         ],
         "items": [
-          "β-Myrcene",
-          "Limonene",
-          "β-Pinene",
-          "β-Caryophyllene",
-          "α-Humulene",
-          "α-Bisabolol"
+          "beta-myrcene",
+          "limonene",
+          "beta-pinene",
+          "beta-caryophyllene",
+          "alpha-humulene",
+          "alpha-bisabolol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "β-Myrcene",
-              "labelJa": "β-Myrcene"
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "Limonene",
-              "labelJa": "Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
-              "id": "β-Pinene",
-              "labelJa": "β-Pinene"
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "β-Caryophyllene",
-              "labelJa": "β-Caryophyllene"
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
-              "id": "α-Humulene",
-              "labelJa": "α-Humulene"
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
-              "id": "α-Bisabolol",
-              "labelJa": "α-Bisabolol"
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -4565,61 +4795,100 @@
           "alpha-bisabolol",
           "trans-nerolidol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
               "id": "gamma-terpinene",
-              "labelJa": "γ-テルピネン"
+              "labelJa": "γ-テルピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "support"
             },
             {
               "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
             },
             {
               "id": "alpha-bisabolol",
-              "labelJa": "α-ビサボロール"
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "trans-nerolidol",
-              "labelJa": "トランス-ネロリドール"
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -4756,6 +5025,7 @@
           "Limonene",
           "Caryophyllene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -4923,65 +5193,107 @@
           "alpha-humulene",
           "guaiol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "p-cymene",
-              "labelJa": "p-シメン"
+              "labelJa": "p-シメン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "camphene",
-              "labelJa": "カンフェン"
+              "labelJa": "カンフェン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "isopulegol",
-              "labelJa": "イソプレゴール"
+              "labelJa": "イソプレゴール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "nerolidol",
-              "labelJa": "nerolidol"
+              "labelJa": "ネロリドール",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "bisabolol",
-              "labelJa": "bisabolol"
+              "labelJa": "ビサボロール",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -5118,49 +5430,72 @@
           "ace-seeds-panama"
         ],
         "items": [
-          "Terpinolene",
-          "α-Pinene",
-          "β-Pinene",
-          "Limonene",
-          "β-Myrcene",
-          "trans-Ocimene",
-          "Guaiol"
+          "terpinolene",
+          "alpha-pinene",
+          "beta-pinene",
+          "limonene",
+          "beta-myrcene",
+          "trans-ocimene",
+          "guaiol"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "Terpinolene",
-              "labelJa": "Terpinolene"
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
-              "id": "α-Pinene",
-              "labelJa": "α-Pinene"
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
-              "id": "β-Pinene",
-              "labelJa": "β-Pinene"
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
-              "id": "Limonene",
-              "labelJa": "Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
-              "id": "β-Myrcene",
-              "labelJa": "β-Myrcene"
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "trans-Ocimene",
-              "labelJa": "trans-Ocimene"
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "Guaiol",
-              "labelJa": "Guaiol"
+              "id": "guaiol",
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a terpene profile led by terpinolene, followed by alpha/beta pinene and limonene, with smaller myrcene/trans-ocimene and guaiol."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -6022,6 +6357,7 @@
           "Myrcene",
           "Caryophyllene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -6183,6 +6519,7 @@
           "D-Limonene",
           "Terpinolene"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -6470,41 +6807,65 @@
           "limonene",
           "beta-caryophyllene"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -6648,6 +7009,7 @@
           "Myrcene",
           "Linalool"
         ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
           "mode": "listed-chips",
@@ -7019,53 +7381,85 @@
           "guaiol",
           "alpha-humulene"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
               "id": "terpinolene",
-              "labelJa": "テルピノレン"
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
               "id": "alpha-pinene",
-              "labelJa": "α-ピネン"
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン"
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
-              "labelJa": "β-ピネン"
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
             },
             {
               "id": "trans-ocimene",
-              "labelJa": "トランス-オシメン"
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "linalool",
-              "labelJa": "リナロール"
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-myrcene",
-              "labelJa": "β-ミルセン"
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン"
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
               "id": "guaiol",
-              "labelJa": "グアイオール"
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "alpha-humulene",
-              "labelJa": "α-フムレン"
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; no independent lot COA is promoted."
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -7503,79 +7897,121 @@
           "ace-seeds-zamaldelica"
         ],
         "items": [
-          "Terpinolene",
-          "β-Myrcene",
-          "β-Ocimene",
-          "β-Pinene",
-          "Limonene",
-          "α-Pinene",
-          "Linalool",
-          "δ-3-Carene",
-          "α-Terpinene",
-          "γ-Terpinene",
-          "β-Caryophyllene",
-          "α-Humulene",
-          "Nerolidol 2"
+          "terpinolene",
+          "beta-myrcene",
+          "beta-ocimene",
+          "beta-pinene",
+          "limonene",
+          "alpha-pinene",
+          "linalool",
+          "delta-3-carene",
+          "alpha-terpinene",
+          "gamma-terpinene",
+          "beta-caryophyllene",
+          "alpha-humulene",
+          "nerolidol-2"
         ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "Terpinolene",
-              "labelJa": "Terpinolene"
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-primary",
+              "badge": "HIGH"
             },
             {
-              "id": "β-Myrcene",
-              "labelJa": "β-Myrcene"
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
             },
             {
-              "id": "β-Ocimene",
-              "labelJa": "β-Ocimene"
+              "id": "beta-ocimene",
+              "labelJa": "β-オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "β-Pinene",
-              "labelJa": "β-Pinene"
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "Limonene",
-              "labelJa": "Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "α-Pinene",
-              "labelJa": "α-Pinene"
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "Linalool",
-              "labelJa": "Linalool"
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
-              "id": "δ-3-Carene",
-              "labelJa": "δ-3-Carene"
+              "id": "delta-3-carene",
+              "labelJa": "δ-3-カレン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
-              "id": "α-Terpinene",
-              "labelJa": "α-Terpinene"
+              "id": "alpha-terpinene",
+              "labelJa": "α-テルピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
-              "id": "γ-Terpinene",
-              "labelJa": "γ-Terpinene"
+              "id": "gamma-terpinene",
+              "labelJa": "γ-テルピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             },
             {
-              "id": "β-Caryophyllene",
-              "labelJa": "β-Caryophyllene"
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
             },
             {
-              "id": "α-Humulene",
-              "labelJa": "α-Humulene"
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
-              "id": "Nerolidol 2",
-              "labelJa": "Nerolidol 2"
+              "id": "nerolidol-2",
+              "labelJa": "ネロリドール2",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
             }
           ]
         },
-        "note": "ACE Seeds公式Terpene profile。Terpinolene 23%とβ-Myrcene 22%が高含有として示され、その他は少量またはtraceとして記載される。"
+        "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
         "thc": {
@@ -7695,7 +8131,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-bangi-haze": {
       "schemaVersion": 1,
@@ -7717,7 +8153,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-c5-haze-x-kali-china": {
       "schemaVersion": 1,
@@ -7739,7 +8175,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-cbd-1": {
       "schemaVersion": 1,
@@ -7761,7 +8197,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-congo": {
       "schemaVersion": 1,
@@ -7804,7 +8240,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-golden-tiger": {
       "schemaVersion": 1,
@@ -7868,7 +8304,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-lebanese": {
       "schemaVersion": 1,
@@ -7890,7 +8326,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-malawi": {
       "schemaVersion": 1,
@@ -7909,7 +8345,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-new-caledonia": {
       "schemaVersion": 1,
@@ -7931,7 +8367,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-orient-express": {
       "schemaVersion": 1,
@@ -7951,7 +8387,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-panama": {
       "schemaVersion": 1,
@@ -7971,7 +8407,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-rush-of-siam": {
       "schemaVersion": 1,
@@ -8013,7 +8449,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-violeta": {
       "schemaVersion": 1,
@@ -8033,7 +8469,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-zamaldelica": {
       "schemaVersion": 1,
@@ -8055,7 +8491,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "acs-og-kush-volatiles-2021": {
       "schemaVersion": 1,
