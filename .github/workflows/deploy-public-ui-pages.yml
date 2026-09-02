@@ -150,6 +150,30 @@ jobs:
           }
           NODE
 
+      - name: Browser interaction smoke before deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
+          echo "Using browser: $CHROME_BIN"
+          "$CHROME_BIN" --version
+
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/_site" >"$RUNNER_TEMP/csw-http.log" 2>&1 &
+          SERVER_PID=$!
+          cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+          for n in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.25
+          done
+          curl -fsS http://127.0.0.1:4173/runtime/catalog.json >/dev/null
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          echo "PUBLIC FRONTEND BROWSER SMOKE PASS"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
