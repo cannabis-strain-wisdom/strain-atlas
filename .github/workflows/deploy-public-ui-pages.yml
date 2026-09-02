@@ -38,6 +38,36 @@ jobs:
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
 
+          # Generate content-based cache keys automatically so browsers/CDNs
+          # cannot keep an older JS/CSS build after the file contents change.
+          app_key="$(sha256sum _site/app.min.js | cut -c1-12)"
+          css_key="$(sha256sum _site/styles.min.css | cut -c1-12)"
+          APP_KEY="$app_key" CSS_KEY="$css_key" python3 <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path("_site/index.html")
+          html = path.read_text(encoding="utf-8")
+          html, app_count = re.subn(
+              r'app\.min\.js(?:\?v=[^"]*)?',
+              f'app.min.js?v={os.environ["APP_KEY"]}',
+              html,
+              count=1,
+          )
+          html, css_count = re.subn(
+              r'styles\.min\.css(?:\?v=[^"]*)?',
+              f'styles.min.css?v={os.environ["CSS_KEY"]}',
+              html,
+              count=1,
+          )
+          if app_count != 1 or css_count != 1:
+              raise SystemExit(
+                  f"Cache-bust target mismatch: app={app_count} css={css_count}"
+              )
+          path.write_text(html, encoding="utf-8")
+          PY
+
           test -f _site/index.html
           test -f _site/app.min.js
           test -f _site/styles.min.css
@@ -47,6 +77,12 @@ jobs:
           grep -q 'Cannabis Strain Wisdom' _site/index.html
           grep -q '新着の品種' _site/index.html
           grep -q 'すべての品種' _site/index.html
+          grep -Fq 'id="detail-dialog"' _site/index.html
+          grep -Fq 'showModal' _site/app.min.js
+          grep -Fq 'data-strain-id' _site/app.min.js
+          grep -Fq "app.min.js?v=${app_key}" _site/index.html
+          grep -Fq "styles.min.css?v=${css_key}" _site/index.html
+          node --check _site/app.min.js
           ! grep -q 'COMING LATER' _site/index.html
           ! grep -q 'MASTER PREVIEW' _site/index.html
           ! grep -R -q 'sourceMappingURL' _site
