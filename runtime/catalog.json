@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T22:40:05.696Z",
+  "generatedAt": "2026-09-02T11:49:59.643Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,13 +8,14 @@
   },
   "counts": {
     "cultivars": 49,
-    "sources": 68,
+    "sources": 70,
     "entities": 12
   },
   "explore": {
     "sativa": [
       "acapulco-gold",
       "african-gas",
+      "ak-47",
       "bangi-haze",
       "c5-haze-x-kali-china",
       "cbd-1",
@@ -48,7 +49,6 @@
       "warlock"
     ],
     "hybrid": [
-      "ak-47",
       "bubble-gum",
       "frisian-duck",
       "jack-herer",
@@ -130,8 +130,31 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-acapulco-gold"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 22,
+            "approximate": false
+          },
+          "note": "Barney's Farm lists Acapulco Gold - Regular at 22% THC. Values from the separate feminized version are not used."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -172,8 +195,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -260,7 +283,87 @@
           "guaiol",
           "trans-nerolidol"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール"
+            }
+          ]
+        },
         "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-african-gas"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 19.19,
+            "max": 22.13,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 19.19-22.13% for African Gas Feminized."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-african-gas"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 0.4,
+            "max": 0.45,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD at 0.40-0.45% for African Gas Feminized."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -290,8 +393,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-23",
-      "updatedAt": "2026-08-23"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -301,7 +404,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "hybrid"
+        "type": "sativa-dominant-hybrid"
       },
       "breeding": {
         "generation": "F1",
@@ -321,7 +424,7 @@
           "Thai",
           "Afghan"
         ],
-        "note": "Serious Seeds identifies AK-47 as an F1 hybrid developed from Colombian, Mexican, Thai and Afghan seed stock, with mostly-sativa expression."
+        "note": "Serious Seeds identifies AK-47 as an F1 developed from Colombian, Mexican, Thai and Afghan seed stock and describes the result as mostly sativa."
       },
       "relations": [
         {
@@ -353,8 +456,46 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "No named cultivar-specific compound-level terpene panel was verified from the checked official source; no compounds are inferred from aroma wording."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-ak-47"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 20,
+            "approximate": false
+          },
+          "note": "Serious Seeds currently lists THC-CBD levels as 20%-1% for AK-47."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-ak-47"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 1,
+            "approximate": false
+          },
+          "note": "Serious Seeds currently lists THC-CBD levels as 20%-1% for AK-47."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -364,7 +505,7 @@
           "serious-seeds-ak-47"
         ],
         "text": "Created by Serious Seeds from Colombian, Mexican, Thai and Afghan seed stock.",
-        "note": "Limited to official breeder/seed-company context; undisclosed details remain undisclosed."
+        "note": "Limited to official breeder context."
       },
       "history": {
         "status": "confirmed",
@@ -379,7 +520,7 @@
       "publicContent": {
         "ja": {
           "origin": "Serious SeedsがColombian、Mexican、Thai、Afghanのseed stockから作出したと公式に説明しています。",
-          "lineageNote": "Serious Seeds公式では、Colombian、Mexican、Thai、Afghanのseed stockから開発した、サティバ優勢のF1ハイブリッドとされています。",
+          "lineageNote": "Serious Seeds公式では、Colombian、Mexican、Thai、Afghanのseed stockから開発したサティバ優勢F1で、公式記事内では65% Sativa / 35% Indicaと記載されています。",
           "history": "Serious Seedsは、複数の系統で選抜を行った後、1992年にAK-47を作出したと説明しています。",
           "aromaNote": "Serious Seeds公式では、スパイシーとスイート・シトラスの香りが挙げられています。"
         }
@@ -395,8 +536,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -475,7 +616,74 @@
           "beta-caryophyllene",
           "guaiol"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            }
+          ]
+        },
         "note": "Official breeder publishes a named cultivar-specific terpene profile; confidence remains below A without a separately retrieved independent lab report."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-bangi-haze"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 15,
+            "max": 20,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 15-20% for Bangi Haze Regular."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "ace-seeds-bangi-haze"
+          ],
+          "note": "ACE Seeds explicitly lists CBD as Null and describes Bangi Haze as having null CBD content / a chemotype without CBD. No numeric percentage is inferred or stored."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -517,8 +725,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -545,7 +753,7 @@
         "parents": [
           "Bubba Kush"
         ],
-        "note": "Humboldt CSI's official Bubba Kush S1 page lists the cultivar as Bubba Kush × Bubba Kush. Together with the official S1 designation, this is treated as a selfed S1 line. No unstated ancestry is copied from the parent cultivar."
+        "note": "Humboldt CSI's official Bubba Kush S1 page lists Bubba Kush × Bubba Kush. Together with the official S1 designation, this is treated as a selfed S1 line. No unstated ancestry is copied from the parent cultivar."
       },
       "relations": [
         {
@@ -565,12 +773,34 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "The official Bubba Kush S1 product page does not provide cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
+        "note": "The official Bubba Kush S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official Bubba Kush S1 product page does not provide a cultivar-specific terpene profile or lot COA."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-bubba-kush-s1"
+          ],
+          "note": "The current Humboldt CSI Bubba Kush S1 page publishes no bounded numeric THC value for the complete S1 line. Potency descriptions or measurements from individual Bubba Kush S1 selections are not generalized to this product."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-bubba-kush-s1"
+          ],
+          "note": "The current Humboldt CSI Bubba Kush S1 page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -598,8 +828,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -629,7 +859,7 @@
         ],
         "display": "確定していない。Indiana由来の原系統",
         "parents": [],
-        "note": "遺伝的な親系統は確定していない。1990年代にオランダへ渡った後、複数ブリーダーが別々に選抜・安定化したため、同じBubble Gum名でも系統差がある。"
+        "note": "同名で複数の選抜系統が存在する。Serious Seedsは自社版をIBL/Sativa-Indica hybridとして説明する一方、T.H.Seedsは自社版をmostly Indicaとして説明しており、generic Bubble Gumへ片方の比率やカンナビノイド値を流用しない。"
       },
       "relations": [
         {
@@ -673,7 +903,7 @@
           "ベリー",
           "フローラル"
         ],
-        "note": "Migrated from legacy data."
+        "note": "Multiple Bubble Gum line sources support this broad sensory family; line-specific differences remain possible."
       },
       "terpenes": {
         "status": "confirmed",
@@ -687,7 +917,43 @@
           "Limonene",
           "Myrcene"
         ],
-        "note": "Migrated from legacy data; confidence kept conservative pending independent corroboration."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Caryophyllene",
+              "labelJa": "Caryophyllene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "Myrcene",
+              "labelJa": "Myrcene"
+            }
+          ]
+        },
+        "note": "Specialist-database claim kept conservative; not a generic cultivar lot COA."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "serious-seeds-bubble-gum",
+            "thseeds-bubblegum"
+          ],
+          "note": "Current breeder pages represent distinct Bubble Gum selection lines. Serious Seeds labels its version Very High THC while the generic atlas entry intentionally does not assign a line-specific numeric/qualitative potency claim to all Bubble Gum."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "serious-seeds-bubble-gum",
+            "thseeds-bubblegum"
+          ],
+          "note": "Current breeder pages represent distinct Bubble Gum selection lines; no single generic CBD measurement is assigned."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -696,8 +962,8 @@
         "sourceRefs": [
           "serious-seeds-bubble-gum"
         ],
-        "text": "1980年代に米Indianaで開発された原材料がNew Englandを経て1990年代にオランダへ渡り、複数のブリーダーによって別々に選抜されたとされる。",
-        "note": "Migrated from legacy data without expanding the claim."
+        "text": "Original material is described by breeder history as originating in Indiana before diverging into separately selected Dutch breeder lines.",
+        "note": "The finished breeder lines are not treated as one genetically uniform cultivar."
       },
       "history": {
         "status": "confirmed",
@@ -708,14 +974,14 @@
           "thseeds-bubblegum",
           "leafly-bubble-gum"
         ],
-        "text": "Bubble Gumは同名で複数の選抜系統が流通している。Serious SeedsとT.H. Seedsの双方が独自の選抜・安定化系統を展開しており、系譜は単純な1本線では整理できない。",
-        "note": "Migrated from legacy data without expanding the claim."
+        "text": "Bubble Gum is a shared name covering multiple breeder selections descended from related original material; Serious Seeds and T.H.Seeds maintain distinct versions.",
+        "note": "Generic and breeder-specific scopes are intentionally separated."
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "遺伝的な親系統は確定していません。1990年代にオランダへ渡った後、複数のブリーダーが別々に選抜・安定化したため、同じBubble Gum名でも系統差があります。",
+          "lineageNote": "Bubble Gumは同名で複数のブリーダー選抜系統が存在します。Serious Seeds版とT.H.Seeds版では分類の説明も異なるため、generic Bubble Gumには片方の比率・THC/CBDを流用しません。",
           "aromaNote": "既存資料では、バブルガム、スイート、ベリー、フローラルの香りが挙げられています。",
-          "terpeneNote": "専門データベースでは、Caryophyllene、Limonene、Myrceneがテルペンとして挙げられています。"
+          "terpeneNote": "専門データベースでは、Caryophyllene、Limonene、Myrceneが挙げられていますが、generic Bubble Gum全体のlot分析とは扱いません。"
         }
       },
       "visuals": [
@@ -738,8 +1004,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-14",
-      "updatedAt": "2026-08-15"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -790,8 +1056,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official Bubblegum S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-bubblegum-s1"
+          ],
+          "note": "The current Humboldt CSI Bubblegum S1 product page publishes no numeric THC percentage for the complete S1 line. Customer-review or parent-cut potency is not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-bubblegum-s1"
+          ],
+          "note": "The current Humboldt CSI Bubblegum S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -819,8 +1107,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -902,7 +1190,65 @@
           "limonene",
           "beta-caryophyllene"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            }
+          ]
+        },
         "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-c5-haze-x-kali-china"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 15.5,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 15.5% for C5 Haze x Kali China Feminized."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-c5-haze-x-kali-china"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 0.06,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD at 0.06% for C5 Haze x Kali China Feminized."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -938,8 +1284,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-22",
-      "updatedAt": "2026-08-22"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1004,8 +1350,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "The official Humboldt Seed Company product page gives aroma/flavor descriptors but no compound-level terpene profile. Third-party terpene claims were not promoted to the candidate record."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The official Humboldt Seed Company product page gives aroma/flavor descriptors but no compound-level terpene profile. Third-party terpene claims are not promoted."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "hsc-california-octane"
+          ],
+          "note": "The current California Octane flower cultivar page does not publish a numeric flower THC value. Seed-compliance statements about less than 0.2% THC are not cultivar flower-potency measurements and are not used here."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "hsc-california-octane"
+          ],
+          "note": "The current California Octane cultivar page does not publish a numeric CBD value; none is inferred."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -1015,7 +1383,7 @@
       "history": {
         "status": "unknown",
         "text": "",
-        "note": "The official product page labels California Octane an original strain and provides parentals/S3 status, but the reviewed primary sources do not provide a dated cultivar-development history. No history is inferred."
+        "note": "The official product page labels California Octane an original strain and provides parentals/S3 status, but does not provide a dated cultivar-development history. No history is inferred."
       },
       "publicContent": {
         "ja": {
@@ -1034,8 +1402,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1064,7 +1432,7 @@
           "L.A. Confidential",
           "OG Kush"
         ],
-        "note": "DNA Genetics公式とSeedFinderはいずれもL.A. ConfidentialとOG Kushの組み合わせを示す。資料によって表記順が異なるため、ここでは親の組み合わせを示し母父方向までは断定しない。"
+        "note": "DNA Genetics and SeedFinder identify the same two parents. DNA Genetics currently displays OG Kush × L.A. Confidential and 99% Indica / 1% Sativa; parental direction is not promoted beyond the established two-parent combination."
       },
       "relations": [
         {
@@ -1093,7 +1461,7 @@
           "スカンク",
           "アーシー"
         ],
-        "note": "Leaflyのユーザー集計・品種ページに掲載される主要フレーバー表現。品種固有の化学分析ではないためconfidenceはC。"
+        "note": "Leafly user-aggregated cultivar descriptors; not a cultivar-specific chemical analysis."
       },
       "terpenes": {
         "status": "confirmed",
@@ -1107,7 +1475,41 @@
           "Pinene",
           "Caryophyllene"
         ],
-        "note": "Leafly Certified Strain Science欄の掲載順。特定lotのCOAを品種全体へ固定する資料ではないためconfidenceはC。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "Pinene",
+              "labelJa": "Pinene"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "Caryophyllene"
+            }
+          ]
+        },
+        "note": "Leafly Certified Strain Science ordering; no lot-specific COA is promoted to cultivar-wide certainty."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-eu-cataract-kush"
+          ],
+          "note": "The current DNA Genetics European Cataract Kush product page describes the effect as very strong but does not publish a numeric THC percentage; none is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-eu-cataract-kush"
+          ],
+          "note": "The current DNA Genetics European Cataract Kush product page does not publish a numeric CBD percentage; none is inferred."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -1116,8 +1518,8 @@
         "sourceRefs": [
           "dna-eu-cataract-kush"
         ],
-        "text": "DNA GeneticsがL.A. ConfidentialとOG Kushを組み合わせて展開したライン。",
-        "note": "DNA Genetics公式の商品ページを主根拠とする。作出地点や初回リリース年は確認できないため追加しない。"
+        "text": "DNA Genetics developed this line from L.A. Confidential and OG Kush.",
+        "note": "No creation location or release year is added beyond the official product context."
       },
       "history": {
         "status": "confirmed",
@@ -1126,12 +1528,12 @@
         "sourceRefs": [
           "dna-eu-cataract-kush"
         ],
-        "text": "DNA Geneticsの現行ラインとしてL.A. ConfidentialとOG Kushを組み合わせた品種。公式は開発に長い期間を要したと記すが、作出年・初出年は確認できない。",
-        "note": "公式に確認できる範囲だけを記載し、具体的な年代は補わない。"
+        "text": "DNA Genetics describes Cataract Kush as years in the making.",
+        "note": "No specific development year is inferred."
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Genetics公式とSeedFinderはいずれもL.A. ConfidentialとOG Kushの組み合わせを示しています。資料によって表記順が異なるため、ここでは親の組み合わせのみを示し、母父の方向までは断定しません。",
+          "lineageNote": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。既存資料と親の組み合わせは一致しますが、表記順だけで母父方向を断定しません。",
           "aromaNote": "専門データベースでは、パングェント、スカンク、アーシーが香りの表現として掲載されています。",
           "terpeneNote": "専門データベースでは、Limonene、Pinene、Caryophylleneがテルペンとして挙げられています。"
         }
@@ -1147,8 +1549,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1217,6 +1619,11 @@
       },
       "terpenes": {
         "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-cbd-1"
+        ],
         "items": [
           "beta-myrcene",
           "alpha-pinene",
@@ -1228,12 +1635,49 @@
           "alpha-humulene",
           "guaiol"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds.",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-cbd-1"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
       },
       "cannabinoids": {
         "thc": {
@@ -1268,6 +1712,18 @@
             "approximate": false
           }
         }
+      },
+      "positioning": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-cbd-1"
+        ],
+        "key": "high-cbd-low-thc",
+        "labelJa": "高CBD・低THC用途",
+        "descriptionJa": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、CBD 15〜18%、THC 0.55〜0.7%の高CBD・非常に低THCのケモタイプを安定化した品種と説明しています。",
+        "note": "Positioning is limited to the breeder-stated high-CBD, very-low-THC breeding purpose and published cannabinoid ranges; no medical efficacy or recommended-use claim is inferred."
       },
       "history": {
         "status": "confirmed",
@@ -1355,8 +1811,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official Chemdog D S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-chemdog-d-s1"
+          ],
+          "note": "The current Humboldt CSI Chemdog D S1 page uses qualitative potency language for the source cut/S1 reputation but does not publish a bounded numeric THC percentage for the complete S1 line. No numeric value is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-chemdog-d-s1"
+          ],
+          "note": "The current Humboldt CSI Chemdog D S1 page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -1384,8 +1862,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1436,8 +1914,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official Cherry Pie S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-cherry-pie-s1"
+          ],
+          "note": "The current Humboldt CSI Cherry Pie S1 page publishes no numeric THC percentage for the complete S1 line. Parent or third-party Cherry Pie values are not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-cherry-pie-s1"
+          ],
+          "note": "The current Humboldt CSI Cherry Pie S1 page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -1465,8 +1965,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1539,7 +2039,41 @@
           "Beta-caryophyllene",
           "Limonene"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "Myrcene"
+            },
+            {
+              "id": "Beta-caryophyllene",
+              "labelJa": "Beta-caryophyllene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            }
+          ]
+        },
         "note": "DNA Genetics公式に名称記載あり。ただしlot固有のラボCOAではないため、cultivar全体の成分断定を避けてconfidenceをCに抑える。"
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-chocolope-256"
+          ],
+          "note": "DNA Genetics current Chocolope 256 Fem page says THC is typically around 19%, while also citing reports up to 23% or about 26%. Because the wording is report-based and does not establish one breeder-listed bounded measurement, no numeric THC measurement is stored."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-chocolope-256"
+          ],
+          "note": "DNA Genetics current Chocolope 256 Fem page describes CBD as negligible/relatively low and says it is often reported around 0.5-1%. Because this is report-based wording rather than a breeder-listed bounded measurement, no numeric CBD measurement is stored."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -1569,8 +2103,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1633,8 +2167,46 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "ACE Seeds states that Congo's terpene profile has not yet been analyzed; no terpene compounds are inferred."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-congo"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 15,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 15% for Congo Regular."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-congo"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 0.15,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD at 0.15% for Congo Regular."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -1669,8 +2241,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-23",
-      "updatedAt": "2026-08-23"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1680,7 +2252,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa-dominant-hybrid"
       },
       "breeding": {
         "generation": "unknown",
@@ -1734,13 +2306,26 @@
       },
       "terpenes": {
         "status": "unknown",
-        "confidence": "unknown",
         "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-durban-poison"
         ],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dutch-passion-durban-poison"
+          ],
+          "note": "Dutch Passion's current Durban Poison product page labels THC as High but does not publish a numeric cultivar percentage. No numeric THC value is inferred from separate articles, grow reports or other versions."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -1781,8 +2366,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1833,8 +2418,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "The breeder mentions terpinolene for the source cut, but no cultivar-specific lot COA or bounded S1-line terpene dataset is provided, so no S1-wide terpene profile is asserted."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The breeder mentions high terpinolene for the source cut, but no cultivar-specific lot COA or bounded S1-line terpene dataset is provided, so no S1-wide terpene profile is asserted."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-durban-poison-s1"
+          ],
+          "note": "The current Humboldt CSI Durban Poison S1 page publishes no bounded numeric THC percentage for the complete S1 line. Source-cut reputation and customer reports are not converted into a cultivar measurement."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-durban-poison-s1"
+          ],
+          "note": "The current Humboldt CSI Durban Poison S1 page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -1862,8 +2469,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -1925,6 +2532,11 @@
       },
       "terpenes": {
         "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-ethiopia"
+        ],
         "items": [
           "alpha-pinene",
           "beta-myrcene",
@@ -1936,12 +2548,49 @@
           "alpha-humulene",
           "trans-nerolidol"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds.",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-ethiopia"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
       },
       "cannabinoids": {
         "thc": {
@@ -2062,8 +2711,30 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official F1 Durb S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-f1-durb-s1"
+          ],
+          "note": "The current Humboldt CSI F1 Durb S1 page publishes no numeric THC percentage for the complete S1 line. No potency value is borrowed from F1 Durb, Durban Poison, or related hybrids."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-f1-durb-s1"
+          ],
+          "note": "The current Humboldt CSI F1 Durb S1 page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -2091,8 +2762,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2120,7 +2791,7 @@
           "Frisian Dew",
           "DucksFoot"
         ],
-        "note": "Dutch Passion公式表記に基づく。世代番号は公式ページで特定できないためbreeding.generationはunknown。"
+        "note": "Dutch Passion current Feminised page lists Frisian Dew × DucksFoot and classifies the cultivar as Hybrid; no generation number is inferred."
       },
       "relations": [
         {
@@ -2151,17 +2822,39 @@
           "citrus",
           "fruity"
         ],
-        "note": "Dutch Passion公式の香り説明を要約。phenotype差を含むため具体的な単一香調に固定しない。"
+        "note": "Dutch Passion official sensory description, retaining phenotype variation."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "公式ページで化学成分名としてのterpene profileを確認できないためunknown。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The official page does not provide a compound-level terpene panel; no compounds are inferred."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dutch-passion-frisian-duck"
+          ],
+          "note": "Dutch Passion currently labels Frisian Duck THC as Medium without a numeric percentage; no numeric THC value is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dutch-passion-frisian-duck"
+          ],
+          "note": "The current Dutch Passion Frisian Duck page does not publish a numeric CBD percentage; none is inferred."
+        }
       },
       "origin": {
         "status": "unknown",
         "text": "",
-        "note": "Dutch Passion公式ページから品種そのものの地理的起源を一意に確定できないためunknown。"
+        "note": "The official page does not establish one geographic creation location for the cultivar; none is inferred."
       },
       "history": {
         "status": "confirmed",
@@ -2170,13 +2863,13 @@
         "sourceRefs": [
           "dutch-passion-frisian-duck"
         ],
-        "text": "Dutch Passionが特徴的なダックフット状の葉形と屋外での目立ちにくさを狙い、長年の選抜育種で作り上げた系統。",
-        "note": "公式ページはmany years of careful breedingと説明している。"
+        "text": "Dutch Passion describes Frisian Duck as the result of many years of careful breeding for its distinctive leaf form and outdoor characteristics.",
+        "note": "Only the breeder-stated development context is retained."
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Dutch Passion公式ではFrisian Dew × DucksFootとされています。世代番号は公式ページでは特定されていません。",
-          "aromaNote": "Dutch Passion公式では、表現型による差を含む香りとして、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが挙げられています。"
+          "lineageNote": "Dutch Passion公式ではFrisian Dew × DucksFoot、Hybridと記載されています。数値のSATIVA/INDICA比率は公式ページにないため推定しません。",
+          "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが挙げられています。"
         }
       },
       "visuals": [
@@ -2190,8 +2883,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2245,8 +2938,47 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-golden-tiger"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 25,
+            "max": 30,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 25-30% for Golden Tiger Regular."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-golden-tiger"
+          ],
+          "measurement": {
+            "kind": "maximum",
+            "unit": "%",
+            "value": 0.5,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD as up to 0.5% for Golden Tiger Regular."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -2286,8 +3018,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2314,7 +3046,7 @@
         "parents": [
           "Gorilla Glue 4"
         ],
-        "note": "Humboldt CSI's official Gorilla Glue 4 S1 page lists the cultivar as Gorilla Glue 4 × Gorilla Glue 4. Together with the official S1 designation, this is treated as a selfed S1 line. No unstated ancestry is copied from the parent cultivar."
+        "note": "Humboldt CSI's current official Gorilla Glue 4 S1 page lists Gorilla Glue 4 × Gorilla Glue 4 and 7 feminized seeds per pack. Together with the S1 designation, this is treated as a selfed S1 line. No unstated parent ancestry is imported."
       },
       "relations": [
         {
@@ -2334,12 +3066,34 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "The official Gorilla Glue 4 S1 product page does not provide cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
+        "note": "The current official Gorilla Glue 4 S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "The official Gorilla Glue 4 S1 product page does not provide a cultivar-specific terpene profile or lot COA."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The current official Gorilla Glue 4 S1 product page does not provide a cultivar-specific terpene profile or lot COA."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-gorilla-glue-4-s1"
+          ],
+          "note": "The current Humboldt CSI Gorilla Glue 4 S1 product page publishes no bounded numeric THC percentage for the complete S1 line. Parent-cultivar or third-party values are not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-gorilla-glue-4-s1"
+          ],
+          "note": "The current Humboldt CSI Gorilla Glue 4 S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -2367,8 +3121,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2434,8 +3188,47 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "ACE Seeds states that Guawi's terpene profile has not yet been analyzed; no terpene compounds are inferred."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-guawi"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 19,
+            "max": 23,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 19-23% for Guawi Feminized."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-guawi"
+          ],
+          "measurement": {
+            "kind": "less-than",
+            "unit": "%",
+            "value": 0.05,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD below 0.05% for Guawi Feminized."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -2464,8 +3257,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-23",
-      "updatedAt": "2026-08-23"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2490,7 +3283,7 @@
         ],
         "display": "Undisclosed Sensi Seeds hybrid",
         "parents": [],
-        "note": "Sensi Seeds identifies Jack Herer as a 50/50 sativa/indica hybrid but does not disclose a parent list on the checked official product page; no hidden pedigree is inferred."
+        "note": "Sensi Seeds identifies Jack Herer Regular as a 50% sativa / 50% indica hybrid but does not disclose a parent list on the current official product page; no hidden pedigree is inferred."
       },
       "relations": [
         {
@@ -2519,12 +3312,34 @@
           "savoury",
           "earthy"
         ],
-        "note": "Official Sensi Seeds post-harvest descriptors; phenotype-specific Afghan/skunk nuances are not generalized as fixed cultivar notes."
+        "note": "Official Sensi Seeds post-harvest descriptors; phenotype-specific nuances are not generalized as fixed cultivar notes."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "sensi-seeds-jack-herer"
+          ],
+          "note": "Sensi Seeds' current Jack Herer Regular page describes THC as high but does not publish a numeric percentage. No numeric THC measurement is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "sensi-seeds-jack-herer"
+          ],
+          "note": "No numeric CBD percentage is published on the current Jack Herer Regular page."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -2565,8 +3380,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2593,7 +3408,7 @@
         "parents": [
           "Jager"
         ],
-        "note": "Humboldt CSI's official Jager S1 page lists the cultivar as Jager × Jager. Together with the official S1 designation, this is treated as a selfed S1 line. No unstated ancestry is copied from the parent cultivar."
+        "note": "Humboldt CSI's current official Jager S1 page lists Jager × Jager and 7 feminized seeds per pack. Together with the S1 designation, this is treated as a selfed S1 line. No unstated ancestry is imported."
       },
       "relations": [
         {
@@ -2613,17 +3428,39 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "The official Jager S1 product page does not provide cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
+        "note": "The current official Jager S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cut or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "The official Jager S1 product page does not provide a cultivar-specific terpene profile or lot COA."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The current official Jager S1 product page does not provide a cultivar-specific terpene profile or lot COA."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-jager-s1"
+          ],
+          "note": "The current Humboldt CSI Jager S1 product page publishes no bounded numeric THC percentage for the complete S1 line. Parent-cut or third-party values are not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-jager-s1"
+          ],
+          "note": "The current Humboldt CSI Jager S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
         "text": "",
-        "note": "The official Jager S1 product page does not state the S1 line's exact creation location; no inferred location is added."
+        "note": "The official Jager S1 page gives Southern Oregon / Millerville Farms background for the source cut but does not state the S1 line's exact creation location; no location is inferred."
       },
       "history": {
         "status": "confirmed",
@@ -2652,8 +3489,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2663,19 +3500,18 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa-dominant-hybrid"
       },
       "breeding": {
-        "generation": "F1",
-        "method": "hybrid; official page describes it as almost pure sativa"
+        "generation": "unknown",
+        "method": "hybrid; current official page describes the modern line as about 80-90% sativa"
       },
       "lineage": {
         "status": "unknown",
-        "confidence": "unknown",
         "basis": "breederOfficial",
         "display": "Undisclosed mainly-sativa crossbreed",
         "parents": [],
-        "note": "Serious Seeds states the cross is undisclosed. The page discusses ancestry, but the exact pedigree is not fully revealed, so parentage is not inferred.",
+        "note": "Serious Seeds states the cross is undisclosed. The page discusses ancestry and multiple breeding revisions, but the exact current pedigree and a named F/BX generation are not fully revealed, so neither parentage nor generation is inferred.",
         "sourceRefs": [
           "serious-seeds-kali-mist"
         ]
@@ -2710,13 +3546,33 @@
       },
       "terpenes": {
         "status": "unknown",
-        "confidence": "unknown",
         "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-kali-mist"
         ],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "serious-seeds-kali-mist"
+          ],
+          "note": "Serious Seeds' current Kali Mist page lists THC level as High without a numeric percentage. No numeric THC measurement is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "serious-seeds-kali-mist"
+          ],
+          "note": "Serious Seeds' current Kali Mist page lists CBD level as Low without a numeric percentage. No numeric CBD measurement is inferred."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -2765,8 +3621,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2850,7 +3706,90 @@
           "beta-farnesene",
           "alpha-farnesene"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "ocimene",
+              "labelJa": "ocimene"
+            },
+            {
+              "id": "cis-beta-farnesene",
+              "labelJa": "cis-beta-farnesene"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "trans-phytol",
+              "labelJa": "trans-phytol"
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール"
+            },
+            {
+              "id": "beta-farnesene",
+              "labelJa": "beta-farnesene"
+            },
+            {
+              "id": "alpha-farnesene",
+              "labelJa": "alpha-farnesene"
+            }
+          ]
+        },
         "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-killer-a5-haze"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 23,
+            "max": 30,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 23-30% for Killer A5 Haze Regular."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "ace-seeds-killer-a5-haze"
+          ],
+          "note": "ACE Seeds explicitly lists CBD as Null for Killer A5 Haze Regular. No numeric percentage is inferred or stored."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -2886,8 +3825,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-22",
-      "updatedAt": "2026-08-22"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -2897,7 +3836,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa-dominant-hybrid"
       },
       "breeding": {
         "generation": "unknown",
@@ -2949,8 +3888,31 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-laughing-buddha"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 23,
+            "approximate": false
+          },
+          "note": "Barney's Farm current Laughing Buddha Feminized page lists THC at 23%."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -2991,8 +3953,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3056,6 +4018,11 @@
       },
       "terpenes": {
         "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-lebanese"
+        ],
         "items": [
           "terpinolene",
           "alpha-pinene",
@@ -3067,12 +4034,49 @@
           "beta-caryophyllene",
           "alpha-humulene"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds.",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-lebanese"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
       },
       "cannabinoids": {
         "thc": {
@@ -3107,6 +4111,18 @@
             "approximate": false
           }
         }
+      },
+      "positioning": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-lebanese"
+        ],
+        "key": "traditional-hash-resin",
+        "labelJa": "伝統的ハッシュ・樹脂用途",
+        "descriptionJa": "ACE Seedsは、このLebanese系統を10年以上の育種と選抜を経た伝統的なレバノン系ハッシュプラントとして紹介し、赤・ブロンドのLebanese hashで知られる系統背景を記しています。",
+        "note": "Positioning is limited to the breeder-stated traditional hash-plant context; no consumption recommendation or broader historical claim is inferred."
       },
       "history": {
         "status": "confirmed",
@@ -3148,8 +4164,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-28",
-      "updatedAt": "2026-08-28"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3178,7 +4194,7 @@
           "Old Malawi Killer",
           "3rd generation Malawis"
         ],
-        "note": "ACE SeedsのMalawi由来P4 landrace。P4表記はbreeding.generationへ固定せず、lineage上で保持する。"
+        "note": "ACE Seeds identifies the current Regular line as a P4 landrace from Malawi, Central Africa: Old Malawi Killer x 3rd generation Malawis."
       },
       "relations": [
         {
@@ -3210,7 +4226,7 @@
           "sweet carrot",
           "ripe mandarin"
         ],
-        "note": "主要表現はoil / wood / lemon。sweet carrot / ripe mandarinはphenotype差として保持する。"
+        "note": "Main official expressions are oil, wood and lemon; sweet carrot and ripe mandarin are retained as phenotype-dependent descriptors."
       },
       "terpenes": {
         "status": "confirmed",
@@ -3227,7 +4243,70 @@
           "α-Humulene",
           "α-Bisabolol"
         ],
-        "note": "β-Myrcene中心。Limonene / β-Pinene / β-Caryophyllene / α-Humulene / α-Bisabololを併記する。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "β-Myrcene",
+              "labelJa": "β-Myrcene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "β-Pinene",
+              "labelJa": "β-Pinene"
+            },
+            {
+              "id": "β-Caryophyllene",
+              "labelJa": "β-Caryophyllene"
+            },
+            {
+              "id": "α-Humulene",
+              "labelJa": "α-Humulene"
+            },
+            {
+              "id": "α-Bisabolol",
+              "labelJa": "α-Bisabolol"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-malawi"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 24,
+            "max": 27,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Malawi Regular page lists THC at 24-27%."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-malawi"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 0.08,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Malawi Regular page lists CBD at 0.08%."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -3238,7 +4317,7 @@
           "seedfinder-malawi"
         ],
         "text": "Malawi, Central Africa",
-        "note": "ACE Seeds公式Malawi品種ページを主根拠とし、SeedFinderで独立照合。"
+        "note": "ACE Seeds official Malawi cultivar page is the primary basis."
       },
       "history": {
         "status": "confirmed",
@@ -3247,13 +4326,13 @@
         "sourceRefs": [
           "ace-seeds-about"
         ],
-        "text": "ACE Seeds公式沿革の2012年Malawi導入を根拠とする。",
-        "note": "2012年のMalawi導入はACE Seeds公式沿革で確認済み。"
+        "text": "ACE Seeds official history records the Malawi introduction in 2012.",
+        "note": "The dated history is limited to ACE Seeds' official history."
       },
       "publicContent": {
         "ja": {
           "origin": "ACE Seeds公式では、起源を中央アフリカのMalawiとしています。",
-          "lineageNote": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、Malawi由来のP4ランドレースとして説明されています。P4表記はここでは系譜情報として扱い、育種世代の固定値にはしていません。",
+          "lineageNote": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、Malawi由来のP4ランドレースとして説明されています。",
           "aromaNote": "ACE Seeds公式では、オイル、ウッド、レモンに加え、表現型によってスイート・キャロットや熟したマンダリンの香りが記載されています。",
           "terpeneNote": "ACE Seeds公式では、β-Myrcene、Limonene、β-Pinene、β-Caryophyllene、α-Humulene、α-Bisabololがテルペンとして挙げられています。"
         }
@@ -3269,8 +4348,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3280,7 +4359,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica"
+        "type": "indica-dominant-hybrid"
       },
       "breeding": {
         "generation": "unknown",
@@ -3298,7 +4377,7 @@
           "Skunk #1",
           "Afghani"
         ],
-        "note": "Dutch Passion identifies Mazar as Skunk #1 × Afghani and an indica-dominant Afghan hash-plant line."
+        "note": "Dutch Passion identifies Mazar as Skunk #1 × Afghani and repeatedly describes the current cultivar as an indica-dominant hybrid rather than a pure indica."
       },
       "relations": [
         {
@@ -3332,8 +4411,14 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
         "thc": {
@@ -3349,7 +4434,14 @@
             "value": 20,
             "approximate": true
           },
-          "note": "Dutch Passion states that Mazar reaches around 20% THC when grown in good conditions; higher percentages may be possible in expert hands."
+          "note": "Dutch Passion states that Mazar reaches around 20% THC in good conditions; the approximate qualifier is preserved."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dutch-passion-mazar"
+          ],
+          "note": "The current Dutch Passion Mazar page does not publish a numeric CBD percentage; none is inferred."
         }
       },
       "origin": {
@@ -3360,7 +4452,7 @@
           "dutch-passion-mazar"
         ],
         "text": "Developed by Dutch Passion from a selected Skunk #1 crossed with Afghan genetics.",
-        "note": "Limited to official breeder/seed-company context; undisclosed details remain undisclosed."
+        "note": "Limited to official breeder context."
       },
       "history": {
         "status": "confirmed",
@@ -3369,13 +4461,13 @@
         "sourceRefs": [
           "dutch-passion-mazar"
         ],
-        "text": "Dutch Passion describes Mazar as an 1980s/1990s classic and states the genetic mix was improved in 1997.",
+        "text": "Dutch Passion describes Mazar as a 1980s/1990s classic and states the genetic mix was improved in 1997.",
         "note": "Only bounded history stated by the current official source is retained."
       },
       "publicContent": {
         "ja": {
           "origin": "Dutch Passionが、選抜したSkunk #1とアフガン系統を交配して開発した品種です。",
-          "lineageNote": "Dutch Passionは、この系譜をアフガン系ハッシュプラントの性質を強く持つインディカ優勢系統として説明しています。",
+          "lineageNote": "Dutch Passion公式ではSkunk #1 × Afghaniで、現在の説明ではインディカ優勢ハイブリッドとして扱われています。",
           "history": "Dutch PassionはMazarを1980〜1990年代のクラシック品種と位置づけ、1997年に遺伝的な組み合わせを改良したとしています。"
         }
       },
@@ -3390,8 +4482,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-20",
-      "updatedAt": "2026-08-20"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3454,6 +4546,11 @@
       },
       "terpenes": {
         "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-new-caledonia"
+        ],
         "items": [
           "terpinolene",
           "beta-myrcene",
@@ -3468,12 +4565,61 @@
           "alpha-bisabolol",
           "trans-nerolidol"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds.",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-new-caledonia"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "gamma-terpinene",
+              "labelJa": "γ-テルピネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds."
       },
       "cannabinoids": {
         "thc": {
@@ -3549,8 +4695,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-28",
-      "updatedAt": "2026-08-28"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3578,7 +4724,7 @@
         ],
         "display": "親系統は確定していない。Florida / Triangle Kush系統との関連が示される",
         "parents": [],
-        "note": "Josh D公式は1996年にFloridaからLos Angelesへ持ち込まれたTriangle Kush geneticsとの関連を記録するが、生物学的な親系統そのものは特定していない。Leaflyもparentageはspeculativeと整理しているため、推測される親名を確定情報として追加せずconfidence Cを維持する。"
+        "note": "Josh D公式は1996年にFloridaからLos Angelesへ持ち込まれたTriangle Kush geneticsとの関連を記録するが、生物学的な親系統そのものは特定していない。現在のJosh D公式サイト内には別の親系統説明も存在するため、親品種は確定せずdisputedを維持する。"
       },
       "relations": [],
       "aromas": {
@@ -3595,7 +4741,7 @@
           "フューエル",
           "アーシー"
         ],
-        "note": "Josh D公式はOG Kushの香りをPine-Sol、kerosene、earthy gasとして説明し、LeaflyのJosh Dらへの取材記事もlemon-pine-fuel系として記録している。一次証言で主要ノートを補強できるが、流通個体の同一性とphenotype差を考慮してconfidenceはBとする。"
+        "note": "Josh D公式の歴史資料と専門資料に共通する主要ノートを保持する。流通個体の同一性とphenotype差を考慮してconfidenceはBとする。"
       },
       "terpenes": {
         "status": "confirmed",
@@ -3610,7 +4756,41 @@
           "Limonene",
           "Caryophyllene"
         ],
-        "note": "2017年の査読研究ではOG Kushを含むOG Kush群でMyrceneとLimoneneが主要な特徴として報告され、2021年ACS Omega論文はOG Kushの香気についてβ-Myrceneとβ-Caryophylleneを主要成分として記載する。品種名だけでは遺伝的同一性を保証できずlot差もあるためAには上げない。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "Myrcene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "Caryophyllene"
+            }
+          ]
+        },
+        "note": "査読研究でOG Kush名の試料について報告された主要成分を保持するが、品種名だけでは遺伝的同一性を保証できずlot差もあるためAには上げない。"
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "josh-d-og-kush-official"
+          ],
+          "note": "Josh D公式の2026年記事ではOG KushのTHCについて19-27%、20-26%、18-25%など複数の範囲表現が存在し、同一の固定breeder/originator measurementとして整合しない。単一の数値・範囲は採用しない。"
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "josh-d-og-kush-official"
+          ],
+          "note": "Current Josh D official material checked for this audit does not establish a stable numeric CBD percentage for the generic OG Kush atlas entry."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -3631,11 +4811,11 @@
           "leafly-og-history"
         ],
         "text": "1996年、Florida由来のOG Kush系統がLos Angelesへ持ち込まれ、Josh Dが保存・栽培・共有の中心人物となった。1990年代後半にはSouthern Californiaで広まり、1997年にはJosh D自身がNorthern Californiaへ持ち込んだ記録がある。",
-        "note": "Josh D本人の公式サイトと、Josh D・B-Real・Kevin Jodreyらへの直接取材を含むLeaflyの系譜記事で主要な時系列を照合。親系統の断定はhistoryから切り離している。"
+        "note": "Josh D本人の公式サイトと直接取材を含む専門資料で主要な時系列を照合。親系統の断定はhistoryから切り離している。"
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "親系統は確定していません。Josh D公式は1996年にFloridaからLos Angelesへ持ち込まれたTriangle Kush系統との関連を記録していますが、生物学的な親系統そのものは特定しておらず、Leaflyも親系統を推測的なものとして整理しています。",
+          "lineageNote": "親系統は確定していません。Josh D公式は1996年にFloridaからLos Angelesへ持ち込まれたTriangle Kush系統との関連を記録していますが、現在の公式サイト内にも異なる系譜説明があるため、親品種は断定しません。",
           "aromaNote": "既存の一次証言と専門資料では、レモン、パイン、フューエル、アーシーの香りが挙げられています。",
           "terpeneNote": "査読研究を含む既存資料では、Myrcene、Limonene、CaryophylleneがOG Kushのテルペンとして挙げられています。"
         }
@@ -3660,8 +4840,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3743,7 +4923,99 @@
           "alpha-humulene",
           "guaiol"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "p-cymene",
+              "labelJa": "p-シメン"
+            },
+            {
+              "id": "camphene",
+              "labelJa": "カンフェン"
+            },
+            {
+              "id": "isopulegol",
+              "labelJa": "イソプレゴール"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "nerolidol",
+              "labelJa": "nerolidol"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "bisabolol",
+              "labelJa": "bisabolol"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            }
+          ]
+        },
         "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-orient-express"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 7.1,
+            "max": 16,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Orient Express Regular page lists THC at 7.1-16%."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-orient-express"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 0.15,
+            "max": 8.2,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Orient Express Regular page lists CBD at 0.15-8.2%, consistent with its note that some plants may show balanced THC/CBD content."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -3779,8 +5051,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-23",
-      "updatedAt": "2026-08-23"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3854,7 +5126,65 @@
           "trans-Ocimene",
           "Guaiol"
         ],
-        "note": "ACE Seeds publishes a terpene profile led by terpinolene (almost 50%), followed by moderate alpha/beta pinene and limonene, with smaller myrcene/trans-ocimene and guaiol. Confidence remains B because the page is breeder-published rather than an independently retrieved lab report."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Terpinolene",
+              "labelJa": "Terpinolene"
+            },
+            {
+              "id": "α-Pinene",
+              "labelJa": "α-Pinene"
+            },
+            {
+              "id": "β-Pinene",
+              "labelJa": "β-Pinene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "β-Myrcene",
+              "labelJa": "β-Myrcene"
+            },
+            {
+              "id": "trans-Ocimene",
+              "labelJa": "trans-Ocimene"
+            },
+            {
+              "id": "Guaiol",
+              "labelJa": "Guaiol"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a terpene profile led by terpinolene, followed by alpha/beta pinene and limonene, with smaller myrcene/trans-ocimene and guaiol."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-panama"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 21.47,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Panama Regular page lists THC at 21.47%."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "ace-seeds-panama"
+          ],
+          "note": "ACE Seeds current Panama Regular page explicitly lists CBD as Null. No numeric percentage is inferred or stored."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -3896,8 +5226,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -3964,6 +5294,13 @@
       },
       "terpenes": {
         "status": "confirmed",
+        "confidence": "B",
+        "basis": "laboratoryReport",
+        "sourceRefs": [
+          "ace-seeds-rush-of-siam",
+          "fundacion-canna-rush-of-siam-1-terpenes",
+          "fundacion-canna-rush-of-siam-2-terpenes"
+        ],
         "items": [
           "beta-myrcene",
           "terpinolene",
@@ -3979,12 +5316,319 @@
           "alpha-bisabolol",
           "guaiol"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; names are normalized without adding compounds.",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-rush-of-siam"
-        ]
+        "evidenceMode": "MEASURED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "observed-range",
+          "evidenceMode": "MEASURED",
+          "confidence": "B",
+          "sampleCount": 2,
+          "unit": "%",
+          "basis": "w/w",
+          "method": "GC-FID",
+          "scale": {
+            "min": 0,
+            "max": 0.8,
+            "ticks": [
+              0,
+              0.4,
+              0.8
+            ]
+          },
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "lead-primary",
+              "badge": "MAIN",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.381,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.728,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.381〜0.728%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.377,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.385,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.377〜0.385%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "moderate-high",
+              "levelJa": "中〜多い",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.145,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.213,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.145〜0.213%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "moderate-high",
+              "levelJa": "中〜多い",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.059,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.166,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.059〜0.166%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.104,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.165,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.104〜0.165%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.055,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.129,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.055〜0.129%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.082,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.121,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.082〜0.121%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.038,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.093,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.038〜0.093%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.025,
+                  "qualifier": "lessThan"
+                },
+                "high": {
+                  "value": 0.057,
+                  "qualifier": "exact"
+                },
+                "valueText": "<0.025〜0.057%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.049,
+                  "qualifier": "exact"
+                },
+                "high": {
+                  "value": 0.054,
+                  "qualifier": "exact"
+                },
+                "valueText": "0.049〜0.054%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.025,
+                  "qualifier": "lessThan"
+                },
+                "high": {
+                  "value": 0.048,
+                  "qualifier": "exact"
+                },
+                "valueText": "<0.025〜0.048%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.025,
+                  "qualifier": "lessThan"
+                },
+                "high": {
+                  "value": 0.037,
+                  "qualifier": "exact"
+                },
+                "valueText": "<0.025〜0.037%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            },
+            {
+              "id": "cis-nerolidol",
+              "labelJa": "シス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace",
+              "measurement": {
+                "unit": "%",
+                "basis": "w/w",
+                "low": {
+                  "value": 0.025,
+                  "qualifier": "lessThan"
+                },
+                "high": {
+                  "value": 0.03,
+                  "qualifier": "exact"
+                },
+                "valueText": "<0.025〜0.030%",
+                "sampleCount": 2,
+                "compatible": true
+              }
+            }
+          ],
+          "contextLabel": "公開された2検体の観測値",
+          "disclaimer": "公開された検体の観測値であり、品種全体の固定値・一般的な範囲を示すものではありません。"
+        },
+        "note": "公開された検体の観測値であり、品種全体の固定値・一般的な範囲を示すものではありません。"
       },
       "cannabinoids": {
         "thc": {
@@ -4052,8 +5696,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-28",
-      "updatedAt": "2026-08-28"
+      "checkedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
     },
     {
       "schemaVersion": 1,
@@ -4123,8 +5767,23 @@
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "Dutch Passion uses sensory 'terpene profile' descriptors such as spicy/herbal and aroma terms, but the reviewed official sources do not identify a compound-level terpene composition. No compounds are inferred."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "Dutch Passion uses sensory terpene-profile descriptors, but the reviewed official sources do not identify a compound-level cultivar terpene composition. No compounds are inferred."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dutch-passion-shaman"
+          ],
+          "note": "Dutch Passion current Shaman product page labels THC as Medium without a numeric percentage. No numeric THC measurement is inferred."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4165,8 +5824,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4176,7 +5835,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica"
+        "type": "indica-dominant-hybrid"
       },
       "breeding": {
         "generation": "unknown",
@@ -4191,7 +5850,7 @@
           "Northern Lights #5",
           "Skunk #1"
         ],
-        "note": "Sensi Seeds directly states the cultivar is bred from Northern Lights #5 and Skunk #1.",
+        "note": "Sensi Seeds directly states the current Shiva Skunk Regular is bred from Northern Lights #5 and Skunk #1 and is 85% indica.",
         "sourceRefs": [
           "sensi-seeds-shiva-skunk"
         ]
@@ -4222,12 +5881,34 @@
           "pungent",
           "skunk"
         ],
-        "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
+        "note": "Official cultivar-specific aroma descriptors retained conservatively."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "sensi-seeds-shiva-skunk"
+          ],
+          "note": "The current Sensi Seeds Shiva Skunk Regular product page describes potent effects but does not publish a numeric THC percentage; none is inferred."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "sensi-seeds-shiva-skunk"
+          ],
+          "note": "The current Sensi Seeds Shiva Skunk Regular page does not publish a numeric CBD percentage; none is inferred."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4237,7 +5918,7 @@
           "sensi-seeds-shiva-skunk"
         ],
         "text": "Bred by Sensi Seeds from Northern Lights #5 and Skunk #1.",
-        "note": "Limited to breeder-published origin context; undisclosed details remain undisclosed."
+        "note": "Limited to breeder-published context."
       },
       "history": {
         "status": "confirmed",
@@ -4247,12 +5928,12 @@
           "sensi-seeds-shiva-skunk"
         ],
         "text": "Sensi Seeds states the strain was first released in 1987 as NL#5xSK#1 and was renamed Shiva Skunk shortly afterward.",
-        "note": "Only dated or descriptive history stated on the current official page is retained."
+        "note": "Only dated history stated on the current official page is retained."
       },
       "publicContent": {
         "ja": {
           "origin": "Sensi SeedsがNorthern Lights #5とSkunk #1から育種したと公式に説明しています。",
-          "lineageNote": "Sensi Seeds公式ではNorthern Lights #5 × Skunk #1とされています。",
+          "lineageNote": "Sensi Seeds公式のShiva Skunk RegularではNorthern Lights #5 × Skunk #1、85% Indica / 15% Sativaと記載されています。",
           "history": "Sensi Seedsは、1987年にNL#5xSK#1として初めてリリースされ、その後まもなくShiva Skunkへ改名されたと説明しています。",
           "aromaNote": "Sensi Seeds公式では、パングェントとスカンクの香りが挙げられています。"
         }
@@ -4268,8 +5949,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4296,7 +5977,7 @@
         "parents": [
           "Original Strawberry Banana"
         ],
-        "note": "DNA Geneticsの製品欄にはOriginal Strawberry Banana × Strawberry Bananaと表記される一方、本文ではOriginal Strawberry Bananaをself-pollinationしたS1として説明されている。Original Strawberry BananaはCrockett’s Banana Kush × Serious Seeds Bubble GumのStrawberry phenotype由来と説明されている。"
+        "note": "DNA Genetics' product field says Original Strawberry Banana x Strawberry Banana while the current product description explicitly identifies this as an S1/selfed version of Original Strawberry Banana. The S1 identity is retained without borrowing unrelated versions."
       },
       "relations": [
         {
@@ -4326,7 +6007,7 @@
           "バブルガム",
           "ガス / フューエル"
         ],
-        "note": "DNA GeneticsのS1ページに記載された香りの説明を要約。"
+        "note": "DNA Genetics current S1 product description supports these aroma directions."
       },
       "terpenes": {
         "status": "confirmed",
@@ -4341,7 +6022,50 @@
           "Myrcene",
           "Caryophyllene"
         ],
-        "note": "DNA Genetics公式に記載がありOriginal Strawberry Bananaの専門DB情報とも一致するが、S1固有の分析対象・lotを確認できるラボ資料は未確認のため確度を抑えている。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "Myrcene",
+              "labelJa": "Myrcene"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "Caryophyllene"
+            }
+          ]
+        },
+        "note": "Names appear in DNA Genetics material and specialist material, but no S1 lot-specific COA is used; confidence remains conservative."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-strawberry-banana-s1"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 18,
+            "max": 27,
+            "approximate": false
+          },
+          "note": "DNA Genetics' current Strawberry Banana S1 product page gives a THC range of 18-27%; exceptional phenotypes over 30% are not converted into the bounded cultivar measurement."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-strawberry-banana-s1"
+          ],
+          "note": "DNA Genetics describes CBD only as low on the current S1 page and gives no bounded numeric percentage; no numeric CBD value is inferred."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4350,8 +6074,8 @@
         "sourceRefs": [
           "dna-strawberry-banana-s1"
         ],
-        "text": "DNA GeneticsがOriginal Strawberry Bananaをself-pollinationして展開したS1ライン。",
-        "note": "S1自体の発売年は確認できていない。"
+        "text": "DNA Genetics offers this as an S1/selfed version of Original Strawberry Banana.",
+        "note": "The S1 itself is kept separate from Original Strawberry Banana scope."
       },
       "history": {
         "status": "confirmed",
@@ -4362,14 +6086,14 @@
           "leafly-strawberry-banana",
           "serious-seeds-bubble-gum"
         ],
-        "text": "Original Strawberry Bananaをself-pollinationして作られたS1。元系統はCrockett’s Banana KushとSerious Seeds Bubble GumのStrawberry phenotypeを背景に持つ。Original Strawberry Banana側の受賞歴は確認できるが、S1固有の受賞としては登録しない。",
-        "note": "OriginalとS1のscopeを分離して記録。"
+        "text": "Strawberry Banana S1 is the selfed seed version of Original Strawberry Banana; awards or measurements belonging only to the original are not automatically assigned to the S1.",
+        "note": "Original and S1 scopes remain separated."
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Geneticsの製品欄ではOriginal Strawberry Banana × Strawberry Bananaと表記され、本文ではOriginal Strawberry BananaをセルフポリネーションしたS1と説明されています。元のOriginal Strawberry BananaはCrockett’s Banana Kush × Serious Seeds Bubble GumのStrawberry phenotype由来とされています。",
-          "aromaNote": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエルの香りが挙げられています。",
-          "terpeneNote": "既存資料では、Limonene、Myrcene、CaryophylleneがStrawberry Banana S1のテルペンとして挙げられています。"
+          "lineageNote": "DNA Geneticsの現行S1ページではOriginal Strawberry BananaをセルフしたS1として説明され、商品欄はOriginal Strawberry Banana × Strawberry Bananaと表記されています。ここではS1としての同一性を優先し、別版の数値は混ぜません。",
+          "aromaNote": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエル系の香りが挙げられています。",
+          "terpeneNote": "既存資料ではLimonene、Myrcene、Caryophylleneが挙げられますが、S1固有lotのCOAではないため確度を抑えています。"
         }
       },
       "visuals": [
@@ -4383,8 +6107,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4414,7 +6138,7 @@
           "Lemon Skunk",
           "Super Silver Haze"
         ],
-        "note": "Green House Seed Co.公式で確認。"
+        "note": "Green House Seed Co. official current Feminized page lists Lemon Skunk x Super Silver Haze."
       },
       "relations": [
         {
@@ -4445,7 +6169,7 @@
           "ウッド",
           "パイン"
         ],
-        "note": "Green House Seed Co.公式の商品説明にあるlemon-zest、citrusy、Haze、woodiness、pine-tree freshnessの表現を要約。"
+        "note": "Green House Seed Co. official product description supports the recorded sensory profile."
       },
       "terpenes": {
         "status": "confirmed",
@@ -4459,7 +6183,57 @@
           "D-Limonene",
           "Terpinolene"
         ],
-        "note": "Green House Seed Co.公式はmost expressed terpenesとして3成分を記載。ただしlot固有のラボCOAではないため、cultivar全体の固定成分断定を避けてconfidenceはCとする。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "β-Caryophyllene",
+              "labelJa": "β-Caryophyllene"
+            },
+            {
+              "id": "D-Limonene",
+              "labelJa": "D-Limonene"
+            },
+            {
+              "id": "Terpinolene",
+              "labelJa": "Terpinolene"
+            }
+          ]
+        },
+        "note": "Green House Seed Co. official page lists these as most expressed terpenes; no lot-specific independent COA is used here."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-super-lemon-haze"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 26.33,
+            "approximate": false
+          },
+          "note": "Green House Seed Co. current Super Lemon Haze Feminized page lists THC at 26.33%."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-super-lemon-haze"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 0.21,
+            "approximate": false
+          },
+          "note": "Green House Seed Co. current Super Lemon Haze Feminized page lists CBD at 0.21%."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4468,8 +6242,8 @@
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
-        "text": "Green House Seed Co.が2000年代末にLemon SkunkとSuper Silver Hazeを交配して育種した品種。",
-        "note": "公式ページのbred at the end of the 2000sという説明に基づく。"
+        "text": "Green House Seed Co. bred the cultivar at the end of the 2000s from Lemon Skunk and Super Silver Haze.",
+        "note": "Based on the current official product description."
       },
       "history": {
         "status": "confirmed",
@@ -4478,8 +6252,8 @@
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
-        "text": "2008年・2009年のHigh Times Cannabis Cupで1位を獲得し、その後も複数のカップ受賞歴を持つ。",
-        "note": "Green House Seed Co.公式のAWARDS一覧に基づく。"
+        "text": "The official page lists first-place High Times Cannabis Cup awards in 2008 and 2009 among its awards.",
+        "note": "Based on the breeder's current awards list."
       },
       "publicContent": {
         "ja": {
@@ -4508,8 +6282,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4536,7 +6310,7 @@
         "parents": [
           "T-1000"
         ],
-        "note": "Humboldt CSI's official product page identifies T-1000 S1 as T-1000 × T-1000; together with the S1 designation this is treated as a selfed S1 line."
+        "note": "Humboldt CSI's current official T-1000 S1 page identifies T-1000 × T-1000 and 7 feminized seeds per pack. Together with the S1 designation, this is treated as a selfed S1 line."
       },
       "relations": [
         {
@@ -4556,12 +6330,34 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "No cultivar-wide aroma claim is added beyond the official source."
+        "note": "The current official T-1000 S1 page does not provide bounded cultivar-wide aroma descriptors for the complete S1 line."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No cultivar-specific lot terpene profile or COA is used for this S1 entry."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The current official T-1000 S1 page does not provide a cultivar-specific lot terpene profile or COA."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-t-1000-s1"
+          ],
+          "note": "The current Humboldt CSI T-1000 S1 product page publishes no bounded numeric THC percentage for the complete S1 line. No value is borrowed from T-1000, Old Family Purple, Triangle Kush, or Purple Urkle."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-t-1000-s1"
+          ],
+          "note": "The current Humboldt CSI T-1000 S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -4595,8 +6391,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4674,7 +6470,66 @@
           "limonene",
           "beta-caryophyllene"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-thai-chiang-mai"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 10,
+            "max": 15,
+            "approximate": false
+          },
+          "note": "ACE Seeds current Thai Regular page lists THC at 10-15%."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "ace-seeds-thai-chiang-mai"
+          ],
+          "note": "ACE Seeds current Thai Regular page explicitly lists CBD as Null and describes zero CBD. No numeric percentage is inferred or stored."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4694,7 +6549,7 @@
           "ace-seeds-about"
         ],
         "text": "ACE Seeds states that it unveiled this old pure Thai from Chiang Mai in 2022.",
-        "note": "Only chronology or development context explicitly stated by ACE Seeds is retained; unstated dates are not inferred."
+        "note": "Only chronology or development context explicitly stated by ACE Seeds is retained."
       },
       "publicContent": {
         "ja": {
@@ -4716,8 +6571,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-22",
-      "updatedAt": "2026-08-22"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4750,7 +6605,7 @@
         "parents": [
           "OG Kush"
         ],
-        "note": "DNA Geneticsの現行EU商品ページは遺伝背景をOG Kush S1と表示し、最初にリリースしたフェミナイズドOG Kush種子から#18を選抜して再フェミナイズしたと説明している。SeedFinderもReserva PrivadaのOG Kush背景を支持する。一方、資料間でS1/BX等の世代表現が揺れるため、breeding.generation自体はunknownとして固定する。"
+        "note": "DNA Geneticsの現行EU商品ページは遺伝背景をOG Kush S1と表示し、最初にリリースしたフェミナイズドOG Kush種子から#18を選抜して再フェミナイズしたと説明している。資料間でS1/BX等の世代表現が揺れるため、breeding.generation自体はunknownとして固定する。"
       },
       "relations": [
         {
@@ -4793,7 +6648,41 @@
           "Myrcene",
           "Linalool"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "Myrcene",
+              "labelJa": "Myrcene"
+            },
+            {
+              "id": "Linalool",
+              "labelJa": "Linalool"
+            }
+          ]
+        },
         "note": "Leafly掲載の報告テルペン。The OG #18全体に固定された成分や特定lotのラボ分析とは扱わないためconfidenceはC。"
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-eu-the-og-18"
+          ],
+          "note": "DNA Genetics' current The OG #18 product page does not publish a numeric THC percentage. No value is borrowed from OG Kush or other OG #18 listings."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "dna-eu-the-og-18"
+          ],
+          "note": "DNA Genetics' current The OG #18 product page does not publish a numeric CBD percentage."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -4813,8 +6702,8 @@
           "dna-eu-the-og-18",
           "seedfinder-the-og-18"
         ],
-        "text": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されている。SeedFinderでも2011年と2009年の主要受賞を確認できる。",
-        "note": "受賞歴は公式商品ページを主根拠とし、専門データベースで部分的に照合。2007年分は今回独立した一次アーカイブまでは確認できていないためconfidenceはB。"
+        "text": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されている。",
+        "note": "受賞歴は公式商品ページを主根拠とし、専門データベースで部分的に照合。"
       },
       "publicContent": {
         "ja": {
@@ -4834,8 +6723,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4862,7 +6751,7 @@
         "parents": [
           "TrainWreck"
         ],
-        "note": "Humboldt CSI's official product page identifies TrainWreck S1 as TrainWreck × TrainWreck; together with the S1 designation this is treated as a selfed S1 line."
+        "note": "Humboldt CSI's current official product page identifies TrainWreck S1 as TrainWreck × TrainWreck and 7 feminized seeds per pack; together with the S1 designation this is treated as a selfed S1 line."
       },
       "relations": [
         {
@@ -4882,12 +6771,34 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "No cultivar-wide aroma claim is added beyond the official source."
+        "note": "The current official page describes the preserved TrainWreck source clone but does not provide bounded cultivar-wide aroma descriptors for the complete S1 line."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No cultivar-specific lot terpene profile or COA is used for this S1 entry."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "Humboldt CSI describes the preserved TrainWreck source clone as terpinolene dominant. That source-cut statement is not generalized into a fixed terpene profile for every plant in the TrainWreck S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-trainwreck-s1"
+          ],
+          "note": "The current Humboldt CSI TrainWreck S1 product page publishes no bounded numeric THC percentage for the complete S1 line. Source-clone or third-party TrainWreck values are not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-trainwreck-s1"
+          ],
+          "note": "The current Humboldt CSI TrainWreck S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -4921,8 +6832,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -4949,7 +6860,7 @@
         "parents": [
           "Triangle Kush"
         ],
-        "note": "Humboldt CSI's official product page identifies Triangle Kush S1 as Triangle Kush × Triangle Kush; together with the S1 designation this is treated as a selfed S1 line."
+        "note": "Humboldt CSI's current official product page identifies Triangle Kush S1 as Triangle Kush × Triangle Kush and 7 feminized seeds per pack; together with the S1 designation this is treated as a selfed S1 line."
       },
       "relations": [
         {
@@ -4969,12 +6880,34 @@
       "aromas": {
         "status": "unknown",
         "items": [],
-        "note": "No cultivar-wide aroma claim is added beyond the official source."
+        "note": "The current official Triangle Kush S1 page does not provide bounded cultivar-wide aroma descriptors for the complete S1 line. Customer-review descriptions are not promoted to formal cultivar claims."
       },
       "terpenes": {
         "status": "unknown",
+        "sourceRefs": [],
         "items": [],
-        "note": "No cultivar-specific lot terpene profile or COA is used for this S1 entry."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "The current official Triangle Kush S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-triangle-kush-s1"
+          ],
+          "note": "The current Humboldt CSI Triangle Kush S1 product page publishes no bounded numeric THC percentage for the complete S1 line. Customer reviews and parent-cut values are not generalized."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "humboldt-csi-triangle-kush-s1"
+          ],
+          "note": "The current Humboldt CSI Triangle Kush S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -5008,8 +6941,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-19",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -5037,7 +6970,7 @@
           "Purple Malawi",
           "Purple Pakistan Chitral Kush"
         ],
-        "note": "ACE Seeds describes Violeta as an F1 hybrid from Purple Malawi crossed with Purple Pakistan Chitral Kush."
+        "note": "ACE Seeds describes Violeta Regular as an F1 hybrid from Purple Malawi crossed with Purple Pakistan Chitral Kush."
       },
       "relations": [
         {
@@ -5065,7 +6998,7 @@
           "balsamic",
           "forest fruits"
         ],
-        "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
+        "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring compounds."
       },
       "terpenes": {
         "status": "confirmed",
@@ -5086,12 +7019,90 @@
           "guaiol",
           "alpha-humulene"
         ],
-        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; confidence remains below A because an independently retrieved laboratory report is not used here."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            }
+          ]
+        },
+        "note": "ACE Seeds publishes a named cultivar-specific terpene profile; no independent lot COA is promoted."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-violeta"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 18,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 18% for Violeta Regular."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-violeta"
+          ],
+          "measurement": {
+            "kind": "less-than",
+            "unit": "%",
+            "value": 0.05,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD below 0.05% for Violeta Regular."
+        }
       },
       "origin": {
         "status": "unknown",
         "text": "",
-        "note": "The cited official cultivar evidence does not establish a sufficiently bounded creation location for this atlas entry; no location is inferred."
+        "note": "The official cultivar evidence does not establish one bounded creation location; none is inferred."
       },
       "history": {
         "status": "confirmed",
@@ -5101,14 +7112,14 @@
           "ace-seeds-about"
         ],
         "text": "ACE Seeds states that Violeta was released in 2014.",
-        "note": "Only chronology or development context explicitly stated by ACE Seeds is retained; unstated dates are not inferred."
+        "note": "Only the explicitly stated chronology is retained."
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Violetaは、Purple Malawiを母系に、紫色のPakistan Chitral Kushを交配したF1ハイブリッドとしてACE Seedsが公式に説明しています。",
-          "history": "ACE Seedsの公式沿革では、Violetaは2014年にリリースされた品種として記録されています。ここではその明記された年だけを履歴として採用しています。",
-          "aromaNote": "公式の品種説明では、バルサミックな香りを中心に、森の果実を思わせるフルーティーな背景が重なるとされています。",
-          "terpeneNote": "公式テルペン欄ではterpinoleneが35%と最も多く、alpha-pinene、limonene、beta-pineneが続き、trans-ocimene、linalool、beta-myrceneも少量記載されています。セスキテルペンとしてbeta-caryophyllene、guaiol、alpha-humuleneが挙げられています。"
+          "lineageNote": "ACE Seeds公式では、Violeta RegularはPurple Malawi × Purple Pakistan Chitral KushのF1で、40% Sativa / 60% Indicaと記載されています。",
+          "history": "ACE Seedsの公式沿革では、Violetaは2014年にリリースされた品種として記録されています。",
+          "aromaNote": "公式では、バルサミックな香りを中心に、森の果実を思わせるフルーティーな背景が重なるとされています。",
+          "terpeneNote": "公式テルペン欄ではterpinoleneが35%と最も多く、alpha-pinene、limonene、beta-pineneが続きます。"
         }
       },
       "visuals": [
@@ -5122,8 +7133,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-22",
-      "updatedAt": "2026-08-22"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -5133,7 +7144,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica"
+        "type": "indica-dominant-hybrid"
       },
       "breeding": {
         "generation": "F1",
@@ -5148,7 +7159,7 @@
           "Skunk",
           "Afghani"
         ],
-        "note": "Serious Seeds directly identifies Warlock as a cross between Skunk and a strain from Afghanistan.",
+        "note": "Serious Seeds directly identifies Warlock as a cross between Skunk and a strain from Afghanistan and describes it as mostly indica.",
         "sourceRefs": [
           "serious-seeds-warlock"
         ]
@@ -5185,13 +7196,49 @@
       },
       "terpenes": {
         "status": "unknown",
-        "confidence": "unknown",
         "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
         "items": [],
-        "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred from sensory wording."
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-warlock"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 20,
+            "approximate": false
+          },
+          "note": "Serious Seeds currently lists THC/CBD levels as 20%/1% for Warlock."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-warlock"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 1,
+            "approximate": false
+          },
+          "note": "Serious Seeds currently lists THC/CBD levels as 20%/1% for Warlock."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -5201,7 +7248,7 @@
           "serious-seeds-warlock"
         ],
         "text": "Warlock originated as the flagship cultivar of Magus Genetics and is now maintained by Serious Seeds.",
-        "note": "Limited to breeder-published origin context; undisclosed details remain undisclosed."
+        "note": "Limited to breeder-published context."
       },
       "history": {
         "status": "confirmed",
@@ -5210,14 +7257,14 @@
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
-        "text": "Serious Seeds states Warlock debuted in 1997 and won two High Times Cannabis Cup awards at its debut.",
+        "text": "Serious Seeds states Warlock debuted in 1997 and won cup awards at its debut.",
         "note": "Only dated or descriptive history stated on the current official page is retained."
       },
       "publicContent": {
         "ja": {
-          "origin": "Serious Seedsは、WarlockがMagus Geneticsの代表的な品種として生まれ、現在はSerious Seedsが維持していると説明しています。",
-          "lineageNote": "Serious Seeds公式では、SkunkとAfghanistan由来の系統の交配とされています。",
-          "history": "Serious SeedsはWarlockが1997年にデビューし、そのデビュー時にHigh Times Cannabis Cupで2つの賞を獲得したと説明しています。",
+          "origin": "Serious Seedsは、WarlockがMagus Geneticsの代表品種として生まれ、現在はSerious Seedsが維持していると説明しています。",
+          "lineageNote": "Serious Seeds公式ではSkunk × Afghanistan由来系統のF1で、主にインディカのハイブリッドとされています。",
+          "history": "Serious SeedsはWarlockが1997年にデビューしたと説明しています。",
           "aromaNote": "Serious Seeds公式では、ストロング、スイート、アシディック、フレッシュフルーツの香りが挙げられています。"
         }
       },
@@ -5241,8 +7288,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-19"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -5274,7 +7321,7 @@
           "Triangle Kush",
           "Animal Mints"
         ],
-        "note": "Seed Junky GeneticsのJ BeezyがWedding CakeをTriangle MintsのphenotypeとしていたことをLeaflyが記録しており、近年の専門資料もTriangle Kush × Animal Mintsで一致する。一方、過去にはGSC × Cherry Pie説も広く流通したためstatusはdisputedとする。Triangle Mints #23表記は専門資料で広く一致するが、現在アクセスできるSeed Junky公式ページでは#23と親系統を直接確認できないためconfidenceはBを維持する。"
+        "note": "Seed Junky GeneticsのJ BeezyがWedding CakeをTriangle Mintsのphenotypeとしていたことを専門資料が記録している。一方、過去にはGSC × Cherry Pie説も流通し、現在アクセスできるSeed Junky公式ページでは#23と親系統を直接確認できないためdisputed / confidence Bを維持する。"
       },
       "relations": [
         {
@@ -5306,7 +7353,7 @@
           "ペッパー",
           "フューエル"
         ],
-        "note": "Leaflyはvanilla doughiness、sweet earthiness、pepperyな要素を記録し、2026年の専門記事ではfuel、vanilla、creamの層を記録している。流通個体・phenotype間で香りの差があるため、固定的な単一香としては扱わない。"
+        "note": "専門資料に共通する香り表現。流通個体・phenotype間で差があるため、固定的な単一香としては扱わない。"
       },
       "terpenes": {
         "status": "unknown",
@@ -5314,7 +7361,28 @@
           "leafly-wedding-cake"
         ],
         "items": [],
-        "note": "Leafly等ではCaryophyllene、Limonene、Myrceneが代表的とされるが、cultivar全体の固定テルペンとして一般化できる一次ラボ資料を確認できていない。product/lot差をcultivarの固定情報へ拡張しないためunknownとする。"
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
+        "note": "Cultivar全体の固定テルペンとして一般化できる一次ラボ資料を確認できていないためunknownとする。"
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": [
+            "seed-junky-official"
+          ],
+          "note": "The currently accessible Seed Junky official site does not publish a cultivar-specific numeric THC percentage for Wedding Cake. Third-party market values are not promoted into the formal atlas record."
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": [
+            "seed-junky-official"
+          ],
+          "note": "The currently accessible Seed Junky official site does not publish a cultivar-specific numeric CBD percentage for Wedding Cake."
+        }
       },
       "origin": {
         "status": "confirmed",
@@ -5325,7 +7393,7 @@
           "david-downs-wedding-cake-2026"
         ],
         "text": "Seed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして記録されている。",
-        "note": "Seed Junky公式サイトはWedding Cakeを自社のpheno-hunted cultivarとして扱うが、現在の公式ページでは選抜時期・場所・#23表記まで直接確認できないためoriginのconfidenceはBとする。"
+        "note": "現在の公式ページでは選抜時期・場所・#23表記まで直接確認できないためoriginのconfidenceはBとする。"
       },
       "history": {
         "status": "confirmed",
@@ -5336,8 +7404,8 @@
           "high-times-socal-2018-wedding-cake",
           "david-downs-wedding-cake-2026"
         ],
-        "text": "Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして広まり、2018年SoCal High Times Cannabis CupではNew Amsterdam Naturals with CannastarのWedding CakeがBest Hybrid Flower 1位となった。2019年にはLeafly Strain of the Yearに選出された。過去にはGSC × Cherry Pie説も広く流通したが、Leaflyはbreederの説明を優先しTriangle Mints phenotypeとして整理している。",
-        "note": "2018年の受賞はcultivarの競技実績として記録し、Seed Junky Genetics自身の受賞とは表現しない。Pink CookiesはLeafly等で別名として使われるが、旧GSC × Cherry Pie系統との混同を避けるため現時点のaliasesから除外した。"
+        "text": "Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして広まり、2018年SoCal High Times Cannabis CupではWedding CakeがBest Hybrid Flower 1位、2019年にはLeafly Strain of the Yearに選出された。",
+        "note": "受賞はcultivarの競技実績として記録し、Seed Junky Genetics自身の受賞とは表現しない。"
       },
       "publicContent": {
         "ja": {
@@ -5365,8 +7433,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-16",
-      "updatedAt": "2026-08-16"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     },
     {
       "schemaVersion": 1,
@@ -5449,7 +7517,99 @@
           "α-Humulene",
           "Nerolidol 2"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Terpinolene",
+              "labelJa": "Terpinolene"
+            },
+            {
+              "id": "β-Myrcene",
+              "labelJa": "β-Myrcene"
+            },
+            {
+              "id": "β-Ocimene",
+              "labelJa": "β-Ocimene"
+            },
+            {
+              "id": "β-Pinene",
+              "labelJa": "β-Pinene"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "Limonene"
+            },
+            {
+              "id": "α-Pinene",
+              "labelJa": "α-Pinene"
+            },
+            {
+              "id": "Linalool",
+              "labelJa": "Linalool"
+            },
+            {
+              "id": "δ-3-Carene",
+              "labelJa": "δ-3-Carene"
+            },
+            {
+              "id": "α-Terpinene",
+              "labelJa": "α-Terpinene"
+            },
+            {
+              "id": "γ-Terpinene",
+              "labelJa": "γ-Terpinene"
+            },
+            {
+              "id": "β-Caryophyllene",
+              "labelJa": "β-Caryophyllene"
+            },
+            {
+              "id": "α-Humulene",
+              "labelJa": "α-Humulene"
+            },
+            {
+              "id": "Nerolidol 2",
+              "labelJa": "Nerolidol 2"
+            }
+          ]
+        },
         "note": "ACE Seeds公式Terpene profile。Terpinolene 23%とβ-Myrcene 22%が高含有として示され、その他は少量またはtraceとして記載される。"
+      },
+      "cannabinoids": {
+        "thc": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-zamaldelica"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 21,
+            "max": 23,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists THC at 21-23% for Zamaldelica Regular."
+        },
+        "cbd": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-zamaldelica"
+          ],
+          "measurement": {
+            "kind": "range",
+            "unit": "%",
+            "min": 0,
+            "max": 0.05,
+            "approximate": false
+          },
+          "note": "ACE Seeds lists CBD at 0-0.05% for Zamaldelica Regular. This exact bounded range is retained without converting it to Null or a single value."
+        }
       },
       "origin": {
         "status": "unknown",
@@ -5484,8 +7644,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-17",
-      "updatedAt": "2026-08-17"
+      "checkedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
     }
   ],
   "sources": {
@@ -5501,8 +7661,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Current ACE Seeds official About page. Used to confirm Panama was included in ACE Seeds' first catalog in 2005 and to support breeder/seed-company context."
+      "checkedAt": "2026-08-17"
     },
     "ace-seeds-about": {
       "schemaVersion": 1,
@@ -5516,8 +7675,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "ACE Seeds公式沿革・entity確認。2012年のMalawi導入とACE Seedsのbreeder / seed company確認に使用。"
+      "checkedAt": "2026-08-17"
     },
     "ace-seeds-african-gas": {
       "schemaVersion": 1,
@@ -5533,11 +7691,11 @@
         "breeding",
         "aromas",
         "visualMorphology",
-        "terpenes"
+        "terpenes",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-23",
-      "note": "ACE Seeds official cultivar page used for the African Gas production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet plus named terpene profile."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-bangi-haze": {
       "schemaVersion": 1,
@@ -5555,11 +7713,11 @@
         "terpenes",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "ACE Seeds official cultivar page used for classification, F8 genetics, structure, bouquet, terpene profile and development context."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-c5-haze-x-kali-china": {
       "schemaVersion": 1,
@@ -5572,15 +7730,16 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "terpenes",
+        "cannabinoids",
         "visualMorphology",
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-22",
-      "note": "ACE Seeds official cultivar page used for the C5 Haze x Kali China production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure, bouquet and named terpene profile plus history."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-cbd-1": {
       "schemaVersion": 1,
@@ -5593,6 +7752,7 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "visualMorphology",
@@ -5601,8 +7761,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-28",
-      "note": "ACE Seeds official CBD #1 cultivar page used for genetics, three-year lab-assisted development, structure, bouquet, named terpene profile and cannabinoid ranges."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-congo": {
       "schemaVersion": 1,
@@ -5615,14 +7774,15 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "visualMorphology",
-        "terpenes"
+        "terpenes",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-23",
-      "note": "ACE Seeds official cultivar page used for the Congo production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet; the page states the terpene profile is not yet analyzed."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-ethiopia": {
       "schemaVersion": 1,
@@ -5635,6 +7795,7 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "visualMorphology",
@@ -5643,8 +7804,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-28",
-      "note": "ACE Seeds official Ethiopia cultivar page used for pure-line identity, morphology, bouquet, named terpene profile, origin and cannabinoid ranges."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-golden-tiger": {
       "schemaVersion": 1,
@@ -5657,15 +7817,16 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
+        "cannabinoids",
         "aromas",
         "origin",
         "history",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-guawi": {
       "schemaVersion": 1,
@@ -5678,14 +7839,15 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "visualMorphology",
-        "terpenes"
+        "terpenes",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-23",
-      "note": "ACE Seeds official cultivar page used for the Guawi production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet; the page states the terpene profile is not yet analyzed."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-killer-a5-haze": {
       "schemaVersion": 1,
@@ -5698,14 +7860,15 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "terpenes",
+        "cannabinoids",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-22",
-      "note": "ACE Seeds official cultivar page used for the Killer A5 Haze production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure, bouquet and named terpene profile."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-lebanese": {
       "schemaVersion": 1,
@@ -5727,15 +7890,14 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-28",
-      "note": "ACE Seeds official Lebanese cultivar page used for pure-line identity, breeding history, morphology, bouquet, terpene profile and cannabinoid ranges."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-malawi": {
       "schemaVersion": 1,
       "id": "ace-seeds-malawi",
       "publisher": "ACE Seeds",
-      "title": "Malawi",
-      "url": "https://www.aceseeds.org/en/seeds/malawi-standard/",
+      "title": "Malawi Regular",
+      "url": "https://www.aceseeds.org/en/seeds/malawi-regular-seeds/",
       "sourceType": "breederOfficial",
       "supports": [
         "lineage",
@@ -5743,11 +7905,11 @@
         "classification",
         "aromas",
         "terpenes",
-        "origin"
+        "origin",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "ACE Seeds公式Malawi品種ページ。Malawi由来P4 landrace、Old Malawi Killer × 3rd generation Malawis、香味、テルペン、原産地、breeder / seed company確認に使用。"
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-new-caledonia": {
       "schemaVersion": 1,
@@ -5769,8 +7931,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-28",
-      "note": "ACE Seeds official New Caledonia cultivar page used for P2 pure-line identity, reproduction context, morphology, bouquet, named terpene profile and cannabinoid ranges."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-orient-express": {
       "schemaVersion": 1,
@@ -5786,11 +7947,11 @@
         "breeding",
         "aromas",
         "visualMorphology",
-        "terpenes"
+        "terpenes",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-23",
-      "note": "ACE Seeds official cultivar page used for the Orient Express production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure and bouquet plus named terpene profile."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-panama": {
       "schemaVersion": 1,
@@ -5806,11 +7967,11 @@
         "breeding",
         "aromas",
         "terpenes",
-        "origin"
+        "origin",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "ACE Seeds official Panama page. Used for three-Panamanian-sativa lineage, F8-F12 designation, 100% sativa type, aroma, terpene profile, origin and visual morphology evidence."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-rush-of-siam": {
       "schemaVersion": 1,
@@ -5831,8 +7992,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-28",
-      "note": "ACE Seeds official Rush of Siam cultivar page used for genetics, breeding history, structure, bouquet, named terpene profile and cannabinoid values."
+      "checkedAt": "2026-09-02"
     },
     "ace-seeds-thai-chiang-mai": {
       "schemaVersion": 1,
@@ -5849,11 +8009,11 @@
         "aromas",
         "terpenes",
         "visualMorphology",
-        "origin"
+        "origin",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-22",
-      "note": "ACE Seeds official cultivar page used for the Thai Chiang Mai production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure, bouquet and named terpene profile plus origin."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-violeta": {
       "schemaVersion": 1,
@@ -5869,11 +8029,11 @@
         "breeding",
         "aromas",
         "terpenes",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-22",
-      "note": "ACE Seeds official cultivar page used for the Violeta production-ready stock candidate: lineage, classification/breeding context, cultivar-specific structure, bouquet and named terpene profile."
+      "checkedAt": "2026-08-30"
     },
     "ace-seeds-zamaldelica": {
       "schemaVersion": 1,
@@ -5891,11 +8051,11 @@
         "history",
         "aromas",
         "terpenes",
-        "origin"
+        "origin",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "ACE Seeds公式Zamaldelica Regular品種ページ。F3 semi stabilized hybrid、100% sativa、Zamal x Malawi/Thai、Zamal母系のRéunion Island由来、作出説明、bouquet、詳細terpene profileを確認。"
+      "checkedAt": "2026-08-30"
     },
     "acs-og-kush-volatiles-2021": {
       "schemaVersion": 1,
@@ -5909,8 +8069,7 @@
         "terpenes"
       ],
       "publishedAt": "2021-11-12",
-      "checkedAt": "2026-08-16",
-      "note": "Peer-reviewed volatile-compound study coauthored by Josh Del Rosso. It describes OG Kush as strongly pungent and fuel-like and associates that profile with high beta-myrcene and beta-caryophyllene. Used as corroboration, not as proof that every OG Kush lot shares one fixed terpene profile."
+      "checkedAt": "2026-08-16"
     },
     "barneys-farm-acapulco-gold": {
       "schemaVersion": 1,
@@ -5927,11 +8086,11 @@
         "aromas",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "barneys-farm-laughing-buddha": {
       "schemaVersion": 1,
@@ -5949,11 +8108,11 @@
         "terpenes",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Barney's Farm official cultivar page used for 80% sativa classification, Thai × Jamaican lineage, aroma and text morphology."
+      "checkedAt": "2026-08-30"
     },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
@@ -5969,8 +8128,7 @@
         "aromas"
       ],
       "publishedAt": "2026-07-17",
-      "checkedAt": "2026-08-16",
-      "note": "Recent specialist article based on direct conversation with Seed Junky co-founder J Beezy. It identifies Seed Junky Genetics with Wedding Cake and describes Wedding Cake as Triangle Kush x Animal Mints. The lineage wording is the author's statement rather than a verbatim lineage quote from J Beezy, so it is corroborating evidence rather than standalone A-level proof for parentage."
+      "checkedAt": "2026-08-16"
     },
     "dna-chocolope-256": {
       "schemaVersion": 1,
@@ -5982,14 +8140,15 @@
       "supports": [
         "lineage",
         "type",
+        "composition",
         "aroma",
         "terpene",
+        "cannabinoids",
         "breeder",
         "origin"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Primary DNA Genetics product source for Chocolope 256. It identifies the cross as Lemon Skunk 256 (Emerald Cup Winning Cut) × Chocolope, classifies the cultivar as Sativa-dominant (70% Sativa / 30% Indica in the product description), gives cultivar-level aroma descriptors, and names Myrcene, Beta-caryophyllene, and Limonene. The page is not a lot-specific laboratory COA, so terpene confidence should remain conservative. No named breeding generation such as F1/F2/BX is stated."
+      "checkedAt": "2026-08-30"
     },
     "dna-eu-cataract-kush": {
       "schemaVersion": 1,
@@ -6003,11 +8162,11 @@
         "breeder",
         "classification",
         "origin",
-        "history"
+        "history",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Current DNA Genetics European catalog page. It identifies Cataract Kush as a combination of OG Kush and L.A. Confidential, lists 99% Indica / 1% Sativa, and states that the strain was years in the making."
+      "checkedAt": "2026-08-30"
     },
     "dna-eu-the-og-18": {
       "schemaVersion": 1,
@@ -6024,8 +8183,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Current DNA Genetics European catalog page. It identifies The #18 as a selection from previously released feminized OG Kush seeds, says it was re-feminized, labels the genetics as OG Kush S1, describes sour/fuel characteristics, and lists historical awards."
+      "checkedAt": "2026-08-30"
     },
     "dna-strawberry-banana-s1": {
       "schemaVersion": 1,
@@ -6037,13 +8195,15 @@
       "supports": [
         "lineage",
         "breeder",
+        "classification",
+        "breeding",
         "aromas",
         "terpenes",
-        "history"
+        "history",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-15",
-      "note": "Primary source for the S1 designation, self-pollination description, breeder description, aroma and reported terpene claims."
+      "checkedAt": "2026-08-30"
     },
     "dutch-passion-durban-poison": {
       "schemaVersion": 1,
@@ -6059,13 +8219,13 @@
         "breeding",
         "aromas",
         "terpenes",
+        "cannabinoids",
         "origin",
         "history",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Dutch Passion official cultivar page used for sativa classification, Durban × Unknown Indica lineage, aroma, morphology and origin context."
+      "checkedAt": "2026-08-30"
     },
     "dutch-passion-frisian-duck": {
       "schemaVersion": 1,
@@ -6080,11 +8240,11 @@
         "seedCompany",
         "classification",
         "history",
-        "aromas"
+        "aromas",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Dutch Passion公式Frisian Duck品種ページ。Frisian Dew x DucksFoot、hybrid表記、長年の選抜育種、特徴的な葉形、spicy / fresh forest / pine / citrus / fruity系の香りを確認。"
+      "checkedAt": "2026-08-30"
     },
     "dutch-passion-mazar": {
       "schemaVersion": 1,
@@ -6105,8 +8265,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-20",
-      "note": "Official cultivar page used for identity, breeding/lineage, cannabinoid evidence and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "dutch-passion-shaman-story": {
       "schemaVersion": 1,
@@ -6125,8 +8284,7 @@
         "aromas"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Dutch Passion official cultivar history page. Used for Purple #1 male × early Skunk female, sativa-dominant F1 designation, Dutch outdoor breeding-program history/origin and structural visual evidence."
+      "checkedAt": "2026-08-17"
     },
     "dutch-passion-shaman": {
       "schemaVersion": 1,
@@ -6140,11 +8298,11 @@
         "breeder",
         "classification",
         "breeding",
-        "aromas"
+        "aromas",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Dutch Passion official Shaman product page. Used for Purple #1 × Skunk lineage, sativa-dominant identity, F1/regular-feminised product context, aroma and visual colour evidence."
+      "checkedAt": "2026-08-30"
     },
     "fischedick-og-kush-terpenoids-2017": {
       "schemaVersion": 1,
@@ -6157,8 +8315,33 @@
         "terpenes"
       ],
       "publishedAt": "2017-03-01",
-      "checkedAt": "2026-08-16",
-      "note": "Peer-reviewed terpene study including samples labeled OG Kush. The OG Kush group was characterized primarily by myrcene with similar or somewhat lower limonene, while beta-caryophyllene and related terpenoids also contributed to the group profile. Cultivar-name identity limitations remain."
+      "checkedAt": "2026-08-16"
+    },
+    "fundacion-canna-rush-of-siam-1-terpenes": {
+      "schemaVersion": 1,
+      "id": "fundacion-canna-rush-of-siam-1-terpenes",
+      "publisher": "Fundación CANNA",
+      "title": "Rush of Siam #1 - Terpenes Test Report",
+      "url": "https://www.aceseeds.org/wp-content/uploads/2024/12/Rush-of-Siam-1-terpene-analysis.jpg",
+      "sourceType": "laboratoryReport",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-02"
+    },
+    "fundacion-canna-rush-of-siam-2-terpenes": {
+      "schemaVersion": 1,
+      "id": "fundacion-canna-rush-of-siam-2-terpenes",
+      "publisher": "Fundación CANNA",
+      "title": "Rush of Siam #2 - Terpenes Test Report",
+      "url": "https://www.aceseeds.org/wp-content/uploads/2024/12/Rush-of-Siam-2-terpene-analysis.jpg",
+      "sourceType": "laboratoryReport",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-02"
     },
     "ghsc-super-lemon-haze": {
       "schemaVersion": 1,
@@ -6174,11 +8357,11 @@
         "aromas",
         "terpenes",
         "origin",
-        "history"
+        "history",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Primary Green House Seed Co. source. Confirms Lemon Skunk × Super Silver Haze, 70% Sativa / 30% Indica, lemon/citrus/Haze/woody/pine sensory description, reported β-Caryophyllene/D-Limonene/Terpinolene profile, late-2000s breeding context, and listed awards."
+      "checkedAt": "2026-08-30"
     },
     "high-times-socal-2018-wedding-cake": {
       "schemaVersion": 1,
@@ -6193,8 +8376,7 @@
         "classification"
       ],
       "publishedAt": "2018-04-24",
-      "checkedAt": "2026-08-16",
-      "note": "High Times event result lists Wedding Cake by New Amsterdam Naturals with Cannastar as 1st Place, Best Hybrid Flower. This supports the cultivar's competition history and hybrid classification, not breeder attribution."
+      "checkedAt": "2026-08-16"
     },
     "hsc-california-octane": {
       "schemaVersion": 1,
@@ -6208,11 +8390,11 @@
         "breeder",
         "classification",
         "breeding",
-        "aromas"
+        "aromas",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Humboldt Seed Company official California Octane product page. Used for Dream Queen × I-369 × Papaya lineage, S3 designation, indica-leaning hybrid type, gas/guava/crème aroma and dense trichome-rich flower evidence."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-bubba-kush-s1": {
       "schemaVersion": 1,
@@ -6228,8 +8410,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used to confirm the Bubba Kush S1 identity, S1 designation, same-cultivar cross (Bubba Kush × Bubba Kush), feminized seed listing, and Humboldt CSI association. No unsupported aroma, terpene, classification, or cultivar-wide morphology claims are imported."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-bubblegum-s1": {
       "schemaVersion": 1,
@@ -6245,8 +8426,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page identifies Bubblegum S1 as Bubblegum (Indiana cut) × Bubblegum (Indiana cut) and lists feminized seeds. The current page exposes an awaiting-product-image placeholder, so no cultivar-specific visual morphology is extracted."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-chemdog-d-s1": {
       "schemaVersion": 1,
@@ -6262,8 +8442,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page identifies Chemdog D S1 as Chemdog D × Chemdog D and lists feminized seeds. The current page exposes an awaiting-product-image placeholder, so no cultivar-specific visual morphology is extracted."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-cherry-pie-s1": {
       "schemaVersion": 1,
@@ -6279,8 +8458,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page identifies Cherry Pie S1 as Cherry Pie × Cherry Pie and lists feminized seeds. The current page exposes an awaiting-product-image placeholder, so no cultivar-specific visual morphology is extracted."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-durban-poison-s1": {
       "schemaVersion": 1,
@@ -6296,8 +8474,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page identifies Durban Poison S1 as Durban Poison × Durban Poison and lists feminized seeds. Source-cut chemistry language is not generalized to the complete S1 line. The current page exposes an awaiting-product-image placeholder, so no cultivar-specific visual morphology is extracted."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-f1-durb-s1": {
       "schemaVersion": 1,
@@ -6313,8 +8490,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page identifies F1 Durb S1 as F1 Durb × F1 Durb, states the reversal used Cookie Monster's F1 Durb cut, and lists feminized seeds. The current page exposes an awaiting-product-image placeholder, so no cultivar-specific visual morphology is extracted."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-gorilla-glue-4-s1": {
       "schemaVersion": 1,
@@ -6330,8 +8506,7 @@
         "breeding"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used to confirm the Gorilla Glue 4 S1 identity, S1 designation, same-cultivar cross (Gorilla Glue 4 × Gorilla Glue 4), feminized seed listing, and Humboldt CSI association. No unsupported aroma, terpene, classification, or cultivar-wide morphology claims are imported."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-jager-s1": {
       "schemaVersion": 1,
@@ -6348,8 +8523,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used to confirm the Jager S1 identity, S1 designation, same-cultivar cross (Jager × Jager), feminized seed listing, and Humboldt CSI association. No unsupported aroma, terpene, classification, or cultivar-wide morphology claims are imported."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-t-1000-s1": {
       "schemaVersion": 1,
@@ -6367,8 +8541,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used for S1 identity, lineage context, and bounded flower-level visual morphology. The page credits the flower photograph to Resinated Lens; the project stores no copy of that image."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-trainwreck-s1": {
       "schemaVersion": 1,
@@ -6385,8 +8558,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used for S1 identity and history context. The current page reports an awaiting-product-image placeholder; no visual morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-csi-triangle-kush-s1": {
       "schemaVersion": 1,
@@ -6404,8 +8576,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official Humboldt CSI product page used for S1 identity, breeder context, and bounded cultivar-specific visual morphology; no source image is copied into the repository."
+      "checkedAt": "2026-08-30"
     },
     "humboldt-seed-company-about": {
       "schemaVersion": 1,
@@ -6418,8 +8589,7 @@
         "breeder"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Humboldt Seed Company official About page. Used to confirm company identity and breeding/seed-company context. Company founding location is not used as proof of California Octane cultivar origin."
+      "checkedAt": "2026-08-17"
     },
     "josh-d-og-kush-official": {
       "schemaVersion": 1,
@@ -6431,11 +8601,11 @@
       "supports": [
         "lineage",
         "aromas",
-        "history"
+        "history",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Primary source from Josh Del Rosso (Josh D). Records OG Kush reaching Los Angeles from Florida in 1996, Josh D's central role in preserving and spreading the lineage, and his description of the original OG aroma as Pine-Sol, kerosene and earthy gas. Does not establish biological parentage."
+      "checkedAt": "2026-08-30"
     },
     "leafly-bubble-gum": {
       "schemaVersion": 1,
@@ -6452,8 +8622,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14",
-      "note": "Migrated from legacy sources.js without adding new claims."
+      "checkedAt": "2026-08-14"
     },
     "leafly-cataract-kush": {
       "schemaVersion": 1,
@@ -6467,8 +8636,7 @@
         "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Leafly cultivar page used for reported flavor descriptors and Certified Strain Science terpene ordering. These are treated conservatively and not as a cultivar-wide lot-specific COA."
+      "checkedAt": "2026-08-17"
     },
     "leafly-og-18": {
       "schemaVersion": 1,
@@ -6484,8 +8652,7 @@
         "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Specialist database used conservatively for aliases, hybrid classification, reported flavor descriptors, and reported terpene names. Terpene claims are not treated as lot-specific laboratory data."
+      "checkedAt": "2026-08-16"
     },
     "leafly-og-history": {
       "schemaVersion": 1,
@@ -6500,8 +8667,7 @@
         "lineage"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14",
-      "note": "Migrated from legacy sources.js without adding new claims."
+      "checkedAt": "2026-08-14"
     },
     "leafly-strawberry-banana": {
       "schemaVersion": 1,
@@ -6518,8 +8684,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-15",
-      "note": "Independent specialist reference for Original Strawberry Banana; not treated as S1-specific laboratory evidence."
+      "checkedAt": "2026-08-15"
     },
     "leafly-wedding-cake-2019": {
       "schemaVersion": 1,
@@ -6536,8 +8701,7 @@
         "aromas"
       ],
       "publishedAt": "2019-12-13",
-      "checkedAt": "2026-08-16",
-      "note": "Leafly reports that breeder J Beezy of Seed Junky Genetics listed Wedding Cake as a phenotype of Triangle Mints, while noting the older GSC x Cherry Pie belief. Secondary specialist source; breeder's original Instagram post was not directly archived here."
+      "checkedAt": "2026-08-16"
     },
     "leafly-wedding-cake": {
       "schemaVersion": 1,
@@ -6553,8 +8717,7 @@
         "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14",
-      "note": "Migrated from legacy sources.js without adding new claims."
+      "checkedAt": "2026-08-14"
     },
     "seed-junky-official": {
       "schemaVersion": 1,
@@ -6568,8 +8731,7 @@
         "cultivarExistence"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Official Seed Junky site identifies Wedding Cake among its pheno-hunted cultivars. Supports breeder attribution and cultivar existence, but not the exact parentage or Triangle Mints #23 designation."
+      "checkedAt": "2026-08-30"
     },
     "seedfinder-cataract-kush": {
       "schemaVersion": 1,
@@ -6582,8 +8744,7 @@
         "lineage"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "SeedFinder cultivar record used as an independent specialist-database cross-check for the L.A. Confidential and OG Kush parent combination."
+      "checkedAt": "2026-08-17"
     },
     "seedfinder-malawi": {
       "schemaVersion": 1,
@@ -6597,8 +8758,7 @@
         "origin"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "SeedFinderによるMalawi / ACE Seedsの独立照合。CannaConnectionとSeed-Cityはsourceファイルへ追加しない。"
+      "checkedAt": "2026-08-17"
     },
     "seedfinder-the-og-18": {
       "schemaVersion": 1,
@@ -6615,8 +8775,7 @@
         "awards"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16",
-      "note": "Specialist database corroborating Reserva Privada attribution, feminized-seed status, OG Kush background, flowering description, and major award records."
+      "checkedAt": "2026-08-16"
     },
     "sensi-seeds-jack-herer": {
       "schemaVersion": 1,
@@ -6633,11 +8792,11 @@
         "aromas",
         "origin",
         "history",
+        "cannabinoids",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "sensi-seeds-shiva-skunk": {
       "schemaVersion": 1,
@@ -6655,11 +8814,11 @@
         "terpenes",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Sensi Seeds official cultivar page used for 85% indica classification, NL#5 × Skunk #1 lineage, release history and written morphology."
+      "checkedAt": "2026-08-30"
     },
     "serious-seeds-ak-47": {
       "schemaVersion": 1,
@@ -6676,11 +8835,11 @@
         "aromas",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-19",
-      "note": "Official cultivar page used for identity, breeding/lineage and text-grounded morphology. The page exposes cultivar imagery, but the visual pixels were not retrievable in a sufficiently inspectable form in this run, so no image-derived morphology is claimed."
+      "checkedAt": "2026-08-30"
     },
     "serious-seeds-bubble-gum": {
       "schemaVersion": 1,
@@ -6693,11 +8852,12 @@
         "origin",
         "history",
         "lineage",
-        "breeder"
+        "breeder",
+        "classification",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14",
-      "note": "Migrated from legacy sources.js without adding new claims."
+      "checkedAt": "2026-08-30"
     },
     "serious-seeds-kali-mist": {
       "schemaVersion": 1,
@@ -6710,16 +8870,17 @@
         "lineage",
         "breeder",
         "classification",
+        "composition",
         "breeding",
         "aromas",
         "terpenes",
+        "cannabinoids",
         "origin",
         "history",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Serious Seeds official cultivar page used for sativa classification, undisclosed pedigree boundary, aroma, morphology and breeding history."
+      "checkedAt": "2026-08-30"
     },
     "serious-seeds-warlock": {
       "schemaVersion": 1,
@@ -6737,11 +8898,11 @@
         "terpenes",
         "origin",
         "history",
-        "visualMorphology"
+        "visualMorphology",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17",
-      "note": "Serious Seeds official cultivar page used for mostly-indica classification, Skunk/Afghani lineage, history, aroma and morphology."
+      "checkedAt": "2026-08-30"
     },
     "thseeds-bubblegum": {
       "schemaVersion": 1,
@@ -6753,11 +8914,11 @@
       "supports": [
         "history",
         "breeder",
-        "aromas"
+        "aromas",
+        "classification"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14",
-      "note": "Migrated from legacy sources.js without adding new claims."
+      "checkedAt": "2026-08-30"
     }
   },
   "entities": {
