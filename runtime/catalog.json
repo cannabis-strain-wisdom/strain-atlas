@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-02T12:25:16.147Z",
+  "generatedAt": "2026-09-02T12:38:22.857Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -293,8 +293,7 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "limonene",
@@ -1261,8 +1260,7 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
@@ -1724,16 +1722,14 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
               "labelJa": "α-ピネン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
@@ -2138,36 +2134,46 @@
       },
       "terpenes": {
         "status": "confirmed",
-        "confidence": "C",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-chocolope-256"
         ],
         "items": [
-          "Myrcene",
-          "Beta-caryophyllene",
-          "Limonene"
+          "beta-myrcene",
+          "beta-caryophyllene",
+          "limonene"
         ],
-        "evidenceMode": "LISTED",
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "Myrcene",
-              "labelJa": "Myrcene"
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "Beta-caryophyllene",
-              "labelJa": "Beta-caryophyllene"
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
-              "id": "Limonene",
-              "labelJa": "Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             }
           ]
         },
-        "note": "DNA Genetics公式に名称記載あり。ただしlot固有のラボCOAではないため、cultivar全体の成分断定を避けてconfidenceをCに抑える。"
+        "note": "DNA Genetics official cultivar page verified 2026-09-02. Myrcene is explicitly identified as the primary terpene; beta-caryophyllene and limonene are also described in the terpene profile. No numeric terpene percentages are published."
       },
       "cannabinoids": {
         "thc": {
@@ -2199,7 +2205,7 @@
         "ja": {
           "lineageNote": "DNA Genetics公式ではLemon Skunk 256（Emerald Cup Winning Cut）× Chocolopeと記載されています。F1・F2・BXなどの育種世代は公式ページでは確認できません。",
           "aromaNote": "DNA Genetics公式では、アーシー / ムスク、コーヒー、チョコレート、スイートバニラ、チェスナットの香りが挙げられています。",
-          "terpeneNote": "DNA Genetics公式では、Myrcene、Beta-caryophyllene、Limoneneがテルペンとして挙げられています。"
+          "terpeneNote": "DNA Genetics公式ではMyrceneを主要なテルペン（primary terpene）とし、Beta-caryophylleneとLimoneneもテルペンプロファイルの構成要素として説明しています。数値比率は示されていません。"
         }
       },
       "visuals": [
@@ -2213,8 +2219,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30"
+      "checkedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
     },
     {
       "schemaVersion": 1,
@@ -2668,8 +2674,7 @@
               "labelJa": "α-ピネン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-myrcene",
@@ -3855,8 +3860,7 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
@@ -4224,16 +4228,14 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
               "labelJa": "α-ピネン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
@@ -4463,8 +4465,7 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "limonene",
@@ -4805,16 +4806,14 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
+              "visualRole": "support"
             },
             {
               "id": "beta-myrcene",
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "very-high",
               "levelJa": "非常に多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "trans-ocimene",
@@ -5203,16 +5202,14 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
               "labelJa": "α-ピネン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
@@ -5448,8 +5445,7 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
@@ -6346,37 +6342,48 @@
       },
       "terpenes": {
         "status": "confirmed",
-        "confidence": "C",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-strawberry-banana-s1",
-          "leafly-strawberry-banana"
+          "dna-strawberry-banana-s1"
         ],
         "items": [
-          "Limonene",
-          "Myrcene",
-          "Caryophyllene"
+          "limonene",
+          "beta-myrcene",
+          "beta-caryophyllene"
         ],
-        "evidenceMode": "LISTED",
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "Limonene",
-              "labelJa": "Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "Myrcene",
-              "labelJa": "Myrcene"
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "Caryophyllene",
-              "labelJa": "Caryophyllene"
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             }
           ]
         },
-        "note": "Names appear in DNA Genetics material and specialist material, but no S1 lot-specific COA is used; confidence remains conservative."
+        "note": "DNA Genetics official S1 page verified 2026-09-02. Limonene, myrcene and caryophyllene are presented together as dominant terpenes. No ordering or numeric percentages among the three are inferred."
       },
       "cannabinoids": {
         "thc": {
@@ -6429,7 +6436,7 @@
         "ja": {
           "lineageNote": "DNA Geneticsの現行S1ページではOriginal Strawberry BananaをセルフしたS1として説明され、商品欄はOriginal Strawberry Banana × Strawberry Bananaと表記されています。ここではS1としての同一性を優先し、別版の数値は混ぜません。",
           "aromaNote": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエル系の香りが挙げられています。",
-          "terpeneNote": "既存資料ではLimonene、Myrcene、Caryophylleneが挙げられますが、S1固有lotのCOAではないため確度を抑えています。"
+          "terpeneNote": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペン（dominant terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
         }
       },
       "visuals": [
@@ -6443,8 +6450,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30"
+      "checkedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
     },
     {
       "schemaVersion": 1,
@@ -6509,36 +6516,48 @@
       },
       "terpenes": {
         "status": "confirmed",
-        "confidence": "C",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
         "items": [
-          "β-Caryophyllene",
-          "D-Limonene",
-          "Terpinolene"
+          "beta-caryophyllene",
+          "limonene",
+          "terpinolene"
         ],
-        "evidenceMode": "LISTED",
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "listed-chips",
+          "mode": "qualitative-profile",
           "items": [
             {
-              "id": "β-Caryophyllene",
-              "labelJa": "β-Caryophyllene"
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "D-Limonene",
-              "labelJa": "D-Limonene"
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             },
             {
-              "id": "Terpinolene",
-              "labelJa": "Terpinolene"
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
             }
           ]
         },
-        "note": "Green House Seed Co. official page lists these as most expressed terpenes; no lot-specific independent COA is used here."
+        "note": "Green House Seed Co. official cultivar page verified 2026-09-02. Beta-caryophyllene, D-limonene and terpinolene are listed together as the most expressed terpenes. No ordering or numeric terpene percentages are inferred."
       },
       "cannabinoids": {
         "thc": {
@@ -6596,7 +6615,7 @@
         "ja": {
           "lineageNote": "Green House Seed Co.公式ではLemon Skunk × Super Silver Hazeとされています。",
           "aromaNote": "Green House Seed Co.公式では、レモンゼスト、シトラス、ヘイズ、ウッド、パインの香りが挙げられています。",
-          "terpeneNote": "Green House Seed Co.公式では、β-Caryophyllene、D-Limonene、Terpinoleneがテルペンとして挙げられています。"
+          "terpeneNote": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを同格の主要群（most expressed terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
         }
       },
       "visuals": [
@@ -6619,8 +6638,8 @@
           "scope": "cultivar"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30"
+      "checkedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
     },
     {
       "schemaVersion": 1,
@@ -6817,16 +6836,14 @@
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "terpinolene",
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-pinene",
@@ -7391,8 +7408,7 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "alpha-pinene",
@@ -7921,16 +7937,14 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-primary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-myrcene",
               "labelJa": "β-ミルセン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
+              "visualRole": "support"
             },
             {
               "id": "beta-ocimene",
@@ -8584,7 +8598,7 @@
         "origin"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "dna-eu-cataract-kush": {
       "schemaVersion": 1,
@@ -8639,7 +8653,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "dutch-passion-durban-poison": {
       "schemaVersion": 1,
@@ -8797,7 +8811,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-02"
     },
     "high-times-socal-2018-wedding-cake": {
       "schemaVersion": 1,
