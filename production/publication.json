@@ -277,6 +277,10 @@
       "strainId": "rush-of-siam",
       "state": "published",
       "publishedAt": "2026-08-27T22:40:02Z"
+    },
+    {
+      "strainId": "freakshow",
+      "state": "pending"
     }
   ]
 }
