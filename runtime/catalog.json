@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T12:41:18.222Z",
+  "generatedAt": "2026-09-03T20:09:45.000Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5755,7 +5755,25 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-rush-of-siam"
+          ],
+          "scope": "cultivar",
+          "rawText": "Sativa 65% / Indica 35%",
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 65,
+            "indica": 35,
+            "approximate": false
+          },
+          "note": "ACE Seeds states a 65% sativa / 35% indica classification for Rush of Siam; this is a breeder-declared classification ratio, not a laboratory composition."
+        }
       },
       "breeding": {
         "generation": "F1",
@@ -5792,23 +5810,98 @@
       ],
       "aromas": {
         "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-rush-of-siam"
+        ],
+        "evidenceContract": "AROMA_CONTRACT_V1",
+        "evidenceMode": "LAYERED",
+        "evidenceGroups": [
+          {
+            "groupId": "ace-rush-bouquet-baseline",
+            "sourceRef": "ace-seeds-rush-of-siam",
+            "identityVerified": true,
+            "directlySupported": true,
+            "confidenceCeiling": "A",
+            "scope": "cultivar",
+            "semanticRole": "BASELINE",
+            "rawText": "woody lemon, creamy, floral, sweet and sour",
+            "terms": [
+              {
+                "rawTerm": "woody lemon",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "creamy",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "floral",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "sweet and sour",
+                "canonicalConceptId": null
+              }
+            ]
+          },
+          {
+            "groupId": "ace-rush-bouquet-conditional",
+            "sourceRef": "ace-seeds-rush-of-siam",
+            "identityVerified": true,
+            "directlySupported": true,
+            "confidenceCeiling": "A",
+            "scope": "phenotype",
+            "scopeRef": "source-described-variable-plants",
+            "semanticRole": "CONDITIONAL",
+            "rawText": "mango, leather, hash and Colombian Haze incense",
+            "terms": [
+              {
+                "rawTerm": "mango",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "leather",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "hash",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "incense",
+                "canonicalConceptId": null
+              }
+            ]
+          }
+        ],
+        "semanticRelations": [
+          {
+            "relationId": "ace-rush-baseline-conditional",
+            "sourceRef": "ace-seeds-rush-of-siam",
+            "relationType": "GENERAL_BASELINE_CONDITIONAL",
+            "coreGroupIds": [
+              "ace-rush-bouquet-baseline"
+            ],
+            "accentGroupIds": [
+              "ace-rush-bouquet-conditional"
+            ],
+            "directlySupported": true,
+            "rawContext": "The official bouquet description separates the usual woody-lemon, creamy, floral, sweet-and-sour profile from mango, leather, hash and incense expressions that can appear in some cases."
+          }
+        ],
         "items": [
           "woody lemon",
           "creamy",
           "floral",
-          "sweet",
-          "sour",
+          "sweet and sour",
           "mango",
           "leather",
           "hash",
           "incense"
         ],
-        "note": "Normalized from the official bouquet description; variable secondary expressions are retained as possibilities rather than guaranteed traits.",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-rush-of-siam"
-        ]
+        "note": "Aroma hierarchy is source-declared semantic structure; CORE/ACCENTS are presentation labels only."
       },
       "terpenes": {
         "status": "confirmed",
