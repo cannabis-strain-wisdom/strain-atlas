@@ -280,7 +280,8 @@
     },
     {
       "strainId": "freakshow",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-03T12:41:17Z"
     }
   ]
 }

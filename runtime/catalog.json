@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T12:28:04.827Z",
+  "generatedAt": "2026-09-03T12:41:18.222Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 49,
-    "sources": 70,
-    "entities": 12
+    "cultivars": 50,
+    "sources": 71,
+    "entities": 13
   },
   "explore": {
     "sativa": [
@@ -63,6 +63,7 @@
       "cherry-pie-s1",
       "durban-poison-s1",
       "f1-durb-s1",
+      "freakshow",
       "gorilla-glue-4-s1",
       "jager-s1",
       "t-1000-s1",
@@ -2908,6 +2909,192 @@
       ],
       "checkedAt": "2026-08-30",
       "updatedAt": "2026-08-30"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "freakshow",
+      "status": "review",
+      "name": "Freakshow",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "F8",
+        "method": null
+      },
+      "lineage": {
+        "status": "confirmed",
+        "display": "(Bigbud x Skunk#1) x (Big Sur Holy Weed x Banana Kush)",
+        "parents": [
+          "Bigbud x Skunk#1",
+          "Big Sur Holy Weed x Banana Kush"
+        ],
+        "note": "Hi-Elevation Genetics lists this lineage for Freakshow on its cultivar page.",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hi-elevation-freakshow"
+        ]
+      },
+      "relations": [
+        {
+          "entityId": "hi-elevation-genetics",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hi-elevation-freakshow"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hi-elevation-freakshow"
+        ],
+        "evidenceContract": "AROMA_CONTRACT_V1",
+        "evidenceMode": "LAYERED",
+        "evidenceGroups": [
+          {
+            "groupId": "hi-elevation-baseline",
+            "sourceRef": "hi-elevation-freakshow",
+            "identityVerified": true,
+            "directlySupported": true,
+            "confidenceCeiling": "A",
+            "scope": "cultivar",
+            "semanticRole": "BASELINE",
+            "rawText": "Pine, lemon, lime",
+            "terms": [
+              {
+                "rawTerm": "pine",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "lemon",
+                "canonicalConceptId": null
+              },
+              {
+                "rawTerm": "lime",
+                "canonicalConceptId": null
+              }
+            ]
+          },
+          {
+            "groupId": "hi-elevation-tropical-fruit",
+            "sourceRef": "hi-elevation-freakshow",
+            "identityVerified": true,
+            "directlySupported": true,
+            "confidenceCeiling": "A",
+            "scope": "cultivar",
+            "semanticRole": "CONDITIONAL",
+            "rawText": "some phenotypes occasionally throwing off tropical fruit smells",
+            "terms": [
+              {
+                "rawTerm": "tropical fruit",
+                "canonicalConceptId": null
+              }
+            ]
+          }
+        ],
+        "semanticRelations": [
+          {
+            "relationId": "hi-elevation-baseline-conditional",
+            "sourceRef": "hi-elevation-freakshow",
+            "relationType": "GENERAL_BASELINE_CONDITIONAL",
+            "coreGroupIds": [
+              "hi-elevation-baseline"
+            ],
+            "accentGroupIds": [
+              "hi-elevation-tropical-fruit"
+            ],
+            "directlySupported": true,
+            "rawContext": "Pine, lemon, lime with some phenotypes occasionally throwing off tropical fruit smells"
+          }
+        ],
+        "items": [
+          "pine",
+          "lemon",
+          "lime",
+          "tropical fruit"
+        ],
+        "note": "Aroma hierarchy is source-declared semantic structure; CORE/ACCENTS are presentation labels only."
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Hi-Elevation Genetics公式では、Freakshowの系統を「(Bigbud × Skunk #1) × (Big Sur Holy Weed × Banana Kush)」と記載しています。現在の公式販売ページでは、Shapeshifterが選抜したF8種子として扱われています。",
+          "aromaNote": "公式記載では、基本の香りはパイン、レモン、ライム。個体によってはトロピカルフルーツ系の香りが時折現れるとされています。",
+          "terpeneNote": "Hi-Elevation Genetics公式はFreakshowを「主にpineneが高い」と定性的に説明しています。数値やpineneの異性体までは示されていないため、割合やα/βの内訳は推定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/freakshow/primary.webp",
+          "alt": "Freakshowの特徴的な深く分割された異形葉と開花した主花を、トップバッズ全体と安全余白が見える統一スタジオ構図で表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. Official third-party cultivar images are used transiently as non-copied morphology references only and are not stored as project assets; the generated composition must be original.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-03",
+      "updatedAt": "2026-09-03",
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hi-elevation-freakshow"
+        ],
+        "items": [
+          "pinene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "pinene",
+              "labelJa": "pinene",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            }
+          ]
+        },
+        "note": "Cultivar-specific sources explicitly state qualitative terpene prominence; no percentage values are inferred."
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "evidenceContract": "CANNABINOID_CONTRACT_V1",
+        "sourceRefs": [],
+        "measurements": [],
+        "declaredRanges": [],
+        "observedRanges": [],
+        "qualitativeClaims": [],
+        "conflicts": [],
+        "thc": {
+          "status": "unknown",
+          "note": "No single safe legacy THC projection is derivable without merging distinct contract evidence."
+        },
+        "cbd": {
+          "status": "unknown",
+          "note": "No single safe legacy CBD projection is derivable without merging distinct contract evidence."
+        },
+        "note": "Contract-governed cannabinoid evidence. Raw target/value, scope and measurement semantics are authoritative; compatibility projections are not raw evidence."
+      }
     },
     {
       "schemaVersion": 1,
@@ -8813,6 +9000,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-02"
     },
+    "hi-elevation-freakshow": {
+      "schemaVersion": 1,
+      "id": "hi-elevation-freakshow",
+      "publisher": "Hi-Elevation Genetics",
+      "title": "Freakshow",
+      "url": "https://www.hielevationgenetics.com/product-page/freakshow",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "aroma",
+        "terpenes",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-03"
+    },
     "high-times-socal-2018-wedding-cake": {
       "schemaVersion": 1,
       "id": "high-times-socal-2018-wedding-cake",
@@ -9431,6 +9638,19 @@
       "checkedAt": "2026-08-14",
       "updatedAt": "2026-08-15",
       "note": "Created from the existing Super Lemon Haze source attribution during MASTER migration."
+    },
+    "hi-elevation-genetics": {
+      "schemaVersion": 1,
+      "id": "hi-elevation-genetics",
+      "name": "Hi-Elevation Genetics",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-03",
+      "updatedAt": "2026-09-03",
+      "note": "First-party breeder/originator entity for Freakshow, verified against Hi-Elevation Genetics current official site."
     },
     "humboldt-csi": {
       "schemaVersion": 1,
