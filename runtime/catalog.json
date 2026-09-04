@@ -117,16 +117,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "barneys-farm-acapulco-gold"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "earthy",
           "pine",
           "pungent",
           "sweet"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "earthy",
+            "pine",
+            "pungent",
+            "sweet"
+          ]
+        },
         "note": "Official Barney's Farm cultivar descriptors."
       },
       "terpenes": {
@@ -141,6 +151,9 @@
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "barneys-farm-acapulco-gold"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -155,6 +168,26 @@
             "approximate": false
           },
           "note": "Barney's Farm lists Acapulco Gold - Regular at 22% THC. Values from the separate feminized version are not used."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 22,
+              "unit": "%",
+              "valueText": "22%",
+              "confidence": "A",
+              "sourceRefs": [
+                "barneys-farm-acapulco-gold"
+              ],
+              "note": "Barney's Farm lists Acapulco Gold - Regular at 22% THC. Values from the separate feminized version are not used."
+            }
+          ]
         }
       },
       "origin": {
@@ -245,10 +278,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-african-gas"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "flammable gas",
           "solvent",
@@ -263,6 +296,24 @@
           "mango",
           "earthy"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "flammable gas",
+            "solvent",
+            "meaty",
+            "leather",
+            "damp peat",
+            "lemon",
+            "decaying flowers",
+            "hashish",
+            "citrus",
+            "floral",
+            "mango",
+            "earthy"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page; phenotype frequency is not converted into a universal aroma claim."
       },
       "terpenes": {
@@ -364,6 +415,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-african-gas"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -395,6 +449,42 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD at 0.40-0.45% for African Gas Feminized."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 19.19,
+              "maxValue": 22.13,
+              "unit": "%",
+              "valueText": "19.19〜22.13%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-african-gas"
+              ],
+              "note": "ACE Seeds lists THC at 19.19-22.13% for African Gas Feminized."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0.4,
+              "maxValue": 0.45,
+              "unit": "%",
+              "valueText": "0.4〜0.45%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-african-gas"
+              ],
+              "note": "ACE Seeds lists CBD at 0.40-0.45% for African Gas Feminized."
+            }
+          ]
         }
       },
       "origin": {
@@ -476,14 +566,22 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-ak-47"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "sweet citrus"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "sweet citrus"
+          ]
+        },
         "note": "Official Serious Seeds cultivar descriptors, normalized conservatively."
       },
       "terpenes": {
@@ -498,6 +596,9 @@
         "note": "No named cultivar-specific compound-level terpene panel was verified from the checked official source; no compounds are inferred from aroma wording."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "serious-seeds-ak-47"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -527,6 +628,40 @@
             "approximate": false
           },
           "note": "Serious Seeds currently lists THC-CBD levels as 20%-1% for AK-47."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 20,
+              "unit": "%",
+              "valueText": "20%",
+              "confidence": "A",
+              "sourceRefs": [
+                "serious-seeds-ak-47"
+              ],
+              "note": "Serious Seeds currently lists THC-CBD levels as 20%-1% for AK-47."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 1,
+              "unit": "%",
+              "valueText": "1%",
+              "confidence": "A",
+              "sourceRefs": [
+                "serious-seeds-ak-47"
+              ],
+              "note": "Serious Seeds currently lists THC-CBD levels as 20%-1% for AK-47."
+            }
+          ]
         }
       },
       "origin": {
@@ -617,10 +752,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-bangi-haze"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "sweet",
           "floral",
@@ -628,6 +763,17 @@
           "lemon",
           "anisette"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "sweet",
+            "floral",
+            "musky",
+            "lemon",
+            "anisette"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
       },
       "terpenes": {
@@ -721,6 +867,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-bangi-haze"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -743,6 +892,27 @@
             "ace-seeds-bangi-haze"
           ],
           "note": "ACE Seeds explicitly lists CBD as Null and describes Bangi Haze as having null CBD content / a chemotype without CBD. No numeric percentage is inferred or stored."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 15,
+              "maxValue": 20,
+              "unit": "%",
+              "valueText": "15〜20%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-bangi-haze"
+              ],
+              "note": "ACE Seeds lists THC at 15-20% for Bangi Haze Regular."
+            }
+          ]
         }
       },
       "origin": {
@@ -832,7 +1002,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official Bubba Kush S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
@@ -847,6 +1024,7 @@
         "note": "The official Bubba Kush S1 product page does not provide a cultivar-specific terpene profile or lot COA."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -860,6 +1038,11 @@
             "humboldt-csi-bubba-kush-s1"
           ],
           "note": "The current Humboldt CSI Bubba Kush S1 page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -952,17 +1135,27 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "B",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "thseeds-bubblegum",
           "leafly-bubble-gum"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "バブルガム",
           "スイート",
           "ベリー",
           "フローラル"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "バブルガム",
+            "スイート",
+            "ベリー",
+            "フローラル"
+          ]
+        },
         "note": "Multiple Bubble Gum line sources support this broad sensory family; line-specific differences remain possible."
       },
       "terpenes": {
@@ -999,6 +1192,7 @@
         "note": "Specialist-database claim kept conservative; not a generic cultivar lot COA."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -1014,6 +1208,11 @@
             "thseeds-bubblegum"
           ],
           "note": "Current breeder pages represent distinct Bubble Gum selection lines; no single generic CBD measurement is assigned."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -1112,7 +1311,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "Customer-review or parent-cut aroma observations are not generalized to the complete Bubblegum S1 line."
       },
       "terpenes": {
@@ -1127,6 +1333,7 @@
         "note": "The official Bubblegum S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -1140,6 +1347,11 @@
             "humboldt-csi-bubblegum-s1"
           ],
           "note": "The current Humboldt CSI Bubblegum S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -1217,10 +1429,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-c5-haze-x-kali-china"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "lime",
@@ -1235,6 +1447,24 @@
           "floral",
           "musky"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "lime",
+            "lemon",
+            "grapefruit",
+            "creamy",
+            "incense",
+            "tropical fruit",
+            "hashish",
+            "candy",
+            "melon",
+            "floral",
+            "musky"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -1296,6 +1526,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-c5-haze-x-kali-china"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -1325,6 +1558,40 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD at 0.06% for C5 Haze x Kali China Feminized."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 15.5,
+              "unit": "%",
+              "valueText": "15.5%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-c5-haze-x-kali-china"
+              ],
+              "note": "ACE Seeds lists THC at 15.5% for C5 Haze x Kali China Feminized."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.06,
+              "unit": "%",
+              "valueText": "0.06%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-c5-haze-x-kali-china"
+              ],
+              "note": "ACE Seeds lists CBD at 0.06% for C5 Haze x Kali China Feminized."
+            }
+          ]
         }
       },
       "origin": {
@@ -1414,15 +1681,24 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "hsc-california-octane"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "gas",
           "guava",
           "crème"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "gas",
+            "guava",
+            "crème"
+          ]
+        },
         "note": "Official product page describes a strong gas nose with hints of guava and crème."
       },
       "terpenes": {
@@ -1437,6 +1713,7 @@
         "note": "The official Humboldt Seed Company product page gives aroma/flavor descriptors but no compound-level terpene profile. Third-party terpene claims are not promoted."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -1450,6 +1727,11 @@
             "hsc-california-octane"
           ],
           "note": "The current California Octane cultivar page does not publish a numeric CBD value; none is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -1529,15 +1811,24 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "C",
-        "basis": "specialistDatabase",
         "sourceRefs": [
           "leafly-cataract-kush"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "パングェント",
           "スカンク",
           "アーシー"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "パングェント",
+            "スカンク",
+            "アーシー"
+          ]
+        },
         "note": "Leafly user-aggregated cultivar descriptors; not a cultivar-specific chemical analysis."
       },
       "terpenes": {
@@ -1574,6 +1865,7 @@
         "note": "Leafly Certified Strain Science ordering; no lot-specific COA is promoted to cultivar-wide certainty."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -1587,6 +1879,11 @@
             "dna-eu-cataract-kush"
           ],
           "note": "The current DNA Genetics European Cataract Kush product page does not publish a numeric CBD percentage; none is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -1677,6 +1974,11 @@
       ],
       "aromas": {
         "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-cbd-1"
+        ],
+        "evidenceMode": "PROFILE",
         "items": [
           "ripe tangerine",
           "tropical fruit",
@@ -1688,12 +1990,22 @@
           "musky",
           "hashish"
         ],
-        "note": "Normalized from ACE Seeds' official cultivar-specific bouquet description.",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-cbd-1"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ripe tangerine",
+            "tropical fruit",
+            "sweet",
+            "floral",
+            "gummy",
+            "earthy",
+            "piney",
+            "musky",
+            "hashish"
+          ]
+        },
+        "note": "Normalized from ACE Seeds' official cultivar-specific bouquet description."
       },
       "terpenes": {
         "status": "confirmed",
@@ -1786,9 +2098,11 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-cbd-1"
+        ],
         "thc": {
           "status": "confirmed",
-          "note": "ACE Seeds lists THC at 0.55-0.7%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -1800,11 +2114,11 @@
             "min": 0.55,
             "max": 0.7,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists THC at 0.55-0.7%."
         },
         "cbd": {
           "status": "confirmed",
-          "note": "ACE Seeds lists CBD at 15-18%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -1816,7 +2130,44 @@
             "min": 15,
             "max": 18,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists CBD at 15-18%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 0.55,
+              "maxValue": 0.7,
+              "unit": "%",
+              "valueText": "0.55〜0.7%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-cbd-1"
+              ],
+              "note": "ACE Seeds lists THC at 0.55-0.7%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 15,
+              "maxValue": 18,
+              "unit": "%",
+              "valueText": "15〜18%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-cbd-1"
+              ],
+              "note": "ACE Seeds lists CBD at 15-18%."
+            }
+          ]
         }
       },
       "positioning": {
@@ -1912,7 +2263,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "Descriptive claims about the source cut are not generalized to the complete Chemdog D S1 line."
       },
       "terpenes": {
@@ -1927,6 +2285,7 @@
         "note": "The official Chemdog D S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -1940,6 +2299,11 @@
             "humboldt-csi-chemdog-d-s1"
           ],
           "note": "The current Humboldt CSI Chemdog D S1 page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2015,7 +2379,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "No cultivar-wide aroma claims are imported from parent names or unrelated descriptions for the complete Cherry Pie S1 line."
       },
       "terpenes": {
@@ -2030,6 +2401,7 @@
         "note": "The official Cherry Pie S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -2043,6 +2415,11 @@
             "humboldt-csi-cherry-pie-s1"
           ],
           "note": "The current Humboldt CSI Cherry Pie S1 page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2120,10 +2497,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dna-chocolope-256"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "アーシー / ムスク",
           "コーヒー",
@@ -2131,6 +2508,17 @@
           "スイートバニラ",
           "チェスナット"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー / ムスク",
+            "コーヒー",
+            "チョコレート",
+            "スイートバニラ",
+            "チェスナット"
+          ]
+        },
         "note": "DNA Genetics公式の商品説明にある香り表現を要約。"
       },
       "terpenes": {
@@ -2177,6 +2565,7 @@
         "note": "DNA Genetics official cultivar page verified 2026-09-02. Myrcene is explicitly identified as the primary terpene; beta-caryophyllene and limonene are also described in the terpene profile. No numeric terpene percentages are published."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -2190,6 +2579,11 @@
             "dna-chocolope-256"
           ],
           "note": "DNA Genetics current Chocolope 256 Fem page describes CBD as negligible/relatively low and says it is often reported around 0.5-1%. Because this is report-based wording rather than a breeder-listed bounded measurement, no numeric CBD measurement is stored."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2269,10 +2663,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-congo"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "flower petals",
           "grape",
@@ -2280,6 +2674,17 @@
           "blackberry",
           "raspberry"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "flower petals",
+            "grape",
+            "wild forest fruits",
+            "blackberry",
+            "raspberry"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -2294,6 +2699,9 @@
         "note": "ACE Seeds states that Congo's terpene profile has not yet been analyzed; no terpene compounds are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-congo"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -2323,6 +2731,40 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD at 0.15% for Congo Regular."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 15,
+              "unit": "%",
+              "valueText": "15%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-congo"
+              ],
+              "note": "ACE Seeds lists THC at 15% for Congo Regular."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.15,
+              "unit": "%",
+              "valueText": "0.15%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-congo"
+              ],
+              "note": "ACE Seeds lists CBD at 0.15% for Congo Regular."
+            }
+          ]
         }
       },
       "origin": {
@@ -2407,10 +2849,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-durban-poison"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "hazy",
@@ -2419,6 +2861,18 @@
           "lemon",
           "cloves"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "hazy",
+            "aniseed",
+            "liquorice",
+            "lemon",
+            "cloves"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
       },
       "terpenes": {
@@ -2436,12 +2890,18 @@
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
             "dutch-passion-durban-poison"
           ],
           "note": "Dutch Passion's current Durban Poison product page labels THC as High but does not publish a numeric cultivar percentage. No numeric THC value is inferred from separate articles, grow reports or other versions."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2530,7 +2990,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The breeder's description of the source cut is not generalized into cultivar-wide aroma claims for every plant in the Durban Poison S1 line."
       },
       "terpenes": {
@@ -2545,6 +3012,7 @@
         "note": "The breeder mentions high terpinolene for the source cut, but no cultivar-specific lot COA or bounded S1-line terpene dataset is provided, so no S1-wide terpene profile is asserted."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -2558,6 +3026,11 @@
             "humboldt-csi-durban-poison-s1"
           ],
           "note": "The current Humboldt CSI Durban Poison S1 page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2633,6 +3106,11 @@
       ],
       "aromas": {
         "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-ethiopia"
+        ],
+        "evidenceMode": "PROFILE",
         "items": [
           "earthy",
           "woody",
@@ -2640,12 +3118,18 @@
           "musky",
           "fermented citrus"
         ],
-        "note": "Normalized from the ACE Seeds cultivar-specific bouquet description.",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-ethiopia"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "earthy",
+            "woody",
+            "floral",
+            "musky",
+            "fermented citrus"
+          ]
+        },
+        "note": "Normalized from the ACE Seeds cultivar-specific bouquet description."
       },
       "terpenes": {
         "status": "confirmed",
@@ -2738,9 +3222,11 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-ethiopia"
+        ],
         "thc": {
           "status": "confirmed",
-          "note": "ACE Seeds lists THC at 6-12%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -2752,11 +3238,11 @@
             "min": 6,
             "max": 12,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists THC at 6-12%."
         },
         "cbd": {
           "status": "confirmed",
-          "note": "ACE Seeds lists CBD below 0.05%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -2767,7 +3253,43 @@
             "unit": "%",
             "value": 0.05,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists CBD below 0.05%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 6,
+              "maxValue": 12,
+              "unit": "%",
+              "valueText": "6〜12%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-ethiopia"
+              ],
+              "note": "ACE Seeds lists THC at 6-12%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "less-than",
+              "boundaryValue": 0.05,
+              "unit": "%",
+              "valueText": "0.05%未満",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-ethiopia"
+              ],
+              "note": "ACE Seeds lists CBD below 0.05%."
+            }
+          ]
         }
       },
       "history": {
@@ -2851,7 +3373,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The official F1 Durb S1 page does not provide bounded cultivar-wide aroma descriptors for the complete S1 line."
       },
       "terpenes": {
@@ -2866,6 +3395,7 @@
         "note": "The official F1 Durb S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -2879,6 +3409,11 @@
             "humboldt-csi-f1-durb-s1"
           ],
           "note": "The current Humboldt CSI F1 Durb S1 page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -2957,75 +3492,28 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "hi-elevation-freakshow"
         ],
-        "evidenceContract": "AROMA_CONTRACT_V1",
         "evidenceMode": "LAYERED",
-        "evidenceGroups": [
-          {
-            "groupId": "hi-elevation-baseline",
-            "sourceRef": "hi-elevation-freakshow",
-            "identityVerified": true,
-            "directlySupported": true,
-            "confidenceCeiling": "A",
-            "scope": "cultivar",
-            "semanticRole": "BASELINE",
-            "rawText": "Pine, lemon, lime",
-            "terms": [
-              {
-                "rawTerm": "pine",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "lemon",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "lime",
-                "canonicalConceptId": null
-              }
-            ]
-          },
-          {
-            "groupId": "hi-elevation-tropical-fruit",
-            "sourceRef": "hi-elevation-freakshow",
-            "identityVerified": true,
-            "directlySupported": true,
-            "confidenceCeiling": "A",
-            "scope": "cultivar",
-            "semanticRole": "CONDITIONAL",
-            "rawText": "some phenotypes occasionally throwing off tropical fruit smells",
-            "terms": [
-              {
-                "rawTerm": "tropical fruit",
-                "canonicalConceptId": null
-              }
-            ]
-          }
-        ],
-        "semanticRelations": [
-          {
-            "relationId": "hi-elevation-baseline-conditional",
-            "sourceRef": "hi-elevation-freakshow",
-            "relationType": "GENERAL_BASELINE_CONDITIONAL",
-            "coreGroupIds": [
-              "hi-elevation-baseline"
-            ],
-            "accentGroupIds": [
-              "hi-elevation-tropical-fruit"
-            ],
-            "directlySupported": true,
-            "rawContext": "Pine, lemon, lime with some phenotypes occasionally throwing off tropical fruit smells"
-          }
-        ],
         "items": [
           "pine",
           "lemon",
           "lime",
           "tropical fruit"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "layered",
+          "core": [
+            "pine",
+            "lemon",
+            "lime"
+          ],
+          "accents": [
+            "tropical fruit"
+          ]
+        },
         "note": "Aroma hierarchy is source-declared semantic structure; CORE/ACCENTS are presentation labels only."
       },
       "publicContent": {
@@ -3078,22 +3566,22 @@
       "cannabinoids": {
         "status": "unknown",
         "confidence": "unknown",
-        "evidenceContract": "CANNABINOID_CONTRACT_V1",
         "sourceRefs": [],
-        "measurements": [],
-        "declaredRanges": [],
-        "observedRanges": [],
-        "qualitativeClaims": [],
-        "conflicts": [],
         "thc": {
           "status": "unknown",
+          "sourceRefs": [],
           "note": "No single safe legacy THC projection is derivable without merging distinct contract evidence."
         },
         "cbd": {
           "status": "unknown",
+          "sourceRefs": [],
           "note": "No single safe legacy CBD projection is derivable without merging distinct contract evidence."
         },
-        "note": "Contract-governed cannabinoid evidence. Raw target/value, scope and measurement semantics are authoritative; compatibility projections are not raw evidence."
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
       }
     },
     {
@@ -3142,10 +3630,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-frisian-duck"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "fresh forest",
@@ -3153,6 +3641,17 @@
           "citrus",
           "fruity"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "fresh forest",
+            "pine",
+            "citrus",
+            "fruity"
+          ]
+        },
         "note": "Dutch Passion official sensory description, retaining phenotype variation."
       },
       "terpenes": {
@@ -3167,6 +3666,7 @@
         "note": "The official page does not provide a compound-level terpene panel; no compounds are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -3180,6 +3680,11 @@
             "dutch-passion-frisian-duck"
           ],
           "note": "The current Dutch Passion Frisian Duck page does not publish a numeric CBD percentage; none is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -3264,7 +3769,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The checked official page mentions refined aromas but the retrieved source text does not provide a bounded cultivar-specific descriptor list; no aroma notes are inferred."
       },
       "terpenes": {
@@ -3279,6 +3791,9 @@
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-golden-tiger"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -3309,6 +3824,41 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD as up to 0.5% for Golden Tiger Regular."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 25,
+              "maxValue": 30,
+              "unit": "%",
+              "valueText": "25〜30%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-golden-tiger"
+              ],
+              "note": "ACE Seeds lists THC at 25-30% for Golden Tiger Regular."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "maximum",
+              "boundaryValue": 0.5,
+              "unit": "%",
+              "valueText": "最大0.5%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-golden-tiger"
+              ],
+              "note": "ACE Seeds lists CBD as up to 0.5% for Golden Tiger Regular."
+            }
+          ]
         }
       },
       "origin": {
@@ -3396,7 +3946,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The current official Gorilla Glue 4 S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cultivar or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
@@ -3411,6 +3968,7 @@
         "note": "The current official Gorilla Glue 4 S1 product page does not provide a cultivar-specific terpene profile or lot COA."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -3424,6 +3982,11 @@
             "humboldt-csi-gorilla-glue-4-s1"
           ],
           "note": "The current Humboldt CSI Gorilla Glue 4 S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -3501,10 +4064,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-guawi"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "woody",
@@ -3515,6 +4078,20 @@
           "resinous",
           "oily"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "woody",
+            "mango",
+            "peach",
+            "strawberry",
+            "incense",
+            "resinous",
+            "oily"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -3529,6 +4106,9 @@
         "note": "ACE Seeds states that Guawi's terpene profile has not yet been analyzed; no terpene compounds are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-guawi"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -3559,6 +4139,41 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD below 0.05% for Guawi Feminized."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 19,
+              "maxValue": 23,
+              "unit": "%",
+              "valueText": "19〜23%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-guawi"
+              ],
+              "note": "ACE Seeds lists THC at 19-23% for Guawi Feminized."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "less-than",
+              "boundaryValue": 0.05,
+              "unit": "%",
+              "valueText": "0.05%未満",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-guawi"
+              ],
+              "note": "ACE Seeds lists CBD below 0.05% for Guawi Feminized."
+            }
+          ]
         }
       },
       "origin": {
@@ -3634,15 +4249,24 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "sensi-seeds-jack-herer"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "sharp",
           "savoury",
           "earthy"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "sharp",
+            "savoury",
+            "earthy"
+          ]
+        },
         "note": "Official Sensi Seeds post-harvest descriptors; phenotype-specific nuances are not generalized as fixed cultivar notes."
       },
       "terpenes": {
@@ -3657,6 +4281,7 @@
         "note": "No named cultivar-specific terpene compound panel was verified from the checked official source; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -3670,6 +4295,11 @@
             "sensi-seeds-jack-herer"
           ],
           "note": "No numeric CBD percentage is published on the current Jack Herer Regular page."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -3758,7 +4388,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The current official Jager S1 product page does not provide bounded cultivar-level aroma descriptors; parent-cut or customer-review aromas are not generalized to this S1 line."
       },
       "terpenes": {
@@ -3773,6 +4410,7 @@
         "note": "The current official Jager S1 product page does not provide a cultivar-specific terpene profile or lot COA."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -3786,6 +4424,11 @@
             "humboldt-csi-jager-s1"
           ],
           "note": "The current Humboldt CSI Jager S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -3865,14 +4508,22 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-kali-mist"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "spicy",
           "sweet-spicy"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "spicy",
+            "sweet-spicy"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
       },
       "terpenes": {
@@ -3890,6 +4541,7 @@
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -3903,6 +4555,11 @@
             "serious-seeds-kali-mist"
           ],
           "note": "Serious Seeds' current Kali Mist page lists CBD level as Low without a numeric percentage. No numeric CBD measurement is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -4001,10 +4658,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-killer-a5-haze"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "dark incense",
           "meaty/liver",
@@ -4013,6 +4670,18 @@
           "resin",
           "cured wood"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "dark incense",
+            "meaty/liver",
+            "organic/rotten",
+            "decomposing flower petals",
+            "resin",
+            "cured wood"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -4138,6 +4807,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -4160,6 +4832,27 @@
             "ace-seeds-killer-a5-haze"
           ],
           "note": "ACE Seeds explicitly lists CBD as Null for Killer A5 Haze Regular. No numeric percentage is inferred or stored."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 23,
+              "maxValue": 30,
+              "unit": "%",
+              "valueText": "23〜30%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-killer-a5-haze"
+              ],
+              "note": "ACE Seeds lists THC at 23-30% for Killer A5 Haze Regular."
+            }
+          ]
         }
       },
       "origin": {
@@ -4245,16 +4938,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "barneys-farm-laughing-buddha"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "fresh",
           "sweet",
           "exotic fruits",
           "spicy"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "fresh",
+            "sweet",
+            "exotic fruits",
+            "spicy"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
       },
       "terpenes": {
@@ -4269,6 +4972,9 @@
         "note": "No named cultivar-specific terpene compound panel was verified; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "barneys-farm-laughing-buddha"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -4283,6 +4989,26 @@
             "approximate": false
           },
           "note": "Barney's Farm current Laughing Buddha Feminized page lists THC at 23%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 23,
+              "unit": "%",
+              "valueText": "23%",
+              "confidence": "A",
+              "sourceRefs": [
+                "barneys-farm-laughing-buddha"
+              ],
+              "note": "Barney's Farm current Laughing Buddha Feminized page lists THC at 23%."
+            }
+          ]
         }
       },
       "origin": {
@@ -4371,6 +5097,11 @@
       ],
       "aromas": {
         "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-lebanese"
+        ],
+        "evidenceMode": "PROFILE",
         "items": [
           "sweet",
           "floral",
@@ -4380,12 +5111,20 @@
           "woody",
           "sour"
         ],
-        "note": "Normalized from the official flowering, cured and flavor descriptors without inferring chemical compounds.",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-lebanese"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "sweet",
+            "floral",
+            "citrus",
+            "mango",
+            "blonde hash",
+            "woody",
+            "sour"
+          ]
+        },
+        "note": "Normalized from the official flowering, cured and flavor descriptors without inferring chemical compounds."
       },
       "terpenes": {
         "status": "confirmed",
@@ -4478,9 +5217,11 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-lebanese"
+        ],
         "thc": {
           "status": "confirmed",
-          "note": "ACE Seeds lists THC at 0.5-8%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -4492,11 +5233,11 @@
             "min": 0.5,
             "max": 8,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists THC at 0.5-8%."
         },
         "cbd": {
           "status": "confirmed",
-          "note": "ACE Seeds lists CBD at 6-16%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -4508,7 +5249,44 @@
             "min": 6,
             "max": 16,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists CBD at 6-16%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 0.5,
+              "maxValue": 8,
+              "unit": "%",
+              "valueText": "0.5〜8%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-lebanese"
+              ],
+              "note": "ACE Seeds lists THC at 0.5-8%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 6,
+              "maxValue": 16,
+              "unit": "%",
+              "valueText": "6〜16%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-lebanese"
+              ],
+              "note": "ACE Seeds lists CBD at 6-16%."
+            }
+          ]
         }
       },
       "positioning": {
@@ -4614,10 +5392,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-malawi"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "oil",
           "wood",
@@ -4625,6 +5403,17 @@
           "sweet carrot",
           "ripe mandarin"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "oil",
+            "wood",
+            "lemon",
+            "sweet carrot",
+            "ripe mandarin"
+          ]
+        },
         "note": "Main official expressions are oil, wood and lemon; sweet carrot and ripe mandarin are retained as phenotype-dependent descriptors."
       },
       "terpenes": {
@@ -4694,6 +5483,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-malawi"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -4724,6 +5516,41 @@
             "approximate": false
           },
           "note": "ACE Seeds current Malawi Regular page lists CBD at 0.08%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 24,
+              "maxValue": 27,
+              "unit": "%",
+              "valueText": "24〜27%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-malawi"
+              ],
+              "note": "ACE Seeds current Malawi Regular page lists THC at 24-27%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.08,
+              "unit": "%",
+              "valueText": "0.08%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-malawi"
+              ],
+              "note": "ACE Seeds current Malawi Regular page lists CBD at 0.08%."
+            }
+          ]
         }
       },
       "origin": {
@@ -4815,16 +5642,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-mazar"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "earthy hash",
           "pine",
           "incense",
           "citrus"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "earthy hash",
+            "pine",
+            "incense",
+            "citrus"
+          ]
+        },
         "note": "Official Dutch Passion descriptors, normalized without adding compounds."
       },
       "terpenes": {
@@ -4839,6 +5676,9 @@
         "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred from aroma words."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "dutch-passion-mazar"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -4860,6 +5700,26 @@
             "dutch-passion-mazar"
           ],
           "note": "The current Dutch Passion Mazar page does not publish a numeric CBD percentage; none is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 20,
+              "unit": "%",
+              "valueText": "約20%",
+              "confidence": "A",
+              "sourceRefs": [
+                "dutch-passion-mazar"
+              ],
+              "note": "Dutch Passion states that Mazar reaches around 20% THC in good conditions; the approximate qualifier is preserved."
+            }
+          ]
         }
       },
       "origin": {
@@ -4945,6 +5805,11 @@
       ],
       "aromas": {
         "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-new-caledonia"
+        ],
+        "evidenceMode": "PROFILE",
         "items": [
           "tropical fruit",
           "floral",
@@ -4955,12 +5820,21 @@
           "geranium",
           "mint"
         ],
-        "note": "Normalized from ACE Seeds' official sweet tropical fruit, flower-petal, lemon, musk, spicy, herbal, geranium and slight mint descriptors.",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-new-caledonia"
-        ]
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "tropical fruit",
+            "floral",
+            "lemon",
+            "musk",
+            "spicy",
+            "herbal",
+            "geranium",
+            "mint"
+          ]
+        },
+        "note": "Normalized from ACE Seeds' official sweet tropical fruit, flower-petal, lemon, musk, spicy, herbal, geranium and slight mint descriptors."
       },
       "terpenes": {
         "status": "confirmed",
@@ -5077,9 +5951,11 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-new-caledonia"
+        ],
         "thc": {
           "status": "confirmed",
-          "note": "ACE Seeds lists THC at 15-21%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -5091,11 +5967,11 @@
             "min": 15,
             "max": 21,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists THC at 15-21%."
         },
         "cbd": {
           "status": "confirmed",
-          "note": "ACE Seeds lists CBD at 0.03-0.05%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -5107,7 +5983,44 @@
             "min": 0.03,
             "max": 0.05,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists CBD at 0.03-0.05%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 15,
+              "maxValue": 21,
+              "unit": "%",
+              "valueText": "15〜21%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-new-caledonia"
+              ],
+              "note": "ACE Seeds lists THC at 15-21%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0.03,
+              "maxValue": 0.05,
+              "unit": "%",
+              "valueText": "0.03〜0.05%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-new-caledonia"
+              ],
+              "note": "ACE Seeds lists CBD at 0.03-0.05%."
+            }
+          ]
         }
       },
       "history": {
@@ -5185,17 +6098,27 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "B",
-        "basis": "historicalSource",
         "sourceRefs": [
           "josh-d-og-kush-official",
           "leafly-og-history"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "レモン",
           "パイン",
           "フューエル",
           "アーシー"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "レモン",
+            "パイン",
+            "フューエル",
+            "アーシー"
+          ]
+        },
         "note": "Josh D公式の歴史資料と専門資料に共通する主要ノートを保持する。流通個体の同一性とphenotype差を考慮してconfidenceはBとする。"
       },
       "terpenes": {
@@ -5233,6 +6156,7 @@
         "note": "査読研究でOG Kush名の試料について報告された主要成分を保持するが、品種名だけでは遺伝的同一性を保証できずlot差もあるためAには上げない。"
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -5246,6 +6170,11 @@
             "josh-d-og-kush-official"
           ],
           "note": "Current Josh D official material checked for this audit does not establish a stable numeric CBD percentage for the generic OG Kush atlas entry."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -5345,16 +6274,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-orient-express"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "rainforest",
           "deep organic",
           "earthy",
           "floral"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "rainforest",
+            "deep organic",
+            "earthy",
+            "floral"
+          ]
+        },
         "note": "Cultivar-specific aroma and flavor descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -5480,6 +6419,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-orient-express"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -5511,6 +6453,42 @@
             "approximate": false
           },
           "note": "ACE Seeds current Orient Express Regular page lists CBD at 0.15-8.2%, consistent with its note that some plants may show balanced THC/CBD content."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 7.1,
+              "maxValue": 16,
+              "unit": "%",
+              "valueText": "7.1〜16%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-orient-express"
+              ],
+              "note": "ACE Seeds current Orient Express Regular page lists THC at 7.1-16%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0.15,
+              "maxValue": 8.2,
+              "unit": "%",
+              "valueText": "0.15〜8.2%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-orient-express"
+              ],
+              "note": "ACE Seeds current Orient Express Regular page lists CBD at 0.15-8.2%, consistent with its note that some plants may show balanced THC/CBD content."
+            }
+          ]
         }
       },
       "origin": {
@@ -5594,16 +6572,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-panama"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "lemon",
           "vanilla",
           "incense",
           "strawberry"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "lemon",
+            "vanilla",
+            "incense",
+            "strawberry"
+          ]
+        },
         "note": "Official bouquet: penetrating organic aroma mainly lemon, vanilla and incense; some phenotypes are sweeter with strawberry aromas."
       },
       "terpenes": {
@@ -5681,6 +6669,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-panama"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -5702,6 +6693,26 @@
             "ace-seeds-panama"
           ],
           "note": "ACE Seeds current Panama Regular page explicitly lists CBD as Null. No numeric percentage is inferred or stored."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 21.47,
+              "unit": "%",
+              "valueText": "21.47%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-panama"
+              ],
+              "note": "ACE Seeds current Panama Regular page lists THC at 21.47%."
+            }
+          ]
         }
       },
       "origin": {
@@ -5811,86 +6822,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-rush-of-siam"
         ],
-        "evidenceContract": "AROMA_CONTRACT_V1",
         "evidenceMode": "LAYERED",
-        "evidenceGroups": [
-          {
-            "groupId": "ace-rush-bouquet-baseline",
-            "sourceRef": "ace-seeds-rush-of-siam",
-            "identityVerified": true,
-            "directlySupported": true,
-            "confidenceCeiling": "A",
-            "scope": "cultivar",
-            "semanticRole": "BASELINE",
-            "rawText": "woody lemon, creamy, floral, sweet and sour",
-            "terms": [
-              {
-                "rawTerm": "woody lemon",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "creamy",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "floral",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "sweet and sour",
-                "canonicalConceptId": null
-              }
-            ]
-          },
-          {
-            "groupId": "ace-rush-bouquet-conditional",
-            "sourceRef": "ace-seeds-rush-of-siam",
-            "identityVerified": true,
-            "directlySupported": true,
-            "confidenceCeiling": "A",
-            "scope": "phenotype",
-            "scopeRef": "source-described-variable-plants",
-            "semanticRole": "CONDITIONAL",
-            "rawText": "mango, leather, hash and Colombian Haze incense",
-            "terms": [
-              {
-                "rawTerm": "mango",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "leather",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "hash",
-                "canonicalConceptId": null
-              },
-              {
-                "rawTerm": "incense",
-                "canonicalConceptId": null
-              }
-            ]
-          }
-        ],
-        "semanticRelations": [
-          {
-            "relationId": "ace-rush-baseline-conditional",
-            "sourceRef": "ace-seeds-rush-of-siam",
-            "relationType": "GENERAL_BASELINE_CONDITIONAL",
-            "coreGroupIds": [
-              "ace-rush-bouquet-baseline"
-            ],
-            "accentGroupIds": [
-              "ace-rush-bouquet-conditional"
-            ],
-            "directlySupported": true,
-            "rawContext": "The official bouquet description separates the usual woody-lemon, creamy, floral, sweet-and-sour profile from mango, leather, hash and incense expressions that can appear in some cases."
-          }
-        ],
         "items": [
           "woody lemon",
           "creamy",
@@ -5901,6 +6836,22 @@
           "hash",
           "incense"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "layered",
+          "core": [
+            "woody lemon",
+            "creamy",
+            "floral",
+            "sweet and sour"
+          ],
+          "accents": [
+            "mango",
+            "leather",
+            "hash",
+            "incense"
+          ]
+        },
         "note": "Aroma hierarchy is source-declared semantic structure; CORE/ACCENTS are presentation labels only."
       },
       "terpenes": {
@@ -6242,9 +7193,11 @@
         "note": "公開された検体の観測値であり、品種全体の固定値・一般的な範囲を示すものではありません。"
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-rush-of-siam"
+        ],
         "thc": {
           "status": "confirmed",
-          "note": "ACE Seeds lists THC at 17.94%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -6255,11 +7208,11 @@
             "unit": "%",
             "value": 17.94,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists THC at 17.94%."
         },
         "cbd": {
           "status": "confirmed",
-          "note": "ACE Seeds lists CBD at 0.04%.",
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
@@ -6270,7 +7223,42 @@
             "unit": "%",
             "value": 0.04,
             "approximate": false
-          }
+          },
+          "note": "ACE Seeds lists CBD at 0.04%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 17.94,
+              "unit": "%",
+              "valueText": "17.94%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-rush-of-siam"
+              ],
+              "note": "ACE Seeds lists THC at 17.94%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.04,
+              "unit": "%",
+              "valueText": "0.04%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-rush-of-siam"
+              ],
+              "note": "ACE Seeds lists CBD at 0.04%."
+            }
+          ]
         }
       },
       "history": {
@@ -6360,10 +7348,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-shaman"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "fresh",
           "sweet",
@@ -6374,6 +7362,20 @@
           "pine",
           "woody"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "fresh",
+            "sweet",
+            "fruity",
+            "floral",
+            "spicy",
+            "sour",
+            "pine",
+            "woody"
+          ]
+        },
         "note": "Official product description calls the aroma fresh, sweet and spicy; more specifically sweet, fruity, floral and spicy, with sour/pine and sometimes woody notes across phenotypes."
       },
       "terpenes": {
@@ -6388,12 +7390,18 @@
         "note": "Dutch Passion uses sensory terpene-profile descriptors, but the reviewed official sources do not identify a compound-level cultivar terpene composition. No compounds are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
             "dutch-passion-shaman"
           ],
           "note": "Dutch Passion current Shaman product page labels THC as Medium without a numeric percentage. No numeric THC measurement is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -6484,14 +7492,22 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "B",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "sensi-seeds-shiva-skunk"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "pungent",
           "skunk"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "pungent",
+            "skunk"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors retained conservatively."
       },
       "terpenes": {
@@ -6506,6 +7522,7 @@
         "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -6519,6 +7536,11 @@
             "sensi-seeds-shiva-skunk"
           ],
           "note": "The current Sensi Seeds Shiva Skunk Regular page does not publish a numeric CBD percentage; none is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -6608,16 +7630,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dna-strawberry-banana-s1"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "ストロベリー",
           "バナナ",
           "バブルガム",
           "ガス / フューエル"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ストロベリー",
+            "バナナ",
+            "バブルガム",
+            "ガス / フューエル"
+          ]
+        },
         "note": "DNA Genetics current S1 product description supports these aroma directions."
       },
       "terpenes": {
@@ -6666,6 +7698,9 @@
         "note": "DNA Genetics official S1 page verified 2026-09-02. Limonene, myrcene and caryophyllene are presented together as dominant terpenes. No ordering or numeric percentages among the three are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "dna-strawberry-banana-s1"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -6688,6 +7723,27 @@
             "dna-strawberry-banana-s1"
           ],
           "note": "DNA Genetics describes CBD only as low on the current S1 page and gives no bounded numeric percentage; no numeric CBD value is inferred."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 18,
+              "maxValue": 27,
+              "unit": "%",
+              "valueText": "18〜27%",
+              "confidence": "A",
+              "sourceRefs": [
+                "dna-strawberry-banana-s1"
+              ],
+              "note": "DNA Genetics' current Strawberry Banana S1 product page gives a THC range of 18-27%; exceptional phenotypes over 30% are not converted into the bounded cultivar measurement."
+            }
+          ]
         }
       },
       "origin": {
@@ -6781,10 +7837,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "レモンゼスト",
           "シトラス",
@@ -6792,6 +7848,17 @@
           "ウッド",
           "パイン"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "レモンゼスト",
+            "シトラス",
+            "ヘイズ",
+            "ウッド",
+            "パイン"
+          ]
+        },
         "note": "Green House Seed Co. official product description supports the recorded sensory profile."
       },
       "terpenes": {
@@ -6840,6 +7907,9 @@
         "note": "Green House Seed Co. official cultivar page verified 2026-09-02. Beta-caryophyllene, D-limonene and terpinolene are listed together as the most expressed terpenes. No ordering or numeric terpene percentages are inferred."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ghsc-super-lemon-haze"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -6869,6 +7939,40 @@
             "approximate": false
           },
           "note": "Green House Seed Co. current Super Lemon Haze Feminized page lists CBD at 0.21%."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 26.33,
+              "unit": "%",
+              "valueText": "26.33%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ghsc-super-lemon-haze"
+              ],
+              "note": "Green House Seed Co. current Super Lemon Haze Feminized page lists THC at 26.33%."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.21,
+              "unit": "%",
+              "valueText": "0.21%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ghsc-super-lemon-haze"
+              ],
+              "note": "Green House Seed Co. current Super Lemon Haze Feminized page lists CBD at 0.21%."
+            }
+          ]
         }
       },
       "origin": {
@@ -6965,7 +8069,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The current official T-1000 S1 page does not provide bounded cultivar-wide aroma descriptors for the complete S1 line."
       },
       "terpenes": {
@@ -6980,6 +8091,7 @@
         "note": "The current official T-1000 S1 page does not provide a cultivar-specific lot terpene profile or COA."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -6993,6 +8105,11 @@
             "humboldt-csi-t-1000-s1"
           ],
           "note": "The current Humboldt CSI T-1000 S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -7072,10 +8189,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-thai-chiang-mai"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "fresh",
           "lemon-lime",
@@ -7088,6 +8205,22 @@
           "musky",
           "strawberry"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "fresh",
+            "lemon-lime",
+            "wood",
+            "spices",
+            "sweet",
+            "creamy",
+            "perfumed",
+            "floral",
+            "musky",
+            "strawberry"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring chemical compounds."
       },
       "terpenes": {
@@ -7165,6 +8298,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-thai-chiang-mai"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -7187,6 +8323,27 @@
             "ace-seeds-thai-chiang-mai"
           ],
           "note": "ACE Seeds current Thai Regular page explicitly lists CBD as Null and describes zero CBD. No numeric percentage is inferred or stored."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 10,
+              "maxValue": 15,
+              "unit": "%",
+              "valueText": "10〜15%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-thai-chiang-mai"
+              ],
+              "note": "ACE Seeds current Thai Regular page lists THC at 10-15%."
+            }
+          ]
         }
       },
       "origin": {
@@ -7284,14 +8441,22 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-the-og-18"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "サワー",
           "フューエル / ディーゼル"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "サワー",
+            "フューエル / ディーゼル"
+          ]
+        },
         "note": "DNA Genetics / Reserva Privadaの商品説明にあるsourおよびfuely tasteの記述を、香味表現として控えめに要約。"
       },
       "terpenes": {
@@ -7328,6 +8493,7 @@
         "note": "Leafly掲載の報告テルペン。The OG #18全体に固定された成分や特定lotのラボ分析とは扱わないためconfidenceはC。"
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -7341,6 +8507,11 @@
             "dna-eu-the-og-18"
           ],
           "note": "DNA Genetics' current The OG #18 product page does not publish a numeric CBD percentage."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -7429,7 +8600,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The current official page describes the preserved TrainWreck source clone but does not provide bounded cultivar-wide aroma descriptors for the complete S1 line."
       },
       "terpenes": {
@@ -7444,6 +8622,7 @@
         "note": "Humboldt CSI describes the preserved TrainWreck source clone as terpinolene dominant. That source-cut statement is not generalized into a fixed terpene profile for every plant in the TrainWreck S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -7457,6 +8636,11 @@
             "humboldt-csi-trainwreck-s1"
           ],
           "note": "The current Humboldt CSI TrainWreck S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -7538,7 +8722,14 @@
       ],
       "aromas": {
         "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
         "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        },
         "note": "The current official Triangle Kush S1 page does not provide bounded cultivar-wide aroma descriptors for the complete S1 line. Customer-review descriptions are not promoted to formal cultivar claims."
       },
       "terpenes": {
@@ -7553,6 +8744,7 @@
         "note": "The current official Triangle Kush S1 page does not provide a cultivar-specific lot terpene profile or COA for the S1 line."
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -7566,6 +8758,11 @@
             "humboldt-csi-triangle-kush-s1"
           ],
           "note": "The current Humboldt CSI Triangle Kush S1 product page publishes no numeric CBD percentage for the complete S1 line."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -7649,14 +8846,22 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-violeta"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "balsamic",
           "forest fruits"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "balsamic",
+            "forest fruits"
+          ]
+        },
         "note": "Cultivar-specific bouquet descriptors normalized from the ACE Seeds official page without inferring compounds."
       },
       "terpenes": {
@@ -7758,6 +8963,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-violeta"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -7787,6 +8995,40 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD below 0.05% for Violeta Regular."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 18,
+              "unit": "%",
+              "valueText": "18%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-violeta"
+              ],
+              "note": "ACE Seeds lists THC at 18% for Violeta Regular."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "less-than",
+              "boundaryValue": 0.05,
+              "unit": "%",
+              "valueText": "0.05%未満",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-violeta"
+              ],
+              "note": "ACE Seeds lists CBD below 0.05% for Violeta Regular."
+            }
+          ]
         }
       },
       "origin": {
@@ -7872,16 +9114,26 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "strong",
           "sweet",
           "acidic",
           "fresh fruit"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "strong",
+            "sweet",
+            "acidic",
+            "fresh fruit"
+          ]
+        },
         "note": "Official cultivar-specific aroma descriptors; wording normalized without adding unsupported notes."
       },
       "terpenes": {
@@ -7899,6 +9151,9 @@
         "note": "No named cultivar-specific compound-level terpene panel was verified; no compounds are inferred from sensory wording."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "serious-seeds-warlock"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -7928,6 +9183,40 @@
             "approximate": false
           },
           "note": "Serious Seeds currently lists THC/CBD levels as 20%/1% for Warlock."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 20,
+              "unit": "%",
+              "valueText": "20%",
+              "confidence": "A",
+              "sourceRefs": [
+                "serious-seeds-warlock"
+              ],
+              "note": "Serious Seeds currently lists THC/CBD levels as 20%/1% for Warlock."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 1,
+              "unit": "%",
+              "valueText": "1%",
+              "confidence": "A",
+              "sourceRefs": [
+                "serious-seeds-warlock"
+              ],
+              "note": "Serious Seeds currently lists THC/CBD levels as 20%/1% for Warlock."
+            }
+          ]
         }
       },
       "origin": {
@@ -8030,12 +9319,12 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "B",
-        "basis": "specialistDatabase",
         "sourceRefs": [
           "leafly-wedding-cake",
           "leafly-wedding-cake-2019",
           "david-downs-wedding-cake-2026"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "バニラ",
           "スイート",
@@ -8043,6 +9332,17 @@
           "ペッパー",
           "フューエル"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "バニラ",
+            "スイート",
+            "アーシー",
+            "ペッパー",
+            "フューエル"
+          ]
+        },
         "note": "専門資料に共通する香り表現。流通個体・phenotype間で差があるため、固定的な単一香としては扱わない。"
       },
       "terpenes": {
@@ -8059,6 +9359,7 @@
         "note": "Cultivar全体の固定テルペンとして一般化できる一次ラボ資料を確認できていないためunknownとする。"
       },
       "cannabinoids": {
+        "sourceRefs": [],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -8072,6 +9373,11 @@
             "seed-junky-official"
           ],
           "note": "The currently accessible Seed Junky official site does not publish a cultivar-specific numeric CBD percentage for Wedding Cake."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
         }
       },
       "origin": {
@@ -8172,10 +9478,10 @@
       "aromas": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-zamaldelica"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
           "sweet carrot",
           "mango",
@@ -8183,6 +9489,17 @@
           "flowers",
           "resins"
         ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "sweet carrot",
+            "mango",
+            "orange",
+            "flowers",
+            "resins"
+          ]
+        },
         "note": "ACE Seeds公式Bouquet表記を保持。"
       },
       "terpenes": {
@@ -8308,6 +9625,9 @@
         "note": "ACE Seeds official cultivar page verified 2026-09-02. Qualitative terpene intensity/order is stored without converting relative profile language into absolute percentages."
       },
       "cannabinoids": {
+        "sourceRefs": [
+          "ace-seeds-zamaldelica"
+        ],
         "thc": {
           "status": "confirmed",
           "confidence": "A",
@@ -8339,6 +9659,42 @@
             "approximate": false
           },
           "note": "ACE Seeds lists CBD at 0-0.05% for Zamaldelica Regular. This exact bounded range is retained without converting it to Null or a single value."
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 21,
+              "maxValue": 23,
+              "unit": "%",
+              "valueText": "21〜23%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-zamaldelica"
+              ],
+              "note": "ACE Seeds lists THC at 21-23% for Zamaldelica Regular."
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0,
+              "maxValue": 0.05,
+              "unit": "%",
+              "valueText": "0〜0.05%",
+              "confidence": "A",
+              "sourceRefs": [
+                "ace-seeds-zamaldelica"
+              ],
+              "note": "ACE Seeds lists CBD at 0-0.05% for Zamaldelica Regular. This exact bounded range is retained without converting it to Null or a single value."
+            }
+          ]
         }
       },
       "origin": {
