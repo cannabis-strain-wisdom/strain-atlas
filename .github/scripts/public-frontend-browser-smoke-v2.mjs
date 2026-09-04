@@ -199,7 +199,7 @@ async function main() {
   if (rush.aroma.length !== 8 || rush.aroma.some(item => !item.review || !item.meaning)) throw new Error(`Rush Aroma terminology incomplete: ${JSON.stringify(rush.aroma)}`);
   if (!rush.aroma.some(item => item.review === 'ウッディレモン')) throw new Error('Rush Japanese Aroma review label missing');
   if (!rush.cannabinoid.includes('17.94%') || !rush.cannabinoid.includes('0.04%')) throw new Error(`Rush cannabinoid values missing: ${JSON.stringify(rush.cannabinoid)}`);
-  if (!rush.ratio.includes('65') || !rush.ratio.includes('35')) throw new Error(`Rush ratio missing: ${JSON.stringify(rush.ratio)}`);
+  if (!rush.ratio.includes('65%') || !rush.ratio.includes('35%')) throw new Error(`Rush ratio missing: ${JSON.stringify(rush.ratio)}`);
   if (!rush.lineageVisible) throw new Error('Rush lineage missing');
   if (rush.forbiddenEnglish.length) throw new Error(`Rush raw English fallback: ${rush.forbiddenEnglish.join(', ')}`);
   if (rush.horizontalOverflow) throw new Error('Rush detail has horizontal overflow');
