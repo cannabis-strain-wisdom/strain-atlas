@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T20:32:08.436Z",
+  "generatedAt": "2026-09-04T22:52:27.135Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 50,
-    "sources": 71,
+    "cultivars": 51,
+    "sources": 72,
     "entities": 13
   },
   "explore": {
@@ -42,6 +42,7 @@
     "indica": [
       "california-octane",
       "cataract-kush",
+      "erdpurt",
       "mazar",
       "shiva-skunk",
       "strawberry-banana-s1",
@@ -3831,6 +3832,237 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "erdpurt",
+      "status": "review",
+      "name": "ErdPurt",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-erdpurt"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 0,
+            "indica": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 0,
+              "indica": 100,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-erdpurt"
+        ],
+        "display": "Erdbeer × Purpuera Ticinensis",
+        "parents": [
+          "Erdbeer",
+          "Purpuera Ticinensis"
+        ]
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-erdpurt"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-erdpurt"
+        ],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "REVIEW_REQUIRED",
+          "unresolvedCount": 2
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-erdpurt"
+        ],
+        "items": [
+          "alpha-pinene",
+          "trans-ocimene",
+          "limonene",
+          "beta-myrcene",
+          "beta-pinene",
+          "linalool",
+          "beta-caryophyllene",
+          "cis-nerolidol",
+          "alpha-humulene",
+          "guaiol",
+          "alpha-bisabolol"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "cis-nerolidol",
+              "labelJa": "シス-ネロリドール"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            },
+            {
+              "id": "alpha-bisabolol",
+              "labelJa": "α-ビサボロール"
+            }
+          ]
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-erdpurt"
+        ]
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-erdpurt"
+        ]
+      },
+      "publicContent": {
+        "ja": {}
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/erdpurt/primary.webp",
+          "alt": "ErdPurtのアフガニ系らしいコンパクトで頑丈な開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "lineageNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "origin",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "history",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "aromaNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "terpeneNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -12130,6 +12362,28 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "ace-seeds-erdpurt": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-erdpurt",
+      "publisher": "ACE Seeds",
+      "title": "ErdPurt Regular Seeds",
+      "url": "https://www.aceseeds.org/en/seeds/erdpurt-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "origin",
+        "history",
+        "aroma",
+        "terpenes",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
     },
     "ace-seeds-ethiopia": {
       "schemaVersion": 1,
