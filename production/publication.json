@@ -287,6 +287,11 @@
       "strainId": "erdpurt",
       "state": "published",
       "publishedAt": "2026-09-04T22:52:26Z"
+    },
+    {
+      "strainId": "blue-zushi",
+      "state": "published",
+      "publishedAt": "2026-09-04T23:45:03Z"
     }
   ]
 }

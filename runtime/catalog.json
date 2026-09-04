@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T22:52:27.135Z",
+  "generatedAt": "2026-09-04T23:45:04.814Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 51,
-    "sources": 72,
+    "cultivars": 52,
+    "sources": 73,
     "entities": 13
   },
   "explore": {
@@ -50,6 +50,7 @@
       "warlock"
     ],
     "hybrid": [
+      "blue-zushi",
       "bubble-gum",
       "frisian-duck",
       "jack-herer",
@@ -1203,6 +1204,218 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blue-zushi",
+      "status": "review",
+      "name": "Blue Zushi",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-blue-zushi"
+        ],
+        "display": "Kush Mints × Original Z",
+        "parents": [
+          "Kush Mints",
+          "Original Z"
+        ]
+      },
+      "relations": [
+        {
+          "entityId": "dutch-passion",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dutch-passion-blue-zushi"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dutch-passion-blue-zushi"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティー",
+          "ガッシー",
+          "アーシー",
+          "フローラル",
+          "サワーレモン"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティー",
+            "ガッシー",
+            "アーシー",
+            "フローラル",
+            "サワーレモン"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ガッシー",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "サワーレモン",
+              "plainMeaningJa": "酸味のあるレモンを思わせる柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "レモン",
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-blue-zushi"
+        ],
+        "items": [
+          "limonene",
+          "beta-caryophyllene",
+          "linalool",
+          "beta-myrcene",
+          "terpinolene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            }
+          ]
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "publicContent": {
+        "ja": {}
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blue-zushi/primary.webp",
+          "alt": "Blue Zushiのコンパクトで樹脂に覆われた成熟した開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "lineageNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "aromaNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "terpeneNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -12854,6 +13067,27 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-02"
+    },
+    "dutch-passion-blue-zushi": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-blue-zushi",
+      "publisher": "Dutch Passion",
+      "title": "Blue Zushi Cannabis Seeds",
+      "url": "https://dutch-passion.com/en/cannabis-seeds/blue-zushi",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "terpenes",
+        "cannabinoids",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
     },
     "dutch-passion-durban-poison": {
       "schemaVersion": 1,
