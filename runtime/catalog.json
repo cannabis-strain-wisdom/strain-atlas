@@ -3852,7 +3852,7 @@
         "sourceRefs": [
           "ace-seeds-ethiopia"
         ],
-        "display": "系譜情報",
+        "display": "Ethiopia系統（P3・サティバ）",
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
@@ -6272,7 +6272,7 @@
         "sourceRefs": [
           "ace-seeds-lebanese"
         ],
-        "display": "系譜情報",
+        "display": "Lebanese系統（P4・サティバ）",
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
@@ -7164,7 +7164,7 @@
         "sourceRefs": [
           "ace-seeds-new-caledonia"
         ],
-        "display": "系譜情報",
+        "display": "New Caledonia系統（P2・サティバ）",
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
@@ -10092,7 +10092,7 @@
         "sourceRefs": [
           "ace-seeds-thai-chiang-mai"
         ],
-        "display": "系譜情報",
+        "display": "Thai Chiang Mai系統（P3・サティバ）",
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
