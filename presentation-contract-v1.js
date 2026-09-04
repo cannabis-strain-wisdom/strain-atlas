@@ -58,7 +58,7 @@
     .ucd-aroma-terms span[data-aroma-public-term="v1"] { align-items:flex-start;flex-direction:column;justify-content:center;line-height:1.35; }
     .ucd-aroma-terms span[data-aroma-public-term="v1"] strong { color:inherit;font:inherit; }
     .ucd-aroma-terms span[data-aroma-public-term="v1"] small { color:#93a098;font-size:9px;font-weight:650;letter-spacing:0; }
-    .ucd-lineage summary > .ucd-grade { min-height:18px;padding:2px 5px;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76; }
+    .ucd-lineage summary > .ucd-grade { display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76; }
   `;
   document.head.appendChild(style);
   let scheduled = false;
