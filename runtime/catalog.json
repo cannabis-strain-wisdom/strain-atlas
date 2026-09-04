@@ -3906,14 +3906,63 @@
         "sourceRefs": [
           "ace-seeds-erdpurt"
         ],
-        "evidenceMode": "UNKNOWN",
-        "items": [],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "コーヒー",
+          "アーシー",
+          "パイニー",
+          "ハッシュ系"
+        ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": [],
-          "reviewStatus": "REVIEW_REQUIRED",
-          "unresolvedCount": 2
+          "mode": "profile",
+          "items": [
+            "コーヒー",
+            "アーシー",
+            "パイニー",
+            "ハッシュ系"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "コーヒー",
+              "plainMeaningJa": "焙煎したコーヒー豆のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "焙煎"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "パイニー",
+              "plainMeaningJa": "松のような樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ハッシュ系",
+              "plainMeaningJa": "ハッシュを思わせる樹脂香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハッシュ",
+                "樹脂"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1
         }
       },
       "terpenes": {
