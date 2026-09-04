@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/runtime _site/production _site/assets
-          install -m 0644 index.html app.min.js styles.min.css site-updates.json .nojekyll _site/
+          install -m 0644 index.html app.min.js presentation-contract-v1.js styles.min.css site-updates.json .nojekyll _site/
           install -m 0644 runtime/catalog.json _site/runtime/catalog.json
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
@@ -39,8 +39,9 @@ jobs:
           # Generate content-based cache keys automatically so browsers/CDNs
           # cannot keep an older JS/CSS build after the file contents change.
           app_key="$(sha256sum _site/app.min.js | cut -c1-12)"
+          presentation_key="$(sha256sum _site/presentation-contract-v1.js | cut -c1-12)"
           css_key="$(sha256sum _site/styles.min.css | cut -c1-12)"
-          APP_KEY="$app_key" CSS_KEY="$css_key" python3 <<'PY'
+          APP_KEY="$app_key" PRESENTATION_KEY="$presentation_key" CSS_KEY="$css_key" python3 <<'PY'
           import os
           import re
           from pathlib import Path
@@ -59,15 +60,22 @@ jobs:
               html,
               count=1,
           )
-          if app_count != 1 or css_count != 1:
+          html, presentation_count = re.subn(
+              r'presentation-contract-v1\.js(?:\?v=[^"]*)?',
+              f'presentation-contract-v1.js?v={os.environ["PRESENTATION_KEY"]}',
+              html,
+              count=1,
+          )
+          if app_count != 1 or presentation_count != 1 or css_count != 1:
               raise SystemExit(
-                  f"Cache-bust target mismatch: app={app_count} css={css_count}"
+                  f"Cache-bust target mismatch: app={app_count} presentation={presentation_count} css={css_count}"
               )
           path.write_text(html, encoding="utf-8")
           PY
 
           test -f _site/index.html
           test -f _site/app.min.js
+          test -f _site/presentation-contract-v1.js
           test -f _site/styles.min.css
           test -f _site/site-updates.json
           test -f _site/runtime/catalog.json
@@ -79,8 +87,10 @@ jobs:
           grep -Fq 'showModal' _site/app.min.js
           grep -Fq 'data-strain-id' _site/app.min.js
           grep -Fq "app.min.js?v=${app_key}" _site/index.html
+          grep -Fq "presentation-contract-v1.js?v=${presentation_key}" _site/index.html
           grep -Fq "styles.min.css?v=${css_key}" _site/index.html
           node --check _site/app.min.js
+          node --check _site/presentation-contract-v1.js
           ! grep -q 'COMING LATER' _site/index.html
           ! grep -q 'MASTER PREVIEW' _site/index.html
           ! grep -R -q 'sourceMappingURL' _site
@@ -90,7 +100,7 @@ jobs:
 
           while IFS= read -r file; do
             case "$file" in
-              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
+              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/presentation-contract-v1.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
               *) echo "Unexpected Pages artifact: $file" >&2; exit 1 ;;
             esac
           done < <(find _site -type f -print | sort)

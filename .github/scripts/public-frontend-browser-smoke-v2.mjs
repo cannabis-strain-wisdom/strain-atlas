@@ -166,6 +166,44 @@ async function main() {
   await evalv(`document.querySelector('#detail-dialog .close-detail').click()`);
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===false && !new URL(location.href).searchParams.has('strain')`), 'all detail close/history');
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=rush-of-siam` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'Rush document complete');
+  await waitFor(
+    () => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]') && document.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]').length===8`),
+    'Rush universal public presentation',
+  );
+  const rush = await evalv(`(()=>{
+    const root=document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]');
+    const text=root?.innerText||'';
+    const aroma=[...root.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]')].map(node=>({review:node.querySelector('strong')?.textContent?.trim(),meaning:node.querySelector('small')?.textContent?.trim()}));
+    const cannabinoid=[...root.querySelectorAll('.ucd-cannabinoid-grid strong')].map(node=>node.textContent.trim());
+    const ratio=[...root.querySelectorAll('.ucd-ratio-head strong')].map(node=>node.textContent.trim());
+    return {
+      aroma,
+      cannabinoid,
+      ratio,
+      lineageVisible:/Rush of Siam|ネヴィル|Kali China/.test(text),
+      forbiddenEnglish:[
+        'ACE Seeds states a 65%',
+        'ACE Seeds lists THC at',
+        'ACE Seeds lists CBD at',
+        'Aroma hierarchy is source-declared',
+        'ACE Seeds lists Rush of Siam as',
+        'ACE Seeds developed Rush of Siam after Thai Chi',
+        'woody lemon',
+        'sweet and sour'
+      ].filter(value=>text.includes(value)),
+      horizontalOverflow:root.scrollWidth>root.clientWidth+1,
+    };
+  })()`);
+  if (rush.aroma.length !== 8 || rush.aroma.some(item => !item.review || !item.meaning)) throw new Error(`Rush Aroma terminology incomplete: ${JSON.stringify(rush.aroma)}`);
+  if (!rush.aroma.some(item => item.review === 'ウッディレモン')) throw new Error('Rush Japanese Aroma review label missing');
+  if (!rush.cannabinoid.includes('17.94%') || !rush.cannabinoid.includes('0.04%')) throw new Error(`Rush cannabinoid values missing: ${JSON.stringify(rush.cannabinoid)}`);
+  if (!rush.ratio.includes('65') || !rush.ratio.includes('35')) throw new Error(`Rush ratio missing: ${JSON.stringify(rush.ratio)}`);
+  if (!rush.lineageVisible) throw new Error('Rush lineage missing');
+  if (rush.forbiddenEnglish.length) throw new Error(`Rush raw English fallback: ${rush.forbiddenEnglish.join(', ')}`);
+  if (rush.horizontalOverflow) throw new Error('Rush detail has horizontal overflow');
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
@@ -183,6 +221,7 @@ async function main() {
     latestTitle,
     allId,
     allTitle,
+    rush,
     runtimeErrors: 0,
   }, null, 2));
   cdp.close();
