@@ -204,6 +204,25 @@ async function main() {
   if (rush.forbiddenEnglish.length) throw new Error(`Rush raw English fallback: ${rush.forbiddenEnglish.join(', ')}`);
   if (rush.horizontalOverflow) throw new Error('Rush detail has horizontal overflow');
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=new-caledonia` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'New Caledonia document complete');
+  await waitFor(
+    () => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]') && document.querySelector('.ucd-lineage summary strong')`),
+    'New Caledonia universal lineage',
+  );
+  const newCaledonia = await evalv(`(()=>{
+    const root=document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]');
+    const lineage=document.querySelector('.ucd-lineage summary strong')?.textContent?.trim()||'';
+    return {
+      lineage,
+      generic: lineage==='系譜情報',
+      horizontalOverflow:root.scrollWidth>root.clientWidth+1,
+    };
+  })()`);
+  if (newCaledonia.lineage !== 'New Caledonia系統（P2・サティバ）') throw new Error(`New Caledonia canonical lineage missing: ${JSON.stringify(newCaledonia)}`);
+  if (newCaledonia.generic) throw new Error('New Caledonia generic lineage fallback rendered');
+  if (newCaledonia.horizontalOverflow) throw new Error('New Caledonia detail has horizontal overflow');
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
@@ -222,6 +241,7 @@ async function main() {
     allId,
     allTitle,
     rush,
+    newCaledonia,
     runtimeErrors: 0,
   }, null, 2));
   cdp.close();
