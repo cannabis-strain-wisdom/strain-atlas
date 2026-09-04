@@ -1468,15 +1468,15 @@
           "items": [
             {
               "id": "Caryophyllene",
-              "labelJa": "Caryophyllene"
+              "labelJa": "カリオフィレン"
             },
             {
               "id": "Limonene",
-              "labelJa": "Limonene"
+              "labelJa": "リモネン"
             },
             {
               "id": "Myrcene",
-              "labelJa": "Myrcene"
+              "labelJa": "ミルセン"
             }
           ],
           "noteJa": "専門データベースでは、Caryophyllene、Limonene、Myrceneが挙げられていますが、generic Bubble Gum全体のlot分析とは扱いません。"
@@ -2334,15 +2334,15 @@
           "items": [
             {
               "id": "Limonene",
-              "labelJa": "Limonene"
+              "labelJa": "リモネン"
             },
             {
               "id": "Pinene",
-              "labelJa": "Pinene"
+              "labelJa": "ピネン"
             },
             {
               "id": "Caryophyllene",
-              "labelJa": "Caryophyllene"
+              "labelJa": "カリオフィレン"
             }
           ],
           "noteJa": "専門データベースでは、Limonene、Pinene、Caryophylleneがテルペンとして挙げられています。"
@@ -4401,7 +4401,7 @@
           "items": [
             {
               "id": "pinene",
-              "labelJa": "pinene",
+              "labelJa": "ピネン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
               "visualRole": "lead-secondary",
@@ -7647,15 +7647,15 @@
           "items": [
             {
               "id": "Myrcene",
-              "labelJa": "Myrcene"
+              "labelJa": "ミルセン"
             },
             {
               "id": "Limonene",
-              "labelJa": "Limonene"
+              "labelJa": "リモネン"
             },
             {
               "id": "Caryophyllene",
-              "labelJa": "Caryophyllene"
+              "labelJa": "カリオフィレン"
             }
           ],
           "noteJa": "査読研究を含む既存資料では、Myrcene、Limonene、CaryophylleneがOG Kushのテルペンとして挙げられています。"
@@ -10529,15 +10529,15 @@
           "items": [
             {
               "id": "Limonene",
-              "labelJa": "Limonene"
+              "labelJa": "リモネン"
             },
             {
               "id": "Myrcene",
-              "labelJa": "Myrcene"
+              "labelJa": "ミルセン"
             },
             {
               "id": "Linalool",
-              "labelJa": "Linalool"
+              "labelJa": "リナロール"
             }
           ],
           "noteJa": "専門データベースでは、Limonene、Myrcene、LinaloolがThe OG #18のテルペンとして挙げられています。"
