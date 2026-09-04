@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T20:09:45.000Z",
+  "generatedAt": "2026-09-04T20:32:08.436Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -1510,7 +1510,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-bubble-gum"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsのブリーダー史では、元となる素材はインディアナ州に由来し、その後オランダで複数のブリーダーによる別々の選抜系統へ分岐したと説明されています。完成した各系統は、単一で均一な系統とは扱えません。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -1520,11 +1524,17 @@
           "serious-seeds-bubble-gum",
           "thseeds-bubblegum",
           "leafly-bubble-gum"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Bubble Gumは、関連する元の素材から派生した複数のブリーダー選抜に共有されている名称です。Serious Seeds版とT.H.Seeds版は、それぞれ別の選抜系統として説明されています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Bubble Gumは同名で複数のブリーダー選抜系統が存在します。Serious Seeds版とT.H.Seeds版では分類の説明も異なるため、generic Bubble Gumには片方の比率・THC/CBDを流用しません。",
+          "origin": "Serious Seedsのブリーダー史では、元となる素材はインディアナ州に由来し、その後オランダで複数のブリーダーによる別々の選抜系統へ分岐したと説明されています。完成した各系統は、単一で均一な系統とは扱えません。",
+          "history": "Bubble Gumは、関連する元の素材から派生した複数のブリーダー選抜に共有されている名称です。Serious Seeds版とT.H.Seeds版は、それぞれ別の選抜系統として説明されています。",
           "aromaNote": "既存資料では、バブルガム、スイート、ベリー、フローラルの香りが挙げられています。",
           "terpeneNote": "専門データベースでは、Caryophyllene、Limonene、Myrceneが挙げられていますが、generic Bubble Gum全体のlot分析とは扱いません。"
         }
@@ -1553,17 +1563,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -2374,7 +2375,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-cataract-kush"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsは、Cataract KushをL.A. ConfidentialとOG Kushから開発したラインと説明しています。作出地点やリリース年は公式ページでは確認できません。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -2382,11 +2387,17 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-cataract-kush"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明していますが、具体的な開発年は示していません。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。既存資料と親の組み合わせは一致しますが、表記順だけで母父方向を断定しません。",
+          "origin": "DNA Geneticsは、Cataract KushをL.A. ConfidentialとOG Kushから開発したラインと説明しています。作出地点やリリース年は公式ページでは確認できません。",
+          "history": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明していますが、具体的な開発年は示していません。",
           "aromaNote": "専門データベースでは、パングェント、スカンク、アーシーが香りの表現として掲載されています。",
           "terpeneNote": "専門データベースでは、Limonene、Pinene、Caryophylleneがテルペンとして挙げられています。"
         }
@@ -2406,17 +2417,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -2767,12 +2769,18 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-cbd-1"
-        ]
+        ],
+        "labelJa": "高CBD・低THC用途",
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、CBD 15〜18%、THC 0.55〜0.7%の高CBD・非常に低THCのケモタイプを安定化した品種と説明しています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE Seeds公式のGenetics欄では「Cannatonic S1/ErdPurt × Cannatonic S1」。高CBDのCannatonic S1とAfghan ErdPurtを基礎に、Cannatonic S1へ戻した安定化ハイブリッドとして記録します。",
           "history": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、高CBD・非常に低THCのケモタイプを安定化した同社初の品種と説明しています。",
+          "positioning": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、CBD 15〜18%、THC 0.55〜0.7%の高CBD・非常に低THCのケモタイプを安定化した品種と説明しています。",
           "aromaNote": "公式では、熟したタンジェリンとトロピカルフルーツの強い甘さに、フローラル、グミ、アーシー、パイン、ムスクが重なり、長く残るハッシュ系の余韻も挙げられています。",
           "terpeneNote": "ACE Seeds公式ではbeta-myrceneが非常に多く、alpha-pineneとbeta-pineneも高い構成。limoneneと少量のlinaloolが続き、セスキテルペンではbeta-caryophyllene、alpha-bisabolol、alpha-humulene、guaiolが記載されています。"
         }
@@ -2792,13 +2800,8 @@
       "updatedAt": "2026-08-28",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "positioning",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -3230,11 +3233,16 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-chocolope-256"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsは、Emerald Cup受賞カットのLemon Skunk 256とChocolopeを交配して展開するラインと説明しています。作出年や具体的な作出地点は公式ページでは確認できません。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "DNA Genetics公式ではLemon Skunk 256（Emerald Cup Winning Cut）× Chocolopeと記載されています。F1・F2・BXなどの育種世代は公式ページでは確認できません。",
+          "origin": "DNA Geneticsは、Emerald Cup受賞カットのLemon Skunk 256とChocolopeを交配して展開するラインと説明しています。作出年や具体的な作出地点は公式ページでは確認できません。",
           "aromaNote": "DNA Genetics公式では、アーシー / ムスク、コーヒー、チョコレート、スイートバニラ、チェスナットの香りが挙げられています。",
           "terpeneNote": "DNA Genetics公式ではMyrceneを主要なテルペン（primary terpene）とし、Beta-caryophylleneとLimoneneもテルペンプロファイルの構成要素として説明しています。数値比率は示されていません。"
         }
@@ -3254,13 +3262,8 @@
       "updatedAt": "2026-09-02",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -4616,11 +4619,16 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-frisian-duck"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を目標に、長年にわたる慎重な育種を経て開発したと説明しています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Dutch Passion公式ではFrisian Dew × DucksFoot、Hybridと記載されています。数値のSATIVA/INDICA比率は公式ページにないため推定しません。",
+          "history": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を目標に、長年にわたる慎重な育種を経て開発したと説明しています。",
           "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが挙げられています。"
         }
       },
@@ -4639,13 +4647,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -6581,13 +6584,19 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-lebanese"
-        ]
+        ],
+        "labelJa": "伝統的ハッシュ・樹脂用途",
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、このLebanese系統を10年以上の育種と選抜を経た伝統的なレバノン系ハッシュプラントとして紹介し、赤色・ブロンド色のレバノンハッシュで知られる系統背景を記しています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "公式のGenetics欄では「4th generation Lebanese pure sativa」とされ、交配親を追加せず、P4のランドレース系統として記録しています。",
           "origin": "ACE Seeds公式では、Lebaneseはレバノン由来の純系サティバとして扱われています。",
           "history": "ACE Seedsは、10年以上にわたる育種と強い選抜を経て提供する伝統的なレバノン系ハッシュプラントと説明し、赤・ブロンドのLebanese hashで知られる系統背景を記しています。",
+          "positioning": "ACE Seedsは、このLebanese系統を10年以上の育種と選抜を経た伝統的なレバノン系ハッシュプラントとして紹介し、赤色・ブロンド色のレバノンハッシュで知られる系統背景を記しています。",
           "aromaNote": "開花中は甘さとフローラルが中心で、キュア後にシトラスとマンゴーの方向が加わるとされています。さらにブロンドハッシュを思わせる香り、木質、甘酸っぱいニュアンスも公式記載に含まれます。",
           "terpeneNote": "ACE Seeds公式ではterpinoleneとalpha-pineneが多く、beta-pineneとlimoneneが中程度。beta-myrcene、linalool、trans-ocimeneには個体差があり、セスキテルペンではbeta-caryophylleneが中心、alpha-humuleneも記載されています。"
         }
@@ -6607,13 +6616,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "positioning",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -6891,12 +6895,17 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-about"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsの公式沿革には、Malawiについて2012年の導入記録があります。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、Malawi由来のP4ランドレースとして説明されています。",
           "origin": "ACE Seeds公式では、起源を中央アフリカのMalawiとしています。",
+          "history": "ACE Seedsの公式沿革には、Malawiについて2012年の導入記録があります。",
           "aromaNote": "ACE Seeds公式では、オイル、ウッド、レモンに加え、表現型によってスイート・キャロットや熟したマンダリンの香りが記載されています。",
           "terpeneNote": "ACE Seeds公式では、β-Myrcene、Limonene、β-Pinene、β-Caryophyllene、α-Humulene、α-Bisabololがテルペンとして挙げられています。"
         }
@@ -6916,13 +6925,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -7032,7 +7036,8 @@
             }
           ],
           "reviewStatus": "APPROVED",
-          "registryVersion": 1
+          "registryVersion": 1,
+          "noteJa": "Dutch Passion公式では、アーシーなハッシュ、パイン、インセンス、シトラスの香りが挙げられています。"
         }
       },
       "terpenes": {
@@ -7117,7 +7122,8 @@
         "ja": {
           "lineageNote": "Dutch Passion公式ではSkunk #1 × Afghaniで、現在の説明ではインディカ優勢ハイブリッドとして扱われています。",
           "origin": "Dutch Passionが、選抜したSkunk #1とアフガン系統を交配して開発した品種です。",
-          "history": "Dutch PassionはMazarを1980〜1990年代のクラシック品種と位置づけ、1997年に遺伝的な組み合わせを改良したとしています。"
+          "history": "Dutch PassionはMazarを1980〜1990年代のクラシック品種と位置づけ、1997年に遺伝的な組み合わせを改良したとしています。",
+          "aromaNote": "Dutch Passion公式では、アーシーなハッシュ、パイン、インセンス、シトラスの香りが挙げられています。"
         }
       },
       "visuals": [
@@ -7135,13 +7141,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "aromaNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -7687,7 +7688,11 @@
         "basis": "specialistDatabase",
         "sourceRefs": [
           "leafly-og-history"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "専門資料では、OG Kushの系統は1990年代半ばにフロリダからロサンゼルスへ渡ったとされています。生物学的な親品種そのものは、この由来情報からは確定できません。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -7696,11 +7701,17 @@
         "sourceRefs": [
           "josh-d-og-kush-official",
           "leafly-og-history"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Josh D公式と専門資料では、1996年にフロリダ由来のOG Kush系統がロサンゼルスへ持ち込まれ、Josh Dが保存・栽培・共有の中心人物になったと記録されています。1990年代後半には南カリフォルニアで広まり、1997年にはJosh D本人が北カリフォルニアへ持ち込んだ記録があります。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "親系統は確定していません。Josh D公式は1996年にFloridaからLos Angelesへ持ち込まれたTriangle Kush系統との関連を記録していますが、現在の公式サイト内にも異なる系譜説明があるため、親品種は断定しません。",
+          "origin": "専門資料では、OG Kushの系統は1990年代半ばにフロリダからロサンゼルスへ渡ったとされています。生物学的な親品種そのものは、この由来情報からは確定できません。",
+          "history": "Josh D公式と専門資料では、1996年にフロリダ由来のOG Kush系統がロサンゼルスへ持ち込まれ、Josh Dが保存・栽培・共有の中心人物になったと記録されています。1990年代後半には南カリフォルニアで広まり、1997年にはJosh D本人が北カリフォルニアへ持ち込んだ記録があります。",
           "aromaNote": "既存の一次証言と専門資料では、レモン、パイン、フューエル、アーシーの香りが挙げられています。",
           "terpeneNote": "査読研究を含む既存資料では、Myrcene、Limonene、CaryophylleneがOG Kushのテルペンとして挙げられています。"
         }
@@ -7729,17 +7740,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -9604,7 +9606,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-strawberry-banana-s1"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象です。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -9614,11 +9620,17 @@
           "dna-strawberry-banana-s1",
           "leafly-strawberry-banana",
           "serious-seeds-bubble-gum"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Strawberry Banana S1はOriginal Strawberry Bananaをセルフして得た種子版です。Original Strawberry Bananaのみで確認された受賞歴や測定値は、このS1の実績としては扱えません。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "DNA Geneticsの現行S1ページではOriginal Strawberry BananaをセルフしたS1として説明され、商品欄はOriginal Strawberry Banana × Strawberry Bananaと表記されています。ここではS1としての同一性を優先し、別版の数値は混ぜません。",
+          "origin": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象です。",
+          "history": "Strawberry Banana S1はOriginal Strawberry Bananaをセルフして得た種子版です。Original Strawberry Bananaのみで確認された受賞歴や測定値は、このS1の実績としては扱えません。",
           "aromaNote": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエル系の香りが挙げられています。",
           "terpeneNote": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペン（dominant terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
         }
@@ -9638,17 +9650,8 @@
       "updatedAt": "2026-09-02",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -9890,7 +9893,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver HazeからSuper Lemon Hazeを育種したと説明しています。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -9898,11 +9905,17 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Co.公式ページでは、High Times Cannabis Cupで2008年と2009年に1位を獲得した受賞歴が記載されています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Green House Seed Co.公式ではLemon Skunk × Super Silver Hazeとされています。",
+          "origin": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver HazeからSuper Lemon Hazeを育種したと説明しています。",
+          "history": "Green House Seed Co.公式ページでは、High Times Cannabis Cupで2008年と2009年に1位を獲得した受賞歴が記載されています。",
           "aromaNote": "Green House Seed Co.公式では、レモンゼスト、シトラス、ヘイズ、ウッド、パインの香りが挙げられています。",
           "terpeneNote": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを同格の主要群（most expressed terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
         }
@@ -9931,17 +9944,8 @@
       "updatedAt": "2026-09-02",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -10569,7 +10573,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-the-og-18"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Reserva Privadaは、先にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズして展開したと説明しています。作出年や具体的な選抜地点は一次情報では確認できません。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -10578,11 +10586,17 @@
         "sourceRefs": [
           "dna-eu-the-og-18",
           "seedfinder-the-og-18"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "DNA Geneticsの現行ページではOG Kush S1を遺伝背景とし、最初にリリースしたフェミナイズドOG Kush種子から#18を選抜して再フェミナイズしたと説明されています。資料間でS1やBXなどの世代表現が揺れるため、育種世代そのものは確定していません。",
+          "origin": "Reserva Privadaは、先にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズして展開したと説明しています。作出年や具体的な選抜地点は一次情報では確認できません。",
+          "history": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されています。",
           "aromaNote": "DNA Genetics / Reserva Privada公式では、サワーとフューエル / ディーゼル系の香りが挙げられています。",
           "terpeneNote": "専門データベースでは、Limonene、Myrcene、LinaloolがThe OG #18のテルペンとして挙げられています。"
         }
@@ -10602,17 +10616,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -11578,7 +11583,11 @@
         "sourceRefs": [
           "leafly-wedding-cake-2019",
           "david-downs-wedding-cake-2026"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "専門資料では、Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜した表現型として記録されています。現在の公式ページでは、選抜時期・場所や#23表記までは直接確認できません。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -11588,11 +11597,17 @@
           "leafly-wedding-cake-2019",
           "high-times-socal-2018-wedding-cake",
           "david-downs-wedding-cake-2026"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "専門・歴史資料では、Wedding CakeはJ BeezyがTriangle Mintsから選抜した表現型として広まり、2018年SoCal High Times Cannabis Cupでハイブリッド・フラワー部門1位、2019年にLeaflyの年間品種に選出されたと記録されています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして記録され、近年の専門資料ではTriangle Kush × Animal Mintsで概ね一致します。一方で過去にはGSC × Cherry Pie説も広く流通しており、親系統には異説が残ります。",
+          "origin": "専門資料では、Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜した表現型として記録されています。現在の公式ページでは、選抜時期・場所や#23表記までは直接確認できません。",
+          "history": "専門・歴史資料では、Wedding CakeはJ BeezyがTriangle Mintsから選抜した表現型として広まり、2018年SoCal High Times Cannabis Cupでハイブリッド・フラワー部門1位、2019年にLeaflyの年間品種に選出されたと記録されています。",
           "aromaNote": "既存の専門資料では、バニラ、スイート、アーシー、ペッパー、フューエルの香りが挙げられています。流通個体や表現型による差を含む記載として扱います。"
         }
       },
@@ -11620,17 +11635,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "origin",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -11955,11 +11961,16 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-zamaldelica"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、レユニオン島由来のZamalから、強いサイケデリック特性、比較的速い開花、スイート・キャロットとフローラルの香りを持つ母株を選抜し、Golden Tigerで受粉してZamaldelicaを作出したと説明しています。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE Seeds公式ではZamal × Malawi/Thaiとされています。説明文では、選抜したZamal母株をGolden Tigerで受粉して作出したと記載されています。",
+          "history": "ACE Seedsは、レユニオン島由来のZamalから、強いサイケデリック特性、比較的速い開花、スイート・キャロットとフローラルの香りを持つ母株を選抜し、Golden Tigerで受粉してZamaldelicaを作出したと説明しています。",
           "aromaNote": "ACE Seeds公式では、スイート・キャロット、マンゴー、オレンジ、フラワー、レジンの香りが挙げられています。",
           "terpeneNote": "ACE Seeds公式では、Terpinolene、β-Myrcene、β-Ocimene、β-Pinene、Limonene、α-Pinene、Linalool、δ-3-Carene、α-Terpinene、γ-Terpinene、β-Caryophyllene、α-Humulene、Nerolidol 2がテルペンとして挙げられています。"
         }
@@ -11979,13 +11990,8 @@
       "updatedAt": "2026-08-30",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "history",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     }
   ],
