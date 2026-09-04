@@ -174,7 +174,7 @@ async function main() {
   );
   const rush = await evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]');
-    const text=root?.innerText||'';
+    const text=document.getElementById('detail-shell')?.innerText||'';
     const aroma=[...root.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]')].map(node=>({review:node.querySelector('strong')?.textContent?.trim(),meaning:node.querySelector('small')?.textContent?.trim()}));
     const cannabinoid=[...root.querySelectorAll('.ucd-cannabinoid-grid strong')].map(node=>node.textContent.trim());
     const ratio=[...root.querySelectorAll('.ucd-ratio-head strong')].map(node=>node.textContent.trim());
