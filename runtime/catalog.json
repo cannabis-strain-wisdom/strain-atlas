@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T02:51:33.735Z",
+  "generatedAt": "2026-09-05T03:00:18.482Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 53,
-    "sources": 75,
-    "entities": 13
+    "cultivars": 54,
+    "sources": 77,
+    "entities": 14
   },
   "explore": {
     "sativa": [
@@ -43,6 +43,7 @@
       "blueberry-muffin",
       "california-octane",
       "cataract-kush",
+      "double-grape",
       "erdpurt",
       "mazar",
       "shiva-skunk",
@@ -3898,6 +3899,212 @@
       ],
       "checkedAt": "2026-08-30",
       "updatedAt": "2026-08-30",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "double-grape",
+      "status": "review",
+      "name": "Double Grape",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mephisto-double-grape-product"
+        ],
+        "display": "Sour Stomper × Grape Crinkle",
+        "parents": [
+          "Sour Stomper",
+          "Grape Crinkle"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mephisto Genetics公式では、Double GrapeはSour Stomper × Grape Crinkle、F7 Feminised Automaticと記載されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mephisto-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "mephisto-double-grape-product"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "mephisto-double-grape-product"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "サワー",
+          "ブドウ",
+          "ガス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "サワー",
+            "ブドウ",
+            "ガス"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸っぱさを思わせる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ブドウ",
+              "plainMeaningJa": "ブドウ果実を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "グレープ",
+                "果実香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Mephisto Genetics公式では、甘さと酸味、ブドウ、ガス系が重なる複雑で強い香りと記載されています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "mephisto-double-grape-strongest-article"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 31.8,
+              "unit": "%",
+              "valueText": "31.8%",
+              "confidence": "B",
+              "sourceRefs": [
+                "mephisto-double-grape-strongest-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "nancy-wallace-oklahoma-double-grape-sample"
+            },
+            {
+              "targetType": "AGGREGATE_METRIC",
+              "targetId": "TOTAL_CANNABINOIDS",
+              "label": "Total Cannabinoids",
+              "valueKind": "exact",
+              "value": 36.93,
+              "unit": "%",
+              "valueText": "36.93%",
+              "confidence": "B",
+              "sourceRefs": [
+                "mephisto-double-grape-strongest-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "nancy-wallace-oklahoma-double-grape-sample"
+            }
+          ]
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Mephisto Genetics公式では、Double GrapeはSour Stomper × Grape Crinkle、F7 Feminised Automaticと記載されています。",
+          "aromaNote": "Mephisto Genetics公式では、甘さと酸味、ブドウ、ガス系が重なる複雑で強い香りと記載されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/double-grape/primary.webp",
+          "alt": "Double Grapeの非常に霜に覆われた成熟した開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13845,6 +14052,42 @@
       "publishedAt": null,
       "checkedAt": "2026-08-14"
     },
+    "mephisto-double-grape-product": {
+      "schemaVersion": 1,
+      "id": "mephisto-double-grape-product",
+      "publisher": "Mephisto Genetics",
+      "title": "Double Grape",
+      "url": "https://mephistogenetics.com/products/double-grape",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "cannabinoids",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
+    },
+    "mephisto-double-grape-strongest-article": {
+      "schemaVersion": 1,
+      "id": "mephisto-double-grape-strongest-article",
+      "publisher": "Mephisto Genetics",
+      "title": "Strongest Autoflower in the World?!",
+      "url": "https://eu.mephistogenetics.com/blogs/news/strongest-autoflower-in-the-world",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "cannabinoids",
+        "history"
+      ],
+      "publishedAt": "2024-01-09",
+      "checkedAt": "2026-09-05"
+    },
     "seed-junky-official": {
       "schemaVersion": 1,
       "id": "seed-junky-official",
@@ -14144,6 +14387,18 @@
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17",
       "note": "Humboldt Seed Company official product and About pages identify the company as the breeder/seed company for California Octane."
+    },
+    "mephisto-genetics": {
+      "schemaVersion": 1,
+      "id": "mephisto-genetics",
+      "name": "Mephisto Genetics",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "note": "Mephisto Genetics official Double Grape cultivar page identifies its own breeding release and lists Sour Stomper x Grape Crinkle."
     },
     "reserva-privada": {
       "schemaVersion": 1,
