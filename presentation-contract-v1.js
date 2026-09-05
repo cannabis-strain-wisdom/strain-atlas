@@ -82,6 +82,21 @@
     section.dataset.sourceDeclaredCannabinoids = 'v1';
     return true;
   };
+  const decorateUnavailableRatio = (root, cultivar) => {
+    const ratio = cultivar?.classification?.ratio;
+    const hasFormalRatio = Boolean(ratio && ['confirmed', 'disputed'].includes(ratio.status) && ratio.measurement);
+    if (hasFormalRatio) return false;
+    const section = root.querySelector('.ucd-type-only');
+    if (!section) return false;
+    if (section.querySelector('[data-ratio-unavailable="v1"]')) return true;
+    const note = document.createElement('p');
+    note.className = 'ucd-ratio-unavailable';
+    note.dataset.ratioUnavailable = 'v1';
+    note.textContent = '現在の採用資料では、サティバ／インディカの数値比率は確認できていません。';
+    section.append(note);
+    section.dataset.ratioUnavailable = 'v1';
+    return true;
+  };
   const clarifyListedTerpenes = (root, cultivar) => {
     if (cultivar?.terpenes?.evidenceMode !== 'LISTED') return false;
     const panel = root.querySelector('[data-profile-kind="terpene"]');
@@ -128,10 +143,13 @@
     const cannabinoidSummary = sourceDeclaredCannabinoidSummary(cultivar);
     const cannabinoidContext = decorateSourceDeclaredCannabinoids(root, cultivar);
     if (cannabinoidSummary && !root.querySelector('[data-cannabinoid-source-context="v1"]')) throw new Error(`CANNABINOID_CONTEXT_MISSING:${cultivar.id}`);
+    const typeOnlySection = root.querySelector('.ucd-type-only');
+    const ratioUnavailable = decorateUnavailableRatio(root, cultivar);
+    if (typeOnlySection && !root.querySelector('[data-ratio-unavailable="v1"]')) throw new Error(`RATIO_UNAVAILABLE_CONTEXT_MISSING:${cultivar.id}`);
     const terpeneListedClarified = clarifyListedTerpenes(root, cultivar);
     const terpeneUnavailable = addUnavailableTerpene(root, cultivar);
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
-    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, terpeneListedClarified, terpeneUnavailable };
+    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable };
   };
   const style = document.createElement('style'); style.id = 'public-presentation-contract-v1-style'; style.textContent = `
     #detail-shell:not(:has(.ucd-root[data-public-presentation-ready="true"])) > :not(.detail-topbar){visibility:hidden!important}
@@ -139,6 +157,7 @@
     .ucd-aroma-terms span[data-aroma-public-term="v1"] strong{color:inherit;font:inherit}
     .ucd-aroma-terms span[data-aroma-public-term="v1"] small{color:#93a098;font-size:9px;font-weight:650;letter-spacing:0}
     .ucd-lineage summary>.ucd-grade{display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76}
+    .ucd-ratio-unavailable{margin:9px auto 0;max-width:32rem;color:#93a098;font-size:10px;line-height:1.6;text-align:center}
     .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"] summary{display:grid}
     .ucd-cannabinoid-source-context{margin:10px 0 4px;padding:11px 12px;border:1px solid rgba(216,189,98,.24);border-radius:12px;background:rgba(216,189,98,.05)}
     .ucd-cannabinoid-source-context-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
