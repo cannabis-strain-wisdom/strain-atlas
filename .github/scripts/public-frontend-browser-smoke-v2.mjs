@@ -101,17 +101,12 @@ async function main() {
       returnByValue: true,
       awaitPromise: true,
     });
-    if (result.exceptionDetails) {
-      throw new Error(`Eval exception: ${result.exceptionDetails.text}`);
-    }
+    if (result.exceptionDetails) throw new Error(`Eval exception: ${result.exceptionDetails.text}`);
     return result.result.value;
   }
 
   await waitFor(() => evalv(`document.readyState==='complete'`), 'document complete');
-  await waitFor(
-    () => evalv(`document.querySelectorAll('#latest-grid [data-strain-id]').length>=1 && document.querySelectorAll('#cultivar-grid [data-strain-id]').length>=1`),
-    'cultivar cards',
-  );
+  await waitFor(() => evalv(`document.querySelectorAll('#latest-grid [data-strain-id]').length>=1 && document.querySelectorAll('#cultivar-grid [data-strain-id]').length>=1`), 'cultivar cards');
   const initial = await evalv(`({latest:document.querySelectorAll('#latest-grid [data-strain-id]').length,all:document.querySelectorAll('#cultivar-grid [data-strain-id]').length})`);
 
   await evalv(`(()=>{const e=document.getElementById('search');e.value='Bubble Gum';e.dispatchEvent(new Event('input',{bubbles:true}));return true})()`);
@@ -166,36 +161,22 @@ async function main() {
   await evalv(`document.querySelector('#detail-dialog .close-detail').click()`);
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===false && !new URL(location.href).searchParams.has('strain')`), 'all detail close/history');
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=auto-cinderella-jack` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'Auto Cinderella Jack document complete');
+  await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] [data-cannabinoid-source-context="v1"]')`), 'Auto Cinderella Jack source-declared cannabinoid context');
+  const autoCollapsed = await evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');const context=card?.querySelector('[data-cannabinoid-source-context="v1"]');return {open:!!card?.open,gridDisplay:grid?getComputedStyle(grid).display:null,context:context?.innerText||'',values:[...grid?.querySelectorAll('strong')||[]].map(n=>n.textContent.trim())}})()`);
+  if (autoCollapsed.open) throw new Error(`Auto Cinderella Jack cannabinoid card unexpectedly open: ${JSON.stringify(autoCollapsed)}`);
+  if (autoCollapsed.gridDisplay !== 'none') throw new Error(`Auto Cinderella Jack individual values visible while collapsed: ${JSON.stringify(autoCollapsed)}`);
+  if (!autoCollapsed.context.includes('掲載値 20.84〜25.94%') || !autoCollapsed.context.includes('3検体・5件')) throw new Error(`Auto Cinderella Jack summary context missing: ${JSON.stringify(autoCollapsed)}`);
+  await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card summary').click()`);
+  await waitFor(() => evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');return !!card?.open && grid && getComputedStyle(grid).display!=='none'})()`), 'Auto Cinderella Jack individual cannabinoid values expanded');
+  const autoExpanded = await evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');return {open:!!card?.open,gridDisplay:grid?getComputedStyle(grid).display:null,values:[...grid?.querySelectorAll('strong')||[]].map(n=>n.textContent.trim())}})()`);
+  for (const value of ['20.84%','25.94%','21.3%','22.37%','24.28%']) if (!autoExpanded.values.includes(value)) throw new Error(`Auto Cinderella Jack expanded value missing ${value}: ${JSON.stringify(autoExpanded)}`);
+
   await cdp.send('Page.navigate', { url: `${baseUrl}?strain=rush-of-siam` });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Rush document complete');
-  await waitFor(
-    () => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]') && document.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]').length===8`),
-    'Rush universal public presentation',
-  );
-  const rush = await evalv(`(()=>{
-    const root=document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]');
-    const text=document.getElementById('detail-shell')?.innerText||'';
-    const aroma=[...root.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]')].map(node=>({review:node.querySelector('strong')?.textContent?.trim(),meaning:node.querySelector('small')?.textContent?.trim()}));
-    const cannabinoid=[...root.querySelectorAll('.ucd-cannabinoid-grid strong')].map(node=>node.textContent.trim());
-    const ratio=[...root.querySelectorAll('.ucd-ratio-head strong')].map(node=>node.textContent.trim());
-    return {
-      aroma,
-      cannabinoid,
-      ratio,
-      lineageVisible:/Rush of Siam|ネヴィル|Kali China/.test(text),
-      forbiddenEnglish:[
-        'ACE Seeds states a 65%',
-        'ACE Seeds lists THC at',
-        'ACE Seeds lists CBD at',
-        'Aroma hierarchy is source-declared',
-        'ACE Seeds lists Rush of Siam as',
-        'ACE Seeds developed Rush of Siam after Thai Chi',
-        'woody lemon',
-        'sweet and sour'
-      ].filter(value=>text.includes(value)),
-      horizontalOverflow:root.scrollWidth>root.clientWidth+1,
-    };
-  })()`);
+  await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]') && document.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]').length===8`), 'Rush universal public presentation');
+  const rush = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]');const text=document.getElementById('detail-shell')?.innerText||'';const aroma=[...root.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]')].map(node=>({review:node.querySelector('strong')?.textContent?.trim(),meaning:node.querySelector('small')?.textContent?.trim()}));const cannabinoid=[...root.querySelectorAll('.ucd-cannabinoid-grid strong')].map(node=>node.textContent.trim());const ratio=[...root.querySelectorAll('.ucd-ratio-head strong')].map(node=>node.textContent.trim());return {aroma,cannabinoid,ratio,lineageVisible:/Rush of Siam|ネヴィル|Kali China/.test(text),forbiddenEnglish:['ACE Seeds states a 65%','ACE Seeds lists THC at','ACE Seeds lists CBD at','Aroma hierarchy is source-declared','ACE Seeds lists Rush of Siam as','ACE Seeds developed Rush of Siam after Thai Chi','woody lemon','sweet and sour'].filter(value=>text.includes(value)),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
   if (rush.aroma.length !== 8 || rush.aroma.some(item => !item.review || !item.meaning)) throw new Error(`Rush Aroma terminology incomplete: ${JSON.stringify(rush.aroma)}`);
   if (!rush.aroma.some(item => item.review === 'ウッディレモン')) throw new Error('Rush Japanese Aroma review label missing');
   if (!rush.cannabinoid.includes('17.94%') || !rush.cannabinoid.includes('0.04%')) throw new Error(`Rush cannabinoid values missing: ${JSON.stringify(rush.cannabinoid)}`);
@@ -206,19 +187,8 @@ async function main() {
 
   await cdp.send('Page.navigate', { url: `${baseUrl}?strain=new-caledonia` });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'New Caledonia document complete');
-  await waitFor(
-    () => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]') && document.querySelector('.ucd-lineage summary strong')`),
-    'New Caledonia universal lineage',
-  );
-  const newCaledonia = await evalv(`(()=>{
-    const root=document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]');
-    const lineage=document.querySelector('.ucd-lineage summary strong')?.textContent?.trim()||'';
-    return {
-      lineage,
-      generic: lineage==='系譜情報',
-      horizontalOverflow:root.scrollWidth>root.clientWidth+1,
-    };
-  })()`);
+  await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]') && document.querySelector('.ucd-lineage summary strong')`), 'New Caledonia universal lineage');
+  const newCaledonia = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]');const lineage=document.querySelector('.ucd-lineage summary strong')?.textContent?.trim()||'';return {lineage,generic:lineage==='系譜情報',horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
   if (newCaledonia.lineage !== 'New Caledonia系統（P2・サティバ）') throw new Error(`New Caledonia canonical lineage missing: ${JSON.stringify(newCaledonia)}`);
   if (newCaledonia.generic) throw new Error('New Caledonia generic lineage fallback rendered');
   if (newCaledonia.horizontalOverflow) throw new Error('New Caledonia detail has horizontal overflow');
@@ -226,35 +196,10 @@ async function main() {
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({
-    status: 'PASS',
-    initial,
-    searchCount,
-    sativaCount,
-    generation,
-    generationCount,
-    cbdCount,
-    breeder,
-    breederCount,
-    latestId,
-    latestTitle,
-    allId,
-    allTitle,
-    rush,
-    newCaledonia,
-    runtimeErrors: 0,
-  }, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 
-try {
-  await main();
-} catch (error) {
-  console.error('CSW_BROWSER_SMOKE_FAIL', error.stack || error);
-  console.error(stderr.slice(-3000));
-  process.exitCode = 1;
-} finally {
-  try { proc.kill('SIGTERM'); } catch {}
-  await sleep(100);
-  try { fs.rmSync(profile, { recursive: true, force: true }); } catch {}
-}
+try { await main(); }
+catch (error) { console.error('CSW_BROWSER_SMOKE_FAIL', error.stack || error); console.error(stderr.slice(-3000)); process.exitCode = 1; }
+finally { try { proc.kill('SIGTERM'); } catch {} await sleep(100); try { fs.rmSync(profile, { recursive: true, force: true }); } catch {} }
