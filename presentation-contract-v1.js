@@ -32,6 +32,51 @@
     });
     return { expected: details.length, decorated };
   };
+  const unavailableTerpeneReason = cultivar => {
+    const terpene = cultivar?.terpenes;
+    if (!terpene || (terpene.status !== 'unknown' && terpene?.presentation?.mode !== 'hidden')) return null;
+    const aroma = cultivar?.aromas;
+    const aromaSupported = aroma && aroma.status !== 'unknown' && aroma?.presentation?.mode !== 'hidden';
+    if (aromaSupported) {
+      return {
+        title: '個別テルペンは確認できていません',
+        text: '香りの情報は確認されていますが、その香りからテルペン成分を推測することはしていません。この品種に直接結びつく個別テルペンの分析値・成分一覧を、現在の採用資料では確認できないため掲載していません。'
+      };
+    }
+    return {
+      title: 'テルペン情報は確認できていません',
+      text: 'この品種に直接結びつく個別テルペンの分析値・成分一覧を、現在の採用資料では確認できないため掲載していません。確認できない成分を他の品種や香りの情報から推測して補うことはしていません。'
+    };
+  };
+  const addUnavailableTerpene = (root, cultivar) => {
+    const reason = unavailableTerpeneReason(cultivar);
+    if (!reason || root.querySelector('[data-profile-kind="terpene"]')) return false;
+    const profile = root.querySelector('.ucd-profile');
+    const nav = profile?.querySelector('.ucd-profile-nav');
+    const panels = profile?.querySelector('.ucd-profile-panels');
+    if (!profile || !nav || !panels) return false;
+    const id = `ucd-${cultivar.id}-terpene`;
+    const button = document.createElement('button');
+    button.type = 'button'; button.dataset.ucdTab = 'terpene'; button.setAttribute('aria-expanded','false'); button.setAttribute('aria-controls',id);
+    const label = document.createElement('span'); label.textContent = 'テルペン';
+    const chevron = document.createElement('i'); chevron.setAttribute('aria-hidden','true'); chevron.textContent = '⌄';
+    button.append(label, chevron);
+    const panel = document.createElement('section'); panel.id = id; panel.dataset.ucdPanel = 'terpene'; panel.dataset.profileKind = 'terpene'; panel.dataset.terpeneUnavailable = 'v1'; panel.hidden = true;
+    const box = document.createElement('div'); box.className = 'ucd-terpene-unavailable';
+    const kicker = document.createElement('small'); kicker.textContent = 'TERPENE DATA / テルペン';
+    const heading = document.createElement('strong'); heading.textContent = reason.title;
+    const text = document.createElement('p'); text.textContent = reason.text;
+    box.append(kicker, heading, text); panel.append(box); nav.append(button); panels.append(panel);
+    nav.dataset.count = String(nav.querySelectorAll('[data-ucd-tab]').length);
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      const isOpen = button.getAttribute('aria-expanded') === 'true' && !panel.hidden;
+      root.querySelectorAll('[data-ucd-tab]').forEach(item => { item.setAttribute('aria-expanded','false'); item.classList.remove('is-active'); });
+      root.querySelectorAll('[data-ucd-panel]').forEach(item => { item.hidden = true; });
+      if (!isOpen) { button.setAttribute('aria-expanded','true'); button.classList.add('is-active'); panel.hidden = false; }
+    });
+    return true;
+  };
   const processed = new WeakSet();
   const govern = async () => {
     const root = shell.querySelector('.ucd-root[data-public-detail-id][data-universal-detail-version="UNIVERSAL_CULTIVAR_DETAIL_V1"]');
@@ -47,9 +92,10 @@
     }
     if (expected !== decorated) throw new Error(`AROMA_PRESENTATION_INCOMPLETE:${decorated}/${expected}`);
     if (decorated) root.dataset.aromaTerminologyReady = 'true';
+    const terpeneUnavailable = addUnavailableTerpene(root, cultivar);
     root.dataset.publicPresentationReady = 'true';
     processed.add(root);
-    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated };
+    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, terpeneUnavailable };
   };
   const style = document.createElement('style');
   style.id = 'public-presentation-contract-v1-style';
@@ -59,6 +105,10 @@
     .ucd-aroma-terms span[data-aroma-public-term="v1"] strong { color:inherit;font:inherit; }
     .ucd-aroma-terms span[data-aroma-public-term="v1"] small { color:#93a098;font-size:9px;font-weight:650;letter-spacing:0; }
     .ucd-lineage summary > .ucd-grade { display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76; }
+    .ucd-terpene-unavailable { padding:18px 16px;border:1px solid rgba(216,189,98,.14);border-radius:14px;background:rgba(255,255,255,.018); }
+    .ucd-terpene-unavailable > small { display:block;margin-bottom:8px;color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.1em; }
+    .ucd-terpene-unavailable > strong { display:block;margin-bottom:8px;color:#dfe7e1;font-size:13px; }
+    .ucd-terpene-unavailable > p { margin:0;color:#93a098;font-size:10px;line-height:1.75; }
   `;
   document.head.appendChild(style);
   let scheduled = false;
