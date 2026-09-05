@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T04:47:40.561Z",
+  "generatedAt": "2026-09-05T10:34:03.408Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 55,
-    "sources": 79,
-    "entities": 14
+    "cultivars": 56,
+    "sources": 80,
+    "entities": 15
   },
   "explore": {
     "sativa": [
@@ -34,6 +34,7 @@
       "orient-express",
       "panama",
       "rush-of-siam",
+      "satori",
       "shaman",
       "super-lemon-haze",
       "thai-chiang-mai",
@@ -10166,6 +10167,195 @@
     },
     {
       "schemaVersion": 1,
+      "id": "satori",
+      "status": "review",
+      "name": "Satori",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mandala-seeds-satori"
+        ],
+        "display": "",
+        "parents": []
+      },
+      "relations": [
+        {
+          "entityId": "mandala-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "mandala-seeds-satori"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "mandala-seeds-satori"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スパイシー",
+          "フルーティー",
+          "スイート",
+          "パングェント",
+          "アーシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スパイシー",
+            "フルーティー",
+            "スイート",
+            "パングェント",
+            "アーシー"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "パングェント",
+              "plainMeaningJa": "ツンと強い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "刺激"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Mandala Seeds公式では、spicy、fruity、sweet、pungent、earthyと記載されています。公式が階層を示していないため、CORE／ACCENTは推測していません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "mandala-seeds-satori"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 23,
+              "maxValue": 28,
+              "unit": "%",
+              "valueText": "23〜28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "mandala-seeds-satori"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "aromaNote": "Mandala Seeds公式では、spicy、fruity、sweet、pungent、earthyと記載されています。公式が階層を示していないため、CORE／ACCENTは推測していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/satori/primary.webp",
+          "alt": "Satoriの長く締まった成熟開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "shaman",
       "status": "review",
       "name": "Shaman",
@@ -14368,6 +14558,26 @@
       "publishedAt": null,
       "checkedAt": "2026-08-14"
     },
+    "mandala-seeds-satori": {
+      "schemaVersion": 1,
+      "id": "mandala-seeds-satori",
+      "publisher": "Mandala Seeds",
+      "title": "Satori",
+      "url": "https://shop.mandalaseeds.com/products/satori-mandala-seeds-shop",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "origin",
+        "cannabinoids",
+        "aroma",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
+    },
     "mephisto-double-grape-product": {
       "schemaVersion": 1,
       "id": "mephisto-double-grape-product",
@@ -14703,6 +14913,18 @@
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17",
       "note": "Humboldt Seed Company official product and About pages identify the company as the breeder/seed company for California Octane."
+    },
+    "mandala-seeds": {
+      "schemaVersion": 1,
+      "id": "mandala-seeds",
+      "name": "Mandala Seeds",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05"
     },
     "mephisto-genetics": {
       "schemaVersion": 1,

@@ -307,6 +307,11 @@
       "strainId": "auto-cinderella-jack",
       "state": "published",
       "publishedAt": "2026-09-05T04:47:40Z"
+    },
+    {
+      "strainId": "satori",
+      "state": "published",
+      "publishedAt": "2026-09-05T10:34:02Z"
     }
   ]
 }
