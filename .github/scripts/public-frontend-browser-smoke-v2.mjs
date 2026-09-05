@@ -193,6 +193,24 @@ async function main() {
   if (newCaledonia.generic) throw new Error('New Caledonia generic lineage fallback rendered');
   if (newCaledonia.horizontalOverflow) throw new Error('New Caledonia detail has horizontal overflow');
 
+  const flavorCatalog = await getJson(`${baseUrl}runtime/catalog.json`);
+  const flavorTarget = (flavorCatalog.cultivars || []).find(cultivar =>
+    ['confirmed','disputed'].includes(cultivar?.flavors?.status) &&
+    Array.isArray(cultivar?.flavors?.items) && cultivar.flavors.items.length
+  );
+  let flavor = null;
+  if (flavorTarget) {
+    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(flavorTarget.id)}` });
+    await waitFor(() => evalv(`document.readyState==='complete'`), 'Flavor target document complete');
+    await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-ucd-tab="flavor"]') && document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-profile-kind="flavor"]')`), 'Flavor universal presentation');
+    await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-ucd-tab="flavor"]').click()`);
+    await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const btn=root?.querySelector('[data-ucd-tab="flavor"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return btn?.getAttribute('aria-expanded')==='true' && panel && !panel.hidden})()`), 'Flavor panel expanded');
+    flavor = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return {id:${JSON.stringify(flavorTarget.id)},text:panel?.innerText||'',items:[...panel?.querySelectorAll('.ucd-flavor-terms span')||[]].map(n=>n.textContent.trim()),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
+    for (const item of flavorTarget.flavors.items) if (!flavor.items.includes(item)) throw new Error(`Flavor item missing ${item}: ${JSON.stringify(flavor)}`);
+    if (!flavor.text.includes('味わい')) throw new Error(`Flavor Japanese label missing: ${JSON.stringify(flavor)}`);
+    if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
+  }
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
