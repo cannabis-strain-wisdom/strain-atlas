@@ -65,6 +65,7 @@
 
     const grid = section.querySelector('.ucd-cannabinoid-grid');
     if (!grid) throw new Error(`CANNABINOID_GRID_MISSING:${cultivar.id}`);
+    grid.dataset.sourceDeclaredIndividualValues = 'v1';
     grid.insertAdjacentElement('beforebegin', context);
 
     const detail = section.querySelector('.ucd-spec-detail');
@@ -75,7 +76,7 @@
       });
       const explanation = document.createElement('p');
       explanation.className = 'ucd-cannabinoid-source-explanation';
-      explanation.textContent = '各数値は公式に掲載された検体ごとの値です。同じ検体の再検査を含むため、5つの数値を品種の固定THC値としてまとめていません。';
+      explanation.textContent = '個別の掲載値は上のカードを開いた時だけ表示しています。同じ検体の再検査を含むため、5つの数値を品種の固定THC値としてまとめていません。';
       detail.prepend(explanation);
     }
     section.dataset.sourceDeclaredCannabinoids = 'v1';
@@ -139,11 +140,13 @@
     .ucd-aroma-terms span[data-aroma-public-term="v1"] small{color:#93a098;font-size:9px;font-weight:650;letter-spacing:0}
     .ucd-lineage summary>.ucd-grade{display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76}
     .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"] summary{display:grid}
-    .ucd-cannabinoid-source-context{margin:10px 0 12px;padding:11px 12px;border:1px solid rgba(216,189,98,.24);border-radius:12px;background:rgba(216,189,98,.05)}
+    .ucd-cannabinoid-source-context{margin:10px 0 4px;padding:11px 12px;border:1px solid rgba(216,189,98,.24);border-radius:12px;background:rgba(216,189,98,.05)}
     .ucd-cannabinoid-source-context-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
     .ucd-cannabinoid-source-context strong{color:#d8bd62;font-size:10px;letter-spacing:.04em}
     .ucd-cannabinoid-source-context span{color:#eef3ef;font-size:14px;font-weight:800;white-space:nowrap}
     .ucd-cannabinoid-source-context p{margin:6px 0 0;color:#a5afa8;font-size:10px;line-height:1.6}
+    .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"] .ucd-cannabinoid-grid[data-source-declared-individual-values="v1"]{display:none}
+    .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"][open] .ucd-cannabinoid-grid[data-source-declared-individual-values="v1"]{display:grid;margin-top:14px}
     .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"] .ucd-cannabinoid-grid strong{font-size:clamp(20px,5vw,30px)}
     .ucd-cannabinoid-source-explanation{color:#a5afa8!important;font-size:10px!important;line-height:1.65!important}
     .ucd-terpene-unavailable{padding:18px 16px;border:1px solid rgba(216,189,98,.14);border-radius:14px;background:rgba(255,255,255,.018)}
