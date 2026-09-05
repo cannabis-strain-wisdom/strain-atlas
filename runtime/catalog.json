@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T23:45:04.814Z",
+  "generatedAt": "2026-09-05T00:18:55.625Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 52,
-    "sources": 73,
+    "cultivars": 53,
+    "sources": 75,
     "entities": 13
   },
   "explore": {
@@ -40,6 +40,7 @@
       "zamaldelica"
     ],
     "indica": [
+      "blueberry-muffin",
       "california-octane",
       "cataract-kush",
       "erdpurt",
@@ -1413,6 +1414,151 @@
           },
           {
             "field": "terpeneNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blueberry-muffin",
+      "status": "review",
+      "name": "Blueberry Muffin",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-eu-blueberry-muffin"
+        ],
+        "display": "Purple Panty Dropper × Razzleberry",
+        "parents": [
+          "Purple Panty Dropper",
+          "Razzleberry"
+        ]
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-blueberry-muffin-us",
+            "hsc-eu-blueberry-muffin"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-blueberry-muffin-us"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "焼きたてのブルーベリーマフィン",
+          "ブルーベリー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "焼きたてのブルーベリーマフィン",
+            "ブルーベリー"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "焼きたてのブルーベリーマフィン",
+              "plainMeaningJa": "焼きたてのブルーベリーマフィンを思わせる甘いベリー系の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ブルーベリーマフィン",
+                "焼き菓子"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ブルーベリー",
+              "plainMeaningJa": "ブルーベリー果実を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "publicContent": {
+        "ja": {}
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blueberry-muffin/primary.webp",
+          "alt": "Blueberry Muffinの均一で霜に覆われた成熟した開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "lineageNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          },
+          {
+            "field": "aromaNote",
             "state": "UNAPPROVED_PUBLIC_PROSE"
           }
         ]
@@ -13282,6 +13428,25 @@
       "publishedAt": "2018-04-24",
       "checkedAt": "2026-08-16"
     },
+    "hsc-blueberry-muffin-us": {
+      "schemaVersion": 1,
+      "id": "hsc-blueberry-muffin-us",
+      "publisher": "Humboldt Seed Company",
+      "title": "Blueberry Muffin Seeds",
+      "url": "https://californiahempseeds.com/product/blueberry-muffin-feminized/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
+    },
     "hsc-california-octane": {
       "schemaVersion": 1,
       "id": "hsc-california-octane",
@@ -13299,6 +13464,24 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "hsc-eu-blueberry-muffin": {
+      "schemaVersion": 1,
+      "id": "hsc-eu-blueberry-muffin",
+      "publisher": "Humboldt Seed Company EU",
+      "title": "Blueberry Muffin Feminized Seeds",
+      "url": "https://humboldtseedcompany.es/product/blueberry-muffin/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
     },
     "humboldt-csi-bubba-kush-s1": {
       "schemaVersion": 1,
