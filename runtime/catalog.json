@@ -1231,7 +1231,11 @@
         "parents": [
           "Kush Mints",
           "Original Z"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch Passion公式では、Blue ZushiはKush Mints × Original Zのインディカ優勢ハイブリッドとして記載されています。比率の数値は確認できないため推測していません。"
+        }
       },
       "relations": [
         {
@@ -1321,7 +1325,8 @@
             }
           ],
           "reviewStatus": "APPROVED",
-          "registryVersion": 1
+          "registryVersion": 1,
+          "noteJa": "Dutch Passion公式では、フルーティーでガス感のある香りを軸に、アーシー、フローラル、サワーレモンのニュアンスが記載されています。phenotypeによる背景の違いも説明されていますが、順位やCORE / ACCENTSは推測していません。"
         }
       },
       "terpenes": {
@@ -1363,7 +1368,8 @@
               "id": "terpinolene",
               "labelJa": "テルピノレン"
             }
-          ]
+          ],
+          "noteJa": "Dutch Passion公式では、Blue Zushiの主要なテルペンとしてリモネン、カリオフィレン、リナロール、ミルセン、テルピノレンが挙げられています。このstockでは分析artifact由来の固定比率として扱わず、存在情報として保持しています。"
         }
       },
       "cannabinoids": {
@@ -1385,7 +1391,11 @@
         }
       },
       "publicContent": {
-        "ja": {}
+        "ja": {
+          "lineageNote": "Dutch Passion公式では、Blue ZushiはKush Mints × Original Zのインディカ優勢ハイブリッドとして記載されています。比率の数値は確認できないため推測していません。",
+          "aromaNote": "Dutch Passion公式では、フルーティーでガス感のある香りを軸に、アーシー、フローラル、サワーレモンのニュアンスが記載されています。phenotypeによる背景の違いも説明されていますが、順位やCORE / ACCENTSは推測していません。",
+          "terpeneNote": "Dutch Passion公式では、Blue Zushiの主要なテルペンとしてリモネン、カリオフィレン、リナロール、ミルセン、テルピノレンが挙げられています。このstockでは分析artifact由来の固定比率として扱わず、存在情報として保持しています。"
+        }
       },
       "visuals": [
         {
@@ -1402,21 +1412,8 @@
       "updatedAt": "2026-09-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "lineageNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "aromaNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "terpeneNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -1443,7 +1440,11 @@
         "parents": [
           "Purple Panty Dropper",
           "Razzleberry"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company EU公式では、Purple Panty Dropper × Razzleberryと記載されています。世代表記はUS現行ページのBx10 × BBM#4とEUページのF9で一致しないため、単一の世代として確定していません。"
+        }
       },
       "relations": [
         {
@@ -1501,7 +1502,8 @@
             }
           ],
           "reviewStatus": "APPROVED",
-          "registryVersion": 1
+          "registryVersion": 1,
+          "noteJa": "Humboldt Seed Company公式では、花は焼きたてのブルーベリーマフィンを強く思わせる香りで、強いブルーベリー香とも記載されています。"
         }
       },
       "terpenes": {
@@ -1534,7 +1536,10 @@
         }
       },
       "publicContent": {
-        "ja": {}
+        "ja": {
+          "lineageNote": "Humboldt Seed Company EU公式では、Purple Panty Dropper × Razzleberryと記載されています。世代表記はUS現行ページのBx10 × BBM#4とEUページのF9で一致しないため、単一の世代として確定していません。",
+          "aromaNote": "Humboldt Seed Company公式では、花は焼きたてのブルーベリーマフィンを強く思わせる香りで、強いブルーベリー香とも記載されています。"
+        }
       },
       "visuals": [
         {
@@ -1551,17 +1556,8 @@
       "updatedAt": "2026-09-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "lineageNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "aromaNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -4243,7 +4239,11 @@
         "parents": [
           "Erdbeer",
           "Purpuera Ticinensis"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seeds公式では、ErdPurtの系譜をErdbeer × Purpuera Ticinensisと記載しています。"
+        }
       },
       "relations": [
         {
@@ -4321,7 +4321,8 @@
             }
           ],
           "reviewStatus": "APPROVED",
-          "registryVersion": 1
+          "registryVersion": 1,
+          "noteJa": "ACE Seeds公式では、コーヒー、土、松、ハッシュを思わせる香りが記載されています。"
         }
       },
       "terpenes": {
@@ -4393,7 +4394,8 @@
               "id": "alpha-bisabolol",
               "labelJa": "α-ビサボロール"
             }
-          ]
+          ],
+          "noteJa": "ACE Seeds公式では、ErdPurtのテルペンとしてα-ピネン、trans-オシメン、d-リモネンなどが挙げられています。分析条件や固定的な比率は確認できないため、数値化や順位づけはしていません。"
         }
       },
       "cannabinoids": {
@@ -4420,7 +4422,11 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-erdpurt"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ErdPurtは、北ヨーロッパで開発されたクラシックなアフガニ系統としてACE Seedsが紹介しています。"
+        }
       },
       "history": {
         "status": "confirmed",
@@ -4428,10 +4434,20 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-erdpurt"
-        ]
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、ErdPurtが品質、早い開花、北方の厳しい気候への適応性を重視して選抜されてきた系統と説明しています。"
+        }
       },
       "publicContent": {
-        "ja": {}
+        "ja": {
+          "lineageNote": "ACE Seeds公式では、ErdPurtの系譜をErdbeer × Purpuera Ticinensisと記載しています。",
+          "origin": "ErdPurtは、北ヨーロッパで開発されたクラシックなアフガニ系統としてACE Seedsが紹介しています。",
+          "history": "ACE Seedsは、ErdPurtが品質、早い開花、北方の厳しい気候への適応性を重視して選抜されてきた系統と説明しています。",
+          "aromaNote": "ACE Seeds公式では、コーヒー、土、松、ハッシュを思わせる香りが記載されています。",
+          "terpeneNote": "ACE Seeds公式では、ErdPurtのテルペンとしてα-ピネン、trans-オシメン、d-リモネンなどが挙げられています。分析条件や固定的な比率は確認できないため、数値化や順位づけはしていません。"
+        }
       },
       "visuals": [
         {
@@ -4448,29 +4464,8 @@
       "updatedAt": "2026-09-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "lineageNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "origin",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "history",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "aromaNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          },
-          {
-            "field": "terpeneNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
