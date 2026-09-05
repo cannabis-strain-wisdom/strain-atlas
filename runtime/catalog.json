@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T11:16:50.889Z",
+  "generatedAt": "2026-09-05T20:32:17.724Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 57,
-    "sources": 81,
-    "entities": 15
+    "cultivars": 58,
+    "sources": 83,
+    "entities": 16
   },
   "explore": {
     "sativa": [
@@ -20,6 +20,7 @@
       "c5-haze-x-kali-china",
       "cbd-1",
       "chocolope-256",
+      "cinderella-99",
       "congo",
       "durban-poison",
       "ethiopia",
@@ -3943,6 +3944,224 @@
       ],
       "checkedAt": "2026-09-02",
       "updatedAt": "2026-09-02",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "cinderella-99",
+      "status": "review",
+      "name": "Cinderella 99",
+      "jp": null,
+      "aliases": [
+        "Cindy 99",
+        "C99",
+        "Cindy"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "brothers-grimm-cinderella-99-history"
+        ],
+        "display": "Princess × P.94",
+        "parents": [
+          "Princess",
+          "P.94"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Brothers Grimm Seeds公式の育種史では、Cinderella 99はPrincessを軸に戻し交配を重ね、P.94世代をPrincessへ交配して完成した系統として説明されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "brothers-grimm-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "brothers-grimm-cinderella-99",
+            "brothers-grimm-cinderella-99-history"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "brothers-grimm-cinderella-99"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "トロピカル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "トロピカル"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "トロピカル",
+              "plainMeaningJa": "南国を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "南国"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Brothers Grimm Seedsの現在の公式品種ページでは、Cinderella 99の香りをearthy、tropicalと表現しています。両者に主従関係は付けられていないため、CORE／ACCENTSには分けず同列のPROFILEとして扱います。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "brothers-grimm-cinderella-99"
+        ],
+        "items": [
+          "beta-myrcene",
+          "limonene",
+          "pinene",
+          "beta-caryophyllene",
+          "linalool"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            }
+          ],
+          "noteJa": "Brothers Grimm Seeds公式は、beta-myrcene、limonene、pinene、beta-caryophyllene、linaloolをDominant Terpenesとして列挙しています。分析値ではないため、比率や濃度は付けず定性的な情報として表示します。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "brothers-grimm-cinderella-99-history",
+          "brothers-grimm-cinderella-99"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Brothers Grimm Seedsの公式史では、1996年にMrSoulがアムステルダムで購入したJack Hererの花から見つけた種を育て、その中からPrincessを選抜したことが出発点です。Princessを軸にP.50、P.75、P.88、P.94と戻し交配を重ね、最終的にCinderella 99へ到達しました。現在の公式品種ページは1999年のデビューと記載しています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Brothers Grimm Seeds公式の育種史では、Cinderella 99はPrincessを軸に戻し交配を重ね、P.94世代をPrincessへ交配して完成した系統として説明されています。",
+          "history": "Brothers Grimm Seedsの公式史では、1996年にMrSoulがアムステルダムで購入したJack Hererの花から見つけた種を育て、その中からPrincessを選抜したことが出発点です。Princessを軸にP.50、P.75、P.88、P.94と戻し交配を重ね、最終的にCinderella 99へ到達しました。現在の公式品種ページは1999年のデビューと記載しています。",
+          "aromaNote": "Brothers Grimm Seedsの現在の公式品種ページでは、Cinderella 99の香りをearthy、tropicalと表現しています。両者に主従関係は付けられていないため、CORE／ACCENTSには分けず同列のPROFILEとして扱います。",
+          "terpeneNote": "Brothers Grimm Seeds公式は、beta-myrcene、limonene、pinene、beta-caryophyllene、linaloolをDominant Terpenesとして列挙しています。分析値ではないため、比率や濃度は付けず定性的な情報として表示します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/cinderella-99/primary.webp",
+          "alt": "Cinderella 99のサティバ優勢の全体傾向と丈夫な枝構造を公式情報に基づいて表現するAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -10455,7 +10674,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTへ反映し、それ以上の階層は足していません。"
+          "noteJa": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTSへ反映し、それ以上の階層は足していません。"
         }
       },
       "terpenes": {
@@ -10507,7 +10726,7 @@
         "ja": {
           "lineageNote": "Serious Seeds公式では、Serious HappinessはAK-47を母、Warlockを父に組み合わせたF1のSativa/Indica hybridとして記載されています。数値のサティバ／インディカ比率は確認できないため推測していません。",
           "history": "Serious Seedsは、Serious Happinessを同社のSeriously Limited構想から生まれた最初の品種として紹介しています。公式ページでは、2015年アムステルダムのIC-420 CupでSativa / Grower部門3位を獲得したのが最初の受賞で、2016年にはMaster Seeds CupのOutdoor SpainでMost Productive特別賞を受賞したと記録されています。",
-          "aromaNote": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTへ反映し、それ以上の階層は足していません。"
+          "aromaNote": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTSへ反映し、それ以上の階層は足していません。"
         }
       },
       "visuals": [
@@ -14014,6 +14233,43 @@
       "publishedAt": null,
       "checkedAt": "2026-08-30"
     },
+    "brothers-grimm-cinderella-99-history": {
+      "schemaVersion": 1,
+      "id": "brothers-grimm-cinderella-99-history",
+      "publisher": "Brothers Grimm Seeds",
+      "title": "Cinderella 99 History",
+      "url": "https://brothersgrimmseeds.com/cinderella-99-official-history/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": "2023-10-11",
+      "checkedAt": "2026-09-06"
+    },
+    "brothers-grimm-cinderella-99": {
+      "schemaVersion": 1,
+      "id": "brothers-grimm-cinderella-99",
+      "publisher": "Brothers Grimm Seeds",
+      "title": "Cinderella 99 – Feminized Seeds",
+      "url": "https://brothersgrimmseeds.com/collection/cinderella-99/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "aroma",
+        "terpenes",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-06"
+    },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
       "id": "david-downs-wedding-cake-2026",
@@ -15037,6 +15293,18 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "brothers-grimm-seeds": {
+      "schemaVersion": 1,
+      "id": "brothers-grimm-seeds",
+      "name": "Brothers Grimm Seeds",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
+      "note": "Created from current first-party Cinderella 99 cultivar and breeder-history material during Cinderella 99 production research."
     },
     "dna-genetics": {
       "schemaVersion": 1,

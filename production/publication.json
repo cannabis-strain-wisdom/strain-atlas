@@ -317,6 +317,11 @@
       "strainId": "serious-happiness",
       "state": "published",
       "publishedAt": "2026-09-05T11:16:50Z"
+    },
+    {
+      "strainId": "cinderella-99",
+      "state": "published",
+      "publishedAt": "2026-09-05T20:32:17Z"
     }
   ]
 }
