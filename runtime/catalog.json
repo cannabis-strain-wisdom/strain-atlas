@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T03:00:18.482Z",
+  "generatedAt": "2026-09-05T04:47:40.561Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 54,
-    "sources": 77,
+    "cultivars": 55,
+    "sources": 79,
     "entities": 14
   },
   "explore": {
@@ -52,6 +52,7 @@
       "warlock"
     ],
     "hybrid": [
+      "auto-cinderella-jack",
       "blue-zushi",
       "bubble-gum",
       "frisian-duck",
@@ -893,6 +894,285 @@
       ],
       "checkedAt": "2026-08-30",
       "updatedAt": "2026-08-30",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "auto-cinderella-jack",
+      "status": "review",
+      "name": "Auto Cinderella Jack",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-auto-cinderella-jack"
+        ],
+        "display": "Cinderella 99 × Jack Herer × Magnum",
+        "parents": [
+          "Cinderella 99 × Jack Herer",
+          "Magnum"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch Passion公式では、Auto Cinderella Jackは(Cinderella 99 × Jack Herer) × MagnumのAutoflowerとして記載されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dutch-passion",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dutch-passion-auto-cinderella-jack"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dutch-passion-auto-cinderella-jack"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フルーティー",
+          "ハーバル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フルーティー",
+            "ハーバル"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "ハーバル",
+              "plainMeaningJa": "ハーブのような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハーブ"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Dutch Passion公式では甘くフルーティーな香りを中心に記載されています。香りの表現からテルペン成分を逆算せず、テルペンは別のcompound-level記載だけを扱います。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-auto-cinderella-jack"
+        ],
+        "items": [
+          "alpha-pinene",
+          "beta-myrcene",
+          "beta-caryophyllene",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "Dutch Passion公式ではAuto Cinderella Jackについて個別のテルペン成分が掲載されています。このstockでは成分の存在情報と、検体に結び付く数値情報を混同しません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "dutch-passion-auto-cinderella-jack-lab-article"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 20.84,
+              "unit": "%",
+              "valueText": "20.84%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-auto-cinderella-jack-lab-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "auto-cinderella-jack-plant-1"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 25.94,
+              "unit": "%",
+              "valueText": "25.94%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-auto-cinderella-jack-lab-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "auto-cinderella-jack-plant-2"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 21.3,
+              "unit": "%",
+              "valueText": "21.3%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-auto-cinderella-jack-lab-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "auto-cinderella-jack-plant-3"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 22.37,
+              "unit": "%",
+              "valueText": "22.37%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-auto-cinderella-jack-lab-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "auto-cinderella-jack-plant-1"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 24.28,
+              "unit": "%",
+              "valueText": "24.28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-auto-cinderella-jack-lab-article"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "auto-cinderella-jack-plant-2"
+            }
+          ]
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Dutch Passion公式では、Auto Cinderella Jackは(Cinderella 99 × Jack Herer) × MagnumのAutoflowerとして記載されています。",
+          "aromaNote": "Dutch Passion公式では甘くフルーティーな香りを中心に記載されています。香りの表現からテルペン成分を逆算せず、テルペンは別のcompound-level記載だけを扱います。",
+          "terpeneNote": "Dutch Passion公式ではAuto Cinderella Jackについて個別のテルペン成分が掲載されています。このstockでは成分の存在情報と、検体に結び付く数値情報を混同しません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/auto-cinderella-jack/primary.webp",
+          "alt": "Auto Cinderella Jackの樹脂に覆われた成熟した開花トップを表現したAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13459,6 +13739,42 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-02"
+    },
+    "dutch-passion-auto-cinderella-jack-lab-article": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-auto-cinderella-jack-lab-article",
+      "publisher": "Dutch Passion",
+      "title": "This Might Be The Strongest Autoflower On Earth",
+      "url": "https://dutch-passion.com/en/blog/auto-cinderella-jack-strongest-autoflower-weed-on-earth-n963",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "cannabinoids",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
+    },
+    "dutch-passion-auto-cinderella-jack": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-auto-cinderella-jack",
+      "publisher": "Dutch Passion",
+      "title": "Auto Cinderella Jack",
+      "url": "https://dutch-passion.com/en/cannabis-seeds/auto-cinderella-jack",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "terpenes",
+        "cannabinoids",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
     },
     "dutch-passion-blue-zushi": {
       "schemaVersion": 1,
