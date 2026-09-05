@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T00:18:55.625Z",
+  "generatedAt": "2026-09-05T02:51:33.735Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -1375,7 +1375,9 @@
       "cannabinoids": {
         "status": "unknown",
         "confidence": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "dutch-passion-blue-zushi"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": []
@@ -1386,8 +1388,28 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 20,
+              "maxValue": 25,
+              "unit": "%",
+              "valueText": "20〜25%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-blue-zushi"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "publicContent": {
@@ -1520,7 +1542,9 @@
       "cannabinoids": {
         "status": "unknown",
         "confidence": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "hsc-eu-blueberry-muffin"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": []
@@ -1531,8 +1555,28 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 20,
+              "maxValue": 28,
+              "unit": "%",
+              "valueText": "20〜28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "hsc-eu-blueberry-muffin"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "publicContent": {
