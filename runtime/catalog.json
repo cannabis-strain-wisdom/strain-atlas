@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T10:34:03.408Z",
+  "generatedAt": "2026-09-05T11:16:50.889Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 56,
-    "sources": 80,
+    "cultivars": 57,
+    "sources": 81,
     "entities": 15
   },
   "explore": {
@@ -59,6 +59,7 @@
       "frisian-duck",
       "jack-herer",
       "og-kush",
+      "serious-happiness",
       "the-og-18",
       "wedding-cake"
     ],
@@ -10356,6 +10357,180 @@
     },
     {
       "schemaVersion": 1,
+      "id": "serious-happiness",
+      "status": "review",
+      "name": "Serious Happiness",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-serious-happiness"
+        ],
+        "display": "AK-47 × Warlock",
+        "parents": [
+          "AK-47",
+          "Warlock"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seeds公式では、Serious HappinessはAK-47を母、Warlockを父に組み合わせたF1のSativa/Indica hybridとして記載されています。数値のサティバ／インディカ比率は確認できないため推測していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "serious-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-serious-happiness"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "serious-seeds-serious-happiness"
+        ],
+        "evidenceMode": "LAYERED",
+        "items": [
+          "スイート",
+          "フルーティー",
+          "スパイシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "layered",
+          "core": [
+            "スイート",
+            "フルーティー"
+          ],
+          "accents": [
+            "スパイシー"
+          ],
+          "coreDetails": [
+            {
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "accentDetails": [
+            {
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTへ反映し、それ以上の階層は足していません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-serious-happiness"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsは、Serious Happinessを同社のSeriously Limited構想から生まれた最初の品種として紹介しています。公式ページでは、2015年アムステルダムのIC-420 CupでSativa / Grower部門3位を獲得したのが最初の受賞で、2016年にはMaster Seeds CupのOutdoor SpainでMost Productive特別賞を受賞したと記録されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Serious Seeds公式では、Serious HappinessはAK-47を母、Warlockを父に組み合わせたF1のSativa/Indica hybridとして記載されています。数値のサティバ／インディカ比率は確認できないため推測していません。",
+          "history": "Serious Seedsは、Serious Happinessを同社のSeriously Limited構想から生まれた最初の品種として紹介しています。公式ページでは、2015年アムステルダムのIC-420 CupでSativa / Grower部門3位を獲得したのが最初の受賞で、2016年にはMaster Seeds CupのOutdoor SpainでMost Productive特別賞を受賞したと記録されています。",
+          "aromaNote": "Serious Seeds公式では、甘くフルーティーな香りを基本に、ときどき少しスパイシーな表現が出ると記載されています。この『基本』と『ときどき』の区別だけをCORE／ACCENTへ反映し、それ以上の階層は足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/serious-happiness/primary.webp",
+          "alt": "Serious Happinessの大きく密な花と枝分かれのあるハイブリッド構造を公式形態情報に基づいて表現するAI生成参考画像",
+          "rights": "AI-generated image only; source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-05",
+      "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "shaman",
       "status": "review",
       "name": "Shaman",
@@ -14776,6 +14951,28 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "serious-seeds-serious-happiness": {
+      "schemaVersion": 1,
+      "id": "serious-seeds-serious-happiness",
+      "publisher": "Serious Seeds",
+      "title": "Serious Happiness Strain Created by Serious Seeds",
+      "url": "https://www.seriousseeds.com/cannabis-seeds/serious-happiness",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "aroma",
+        "cannabinoids",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-05"
     },
     "serious-seeds-warlock": {
       "schemaVersion": 1,
