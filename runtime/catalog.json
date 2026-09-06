@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T07:19:06.637Z",
+  "generatedAt": "2026-09-06T08:45:58.443Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -2250,7 +2250,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seedsのブリーダー史では、元となる素材はインディアナ州に由来し、その後オランダで複数のブリーダーによる別々の選抜系統へ分岐したと説明されています。完成した各系統は、単一で均一な系統とは扱えません。"
+          "textJa": "Serious Seedsの現行公式史では、元となるBubble Gum素材は1980年代に米国インディアナ州の栽培者によって開発され、その後New Englandを経てオランダへ渡ったと説明されています。オランダ到着後は複数ブリーダーの別々の選抜系統へ分岐したため、完成した各系統を単一で均一な系統とは扱いません。"
         }
       },
       "history": {
@@ -2264,14 +2264,14 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Bubble Gumは、関連する元の素材から派生した複数のブリーダー選抜に共有されている名称です。Serious Seeds版とT.H.Seeds版は、それぞれ別の選抜系統として説明されています。"
+          "textJa": "Serious Seedsの現行公式史では、1993年に3つの異なるBubble Gum雌株がT.H.SeedsのAdamとCerebral SeedsのSimon/Tonyへ渡り、その後それぞれ別の選抜へ分岐したと説明されています。T.H.Seedsは自社Bubblegumを1993年の同社初リリース、Serious Seedsは自社Bubble Gumを1994年リリースとしています。Serious Seeds版は5世代かけて安定化したとされ、これらの年・育種情報はそれぞれのブリーダー系統の履歴として扱います。"
         }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Bubble Gumは同名で複数のブリーダー選抜系統が存在します。Serious Seeds版とT.H.Seeds版では分類の説明も異なるため、generic Bubble Gumには片方の比率・THC/CBDを流用しません。",
-          "origin": "Serious Seedsのブリーダー史では、元となる素材はインディアナ州に由来し、その後オランダで複数のブリーダーによる別々の選抜系統へ分岐したと説明されています。完成した各系統は、単一で均一な系統とは扱えません。",
-          "history": "Bubble Gumは、関連する元の素材から派生した複数のブリーダー選抜に共有されている名称です。Serious Seeds版とT.H.Seeds版は、それぞれ別の選抜系統として説明されています。",
+          "origin": "Serious Seedsの現行公式史では、元となるBubble Gum素材は1980年代に米国インディアナ州の栽培者によって開発され、その後New Englandを経てオランダへ渡ったと説明されています。オランダ到着後は複数ブリーダーの別々の選抜系統へ分岐したため、完成した各系統を単一で均一な系統とは扱いません。",
+          "history": "Serious Seedsの現行公式史では、1993年に3つの異なるBubble Gum雌株がT.H.SeedsのAdamとCerebral SeedsのSimon/Tonyへ渡り、その後それぞれ別の選抜へ分岐したと説明されています。T.H.Seedsは自社Bubblegumを1993年の同社初リリース、Serious Seedsは自社Bubble Gumを1994年リリースとしています。Serious Seeds版は5世代かけて安定化したとされ、これらの年・育種情報はそれぞれのブリーダー系統の履歴として扱います。",
           "aromaNote": "既存資料では、バブルガム、スイート、ベリー、フローラルの香りが挙げられています。",
           "terpeneNote": "専門データベースでは、Caryophyllene、Limonene、Myrceneが挙げられていますが、generic Bubble Gum全体のlot分析とは扱いません。"
         }
@@ -2296,8 +2296,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15492,7 +15492,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-06"
     },
     "serious-seeds-kali-mist": {
       "schemaVersion": 1,
@@ -15575,7 +15575,7 @@
         "classification"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-06"
     }
   },
   "entities": {
