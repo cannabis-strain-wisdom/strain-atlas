@@ -41,20 +41,22 @@
       if (Number.isFinite(item.value)) return `${item.value}%`;
       return '';
     }).filter(Boolean);
-    return { declarationEntries, count: declarations.length, scopeCount: scopes.size || declarations.length, sourceRefs, valueTexts, sampleScoped: declarations.every(item => item.evidenceScope === 'sample'), unverified: declarations.every(item => item.analysisVerified === false) };
+    const lows = declarations.map(item => Number.isFinite(item.value) ? item.value : item.minValue).filter(Number.isFinite);
+    const highs = declarations.map(item => Number.isFinite(item.value) ? item.value : item.maxValue).filter(Number.isFinite);
+    return { declarationEntries, count: declarations.length, scopeCount: scopes.size || declarations.length, sourceRefs, valueTexts, min: Math.min(...lows), max: Math.max(...highs), sampleScoped: declarations.every(item => item.evidenceScope === 'sample'), unverified: declarations.every(item => item.analysisVerified === false) };
   };
   const decorateSourceDeclaredCannabinoids = (root, cultivar, catalog) => {
     const summary = sourceDeclaredCannabinoidSummary(cultivar);
     if (!summary) return false;
     const section = root.querySelector('.ucd-cannabinoid-card');
     if (!section) throw new Error(`CANNABINOID_CARD_MISSING:${cultivar.id}`);
-    if (section.querySelector('[data-cannabinoid-source-context="v2"]')) return true;
+    if (section.querySelector('[data-cannabinoid-source-context="v1"]')) return true;
     const context = document.createElement('div');
     context.className = 'ucd-cannabinoid-source-context';
-    context.dataset.cannabinoidSourceContext = 'v2';
+    context.dataset.cannabinoidSourceContext = 'v1';
     const top = document.createElement('div'); top.className = 'ucd-cannabinoid-source-context-top';
     const label = document.createElement('strong'); label.textContent = summary.sampleScoped ? '公式掲載の検体データ' : '公式掲載データ';
-    const count = document.createElement('span'); count.textContent = summary.sampleScoped ? `${summary.scopeCount}検体` : `${summary.count}件`;
+    const count = document.createElement('span'); count.textContent = summary.sampleScoped ? (summary.min === summary.max ? `${summary.min}%` : `掲載値 ${summary.min}〜${summary.max}%`) : `${summary.count}件`;
     top.append(label, count);
     const note = document.createElement('p');
     const verificationText = summary.unverified ? '元の分析書そのものはCSWで直接確認できていないため、分析確認済みの測定値としては扱っていません。' : '';
@@ -67,7 +69,7 @@
     context.append(top, note);
     const grid = section.querySelector('.ucd-cannabinoid-grid');
     if (!grid) throw new Error(`CANNABINOID_GRID_MISSING:${cultivar.id}`);
-    grid.dataset.sourceDeclaredIndividualValues = 'v2';
+    grid.dataset.sourceDeclaredIndividualValues = 'v1';
     for (const { item, index } of summary.declarationEntries) {
       const cell = grid.children[index];
       const small = cell?.querySelector('small');
@@ -87,7 +89,7 @@
       explanation.textContent = summary.sampleScoped ? '上の値は公式掲載の個別検体データです。個別検体や再検査を含む場合があるため、品種全体の固定値として統合していません。' : summary.count > 1 ? '上の値は別々の公式掲載値です。出典ごとの差を保ったまま表示し、1つの確定値へ統合していません。' : '上の値は公式掲載値です。品種全体の固定値として確定した分析値ではありません。';
       detail.prepend(explanation);
     }
-    section.dataset.sourceDeclaredCannabinoids = 'v2';
+    section.dataset.sourceDeclaredCannabinoids = 'v1';
     return true;
   };
   const decorateUnavailableRatio = (root, cultivar) => {
@@ -150,7 +152,7 @@
     if (decorated) root.dataset.aromaTerminologyReady = 'true';
     const cannabinoidSummary = sourceDeclaredCannabinoidSummary(cultivar);
     const cannabinoidContext = decorateSourceDeclaredCannabinoids(root, cultivar, catalog);
-    if (cannabinoidSummary && !root.querySelector('[data-cannabinoid-source-context="v2"]')) throw new Error(`CANNABINOID_CONTEXT_MISSING:${cultivar.id}`);
+    if (cannabinoidSummary && !root.querySelector('[data-cannabinoid-source-context="v1"]')) throw new Error(`CANNABINOID_CONTEXT_MISSING:${cultivar.id}`);
     const typeOnlySection = root.querySelector('.ucd-type-only');
     const ratioUnavailable = decorateUnavailableRatio(root, cultivar);
     if (typeOnlySection && !root.querySelector('[data-ratio-unavailable="v1"]')) throw new Error(`RATIO_UNAVAILABLE_CONTEXT_MISSING:${cultivar.id}`);
