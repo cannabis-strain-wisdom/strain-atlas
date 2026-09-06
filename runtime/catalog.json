@@ -11238,6 +11238,18 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-skunk-1"
+        ],
+        "items": [
+          "土っぽい",
+          "甘い"
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -11287,7 +11299,8 @@
       "publicContent": {
         "ja": {
           "lineageNote": "Sensi Seeds公式ガイドでは、Skunk #1の系統をAcapulco Gold、Colombian Gold、Afghanの組み合わせとして説明しています。一方、現行商品ページでは初期Skunk系統の背景を中南米、アフガニスタン、タイのランドレースとより広く記載しています。CSWではこの粒度差を一つの親構成へ推定統合していません。",
-          "history": "Sensi Seeds公式では、Skunk #1は1970年代に育種された安定系統とされ、一部の記録は1969年頃まで遡ると説明されています。米国では1980年までに種子が販売され、オランダへの種子としての最初の確認到来は1982年。現行商品ページでは、複数世代の選抜と戻し交配によって安定化されたとされています。"
+          "history": "Sensi Seeds公式では、Skunk #1は1970年代に育種された安定系統とされ、一部の記録は1969年頃まで遡ると説明されています。米国では1980年までに種子が販売され、オランダへの種子としての最初の確認到来は1982年。現行商品ページでは、複数世代の選抜と戻し交配によって安定化されたとされています。",
+          "flavorNote": "Sensi Seedsの現行商品ページでは、Skunk #1の味わいをearthyとsweetの要素で説明しています。これは味の表現として採用し、香り情報へは転用していません。"
         }
       },
       "visuals": [
