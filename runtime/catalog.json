@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T18:59:48.156Z",
+  "generatedAt": "2026-09-06T19:18:21.364Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -13154,12 +13154,12 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "ACE Seeds公式では、スイート・キャロット、マンゴー、オレンジ、フラワー、レジンの香りが挙げられています。"
+          "noteJa": "ACE Seeds公式のBouquet欄では、スイートキャロット、マンゴー、オレンジ、フラワー、レジンが並列で記載されています。主従関係は示されていないため、CORE / ACCENTSには分けていません。"
         }
       },
       "terpenes": {
         "status": "confirmed",
-        "confidence": "A",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-zamaldelica"
@@ -13276,42 +13276,22 @@
               "visualRole": "trace"
             }
           ],
-          "noteJa": "ACE Seeds公式では、Terpinolene、β-Myrcene、β-Ocimene、β-Pinene、Limonene、α-Pinene、Linalool、δ-3-Carene、α-Terpinene、γ-Terpinene、β-Caryophyllene、α-Humulene、Nerolidol 2がテルペンとして挙げられています。"
+          "noteJa": "ACE Seeds公式のテルペンプロファイルでは、テルピノレン23%、β-ミルセン22%と掲載され、β-オシメン、β-ピネン、リモネン、α-ピネンなども挙げられています。これらは公式テルペンプロファイル内の相対構成として扱い、花全体の絶対濃度やCSWが直接確認した分析値とは扱っていません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-zamaldelica"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-zamaldelica"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 21,
-            "max": 23,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-zamaldelica"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0,
-            "max": 0.05,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -13326,10 +13306,15 @@
               "maxValue": 23,
               "unit": "%",
               "valueText": "21〜23%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-zamaldelica"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -13340,10 +13325,34 @@
               "maxValue": 0.05,
               "unit": "%",
               "valueText": "0〜0.05%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-zamaldelica"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0.55,
+              "maxValue": 2.03,
+              "unit": "%",
+              "valueText": "0.55〜2.03%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-zamaldelica"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -13361,15 +13370,15 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、レユニオン島由来のZamalから、強いサイケデリック特性、比較的速い開花、スイート・キャロットとフローラルの香りを持つ母株を選抜し、Golden Tigerで受粉してZamaldelicaを作出したと説明しています。"
+          "textJa": "ACE Seedsは、レユニオン島由来のZamalから選抜した母株をGolden Tigerで受粉してZamaldelicaを作出したと説明しています。現行ページでは、最後の育種段階でNew Malawi Killerの親系統を加えたことも記載されています。"
         }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE Seeds公式ではZamal × Malawi/Thaiとされています。説明文では、選抜したZamal母株をGolden Tigerで受粉して作出したと記載されています。",
-          "history": "ACE Seedsは、レユニオン島由来のZamalから、強いサイケデリック特性、比較的速い開花、スイート・キャロットとフローラルの香りを持つ母株を選抜し、Golden Tigerで受粉してZamaldelicaを作出したと説明しています。",
-          "aromaNote": "ACE Seeds公式では、スイート・キャロット、マンゴー、オレンジ、フラワー、レジンの香りが挙げられています。",
-          "terpeneNote": "ACE Seeds公式では、Terpinolene、β-Myrcene、β-Ocimene、β-Pinene、Limonene、α-Pinene、Linalool、δ-3-Carene、α-Terpinene、γ-Terpinene、β-Caryophyllene、α-Humulene、Nerolidol 2がテルペンとして挙げられています。"
+          "history": "ACE Seedsは、レユニオン島由来のZamalから選抜した母株をGolden Tigerで受粉してZamaldelicaを作出したと説明しています。現行ページでは、最後の育種段階でNew Malawi Killerの親系統を加えたことも記載されています。",
+          "aromaNote": "ACE Seeds公式のBouquet欄では、スイートキャロット、マンゴー、オレンジ、フラワー、レジンが並列で記載されています。主従関係は示されていないため、CORE / ACCENTSには分けていません。",
+          "terpeneNote": "ACE Seeds公式のテルペンプロファイルでは、テルピノレン23%、β-ミルセン22%と掲載され、β-オシメン、β-ピネン、リモネン、α-ピネンなども挙げられています。これらは公式テルペンプロファイル内の相対構成として扱い、花全体の絶対濃度やCSWが直接確認した分析値とは扱っていません。"
         }
       },
       "visuals": [
@@ -13383,8 +13392,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13821,7 +13830,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "acs-og-kush-volatiles-2021": {
       "schemaVersion": 1,
