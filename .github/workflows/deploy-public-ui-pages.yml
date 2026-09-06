@@ -1,4 +1,5 @@
 name: Deploy public UI to GitHub Pages
+# Recovery retrigger only: no public data or frontend behavior changes.
 
 on:
   push:
