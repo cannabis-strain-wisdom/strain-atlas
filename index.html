@@ -254,6 +254,14 @@
       status.textContent = `${state.letter} で始まる品種 · ${count}件表示`;
     };
 
+    const scrollToResults = () => {
+      const target = allDisclosure?.querySelector(':scope > summary') || allDisclosure;
+      if (!target) return;
+      const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+      target.style.scrollMarginTop = '12px';
+      requestAnimationFrame(() => target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }));
+    };
+
     const refresh = ({ scroll = false } = {}) => {
       if (allDisclosure) allDisclosure.open = true;
       if (search) search.dispatchEvent(new Event('input', { bubbles: true }));
@@ -262,19 +270,18 @@
       queueMicrotask(() => {
         syncStatus();
         syncClear();
-        if (scroll) {
-          const target = document.getElementById('cultivars') || allDisclosure;
-          const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-          target?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-        }
       });
+      if (scroll) scrollToResults();
     };
 
     root.addEventListener('click', event => {
       const button = event.target.closest('[data-alphabet]');
       if (!button || button.disabled) return;
       const next = button.dataset.alphabet || 'ALL';
-      if (state.letter === next) return;
+      if (state.letter === next) {
+        refresh({ scroll: true });
+        return;
+      }
       state.letter = next;
       refresh({ scroll: true });
     });
