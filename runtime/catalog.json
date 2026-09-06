@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T04:41:11.487Z",
+  "generatedAt": "2026-09-06T05:03:34.060Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -11232,21 +11232,22 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "スイート"
+          "スイート・スカンク"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "スイート"
+            "スイート・スカンク"
           ],
           "details": [
             {
-              "reviewLabelJa": "スイート",
-              "plainMeaningJa": "甘さを感じる香り",
-              "presentationRole": "CHARACTER",
+              "reviewLabelJa": "スイート・スカンク",
+              "plainMeaningJa": "甘さを伴うスカンク系の香り",
+              "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "甘い"
+                "甘い",
+                "スカンク系"
               ],
               "registryVersion": 1
             }
