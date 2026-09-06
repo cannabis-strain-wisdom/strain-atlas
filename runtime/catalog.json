@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T00:29:25.733Z",
+  "generatedAt": "2026-09-06T04:41:11.487Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -11225,30 +11225,36 @@
         }
       ],
       "aromas": {
-        "status": "unknown",
-        "confidence": "unknown",
-        "sourceRefs": [],
-        "evidenceMode": "UNKNOWN",
-        "items": [],
-        "presentation": {
-          "schemaVersion": 1,
-          "mode": "hidden",
-          "items": [],
-          "reviewStatus": "NOT_APPLICABLE",
-          "unresolvedCount": 0
-        }
-      },
-      "flavors": {
         "status": "confirmed",
         "confidence": "A",
-        "basis": "breederOfficial",
         "sourceRefs": [
-          "sensi-seeds-skunk-1"
+          "sensi-seeds-skunk-guide"
         ],
+        "evidenceMode": "PROFILE",
         "items": [
-          "土っぽい",
-          "甘い"
-        ]
+          "スイート"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート"
+          ],
+          "details": [
+            {
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Sensi Seeds公式ガイドでは、Skunk #1を甘くスカンク系の香りを持つ品種として説明しています。"
+        }
       },
       "terpenes": {
         "status": "unknown",
@@ -11300,7 +11306,7 @@
         "ja": {
           "lineageNote": "Sensi Seeds公式ガイドでは、Skunk #1の系統をAcapulco Gold、Colombian Gold、Afghanの組み合わせとして説明しています。一方、現行商品ページでは初期Skunk系統の背景を中南米、アフガニスタン、タイのランドレースとより広く記載しています。CSWではこの粒度差を一つの親構成へ推定統合していません。",
           "history": "Sensi Seeds公式では、Skunk #1は1970年代に育種された安定系統とされ、一部の記録は1969年頃まで遡ると説明されています。米国では1980年までに種子が販売され、オランダへの種子としての最初の確認到来は1982年。現行商品ページでは、複数世代の選抜と戻し交配によって安定化されたとされています。",
-          "flavorNote": "Sensi Seedsの現行商品ページでは、Skunk #1の味わいをearthyとsweetの要素で説明しています。これは味の表現として採用し、香り情報へは転用していません。"
+          "aromaNote": "Sensi Seeds公式ガイドでは、Skunk #1を甘くスカンク系の香りを持つ品種として説明しています。"
         }
       },
       "visuals": [
@@ -15349,7 +15355,8 @@
       "supports": [
         "identity",
         "lineage",
-        "history"
+        "history",
+        "aroma"
       ],
       "publishedAt": "2020-09-05",
       "checkedAt": "2026-09-06"
