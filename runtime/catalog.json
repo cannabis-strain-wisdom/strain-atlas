@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T05:03:34.060Z",
+  "generatedAt": "2026-09-06T06:17:53.141Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 59,
-    "sources": 85,
+    "sources": 86,
     "entities": 16
   },
   "explore": {
@@ -6617,7 +6617,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "hybrid"
+        "type": "hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-jack-herer"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 50,
+            "indica": 50,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 50,
+              "indica": 50,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -6749,21 +6775,22 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "sensi-seeds-jack-herer"
+          "sensi-seeds-jack-herer",
+          "sensi-seeds-jack-herer-launch-history"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Sensi SeedsはJack Hererを代表的な受賞品種として紹介していますが、確認した製品ページでは正確なリリース年を示していません。"
+          "textJa": "Sensi SeedsはJack Hererを代表的な受賞品種として紹介し、数年にわたる育種と安定化を経て1994年にThe Cannabis Castleで発表したと記録しています。"
         }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Sensi Seeds公式では50/50のsativa / indica hybridとされていますが、確認した製品ページでは親品種の一覧は開示されていません。非公開の親系統は推定しません。",
           "origin": "Sensi Seedsが開発し、カンナビス活動家Jack Hererにちなんで命名したと公式に説明しています。",
-          "history": "Sensi SeedsはJack Hererを代表的な受賞品種として紹介していますが、確認した製品ページでは正確なリリース年を示していません。",
+          "history": "Sensi SeedsはJack Hererを代表的な受賞品種として紹介し、数年にわたる育種と安定化を経て1994年にThe Cannabis Castleで発表したと記録しています。",
           "aromaNote": "Sensi Seeds公式では、シャープ、セイボリー、アーシーの香りが挙げられています。"
         }
       },
@@ -6778,8 +6805,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15281,6 +15308,20 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-16"
+    },
+    "sensi-seeds-jack-herer-launch-history": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-jack-herer-launch-history",
+      "publisher": "Sensi Seeds",
+      "title": "Will you be the next Jack Herer or Ben Dronkers?",
+      "url": "https://sensiseeds.com/en/blog/will-next-jack-herer-ben-dronkers/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "history",
+        "breeding"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-06"
     },
     "sensi-seeds-jack-herer": {
       "schemaVersion": 1,
