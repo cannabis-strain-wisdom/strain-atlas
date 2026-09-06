@@ -87,7 +87,7 @@
     },
     {
       "strainId": "bubba-kush-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T09:30:35Z"
     },
     {
@@ -102,12 +102,12 @@
     },
     {
       "strainId": "gorilla-glue-4-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T09:30:35Z"
     },
     {
       "strainId": "jager-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T09:30:35Z"
     },
     {
@@ -157,27 +157,27 @@
     },
     {
       "strainId": "bubblegum-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T12:35:32Z"
     },
     {
       "strainId": "chemdog-d-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T12:35:32Z"
     },
     {
       "strainId": "cherry-pie-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T12:35:32Z"
     },
     {
       "strainId": "durban-poison-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T12:35:32Z"
     },
     {
       "strainId": "f1-durb-s1",
-      "state": "published",
+      "state": "pending",
       "publishedAt": "2026-08-19T12:35:32Z"
     },
     {
