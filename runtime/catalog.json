@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T10:08:05.252Z",
+  "generatedAt": "2026-09-06T10:30:18.039Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 82,
+    "sources": 83,
     "entities": 16
   },
   "explore": {
@@ -7454,7 +7454,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passion公式ではSkunk #1 × Afghaniで、現在の説明ではインディカ優勢ハイブリッドとして扱われています。"
+          "textJa": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせた品種と説明されています。数値のサティバ／インディカ比率は公表されていないため推定していません。"
         }
       },
       "relations": [
@@ -7478,39 +7478,67 @@
         "sourceRefs": [
           "dutch-passion-mazar"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
-          "アーシー・ハッシュ",
-          "パイン",
+          "アフガン・ハッシュ",
+          "アーシー",
+          "パイニー",
+          "ハーブ",
           "インセンス",
-          "シトラス"
+          "シトラス",
+          "スイート・フローラル"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "アーシー・ハッシュ",
-            "パイン",
-            "インセンス",
-            "シトラス"
+          "mode": "layered",
+          "core": [
+            "アフガン・ハッシュ",
+            "アーシー",
+            "パイニー"
           ],
-          "details": [
+          "accents": [
+            "ハーブ",
+            "インセンス",
+            "シトラス",
+            "スイート・フローラル"
+          ],
+          "coreDetails": [
             {
-              "reviewLabelJa": "アーシー・ハッシュ",
-              "plainMeaningJa": "土っぽさを伴うハッシュのような樹脂香",
+              "reviewLabelJa": "アフガン・ハッシュ",
+              "plainMeaningJa": "アフガン系ハッシュを思わせる樹脂香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "土",
-                "ハッシュ"
+                "ハッシュ",
+                "樹脂香"
               ],
               "registryVersion": 1
             },
             {
-              "reviewLabelJa": "パイン",
-              "plainMeaningJa": "松を思わせる樹木香",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "パイニー",
+              "plainMeaningJa": "松のような樹木香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "松"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "accentDetails": [
+            {
+              "reviewLabelJa": "ハーブ",
+              "plainMeaningJa": "ハーブ類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハーブ"
               ],
               "registryVersion": 1
             },
@@ -7531,17 +7559,43 @@
                 "柑橘"
               ],
               "registryVersion": 1
+            },
+            {
+              "reviewLabelJa": "スイート・フローラル",
+              "plainMeaningJa": "甘さを伴う花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い",
+                "花"
+              ],
+              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Dutch Passion公式では、アーシーなハッシュ、パイン、インセンス、シトラスの香りが挙げられています。"
+          "noteJa": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-mazar",
+          "dutch-passion-us-mazar"
+        ],
+        "items": [
+          "パイニー",
+          "アーシー",
+          "フルーティー",
+          "ガッシー"
+        ]
       },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -7549,28 +7603,19 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
-          "dutch-passion-mazar"
+          "dutch-passion-mazar",
+          "dutch-passion-us-mazar"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "dutch-passion-mazar"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 20,
-            "approximate": true
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "dutch-passion-mazar"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -7584,10 +7629,34 @@
               "value": 20,
               "unit": "%",
               "valueText": "約20%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "dutch-passion-mazar"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 15,
+              "maxValue": 20,
+              "unit": "%",
+              "valueText": "15〜20%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-us-mazar"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -7601,7 +7670,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passionが、選抜したSkunk #1とアフガン系統を交配して開発した品種です。"
+          "textJa": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせて開発された品種と説明されています。"
         }
       },
       "history": {
@@ -7609,19 +7678,21 @@
         "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dutch-passion-mazar"
+          "dutch-passion-mazar",
+          "dutch-passion-us-mazar"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch PassionはMazarを1980〜1990年代のクラシック品種と位置づけ、1997年に遺伝的な組み合わせを改良したとしています。"
+          "textJa": "Dutch Passion公式では、Mazarは1980年代から続くクラシック系統で、1997年に遺伝的な組み合わせが改良されたと説明されています。受賞歴として1999年HTCC 2位、2002年High Life Cup 2位、2008年Tipo Forte 1位、2014年Soft Secrets MagazineのPlant Of The Yearが記録されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Dutch Passion公式ではSkunk #1 × Afghaniで、現在の説明ではインディカ優勢ハイブリッドとして扱われています。",
-          "origin": "Dutch Passionが、選抜したSkunk #1とアフガン系統を交配して開発した品種です。",
-          "history": "Dutch PassionはMazarを1980〜1990年代のクラシック品種と位置づけ、1997年に遺伝的な組み合わせを改良したとしています。",
-          "aromaNote": "Dutch Passion公式では、アーシーなハッシュ、パイン、インセンス、シトラスの香りが挙げられています。"
+          "lineageNote": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせた品種と説明されています。数値のサティバ／インディカ比率は公表されていないため推定していません。",
+          "origin": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせて開発された品種と説明されています。",
+          "history": "Dutch Passion公式では、Mazarは1980年代から続くクラシック系統で、1997年に遺伝的な組み合わせが改良されたと説明されています。受賞歴として1999年HTCC 2位、2002年High Life Cup 2位、2008年Tipo Forte 1位、2014年Soft Secrets MagazineのPlant Of The Yearが記録されています。",
+          "aromaNote": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。",
+          "flavorNote": "Dutch Passion公式では、味はパイニーとアーシーを中心に果実のニュアンスがあると説明され、米国公式の味の欄ではアーシー、ガッシー、パイニーが記載されています。香りの表現から味を推定したものではありません。"
         }
       },
       "visuals": [
@@ -7635,8 +7706,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13792,7 +13863,7 @@
       "schemaVersion": 1,
       "id": "dutch-passion-mazar",
       "publisher": "Dutch Passion",
-      "title": "Mazar",
+      "title": "Mazar® Feminised Cannabis Seeds",
       "url": "https://dutch-passion.com/en/cannabis-seeds/mazar",
       "sourceType": "breederOfficial",
       "supports": [
@@ -13801,13 +13872,14 @@
         "classification",
         "breeding",
         "aromas",
+        "flavors",
         "origin",
         "history",
         "cannabinoids",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-06"
     },
     "dutch-passion-shaman-story": {
       "schemaVersion": 1,
@@ -13845,6 +13917,24 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "dutch-passion-us-mazar": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-us-mazar",
+      "publisher": "Dutch Passion USA",
+      "title": "Mazar",
+      "url": "https://dutch-passion.us/cannabis-seeds/mazar",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "classification",
+        "aromas",
+        "flavors",
+        "history",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-06"
     },
     "fischedick-og-kush-terpenoids-2017": {
       "schemaVersion": 1,
