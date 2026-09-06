@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T12:27:53.378Z",
+  "generatedAt": "2026-09-06T13:19:50.464Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 83,
+    "sources": 82,
     "entities": 16
   },
   "explore": {
@@ -7136,8 +7136,7 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-malawi",
-          "seedfinder-malawi"
+          "ace-seeds-malawi"
         ],
         "display": "Old Malawi Killer × 3rd generation Malawis",
         "parents": [
@@ -7146,7 +7145,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、Malawi由来のP4ランドレースとして説明されています。"
+          "textJa": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、マラウイ由来のP4ランドレースとして説明されています。"
         }
       },
       "relations": [
@@ -7171,7 +7170,7 @@
         "sourceRefs": [
           "ace-seeds-malawi"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
           "オイル",
           "ウッド",
@@ -7181,15 +7180,17 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
+          "mode": "layered",
+          "core": [
             "オイル",
             "ウッド",
-            "レモン",
+            "レモン"
+          ],
+          "accents": [
             "スイートキャロット",
             "ライプ・マンダリン"
           ],
-          "details": [
+          "coreDetails": [
             {
               "reviewLabelJa": "オイル",
               "plainMeaningJa": "油を思わせる濃い香り",
@@ -7216,7 +7217,9 @@
                 "柑橘"
               ],
               "registryVersion": 1
-            },
+            }
+          ],
+          "accentDetails": [
             {
               "reviewLabelJa": "スイートキャロット",
               "plainMeaningJa": "甘いニンジンを思わせる香り",
@@ -7238,7 +7241,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "ACE Seeds公式では、オイル、ウッド、レモンに加え、表現型によってスイート・キャロットや熟したマンダリンの香りが記載されています。"
+          "noteJa": "ACE Seeds公式では、オイル、ウッド、レモンが強く濃い主な香りとして記載され、一部の個体ではスイートキャロットや熟したマンダリンの香りも挙げられています。"
         }
       },
       "terpenes": {
@@ -7304,41 +7307,22 @@
               "visualRole": "trace"
             }
           ],
-          "noteJa": "ACE Seeds公式では、β-Myrcene、Limonene、β-Pinene、β-Caryophyllene、α-Humulene、α-Bisabololがテルペンとして挙げられています。"
+          "noteJa": "ACE Seeds公式では、モノテルペンはβ-ミルセンが非常に多く、リモネンが中程度、β-ピネンがごく少量と説明されています。セスキテルペンはβ-カリオフィレンが中心で、α-フムレンが中程度、α-ビサボロールが少量とされています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-malawi"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-malawi"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 24,
-            "max": 27,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-malawi"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 0.08,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -7353,10 +7337,15 @@
               "maxValue": 27,
               "unit": "%",
               "valueText": "24〜27%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-malawi"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -7366,10 +7355,34 @@
               "value": 0.08,
               "unit": "%",
               "valueText": "0.08%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-malawi"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0.4,
+              "maxValue": 1,
+              "unit": "%",
+              "valueText": "0.4〜1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-malawi"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -7379,12 +7392,11 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-malawi",
-          "seedfinder-malawi"
+          "ace-seeds-malawi"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、起源を中央アフリカのMalawiとしています。"
+          "textJa": "中央アフリカ・マラウイ"
         }
       },
       "history": {
@@ -7396,16 +7408,16 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsの公式沿革には、Malawiについて2012年の導入記録があります。"
+          "textJa": "ACE Seedsの公式沿革では、Malawiは2012年に導入された品種の一つとして記録されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、Malawi由来のP4ランドレースとして説明されています。",
-          "origin": "ACE Seeds公式では、起源を中央アフリカのMalawiとしています。",
-          "history": "ACE Seedsの公式沿革には、Malawiについて2012年の導入記録があります。",
-          "aromaNote": "ACE Seeds公式では、オイル、ウッド、レモンに加え、表現型によってスイート・キャロットや熟したマンダリンの香りが記載されています。",
-          "terpeneNote": "ACE Seeds公式では、β-Myrcene、Limonene、β-Pinene、β-Caryophyllene、α-Humulene、α-Bisabololがテルペンとして挙げられています。"
+          "lineageNote": "ACE SeedsではOld Malawi Killer × 3rd generation Malawisとされ、マラウイ由来のP4ランドレースとして説明されています。",
+          "origin": "中央アフリカ・マラウイ",
+          "history": "ACE Seedsの公式沿革では、Malawiは2012年に導入された品種の一つとして記録されています。",
+          "aromaNote": "ACE Seeds公式では、オイル、ウッド、レモンが強く濃い主な香りとして記載され、一部の個体ではスイートキャロットや熟したマンダリンの香りも挙げられています。",
+          "terpeneNote": "ACE Seeds公式では、モノテルペンはβ-ミルセンが非常に多く、リモネンが中程度、β-ピネンがごく少量と説明されています。セスキテルペンはβ-カリオフィレンが中心で、α-フムレンが中程度、α-ビサボロールが少量とされています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "visuals": [
@@ -7419,8 +7431,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -8935,7 +8947,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、この系統の起源をPanamaとしています。"
+          "textJa": "パナマ"
         }
       },
       "history": {
@@ -8953,7 +8965,7 @@
       "publicContent": {
         "ja": {
           "lineageNote": "ACE SeedsはPanamaを、Panama由来の3つのサティバ系統を組み合わせたハイブリッドと説明しています。個々の親品種名は公表されていません。",
-          "origin": "ACE Seeds公式では、この系統の起源をPanamaとしています。",
+          "origin": "パナマ",
           "history": "ACE Seedsの公式沿革では、Panamaは2005年の最初のカタログに掲載された品種の一つとされています。",
           "aromaNote": "ACE Seeds公式では、レモン、バニラ、インセンスが主な香りとして挙げられ、一部の表現型ではストロベリーの香りも記載されています。",
           "terpeneNote": "ACE Seeds公式では、テルピノレンが中心で、α-ピネン、β-ピネン、リモネンが中程度、β-ミルセンとtrans-オシメンが少量と説明され、セスキテルペンではグアイオールが挙げられています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
@@ -13431,7 +13443,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-06"
     },
     "ace-seeds-new-caledonia": {
       "schemaVersion": 1,
@@ -14425,20 +14437,6 @@
       "sourceType": "specialistDatabase",
       "supports": [
         "lineage"
-      ],
-      "publishedAt": null,
-      "checkedAt": "2026-08-17"
-    },
-    "seedfinder-malawi": {
-      "schemaVersion": 1,
-      "id": "seedfinder-malawi",
-      "publisher": "SeedFinder",
-      "title": "Malawi",
-      "url": "https://en.seedfinder.eu/strain-info/Malawi/ACE_Seeds/",
-      "sourceType": "specialistDatabase",
-      "supports": [
-        "lineage",
-        "origin"
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-17"
