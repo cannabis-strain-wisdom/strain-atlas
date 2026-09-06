@@ -30,44 +30,52 @@
   };
   const sourceDeclaredCannabinoidSummary = cultivar => {
     const items = Array.isArray(cultivar?.cannabinoids?.presentation?.items) ? cultivar.cannabinoids.presentation.items : [];
-    const declarations = items.filter(item => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC' && Number.isFinite(item?.value) && item?.unit === '%');
-    if (!declarations.length) return null;
-    const values = declarations.map(item => item.value);
+    const declarationEntries = items.map((item, index) => ({ item, index })).filter(({ item }) => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC' && item?.unit === '%' && (Number.isFinite(item?.value) || (Number.isFinite(item?.minValue) && Number.isFinite(item?.maxValue))));
+    if (!declarationEntries.length) return null;
+    const declarations = declarationEntries.map(entry => entry.item);
     const scopes = new Set(declarations.map(item => item.evidenceScopeRef).filter(Boolean));
-    return {
-      count: declarations.length,
-      scopeCount: scopes.size || declarations.length,
-      min: Math.min(...values),
-      max: Math.max(...values),
-      sampleScoped: declarations.every(item => item.evidenceScope === 'sample'),
-      unverified: declarations.every(item => item.analysisVerified === false)
-    };
+    const sourceRefs = [...new Set(declarations.flatMap(item => Array.isArray(item.sourceRefs) ? item.sourceRefs : []).filter(Boolean))];
+    const valueTexts = declarations.map(item => {
+      if (typeof item.valueText === 'string' && item.valueText.trim()) return item.valueText.trim();
+      if (Number.isFinite(item.minValue) && Number.isFinite(item.maxValue)) return `${item.minValue}〜${item.maxValue}%`;
+      if (Number.isFinite(item.value)) return `${item.value}%`;
+      return '';
+    }).filter(Boolean);
+    return { declarationEntries, count: declarations.length, scopeCount: scopes.size || declarations.length, sourceRefs, valueTexts, sampleScoped: declarations.every(item => item.evidenceScope === 'sample'), unverified: declarations.every(item => item.analysisVerified === false) };
   };
-  const decorateSourceDeclaredCannabinoids = (root, cultivar) => {
+  const decorateSourceDeclaredCannabinoids = (root, cultivar, catalog) => {
     const summary = sourceDeclaredCannabinoidSummary(cultivar);
     if (!summary) return false;
     const section = root.querySelector('.ucd-cannabinoid-card');
     if (!section) throw new Error(`CANNABINOID_CARD_MISSING:${cultivar.id}`);
-    if (section.querySelector('[data-cannabinoid-source-context="v1"]')) return true;
-
+    if (section.querySelector('[data-cannabinoid-source-context="v2"]')) return true;
     const context = document.createElement('div');
     context.className = 'ucd-cannabinoid-source-context';
-    context.dataset.cannabinoidSourceContext = 'v1';
+    context.dataset.cannabinoidSourceContext = 'v2';
     const top = document.createElement('div'); top.className = 'ucd-cannabinoid-source-context-top';
     const label = document.createElement('strong'); label.textContent = summary.sampleScoped ? '公式掲載の検体データ' : '公式掲載データ';
-    const range = document.createElement('span'); range.textContent = summary.min === summary.max ? `${summary.min}%` : `掲載値 ${summary.min}〜${summary.max}%`;
-    top.append(label, range);
+    const count = document.createElement('span'); count.textContent = summary.sampleScoped ? `${summary.scopeCount}検体` : `${summary.count}件`;
+    top.append(label, count);
     const note = document.createElement('p');
-    const countText = summary.sampleScoped ? `${summary.scopeCount}検体・${summary.count}件の公式掲載値です。` : `${summary.count}件の公式掲載値です。`;
     const verificationText = summary.unverified ? '元の分析書そのものはCSWで直接確認できていないため、分析確認済みの測定値としては扱っていません。' : '';
-    note.textContent = `${countText}品種全体の固定値を示すものではありません。${verificationText}`;
+    const quotedValues = summary.valueTexts.length ? `「${summary.valueTexts.join('」「')}」` : `${summary.count}件`;
+    const publishers = [...new Set(summary.sourceRefs.map(ref => catalog?.sources?.[ref]?.publisher).filter(Boolean))];
+    const sourceLead = publishers.length ? `${publishers.join(' / ')}の採用資料には` : '採用した公式資料には';
+    if (summary.sampleScoped) note.textContent = `公式掲載の検体データは${summary.scopeCount}検体・${summary.count}件です。個別検体や再検査を含む場合があるため、品種全体の固定値として統合していません。${verificationText}`;
+    else if (summary.count > 1) note.textContent = `${sourceLead}${quotedValues}の${summary.count}件の掲載値があります。これらを1つの確定値へ統合していません。${verificationText}`;
+    else note.textContent = `${sourceLead}${quotedValues}の掲載値があります。品種全体の固定値を示すものではありません。${verificationText}`;
     context.append(top, note);
-
     const grid = section.querySelector('.ucd-cannabinoid-grid');
     if (!grid) throw new Error(`CANNABINOID_GRID_MISSING:${cultivar.id}`);
-    grid.dataset.sourceDeclaredIndividualValues = 'v1';
+    grid.dataset.sourceDeclaredIndividualValues = 'v2';
+    for (const { item, index } of summary.declarationEntries) {
+      const cell = grid.children[index];
+      const small = cell?.querySelector('small');
+      const sourceRef = Array.isArray(item.sourceRefs) ? item.sourceRefs.find(Boolean) : null;
+      const source = sourceRef ? catalog?.sources?.[sourceRef] : null;
+      if (small && source?.publisher) small.textContent = `${item.label || 'THC'} · ${source.publisher}`;
+    }
     grid.insertAdjacentElement('beforebegin', context);
-
     const detail = section.querySelector('.ucd-spec-detail');
     if (detail) {
       [...detail.querySelectorAll(':scope > p')].forEach(paragraph => {
@@ -76,10 +84,10 @@
       });
       const explanation = document.createElement('p');
       explanation.className = 'ucd-cannabinoid-source-explanation';
-      explanation.textContent = '個別の掲載値は上のカードを開いた時だけ表示しています。同じ検体の再検査を含むため、5つの数値を品種の固定THC値としてまとめていません。';
+      explanation.textContent = summary.sampleScoped ? '上の値は公式掲載の個別検体データです。個別検体や再検査を含む場合があるため、品種全体の固定値として統合していません。' : summary.count > 1 ? '上の値は別々の公式掲載値です。出典ごとの差を保ったまま表示し、1つの確定値へ統合していません。' : '上の値は公式掲載値です。品種全体の固定値として確定した分析値ではありません。';
       detail.prepend(explanation);
     }
-    section.dataset.sourceDeclaredCannabinoids = 'v1';
+    section.dataset.sourceDeclaredCannabinoids = 'v2';
     return true;
   };
   const decorateUnavailableRatio = (root, cultivar) => {
@@ -141,8 +149,8 @@
     if (expected !== decorated) throw new Error(`AROMA_PRESENTATION_INCOMPLETE:${decorated}/${expected}`);
     if (decorated) root.dataset.aromaTerminologyReady = 'true';
     const cannabinoidSummary = sourceDeclaredCannabinoidSummary(cultivar);
-    const cannabinoidContext = decorateSourceDeclaredCannabinoids(root, cultivar);
-    if (cannabinoidSummary && !root.querySelector('[data-cannabinoid-source-context="v1"]')) throw new Error(`CANNABINOID_CONTEXT_MISSING:${cultivar.id}`);
+    const cannabinoidContext = decorateSourceDeclaredCannabinoids(root, cultivar, catalog);
+    if (cannabinoidSummary && !root.querySelector('[data-cannabinoid-source-context="v2"]')) throw new Error(`CANNABINOID_CONTEXT_MISSING:${cultivar.id}`);
     const typeOnlySection = root.querySelector('.ucd-type-only');
     const ratioUnavailable = decorateUnavailableRatio(root, cultivar);
     if (typeOnlySection && !root.querySelector('[data-ratio-unavailable="v1"]')) throw new Error(`RATIO_UNAVAILABLE_CONTEXT_MISSING:${cultivar.id}`);
