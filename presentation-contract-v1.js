@@ -20,9 +20,10 @@
     if (terms.length !== details.length) throw new Error(`AROMA_PRESENTATION_SHAPE:${selector}:${terms.length}/${details.length}`);
     terms.forEach((term, index) => {
       const detail = details[index];
-      if (!detail?.reviewLabelJa || !detail?.plainMeaningJa) throw new Error(`AROMA_PRESENTATION_TERM:${selector}:${index}`);
+      if (!detail?.rawMatch || !detail?.plainMeaningJa) throw new Error(`AROMA_PRESENTATION_TERM:${selector}:${index}`);
       term.replaceChildren();
-      const review = document.createElement('strong'); review.textContent = detail.reviewLabelJa;
+      const englishLabel = String(detail.rawMatch).trim().replace(/\b[a-z]/g, char => char.toUpperCase());
+      const review = document.createElement('strong'); review.textContent = englishLabel;
       const meaning = document.createElement('small'); meaning.textContent = detail.plainMeaningJa;
       term.append(review, meaning); term.dataset.aromaPublicTerm = 'v1';
     });
