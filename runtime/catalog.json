@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T06:17:53.141Z",
+  "generatedAt": "2026-09-06T07:19:06.637Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -89,7 +89,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-acapulco-gold"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -281,8 +307,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -696,7 +722,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-ak-47"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 65,
+            "indica": 35,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 65,
+              "indica": 35,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F1"
@@ -896,8 +948,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -7076,13 +7128,13 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。"
+          "textJa": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、現在は約80〜90% sativaと説明されています。この範囲は単一値へ換算せず、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。"
         }
       },
       "publicContent": {
         "ja": {
           "origin": "Serious Seedsは、祖先系統が米国で栽培されていたことに触れ、東南アジア／カンボジア系の強い背景とアフガニ系の影響を説明しています。ただし、完全な系譜は開示されていません。",
-          "history": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。",
+          "history": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、現在は約80〜90% sativaと説明されています。この範囲は単一値へ換算せず、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。",
           "aromaNote": "Serious Seeds公式では、スパイシーとスイート・スパイシーの香りが挙げられています。"
         }
       },
@@ -7106,8 +7158,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
