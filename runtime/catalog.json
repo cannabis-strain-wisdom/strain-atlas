@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-05T20:32:17.724Z",
+  "generatedAt": "2026-09-06T00:29:25.733Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 58,
-    "sources": 83,
+    "cultivars": 59,
+    "sources": 85,
     "entities": 16
   },
   "explore": {
@@ -61,6 +61,7 @@
       "jack-herer",
       "og-kush",
       "serious-happiness",
+      "skunk-1",
       "the-og-18",
       "wedding-cake"
     ],
@@ -11152,6 +11153,164 @@
     },
     {
       "schemaVersion": 1,
+      "id": "skunk-1",
+      "status": "review",
+      "name": "Skunk #1",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-skunk-1"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 35,
+            "indica": 65,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 35,
+              "indica": 65,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-skunk-guide",
+          "sensi-seeds-skunk-1"
+        ],
+        "display": "Acapulco Gold × Colombian Gold × Afghan",
+        "parents": [
+          "Acapulco Gold",
+          "Colombian Gold",
+          "Afghan"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式ガイドでは、Skunk #1の系統をAcapulco Gold、Colombian Gold、Afghanの組み合わせとして説明しています。一方、現行商品ページでは初期Skunk系統の背景を中南米、アフガニスタン、タイのランドレースとより広く記載しています。CSWではこの粒度差を一つの親構成へ推定統合していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-skunk-1"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-skunk-guide",
+          "sensi-seeds-skunk-1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Skunk #1は1970年代に育種された安定系統とされ、一部の記録は1969年頃まで遡ると説明されています。米国では1980年までに種子が販売され、オランダへの種子としての最初の確認到来は1982年。現行商品ページでは、複数世代の選抜と戻し交配によって安定化されたとされています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式ガイドでは、Skunk #1の系統をAcapulco Gold、Colombian Gold、Afghanの組み合わせとして説明しています。一方、現行商品ページでは初期Skunk系統の背景を中南米、アフガニスタン、タイのランドレースとより広く記載しています。CSWではこの粒度差を一つの親構成へ推定統合していません。",
+          "history": "Sensi Seeds公式では、Skunk #1は1970年代に育種された安定系統とされ、一部の記録は1969年頃まで遡ると説明されています。米国では1980年までに種子が販売され、オランダへの種子としての最初の確認到来は1982年。現行商品ページでは、複数世代の選抜と戻し交配によって安定化されたとされています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/skunk-1/primary.webp",
+          "alt": "Skunk #1の頑丈で均一なハイブリッド形態と成熟した主花を公式形態情報に基づいて表現するAI生成参考画像",
+          "rights": "AI-generated image only; official source material is used as transient evidence and is not redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "strawberry-banana-s1",
       "status": "review",
       "name": "Strawberry Banana S1",
@@ -15145,6 +15304,42 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "sensi-seeds-skunk-1": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-skunk-1",
+      "publisher": "Sensi Seeds",
+      "title": "Skunk #1 Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/skunk-1",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "ratio",
+        "breeding",
+        "history",
+        "flavor",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-06"
+    },
+    "sensi-seeds-skunk-guide": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-skunk-guide",
+      "publisher": "Sensi Seeds",
+      "title": "Skunk Weed: What Is ‘Skunk Weed’? A Beginner’s Guide to Skunk",
+      "url": "https://sensiseeds.com/en/blog/what-is-skunk-weed-a-beginners-guide-to-skunk/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": "2020-09-05",
+      "checkedAt": "2026-09-06"
     },
     "serious-seeds-ak-47": {
       "schemaVersion": 1,
