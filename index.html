@@ -25,6 +25,9 @@
   <meta name="theme-color" content="#06100c">
   <title>Cannabis Strain Wisdom</title>
   <link rel="stylesheet" href="styles.min.css?v=7">
+  <style id="alphabet-browse-v1-styles">
+    .alphabet-browse{margin:18px 0 16px}.alphabet-browse-heading,.keyword-search-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}.alphabet-browse-heading span,.keyword-search-heading span{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.12em}.alphabet-browse-heading strong,.keyword-search-heading strong{color:#dfe7e1;font-size:13px}.alphabet-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px 5px}.alphabet-chip{min-width:0;min-height:40px;padding:0 4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;touch-action:manipulation;user-select:none;-webkit-user-select:none}.alphabet-chip[data-alphabet="ALL"]{font-size:10px;letter-spacing:.04em}.alphabet-chip.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.18),rgba(50,99,67,.14));color:#f1e2a9;box-shadow:inset 0 0 0 1px rgba(216,189,98,.08)}.alphabet-chip:disabled,.alphabet-chip.is-empty{opacity:.28;cursor:default}.alphabet-help,.alphabet-status{margin:8px 0 0;color:#718279;font-size:10px;line-height:1.5}.alphabet-status{min-height:15px;color:#aebbb3;font-weight:750}.keyword-search-block{margin-top:17px;padding-top:15px;border-top:1px solid rgba(255,255,255,.07)}.filter-type-group .home-type-filters{margin-top:0}@media(max-width:360px){.alphabet-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.alphabet-chip{min-height:42px}}
+  </style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -42,13 +45,28 @@
       </section>
 
       <section class="home-search" aria-labelledby="search-title">
-        <div class="home-search-heading"><span>SEARCH</span><h2 id="search-title">品種を検索</h2></div>
-        <div class="search-wrap"><label class="sr-only" for="search">品種を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
-        <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンから探せます</p>
-        <div class="explore home-type-filters" id="explore" aria-label="タイプで絞り込む"><button type="button" class="explore-chip is-active" data-explore="all" aria-pressed="true">すべて <b id="count-all">0</b></button><button type="button" class="explore-chip" data-explore="sativa" aria-pressed="false">SATIVA系 <b id="count-sativa">0</b></button><button type="button" class="explore-chip" data-explore="indica" aria-pressed="false">INDICA系 <b id="count-indica">0</b></button><button type="button" class="explore-chip" data-explore="hybrid" aria-pressed="false">HYBRID <b id="count-hybrid">0</b></button><button type="button" class="explore-chip" data-explore="unclassified" aria-pressed="false">未分類 <b id="count-unclassified">0</b></button></div>
+        <div class="home-search-heading"><span>FIND A CULTIVAR</span><h2 id="search-title">品種を探す</h2></div>
+        <section class="alphabet-browse" aria-labelledby="alphabet-title">
+          <div class="alphabet-browse-heading"><span>A-Z BROWSE</span><strong id="alphabet-title">品種名から探す</strong></div>
+          <div class="alphabet-grid" id="alphabet-browse" aria-label="品種名の頭文字から探す">
+            <button type="button" class="alphabet-chip is-active" data-alphabet="ALL" aria-pressed="true">ALL</button>
+            <button type="button" class="alphabet-chip" data-alphabet="A" aria-pressed="false">A</button><button type="button" class="alphabet-chip" data-alphabet="B" aria-pressed="false">B</button><button type="button" class="alphabet-chip" data-alphabet="C" aria-pressed="false">C</button><button type="button" class="alphabet-chip" data-alphabet="D" aria-pressed="false">D</button><button type="button" class="alphabet-chip" data-alphabet="E" aria-pressed="false">E</button><button type="button" class="alphabet-chip" data-alphabet="F" aria-pressed="false">F</button><button type="button" class="alphabet-chip" data-alphabet="G" aria-pressed="false">G</button><button type="button" class="alphabet-chip" data-alphabet="H" aria-pressed="false">H</button><button type="button" class="alphabet-chip" data-alphabet="I" aria-pressed="false">I</button><button type="button" class="alphabet-chip" data-alphabet="J" aria-pressed="false">J</button><button type="button" class="alphabet-chip" data-alphabet="K" aria-pressed="false">K</button><button type="button" class="alphabet-chip" data-alphabet="L" aria-pressed="false">L</button><button type="button" class="alphabet-chip" data-alphabet="M" aria-pressed="false">M</button><button type="button" class="alphabet-chip" data-alphabet="N" aria-pressed="false">N</button><button type="button" class="alphabet-chip" data-alphabet="O" aria-pressed="false">O</button><button type="button" class="alphabet-chip" data-alphabet="P" aria-pressed="false">P</button><button type="button" class="alphabet-chip" data-alphabet="Q" aria-pressed="false">Q</button><button type="button" class="alphabet-chip" data-alphabet="R" aria-pressed="false">R</button><button type="button" class="alphabet-chip" data-alphabet="S" aria-pressed="false">S</button><button type="button" class="alphabet-chip" data-alphabet="T" aria-pressed="false">T</button><button type="button" class="alphabet-chip" data-alphabet="U" aria-pressed="false">U</button><button type="button" class="alphabet-chip" data-alphabet="V" aria-pressed="false">V</button><button type="button" class="alphabet-chip" data-alphabet="W" aria-pressed="false">W</button><button type="button" class="alphabet-chip" data-alphabet="X" aria-pressed="false">X</button><button type="button" class="alphabet-chip" data-alphabet="Y" aria-pressed="false">Y</button><button type="button" class="alphabet-chip" data-alphabet="Z" aria-pressed="false">Z</button>
+          </div>
+          <p class="alphabet-help">頭文字をタップすると、その文字で始まる品種を表示します。</p>
+          <p class="alphabet-status" id="alphabet-status" aria-live="polite"></p>
+        </section>
+        <div class="keyword-search-block">
+          <div class="keyword-search-heading"><span>KEYWORD SEARCH</span><strong>文字・情報から探す</strong></div>
+          <div class="search-wrap"><label class="sr-only" for="search">品種や情報を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
+          <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンまで自由に探せます</p>
+        </div>
         <details class="filter-disclosure" id="filter-disclosure">
-          <summary><span class="filter-summary-label">絞り込み</span><span class="filter-summary-count" id="filter-summary-count" hidden>0</span><span class="filter-chevron" aria-hidden="true">⌄</span></summary>
+          <summary><span class="filter-summary-label">さらに検索</span><span class="filter-summary-count" id="filter-summary-count" hidden>0</span><span class="filter-chevron" aria-hidden="true">⌄</span></summary>
           <div class="filter-panel">
+            <section class="filter-group filter-type-group" id="type-filter-group">
+              <div class="filter-group-heading"><span>TYPE</span><h3>タイプ</h3></div>
+              <div class="explore home-type-filters" id="explore" aria-label="タイプで絞り込む"><button type="button" class="explore-chip is-active" data-explore="all" aria-pressed="true">すべて <b id="count-all">0</b></button><button type="button" class="explore-chip" data-explore="sativa" aria-pressed="false">SATIVA系 <b id="count-sativa">0</b></button><button type="button" class="explore-chip" data-explore="indica" aria-pressed="false">INDICA系 <b id="count-indica">0</b></button><button type="button" class="explore-chip" data-explore="hybrid" aria-pressed="false">HYBRID <b id="count-hybrid">0</b></button><button type="button" class="explore-chip" data-explore="unclassified" aria-pressed="false">未分類 <b id="count-unclassified">0</b></button></div>
+            </section>
             <section class="filter-group" id="generation-filter-group">
               <div class="filter-group-heading"><span>GENERATION</span><h3>育種世代</h3></div>
               <div class="generation-options" id="generation-options" aria-label="育種世代で絞り込む"></div>
@@ -172,6 +190,129 @@
     <footer class="catalog-meta" id="catalog-meta"></footer>
   </main>
   <dialog class="detail-dialog" id="detail-dialog"><div class="detail-shell" id="detail-shell"></div></dialog>
+  <script>
+  (() => {
+    'use strict';
+    const root = document.getElementById('alphabet-browse');
+    if (!root) return;
+
+    const state = { letter: 'ALL' };
+    window.__CSWAlphabetBrowseState = state;
+
+    const normalizeName = cultivar => String(cultivar?.name || '').normalize('NFKC').trim().toUpperCase();
+    const matchesAlphabet = cultivar => state.letter === 'ALL' || normalizeName(cultivar).startsWith(state.letter);
+    const sourcePromise = window.__CSWRuntimeCatalogPromise || fetch(`runtime/catalog.json?az=${Date.now()}`, { cache: 'no-store' }).then(response => {
+      if (!response.ok) throw new Error(`runtime catalog HTTP ${response.status}`);
+      return response.json();
+    });
+
+    const catalogPromise = Promise.resolve(sourcePromise).then(catalog => {
+      if (!Array.isArray(catalog?.cultivars)) return catalog;
+      const cultivars = catalog.cultivars;
+      if (!cultivars.__cswAlphabetBrowseProxy) {
+        const proxy = new Proxy(cultivars, {
+          get(target, property, receiver) {
+            if (property === 'filter') {
+              return (callback, thisArg) => Array.prototype.filter.call(target, (cultivar, index, array) => matchesAlphabet(cultivar) && callback.call(thisArg, cultivar, index, array));
+            }
+            if (property === '__cswAlphabetBrowseProxy') return true;
+            return Reflect.get(target, property, receiver);
+          },
+        });
+        catalog.cultivars = proxy;
+      }
+      return catalog;
+    });
+    window.__CSWRuntimeCatalogPromise = catalogPromise;
+
+    const search = document.getElementById('search');
+    const clear = document.getElementById('clear-filters');
+    const allDisclosure = document.getElementById('all-disclosure');
+    const status = document.getElementById('alphabet-status');
+    const grid = document.getElementById('cultivar-grid');
+    const buttons = [...root.querySelectorAll('[data-alphabet]')];
+
+    const syncButtons = () => {
+      buttons.forEach(button => {
+        const active = button.dataset.alphabet === state.letter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    };
+
+    const syncClear = () => {
+      if (clear && state.letter !== 'ALL') clear.disabled = false;
+    };
+
+    const syncStatus = () => {
+      if (!status) return;
+      if (state.letter === 'ALL') {
+        status.textContent = '';
+        return;
+      }
+      const count = grid?.querySelectorAll('[data-strain-id]').length ?? 0;
+      status.textContent = `${state.letter} で始まる品種 · ${count}件表示`;
+    };
+
+    const refresh = ({ scroll = false } = {}) => {
+      if (allDisclosure) allDisclosure.open = true;
+      if (search) search.dispatchEvent(new Event('input', { bubbles: true }));
+      syncButtons();
+      syncClear();
+      queueMicrotask(() => {
+        syncStatus();
+        syncClear();
+        if (scroll) {
+          const target = document.getElementById('cultivars') || allDisclosure;
+          const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+          target?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+        }
+      });
+    };
+
+    root.addEventListener('click', event => {
+      const button = event.target.closest('[data-alphabet]');
+      if (!button || button.disabled) return;
+      const next = button.dataset.alphabet || 'ALL';
+      if (state.letter === next) return;
+      state.letter = next;
+      refresh({ scroll: true });
+    });
+
+    clear?.addEventListener('click', () => {
+      if (state.letter === 'ALL') return;
+      state.letter = 'ALL';
+      syncButtons();
+      queueMicrotask(() => refresh());
+    });
+
+    grid && new MutationObserver(() => queueMicrotask(syncStatus)).observe(grid, { childList: true });
+    [search, document.getElementById('explore'), document.getElementById('generation-options'), document.getElementById('category-options')]
+      .filter(Boolean)
+      .forEach(element => element.addEventListener('input', () => queueMicrotask(syncClear)));
+    document.getElementById('explore')?.addEventListener('click', () => queueMicrotask(syncClear));
+    document.getElementById('generation-options')?.addEventListener('click', () => queueMicrotask(syncClear));
+    document.getElementById('category-options')?.addEventListener('click', () => queueMicrotask(syncClear));
+    document.getElementById('breeder-filter')?.addEventListener('change', () => queueMicrotask(syncClear));
+
+    catalogPromise.then(catalog => {
+      if (!Array.isArray(catalog?.cultivars)) return;
+      const present = new Set(catalog.cultivars.map(cultivar => normalizeName(cultivar).charAt(0)).filter(letter => /^[A-Z]$/.test(letter)));
+      buttons.forEach(button => {
+        const letter = button.dataset.alphabet;
+        if (letter === 'ALL') return;
+        const enabled = present.has(letter);
+        button.disabled = !enabled;
+        button.classList.toggle('is-empty', !enabled);
+        button.setAttribute('aria-disabled', enabled ? 'false' : 'true');
+      });
+      root.dataset.ready = 'true';
+      syncButtons();
+    }).catch(() => {
+      root.dataset.ready = 'error';
+    });
+  })();
+  </script>
   <script src="presentation-contract-v1.js?v=3" defer></script>
   <script src="app.min.js?v=5" defer></script>
 </body></html>
