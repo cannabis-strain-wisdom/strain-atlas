@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T10:30:18.039Z",
+  "generatedAt": "2026-09-06T11:40:56.954Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -7576,21 +7576,6 @@
           "noteJa": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。"
         }
       },
-      "flavors": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "dutch-passion-mazar",
-          "dutch-passion-us-mazar"
-        ],
-        "items": [
-          "パイニー",
-          "アーシー",
-          "フルーティー",
-          "ガッシー"
-        ]
-      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -7691,8 +7676,7 @@
           "lineageNote": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせた品種と説明されています。数値のサティバ／インディカ比率は公表されていないため推定していません。",
           "origin": "Dutch Passion公式では、Mazarはアフガン系インディカとSkunk #1の選抜個体を組み合わせて開発された品種と説明されています。",
           "history": "Dutch Passion公式では、Mazarは1980年代から続くクラシック系統で、1997年に遺伝的な組み合わせが改良されたと説明されています。受賞歴として1999年HTCC 2位、2002年High Life Cup 2位、2008年Tipo Forte 1位、2014年Soft Secrets MagazineのPlant Of The Yearが記録されています。",
-          "aromaNote": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。",
-          "flavorNote": "Dutch Passion公式では、味はパイニーとアーシーを中心に果実のニュアンスがあると説明され、米国公式の味の欄ではアーシー、ガッシー、パイニーが記載されています。香りの表現から味を推定したものではありません。"
+          "aromaNote": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。"
         }
       },
       "visuals": [
