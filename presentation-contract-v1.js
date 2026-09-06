@@ -141,6 +141,149 @@
     button.addEventListener('click', event => { event.preventDefault(); const isOpen = button.getAttribute('aria-expanded') === 'true' && !panel.hidden; root.querySelectorAll('[data-ucd-tab]').forEach(item => { item.setAttribute('aria-expanded', 'false'); item.classList.remove('is-active'); }); root.querySelectorAll('[data-ucd-panel]').forEach(item => { item.hidden = true; }); if (!isOpen) { button.setAttribute('aria-expanded', 'true'); button.classList.add('is-active'); panel.hidden = false; } });
     return true;
   };
+  const compactDetailNavigation = (root, cultivar) => {
+    if (root.dataset.compactDetailNav === 'v1') return true;
+
+    const specs = root.querySelector('.ucd-specs');
+    const typeCard = specs?.querySelector(':scope > .ucd-type-only, :scope > .ucd-ratio-card');
+    const cannabinoidCard = specs?.querySelector(':scope > .ucd-cannabinoid-card');
+    if (specs && (typeCard || cannabinoidCard)) {
+      const controls = document.createElement('section');
+      controls.className = 'ucd-primary-controls';
+      controls.dataset.compactPrimaryControls = 'v1';
+      const nav = document.createElement('nav');
+      nav.className = 'ucd-primary-nav';
+      nav.setAttribute('aria-label', '基本情報');
+      const panels = document.createElement('div');
+      panels.className = 'ucd-primary-panels';
+
+      const addPrimary = (kind, labelText, valueText, card) => {
+        if (!card) return;
+        const id = `ucd-${cultivar.id}-primary-${kind}`;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.ucdPrimaryTab = kind;
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', id);
+        const copy = document.createElement('span');
+        copy.className = 'ucd-primary-nav-copy';
+        const label = document.createElement('small');
+        label.textContent = labelText;
+        const value = document.createElement('strong');
+        value.textContent = valueText || labelText;
+        const chevron = document.createElement('i');
+        chevron.setAttribute('aria-hidden', 'true');
+        chevron.textContent = '⌄';
+        copy.append(label, value);
+        button.append(copy, chevron);
+
+        const panel = document.createElement('section');
+        panel.id = id;
+        panel.className = 'ucd-primary-panel';
+        panel.dataset.ucdPrimaryPanel = kind;
+        panel.hidden = true;
+        if (card.tagName === 'DETAILS') card.open = false;
+        panel.append(card);
+        nav.append(button);
+        panels.append(panel);
+      };
+
+      const typeValue = typeCard?.querySelector('.ucd-ratio-head > b, :scope > strong')?.textContent?.trim() || '';
+      const cannabinoidItems = Array.isArray(cultivar?.cannabinoids?.presentation?.items) ? cultivar.cannabinoids.presentation.items : [];
+      const preferredCannabinoid = cannabinoidItems.find(item => item?.label === 'THC') || cannabinoidItems[0];
+      const cannabinoidValue = preferredCannabinoid?.valueText
+        ? `${preferredCannabinoid.label || ''} ${preferredCannabinoid.valueText}`.trim()
+        : cannabinoidItems.length ? `${cannabinoidItems.length}件` : '';
+      addPrimary('type', 'タイプ', typeValue, typeCard);
+      addPrimary('cannabinoid', 'カンナビノイド', cannabinoidValue, cannabinoidCard);
+      nav.dataset.count = String(nav.querySelectorAll('[data-ucd-primary-tab]').length);
+
+      nav.addEventListener('click', event => {
+        const button = event.target.closest('[data-ucd-primary-tab]');
+        if (!button || !nav.contains(button)) return;
+        event.preventDefault();
+        const kind = button.dataset.ucdPrimaryTab;
+        const panel = panels.querySelector(`[data-ucd-primary-panel="${CSS.escape(kind)}"]`);
+        const wasOpen = button.getAttribute('aria-expanded') === 'true' && panel && !panel.hidden;
+        nav.querySelectorAll('[data-ucd-primary-tab]').forEach(item => {
+          item.setAttribute('aria-expanded', 'false');
+          item.classList.remove('is-active');
+        });
+        panels.querySelectorAll('[data-ucd-primary-panel]').forEach(item => { item.hidden = true; });
+        if (!wasOpen && panel) {
+          button.setAttribute('aria-expanded', 'true');
+          button.classList.add('is-active');
+          panel.hidden = false;
+          panel.querySelectorAll('details.ucd-spec-card').forEach(detail => { detail.open = true; });
+        }
+      });
+
+      controls.append(nav, panels);
+      specs.replaceWith(controls);
+    }
+
+    const profile = root.querySelector('.ucd-profile');
+    const profileNav = profile?.querySelector('.ucd-profile-nav');
+    const profilePanels = profile?.querySelector('.ucd-profile-panels');
+    if (profileNav && profilePanels) {
+      const originButton = profileNav.querySelector('[data-ucd-tab="origin"]');
+      const historyButton = profileNav.querySelector('[data-ucd-tab="history"]');
+      const originPanel = profilePanels.querySelector('[data-ucd-panel="origin"]');
+      const historyPanel = profilePanels.querySelector('[data-ucd-panel="history"]');
+      if (originButton || historyButton || originPanel || historyPanel) {
+        const button = originButton || historyButton;
+        const removeButton = button === originButton ? historyButton : originButton;
+        const id = `ucd-${cultivar.id}-origin-history`;
+        const combined = document.createElement('section');
+        combined.id = id;
+        combined.dataset.ucdPanel = 'origin-history';
+        combined.dataset.profileKind = 'origin-history';
+        combined.className = 'ucd-origin-history-panel';
+        combined.hidden = true;
+        const stack = document.createElement('div');
+        stack.className = 'ucd-origin-history-stack';
+        const appendSection = (headingText, sourcePanel) => {
+          if (!sourcePanel) return;
+          const section = document.createElement('section');
+          section.className = 'ucd-origin-history-section';
+          const heading = document.createElement('small');
+          heading.className = 'ucd-origin-history-heading';
+          heading.textContent = headingText;
+          section.append(heading);
+          while (sourcePanel.firstChild) section.append(sourcePanel.firstChild);
+          stack.append(section);
+        };
+        appendSection('ORIGIN / 起源', originPanel);
+        appendSection('HISTORY / 歴史', historyPanel);
+        combined.append(stack);
+
+        if (button) {
+          button.dataset.ucdTab = 'origin-history';
+          button.setAttribute('aria-controls', id);
+          button.setAttribute('aria-expanded', 'false');
+          button.classList.remove('is-active');
+          const label = button.querySelector('span');
+          if (label) label.textContent = '起源と歴史';
+        }
+        removeButton?.remove();
+        originPanel?.remove();
+        historyPanel?.remove();
+        profilePanels.append(combined);
+      }
+
+      const order = ['aroma', 'terpene', 'origin-history', 'positioning'];
+      for (const kind of order) {
+        const button = profileNav.querySelector(`[data-ucd-tab="${kind}"]`);
+        const panel = profilePanels.querySelector(`[data-ucd-panel="${kind}"]`);
+        if (button) profileNav.append(button);
+        if (panel) profilePanels.append(panel);
+      }
+      profileNav.dataset.count = String(profileNav.querySelectorAll('[data-ucd-tab]').length);
+    }
+
+    root.dataset.compactDetailNav = 'v1';
+    return true;
+  };
   const processed = new WeakSet();
   const govern = async () => {
     const root = shell.querySelector('.ucd-root[data-public-detail-id][data-universal-detail-version="UNIVERSAL_CULTIVAR_DETAIL_V1"]');
@@ -161,6 +304,8 @@
     if (typeOnlySection && !root.querySelector('[data-ratio-unavailable="v1"]')) throw new Error(`RATIO_UNAVAILABLE_CONTEXT_MISSING:${cultivar.id}`);
     const terpeneListedClarified = clarifyListedTerpenes(root, cultivar);
     const terpeneUnavailable = addUnavailableTerpene(root, cultivar);
+    const compactNavigation = compactDetailNavigation(root, cultivar);
+    if (!root.querySelector('[data-compact-primary-controls="v1"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
     window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable };
   };

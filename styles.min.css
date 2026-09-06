@@ -16,3 +16,31 @@
 .ucd-root [data-profile-kind="terpene"] strong{font-size:16px!important;line-height:1.3!important}
 .ucd-root [data-profile-kind="terpene"] small{font-size:14px!important;line-height:1.4!important}
 }
+
+/* CSW_COMPACT_DETAIL_NAV_V1 */
+.ucd-primary-controls{margin:14px 12px 0}
+.ucd-primary-nav{display:grid;gap:8px}
+.ucd-primary-nav[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ucd-primary-nav[data-count="1"]{grid-template-columns:1fr}
+.ucd-primary-nav button{appearance:none;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;min-width:0;min-height:72px;padding:12px 13px;border:1px solid rgba(217,194,123,.18);border-radius:14px;background:linear-gradient(145deg,rgba(14,34,23,.78),rgba(5,14,9,.94));color:#eef3ef;text-align:left;cursor:pointer}
+.ucd-primary-nav button.is-active{border-color:rgba(217,194,123,.48);background:linear-gradient(145deg,rgba(35,55,37,.9),rgba(7,18,12,.97));box-shadow:0 0 0 1px rgba(217,194,123,.05) inset}
+.ucd-primary-nav-copy{display:grid;gap:5px;min-width:0}
+.ucd-primary-nav-copy small{color:#d8bd62;font-size:13px;font-weight:850;letter-spacing:.02em;line-height:1.2}
+.ucd-primary-nav-copy strong{min-width:0;color:#f2f4f0;font-size:19px;font-weight:850;line-height:1.2;letter-spacing:-.018em;overflow-wrap:anywhere}
+.ucd-primary-nav button>i{color:#d8bd62;font-size:18px;font-style:normal;line-height:1;transition:transform .16s ease}
+.ucd-primary-nav button.is-active>i{transform:rotate(180deg)}
+.ucd-primary-panels{margin-top:9px}
+.ucd-primary-panel[hidden]{display:none!important}
+.ucd-primary-panel>.ucd-spec-card{width:100%;margin:0}
+.ucd-primary-panel>.ucd-spec-card[open]>.ucd-spec-detail{display:block}
+.ucd-origin-history-stack{display:grid;gap:0}
+.ucd-origin-history-section{padding:16px 14px}
+.ucd-origin-history-section+.ucd-origin-history-section{border-top:1px solid rgba(255,255,255,.08)}
+.ucd-origin-history-heading{display:block;margin-bottom:9px;color:#d8bd62;font-size:12px;font-weight:900;letter-spacing:.08em;line-height:1.25}
+.ucd-origin-history-section .ucd-text-panel{padding:0}
+.ucd-origin-history-section .ucd-text-panel>p{margin:0;color:#dce4df;font-size:16px;line-height:1.72}
+@media(max-width:420px){
+  .ucd-primary-nav-copy small{font-size:12px}
+  .ucd-primary-nav-copy strong{font-size:17px}
+  .ucd-primary-nav button{min-height:68px;padding:11px 11px}
+}
