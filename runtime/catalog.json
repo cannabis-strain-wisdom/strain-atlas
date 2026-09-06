@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T11:40:56.954Z",
+  "generatedAt": "2026-09-06T12:27:53.378Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8730,7 +8730,7 @@
         "sourceRefs": [
           "ace-seeds-panama"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
           "レモン",
           "バニラ",
@@ -8739,14 +8739,16 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
+          "mode": "layered",
+          "core": [
             "レモン",
             "バニラ",
-            "インセンス",
+            "インセンス"
+          ],
+          "accents": [
             "ストロベリー"
           ],
-          "details": [
+          "coreDetails": [
             {
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
@@ -8773,7 +8775,9 @@
                 "お香"
               ],
               "registryVersion": 1
-            },
+            }
+          ],
+          "accentDetails": [
             {
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
@@ -8786,7 +8790,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "ACE Seeds公式では、レモン、バニラ、インセンスが挙げられ、一部の表現型ではストロベリーの香りも記載されています。"
+          "noteJa": "ACE Seeds公式では、レモン、バニラ、インセンスが主な香りとして挙げられ、一部の表現型ではストロベリーの香りも記載されています。"
         }
       },
       "terpenes": {
@@ -8860,26 +8864,18 @@
               "visualRole": "presence"
             }
           ],
-          "noteJa": "ACE Seeds公式では、Terpinolene、α-Pinene、β-Pinene、Limonene、β-Myrcene、trans-Ocimene、Guaiolがテルペンとして挙げられています。"
+          "noteJa": "ACE Seeds公式では、テルピノレンが中心で、α-ピネン、β-ピネン、リモネンが中程度、β-ミルセンとtrans-オシメンが少量と説明され、セスキテルペンではグアイオールが挙げられています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-panama"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-panama"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 21.47,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
@@ -8899,10 +8895,33 @@
               "value": 21.47,
               "unit": "%",
               "valueText": "21.47%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-panama"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 3,
+              "unit": "%",
+              "valueText": "最大3%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-panama"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -8936,8 +8955,8 @@
           "lineageNote": "ACE SeedsはPanamaを、Panama由来の3つのサティバ系統を組み合わせたハイブリッドと説明しています。個々の親品種名は公表されていません。",
           "origin": "ACE Seeds公式では、この系統の起源をPanamaとしています。",
           "history": "ACE Seedsの公式沿革では、Panamaは2005年の最初のカタログに掲載された品種の一つとされています。",
-          "aromaNote": "ACE Seeds公式では、レモン、バニラ、インセンスが挙げられ、一部の表現型ではストロベリーの香りも記載されています。",
-          "terpeneNote": "ACE Seeds公式では、Terpinolene、α-Pinene、β-Pinene、Limonene、β-Myrcene、trans-Ocimene、Guaiolがテルペンとして挙げられています。"
+          "aromaNote": "ACE Seeds公式では、レモン、バニラ、インセンスが主な香りとして挙げられ、一部の表現型ではストロベリーの香りも記載されています。",
+          "terpeneNote": "ACE Seeds公式では、テルピノレンが中心で、α-ピネン、β-ピネン、リモネンが中程度、β-ミルセンとtrans-オシメンが少量と説明され、セスキテルペンではグアイオールが挙げられています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "visuals": [
@@ -8951,8 +8970,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-06",
+      "updatedAt": "2026-09-06",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13474,7 +13493,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-06"
     },
     "ace-seeds-rush-of-siam": {
       "schemaVersion": 1,
