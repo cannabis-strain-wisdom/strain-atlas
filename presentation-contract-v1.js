@@ -30,7 +30,8 @@
   };
   const sourceDeclaredCannabinoidSummary = cultivar => {
     const items = Array.isArray(cultivar?.cannabinoids?.presentation?.items) ? cultivar.cannabinoids.presentation.items : [];
-    const declarationEntries = items.map((item, index) => ({ item, index })).filter(({ item }) => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC' && item?.unit === '%' && (Number.isFinite(item?.value) || (Number.isFinite(item?.minValue) && Number.isFinite(item?.maxValue))));
+    const hasNumericDeclarationValue = item => Number.isFinite(item?.value) || (Number.isFinite(item?.minValue) && Number.isFinite(item?.maxValue)) || (['maximum','less-than'].includes(item?.valueKind) && Number.isFinite(item?.boundaryValue));
+    const declarationEntries = items.map((item, index) => ({ item, index })).filter(({ item }) => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC' && item?.unit === '%' && hasNumericDeclarationValue(item));
     if (!declarationEntries.length) return null;
     const declarations = declarationEntries.map(entry => entry.item);
     const scopes = new Set(declarations.map(item => item.evidenceScopeRef).filter(Boolean));
@@ -41,9 +42,10 @@
       if (Number.isFinite(item.value)) return `${item.value}%`;
       return '';
     }).filter(Boolean);
-    const lows = declarations.map(item => Number.isFinite(item.value) ? item.value : item.minValue).filter(Number.isFinite);
-    const highs = declarations.map(item => Number.isFinite(item.value) ? item.value : item.maxValue).filter(Number.isFinite);
-    return { declarationEntries, count: declarations.length, scopeCount: scopes.size || declarations.length, sourceRefs, valueTexts, min: Math.min(...lows), max: Math.max(...highs), sampleScoped: declarations.every(item => item.evidenceScope === 'sample'), unverified: declarations.every(item => item.analysisVerified === false) };
+    const sampleComparable = declarations.every(item => item.valueKind === 'exact' && Number.isFinite(item.value));
+    const lows = declarations.filter(item => item.valueKind === 'exact' && Number.isFinite(item.value)).map(item => item.value);
+    const highs = [...lows];
+    return { declarationEntries, count: declarations.length, scopeCount: scopes.size || declarations.length, sourceRefs, valueTexts, min: lows.length ? Math.min(...lows) : null, max: highs.length ? Math.max(...highs) : null, sampleComparable, sampleScoped: declarations.every(item => item.evidenceScope === 'sample'), unverified: declarations.every(item => item.analysisVerified === false) };
   };
   const decorateSourceDeclaredCannabinoids = (root, cultivar, catalog) => {
     const summary = sourceDeclaredCannabinoidSummary(cultivar);
@@ -56,7 +58,7 @@
     context.dataset.cannabinoidSourceContext = 'v1';
     const top = document.createElement('div'); top.className = 'ucd-cannabinoid-source-context-top';
     const label = document.createElement('strong'); label.textContent = summary.sampleScoped ? '公式掲載の検体データ' : '公式掲載データ';
-    const count = document.createElement('span'); count.textContent = summary.sampleScoped ? (summary.min === summary.max ? `${summary.min}%` : `掲載値 ${summary.min}〜${summary.max}%`) : `${summary.count}件`;
+    const count = document.createElement('span'); count.textContent = summary.sampleScoped ? (summary.sampleComparable ? (summary.min === summary.max ? `${summary.min}%` : `掲載値 ${summary.min}〜${summary.max}%`) : `${summary.count}件`) : `${summary.count}件`;
     top.append(label, count);
     const note = document.createElement('p');
     const verificationText = summary.unverified ? '元の分析書そのものはCSWで直接確認できていないため、分析確認済みの測定値としては扱っていません。' : '';
