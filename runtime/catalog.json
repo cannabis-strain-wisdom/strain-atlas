@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-06T20:48:11.995Z",
+  "generatedAt": "2026-09-07T04:05:55.584Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -2222,7 +2222,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-c5-haze-x-kali-china"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -2241,7 +2267,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "C5 Haze x Kali Chinaは、1980年代後半のC5 Haze F1（Northern Lights #5 × Haze C）と、ACE SeedsのKali Chinaエリート第4世代を組み合わせたポリハイブリッドとして公式に記載されています。"
+          "textJa": "C5 Haze x Kali Chinaは、1980年代後半のC5 Haze F1（Northern Lights #5 × Haze C）と、ACE SeedsのKali Chinaエリート第4世代を組み合わせたポリハイブリッドとして公式に記載されています。公式比率はサティバ60%／インディカ40%です。"
         }
       },
       "relations": [
@@ -2421,7 +2447,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式説明では個体差を明記したうえで、スパイスとライム・レモン・グレープフルーツ系の柑橘を中心に、クリーミーなインセンス、トロピカルフルーツ、ハシシ系の背景が挙げられています。甘いキャンディやメロン、フローラル、ムスク寄りの表現も存在するとされています。"
+          "noteJa": "ACE SeedsのBouquet欄は香りと味を一つの記述で扱い、個体差があると明記しています。スパイス、ライム、レモン、グレープフルーツ、クリーミー、インセンス、トロピカルフルーツ、ハシシ、キャンディ、メロン、フローラル、ムスクが挙げられていますが、各語を香り専用・味専用には分けていません。"
         }
       },
       "terpenes": {
@@ -2479,40 +2505,22 @@
               "visualRole": "presence"
             }
           ],
-          "noteJa": "公式テルペン欄ではbeta-myrceneが非常に多く、alpha-pinene、beta-pinene、limoneneがより少量、セスキテルペンとしてbeta-caryophylleneが挙げられています。"
+          "noteJa": "ACE Seedsは、モノテルペンではβミルセンを「非常に多い」とし、αピネン、βピネン、リモネンを「より少量」と記載し、セスキテルペンとしてβカリオフィレンを挙げています。数値割合は推定していません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-c5-haze-x-kali-china"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-c5-haze-x-kali-china"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 15.5,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-c5-haze-x-kali-china"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 0.06,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -2526,10 +2534,15 @@
               "value": 15.5,
               "unit": "%",
               "valueText": "15.5%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-c5-haze-x-kali-china"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -2539,10 +2552,33 @@
               "value": 0.06,
               "unit": "%",
               "valueText": "0.06%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-c5-haze-x-kali-china"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.81,
+              "unit": "%",
+              "valueText": "0.81%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-c5-haze-x-kali-china"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -2553,22 +2589,22 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
           "ace-seeds-c5-haze-x-kali-china"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、親に使われたC5 HazeクローンをNeville Schoenmakersが1980年代後半のオランダで作出・選抜し、Yo Sammyが保存したものと説明しています。本品種は、そのオリジナルC5クローンを使ってACE Seedsが提供した最初のハイブリッドとされています。"
+          "textJa": "ACE Seedsは、親に使われたC5 HazeクローンをNeville Schoenmakersが1980年代後半のオランダで作出・選抜し、Yo Sammyが保存したものと説明しています。本品種は、そのC5 Hazeクローンを使ってACE Seedsが提供した最初のハイブリッドとされています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "C5 Haze x Kali Chinaは、1980年代後半のC5 Haze F1（Northern Lights #5 × Haze C）と、ACE SeedsのKali Chinaエリート第4世代を組み合わせたポリハイブリッドとして公式に記載されています。",
-          "history": "ACE Seedsは、親に使われたC5 HazeクローンをNeville Schoenmakersが1980年代後半のオランダで作出・選抜し、Yo Sammyが保存したものと説明しています。本品種は、そのオリジナルC5クローンを使ってACE Seedsが提供した最初のハイブリッドとされています。",
-          "aromaNote": "公式説明では個体差を明記したうえで、スパイスとライム・レモン・グレープフルーツ系の柑橘を中心に、クリーミーなインセンス、トロピカルフルーツ、ハシシ系の背景が挙げられています。甘いキャンディやメロン、フローラル、ムスク寄りの表現も存在するとされています。",
-          "terpeneNote": "公式テルペン欄ではbeta-myrceneが非常に多く、alpha-pinene、beta-pinene、limoneneがより少量、セスキテルペンとしてbeta-caryophylleneが挙げられています。"
+          "lineageNote": "C5 Haze x Kali Chinaは、1980年代後半のC5 Haze F1（Northern Lights #5 × Haze C）と、ACE SeedsのKali Chinaエリート第4世代を組み合わせたポリハイブリッドとして公式に記載されています。公式比率はサティバ60%／インディカ40%です。",
+          "history": "ACE Seedsは、親に使われたC5 HazeクローンをNeville Schoenmakersが1980年代後半のオランダで作出・選抜し、Yo Sammyが保存したものと説明しています。本品種は、そのC5 Hazeクローンを使ってACE Seedsが提供した最初のハイブリッドとされています。",
+          "aromaNote": "ACE SeedsのBouquet欄は香りと味を一つの記述で扱い、個体差があると明記しています。スパイス、ライム、レモン、グレープフルーツ、クリーミー、インセンス、トロピカルフルーツ、ハシシ、キャンディ、メロン、フローラル、ムスクが挙げられていますが、各語を香り専用・味専用には分けていません。",
+          "terpeneNote": "ACE Seedsは、モノテルペンではβミルセンを「非常に多い」とし、αピネン、βピネン、リモネンを「より少量」と記載し、セスキテルペンとしてβカリオフィレンを挙げています。数値割合は推定していません。"
         }
       },
       "visuals": [
@@ -2582,8 +2618,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -6322,7 +6358,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-killer-a5-haze"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 80,
+            "indica": 20,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 80,
+              "indica": 20,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -6341,7 +6403,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Killer A5 Hazeは、Nevilleが選抜したA5 Haze（Northern Lights #5 × Haze A）に、ACE SeedsのMalawi Killerを交配したポリハイブリッドとして公式に記載されています。"
+          "textJa": "Killer A5 Hazeは、NevilleのA5 Haze（Northern Lights #5 × Haze A）とACE SeedsのMalawi Killerを組み合わせたポリハイブリッドとして公式に記載されています。公式比率はサティバ80%／インディカ20%です。"
         }
       },
       "relations": [
@@ -6355,7 +6417,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "ace-seeds-killer-a5-haze"
+            "ace-seeds-killer-a5-haze",
+            "ace-seeds-about-2026"
           ]
         }
       ],
@@ -6365,19 +6428,26 @@
         "sourceRefs": [
           "ace-seeds-killer-a5-haze"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
           "ダークインセンス",
           "ミーティー／レバー",
           "オーガニック／ロッテン",
           "デコンポージング・フラワーペタル",
           "レジン",
-          "キュアードウッド"
+          "キュアードウッド",
+          "ウッディ",
+          "ピュアHaze・インセンス",
+          "インセンス",
+          "ディケイング・フラワーペタル",
+          "ウッディHaze",
+          "オイリー",
+          "レジナス"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
+          "mode": "layered",
+          "core": [
             "ダークインセンス",
             "ミーティー／レバー",
             "オーガニック／ロッテン",
@@ -6385,19 +6455,31 @@
             "レジン",
             "キュアードウッド"
           ],
-          "details": [
+          "accents": [
+            "ウッディ",
+            "ピュアHaze・インセンス",
+            "インセンス",
+            "ミーティー／レバー",
+            "ディケイング・フラワーペタル",
+            "インセンス",
+            "ウッディHaze",
+            "オイリー",
+            "レジナス"
+          ],
+          "coreDetails": [
             {
-              "rawMatch": "dark incense",
+              "rawMatch": "Dutch old school dark incensed Haze aroma",
               "reviewLabelJa": "ダークインセンス",
-              "plainMeaningJa": "暗く重いお香のような香り",
+              "plainMeaningJa": "オールドスクールなHazeを思わせる暗く重いインセンス香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "お香"
+                "お香",
+                "Haze"
               ],
               "registryVersion": 1
             },
             {
-              "rawMatch": "meaty/liver",
+              "rawMatch": "meaty (liver)",
               "reviewLabelJa": "ミーティー／レバー",
               "plainMeaningJa": "肉やレバーを思わせる濃い香り",
               "presentationRole": "NOTE",
@@ -6408,9 +6490,9 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "organic/rotten",
+              "rawMatch": "strong organic/rotten background",
               "reviewLabelJa": "オーガニック／ロッテン",
-              "plainMeaningJa": "腐敗した有機物を思わせる香り",
+              "plainMeaningJa": "強い腐敗系の有機物を思わせる背景香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "腐敗",
@@ -6449,9 +6531,105 @@
               "registryVersion": 1
             }
           ],
+          "accentDetails": [
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incensed aromas of pure Haze",
+              "reviewLabelJa": "ピュアHaze・インセンス",
+              "plainMeaningJa": "ピュアHazeを思わせるインセンス香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香",
+                "Haze"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incensed",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "meaty (liver)",
+              "reviewLabelJa": "ミーティー／レバー",
+              "plainMeaningJa": "肉やレバーを思わせる濃い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "肉",
+                "レバー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "organic (petals of decaying flowers)",
+              "reviewLabelJa": "ディケイング・フラワーペタル",
+              "plainMeaningJa": "朽ちかけた花びらを思わせる有機的な香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "枯れ花",
+                "花びら"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody Haze",
+              "reviewLabelJa": "ウッディHaze",
+              "plainMeaningJa": "Haze系の木質的な香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木",
+                "Haze"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "oily",
+              "reviewLabelJa": "オイリー",
+              "plainMeaningJa": "油のような重さを感じる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "油"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "resinous",
+              "reviewLabelJa": "レジナス",
+              "plainMeaningJa": "樹脂質で濃い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            }
+          ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式説明では、暗いインセンス系Hazeを軸に、肉やレバーを思わせる濃さ、樹脂、熟成木材、分解した花弁を連想させる有機的なニュアンスが重なる香りとして示されています。"
+          "noteJa": "ACE Seedsは全体のBouquetとして、ダークなオールドスクール系インセンスHaze、肉・レバー、有機的／腐敗系、分解した花弁、樹脂、熟成木材を挙げています。さらにHaze dominant、NL/Haze、Haze/Malawiの各表現型には個別の香り記述があるため、CSWでは全体の基調と表現型条件付きの香りを分けて保持しています。"
         }
       },
       "terpenes": {
@@ -6573,27 +6751,18 @@
               "visualRole": "presence"
             }
           ],
-          "noteJa": "ACE Seeds公式の品種別情報では、beta-myrceneが非常に多く、alpha-pineneが中程度、limoneneとbeta-pineneがそれに続くとされます。さらにbeta-caryophyllene、guaiol、trans-nerolidolなど複数のセスキテルペンも列挙されています。"
+          "noteJa": "ACE Seedsは、βミルセンを非常に多い、αピネンを中程度、リモネンとβピネンをより少量、オシメンを痕跡レベルと記載し、複数のセスキテルペンも列挙しています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-killer-a5-haze"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-killer-a5-haze"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 23,
-            "max": 30,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
@@ -6614,10 +6783,33 @@
               "maxValue": 30,
               "unit": "%",
               "valueText": "23〜30%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-killer-a5-haze"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.3,
+              "unit": "%",
+              "valueText": "0.3%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-killer-a5-haze"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -6628,22 +6820,23 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-about"
+          "ace-seeds-about-2026",
+          "ace-seeds-killer-a5-haze"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、Yo Sammyとの協働が始まった2019年の最初の成果の一つとしてKiller A5 Haze（A5 Haze × Malawi）を挙げています。現行の公式沿革で確認できる範囲に限定した開発背景です。"
+          "textJa": "ACE Seedsは、NevilleのオリジナルF1 Hazeハイブリッドをクローンで保存してきたYo Sammyとの協働を2019年に開始し、その初期成果の一つとしてKiller A5 Haze（A5 Haze × Malawi）を挙げています。現行品種ページでは、A5 Haze母株を救出し開発用に提供したKarmaにも謝意を示しています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Killer A5 Hazeは、Nevilleが選抜したA5 Haze（Northern Lights #5 × Haze A）に、ACE SeedsのMalawi Killerを交配したポリハイブリッドとして公式に記載されています。",
-          "history": "ACE Seedsは、Yo Sammyとの協働が始まった2019年の最初の成果の一つとしてKiller A5 Haze（A5 Haze × Malawi）を挙げています。現行の公式沿革で確認できる範囲に限定した開発背景です。",
-          "aromaNote": "公式説明では、暗いインセンス系Hazeを軸に、肉やレバーを思わせる濃さ、樹脂、熟成木材、分解した花弁を連想させる有機的なニュアンスが重なる香りとして示されています。",
-          "terpeneNote": "ACE Seeds公式の品種別情報では、beta-myrceneが非常に多く、alpha-pineneが中程度、limoneneとbeta-pineneがそれに続くとされます。さらにbeta-caryophyllene、guaiol、trans-nerolidolなど複数のセスキテルペンも列挙されています。"
+          "lineageNote": "Killer A5 Hazeは、NevilleのA5 Haze（Northern Lights #5 × Haze A）とACE SeedsのMalawi Killerを組み合わせたポリハイブリッドとして公式に記載されています。公式比率はサティバ80%／インディカ20%です。",
+          "history": "ACE Seedsは、NevilleのオリジナルF1 Hazeハイブリッドをクローンで保存してきたYo Sammyとの協働を2019年に開始し、その初期成果の一つとしてKiller A5 Haze（A5 Haze × Malawi）を挙げています。現行品種ページでは、A5 Haze母株を救出し開発用に提供したKarmaにも謝意を示しています。",
+          "aromaNote": "ACE Seedsは全体のBouquetとして、ダークなオールドスクール系インセンスHaze、肉・レバー、有機的／腐敗系、分解した花弁、樹脂、熟成木材を挙げています。さらにHaze dominant、NL/Haze、Haze/Malawiの各表現型には個別の香り記述があるため、CSWでは全体の基調と表現型条件付きの香りを分けて保持しています。",
+          "terpeneNote": "ACE Seedsは、βミルセンを非常に多い、αピネンを中程度、リモネンとβピネンをより少量、オシメンを痕跡レベルと記載し、複数のセスキテルペンも列挙しています。これは公式掲載の相対的なテルペン説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "visuals": [
@@ -6657,8 +6850,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13417,7 +13610,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-about": {
       "schemaVersion": 1,
@@ -13486,16 +13679,15 @@
         "lineage",
         "breeder",
         "classification",
-        "composition",
         "breeding",
         "aromas",
         "terpenes",
         "cannabinoids",
-        "visualMorphology",
+        "morphology",
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-cbd-1": {
       "schemaVersion": 1,
@@ -13643,10 +13835,11 @@
         "aromas",
         "terpenes",
         "cannabinoids",
-        "visualMorphology"
+        "visualMorphology",
+        "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-lebanese": {
       "schemaVersion": 1,
