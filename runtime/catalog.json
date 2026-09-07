@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T04:26:07.106Z",
+  "generatedAt": "2026-09-07T04:42:51.619Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 82,
+    "sources": 83,
     "entities": 16
   },
   "explore": {
@@ -331,7 +331,7 @@
         "sourceRefs": [
           "ace-seeds-african-gas"
         ],
-        "display": "Bangi Haze F8 × A5 Haze by Neville",
+        "display": "Bangi Haze F8 × A5 Haze by Neville (Northern Lights #5/Haze A)",
         "parents": [
           "Bangi Haze F8",
           "A5 Haze by Neville"
@@ -986,7 +986,7 @@
         "sourceRefs": [
           "dutch-passion-auto-cinderella-jack"
         ],
-        "display": "Cinderella 99 × Jack Herer × Magnum",
+        "display": "(Cinderella 99 × Jack Herer) × Magnum",
         "parents": [
           "Cinderella 99 × Jack Herer",
           "Magnum"
@@ -1268,7 +1268,7 @@
         "sourceRefs": [
           "ace-seeds-bangi-haze"
         ],
-        "display": "Congolese × Nepalese",
+        "display": "F8 stabilized Congolese/Nepalese hybrid",
         "parents": [
           "Congolese",
           "Nepalese"
@@ -2260,7 +2260,7 @@
         "sourceRefs": [
           "ace-seeds-c5-haze-x-kali-china"
         ],
-        "display": "C5 Haze F1 × Kali China elite 4th generation",
+        "display": "C5 Haze F1 (Northern Lights #5 × Haze C) × Kali China elite 4th generation",
         "parents": [
           "C5 Haze F1",
           "Kali China elite 4th generation"
@@ -3025,7 +3025,7 @@
         "sourceRefs": [
           "ace-seeds-cbd-1"
         ],
-        "display": "Cannatonic S1 / ErdPurt × Cannatonic S1",
+        "display": "Cannatonic S1/ErdPurt x Cannatonic S1",
         "parents": [
           "Cannatonic S1 / ErdPurt",
           "Cannatonic S1"
@@ -3852,7 +3852,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-congo"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F1"
@@ -3864,14 +3890,15 @@
         "sourceRefs": [
           "ace-seeds-congo"
         ],
-        "display": "Bangi Congo × Congo #3 x Pakistan Chitral Kush",
+        "display": "Bangi Congo + Congo #3 + Pakistan Chitral Kush",
         "parents": [
           "Bangi Congo",
-          "Congo #3 x Pakistan Chitral Kush"
+          "Congo #3",
+          "Pakistan Chitral Kush"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Congoは、ACE Seeds公式でBangi CongoとCongo #3という2つのコンゴ系サティバにPakistan Chitral Kushを組み合わせたF1ハイブリッドとして記載されています。"
+          "textJa": "ACE Seeds公式では、CongoはBangi Congo、Congo #3、Pakistan Chitral Kushの3要素からなるF1ハイブリッドと記載されています。公式が単一の交配順を示していないため、CSWでは括弧を使った交配順を推定していません。"
         }
       },
       "relations": [
@@ -3885,37 +3912,37 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "ace-seeds-congo"
+            "ace-seeds-congo",
+            "ace-seeds-about-2026"
           ]
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
+        "status": "disputed",
+        "confidence": "B",
         "sourceRefs": [
-          "ace-seeds-congo"
+          "ace-seeds-congo",
+          "ace-seeds-congo-en"
         ],
         "evidenceMode": "PROFILE",
         "items": [
           "フラワーペタル",
-          "グレープ",
+          "ブドウ",
           "ワイルドフォレストフルーツ",
-          "ブラックベリー",
-          "ラズベリー"
+          "ブラックベリー"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
             "フラワーペタル",
-            "グレープ",
+            "ブドウ",
             "ワイルドフォレストフルーツ",
-            "ブラックベリー",
-            "ラズベリー"
+            "ブラックベリー"
           ],
           "details": [
             {
-              "rawMatch": "flower petals",
+              "rawMatch": "petals of flowers",
               "reviewLabelJa": "フラワーペタル",
               "plainMeaningJa": "花びらのような香り",
               "presentationRole": "NOTE",
@@ -3925,12 +3952,13 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "grape",
-              "reviewLabelJa": "グレープ",
-              "plainMeaningJa": "ぶどうのような果実香",
+              "rawMatch": "grapes",
+              "reviewLabelJa": "ブドウ",
+              "plainMeaningJa": "ブドウ果実を思わせる香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "ぶどう"
+                "グレープ",
+                "果実香"
               ],
               "registryVersion": 1
             },
@@ -3953,27 +3981,20 @@
                 "ベリー"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "raspberry",
-              "reviewLabelJa": "ラズベリー",
-              "plainMeaningJa": "ラズベリーのような甘酸っぱい果実香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "ベリー"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式のBouquet欄では、花びら、ブドウ、野生の森の果実を軸に、ブラックベリーやラズベリーを含む果実感が示されています。"
+          "noteJa": "ACE Seeds公式の英語版とスペイン語版は、花びら、ブドウ、野生の森の果実、ブラックベリーまでは一致しています。一方、最後の果実表現だけ英語版はストロベリー、スペイン語版はラズベリーと異なるため、CSWではどちらかを選ばず、その1語は表示から外しています。"
         }
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "ace-seeds-congo"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -3981,36 +4002,18 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-congo"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-congo"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 15,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-congo"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 0.15,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -4024,10 +4027,15 @@
               "value": 15,
               "unit": "%",
               "valueText": "15%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-congo"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -4037,10 +4045,33 @@
               "value": 0.15,
               "unit": "%",
               "valueText": "0.15%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-congo"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 2.34,
+              "unit": "%",
+              "valueText": "2.34%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-congo"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -4051,21 +4082,21 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-about"
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsの公式沿革では、Congoは2005年の最初のカタログに掲載された初期品種の一つとして挙げられています。"
+          "textJa": "ACE Seedsの現在の公式沿革では、Congoは2005年の最初のカタログに掲載された初期のクラシック品種の一つとして挙げられています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Congoは、ACE Seeds公式でBangi CongoとCongo #3という2つのコンゴ系サティバにPakistan Chitral Kushを組み合わせたF1ハイブリッドとして記載されています。",
-          "history": "ACE Seedsの公式沿革では、Congoは2005年の最初のカタログに掲載された初期品種の一つとして挙げられています。",
-          "aromaNote": "公式のBouquet欄では、花びら、ブドウ、野生の森の果実を軸に、ブラックベリーやラズベリーを含む果実感が示されています。"
+          "lineageNote": "ACE Seeds公式では、CongoはBangi Congo、Congo #3、Pakistan Chitral Kushの3要素からなるF1ハイブリッドと記載されています。公式が単一の交配順を示していないため、CSWでは括弧を使った交配順を推定していません。",
+          "history": "ACE Seedsの現在の公式沿革では、Congoは2005年の最初のカタログに掲載された初期のクラシック品種の一つとして挙げられています。",
+          "aromaNote": "ACE Seeds公式の英語版とスペイン語版は、花びら、ブドウ、野生の森の果実、ブラックベリーまでは一致しています。一方、最後の果実表現だけ英語版はストロベリー、スペイン語版はラズベリーと異なるため、CSWではどちらかを選ばず、その1語は表示から外しています。"
         }
       },
       "visuals": [
@@ -4079,8 +4110,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -5141,7 +5172,7 @@
         "sourceRefs": [
           "hi-elevation-freakshow"
         ],
-        "display": "Bigbud x Skunk#1 × Big Sur Holy Weed x Banana Kush",
+        "display": "(Bigbud x Skunk#1) x (Big Sur Holy Weed x Banana Kush)",
         "parents": [
           "Bigbud x Skunk#1",
           "Big Sur Holy Weed x Banana Kush"
@@ -5529,7 +5560,7 @@
         "sourceRefs": [
           "ace-seeds-golden-tiger"
         ],
-        "display": "Koh Chang Thai × Hmong Thai × Old Malawi Killer × 3rd-generation Malawi male",
+        "display": "Koh Chang Thai + Hmong Thai + Old Malawi Killer + 3rd-generation Malawi male",
         "parents": [
           "Koh Chang Thai",
           "Hmong Thai",
@@ -5924,7 +5955,7 @@
         "sourceRefs": [
           "ace-seeds-guawi"
         ],
-        "display": "Old Malawi Killer × Tikal F5",
+        "display": "Old Malawi Killer × Tikal F5 (peach, mango, incense phenotype)",
         "parents": [
           "Old Malawi Killer",
           "Tikal F5"
@@ -6604,7 +6635,7 @@
         "sourceRefs": [
           "ace-seeds-killer-a5-haze"
         ],
-        "display": "A5 Haze by Neville × Malawi Killer",
+        "display": "A5 Haze by Neville (Northern Lights #5/Haze A) × Malawi Killer",
         "parents": [
           "A5 Haze by Neville",
           "Malawi Killer"
@@ -8930,7 +8961,7 @@
         "sourceRefs": [
           "ace-seeds-orient-express"
         ],
-        "display": "Vietnam Black × China Yunnan",
+        "display": "Vietnam Black sativa × China Yunnan indica",
         "parents": [
           "Vietnam Black",
           "China Yunnan"
@@ -9606,7 +9637,7 @@
         "sourceRefs": [
           "ace-seeds-rush-of-siam"
         ],
-        "display": "Neville's Outback Thai × Kali China elite (F4)",
+        "display": "Neville's Outback Thai x Kali China elite (F4)",
         "parents": [
           "Neville's Outback Thai",
           "Kali China elite (F4)"
@@ -13231,7 +13262,7 @@
           "leafly-wedding-cake-2019",
           "david-downs-wedding-cake-2026"
         ],
-        "display": "Triangle Kush × Animal Mints",
+        "display": "Triangle Kush × Animal Mints（Triangle Mints phenotype）",
         "parents": [
           "Triangle Kush",
           "Animal Mints"
@@ -13919,6 +13950,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-02"
     },
+    "ace-seeds-congo-en": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-congo-en",
+      "publisher": "ACE Seeds",
+      "title": "Congo Regular (English)",
+      "url": "https://www.aceseeds.org/en/seeds/congo-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "classification",
+        "breeding",
+        "aromas",
+        "visualMorphology",
+        "terpenes",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
     "ace-seeds-congo": {
       "schemaVersion": 1,
       "id": "ace-seeds-congo",
@@ -13938,7 +13988,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-erdpurt": {
       "schemaVersion": 1,
