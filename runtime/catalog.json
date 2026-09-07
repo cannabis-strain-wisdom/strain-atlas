@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T18:05:14.569Z",
+  "generatedAt": "2026-09-07T22:23:46.919Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 88,
+    "sources": 89,
     "entities": 16
   },
   "explore": {
@@ -5423,6 +5423,7 @@
           "フレッシュフォレスト",
           "パイン",
           "シトラス",
+          "パイニー",
           "フルーティー"
         ],
         "presentation": {
@@ -5433,6 +5434,7 @@
             "フレッシュフォレスト",
             "パイン",
             "シトラス",
+            "パイニー",
             "フルーティー"
           ],
           "details": [
@@ -5477,6 +5479,16 @@
               "registryVersion": 1
             },
             {
+              "rawMatch": "piney",
+              "reviewLabelJa": "パイニー",
+              "plainMeaningJa": "松のような樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
               "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
@@ -5489,13 +5501,14 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが挙げられています。"
+          "noteJa": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが確認できます。香りの主役／アクセントという階層は公式記述から確定できないため、同格のプロフィールとして扱っています。"
         }
       },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -5503,7 +5516,11 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "dutch-passion-frisian-duck"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -5512,9 +5529,7 @@
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "dutch-passion-frisian-duck"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -5524,40 +5539,43 @@
       },
       "origin": {
         "status": "unknown",
-        "sourceRefs": []
+        "sourceRefs": [
+          "dutch-passion-frisian-duck"
+        ]
       },
       "history": {
         "status": "confirmed",
-        "confidence": "A",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dutch-passion-frisian-duck"
+          "dutch-passion-frisian-duck",
+          "soft-secrets-frisian-duck-outdoor-2016"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を目標に、長年にわたる慎重な育種を経て開発したと説明しています。"
+          "textJa": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を軸に長年の育種を重ねたと説明しています。Soft Secrets Españaは2016年5月2日、Frisian Duckを「Exterior del Año 2016」に選出しています。"
         }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Dutch Passion公式ではFrisian Dew × DucksFoot、Hybridと記載されています。数値のSATIVA/INDICA比率は公式ページにないため推定しません。",
-          "history": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を目標に、長年にわたる慎重な育種を経て開発したと説明しています。",
-          "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが挙げられています。"
+          "history": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を軸に長年の育種を重ねたと説明しています。Soft Secrets Españaは2016年5月2日、Frisian Duckを「Exterior del Año 2016」に選出しています。",
+          "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが確認できます。香りの主役／アクセントという階層は公式記述から確定できないため、同格のプロフィールとして扱っています。"
         }
       },
       "visuals": [
         {
           "role": "primary",
           "src": "assets/cultivars/frisian-duck/primary.webp",
-          "alt": "Frisian Duckのダックフット型の葉と紫色の花を表現したAI生成参考ビジュアル",
-          "rights": "AI-generated project asset for Cannabis Strain Wisdom.",
+          "alt": "Frisian Duckの特徴的なダックフット型の葉と紫色の花を表現したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. Current Dutch Passion first-party morphology text is used as evidence context; no official or third-party image is copied into the project asset.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14678,10 +14696,12 @@
         "classification",
         "history",
         "aromas",
-        "cannabinoids"
+        "cannabinoids",
+        "morphology",
+        "visual"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-08"
     },
     "dutch-passion-mazar": {
       "schemaVersion": 1,
@@ -15468,6 +15488,20 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "soft-secrets-frisian-duck-outdoor-2016": {
+      "schemaVersion": 1,
+      "id": "soft-secrets-frisian-duck-outdoor-2016",
+      "publisher": "Soft Secrets",
+      "title": "Frisian Duck: Exterior del año 2016",
+      "url": "https://softsecrets.com/es-ES/articulo/frisian-duck-exterior-del-ano-2016",
+      "sourceType": "awardingBodyOfficial",
+      "supports": [
+        "awards",
+        "history"
+      ],
+      "publishedAt": "2016-05-02",
+      "checkedAt": "2026-09-08"
     },
     "thseeds-bubblegum": {
       "schemaVersion": 1,
