@@ -1,0 +1,69 @@
+name: Consolidate Morphology presentation once
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/morphology-presentation-consolidate-temp.yml
+
+permissions:
+  contents: write
+
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current PUBLIC main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Guard exact Shaman projection ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          git merge-base --is-ancestor 8da36b89219bf334b47021ee1e7a4823c17d0c6c HEAD
+          test -f morphology-presentation-v1.js
+          grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' morphology-presentation-v1.js
+
+      - name: Consolidate into existing staged presentation contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '\n' >> presentation-contract-v1.js
+          cat morphology-presentation-v1.js >> presentation-contract-v1.js
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('  <script src="morphology-presentation-v1.js?v=1" defer></script>\n','')
+          s=s.replace('presentation-contract-v1.js?v=3','presentation-contract-v1.js?v=4')
+          if 'morphology-presentation-v1.js' in s:
+              raise SystemExit('MORPHOLOGY_STANDALONE_REFERENCE_REMAINS')
+          p.write_text(s)
+          PY
+          node --check presentation-contract-v1.js
+          grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' presentation-contract-v1.js
+          grep -Fq 'presentation?.textJa' presentation-contract-v1.js
+          ! grep -Fq 'morphology.items' presentation-contract-v1.js
+          grep -Fq 'presentation-contract-v1.js?v=4' index.html
+          git diff --check
+
+      - name: Commit durable PUBLIC presentation and remove temporary files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm morphology-presentation-v1.js
+          git rm .github/workflows/morphology-presentation-consolidate-temp.yml
+          git add presentation-contract-v1.js index.html
+          git diff --cached --check
+          git config user.name "cannabis-strain-wisdom"
+          git config user.email "316430215+cannabis-strain-wisdom@users.noreply.github.com"
+          git commit -m "Consolidate Morphology into durable PUBLIC presentation"
+          git fetch origin main
+          test "$(git rev-parse HEAD^)" = "$(git rev-parse origin/main)"
+          git push origin HEAD:main
