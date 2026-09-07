@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T10:18:57.019Z",
+  "generatedAt": "2026-09-07T11:42:56.305Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -165,7 +165,6 @@
           ],
           "details": [
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -175,7 +174,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pine",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -185,7 +183,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pungent",
               "reviewLabelJa": "パングェント",
               "plainMeaningJa": "ツンと強い香り",
               "presentationRole": "CHARACTER",
@@ -195,7 +192,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -437,7 +433,6 @@
           ],
           "details": [
             {
-              "rawMatch": "flammable gas",
               "reviewLabelJa": "フラマブルガス",
               "plainMeaningJa": "可燃性ガスを思わせる刺激的な燃料香",
               "presentationRole": "NOTE",
@@ -447,7 +442,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "solvent",
               "reviewLabelJa": "ソルベント",
               "plainMeaningJa": "溶剤を思わせる刺激的な香り",
               "presentationRole": "NOTE",
@@ -457,7 +451,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "meat (foie gras)",
               "reviewLabelJa": "ミーティー",
               "plainMeaningJa": "肉やフォアグラを思わせる濃厚な香り",
               "presentationRole": "NOTE",
@@ -468,7 +461,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "leather",
               "reviewLabelJa": "レザー",
               "plainMeaningJa": "革のような香り",
               "presentationRole": "NOTE",
@@ -478,7 +470,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "gas",
               "reviewLabelJa": "ガス",
               "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -488,7 +479,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "citrus",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -498,7 +488,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -508,7 +497,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "mango",
               "reviewLabelJa": "マンゴー",
               "plainMeaningJa": "マンゴーのような南国果実香",
               "presentationRole": "NOTE",
@@ -518,7 +506,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -832,7 +819,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -842,7 +828,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet citrus",
               "reviewLabelJa": "スイートシトラス",
               "plainMeaningJa": "甘みのある柑橘を思わせる香り",
               "presentationRole": "NOTE",
@@ -1037,7 +1022,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -1047,7 +1031,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -1057,7 +1040,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "herbal",
               "reviewLabelJa": "ハーバル",
               "plainMeaningJa": "ハーブのような香り",
               "presentationRole": "NOTE",
@@ -1350,7 +1332,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -1360,7 +1341,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -1370,7 +1350,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musky",
               "reviewLabelJa": "ムスキー",
               "plainMeaningJa": "ムスクのような重く甘い香り",
               "presentationRole": "NOTE",
@@ -1380,7 +1359,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemony",
               "reviewLabelJa": "レモン系",
               "plainMeaningJa": "レモンを思わせる柑橘系の香り",
               "presentationRole": "NOTE",
@@ -1391,7 +1369,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "anisette",
               "reviewLabelJa": "アニゼット",
               "plainMeaningJa": "アニス系リキュールを思わせる甘い香り",
               "presentationRole": "NOTE",
@@ -1681,7 +1658,6 @@
           ],
           "details": [
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -1691,7 +1667,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "gassy",
               "reviewLabelJa": "ガッシー",
               "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -1701,7 +1676,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -1711,7 +1685,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -1721,7 +1694,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sour lemon",
               "reviewLabelJa": "サワーレモン",
               "plainMeaningJa": "酸味のあるレモンを思わせる柑橘香",
               "presentationRole": "NOTE",
@@ -1912,7 +1884,6 @@
           ],
           "details": [
             {
-              "rawMatch": "fresh baked blueberry muffins",
               "reviewLabelJa": "焼きたてのブルーベリーマフィン",
               "plainMeaningJa": "焼きたてのブルーベリーマフィンを思わせる甘いベリー系の香り",
               "presentationRole": "NOTE",
@@ -1923,7 +1894,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "blueberry",
               "reviewLabelJa": "ブルーベリー",
               "plainMeaningJa": "ブルーベリー果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -2099,7 +2069,6 @@
           ],
           "details": [
             {
-              "rawMatch": "バブルガム",
               "reviewLabelJa": "バブルガム",
               "plainMeaningJa": "バブルガム菓子のような甘い香り",
               "presentationRole": "NOTE",
@@ -2109,7 +2078,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "スイート",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -2119,7 +2087,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ベリー",
               "reviewLabelJa": "ベリー",
               "plainMeaningJa": "ベリー類を思わせる果実香",
               "presentationRole": "NOTE",
@@ -2129,7 +2096,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "フローラル",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -2373,7 +2339,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -2383,7 +2348,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lime",
               "reviewLabelJa": "ライム",
               "plainMeaningJa": "ライムのような柑橘香",
               "presentationRole": "NOTE",
@@ -2393,7 +2357,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -2403,7 +2366,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "grapefruit",
               "reviewLabelJa": "グレープフルーツ",
               "plainMeaningJa": "グレープフルーツのような柑橘香",
               "presentationRole": "NOTE",
@@ -2413,7 +2375,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "creamy",
               "reviewLabelJa": "クリーミー",
               "plainMeaningJa": "クリームのようにまろやかな香り",
               "presentationRole": "CHARACTER",
@@ -2423,7 +2384,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -2433,7 +2393,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "tropical fruit",
               "reviewLabelJa": "トロピカルフルーツ",
               "plainMeaningJa": "南国の果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -2443,7 +2402,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "hashish",
               "reviewLabelJa": "ハシシ",
               "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
               "presentationRole": "NOTE",
@@ -2453,7 +2411,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "candy",
               "reviewLabelJa": "キャンディ",
               "plainMeaningJa": "キャンディのような甘い香り",
               "presentationRole": "NOTE",
@@ -2463,7 +2420,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "melon",
               "reviewLabelJa": "メロン",
               "plainMeaningJa": "メロンのような甘い果実香",
               "presentationRole": "NOTE",
@@ -2473,7 +2429,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -2483,7 +2438,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musky",
               "reviewLabelJa": "ムスキー",
               "plainMeaningJa": "ムスクのような重く甘い香り",
               "presentationRole": "NOTE",
@@ -2687,7 +2641,7 @@
         "type": "indica-dominant-hybrid"
       },
       "breeding": {
-        "generation": "other"
+        "generation": "S3"
       },
       "lineage": {
         "status": "confirmed",
@@ -2704,7 +2658,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt Seed Company公式では、Dream Queen × I-369 × Papayaと記載され、S3のフェミナイズド・フォトピリオドとして説明されています。"
+          "textJa": "Humboldt Seed Company公式では、Dream Queen × I-369 × Papaya、S3のフェミナイズド・フォトピリオドとして記載されています。S3はそのまま保持し、表記順から母父方向や段階的な交配順は推定しません。"
         }
       },
       "relations": [
@@ -2745,7 +2699,6 @@
           ],
           "details": [
             {
-              "rawMatch": "gas",
               "reviewLabelJa": "ガス",
               "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -2755,7 +2708,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "guava",
               "reviewLabelJa": "グアバ",
               "plainMeaningJa": "グアバのような南国果実香",
               "presentationRole": "NOTE",
@@ -2765,7 +2717,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "crème",
               "reviewLabelJa": "クレーム",
               "plainMeaningJa": "クリーム菓子のようなまろやかな甘い香り",
               "presentationRole": "NOTE",
@@ -2777,7 +2728,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Humboldt Seed Company公式では、ガス、グアバ、クリームの香りが挙げられています。"
+          "noteJa": "Humboldt Seed Company公式では、ガス、グアバ、クレームの香りが挙げられています。原文の語を保持し、根拠のないCORE / ACCENTS分けはしていません。"
         }
       },
       "terpenes": {
@@ -2791,18 +2742,18 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "hsc-california-octane"
+        ],
         "thc": {
           "status": "unknown",
-          "sourceRefs": [
-            "hsc-california-octane"
-          ]
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "hsc-california-octane"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -2812,16 +2763,20 @@
       },
       "origin": {
         "status": "unknown",
-        "sourceRefs": []
+        "sourceRefs": [
+          "hsc-california-octane"
+        ]
       },
       "history": {
         "status": "unknown",
-        "sourceRefs": []
+        "sourceRefs": [
+          "hsc-california-octane"
+        ]
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Humboldt Seed Company公式では、Dream Queen × I-369 × Papayaと記載され、S3のフェミナイズド・フォトピリオドとして説明されています。",
-          "aromaNote": "Humboldt Seed Company公式では、ガス、グアバ、クリームの香りが挙げられています。"
+          "lineageNote": "Humboldt Seed Company公式では、Dream Queen × I-369 × Papaya、S3のフェミナイズド・フォトピリオドとして記載されています。S3はそのまま保持し、表記順から母父方向や段階的な交配順は推定しません。",
+          "aromaNote": "Humboldt Seed Company公式では、ガス、グアバ、クレームの香りが挙げられています。原文の語を保持し、根拠のないCORE / ACCENTS分けはしていません。"
         }
       },
       "visuals": [
@@ -2835,8 +2790,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -3143,7 +3098,6 @@
           ],
           "details": [
             {
-              "rawMatch": "ripe tangerine",
               "reviewLabelJa": "ライプ・タンジェリン",
               "plainMeaningJa": "熟したタンジェリンのような柑橘香",
               "presentationRole": "NOTE",
@@ -3153,7 +3107,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "tropical fruit",
               "reviewLabelJa": "トロピカルフルーツ",
               "plainMeaningJa": "南国の果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -3163,7 +3116,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -3173,7 +3125,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -3183,7 +3134,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "gummy",
               "reviewLabelJa": "グミ",
               "plainMeaningJa": "グミ菓子のような甘い香り",
               "presentationRole": "NOTE",
@@ -3193,7 +3143,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -3203,7 +3152,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "piney",
               "reviewLabelJa": "パイニー",
               "plainMeaningJa": "松のような樹木香",
               "presentationRole": "NOTE",
@@ -3213,7 +3161,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musky",
               "reviewLabelJa": "ムスキー",
               "plainMeaningJa": "ムスクのような重く甘い香り",
               "presentationRole": "NOTE",
@@ -3223,7 +3170,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "hashish",
               "reviewLabelJa": "ハシシ",
               "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
               "presentationRole": "NOTE",
@@ -3525,7 +3471,6 @@
           ],
           "details": [
             {
-              "rawMatch": "アーシー / ムスク",
               "reviewLabelJa": "アーシー／ムスク",
               "plainMeaningJa": "土っぽさとムスクが重なる香り",
               "presentationRole": "NOTE",
@@ -3536,7 +3481,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "コーヒー",
               "reviewLabelJa": "コーヒー",
               "plainMeaningJa": "焙煎したコーヒー豆のような香り",
               "presentationRole": "NOTE",
@@ -3546,7 +3490,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "チョコレート",
               "reviewLabelJa": "チョコレート",
               "plainMeaningJa": "チョコレートのような甘く濃い香り",
               "presentationRole": "NOTE",
@@ -3556,7 +3499,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "スイートバニラ",
               "reviewLabelJa": "スイートバニラ",
               "plainMeaningJa": "甘いバニラのような香り",
               "presentationRole": "NOTE",
@@ -3566,7 +3508,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "チェスナット",
               "reviewLabelJa": "チェスナット",
               "plainMeaningJa": "栗のような香ばしい香り",
               "presentationRole": "NOTE",
@@ -3753,7 +3694,6 @@
           ],
           "details": [
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -3763,7 +3703,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "tropical",
               "reviewLabelJa": "トロピカル",
               "plainMeaningJa": "南国を思わせる香り",
               "presentationRole": "NOTE",
@@ -4001,7 +3940,6 @@
           ],
           "details": [
             {
-              "rawMatch": "petals of flowers",
               "reviewLabelJa": "フラワーペタル",
               "plainMeaningJa": "花びらのような香り",
               "presentationRole": "NOTE",
@@ -4011,7 +3949,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "grapes",
               "reviewLabelJa": "ブドウ",
               "plainMeaningJa": "ブドウ果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -4022,7 +3959,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "wild forest fruits",
               "reviewLabelJa": "ワイルドフォレストフルーツ",
               "plainMeaningJa": "野生の森のベリー類を思わせる果実香",
               "presentationRole": "NOTE",
@@ -4032,7 +3968,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "blackberry",
               "reviewLabelJa": "ブラックベリー",
               "plainMeaningJa": "ブラックベリーのような甘酸っぱい果実香",
               "presentationRole": "NOTE",
@@ -4246,7 +4181,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -4256,7 +4190,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sour",
               "reviewLabelJa": "サワー",
               "plainMeaningJa": "酸っぱさを思わせる香り",
               "presentationRole": "CHARACTER",
@@ -4266,7 +4199,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "grapes",
               "reviewLabelJa": "ブドウ",
               "plainMeaningJa": "ブドウ果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -4277,7 +4209,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "gas",
               "reviewLabelJa": "ガス",
               "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -4460,7 +4391,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -4470,7 +4400,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "hazy",
               "reviewLabelJa": "ヘイジー",
               "plainMeaningJa": "Haze系を思わせる香り",
               "presentationRole": "NOTE",
@@ -4480,7 +4409,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "aniseed",
               "reviewLabelJa": "アニスシード",
               "plainMeaningJa": "アニスの種のような甘いスパイス香",
               "presentationRole": "NOTE",
@@ -4490,7 +4418,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "liquorice",
               "reviewLabelJa": "リコリス",
               "plainMeaningJa": "甘草のような甘くスパイシーな香り",
               "presentationRole": "NOTE",
@@ -4500,7 +4427,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -4510,7 +4436,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "cloves",
               "reviewLabelJa": "クローブ",
               "plainMeaningJa": "クローブのような甘く温かいスパイス香",
               "presentationRole": "NOTE",
@@ -4697,7 +4622,6 @@
           ],
           "details": [
             {
-              "rawMatch": "coffee",
               "reviewLabelJa": "コーヒー",
               "plainMeaningJa": "焙煎したコーヒー豆のような香り",
               "presentationRole": "NOTE",
@@ -4707,7 +4631,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -4717,7 +4640,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "piney",
               "reviewLabelJa": "パイニー",
               "plainMeaningJa": "松のような樹木香",
               "presentationRole": "NOTE",
@@ -4727,7 +4649,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "hashy",
               "reviewLabelJa": "ハッシュ系",
               "plainMeaningJa": "ハッシュを思わせる樹脂香",
               "presentationRole": "NOTE",
@@ -4956,7 +4877,6 @@
           ],
           "details": [
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -4966,7 +4886,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -4976,7 +4895,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -4986,7 +4904,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musky",
               "reviewLabelJa": "ムスキー",
               "plainMeaningJa": "ムスクのような重く甘い香り",
               "presentationRole": "NOTE",
@@ -4996,7 +4913,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fermented citrus",
               "reviewLabelJa": "ファーメンテッド・シトラス",
               "plainMeaningJa": "発酵した柑橘のような香り",
               "presentationRole": "NOTE",
@@ -5283,7 +5199,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "pine",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -5293,7 +5208,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -5303,7 +5217,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lime",
               "reviewLabelJa": "ライム",
               "plainMeaningJa": "ライムのような柑橘香",
               "presentationRole": "NOTE",
@@ -5315,7 +5228,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "tropical fruit",
               "reviewLabelJa": "トロピカルフルーツ",
               "plainMeaningJa": "南国の果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -5472,7 +5384,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -5482,7 +5393,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fresh forest",
               "reviewLabelJa": "フレッシュフォレスト",
               "plainMeaningJa": "みずみずしい森を思わせる香り",
               "presentationRole": "NOTE",
@@ -5492,7 +5402,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pine",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -5502,7 +5411,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "citrus",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -5512,7 +5420,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -5677,7 +5584,6 @@
           ],
           "details": [
             {
-              "rawMatch": "organic",
               "reviewLabelJa": "オーガニック",
               "plainMeaningJa": "有機物を思わせる香り",
               "presentationRole": "NOTE",
@@ -5687,7 +5593,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fermented",
               "reviewLabelJa": "ファーメンテッド",
               "plainMeaningJa": "発酵したものを思わせる香り",
               "presentationRole": "NOTE",
@@ -5697,7 +5602,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "resinous",
               "reviewLabelJa": "レジナス",
               "plainMeaningJa": "樹脂質で濃い香り",
               "presentationRole": "NOTE",
@@ -5707,7 +5611,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "spices",
               "reviewLabelJa": "スパイス",
               "plainMeaningJa": "複数の香辛料を思わせる香り",
               "presentationRole": "NOTE",
@@ -5717,7 +5620,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "wood",
               "reviewLabelJa": "ウッド",
               "plainMeaningJa": "木材そのものを思わせる香り",
               "presentationRole": "NOTE",
@@ -5727,7 +5629,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ripe mandarin",
               "reviewLabelJa": "ライプ・マンダリン",
               "plainMeaningJa": "熟したマンダリンのような柑橘香",
               "presentationRole": "NOTE",
@@ -5737,7 +5638,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -6071,7 +5971,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -6081,7 +5980,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -6091,7 +5989,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "mango",
               "reviewLabelJa": "マンゴー",
               "plainMeaningJa": "マンゴーのような南国果実香",
               "presentationRole": "NOTE",
@@ -6101,7 +5998,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "peach",
               "reviewLabelJa": "ピーチ",
               "plainMeaningJa": "桃のような甘い果実香",
               "presentationRole": "NOTE",
@@ -6111,7 +6007,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "strawberry",
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
               "presentationRole": "NOTE",
@@ -6121,7 +6016,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -6131,7 +6025,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "resinous",
               "reviewLabelJa": "レジナス",
               "plainMeaningJa": "樹脂質で濃い香り",
               "presentationRole": "NOTE",
@@ -6141,7 +6034,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "oily",
               "reviewLabelJa": "オイリー",
               "plainMeaningJa": "油のような重さを感じる香り",
               "presentationRole": "NOTE",
@@ -6356,7 +6248,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sharp",
               "reviewLabelJa": "シャープ",
               "plainMeaningJa": "鋭く鼻に届く香り",
               "presentationRole": "CHARACTER",
@@ -6366,7 +6257,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "savoury",
               "reviewLabelJa": "セイボリー",
               "plainMeaningJa": "甘さより旨味を思わせる香り",
               "presentationRole": "CHARACTER",
@@ -6376,7 +6266,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -6530,7 +6419,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -6540,7 +6428,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet-spicy",
               "reviewLabelJa": "スイートスパイシー",
               "plainMeaningJa": "甘さとスパイス感が重なる香り",
               "presentationRole": "CHARACTER",
@@ -6766,7 +6653,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "Dutch old school dark incensed Haze aroma",
               "reviewLabelJa": "ダークインセンス",
               "plainMeaningJa": "オールドスクールなHazeを思わせる暗く重いインセンス香",
               "presentationRole": "NOTE",
@@ -6777,7 +6663,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "meaty (liver)",
               "reviewLabelJa": "ミーティー／レバー",
               "plainMeaningJa": "肉やレバーを思わせる濃い香り",
               "presentationRole": "NOTE",
@@ -6788,7 +6673,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "strong organic/rotten background",
               "reviewLabelJa": "オーガニック／ロッテン",
               "plainMeaningJa": "強い腐敗系の有機物を思わせる背景香",
               "presentationRole": "NOTE",
@@ -6799,7 +6683,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "decomposing flower petals",
               "reviewLabelJa": "デコンポージング・フラワーペタル",
               "plainMeaningJa": "分解が進んだ花びらのような香り",
               "presentationRole": "NOTE",
@@ -6809,7 +6692,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "resin",
               "reviewLabelJa": "レジン",
               "plainMeaningJa": "樹脂のような香り",
               "presentationRole": "NOTE",
@@ -6819,7 +6701,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "cured wood",
               "reviewLabelJa": "キュアードウッド",
               "plainMeaningJa": "乾燥・熟成した木材のような香り",
               "presentationRole": "NOTE",
@@ -6831,7 +6712,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -6841,7 +6721,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incensed aromas of pure Haze",
               "reviewLabelJa": "ピュアHaze・インセンス",
               "plainMeaningJa": "ピュアHazeを思わせるインセンス香",
               "presentationRole": "NOTE",
@@ -6852,7 +6731,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incensed",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -6862,7 +6740,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "meaty (liver)",
               "reviewLabelJa": "ミーティー／レバー",
               "plainMeaningJa": "肉やレバーを思わせる濃い香り",
               "presentationRole": "NOTE",
@@ -6873,7 +6750,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "organic (petals of decaying flowers)",
               "reviewLabelJa": "ディケイング・フラワーペタル",
               "plainMeaningJa": "朽ちかけた花びらを思わせる有機的な香り",
               "presentationRole": "NOTE",
@@ -6884,7 +6760,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -6894,7 +6769,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody Haze",
               "reviewLabelJa": "ウッディHaze",
               "plainMeaningJa": "Haze系の木質的な香り",
               "presentationRole": "NOTE",
@@ -6905,7 +6779,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "oily",
               "reviewLabelJa": "オイリー",
               "plainMeaningJa": "油のような重さを感じる香り",
               "presentationRole": "NOTE",
@@ -6915,7 +6788,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "resinous",
               "reviewLabelJa": "レジナス",
               "plainMeaningJa": "樹脂質で濃い香り",
               "presentationRole": "NOTE",
@@ -7225,7 +7097,6 @@
           ],
           "details": [
             {
-              "rawMatch": "fresh",
               "reviewLabelJa": "フレッシュ",
               "plainMeaningJa": "新鮮で軽やかな印象の香り",
               "presentationRole": "CHARACTER",
@@ -7235,7 +7106,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -7245,7 +7115,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "exotic fruits",
               "reviewLabelJa": "エキゾチックフルーツ",
               "plainMeaningJa": "南国系の珍しい果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -7255,7 +7124,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -7443,7 +7311,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -7453,7 +7320,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -7463,7 +7329,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "citrus",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -7473,7 +7338,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "mango",
               "reviewLabelJa": "マンゴー",
               "plainMeaningJa": "マンゴーのような南国果実香",
               "presentationRole": "NOTE",
@@ -7483,7 +7347,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "blonde hash",
               "reviewLabelJa": "ブロンドハッシュ",
               "plainMeaningJa": "明るい色のハッシュを思わせる樹脂香",
               "presentationRole": "NOTE",
@@ -7493,7 +7356,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -7503,7 +7365,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sour",
               "reviewLabelJa": "サワー",
               "plainMeaningJa": "酸っぱさを思わせる香り",
               "presentationRole": "CHARACTER",
@@ -7817,7 +7678,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "oil",
               "reviewLabelJa": "オイル",
               "plainMeaningJa": "油を思わせる濃い香り",
               "presentationRole": "NOTE",
@@ -7827,7 +7687,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "wood",
               "reviewLabelJa": "ウッド",
               "plainMeaningJa": "木材そのものを思わせる香り",
               "presentationRole": "NOTE",
@@ -7837,7 +7696,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -7849,7 +7707,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "sweet carrot",
               "reviewLabelJa": "スイートキャロット",
               "plainMeaningJa": "甘いニンジンを思わせる香り",
               "presentationRole": "NOTE",
@@ -7859,7 +7716,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ripe mandarin",
               "reviewLabelJa": "ライプ・マンダリン",
               "plainMeaningJa": "熟したマンダリンのような柑橘香",
               "presentationRole": "NOTE",
@@ -8146,7 +8002,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "Afghan hash",
               "reviewLabelJa": "アフガン・ハッシュ",
               "plainMeaningJa": "アフガン系ハッシュを思わせる樹脂香",
               "presentationRole": "NOTE",
@@ -8157,7 +8012,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -8167,7 +8021,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "piney",
               "reviewLabelJa": "パイニー",
               "plainMeaningJa": "松のような樹木香",
               "presentationRole": "NOTE",
@@ -8179,7 +8032,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "herbs",
               "reviewLabelJa": "ハーブ",
               "plainMeaningJa": "ハーブ類を思わせる香り",
               "presentationRole": "NOTE",
@@ -8189,7 +8041,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -8199,7 +8050,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "citrus",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -8209,7 +8059,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweeter floral notes",
               "reviewLabelJa": "スイート・フローラル",
               "plainMeaningJa": "甘さを伴う花のような香り",
               "presentationRole": "NOTE",
@@ -8421,7 +8270,6 @@
           ],
           "details": [
             {
-              "rawMatch": "tropical fruit",
               "reviewLabelJa": "トロピカルフルーツ",
               "plainMeaningJa": "南国の果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -8431,7 +8279,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -8441,7 +8288,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -8451,7 +8297,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musk",
               "reviewLabelJa": "ムスク",
               "plainMeaningJa": "ムスクを思わせる重く甘い香り",
               "presentationRole": "NOTE",
@@ -8461,7 +8306,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -8471,7 +8315,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "herbal",
               "reviewLabelJa": "ハーバル",
               "plainMeaningJa": "ハーブのような香り",
               "presentationRole": "NOTE",
@@ -8481,7 +8324,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "geranium",
               "reviewLabelJa": "ゼラニウム",
               "plainMeaningJa": "ゼラニウムの花や葉を思わせる香り",
               "presentationRole": "NOTE",
@@ -8491,7 +8333,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "mint",
               "reviewLabelJa": "ミント",
               "plainMeaningJa": "ミントのような清涼感のある香り",
               "presentationRole": "NOTE",
@@ -8804,7 +8645,6 @@
           ],
           "details": [
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -8814,7 +8654,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -8824,7 +8663,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pine",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -8834,7 +8672,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "citrus",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -8844,7 +8681,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fuel-like",
               "reviewLabelJa": "フューエル",
               "plainMeaningJa": "燃料を思わせる刺激的な香り",
               "presentationRole": "NOTE",
@@ -8855,7 +8691,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -9069,7 +8904,6 @@
           ],
           "details": [
             {
-              "rawMatch": "rainforest",
               "reviewLabelJa": "レインフォレスト",
               "plainMeaningJa": "湿潤な熱帯林を思わせる香り",
               "presentationRole": "NOTE",
@@ -9079,7 +8913,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "deep organic",
               "reviewLabelJa": "ディープオーガニック",
               "plainMeaningJa": "深く濃い有機物のような香り",
               "presentationRole": "NOTE",
@@ -9089,7 +8922,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -9099,7 +8931,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -9417,7 +9248,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "lemon",
               "reviewLabelJa": "レモン",
               "plainMeaningJa": "レモンのような柑橘香",
               "presentationRole": "NOTE",
@@ -9427,7 +9257,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "vanilla",
               "reviewLabelJa": "バニラ",
               "plainMeaningJa": "バニラのような甘い香り",
               "presentationRole": "NOTE",
@@ -9437,7 +9266,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -9449,7 +9277,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "strawberry",
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
               "presentationRole": "NOTE",
@@ -9755,7 +9582,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "woody lemon",
               "reviewLabelJa": "ウッディレモン",
               "plainMeaningJa": "木のような落ち着きとレモンが重なる香り",
               "presentationRole": "NOTE",
@@ -9766,7 +9592,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "creamy",
               "reviewLabelJa": "クリーミー",
               "plainMeaningJa": "クリームのようにまろやかな香り",
               "presentationRole": "CHARACTER",
@@ -9776,7 +9601,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -9786,7 +9610,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet and sour",
               "reviewLabelJa": "スイート＆サワー",
               "plainMeaningJa": "甘さと酸っぱさが同時に感じられる香り",
               "presentationRole": "CHARACTER",
@@ -9798,7 +9621,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "mango",
               "reviewLabelJa": "マンゴー",
               "plainMeaningJa": "マンゴーのような南国果実香",
               "presentationRole": "NOTE",
@@ -9808,7 +9630,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "leather",
               "reviewLabelJa": "レザー",
               "plainMeaningJa": "革のような香り",
               "presentationRole": "NOTE",
@@ -9818,7 +9639,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "hash",
               "reviewLabelJa": "ハッシュ",
               "plainMeaningJa": "ハッシュを思わせる樹脂香",
               "presentationRole": "NOTE",
@@ -9828,7 +9648,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "incense",
               "reviewLabelJa": "インセンス",
               "plainMeaningJa": "お香のような香り",
               "presentationRole": "NOTE",
@@ -10354,7 +10173,6 @@
           ],
           "details": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -10364,7 +10182,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -10374,7 +10191,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -10384,7 +10200,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pungent",
               "reviewLabelJa": "パングェント",
               "plainMeaningJa": "ツンと強い香り",
               "presentationRole": "CHARACTER",
@@ -10394,7 +10209,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "earthy",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -10553,7 +10367,6 @@
           ],
           "coreDetails": [
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -10563,7 +10376,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -10575,7 +10387,6 @@
           ],
           "accentDetails": [
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -10742,7 +10553,6 @@
           ],
           "details": [
             {
-              "rawMatch": "fresh",
               "reviewLabelJa": "フレッシュ",
               "plainMeaningJa": "新鮮で軽やかな印象の香り",
               "presentationRole": "CHARACTER",
@@ -10752,7 +10562,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -10762,7 +10571,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fruity",
               "reviewLabelJa": "フルーティー",
               "plainMeaningJa": "果実全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -10772,7 +10580,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -10782,7 +10589,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "spicy",
               "reviewLabelJa": "スパイシー",
               "plainMeaningJa": "香辛料のような香り",
               "presentationRole": "NOTE",
@@ -10792,7 +10598,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sour",
               "reviewLabelJa": "サワー",
               "plainMeaningJa": "酸っぱさを思わせる香り",
               "presentationRole": "CHARACTER",
@@ -10802,7 +10607,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pine",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -10812,7 +10616,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "woody",
               "reviewLabelJa": "ウッディ",
               "plainMeaningJa": "木のような香り",
               "presentationRole": "NOTE",
@@ -10967,7 +10770,6 @@
           ],
           "details": [
             {
-              "rawMatch": "pungent",
               "reviewLabelJa": "パングェント",
               "plainMeaningJa": "ツンと強い香り",
               "presentationRole": "CHARACTER",
@@ -10977,7 +10779,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "skunk",
               "reviewLabelJa": "スカンク",
               "plainMeaningJa": "スカンク系を思わせる強い香り",
               "presentationRole": "NOTE",
@@ -11164,7 +10965,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet skunky smell",
               "reviewLabelJa": "スイート・スカンク",
               "plainMeaningJa": "甘さを伴うスカンク系の香り",
               "presentationRole": "NOTE",
@@ -11320,7 +11120,6 @@
           ],
           "details": [
             {
-              "rawMatch": "ストロベリー",
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
               "presentationRole": "NOTE",
@@ -11330,7 +11129,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "バナナ",
               "reviewLabelJa": "バナナ",
               "plainMeaningJa": "バナナのような甘い果実香",
               "presentationRole": "NOTE",
@@ -11340,7 +11138,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "バブルガム",
               "reviewLabelJa": "バブルガム",
               "plainMeaningJa": "バブルガム菓子のような甘い香り",
               "presentationRole": "NOTE",
@@ -11350,7 +11147,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ガス / フューエル",
               "reviewLabelJa": "ガス／フューエル",
               "plainMeaningJa": "ガスと燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -11583,7 +11379,6 @@
           ],
           "details": [
             {
-              "rawMatch": "レモンゼスト",
               "reviewLabelJa": "レモンゼスト",
               "plainMeaningJa": "レモンの皮を削ったような香り",
               "presentationRole": "NOTE",
@@ -11593,7 +11388,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "シトラス",
               "reviewLabelJa": "シトラス",
               "plainMeaningJa": "柑橘類を思わせる香り",
               "presentationRole": "NOTE",
@@ -11603,7 +11397,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ヘイズ",
               "reviewLabelJa": "ヘイズ",
               "plainMeaningJa": "Haze系を思わせる香り",
               "presentationRole": "NOTE",
@@ -11613,7 +11406,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ウッド",
               "reviewLabelJa": "ウッド",
               "plainMeaningJa": "木材を思わせる香り",
               "presentationRole": "NOTE",
@@ -11623,7 +11415,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "パイン",
               "reviewLabelJa": "パイン",
               "plainMeaningJa": "松を思わせる樹木香",
               "presentationRole": "NOTE",
@@ -12014,7 +11805,6 @@
           ],
           "details": [
             {
-              "rawMatch": "fresh",
               "reviewLabelJa": "フレッシュ",
               "plainMeaningJa": "新鮮で軽やかな印象の香り",
               "presentationRole": "CHARACTER",
@@ -12024,7 +11814,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon-lime",
               "reviewLabelJa": "レモンライム",
               "plainMeaningJa": "レモンとライムを合わせたような柑橘香",
               "presentationRole": "NOTE",
@@ -12034,7 +11823,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "wood",
               "reviewLabelJa": "ウッド",
               "plainMeaningJa": "木材そのものを思わせる香り",
               "presentationRole": "NOTE",
@@ -12044,7 +11832,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "spices",
               "reviewLabelJa": "スパイス",
               "plainMeaningJa": "複数の香辛料を思わせる香り",
               "presentationRole": "NOTE",
@@ -12054,7 +11841,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -12064,7 +11850,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "creamy",
               "reviewLabelJa": "クリーミー",
               "plainMeaningJa": "クリームのようにまろやかな香り",
               "presentationRole": "CHARACTER",
@@ -12074,7 +11859,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "perfumed",
               "reviewLabelJa": "パフュームド",
               "plainMeaningJa": "香水のように華やかな香り",
               "presentationRole": "NOTE",
@@ -12084,7 +11868,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "floral",
               "reviewLabelJa": "フローラル",
               "plainMeaningJa": "花のような香り",
               "presentationRole": "NOTE",
@@ -12094,7 +11877,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "musky",
               "reviewLabelJa": "ムスキー",
               "plainMeaningJa": "ムスクのような重く甘い香り",
               "presentationRole": "NOTE",
@@ -12104,7 +11886,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "strawberry",
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
               "presentationRole": "NOTE",
@@ -12362,7 +12143,6 @@
           ],
           "details": [
             {
-              "rawMatch": "サワー",
               "reviewLabelJa": "サワー",
               "plainMeaningJa": "酸っぱさを思わせる香り",
               "presentationRole": "CHARACTER",
@@ -12372,7 +12152,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "フューエル / ディーゼル",
               "reviewLabelJa": "フューエル／ディーゼル",
               "plainMeaningJa": "燃料とディーゼルを思わせる香り",
               "presentationRole": "NOTE",
@@ -12814,7 +12593,6 @@
           ],
           "details": [
             {
-              "rawMatch": "balsamic",
               "reviewLabelJa": "バルサミック",
               "plainMeaningJa": "樹脂や香油を思わせる重い香り",
               "presentationRole": "NOTE",
@@ -12824,7 +12602,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "forest fruits",
               "reviewLabelJa": "フォレストフルーツ",
               "plainMeaningJa": "森のベリー類を思わせる果実香",
               "presentationRole": "NOTE",
@@ -13114,7 +12891,6 @@
           ],
           "details": [
             {
-              "rawMatch": "strong",
               "reviewLabelJa": "ストロング",
               "plainMeaningJa": "はっきり強く感じる香り",
               "presentationRole": "CHARACTER",
@@ -13124,7 +12900,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -13134,7 +12909,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "acidic",
               "reviewLabelJa": "アシディック",
               "plainMeaningJa": "酸味を思わせる鋭い香り",
               "presentationRole": "CHARACTER",
@@ -13144,7 +12918,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "fresh fruit",
               "reviewLabelJa": "フレッシュフルーツ",
               "plainMeaningJa": "切りたての果実を思わせる香り",
               "presentationRole": "NOTE",
@@ -13373,7 +13146,6 @@
           ],
           "details": [
             {
-              "rawMatch": "バニラ",
               "reviewLabelJa": "バニラ",
               "plainMeaningJa": "バニラのような甘い香り",
               "presentationRole": "NOTE",
@@ -13383,7 +13155,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "スイート",
               "reviewLabelJa": "スイート",
               "plainMeaningJa": "甘さを感じる香り",
               "presentationRole": "CHARACTER",
@@ -13393,7 +13164,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "アーシー",
               "reviewLabelJa": "アーシー",
               "plainMeaningJa": "土っぽい香り",
               "presentationRole": "NOTE",
@@ -13403,7 +13173,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "ペッパー",
               "reviewLabelJa": "ペッパー",
               "plainMeaningJa": "胡椒のようなスパイス香",
               "presentationRole": "NOTE",
@@ -13413,7 +13182,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "フューエル",
               "reviewLabelJa": "フューエル",
               "plainMeaningJa": "燃料を思わせる香り",
               "presentationRole": "NOTE",
@@ -13594,7 +13362,6 @@
           ],
           "details": [
             {
-              "rawMatch": "sweet carrot",
               "reviewLabelJa": "スイートキャロット",
               "plainMeaningJa": "甘いニンジンを思わせる香り",
               "presentationRole": "NOTE",
@@ -13604,7 +13371,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "mango",
               "reviewLabelJa": "マンゴー",
               "plainMeaningJa": "マンゴーのような南国果実香",
               "presentationRole": "NOTE",
@@ -13614,7 +13380,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "orange",
               "reviewLabelJa": "オレンジ",
               "plainMeaningJa": "オレンジのような柑橘香",
               "presentationRole": "NOTE",
@@ -13624,7 +13389,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "flowers",
               "reviewLabelJa": "フラワー",
               "plainMeaningJa": "花全般を思わせる香り",
               "presentationRole": "NOTE",
@@ -13634,7 +13398,6 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "resins",
               "reviewLabelJa": "レジンズ",
               "plainMeaningJa": "複数の樹脂香が重なるような香り",
               "presentationRole": "NOTE",
@@ -14861,8 +14624,8 @@
       "schemaVersion": 1,
       "id": "hsc-california-octane",
       "publisher": "Humboldt Seed Company",
-      "title": "California Octane Seeds",
-      "url": "https://californiahempseeds.com/product/california-octane-feminized/",
+      "title": "California Octane Cannabis Seeds",
+      "url": "https://californiahempseeds.com/product/california-octane-cannabis-seeds/",
       "sourceType": "breederOfficial",
       "supports": [
         "lineage",
@@ -14870,10 +14633,11 @@
         "classification",
         "breeding",
         "aromas",
-        "cannabinoids"
+        "cannabinoids",
+        "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "hsc-eu-blueberry-muffin": {
       "schemaVersion": 1,
