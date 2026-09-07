@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T04:05:55.584Z",
+  "generatedAt": "2026-09-07T04:26:07.106Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5529,16 +5529,16 @@
         "sourceRefs": [
           "ace-seeds-golden-tiger"
         ],
-        "display": "Old Malawi Killer × Koh Chang Thai × Hmong Thai × 3rd-generation Malawi male",
+        "display": "Koh Chang Thai × Hmong Thai × Old Malawi Killer × 3rd-generation Malawi male",
         "parents": [
-          "Old Malawi Killer",
           "Koh Chang Thai",
           "Hmong Thai",
+          "Old Malawi Killer",
           "3rd-generation Malawi male"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、2つのThai系統と2つのMalawi親系統を組み合わせた、F3のsemi-stabilized 100% sativa hybridと説明されています。"
+          "textJa": "ACE Seeds公式では、現行Golden TigerにKoh Chang Thai、Hmong Thai、Old Malawi Killer、New Malawi Killerの兄弟にあたるMalawi第3世代雄株の4つの遺伝要素が含まれると説明されています。公式は単一の交配順を示していないため、CSWでは順序を推定していません。"
         }
       },
       "relations": [
@@ -5552,65 +5552,251 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "ace-seeds-golden-tiger"
+            "ace-seeds-golden-tiger",
+            "ace-seeds-about-2026"
           ]
         }
       ],
       "aromas": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "evidenceMode": "UNKNOWN",
-        "items": [],
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-golden-tiger"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "オーガニック",
+          "ファーメンテッド",
+          "レジナス",
+          "スパイス",
+          "ウッド",
+          "ライプ・マンダリン",
+          "レモン"
+        ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": [],
-          "reviewStatus": "NOT_APPLICABLE",
-          "unresolvedCount": 0
+          "mode": "profile",
+          "items": [
+            "オーガニック",
+            "ファーメンテッド",
+            "レジナス",
+            "スパイス",
+            "ウッド",
+            "ライプ・マンダリン",
+            "レモン"
+          ],
+          "details": [
+            {
+              "rawMatch": "organic",
+              "reviewLabelJa": "オーガニック",
+              "plainMeaningJa": "有機物を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "有機物"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fermented",
+              "reviewLabelJa": "ファーメンテッド",
+              "plainMeaningJa": "発酵したものを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "発酵"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "resinous",
+              "reviewLabelJa": "レジナス",
+              "plainMeaningJa": "樹脂質で濃い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spices",
+              "reviewLabelJa": "スパイス",
+              "plainMeaningJa": "複数の香辛料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "wood",
+              "reviewLabelJa": "ウッド",
+              "plainMeaningJa": "木材そのものを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "ripe mandarin",
+              "reviewLabelJa": "ライプ・マンダリン",
+              "plainMeaningJa": "熟したマンダリンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "熟した柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemon",
+              "reviewLabelJa": "レモン",
+              "plainMeaningJa": "レモンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE Seeds公式のBouquetでは、オーガニック、発酵、レジナスを基調に、スパイスとウッドの背景、熟したマンダリンとレモンのニュアンスが記載されています。原文の表現は保持しますが、CSWではこれをCORE / ACCENTSの階層へ自動変換していません。"
         }
       },
       "terpenes": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "items": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-golden-tiger"
+        ],
+        "items": [
+          "beta-myrcene",
+          "limonene",
+          "linalool",
+          "ocimene",
+          "isopulegol",
+          "alpha-pinene",
+          "beta-pinene",
+          "camphene",
+          "terpinolene",
+          "nerolidol-2",
+          "beta-caryophyllene",
+          "nerolidol-1",
+          "alpha-humulene"
+        ],
+        "evidenceMode": "QUALITATIVE",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "ocimene",
+              "labelJa": "オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "isopulegol",
+              "labelJa": "イソプレゴール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "camphene",
+              "labelJa": "カンフェン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "nerolidol-2",
+              "labelJa": "ネロリドール2",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
+            },
+            {
+              "id": "nerolidol-1",
+              "labelJa": "ネロリドール1",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            }
+          ],
+          "noteJa": "ACE Seeds公式ではβ-ミルセンを非常に多いとし、リモネン、リナロール、オシメン、イソプレゴール、α/βピネン、カンフェン、テルピノレンをより少量として挙げています。セスキテルペンではネロリドール2を主要とし、β-カリオフィレンが続き、ネロリドール1とフムレンはごく微量と記載されています。数値割合や花全体の絶対濃度は推定していません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-golden-tiger"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-golden-tiger"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 25,
-            "max": 30,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-golden-tiger"
-          ],
-          "measurement": {
-            "kind": "maximum",
-            "unit": "%",
-            "value": 0.5,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -5625,10 +5811,15 @@
               "maxValue": 30,
               "unit": "%",
               "valueText": "25〜30%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-golden-tiger"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -5638,43 +5829,60 @@
               "boundaryValue": 0.5,
               "unit": "%",
               "valueText": "最大0.5%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-golden-tiger"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 1.1,
+              "unit": "%",
+              "valueText": "最大1.1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-golden-tiger"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
       },
       "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-golden-tiger"
+          "ace-seeds-golden-tiger",
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE SeedsがMalawiとThaiの親系統から開発したと説明しています。"
-        }
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "ace-seeds-golden-tiger"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "ACE Seedsは現行版Golden TigerをThaiの影響をより強めた改良版として説明し、F3 semi-stabilizedとしています。"
+          "textJa": "ACE Seedsは2008年にHmong Thaiと選抜サティバ母系を使う交配プロジェクトを始め、その系譜の一つとしてGolden Tiger（Thai/Malawi）を挙げています。現行版については、旧版よりThaiの影響を強め、収量と香りを改良したF3 semi-stabilized hybridと説明しています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "ACE Seeds公式では、2つのThai系統と2つのMalawi親系統を組み合わせた、F3のsemi-stabilized 100% sativa hybridと説明されています。",
-          "origin": "ACE SeedsがMalawiとThaiの親系統から開発したと説明しています。",
-          "history": "ACE Seedsは現行版Golden TigerをThaiの影響をより強めた改良版として説明し、F3 semi-stabilizedとしています。"
+          "lineageNote": "ACE Seeds公式では、現行Golden TigerにKoh Chang Thai、Hmong Thai、Old Malawi Killer、New Malawi Killerの兄弟にあたるMalawi第3世代雄株の4つの遺伝要素が含まれると説明されています。公式は単一の交配順を示していないため、CSWでは順序を推定していません。",
+          "history": "ACE Seedsは2008年にHmong Thaiと選抜サティバ母系を使う交配プロジェクトを始め、その系譜の一つとしてGolden Tiger（Thai/Malawi）を挙げています。現行版については、旧版よりThaiの影響を強め、収量と香りを改良したF3 semi-stabilized hybridと説明しています。",
+          "aromaNote": "ACE Seeds公式のBouquetでは、オーガニック、発酵、レジナスを基調に、スパイスとウッドの背景、熟したマンダリンとレモンのニュアンスが記載されています。原文の表現は保持しますが、CSWではこれをCORE / ACCENTSの階層へ自動変換していません。",
+          "terpeneNote": "ACE Seeds公式ではβ-ミルセンを非常に多いとし、リモネン、リナロール、オシメン、イソプレゴール、α/βピネン、カンフェン、テルピノレンをより少量として挙げています。セスキテルペンではネロリドール2を主要とし、β-カリオフィレンが続き、ネロリドール1とフムレンはごく微量と記載されています。数値割合や花全体の絶対濃度は推定していません。"
         }
       },
       "visuals": [
@@ -5688,8 +5896,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13791,12 +13999,13 @@
         "breeding",
         "cannabinoids",
         "aromas",
+        "terpenes",
         "origin",
         "history",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-guawi": {
       "schemaVersion": 1,
