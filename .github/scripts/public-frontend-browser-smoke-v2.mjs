@@ -193,7 +193,18 @@ async function main() {
   if (newCaledonia.generic) throw new Error('New Caledonia generic lineage fallback rendered');
   if (newCaledonia.horizontalOverflow) throw new Error('New Caledonia detail has horizontal overflow');
 
-  const flavorCatalog = await getJson(`${baseUrl}runtime/catalog.json`);
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=shaman` });
+await waitFor(() => evalv(`document.readyState==='complete'`), 'Shaman document complete');
+await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="shaman"] [data-ucd-tab="morphology"]')`), 'Shaman Morphology presentation');
+await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="shaman"] [data-ucd-tab="morphology"]').click()`);
+await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="shaman"]');const tab=root?.querySelector('[data-ucd-tab="morphology"]');const panel=root?.querySelector('[data-ucd-panel="morphology"]');return tab?.getAttribute('aria-expanded')==='true' && panel && panel.hidden===false && panel.querySelector('[data-morphology-presentation="v1"]')})()`), 'Shaman Morphology panel open');
+const shamanMorphology = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="shaman"]');const panel=root?.querySelector('[data-ucd-panel="morphology"]');const text=panel?.innerText||'';return {text,state:window.__CSWMorphologyPresentationV1||null,horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
+if (!shamanMorphology.text.includes('背が高く開いたサティバ寄りの株姿') || !shamanMorphology.text.includes('約半数の表現型')) throw new Error(`Shaman Morphology Japanese summary missing: ${JSON.stringify(shamanMorphology)}`);
+if (shamanMorphology.text.includes('tall open sativa structure') || shamanMorphology.text.includes('open branching with long internodes')) throw new Error(`Shaman raw PRIVATE morphology leaked: ${JSON.stringify(shamanMorphology)}`);
+if (shamanMorphology.state?.status !== 'PASS' || shamanMorphology.state?.cultivarId !== 'shaman') throw new Error(`Shaman Morphology presentation state invalid: ${JSON.stringify(shamanMorphology.state)}`);
+if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology detail has horizontal overflow');
+
+      const flavorCatalog = await getJson(`${baseUrl}runtime/catalog.json`);
   const flavorTarget = (flavorCatalog.cultivars || []).find(cultivar =>
     ['confirmed','disputed'].includes(cultivar?.flavors?.status) &&
     Array.isArray(cultivar?.flavors?.items) && cultivar.flavors.items.length
