@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T08:19:04.134Z",
+  "generatedAt": "2026-09-07T09:21:30.690Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 83,
+    "sources": 84,
     "entities": 16
   },
   "explore": {
@@ -119,13 +119,11 @@
         "sourceRefs": [
           "barneys-farm-acapulco-gold"
         ],
-        "display": "Central American",
-        "parents": [
-          "Central American"
-        ],
+        "display": "系譜情報",
+        "parents": [],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farm公式ではCentral American geneticsとされ、70% sativa / 30% indicaと説明されています。これ以上細かな親系統は推定しません。"
+          "textJa": "Barney's Farm公式のGenetics欄はCentral Americanですが、これは地域的な遺伝背景であり親品種名とは扱っていません。確認できた現行ページでは、より細かな親品種は開示されていません。"
         }
       },
       "relations": [
@@ -209,13 +207,16 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Barney's Farm公式では、アーシー、パイン、パングェント、スイート系の香りが挙げられています。"
+          "noteJa": "Barney's Farmの現行Aroma欄では、アーシー、パイン、パングェント、スイートが挙げられています。地域別ページの表記差は独立した裏付けとして数えず、階層や追加香調を推測していません。"
         }
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "barneys-farm-acapulco-gold"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -223,22 +224,19 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
-          "barneys-farm-acapulco-gold"
+          "barneys-farm-acapulco-gold",
+          "barneys-farm-acapulco-gold-de"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "barneys-farm-acapulco-gold"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 22,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -252,10 +250,33 @@
               "value": 22,
               "unit": "%",
               "valueText": "22%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "barneys-farm-acapulco-gold"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "less-than",
+              "boundaryValue": 1,
+              "unit": "%",
+              "valueText": "1%未満",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-acapulco-gold-de"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -269,7 +290,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farmは、このAcapulco Gold系統を中央アメリカ／メキシコのランドレースの系譜に由来すると説明しています。"
+          "textJa": "Barney's Farm公式では、Acapulco Goldはメキシコ・アカプルコ由来のサティバ・ランドレースとして説明されています。地域名を親品種へ置き換えることはしていません。"
         }
       },
       "history": {
@@ -281,15 +302,15 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farmの現行ページではAcapulco Goldを伝統的なMexican / Acapulco cultivar lineとして紹介していますが、正確な作出時期は示していません。"
+          "textJa": "Barney's FarmはAcapulco Goldをカウンターカルチャー時代から知られるメキシコ系ランドレースとして紹介していますが、現行品種ページには正確な作出年は示されていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Barney's Farm公式ではCentral American geneticsとされ、70% sativa / 30% indicaと説明されています。これ以上細かな親系統は推定しません。",
-          "origin": "Barney's Farmは、このAcapulco Gold系統を中央アメリカ／メキシコのランドレースの系譜に由来すると説明しています。",
-          "history": "Barney's Farmの現行ページではAcapulco Goldを伝統的なMexican / Acapulco cultivar lineとして紹介していますが、正確な作出時期は示していません。",
-          "aromaNote": "Barney's Farm公式では、アーシー、パイン、パングェント、スイート系の香りが挙げられています。"
+          "lineageNote": "Barney's Farm公式のGenetics欄はCentral Americanですが、これは地域的な遺伝背景であり親品種名とは扱っていません。確認できた現行ページでは、より細かな親品種は開示されていません。",
+          "origin": "Barney's Farm公式では、Acapulco Goldはメキシコ・アカプルコ由来のサティバ・ランドレースとして説明されています。地域名を親品種へ置き換えることはしていません。",
+          "history": "Barney's FarmはAcapulco Goldをカウンターカルチャー時代から知られるメキシコ系ランドレースとして紹介していますが、現行品種ページには正確な作出年は示されていません。",
+          "aromaNote": "Barney's Farmの現行Aroma欄では、アーシー、パイン、パングェント、スイートが挙げられています。地域別ページの表記差は独立した裏付けとして数えず、階層や追加香調を推測していません。"
         }
       },
       "visuals": [
@@ -303,8 +324,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14302,12 +14323,31 @@
       "publishedAt": "2021-11-12",
       "checkedAt": "2026-09-06"
     },
+    "barneys-farm-acapulco-gold-de": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-acapulco-gold-de",
+      "publisher": "Barney's Farm",
+      "title": "Acapulco Gold - Regular (German localization)",
+      "url": "https://www.barneysfarm.de/acapulco-gold-_-regular-845",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "classification",
+        "aromas",
+        "flavors",
+        "origin",
+        "history",
+        "visualMorphology",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
     "barneys-farm-acapulco-gold": {
       "schemaVersion": 1,
       "id": "barneys-farm-acapulco-gold",
       "publisher": "Barney's Farm",
-      "title": "Acapulco Gold",
-      "url": "https://www.barneysfarm.us/acapulco-gold-_-regular-seeds-845",
+      "title": "Acapulco Gold - Regular",
+      "url": "https://www.barneysfarm.com/acapulco-gold-_-regular-845",
       "sourceType": "breederOfficial",
       "supports": [
         "lineage",
@@ -14315,13 +14355,14 @@
         "classification",
         "breeding",
         "aromas",
+        "flavors",
         "origin",
         "history",
         "visualMorphology",
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "barneys-farm-laughing-buddha": {
       "schemaVersion": 1,
