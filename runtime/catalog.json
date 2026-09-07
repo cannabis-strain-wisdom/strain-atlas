@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T22:23:46.919Z",
+  "generatedAt": "2026-09-07T22:42:48.910Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5556,11 +5556,26 @@
           "textJa": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を軸に長年の育種を重ねたと説明しています。Soft Secrets Españaは2016年5月2日、Frisian Duckを「Exterior del Año 2016」に選出しています。"
         }
       },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-frisian-duck"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Dutch Passion公式では、初期から中盤にかけて目立つ水かき状のダックフット型の葉が特徴とされ、開花期には上部の葉が一般的な形へ近づく場合があります。紫色の花や、やや開いた花構造、屋外でのクリスマスツリー型の株姿も説明されています。"
+        }
+      },
       "publicContent": {
         "ja": {
           "lineageNote": "Dutch Passion公式ではFrisian Dew × DucksFoot、Hybridと記載されています。数値のSATIVA/INDICA比率は公式ページにないため推定しません。",
           "history": "Dutch PassionはFrisian Duckについて、特徴的な葉の形と屋外向けの性質を軸に長年の育種を重ねたと説明しています。Soft Secrets Españaは2016年5月2日、Frisian Duckを「Exterior del Año 2016」に選出しています。",
-          "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが確認できます。香りの主役／アクセントという階層は公式記述から確定できないため、同格のプロフィールとして扱っています。"
+          "aromaNote": "Dutch Passion公式では、スパイシー、フレッシュ・フォレスト、パイン、シトラス、フルーティーが確認できます。香りの主役／アクセントという階層は公式記述から確定できないため、同格のプロフィールとして扱っています。",
+          "morphologyNote": "Dutch Passion公式では、初期から中盤にかけて目立つ水かき状のダックフット型の葉が特徴とされ、開花期には上部の葉が一般的な形へ近づく場合があります。紫色の花や、やや開いた花構造、屋外でのクリスマスツリー型の株姿も説明されています。"
         }
       },
       "visuals": [
@@ -10697,43 +10712,28 @@
         "status": "confirmed",
         "confidence": "A",
         "sourceRefs": [
-          "dutch-passion-shaman"
+          "dutch-passion-shaman",
+          "dutch-passion-shaman-story"
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "フレッシュ",
           "スイート",
-          "フルーティー",
-          "フローラル",
           "スパイシー",
           "サワー",
-          "パイン",
+          "パイニー",
           "ウッディ"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "フレッシュ",
             "スイート",
-            "フルーティー",
-            "フローラル",
             "スパイシー",
             "サワー",
-            "パイン",
+            "パイニー",
             "ウッディ"
           ],
           "details": [
-            {
-              "rawMatch": "fresh",
-              "reviewLabelJa": "フレッシュ",
-              "plainMeaningJa": "新鮮で軽やかな印象の香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "新鮮"
-              ],
-              "registryVersion": 1
-            },
             {
               "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
@@ -10741,26 +10741,6 @@
               "presentationRole": "CHARACTER",
               "searchAliasesJa": [
                 "甘い"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "fruity",
-              "reviewLabelJa": "フルーティー",
-              "plainMeaningJa": "果実全般を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "果実"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "floral",
-              "reviewLabelJa": "フローラル",
-              "plainMeaningJa": "花のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "花"
               ],
               "registryVersion": 1
             },
@@ -10785,9 +10765,9 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "pine",
-              "reviewLabelJa": "パイン",
-              "plainMeaningJa": "松を思わせる樹木香",
+              "rawMatch": "piney",
+              "reviewLabelJa": "パイニー",
+              "plainMeaningJa": "松のような樹木香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "松"
@@ -10807,13 +10787,14 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Dutch Passion公式では、フレッシュ、スイート、フルーティー、フローラル、スパイシー、サワー、パイン、ウッディの香りが挙げられています。"
+          "noteJa": "Dutch Passion公式では、主にスイートとスパイシーな香りが説明され、表現型によってサワー、パイニー、ウッディのニュアンスも記載されています。主役／アクセントの階層は公式記述から確定できないため、同格のプロフィールとして扱っています。"
         }
       },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -10821,12 +10802,20 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "dutch-passion-shaman"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
             "dutch-passion-shaman"
           ]
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -10843,7 +10832,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passion公式では、オランダでの屋外育種プログラムに由来するとされています。"
+          "textJa": "Dutch Passion公式では、Shamanはオランダの同社屋外育種プログラムに由来し、屋外条件で長年選抜されたと説明されています。"
         }
       },
       "history": {
@@ -10855,15 +10844,31 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passionは、Purple #1 × early Skunkを基礎に、オランダで長年の屋外選抜を重ねて開発したと説明しています。"
+          "textJa": "Dutch Passionは、Purple #1の雄株と早生のSkunk雌株の交配を基礎に、オランダの屋外環境で長年選抜してShamanを開発したと説明しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-shaman",
+          "dutch-passion-shaman-story"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Dutch Passion公式では、背が高く開いたサティバ寄りの株姿、長い節間、細い葉、風通しのよい花と長いコーラ、自然なクリスマスツリー型の成長が説明されています。約半数の表現型では、涼しい秋の条件で花や雌しべがピンク〜紫色になる場合があります。"
         }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Dutch Passion公式では、Purple #1の雄株と早生のSkunk雌株を交配した、サティバ優勢のF1ハイブリッドと説明されています。",
-          "origin": "Dutch Passion公式では、オランダでの屋外育種プログラムに由来するとされています。",
-          "history": "Dutch Passionは、Purple #1 × early Skunkを基礎に、オランダで長年の屋外選抜を重ねて開発したと説明しています。",
-          "aromaNote": "Dutch Passion公式では、フレッシュ、スイート、フルーティー、フローラル、スパイシー、サワー、パイン、ウッディの香りが挙げられています。"
+          "origin": "Dutch Passion公式では、Shamanはオランダの同社屋外育種プログラムに由来し、屋外条件で長年選抜されたと説明されています。",
+          "history": "Dutch Passionは、Purple #1の雄株と早生のSkunk雌株の交配を基礎に、オランダの屋外環境で長年選抜してShamanを開発したと説明しています。",
+          "aromaNote": "Dutch Passion公式では、主にスイートとスパイシーな香りが説明され、表現型によってサワー、パイニー、ウッディのニュアンスも記載されています。主役／アクセントの階層は公式記述から確定できないため、同格のプロフィールとして扱っています。",
+          "morphologyNote": "Dutch Passion公式では、背が高く開いたサティバ寄りの株姿、長い節間、細い葉、風通しのよい花と長いコーラ、自然なクリスマスツリー型の成長が説明されています。約半数の表現型では、涼しい秋の条件で花や雌しべがピンク〜紫色になる場合があります。"
         }
       },
       "visuals": [
@@ -10877,8 +10882,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14739,10 +14744,12 @@
         "breeding",
         "history",
         "origin",
-        "aromas"
+        "aromas",
+        "morphology",
+        "visual"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17"
+      "checkedAt": "2026-09-08"
     },
     "dutch-passion-shaman": {
       "schemaVersion": 1,
@@ -14757,10 +14764,12 @@
         "classification",
         "breeding",
         "aromas",
-        "cannabinoids"
+        "cannabinoids",
+        "morphology",
+        "visual"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-08"
     },
     "dutch-passion-us-mazar": {
       "schemaVersion": 1,
