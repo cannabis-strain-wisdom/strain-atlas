@@ -52,7 +52,7 @@ jobs:
           if (shamanMorphology.state?.status !== 'PASS' || shamanMorphology.state?.cultivarId !== 'shaman') throw new Error(`Shaman Morphology presentation state invalid: ${JSON.stringify(shamanMorphology.state)}`);
           if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology detail has horizontal overflow');
 
-'''
+              '''
               s=s.replace(marker,block+marker,1)
           p.write_text(s)
           PY
