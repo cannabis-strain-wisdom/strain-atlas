@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T09:35:15.005Z",
+  "generatedAt": "2026-09-07T09:57:47.282Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -2807,7 +2807,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica-dominant-hybrid"
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-eu-cataract-kush"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 1,
+            "indica": 99,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 1,
+              "indica": 99,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -2818,16 +2844,16 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-cataract-kush",
-          "seedfinder-cataract-kush"
+          "dna-genetics-cataract-kush-feminizing-history"
         ],
-        "display": "L.A. Confidential × OG Kush",
+        "display": "OG Kush × L.A. Confidential",
         "parents": [
-          "L.A. Confidential",
-          "OG Kush"
+          "OG Kush",
+          "L.A. Confidential"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。既存資料と親の組み合わせは一致しますが、表記順だけで母父方向を断定しません。"
+          "textJa": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。別のDNA Genetics公式育種記事も同じ2系統の交配を説明していますが、表記順や文章だけで母父方向は断定していません。"
         }
       },
       "relations": [
@@ -2841,65 +2867,22 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "dna-eu-cataract-kush"
+            "dna-eu-cataract-kush",
+            "dna-genetics-cataract-kush-feminizing-history"
           ]
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "C",
-        "sourceRefs": [
-          "leafly-cataract-kush"
-        ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "パングェント",
-          "スカンク",
-          "アーシー"
-        ],
+        "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "パングェント",
-            "スカンク",
-            "アーシー"
-          ],
-          "details": [
-            {
-              "rawMatch": "パングェント",
-              "reviewLabelJa": "パングェント",
-              "plainMeaningJa": "ツンと強い香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "刺激"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "スカンク",
-              "reviewLabelJa": "スカンク",
-              "plainMeaningJa": "スカンク系を思わせる強い香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "スカンク系"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "アーシー",
-              "reviewLabelJa": "アーシー",
-              "plainMeaningJa": "土っぽい香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "土"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "専門データベースでは、パングェント、スカンク、アーシーが香りの表現として掲載されています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
@@ -2910,9 +2893,9 @@
           "leafly-cataract-kush"
         ],
         "items": [
-          "Limonene",
-          "Pinene",
-          "Caryophyllene"
+          "limonene",
+          "pinene",
+          "caryophyllene"
         ],
         "evidenceMode": "LISTED",
         "presentation": {
@@ -2920,72 +2903,100 @@
           "mode": "listed-chips",
           "items": [
             {
-              "id": "Limonene",
+              "id": "limonene",
               "labelJa": "リモネン"
             },
             {
-              "id": "Pinene",
+              "id": "pinene",
               "labelJa": "ピネン"
             },
             {
-              "id": "Caryophyllene",
+              "id": "caryophyllene",
               "labelJa": "カリオフィレン"
             }
           ],
-          "noteJa": "専門データベースでは、Limonene、Pinene、Caryophylleneがテルペンとして挙げられています。"
+          "noteJa": "LeaflyではLimonene、Pinene、Caryophylleneが挙げられています。専門データベースの品種ページ情報でありlot分析ではなく、PineneやCaryophylleneの異性体も推測していません。"
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "leafly-cataract-kush"
+        ],
         "thc": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-eu-cataract-kush"
-          ]
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-eu-cataract-kush"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 17,
+              "unit": "%",
+              "valueText": "17%",
+              "confidence": "C",
+              "sourceRefs": [
+                "leafly-cataract-kush"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "専門データベース掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 1,
+              "unit": "%",
+              "valueText": "1%",
+              "confidence": "C",
+              "sourceRefs": [
+                "leafly-cataract-kush"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "専門データベース掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-eu-cataract-kush"
+          "dna-eu-cataract-kush",
+          "dna-genetics-cataract-kush-feminizing-history"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Geneticsは、Cataract KushをL.A. ConfidentialとOG Kushから開発したラインと説明しています。作出地点やリリース年は公式ページでは確認できません。"
-        }
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "dna-eu-cataract-kush"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明していますが、具体的な開発年は示していません。"
+          "textJa": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明し、別の公式育種記事ではL.A. ConfidentialとOG Kushを交配して作った経緯を記しています。正確な作出年・発売年は確認できないため補っていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。既存資料と親の組み合わせは一致しますが、表記順だけで母父方向を断定しません。",
-          "origin": "DNA Geneticsは、Cataract KushをL.A. ConfidentialとOG Kushから開発したラインと説明しています。作出地点やリリース年は公式ページでは確認できません。",
-          "history": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明していますが、具体的な開発年は示していません。",
-          "aromaNote": "専門データベースでは、パングェント、スカンク、アーシーが香りの表現として掲載されています。",
-          "terpeneNote": "専門データベースでは、Limonene、Pinene、Caryophylleneがテルペンとして挙げられています。"
+          "lineageNote": "DNA Genetics公式ではOG Kush × L.A. Confidential、99% Indica / 1% Sativaと記載されています。別のDNA Genetics公式育種記事も同じ2系統の交配を説明していますが、表記順や文章だけで母父方向は断定していません。",
+          "history": "DNA GeneticsはCataract Kushを長年かけて開発した品種と説明し、別の公式育種記事ではL.A. ConfidentialとOG Kushを交配して作った経緯を記しています。正確な作出年・発売年は確認できないため補っていません。",
+          "terpeneNote": "LeaflyではLimonene、Pinene、Caryophylleneが挙げられています。専門データベースの品種ページ情報でありlot分析ではなく、PineneやCaryophylleneの異性体も推測していません。"
         }
       },
       "visuals": [
@@ -2999,8 +3010,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14447,18 +14458,19 @@
       "id": "dna-eu-cataract-kush",
       "publisher": "DNA Genetics",
       "title": "Cataract Kush",
-      "url": "https://www.dnagenetics.eu/cataract-kush.html",
+      "url": "https://www.dnagenetics.eu/seeds/categories/feminised-cannabis-seeds/cataract-kush.html",
       "sourceType": "breederOfficial",
       "supports": [
         "lineage",
         "breeder",
         "classification",
-        "origin",
+        "breeding",
+        "flavors",
         "history",
-        "cannabinoids"
+        "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "dna-eu-the-og-18": {
       "schemaVersion": 1,
@@ -14476,6 +14488,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "dna-genetics-cataract-kush-feminizing-history": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-cataract-kush-feminizing-history",
+      "publisher": "DNA Genetics",
+      "title": "Feminizing Cannabis Seeds with DNA Genetics",
+      "url": "https://www.dnagenetics.eu/multimedia/feminizing-cannabis-seeds-with-dna-genetics.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "breeding",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
     },
     "dna-strawberry-banana-s1": {
       "schemaVersion": 1,
@@ -14978,11 +15006,12 @@
       "url": "https://www.leafly.com/strains/cataract-kush",
       "sourceType": "specialistDatabase",
       "supports": [
-        "aromas",
-        "terpenes"
+        "flavors",
+        "terpenes",
+        "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-17"
+      "checkedAt": "2026-09-07"
     },
     "leafly-og-18": {
       "schemaVersion": 1,
@@ -15148,19 +15177,6 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
-    },
-    "seedfinder-cataract-kush": {
-      "schemaVersion": 1,
-      "id": "seedfinder-cataract-kush",
-      "publisher": "SeedFinder",
-      "title": "Cataract Kush (DNA Genetics Seeds)",
-      "url": "https://seedfinder.eu/en/strain-info/cataract-kush/dna-genetics-seeds",
-      "sourceType": "specialistDatabase",
-      "supports": [
-        "lineage"
-      ],
-      "publishedAt": null,
-      "checkedAt": "2026-08-17"
     },
     "seedfinder-the-og-18": {
       "schemaVersion": 1,
