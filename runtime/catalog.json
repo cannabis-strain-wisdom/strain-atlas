@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T09:57:47.282Z",
+  "generatedAt": "2026-09-07T10:18:57.019Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -1260,7 +1260,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-bangi-haze"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F8"
@@ -1279,7 +1305,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、CongoleseとNepaleseの遺伝背景を組み合わせてF8まで安定化したハイブリッドと説明されています。"
+          "textJa": "ACE Seeds公式ではF8まで安定化したCongolese / Nepaleseハイブリッドとされています。CongoleseとNepaleseは公式Genetics欄にある育種上の構成要素として保持し、より具体的な親品種名や交配方向は補っていません。"
         }
       },
       "relations": [
@@ -1293,7 +1319,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "ace-seeds-bangi-haze"
+            "ace-seeds-bangi-haze",
+            "ace-seeds-about-2026"
           ]
         }
       ],
@@ -1308,7 +1335,7 @@
           "スイート",
           "フローラル",
           "ムスキー",
-          "レモン",
+          "レモン系",
           "アニゼット"
         ],
         "presentation": {
@@ -1318,7 +1345,7 @@
             "スイート",
             "フローラル",
             "ムスキー",
-            "レモン",
+            "レモン系",
             "アニゼット"
           ],
           "details": [
@@ -1353,11 +1380,12 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "lemon",
-              "reviewLabelJa": "レモン",
-              "plainMeaningJa": "レモンのような柑橘香",
+              "rawMatch": "lemony",
+              "reviewLabelJa": "レモン系",
+              "plainMeaningJa": "レモンを思わせる柑橘系の香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
+                "レモン",
                 "柑橘"
               ],
               "registryVersion": 1
@@ -1375,7 +1403,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "ACE Seeds公式では、スイート、フローラル、ムスク、レモン、アニゼット系の香りが挙げられています。"
+          "noteJa": "ACE Seeds公式のBouquetでは、スイート、フローラル、ムスキー、レモン系、アニゼットの香りが挙げられています。香りの中心・アクセントという階層は公式には示されていないため、1つのフラットなプロファイルとして扱っています。"
         }
       },
       "terpenes": {
@@ -1432,23 +1460,23 @@
             {
               "id": "limonene",
               "labelJa": "リモネン",
-              "qualitativeLevel": "present",
-              "levelJa": "確認",
-              "visualRole": "presence"
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "trans-ocimene",
               "labelJa": "トランス-オシメン",
-              "qualitativeLevel": "present",
-              "levelJa": "確認",
-              "visualRole": "presence"
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "linalool",
               "labelJa": "リナロール",
-              "qualitativeLevel": "present",
-              "levelJa": "確認",
-              "visualRole": "presence"
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
             },
             {
               "id": "beta-caryophyllene",
@@ -1465,27 +1493,18 @@
               "visualRole": "presence"
             }
           ],
-          "noteJa": "ACE Seeds公式の品種別テルペン情報では、alpha-pinene、beta-myrcene、terpinolene、beta-pinene、limonene、trans-ocimene、linalool、beta-caryophyllene、guaiolが挙げられています。"
+          "noteJa": "ACE Seeds公式では、α-ピネン、β-ミルセン、テルピノレン、β-ピネンが主なモノテルペンとして挙げられ、リモネン、trans-オシメン、リナロールは少量、セスキテルペンとしてβ-カリオフィレンとグアイオールが記載されています。これは公式掲載の相対的な説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-bangi-haze"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-bangi-haze"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 15,
-            "max": 20,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
@@ -1506,10 +1525,34 @@
               "maxValue": 20,
               "unit": "%",
               "valueText": "15〜20%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-bangi-haze"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0.4,
+              "maxValue": 2,
+              "unit": "%",
+              "valueText": "0.4〜2%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-bangi-haze"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -1523,28 +1566,29 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、CongoleseとNepaleseの遺伝背景をもとに、スペインのGaliciaで開発・安定化したとされています。"
+          "textJa": "スペイン・ガリシア。ACE Seeds公式では、Bangi Hazeはガリシアで開発され、その後さらに数世代安定化されたと説明されています。CongoleseやNepaleseという遺伝背景を、そのまま品種の作出地には置き換えていません。"
         }
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
+          "ace-seeds-about-2026",
           "ace-seeds-bangi-haze"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE SeedsはBangi Hazeを、カタログで約20年扱ってきたクラシック品種と説明しています。現行ページには初回リリース年の明記はありません。"
+          "textJa": "ACE Seedsの公式沿革では、Bangi Hazeは2005年の最初のカタログに掲載された品種の一つです。現行品種ページでも長く扱われてきたクラシック品種と説明されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "ACE Seeds公式では、CongoleseとNepaleseの遺伝背景を組み合わせてF8まで安定化したハイブリッドと説明されています。",
-          "origin": "ACE Seeds公式では、CongoleseとNepaleseの遺伝背景をもとに、スペインのGaliciaで開発・安定化したとされています。",
-          "history": "ACE SeedsはBangi Hazeを、カタログで約20年扱ってきたクラシック品種と説明しています。現行ページには初回リリース年の明記はありません。",
-          "aromaNote": "ACE Seeds公式では、スイート、フローラル、ムスク、レモン、アニゼット系の香りが挙げられています。",
-          "terpeneNote": "ACE Seeds公式の品種別テルペン情報では、alpha-pinene、beta-myrcene、terpinolene、beta-pinene、limonene、trans-ocimene、linalool、beta-caryophyllene、guaiolが挙げられています。"
+          "lineageNote": "ACE Seeds公式ではF8まで安定化したCongolese / Nepaleseハイブリッドとされています。CongoleseとNepaleseは公式Genetics欄にある育種上の構成要素として保持し、より具体的な親品種名や交配方向は補っていません。",
+          "origin": "スペイン・ガリシア。ACE Seeds公式では、Bangi Hazeはガリシアで開発され、その後さらに数世代安定化されたと説明されています。CongoleseやNepaleseという遺伝背景を、そのまま品種の作出地には置き換えていません。",
+          "history": "ACE Seedsの公式沿革では、Bangi Hazeは2005年の最初のカタログに掲載された品種の一つです。現行品種ページでも長く扱われてきたクラシック品種と説明されています。",
+          "aromaNote": "ACE Seeds公式のBouquetでは、スイート、フローラル、ムスキー、レモン系、アニゼットの香りが挙げられています。香りの中心・アクセントという階層は公式には示されていないため、1つのフラットなプロファイルとして扱っています。",
+          "terpeneNote": "ACE Seeds公式では、α-ピネン、β-ミルセン、テルピノレン、β-ピネンが主なモノテルペンとして挙げられ、リモネン、trans-オシメン、リナロールは少量、セスキテルペンとしてβ-カリオフィレンとグアイオールが記載されています。これは公式掲載の相対的な説明で、CSWが分析書を直接確認した絶対濃度ではありません。"
         }
       },
       "visuals": [
@@ -1558,8 +1602,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13921,7 +13965,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-c5-haze-x-kali-china": {
       "schemaVersion": 1,
