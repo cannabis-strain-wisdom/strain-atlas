@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T09:21:30.690Z",
+  "generatedAt": "2026-09-07T09:35:15.005Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 84,
+    "sources": 85,
     "entities": 16
   },
   "explore": {
@@ -789,16 +789,11 @@
         "sourceRefs": [
           "serious-seeds-ak-47"
         ],
-        "display": "Colombian × Mexican × Thai × Afghan",
-        "parents": [
-          "Colombian",
-          "Mexican",
-          "Thai",
-          "Afghan"
-        ],
+        "display": "系譜情報",
+        "parents": [],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seeds公式では、Colombian、Mexican、Thai、Afghanのseed stockから開発したサティバ優勢F1で、公式記事内では65% Sativa / 35% Indicaと記載されています。"
+          "textJa": "Serious Seeds公式では、AK-47はColombian、Mexican、Thai、Afghaniのseed stockから作られたF1・サティバ優勢ハイブリッドとされています。ただしSimonは正確なpedigreeを非公開としているため、4地域名を4つの親品種や順番付きの交配式には置き換えていません。公式記事の比率は65% Sativa / 35% Indicaです。"
         }
       },
       "relations": [
@@ -812,7 +807,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "serious-seeds-ak-47"
+            "serious-seeds-ak-47",
+            "serious-seeds-history"
           ]
         }
       ],
@@ -858,13 +854,16 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Serious Seeds公式では、スパイシーとスイート・シトラスの香りが挙げられています。"
+          "noteJa": "Serious Seedsの現行ページはTaste and Aromaを一つの欄で扱い、spicyとsweet citrusを挙げています。香りと味のどちらだけに属する語かは分けられていないため、ここでは両者を混ぜた公式の感覚表現としてフラットに保持しています。"
         }
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "serious-seeds-ak-47"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -872,36 +871,18 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "serious-seeds-ak-47"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "serious-seeds-ak-47"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 20,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "serious-seeds-ak-47"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 1,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -915,10 +896,15 @@
               "value": 20,
               "unit": "%",
               "valueText": "20%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "serious-seeds-ak-47"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -928,44 +914,41 @@
               "value": 1,
               "unit": "%",
               "valueText": "1%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "serious-seeds-ak-47"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
       },
       "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "serious-seeds-ak-47"
+          "serious-seeds-ak-47",
+          "serious-seeds-history"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious SeedsがColombian、Mexican、Thai、Afghanのseed stockから作出したと公式に説明しています。"
-        }
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "serious-seeds-ak-47"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "Serious Seedsは、複数の系統で選抜を行った後、1992年にAK-47を作出したと説明しています。"
+          "textJa": "Serious Seedsの現行AK-47ページでは、Simonが多数の実験系統を選抜した末に1992年にAK-47を作ったと説明されています。一方、Serious Seeds自身のHistoryでは会社設立は1995年です。そのため1992年の作出者はSimonとして扱い、後年のSerious Seedsという会社名を作出時点へ遡らせていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Serious Seeds公式では、Colombian、Mexican、Thai、Afghanのseed stockから開発したサティバ優勢F1で、公式記事内では65% Sativa / 35% Indicaと記載されています。",
-          "origin": "Serious SeedsがColombian、Mexican、Thai、Afghanのseed stockから作出したと公式に説明しています。",
-          "history": "Serious Seedsは、複数の系統で選抜を行った後、1992年にAK-47を作出したと説明しています。",
-          "aromaNote": "Serious Seeds公式では、スパイシーとスイート・シトラスの香りが挙げられています。"
+          "lineageNote": "Serious Seeds公式では、AK-47はColombian、Mexican、Thai、Afghaniのseed stockから作られたF1・サティバ優勢ハイブリッドとされています。ただしSimonは正確なpedigreeを非公開としているため、4地域名を4つの親品種や順番付きの交配式には置き換えていません。公式記事の比率は65% Sativa / 35% Indicaです。",
+          "history": "Serious Seedsの現行AK-47ページでは、Simonが多数の実験系統を選抜した末に1992年にAK-47を作ったと説明されています。一方、Serious Seeds自身のHistoryでは会社設立は1995年です。そのため1992年の作出者はSimonとして扱い、後年のSerious Seedsという会社名を作出時点へ遡らせていません。",
+          "aromaNote": "Serious Seedsの現行ページはTaste and Aromaを一つの欄で扱い、spicyとsweet citrusを挙げています。香りと味のどちらだけに属する語かは分けられていないため、ここでは両者を混ぜた公式の感覚表現としてフラットに保持しています。"
         }
       },
       "visuals": [
@@ -979,8 +962,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15303,13 +15286,12 @@
         "classification",
         "breeding",
         "aromas",
-        "origin",
         "history",
         "visualMorphology",
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-07"
     },
     "serious-seeds-bubble-gum": {
       "schemaVersion": 1,
@@ -15328,6 +15310,20 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "serious-seeds-history": {
+      "schemaVersion": 1,
+      "id": "serious-seeds-history",
+      "publisher": "Serious Seeds",
+      "title": "History of Serious Seeds",
+      "url": "https://www.seriousseeds.com/history",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "breeder",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
     },
     "serious-seeds-kali-mist": {
       "schemaVersion": 1,
