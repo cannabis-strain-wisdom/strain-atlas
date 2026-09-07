@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T04:42:51.619Z",
+  "generatedAt": "2026-09-07T08:19:04.134Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -319,7 +319,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-african-gas"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -368,10 +394,7 @@
           "ソルベント",
           "ミーティー",
           "レザー",
-          "ダンプピート",
-          "レモン",
-          "ディケイングフラワー",
-          "ハシシ",
+          "ガス",
           "シトラス",
           "フローラル",
           "マンゴー",
@@ -385,10 +408,7 @@
             "ソルベント",
             "ミーティー",
             "レザー",
-            "ダンプピート",
-            "レモン",
-            "ディケイングフラワー",
-            "ハシシ",
+            "ガス",
             "シトラス",
             "フローラル",
             "マンゴー",
@@ -416,12 +436,13 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "meaty",
+              "rawMatch": "meat (foie gras)",
               "reviewLabelJa": "ミーティー",
-              "plainMeaningJa": "肉のような旨味を伴う香り",
+              "plainMeaningJa": "肉やフォアグラを思わせる濃厚な香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "肉"
+                "肉",
+                "フォアグラ"
               ],
               "registryVersion": 1
             },
@@ -436,42 +457,12 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "damp peat",
-              "reviewLabelJa": "ダンプピート",
-              "plainMeaningJa": "湿った泥炭のような土っぽい香り",
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "泥炭"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "lemon",
-              "reviewLabelJa": "レモン",
-              "plainMeaningJa": "レモンのような柑橘香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "柑橘"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "decaying flowers",
-              "reviewLabelJa": "ディケイングフラワー",
-              "plainMeaningJa": "枯れて崩れかけた花のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "枯れ花"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "hashish",
-              "reviewLabelJa": "ハシシ",
-              "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "樹脂"
+                "燃料"
               ],
               "registryVersion": 1
             },
@@ -518,7 +509,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式説明では、強いガス香が主要テーマで、個体によって溶剤、肉・レザー、湿ったピート、レモン、ハシシなどが重なります。別の表現ではシトラス、フローラル、マンゴー、アーシーさもより前に出るとされています。"
+          "noteJa": "ACE SeedsのBouquetでは、約30%の個体で非常に強い可燃性ガス香が優勢で、ソルベント、肉・フォアグラ、レザーのニュアンスを伴う場合があるとされています。残り約70%でもガス香は見られますが、シトラス、フローラル、マンゴー、アーシーさがより前に出ると説明されています。味として記載された湿ったピート、レモン、ハシシなどは香り欄には混ぜていません。"
         }
       },
       "terpenes": {
@@ -620,38 +611,18 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-african-gas"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-african-gas"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 19.19,
-            "max": 22.13,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
-          "sourceRefs": [
-            "ace-seeds-african-gas"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0.4,
-            "max": 0.45,
-            "approximate": false
-          }
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -666,10 +637,15 @@
               "maxValue": 22.13,
               "unit": "%",
               "valueText": "19.19〜22.13%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-african-gas"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -680,10 +656,34 @@
               "maxValue": 0.45,
               "unit": "%",
               "valueText": "0.4〜0.45%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-african-gas"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0.28,
+              "maxValue": 2.17,
+              "unit": "%",
+              "valueText": "0.28〜2.17%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-african-gas"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -699,7 +699,7 @@
       "publicContent": {
         "ja": {
           "lineageNote": "African Gasは、Bangi Haze F8とNeville由来のA5 Haze（Northern Lights #5/Haze A）を組み合わせたポリハイブリッドとしてACE Seeds公式に記載されています。",
-          "aromaNote": "公式説明では、強いガス香が主要テーマで、個体によって溶剤、肉・レザー、湿ったピート、レモン、ハシシなどが重なります。別の表現ではシトラス、フローラル、マンゴー、アーシーさもより前に出るとされています。",
+          "aromaNote": "ACE SeedsのBouquetでは、約30%の個体で非常に強い可燃性ガス香が優勢で、ソルベント、肉・フォアグラ、レザーのニュアンスを伴う場合があるとされています。残り約70%でもガス香は見られますが、シトラス、フローラル、マンゴー、アーシーさがより前に出ると説明されています。味として記載された湿ったピート、レモン、ハシシなどは香り欄には混ぜていません。",
           "terpeneNote": "ACE Seeds公式ではbeta-myrceneが高〜非常に高く、limoneneは中〜高、trans-ocimeneは低〜中高、alpha-pinene・beta-pinene・linaloolは低〜中程度とされています。セスキテルペンではbeta-caryophylleneとalpha-bisabololが挙げられています。"
         }
       },
@@ -714,8 +714,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13880,10 +13880,11 @@
         "aromas",
         "visualMorphology",
         "terpenes",
-        "cannabinoids"
+        "cannabinoids",
+        "flavors"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-bangi-haze": {
       "schemaVersion": 1,
