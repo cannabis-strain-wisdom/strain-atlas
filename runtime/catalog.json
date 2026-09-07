@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T12:00:24.668Z",
+  "generatedAt": "2026-09-07T18:05:14.569Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 85,
+    "sources": 88,
     "entities": 16
   },
   "explore": {
@@ -3466,26 +3466,55 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-chocolope-256",
+            "dna-chocolope-256-reg"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": true
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": true
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
       },
       "lineage": {
-        "status": "confirmed",
+        "status": "disputed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-chocolope-256"
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg",
+          "dna-eu-chocolope-256"
         ],
-        "display": "Lemon Skunk 256 × Chocolope",
+        "display": "Chocolope + Lemon Skunk (Emerald Cup Winning Cut)",
         "parents": [
-          "Lemon Skunk 256",
-          "Chocolope"
+          "Chocolope",
+          "Lemon Skunk (Emerald Cup Winning Cut)"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Genetics公式ではLemon Skunk 256（Emerald Cup Winning Cut）× Chocolopeと記載されています。F1・F2・BXなどの育種世代は公式ページでは確認できません。"
+          "textJa": "DNA Geneticsの現行公式ページは、ChocolopeとEmerald Cup受賞Lemon Skunk系統の組み合わせでは一致していますが、US欄はLemon Skunk 256 × Chocolope、EU欄はChocolope × Lemon Skunkと表記が揺れています。同一発行元の差異を多数決せず、母父方向や交配順も推定していません。"
         }
       },
       "relations": [
@@ -3499,90 +3528,28 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "dna-chocolope-256"
+            "dna-chocolope-256",
+            "dna-chocolope-256-reg",
+            "dna-eu-chocolope-256",
+            "dna-eu-chocolope-256-release-2024"
           ]
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
-          "dna-chocolope-256"
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg"
         ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "アーシー／ムスク",
-          "コーヒー",
-          "チョコレート",
-          "スイートバニラ",
-          "チェスナット"
-        ],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "アーシー／ムスク",
-            "コーヒー",
-            "チョコレート",
-            "スイートバニラ",
-            "チェスナット"
-          ],
-          "details": [
-            {
-              "rawMatch": "アーシー / ムスク",
-              "reviewLabelJa": "アーシー／ムスク",
-              "plainMeaningJa": "土っぽさとムスクが重なる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "土",
-                "ムスク"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "コーヒー",
-              "reviewLabelJa": "コーヒー",
-              "plainMeaningJa": "焙煎したコーヒー豆のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "焙煎"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "チョコレート",
-              "reviewLabelJa": "チョコレート",
-              "plainMeaningJa": "チョコレートのような甘く濃い香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "カカオ"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "スイートバニラ",
-              "reviewLabelJa": "スイートバニラ",
-              "plainMeaningJa": "甘いバニラのような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "バニラ"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "チェスナット",
-              "reviewLabelJa": "チェスナット",
-              "plainMeaningJa": "栗のような香ばしい香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "栗"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "DNA Genetics公式では、アーシー / ムスク、コーヒー、チョコレート、スイートバニラ、チェスナットの香りが挙げられています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
@@ -3590,57 +3557,44 @@
         "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-chocolope-256"
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg"
         ],
         "items": [
-          "beta-myrcene",
-          "beta-caryophyllene",
+          "myrcene",
           "limonene"
         ],
-        "evidenceMode": "QUALITATIVE",
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "qualitative-profile",
+          "mode": "listed-chips",
           "items": [
             {
-              "id": "beta-myrcene",
-              "labelJa": "β-ミルセン",
-              "qualitativeLevel": "dominant",
-              "levelJa": "主要",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
-            },
-            {
-              "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン",
-              "qualitativeLevel": "present",
-              "levelJa": "確認",
-              "visualRole": "presence"
+              "id": "myrcene",
+              "labelJa": "ミルセン"
             },
             {
               "id": "limonene",
-              "labelJa": "リモネン",
-              "qualitativeLevel": "present",
-              "levelJa": "確認",
-              "visualRole": "presence"
+              "labelJa": "リモネン"
             }
           ],
-          "noteJa": "DNA Genetics公式ではMyrceneを主要なテルペン（primary terpene）とし、Beta-caryophylleneとLimoneneもテルペンプロファイルの構成要素として説明しています。数値比率は示されていません。"
+          "noteJa": "DNA Geneticsの現行Feminized版・Regular版の双方でMyrceneとLimoneneが確認できます。Feminized版はBeta-caryophyllene、Regular版はcaryophylleneと表記するため、異性体を推測せずカリオフィレン系は共通リストから保留しています。数値比率は確認できません。"
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg"
+        ],
         "thc": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-chocolope-256"
-          ]
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-chocolope-256"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -3649,38 +3603,45 @@
         }
       },
       "origin": {
+        "status": "unknown",
+        "sourceRefs": [
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg",
+          "dna-eu-chocolope-256"
+        ]
+      },
+      "history": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-chocolope-256"
+          "dna-eu-chocolope-256-release-2024"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Geneticsは、Emerald Cup受賞カットのLemon Skunk 256とChocolopeを交配して展開するラインと説明しています。作出年や具体的な作出地点は公式ページでは確認できません。"
+          "textJa": "DNA Geneticsは2024年4月10日の公式記事で、Chocolope 256を新発売のRegular系統の一つとして掲載しています。これはRegular版の発売時点だけを示す情報で、品種そのものの作出年やFeminized版の発売年までは補っていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Genetics公式ではLemon Skunk 256（Emerald Cup Winning Cut）× Chocolopeと記載されています。F1・F2・BXなどの育種世代は公式ページでは確認できません。",
-          "origin": "DNA Geneticsは、Emerald Cup受賞カットのLemon Skunk 256とChocolopeを交配して展開するラインと説明しています。作出年や具体的な作出地点は公式ページでは確認できません。",
-          "aromaNote": "DNA Genetics公式では、アーシー / ムスク、コーヒー、チョコレート、スイートバニラ、チェスナットの香りが挙げられています。",
-          "terpeneNote": "DNA Genetics公式ではMyrceneを主要なテルペン（primary terpene）とし、Beta-caryophylleneとLimoneneもテルペンプロファイルの構成要素として説明しています。数値比率は示されていません。"
+          "lineageNote": "DNA Geneticsの現行公式ページは、ChocolopeとEmerald Cup受賞Lemon Skunk系統の組み合わせでは一致していますが、US欄はLemon Skunk 256 × Chocolope、EU欄はChocolope × Lemon Skunkと表記が揺れています。同一発行元の差異を多数決せず、母父方向や交配順も推定していません。",
+          "history": "DNA Geneticsは2024年4月10日の公式記事で、Chocolope 256を新発売のRegular系統の一つとして掲載しています。これはRegular版の発売時点だけを示す情報で、品種そのものの作出年やFeminized版の発売年までは補っていません。",
+          "terpeneNote": "DNA Geneticsの現行Feminized版・Regular版の双方でMyrceneとLimoneneが確認できます。Feminized版はBeta-caryophyllene、Regular版はcaryophylleneと表記するため、異性体を推測せずカリオフィレン系は共通リストから保留しています。数値比率は確認できません。"
         }
       },
       "visuals": [
         {
           "role": "primary",
           "src": "assets/cultivars/chocolope-256/primary.webp",
-          "alt": "Chocolope 256の実写資料の花姿を参照して作成した乾燥前の花のAI生成参考ビジュアル",
+          "alt": "Chocolope 256のAI生成参考ビジュアル",
           "rights": "AI-generated project asset for Cannabis Strain Wisdom.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-02",
-      "updatedAt": "2026-09-02",
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14481,6 +14442,27 @@
       "publishedAt": "2026-07-17",
       "checkedAt": "2026-08-16"
     },
+    "dna-chocolope-256-reg": {
+      "schemaVersion": 1,
+      "id": "dna-chocolope-256-reg",
+      "publisher": "DNA Genetics",
+      "title": "Chocolope 256 Reg Cannabis Seeds",
+      "url": "https://dnagenetics.com/product/chocolope-256-reg/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "type",
+        "composition",
+        "aroma",
+        "flavor",
+        "terpene",
+        "cannabinoids",
+        "breeder",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
     "dna-chocolope-256": {
       "schemaVersion": 1,
       "id": "dna-chocolope-256",
@@ -14493,13 +14475,14 @@
         "type",
         "composition",
         "aroma",
+        "flavor",
         "terpene",
         "cannabinoids",
         "breeder",
-        "origin"
+        "morphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-07"
     },
     "dna-eu-cataract-kush": {
       "schemaVersion": 1,
@@ -14516,6 +14499,35 @@
         "flavors",
         "history",
         "visualMorphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
+    "dna-eu-chocolope-256-release-2024": {
+      "schemaVersion": 1,
+      "id": "dna-eu-chocolope-256-release-2024",
+      "publisher": "DNA Genetics",
+      "title": "Discover Exciting New Cannabis Seeds at DNA Genetics",
+      "url": "https://www.dnagenetics.eu/multimedia/discover-exciting-new-cannabis-seeds-at-dna-genetics.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "history",
+        "breeder"
+      ],
+      "publishedAt": "2024-04-10",
+      "checkedAt": "2026-09-07"
+    },
+    "dna-eu-chocolope-256": {
+      "schemaVersion": 1,
+      "id": "dna-eu-chocolope-256",
+      "publisher": "DNA Genetics",
+      "title": "Chocolope 256",
+      "url": "https://www.dnagenetics.eu/chocolope-256.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "type",
+        "breeder"
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
