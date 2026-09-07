@@ -9,8 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  patch-and-check:
-    if: ${{ !contains(github.event.head_commit.message, 'Add Morphology PUBLIC presentation') }}
+  patch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PUBLIC candidate
@@ -25,60 +24,57 @@ jobs:
           set -euo pipefail
           git merge-base --is-ancestor e2ba31cd2ea9944d448b7f98cdd737a87cae2951 HEAD
 
-      - name: Add governed Morphology detail presentation
+      - name: Write Morphology presentation module
         shell: bash
         run: |
           set -euo pipefail
+          cat > morphology-presentation-v1.js <<'JS'
+          ;(()=>{"use strict";
+          const CONTRACT="UNIVERSAL_MORPHOLOGY_PRESENTATION_V1";
+          const shell=document.getElementById("detail-shell");if(!shell)return;
+          const esc=x=>String(x??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]));
+          let catalogPromise=null;
+          const catalog=()=>catalogPromise||(catalogPromise=window.__CSWRuntimeCatalogPromise?Promise.resolve(window.__CSWRuntimeCatalogPromise):fetch(`runtime/catalog.json?morphology=${Date.now()}`,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`runtime catalog HTTP ${r.status}`);return r.json()}));
+          function evidence(cat,claim){const ref=Array.isArray(claim?.sourceRefs)?claim.sourceRefs.find(Boolean):null,src=ref?cat?.sources?.[ref]:null,grade=["A","B","C"].includes(claim?.confidence)?`<span class="ucd-grade grade-${esc(claim.confidence.toLowerCase())}">根拠 ${esc(claim.confidence)}</span>`:"";return grade||src?.url?`<div class="ucd-evidence-row">${grade}${src?.url?`<a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.publisher||src.title||"情報源")} <span aria-hidden="true">↗</span></a>`:""}</div>`:""}
+          function bind(root,button,panel){if(button.dataset.morphologyBound===CONTRACT)return;button.dataset.morphologyBound=CONTRACT;button.addEventListener("click",ev=>{ev.preventDefault();const wasOpen=button.getAttribute("aria-expanded")==="true"&&!panel.hidden;root.querySelectorAll("[data-ucd-tab]").forEach(b=>{b.setAttribute("aria-expanded","false");b.classList.remove("is-active")});root.querySelectorAll("[data-ucd-panel]").forEach(p=>p.hidden=true);if(!wasOpen){button.setAttribute("aria-expanded","true");button.classList.add("is-active");panel.hidden=false}})}
+          async function decorate(){const id=new URL(location.href).searchParams.get("strain");if(!id)return;const cat=await catalog(),cultivar=(cat?.cultivars||[]).find(x=>x?.id===id),claim=cultivar?.morphology,presentation=claim?.presentation,text=String(presentation?.textJa||"").trim();if(!cultivar||claim?.status!=="confirmed"||presentation?.mode!=="summary"||!text)return;const root=shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(id)}"],.ucd-root[data-public-detail-id="${CSS.escape(id)}"]`),profile=root?.querySelector('.ucd-profile'),nav=profile?.querySelector('.ucd-profile-nav'),panels=profile?.querySelector('.ucd-profile-panels');if(!(root&&profile&&nav&&panels)){window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:`MORPHOLOGY_CONTEXT_MISSING:${id}`};return}let button=nav.querySelector('[data-ucd-tab="morphology"]'),panel=panels.querySelector('[data-ucd-panel="morphology"]');if(!button){button=document.createElement('button');button.type='button';button.dataset.ucdTab='morphology';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls',`ucd-${id}-morphology`);button.innerHTML='<span>形態</span><i aria-hidden="true">⌄</i>';const before=nav.querySelector('[data-ucd-tab="origin-history"]');before?nav.insertBefore(button,before):nav.appendChild(button)}if(!panel){panel=document.createElement('section');panel.id=`ucd-${id}-morphology`;panel.dataset.ucdPanel='morphology';panel.dataset.profileKind='morphology';panel.hidden=true;const before=panels.querySelector('[data-ucd-panel="origin-history"]');before?panels.insertBefore(panel,before):panels.appendChild(panel)}panel.innerHTML=`<div class="ucd-morphology-profile" data-morphology-presentation="v1"><div class="ucd-sensory-head"><span>MORPHOLOGY / 形態</span><small>情報源で確認できる株・花の形態</small></div><div class="ucd-morphology-summary"><p>${esc(text)}</p></div>${evidence(cat,claim)}</div>`;bind(root,button,panel);root.dataset.morphologyPresentationReady='v1';nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);window.__CSWMorphologyPresentationV1={status:'PASS',contractVersion:CONTRACT,cultivarId:id}}
+          const style=document.createElement('style');style.id='universal-morphology-presentation-v1-style';style.textContent='.ucd-morphology-profile{display:grid;gap:12px}.ucd-morphology-summary{padding:14px 15px;border:1px solid rgba(216,189,98,.16);border-radius:14px;background:rgba(255,255,255,.018)}.ucd-morphology-summary p{margin:0;color:#dfe7e1;font-size:11px;line-height:1.8}';document.head.appendChild(style);
+          let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate().catch(error=>{window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:String(error?.message||error)};console.error(CONTRACT,error)})})};new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});schedule();
+          })();
+          JS
           python - <<'PY'
           from pathlib import Path
-          p=Path('presentation-contract-v1.js')
-          s=p.read_text()
-          marker='UNIVERSAL_MORPHOLOGY_PRESENTATION_V1'
-          if marker not in s:
-              s += r'''
-
-;(()=>{"use strict";
-const CONTRACT="UNIVERSAL_MORPHOLOGY_PRESENTATION_V1";
-const shell=document.getElementById("detail-shell");if(!shell)return;
-const esc=x=>String(x??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]));
-let catalogPromise=null;
-const catalog=()=>catalogPromise||(catalogPromise=window.__CSWRuntimeCatalogPromise?Promise.resolve(window.__CSWRuntimeCatalogPromise):fetch(`runtime/catalog.json?morphology=${Date.now()}`,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`runtime catalog HTTP ${r.status}`);return r.json()}));
-function evidence(cat,claim){const ref=Array.isArray(claim?.sourceRefs)?claim.sourceRefs.find(Boolean):null,src=ref?cat?.sources?.[ref]:null,grade=["A","B","C"].includes(claim?.confidence)?`<span class="ucd-grade grade-${esc(claim.confidence.toLowerCase())}">根拠 ${esc(claim.confidence)}</span>`:"";return grade||src?.url?`<div class="ucd-evidence-row">${grade}${src?.url?`<a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.publisher||src.title||"情報源")} <span aria-hidden="true">↗</span></a>`:""}</div>`:""}
-function bind(root,button,panel){if(button.dataset.morphologyBound===CONTRACT)return;button.dataset.morphologyBound=CONTRACT;button.addEventListener("click",ev=>{ev.preventDefault();const wasOpen=button.getAttribute("aria-expanded")==="true"&&!panel.hidden;root.querySelectorAll("[data-ucd-tab]").forEach(b=>{b.setAttribute("aria-expanded","false");b.classList.remove("is-active")});root.querySelectorAll("[data-ucd-panel]").forEach(p=>p.hidden=true);if(!wasOpen){button.setAttribute("aria-expanded","true");button.classList.add("is-active");panel.hidden=false}})}
-async function decorate(){const id=new URL(location.href).searchParams.get("strain");if(!id)return;const cat=await catalog(),cultivar=(cat?.cultivars||[]).find(x=>x?.id===id),claim=cultivar?.morphology,presentation=claim?.presentation,text=String(presentation?.textJa||"").trim();if(!cultivar||claim?.status!=="confirmed"||presentation?.mode!=="summary"||!text)return;const root=shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(id)}"],.ucd-root[data-public-detail-id="${CSS.escape(id)}"]`),profile=root?.querySelector('.ucd-profile'),nav=profile?.querySelector('.ucd-profile-nav'),panels=profile?.querySelector('.ucd-profile-panels');if(!(root&&profile&&nav&&panels)){window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:`MORPHOLOGY_CONTEXT_MISSING:${id}`};return}let button=nav.querySelector('[data-ucd-tab="morphology"]'),panel=panels.querySelector('[data-ucd-panel="morphology"]');if(!button){button=document.createElement('button');button.type='button';button.dataset.ucdTab='morphology';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls',`ucd-${id}-morphology`);button.innerHTML='<span>形態</span><i aria-hidden="true">⌄</i>';const before=nav.querySelector('[data-ucd-tab="origin-history"]');before?nav.insertBefore(button,before):nav.appendChild(button)}if(!panel){panel=document.createElement('section');panel.id=`ucd-${id}-morphology`;panel.dataset.ucdPanel='morphology';panel.dataset.profileKind='morphology';panel.hidden=true;const before=panels.querySelector('[data-ucd-panel="origin-history"]');before?panels.insertBefore(panel,before):panels.appendChild(panel)}panel.innerHTML=`<div class="ucd-morphology-profile" data-morphology-presentation="v1"><div class="ucd-sensory-head"><span>MORPHOLOGY / 形態</span><small>情報源で確認できる株・花の形態</small></div><div class="ucd-morphology-summary"><p>${esc(text)}</p></div>${evidence(cat,claim)}</div>`;bind(root,button,panel);root.dataset.morphologyPresentationReady='v1';nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);window.__CSWMorphologyPresentationV1={status:'PASS',contractVersion:CONTRACT,cultivarId:id}}
-const style=document.createElement('style');style.id='universal-morphology-presentation-v1-style';style.textContent='.ucd-morphology-profile{display:grid;gap:12px}.ucd-morphology-summary{padding:14px 15px;border:1px solid rgba(216,189,98,.16);border-radius:14px;background:rgba(255,255,255,.018)}.ucd-morphology-summary p{margin:0;color:#dfe7e1;font-size:11px;line-height:1.8}';document.head.appendChild(style);
-let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate().catch(error=>{window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:String(error?.message||error)};console.error(CONTRACT,error)})})};new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});schedule();
-})();
-'''
-              p.write_text(s)
-
-          i=Path('index.html')
-          html=i.read_text()
-          if 'presentation-contract-v1.js?v=3' not in html and 'presentation-contract-v1.js?v=4' not in html:
-              raise SystemExit('PUBLIC_CACHE_KEY_TARGET_MISSING')
-          html=html.replace('presentation-contract-v1.js?v=3','presentation-contract-v1.js?v=4')
-          i.write_text(html)
+          p=Path('index.html'); s=p.read_text()
+          tag='<script src="morphology-presentation-v1.js?v=1" defer></script>'
+          if tag not in s:
+              target='<script src="app.min.js?v=5" defer></script>'
+              if target not in s: raise SystemExit('APP_SCRIPT_TARGET_MISSING')
+              s=s.replace(target,tag+'\n  '+target,1)
+          p.write_text(s)
           PY
 
       - name: Syntax and boundary checks
         shell: bash
         run: |
           set -euo pipefail
-          node --check presentation-contract-v1.js
-          grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' presentation-contract-v1.js
-          grep -Fq 'data-ucd-tab="morphology"' presentation-contract-v1.js
-          grep -Fq 'presentation?.textJa' presentation-contract-v1.js
-          ! grep -Fq 'morphology.items' presentation-contract-v1.js
-          grep -Fq 'presentation-contract-v1.js?v=4' index.html
+          node --check morphology-presentation-v1.js
+          grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' morphology-presentation-v1.js
+          grep -Fq 'presentation?.textJa' morphology-presentation-v1.js
+          ! grep -Fq 'morphology.items' morphology-presentation-v1.js
+          grep -Fq 'morphology-presentation-v1.js?v=1' index.html
           git diff --check
 
-      - name: Commit PUBLIC presentation candidate
+      - name: Commit candidate if changed
         shell: bash
         run: |
           set -euo pipefail
+          git add morphology-presentation-v1.js index.html
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'Morphology PUBLIC candidate already current'
+            exit 0
+          fi
           git config user.name "cannabis-strain-wisdom"
           git config user.email "316430215+cannabis-strain-wisdom@users.noreply.github.com"
-          git add presentation-contract-v1.js index.html
-          git diff --cached --check
           git commit -m "Add Morphology PUBLIC presentation"
           git push origin HEAD:candidate/morphology-public-v1-20260908
