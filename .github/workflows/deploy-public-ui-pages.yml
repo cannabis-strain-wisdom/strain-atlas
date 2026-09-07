@@ -1,5 +1,5 @@
 name: Deploy public UI to GitHub Pages
-# Recovery retrigger only: no public data or frontend behavior changes.
+# Build, browser-smoke, deploy, and verify the exact live artifact.
 
 on:
   push:
@@ -205,3 +205,77 @@ jobs:
       - name: Deploy public UI
         id: deployment
         uses: actions/deploy-pages@v5
+
+  verify-live:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact deployed PUBLIC state
+        uses: actions/checkout@v4
+
+      - name: Wait for exact live artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas'
+          LIVE_DIR="$RUNNER_TEMP/csw-live"
+          mkdir -p "$LIVE_DIR/runtime" "$LIVE_DIR/production"
+
+          fetch_live() {
+            nonce="$(date +%s%N)"
+            curl -fsSL "${BASE_URL}/app.min.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/app.min.js"
+            curl -fsSL "${BASE_URL}/presentation-contract-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/presentation-contract-v1.js"
+            curl -fsSL "${BASE_URL}/styles.min.css?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/styles.min.css"
+            curl -fsSL "${BASE_URL}/runtime/catalog.json?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/runtime/catalog.json"
+            curl -fsSL "${BASE_URL}/production/publication.json?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/production/publication.json"
+          }
+
+          exact_match() {
+            cmp -s app.min.js "$LIVE_DIR/app.min.js" &&
+            cmp -s presentation-contract-v1.js "$LIVE_DIR/presentation-contract-v1.js" &&
+            cmp -s styles.min.css "$LIVE_DIR/styles.min.css" &&
+            cmp -s runtime/catalog.json "$LIVE_DIR/runtime/catalog.json" &&
+            cmp -s production/publication.json "$LIVE_DIR/production/publication.json"
+          }
+
+          matched=0
+          for n in $(seq 1 30); do
+            if fetch_live && exact_match; then
+              matched=1
+              break
+            fi
+            sleep 2
+          done
+          test "$matched" -eq 1 || { echo 'Live artifact did not converge to exact deployed PUBLIC state' >&2; exit 1; }
+
+          fetch_live
+          exact_match
+          grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' "$LIVE_DIR/presentation-contract-v1.js"
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const catalog = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/csw-live/runtime/catalog.json', 'utf8'));
+          const shaman = catalog.cultivars.find(item => item?.id === 'shaman');
+          if (!shaman) throw new Error('Live Shaman missing');
+          if (shaman.morphology?.status !== 'confirmed') throw new Error('Live Shaman morphology not confirmed');
+          if (shaman.morphology?.presentation?.mode !== 'summary') throw new Error('Live Shaman morphology presentation missing');
+          if (!String(shaman.morphology?.presentation?.textJa || '').trim()) throw new Error('Live Shaman morphology Japanese summary missing');
+          if (Object.hasOwn(shaman.morphology || {}, 'items') || Object.hasOwn(shaman.morphology || {}, 'note')) {
+            throw new Error('Live Shaman leaked PRIVATE morphology fields');
+          }
+          console.log('LIVE ARTIFACT EXACT MATCH + SHAMAN MORPHOLOGY BOUNDARY PASS');
+          NODE
+
+      - name: Browser interaction smoke against live Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
+          "$CHROME_BIN" --version
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          echo "PUBLIC LIVE BROWSER SMOKE PASS"
