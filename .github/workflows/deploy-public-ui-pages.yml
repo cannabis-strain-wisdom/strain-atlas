@@ -183,6 +183,7 @@ jobs:
           done
           curl -fsS http://127.0.0.1:4173/runtime/catalog.json >/dev/null
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC FRONTEND BROWSER SMOKE PASS"
 
       - name: Upload Pages artifact
@@ -278,4 +279,5 @@ jobs:
           test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
           "$CHROME_BIN" --version
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC LIVE BROWSER SMOKE PASS"
