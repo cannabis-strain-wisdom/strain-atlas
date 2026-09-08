@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T21:10:42.128Z",
+  "generatedAt": "2026-09-08T21:30:35.651Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -3097,7 +3097,33 @@
         "CBD 1"
       ],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-cbd-1"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -3142,38 +3168,37 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "ライプ・タンジェリン",
+          "スイート・ライプ・タンジェリン",
           "トロピカルフルーツ",
           "スイート",
           "フローラル",
           "グミ",
           "アーシー",
           "パイニー",
-          "ムスキー",
-          "ハシシ"
+          "ムスキー"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "ライプ・タンジェリン",
+            "スイート・ライプ・タンジェリン",
             "トロピカルフルーツ",
             "スイート",
             "フローラル",
             "グミ",
             "アーシー",
             "パイニー",
-            "ムスキー",
-            "ハシシ"
+            "ムスキー"
           ],
           "details": [
             {
-              "rawMatch": "ripe tangerine",
-              "reviewLabelJa": "ライプ・タンジェリン",
-              "plainMeaningJa": "熟したタンジェリンのような柑橘香",
+              "rawMatch": "sweet ripe tangerine",
+              "reviewLabelJa": "スイート・ライプ・タンジェリン",
+              "plainMeaningJa": "甘く熟したタンジェリンを思わせる柑橘香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "熟した柑橘"
+                "熟した柑橘",
+                "甘い柑橘"
               ],
               "registryVersion": 1
             },
@@ -3246,21 +3271,11 @@
                 "麝香"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "hashish",
-              "reviewLabelJa": "ハシシ",
-              "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "樹脂"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式では、熟したタンジェリンとトロピカルフルーツの強い甘さに、フローラル、グミ、アーシー、パイン、ムスクが重なり、長く残るハッシュ系の余韻も挙げられています。"
+          "noteJa": "ACE Seeds公式のBouquetでは、甘く熟したタンジェリンとトロピカルフルーツに、スイート、フローラル、グミ、アーシー、パイン、ムスクの要素が重なると説明されています。明示的にaftertasteとされたハッシュ系表現は、Aroma項目には含めていません。"
         }
       },
       "terpenes": {
@@ -3354,38 +3369,22 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-cbd-1"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-cbd-1"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0.55,
-            "max": 0.7,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-cbd-1"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 15,
-            "max": 18,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -3400,10 +3399,15 @@
               "maxValue": 0.7,
               "unit": "%",
               "valueText": "0.55〜0.7%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-cbd-1"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -3414,10 +3418,33 @@
               "maxValue": 18,
               "unit": "%",
               "valueText": "15〜18%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-cbd-1"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 0.4,
+              "unit": "%",
+              "valueText": "最大0.4%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-cbd-1"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -3431,11 +3458,12 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-cbd-1"
+          "ace-seeds-cbd-1",
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、高CBD・非常に低THCのケモタイプを安定化した同社初の品種と説明しています。"
+          "textJa": "ACE SeedsはCBD #1を各育種段階でラボ支援を受けながら約3年かけて開発したと説明しています。公式沿革では、その背景として5年以上にわたるTHC・CBD豊富な在来系統の研究がCBD #1の作出と安定化の基礎になったと記載しており、2つの期間を同一の開発期間にはしていません。"
         }
       },
       "positioning": {
@@ -3451,13 +3479,28 @@
           "textJa": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、CBD 15〜18%、THC 0.55〜0.7%の高CBD・非常に低THCのケモタイプを安定化した品種と説明しています。"
         }
       },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-cbd-1"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式のStructure欄では、成長期は頑丈で柱状、幅広く大きい葉と太い茎を持ち、開花期にはよりサティバ的な特徴を示すと説明されています。収量・栽培手順・耐性は形態情報には含めていません。"
+        }
+      },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE Seeds公式のGenetics欄では「Cannatonic S1/ErdPurt × Cannatonic S1」。高CBDのCannatonic S1とAfghan ErdPurtを基礎に、Cannatonic S1へ戻した安定化ハイブリッドとして記録します。",
-          "history": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、高CBD・非常に低THCのケモタイプを安定化した同社初の品種と説明しています。",
+          "history": "ACE SeedsはCBD #1を各育種段階でラボ支援を受けながら約3年かけて開発したと説明しています。公式沿革では、その背景として5年以上にわたるTHC・CBD豊富な在来系統の研究がCBD #1の作出と安定化の基礎になったと記載しており、2つの期間を同一の開発期間にはしていません。",
           "positioning": "ACE Seedsは、各育種段階でラボ解析を用いながら約3年かけてCBD #1を開発し、CBD 15〜18%、THC 0.55〜0.7%の高CBD・非常に低THCのケモタイプを安定化した品種と説明しています。",
-          "aromaNote": "公式では、熟したタンジェリンとトロピカルフルーツの強い甘さに、フローラル、グミ、アーシー、パイン、ムスクが重なり、長く残るハッシュ系の余韻も挙げられています。",
-          "terpeneNote": "ACE Seeds公式ではbeta-myrceneが非常に多く、alpha-pineneとbeta-pineneも高い構成。limoneneと少量のlinaloolが続き、セスキテルペンではbeta-caryophyllene、alpha-bisabolol、alpha-humulene、guaiolが記載されています。"
+          "aromaNote": "ACE Seeds公式のBouquetでは、甘く熟したタンジェリンとトロピカルフルーツに、スイート、フローラル、グミ、アーシー、パイン、ムスクの要素が重なると説明されています。明示的にaftertasteとされたハッシュ系表現は、Aroma項目には含めていません。",
+          "terpeneNote": "ACE Seeds公式ではbeta-myrceneが非常に多く、alpha-pineneとbeta-pineneも高い構成。limoneneと少量のlinaloolが続き、セスキテルペンではbeta-caryophyllene、alpha-bisabolol、alpha-humulene、guaiolが記載されています。",
+          "morphologyNote": "ACE Seeds公式のStructure欄では、成長期は頑丈で柱状、幅広く大きい葉と太い茎を持ち、開花期にはよりサティバ的な特徴を示すと説明されています。収量・栽培手順・耐性は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -3471,8 +3514,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-28",
-      "updatedAt": "2026-08-28",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14269,12 +14312,13 @@
         "breeding",
         "aromas",
         "visualMorphology",
+        "morphology",
         "terpenes",
         "history",
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-congo-en": {
       "schemaVersion": 1,
