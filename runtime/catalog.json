@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T22:05:22.875Z",
+  "generatedAt": "2026-09-08T22:22:32.244Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8625,7 +8625,32 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-new-caledonia"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -8641,7 +8666,7 @@
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "公式のGenetics欄は「2nd-generation pure Sativa from New Caledonia」。P2のheirloomとして扱われ、交配親は追加していません。"
+          "textJa": "公式ではHEIRLOOM (P2)、Genetics欄では「2nd-generation pure Sativa from New Caledonia」とされ、交配親を追加せず保存系統として記録しています。"
         }
       },
       "relations": [
@@ -8665,31 +8690,47 @@
         "sourceRefs": [
           "ace-seeds-new-caledonia"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
+          "スイート",
           "トロピカルフルーツ",
           "フローラル",
+          "クリーミー",
+          "サワー",
           "レモン",
           "ムスク",
           "スパイシー",
           "ハーバル",
-          "ゼラニウム",
-          "ミント"
+          "ゼラニウム"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
+          "mode": "layered",
+          "core": [
+            "スイート",
             "トロピカルフルーツ",
             "フローラル",
+            "クリーミー"
+          ],
+          "accents": [
+            "サワー",
             "レモン",
             "ムスク",
             "スパイシー",
             "ハーバル",
-            "ゼラニウム",
-            "ミント"
+            "ゼラニウム"
           ],
-          "details": [
+          "coreDetails": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
             {
               "rawMatch": "tropical fruit",
               "reviewLabelJa": "トロピカルフルーツ",
@@ -8707,6 +8748,28 @@
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "accentDetails": [
+            {
+              "rawMatch": "sour",
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸っぱさを思わせる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
               ],
               "registryVersion": 1
             },
@@ -8759,21 +8822,11 @@
                 "花"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "mint",
-              "reviewLabelJa": "ミント",
-              "plainMeaningJa": "ミントのような清涼感のある香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "清涼"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式では、甘いトロピカルフルーツと花びらのような香りに、レモンとムスクが強く重なり、砕いた際にはスパイス、ハーブ、ゼラニウム、わずかなミント系の要素も現れると説明されています。"
+          "noteJa": "ACE Seeds公式では、甘いトロピカルフルーツと花びら、クリーミーな甘さを主軸に、ときどき少しサワーな個体差、レモンとムスクの背景、砕いた時に出るスパイス・ハーブ・ゼラニウムの要素が説明されています。味として記載されたミントは花の香りへ混ぜていません。"
         }
       },
       "terpenes": {
@@ -8847,9 +8900,9 @@
             {
               "id": "linalool",
               "labelJa": "リナロール",
-              "qualitativeLevel": "trace",
-              "levelJa": "ごく微量",
-              "visualRole": "trace"
+              "qualitativeLevel": "present",
+              "levelJa": "確認",
+              "visualRole": "presence"
             },
             {
               "id": "gamma-terpinene",
@@ -8887,42 +8940,26 @@
               "visualRole": "trace"
             }
           ],
-          "noteJa": "ACE Seeds公式ではterpinoleneとbeta-myrceneが非常に多く、trans-ocimeneも高い構成。alpha-pinene、limonene、beta-pineneが続き、セスキテルペンではbeta-caryophylleneとalpha-humuleneが多く、alpha-bisabololやtrans-nerolidolにも個体差があるとされています。"
+          "noteJa": "ACE Seeds公式ではterpinoleneとmyrceneが非常に多く、trans-ocimeneも高い相対プロファイル。alpha-pinene、limonene、beta-pineneが続き、セスキテルペンではbeta-caryophylleneとalpha-humuleneが強く、alpha-bisabololとtrans-nerolidolには個体差があるとされています。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-new-caledonia"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-new-caledonia"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 15,
-            "max": 21,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-new-caledonia"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0.03,
-            "max": 0.05,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -8937,10 +8974,15 @@
               "maxValue": 21,
               "unit": "%",
               "valueText": "15〜21%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-new-caledonia"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -8951,10 +8993,34 @@
               "maxValue": 0.05,
               "unit": "%",
               "valueText": "0.03〜0.05%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-new-caledonia"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0.7,
+              "maxValue": 1.4,
+              "unit": "%",
+              "valueText": "0.7〜1.4%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-new-caledonia"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -8976,20 +9042,36 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-new-caledonia"
+          "ace-seeds-new-caledonia",
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、このニューカレドニアのローカルサティバをチームで再生産した保存系統として紹介しています。ここでは公式が示すP2の再生産・保存文脈に限定して記録しています。"
+          "textJa": "ACE Seedsの公式沿革ではNew Caledoniaは2021年に公開されたサティバとして記録されています。現行品種ページでは、チームがこのローカルサティバを再生産した保存文脈が示されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-new-caledonia"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、背が高く柔軟で強く分枝し、節間が広い純トロピカルサティバ型とされています。花はサティバとしては密度のある長く大きな形で、小さく非常に樹脂質な萼を持つと説明されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "公式のGenetics欄は「2nd-generation pure Sativa from New Caledonia」。P2のheirloomとして扱われ、交配親は追加していません。",
+          "lineageNote": "公式ではHEIRLOOM (P2)、Genetics欄では「2nd-generation pure Sativa from New Caledonia」とされ、交配親を追加せず保存系統として記録しています。",
           "origin": "ACE Seeds公式では、New Caledoniaは太平洋のニューカレドニア由来のローカル純系サティバとして記載されています。",
-          "history": "ACE Seedsは、このニューカレドニアのローカルサティバをチームで再生産した保存系統として紹介しています。ここでは公式が示すP2の再生産・保存文脈に限定して記録しています。",
-          "aromaNote": "公式では、甘いトロピカルフルーツと花びらのような香りに、レモンとムスクが強く重なり、砕いた際にはスパイス、ハーブ、ゼラニウム、わずかなミント系の要素も現れると説明されています。",
-          "terpeneNote": "ACE Seeds公式ではterpinoleneとbeta-myrceneが非常に多く、trans-ocimeneも高い構成。alpha-pinene、limonene、beta-pineneが続き、セスキテルペンではbeta-caryophylleneとalpha-humuleneが多く、alpha-bisabololやtrans-nerolidolにも個体差があるとされています。"
+          "history": "ACE Seedsの公式沿革ではNew Caledoniaは2021年に公開されたサティバとして記録されています。現行品種ページでは、チームがこのローカルサティバを再生産した保存文脈が示されています。",
+          "aromaNote": "ACE Seeds公式では、甘いトロピカルフルーツと花びら、クリーミーな甘さを主軸に、ときどき少しサワーな個体差、レモンとムスクの背景、砕いた時に出るスパイス・ハーブ・ゼラニウムの要素が説明されています。味として記載されたミントは花の香りへ混ぜていません。",
+          "terpeneNote": "ACE Seeds公式ではterpinoleneとmyrceneが非常に多く、trans-ocimeneも高い相対プロファイル。alpha-pinene、limonene、beta-pineneが続き、セスキテルペンではbeta-caryophylleneとalpha-humuleneが強く、alpha-bisabololとtrans-nerolidolには個体差があるとされています。",
+          "morphologyNote": "ACE Seeds公式では、背が高く柔軟で強く分枝し、節間が広い純トロピカルサティバ型とされています。花はサティバとしては密度のある長く大きな形で、小さく非常に樹脂質な萼を持つと説明されています。"
         }
       },
       "visuals": [
@@ -9003,8 +9085,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14624,6 +14706,7 @@
         "classification",
         "breeding",
         "aromas",
+        "morphology",
         "visualMorphology",
         "terpenes",
         "origin",
@@ -14631,7 +14714,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-orient-express": {
       "schemaVersion": 1,
