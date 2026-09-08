@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T23:22:37.982Z",
+  "generatedAt": "2026-09-08T02:48:42.187Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -11554,7 +11554,33 @@
         "SLH"
       ],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-super-lemon-haze"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -11573,7 +11599,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Green House Seed Co.公式ではLemon Skunk × Super Silver Hazeとされています。"
+          "textJa": "Green House Seed Co.公式では、Super Lemon HazeはLemon Skunk × Super Silver Hazeと明記されています。"
         }
       },
       "relations": [
@@ -11592,84 +11618,17 @@
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
-        "sourceRefs": [
-          "ghsc-super-lemon-haze"
-        ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "レモンゼスト",
-          "シトラス",
-          "ヘイズ",
-          "ウッド",
-          "パイン"
-        ],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "レモンゼスト",
-            "シトラス",
-            "ヘイズ",
-            "ウッド",
-            "パイン"
-          ],
-          "details": [
-            {
-              "rawMatch": "レモンゼスト",
-              "reviewLabelJa": "レモンゼスト",
-              "plainMeaningJa": "レモンの皮を削ったような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "レモン皮"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "シトラス",
-              "reviewLabelJa": "シトラス",
-              "plainMeaningJa": "柑橘類を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "柑橘"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "ヘイズ",
-              "reviewLabelJa": "ヘイズ",
-              "plainMeaningJa": "Haze系を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "Haze"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "ウッド",
-              "reviewLabelJa": "ウッド",
-              "plainMeaningJa": "木材を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "木"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "パイン",
-              "reviewLabelJa": "パイン",
-              "plainMeaningJa": "松を思わせる樹木香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "松"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "Green House Seed Co.公式では、レモンゼスト、シトラス、ヘイズ、ウッド、パインの香りが挙げられています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
@@ -11714,40 +11673,26 @@
               "badge": "MAIN"
             }
           ],
-          "noteJa": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを同格の主要群（most expressed terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
+          "noteJa": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを「most expressed terpenes」として同列に挙げています。3種間の順位や数値比率は示されていません。"
         }
       },
       "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ghsc-super-lemon-haze"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 26.33,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ghsc-super-lemon-haze"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 0.21,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -11761,10 +11706,15 @@
               "value": 26.33,
               "unit": "%",
               "valueText": "26.33%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ghsc-super-lemon-haze"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -11774,10 +11724,33 @@
               "value": 0.21,
               "unit": "%",
               "valueText": "0.21%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ghsc-super-lemon-haze"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 1.15,
+              "unit": "%",
+              "valueText": "1.15%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-super-lemon-haze"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -11791,28 +11764,42 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver HazeからSuper Lemon Hazeを育種したと説明しています。"
+          "textJa": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver Hazeを交配してSuper Lemon Hazeを育種したと説明しています。より正確な作出年や作出地は補っていません。"
         }
       },
       "history": {
         "status": "confirmed",
-        "confidence": "A",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
           "ghsc-super-lemon-haze"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Green House Seed Co.公式ページでは、High Times Cannabis Cupで2008年と2009年に1位を獲得した受賞歴が記載されています。"
+          "textJa": "Green House Seed Co.公式の受賞歴には、High Times Cannabis Cupで2008年と2009年に1位を獲得した記録が掲載されています。ここではoriginator公式による受賞記録として扱い、主催者一次記録と同じ強さには引き上げていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-lemon-haze"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Green House Seed Co.公式では、力強く樹形がクリスマスツリー状に伸び、長く安定した側枝を持つ株として説明されています。屋内では中〜高め、屋外では高くなり、花は丸みのあるHaze型で大きめの萼を持ち、コンパクトで樹脂に覆われるとされています。栽培手順や収量情報は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Green House Seed Co.公式ではLemon Skunk × Super Silver Hazeとされています。",
-          "origin": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver HazeからSuper Lemon Hazeを育種したと説明しています。",
-          "history": "Green House Seed Co.公式ページでは、High Times Cannabis Cupで2008年と2009年に1位を獲得した受賞歴が記載されています。",
-          "aromaNote": "Green House Seed Co.公式では、レモンゼスト、シトラス、ヘイズ、ウッド、パインの香りが挙げられています。",
-          "terpeneNote": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを同格の主要群（most expressed terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
+          "lineageNote": "Green House Seed Co.公式では、Super Lemon HazeはLemon Skunk × Super Silver Hazeと明記されています。",
+          "origin": "Green House Seed Co.は、2000年代末にLemon SkunkとSuper Silver Hazeを交配してSuper Lemon Hazeを育種したと説明しています。より正確な作出年や作出地は補っていません。",
+          "history": "Green House Seed Co.公式の受賞歴には、High Times Cannabis Cupで2008年と2009年に1位を獲得した記録が掲載されています。ここではoriginator公式による受賞記録として扱い、主催者一次記録と同じ強さには引き上げていません。",
+          "terpeneNote": "Green House Seed Co.公式ではβ-Caryophyllene、D-Limonene、Terpinoleneを「most expressed terpenes」として同列に挙げています。3種間の順位や数値比率は示されていません。",
+          "morphologyNote": "Green House Seed Co.公式では、力強く樹形がクリスマスツリー状に伸び、長く安定した側枝を持つ株として説明されています。屋内では中〜高め、屋外では高くなり、花は丸みのあるHaze型で大きめの萼を持ち、コンパクトで樹脂に覆われるとされています。栽培手順や収量情報は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -11824,19 +11811,10 @@
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
-        },
-        {
-          "role": "aroma",
-          "src": "assets/cultivars/super-lemon-haze/super-lemon-haze-aroma.svg",
-          "alt": "Super Lemon Hazeの香りを表現したAI生成イメージ",
-          "rights": "Legacy AI-generated site asset; formal rights record pending review.",
-          "scope": "cultivar",
-          "aiGenerated": true,
-          "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-02",
-      "updatedAt": "2026-09-02",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14887,14 +14865,15 @@
         "lineage",
         "breeder",
         "classification",
-        "aromas",
         "terpenes",
         "origin",
         "history",
-        "cannabinoids"
+        "awards",
+        "cannabinoids",
+        "morphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-08"
     },
     "hi-elevation-freakshow": {
       "schemaVersion": 1,
