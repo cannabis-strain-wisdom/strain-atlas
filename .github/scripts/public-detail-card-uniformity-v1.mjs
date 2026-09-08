@@ -67,4 +67,11 @@ async function main() {
 }
 
 try { await main(); }
-finally { proc.kill('SIGTERM'); fs.rmSync(profile, { recursive: true, force: true }); }
+finally {
+  proc.kill('SIGTERM');
+  await Promise.race([
+    new Promise(resolve => { if (proc.exitCode !== null) resolve(); else proc.once('exit', resolve); }),
+    sleep(2000),
+  ]);
+  try { fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch {}
+}
