@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T06:03:08.529Z",
+  "generatedAt": "2026-09-08T07:53:13.302Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 90,
+    "sources": 91,
     "entities": 16
   },
   "explore": {
@@ -4366,11 +4366,12 @@
         "generation": "unknown"
       },
       "lineage": {
-        "status": "confirmed",
-        "confidence": "A",
+        "status": "disputed",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dutch-passion-durban-poison"
+          "dutch-passion-durban-poison",
+          "seedfinder-durban-poison"
         ],
         "display": "Durban × Unknown Indica",
         "parents": [
@@ -4379,7 +4380,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passion公式ではDurban × Unknown Indicaと記載されています。Indica側の親は開示されていないため、追加の親系統は推定しません。"
+          "textJa": "Dutch Passion現行公式ではDurban × Unknown Indicaと記載されています。一方、SeedFinderではDutch PassionのDurban PoisonをIBLとして記録しているため、両者を無理に同一化していません。この図鑑では現行Dutch Passionラインを対象に、表示は公式の親表記を採用し、IBL表記との不一致は未解消のまま保持しています。"
         }
       },
       "relations": [
@@ -4398,105 +4399,25 @@
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
-        "sourceRefs": [
-          "dutch-passion-durban-poison"
-        ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "スパイシー",
-          "ヘイジー",
-          "アニスシード",
-          "リコリス",
-          "レモン",
-          "クローブ"
-        ],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "スパイシー",
-            "ヘイジー",
-            "アニスシード",
-            "リコリス",
-            "レモン",
-            "クローブ"
-          ],
-          "details": [
-            {
-              "rawMatch": "spicy",
-              "reviewLabelJa": "スパイシー",
-              "plainMeaningJa": "香辛料のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "香辛料"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "hazy",
-              "reviewLabelJa": "ヘイジー",
-              "plainMeaningJa": "Haze系を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "ヘイズ"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "aniseed",
-              "reviewLabelJa": "アニスシード",
-              "plainMeaningJa": "アニスの種のような甘いスパイス香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "アニス"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "liquorice",
-              "reviewLabelJa": "リコリス",
-              "plainMeaningJa": "甘草のような甘くスパイシーな香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "甘草"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "lemon",
-              "reviewLabelJa": "レモン",
-              "plainMeaningJa": "レモンのような柑橘香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "柑橘"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "cloves",
-              "reviewLabelJa": "クローブ",
-              "plainMeaningJa": "クローブのような甘く温かいスパイス香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "丁子"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "Dutch Passion公式では、スパイシー、ヘイズ、アニスシード、リコリス、レモン、クローブの香りが挙げられています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
         "status": "unknown",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "dutch-passion-durban-poison"
-        ],
+        "confidence": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -4504,12 +4425,20 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "dutch-passion-durban-poison"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
             "dutch-passion-durban-poison"
           ]
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -4526,27 +4455,41 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch Passionは、この系統を南アフリカのDurbanにさかのぼるものとし、その後の育種で未開示のIndica親を用いたと説明しています。"
+          "textJa": "Dutch Passionは、南アフリカ由来のDurban系統を1970年代に長年インブリードしたと説明しています。現行ラインはDurban × Unknown Indicaと記載されており、Indica側の親名は開示されていません。"
         }
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
           "dutch-passion-durban-poison"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Dutch PassionはDurban Poisonをオールドスクールの基幹品種で、長く扱ってきたクラシック品種と説明し、regularとfeminizedの両形態で展開しています。"
+          "textJa": "Dutch Passionは、南アフリカ由来の種子を1970年代に長年インブリードしたとし、Durban Poisonをオールドスクールの基幹・クラシック品種として紹介しています。より広いDurban Poison史は確認していますが、現行Dutch Passionラインの正確な発売年としては補っていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-durban-poison"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Dutch Passion公式では、側枝に長く重い花が連なり、サティバとしては密度の高い花、細いサティバ型の葉が差し込む長い花、目立つ樹脂腺と樹脂に覆われた小さなシュガーリーフが説明されています。高さ・収量・開花期間・栽培手順は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Dutch Passion公式ではDurban × Unknown Indicaと記載されています。Indica側の親は開示されていないため、追加の親系統は推定しません。",
-          "origin": "Dutch Passionは、この系統を南アフリカのDurbanにさかのぼるものとし、その後の育種で未開示のIndica親を用いたと説明しています。",
-          "history": "Dutch PassionはDurban Poisonをオールドスクールの基幹品種で、長く扱ってきたクラシック品種と説明し、regularとfeminizedの両形態で展開しています。",
-          "aromaNote": "Dutch Passion公式では、スパイシー、ヘイズ、アニスシード、リコリス、レモン、クローブの香りが挙げられています。"
+          "lineageNote": "Dutch Passion現行公式ではDurban × Unknown Indicaと記載されています。一方、SeedFinderではDutch PassionのDurban PoisonをIBLとして記録しているため、両者を無理に同一化していません。この図鑑では現行Dutch Passionラインを対象に、表示は公式の親表記を採用し、IBL表記との不一致は未解消のまま保持しています。",
+          "origin": "Dutch Passionは、南アフリカ由来のDurban系統を1970年代に長年インブリードしたと説明しています。現行ラインはDurban × Unknown Indicaと記載されており、Indica側の親名は開示されていません。",
+          "history": "Dutch Passionは、南アフリカ由来の種子を1970年代に長年インブリードしたとし、Durban Poisonをオールドスクールの基幹・クラシック品種として紹介しています。より広いDurban Poison史は確認していますが、現行Dutch Passionラインの正確な発売年としては補っていません。",
+          "morphologyNote": "Dutch Passion公式では、側枝に長く重い花が連なり、サティバとしては密度の高い花、細いサティバ型の葉が差し込む長い花、目立つ樹脂腺と樹脂に覆われた小さなシュガーリーフが説明されています。高さ・収量・開花期間・栽培手順は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -4560,8 +4503,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14702,15 +14645,13 @@
         "breeder",
         "classification",
         "breeding",
-        "aromas",
-        "terpenes",
         "cannabinoids",
         "origin",
         "history",
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-08"
     },
     "dutch-passion-frisian-duck": {
       "schemaVersion": 1,
@@ -15289,6 +15230,19 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "seedfinder-durban-poison": {
+      "schemaVersion": 1,
+      "id": "seedfinder-durban-poison",
+      "publisher": "SeedFinder",
+      "title": "Durban Poison (Dutch Passion) :: Lineage & Hybrids",
+      "url": "https://seedfinder.eu/en/strain-info/durban-poison/dutch-passion/genealogy",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "lineage"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-08"
     },
     "seedfinder-the-og-18": {
       "schemaVersion": 1,
