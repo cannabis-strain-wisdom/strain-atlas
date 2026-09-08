@@ -27,7 +27,8 @@ try{
   const ev=async expression=>{const r=await cdp.send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text);return r.result.value};
   await cdp.send('Page.navigate',{url:`${baseUrl}?authority=${Date.now()}`});
   await wait(()=>ev(`document.readyState==='complete'`),'document');
-  const runtime=await wait(()=>ev(`(async()=>{const c=await window.__CSWRuntimeCatalogPromise;return c})()`),'runtime catalog');
+  const runtimeJson=await wait(()=>ev(`(async()=>JSON.stringify(await window.__CSWRuntimeCatalogPromise))()`),'runtime catalog');
+  const runtime=JSON.parse(runtimeJson);
   const actual=new Map((runtime?.cultivars||[]).map(x=>[x.id,x]));
   const failures=[];
   for(const [id,want] of expected){
