@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T20:10:26.935Z",
+  "generatedAt": "2026-09-08T20:20:10.969Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -12846,7 +12846,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica-dominant-hybrid"
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-violeta"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 40,
+            "indica": 60,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 40,
+              "indica": 60,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F1"
@@ -12889,19 +12915,21 @@
         "sourceRefs": [
           "ace-seeds-violeta"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
           "バルサミック",
           "フォレストフルーツ"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "バルサミック",
+          "mode": "layered",
+          "core": [
+            "バルサミック"
+          ],
+          "accents": [
             "フォレストフルーツ"
           ],
-          "details": [
+          "coreDetails": [
             {
               "rawMatch": "balsamic",
               "reviewLabelJa": "バルサミック",
@@ -12911,7 +12939,9 @@
                 "樹脂香"
               ],
               "registryVersion": 1
-            },
+            }
+          ],
+          "accentDetails": [
             {
               "rawMatch": "forest fruits",
               "reviewLabelJa": "フォレストフルーツ",
@@ -12925,7 +12955,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式では、バルサミックな香りを中心に、森の果実を思わせるフルーティーな背景が重なるとされています。"
+          "noteJa": "ACE Seeds公式では、バルサミックな香りを主軸に、森の果実を思わせる香りが背景として重なると説明されています。主従関係は公式文言に基づき、化学成分の階層を意味するものではありません。"
         }
       },
       "terpenes": {
@@ -12957,6 +12987,7 @@
               "labelJa": "テルピノレン",
               "qualitativeLevel": "high",
               "levelJa": "多い",
+              "sourceValueText": "35%",
               "visualRole": "support"
             },
             {
@@ -12964,6 +12995,7 @@
               "labelJa": "α-ピネン",
               "qualitativeLevel": "moderate",
               "levelJa": "中程度",
+              "sourceValueText": "19%",
               "visualRole": "support"
             },
             {
@@ -12971,6 +13003,7 @@
               "labelJa": "リモネン",
               "qualitativeLevel": "moderate",
               "levelJa": "中程度",
+              "sourceValueText": "18%",
               "visualRole": "support"
             },
             {
@@ -12978,6 +13011,7 @@
               "labelJa": "β-ピネン",
               "qualitativeLevel": "moderate",
               "levelJa": "中程度",
+              "sourceValueText": "15%",
               "visualRole": "support"
             },
             {
@@ -13013,6 +13047,7 @@
               "labelJa": "グアイオール",
               "qualitativeLevel": "present",
               "levelJa": "確認",
+              "sourceValueText": "32%",
               "visualRole": "presence"
             },
             {
@@ -13020,43 +13055,30 @@
               "labelJa": "α-フムレン",
               "qualitativeLevel": "present",
               "levelJa": "確認",
+              "sourceValueText": "17%",
               "visualRole": "presence"
             }
           ],
-          "noteJa": "公式テルペン欄ではterpinoleneが35%と最も多く、alpha-pinene、limonene、beta-pineneが続きます。"
+          "noteJa": "ACE Seeds公式では、モノテルペン中でterpinoleneが35%と最も多く、alpha-pinene 19%、limonene 18%、beta-pinene 15%が続く相対プロファイルとして説明されています。これらを花中の絶対濃度として扱っていません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-violeta"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-violeta"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 18,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-violeta"
-          ],
-          "measurement": {
-            "kind": "less-than",
-            "unit": "%",
-            "value": 0.05,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -13070,10 +13092,15 @@
               "value": 18,
               "unit": "%",
               "valueText": "18%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-violeta"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -13083,10 +13110,33 @@
               "boundaryValue": 0.05,
               "unit": "%",
               "valueText": "0.05%未満",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-violeta"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.83,
+              "unit": "%",
+              "valueText": "0.83%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-violeta"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -13097,22 +13147,37 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-about"
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
           "textJa": "ACE Seedsの公式沿革では、Violetaは2014年にリリースされた品種として記録されています。"
         }
       },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-violeta"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、強く頑丈でコンパクト、分枝の良い構造をもち、成熟時に濃い紫から赤系の色が現れると説明されています。"
+        }
+      },
       "publicContent": {
         "ja": {
           "lineageNote": "ACE Seeds公式では、Violeta RegularはPurple Malawi × Purple Pakistan Chitral KushのF1で、40% Sativa / 60% Indicaと記載されています。",
           "history": "ACE Seedsの公式沿革では、Violetaは2014年にリリースされた品種として記録されています。",
-          "aromaNote": "公式では、バルサミックな香りを中心に、森の果実を思わせるフルーティーな背景が重なるとされています。",
-          "terpeneNote": "公式テルペン欄ではterpinoleneが35%と最も多く、alpha-pinene、limonene、beta-pineneが続きます。"
+          "aromaNote": "ACE Seeds公式では、バルサミックな香りを主軸に、森の果実を思わせる香りが背景として重なると説明されています。主従関係は公式文言に基づき、化学成分の階層を意味するものではありません。",
+          "terpeneNote": "ACE Seeds公式では、モノテルペン中でterpinoleneが35%と最も多く、alpha-pinene 19%、limonene 18%、beta-pinene 15%が続く相対プロファイルとして説明されています。これらを花中の絶対濃度として扱っていません。",
+          "morphologyNote": "ACE Seeds公式では、強く頑丈でコンパクト、分枝の良い構造をもち、成熟時に濃い紫から赤系の色が現れると説明されています。"
         }
       },
       "visuals": [
@@ -13126,8 +13191,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14428,17 +14493,18 @@
       "url": "https://www.aceseeds.org/en/seeds/violeta-regular-seeds/",
       "sourceType": "breederOfficial",
       "supports": [
+        "identity",
         "lineage",
         "breeder",
         "classification",
         "breeding",
         "aromas",
         "terpenes",
-        "visualMorphology",
+        "morphology",
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-zamaldelica": {
       "schemaVersion": 1,
