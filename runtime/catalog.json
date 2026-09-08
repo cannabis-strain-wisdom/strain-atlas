@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T07:53:13.302Z",
+  "generatedAt": "2026-09-08T09:46:13.654Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -6422,13 +6422,41 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-kali-mist"
+          ],
+          "measurement": {
+            "kind": "sativa-range",
+            "unit": "%",
+            "min": 80,
+            "max": 90,
+            "approximate": true
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "range",
+            "measurement": {
+              "kind": "sativa-range",
+              "unit": "%",
+              "min": 80,
+              "max": 90,
+              "approximate": true
+            },
+            "noteJa": "公式が範囲で記載しているため、単一の比率や未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
-        "generation": "unknown"
+        "generation": "F1"
       },
       "lineage": {
         "status": "unknown",
+        "confidence": "unknown",
         "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-kali-mist"
@@ -6459,15 +6487,13 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "スパイシー",
-          "スイートスパイシー"
+          "スパイシー"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "スパイシー",
-            "スイートスパイシー"
+            "スパイシー"
           ],
           "details": [
             {
@@ -6479,31 +6505,19 @@
                 "香辛料"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "sweet-spicy",
-              "reviewLabelJa": "スイートスパイシー",
-              "plainMeaningJa": "甘さとスパイス感が重なる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "甘い",
-                "香辛料"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Serious Seeds公式では、スパイシーとスイート・スパイシーの香りが挙げられています。"
+          "noteJa": "Serious Seeds公式で品種全体に直接確認できる香りは、はっきりしたスパイシーな香りです。公式ページ内の栽培レポートにはスイート・スパイシーな記述もありますが、特定個体の観察なので品種全体の確定香としては広げていません。"
         }
       },
       "terpenes": {
         "status": "unknown",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "serious-seeds-kali-mist"
-        ],
+        "confidence": "unknown",
+        "sourceRefs": [],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -6511,7 +6525,11 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "serious-seeds-kali-mist"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -6532,18 +6550,6 @@
       },
       "origin": {
         "status": "confirmed",
-        "confidence": "B",
-        "basis": "breederOfficial",
-        "sourceRefs": [
-          "serious-seeds-kali-mist"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "Serious Seedsは、祖先系統が米国で栽培されていたことに触れ、東南アジア／カンボジア系の強い背景とアフガニ系の影響を説明しています。ただし、完全な系譜は開示されていません。"
-        }
-      },
-      "history": {
-        "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
@@ -6551,14 +6557,41 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、現在は約80〜90% sativaと説明されています。この範囲は単一値へ換算せず、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。"
+          "textJa": "Serious Seeds公式では、Kali Mistの祖先系統は以前に米国で栽培されており、カンボジア系が大きな影響を持ち、アフガニ系も確実に含まれると説明されています。コロンビア系とタイ系は推測として触れられているため、確定した直接親にはしていません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-kali-mist"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsは、Simonが1993年にKali Mistを育種し、1994年ごろに登場したと説明しています。その後、雄親の喪失をきっかけに1990年代後半に系統を再構成し、よりサティバ優勢の形へ戻しました。公式では2000年High Times Cannabis Cupのサティバ部門1位、2012年Cannabis Champions Cupの1位も記録しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-kali-mist"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Serious Seeds公式では、葉が少ない背の高いクラシックなサティバ型の株姿、螺旋状にまとまる花房、豊富な樹脂、サティバらしいややエアリーな花構造が説明されています。高さ・収量・開花期間・栽培手順は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "origin": "Serious Seedsは、祖先系統が米国で栽培されていたことに触れ、東南アジア／カンボジア系の強い背景とアフガニ系の影響を説明しています。ただし、完全な系譜は開示されていません。",
-          "history": "Serious Seedsは複数回の育種上の改訂を記録しており、現代ラインは1990年代後半によりサティバ優勢の形へ戻され、現在は約80〜90% sativaと説明されています。この範囲は単一値へ換算せず、2000年High Times Cannabis Cupのsativa categoryを受賞したとしています。",
-          "aromaNote": "Serious Seeds公式では、スパイシーとスイート・スパイシーの香りが挙げられています。"
+          "origin": "Serious Seeds公式では、Kali Mistの祖先系統は以前に米国で栽培されており、カンボジア系が大きな影響を持ち、アフガニ系も確実に含まれると説明されています。コロンビア系とタイ系は推測として触れられているため、確定した直接親にはしていません。",
+          "history": "Serious Seedsは、Simonが1993年にKali Mistを育種し、1994年ごろに登場したと説明しています。その後、雄親の喪失をきっかけに1990年代後半に系統を再構成し、よりサティバ優勢の形へ戻しました。公式では2000年High Times Cannabis Cupのサティバ部門1位、2012年Cannabis Champions Cupの1位も記録しています。",
+          "aromaNote": "Serious Seeds公式で品種全体に直接確認できる香りは、はっきりしたスパイシーな香りです。公式ページ内の栽培レポートにはスイート・スパイシーな記述もありますが、特定個体の観察なので品種全体の確定香としては広げていません。",
+          "morphologyNote": "Serious Seeds公式では、葉が少ない背の高いクラシックなサティバ型の株姿、螺旋状にまとまる花房、豊富な樹脂、サティバらしいややエアリーな花構造が説明されています。高さ・収量・開花期間・栽培手順は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -6581,8 +6614,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15428,7 +15461,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-08"
     },
     "serious-seeds-serious-happiness": {
       "schemaVersion": 1,
