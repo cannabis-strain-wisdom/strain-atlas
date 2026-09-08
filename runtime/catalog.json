@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T20:56:48.987Z",
+  "generatedAt": "2026-09-08T21:10:42.128Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -9102,7 +9102,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-orient-express"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F3"
@@ -9121,7 +9147,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Orient Expressは、Vietnam BlackサティバとChina Yunnanインディカを組み合わせたF3の半安定化ハイブリッドとしてACE Seeds公式に記載されています。"
+          "textJa": "ACE Seeds公式では、Orient Express RegularはVietnam Blackサティバ × China YunnanインディカのF3半安定化ハイブリッドで、60% Sativa / 40% Indicaと記載されています。"
         }
       },
       "relations": [
@@ -9135,7 +9161,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "ace-seeds-orient-express"
+            "ace-seeds-orient-express",
+            "ace-seeds-about-2026"
           ]
         }
       ],
@@ -9147,21 +9174,27 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "レインフォレスト",
-          "ディープオーガニック",
-          "アーシー",
-          "フローラル"
+          "ディープ＆オーガニック",
+          "レインフォレスト"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "レインフォレスト",
-            "ディープオーガニック",
-            "アーシー",
-            "フローラル"
+            "ディープ＆オーガニック",
+            "レインフォレスト"
           ],
           "details": [
+            {
+              "rawMatch": "deep and organic",
+              "reviewLabelJa": "ディープ＆オーガニック",
+              "plainMeaningJa": "深く濃い有機物のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "有機物"
+              ],
+              "registryVersion": 1
+            },
             {
               "rawMatch": "rainforest",
               "reviewLabelJa": "レインフォレスト",
@@ -9171,41 +9204,11 @@
                 "森"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "deep organic",
-              "reviewLabelJa": "ディープオーガニック",
-              "plainMeaningJa": "深く濃い有機物のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "有機物"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "earthy",
-              "reviewLabelJa": "アーシー",
-              "plainMeaningJa": "土っぽい香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "土"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "floral",
-              "reviewLabelJa": "フローラル",
-              "plainMeaningJa": "花のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "花"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式説明では、生命感のある熱帯雨林を思わせる深く有機的な香りと、濃いアーシーさにフローラルな細部が重なるプロフィールとして示されています。"
+          "noteJa": "ACE Seeds公式のBouquet欄では、香りは深くオーガニックで、生命感のある熱帯雨林を思わせると説明されています。続くアーシー／フローラルの表現はFlavorとして書かれているため、Aromaには混ぜていません。"
         }
       },
       "terpenes": {
@@ -9327,42 +9330,26 @@
               "visualRole": "trace"
             }
           ],
-          "noteJa": "ACE Seeds公式ではbeta-myrceneとalpha-pineneが多く、beta-pinene、p-cymene、campheneが中程度とされています。さらにnerolidol、beta-caryophyllene、bisabololなどのセスキテルペンも列挙されています。"
+          "noteJa": "ACE Seeds公式では、モノテルペン中でbeta-myrceneとalpha-pineneが多く、beta-pinene、p-cymene、campheneが中程度、isopulegol、linalool、terpinoleneが少量と説明されています。セスキテルペンではnerolidolが中心で、beta-caryophylleneとbisabololが中程度、alpha-humuleneとguaiolが少量とされています。これは公式掲載の相対プロファイルで、CSWが確認した花中絶対濃度ではありません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-orient-express"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-orient-express"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 7.1,
-            "max": 16,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-orient-express"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0.15,
-            "max": 8.2,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -9377,10 +9364,15 @@
               "maxValue": 16,
               "unit": "%",
               "valueText": "7.1〜16%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-orient-express"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -9391,10 +9383,33 @@
               "maxValue": 8.2,
               "unit": "%",
               "valueText": "0.15〜8.2%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-orient-express"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 0.35,
+              "unit": "%",
+              "valueText": "最大0.35%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-orient-express"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -9405,22 +9420,37 @@
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-about"
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsの公式沿革では、Orient Expressは2005年の最初のカタログに含まれた初期品種の一つです。現行品種ページでも、ACE Seeds初期から続く代表的な品種として説明されています。"
+          "textJa": "ACE Seedsの現行公式沿革では、Orient Expressは2005年の最初のカタログに掲載された品種の一つです。これより前の発売年は補っていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-orient-express"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、優れた構造、低めの草姿、良好な分枝性が示されています。収量・開花期間・栽培手順・耐性は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Orient Expressは、Vietnam BlackサティバとChina Yunnanインディカを組み合わせたF3の半安定化ハイブリッドとしてACE Seeds公式に記載されています。",
-          "history": "ACE Seedsの公式沿革では、Orient Expressは2005年の最初のカタログに含まれた初期品種の一つです。現行品種ページでも、ACE Seeds初期から続く代表的な品種として説明されています。",
-          "aromaNote": "公式説明では、生命感のある熱帯雨林を思わせる深く有機的な香りと、濃いアーシーさにフローラルな細部が重なるプロフィールとして示されています。",
-          "terpeneNote": "ACE Seeds公式ではbeta-myrceneとalpha-pineneが多く、beta-pinene、p-cymene、campheneが中程度とされています。さらにnerolidol、beta-caryophyllene、bisabololなどのセスキテルペンも列挙されています。"
+          "lineageNote": "ACE Seeds公式では、Orient Express RegularはVietnam Blackサティバ × China YunnanインディカのF3半安定化ハイブリッドで、60% Sativa / 40% Indicaと記載されています。",
+          "history": "ACE Seedsの現行公式沿革では、Orient Expressは2005年の最初のカタログに掲載された品種の一つです。これより前の発売年は補っていません。",
+          "aromaNote": "ACE Seeds公式のBouquet欄では、香りは深くオーガニックで、生命感のある熱帯雨林を思わせると説明されています。続くアーシー／フローラルの表現はFlavorとして書かれているため、Aromaには混ぜていません。",
+          "terpeneNote": "ACE Seeds公式では、モノテルペン中でbeta-myrceneとalpha-pineneが多く、beta-pinene、p-cymene、campheneが中程度、isopulegol、linalool、terpinoleneが少量と説明されています。セスキテルペンではnerolidolが中心で、beta-caryophylleneとbisabololが中程度、alpha-humuleneとguaiolが少量とされています。これは公式掲載の相対プロファイルで、CSWが確認した花中絶対濃度ではありません。",
+          "morphologyNote": "ACE Seeds公式では、優れた構造、低めの草姿、良好な分枝性が示されています。収量・開花期間・栽培手順・耐性は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -9434,8 +9464,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14477,7 +14507,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-panama": {
       "schemaVersion": 1,
