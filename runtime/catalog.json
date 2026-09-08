@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T17:02:20.979Z",
+  "generatedAt": "2026-09-08T17:24:34.864Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 95,
+    "sources": 97,
     "entities": 16
   },
   "explore": {
@@ -10969,7 +10969,32 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica-dominant-hybrid"
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-shiva-skunk"
+          ],
+          "measurement": {
+            "kind": "indica-single",
+            "unit": "%",
+            "value": 85,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "indica-single",
+              "unit": "%",
+              "value": 85,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -10979,7 +11004,8 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "sensi-seeds-shiva-skunk"
+          "sensi-seeds-shiva-skunk",
+          "sensi-seeds-shiva-skunk-history"
         ],
         "display": "Northern Lights #5 × Skunk #1",
         "parents": [
@@ -10988,7 +11014,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Sensi Seeds公式のShiva Skunk RegularではNorthern Lights #5 × Skunk #1、85% Indica / 15% Sativaと記載されています。"
+          "textJa": "Sensi Seeds公式ではNorthern Lights #5 × Skunk #1と明記されています。現行Regularページは85% Indicaを直接示していますが、残り15%をこちらでSativaと補完してはいません。"
         }
       },
       "relations": [
@@ -10999,10 +11025,11 @@
             "seedCompany"
           ],
           "status": "confirmed",
-          "confidence": "A",
+          "confidence": "B",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "sensi-seeds-shiva-skunk"
+            "sensi-seeds-shiva-skunk",
+            "sensi-seeds-shiva-skunk-history"
           ]
         }
       ],
@@ -11014,17 +11041,39 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "パングェント",
-          "スカンク"
+          "ムスキー",
+          "スイートシトラス",
+          "パングェント"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "パングェント",
-            "スカンク"
+            "ムスキー",
+            "スイートシトラス",
+            "パングェント"
           ],
           "details": [
+            {
+              "rawMatch": "musky",
+              "reviewLabelJa": "ムスキー",
+              "plainMeaningJa": "ムスクのような重く甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "麝香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet citrus",
+              "reviewLabelJa": "スイートシトラス",
+              "plainMeaningJa": "甘みのある柑橘を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い柑橘"
+              ],
+              "registryVersion": 1
+            },
             {
               "rawMatch": "pungent",
               "reviewLabelJa": "パングェント",
@@ -11034,35 +11083,52 @@
                 "刺激"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "skunk",
-              "reviewLabelJa": "スカンク",
-              "plainMeaningJa": "スカンク系を思わせる強い香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "スカンク系"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Sensi Seeds公式では、パングェントとスカンクの香りが挙げられています。"
+          "noteJa": "Sensi Seedsの現行Regularページでは、ムスキーな香りにスイートシトラスのニュアンスが重なり、パングェントな強さを持つと説明されています。ほかにも追加の香り表現がありますが、未承認の自動翻訳はPUBLICへ出していません。"
         }
       },
       "terpenes": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "items": [],
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-shiva-skunk"
+        ],
+        "items": [
+          "Myrcene",
+          "Caryophyllene",
+          "Pinene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "Pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "LeaflyではMyrcene、Caryophyllene、PineneがShiva Skunkのテルペンとして挙げられています。専門データベースの定性的な掲載情報として扱い、含有率・順位・優勢度や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "sensi-seeds-shiva-skunk"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -11083,34 +11149,52 @@
       },
       "origin": {
         "status": "confirmed",
-        "confidence": "A",
+        "confidence": "B",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "sensi-seeds-shiva-skunk"
+          "sensi-seeds-shiva-skunk",
+          "sensi-seeds-shiva-skunk-history"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Sensi SeedsがNorthern Lights #5とSkunk #1から育種したと公式に説明しています。"
+          "textJa": "現行Sensi SeedsはShiva SkunkをNorthern Lights #5 × Skunk #1として扱っています。一方、同社の歴史記事では、この組み合わせは1987年にThe Seed Bankから市場投入され、1990年にSensi Seed ClubがThe Seed Bankの遺伝素材と育種を引き継いだと説明されています。前身組織と現在のSensi Seedsを単純に一つの作出主体へまとめていません。"
         }
       },
       "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-shiva-skunk",
+          "sensi-seeds-shiva-skunk-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsの歴史記事では、Northern Lights #5 × Skunk #1は1987年にThe Seed Bankから市場投入され、1988年の初回High Times Cannabis CupでMostly Indica部門を受賞し、1990年にSensi Seed ClubがThe Seed Bankの遺伝素材と育種を引き継いだ後にShiva Skunkへ改名されたと説明されています。現行商品ページの『1987年発売後まもなく改名』という簡略表現との時系列差は、そのまま残しています。"
+        }
+      },
+      "morphology": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
           "sensi-seeds-shiva-skunk"
         ],
+        "scope": "cultivar",
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Sensi Seedsは、1987年にNL#5xSK#1として初めてリリースされ、その後まもなくShiva Skunkへ改名されたと説明しています。"
+          "mode": "summary",
+          "textJa": "Sensi Seeds公式では、鮮やかな緑色のコンパクトな株、強い側枝、ずんぐりした樹形、大きく厚みのある花、強い樹脂被覆と大きなトリコームが説明されています。収量・開花期間・栽培適性は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Sensi Seeds公式のShiva Skunk RegularではNorthern Lights #5 × Skunk #1、85% Indica / 15% Sativaと記載されています。",
-          "origin": "Sensi SeedsがNorthern Lights #5とSkunk #1から育種したと公式に説明しています。",
-          "history": "Sensi Seedsは、1987年にNL#5xSK#1として初めてリリースされ、その後まもなくShiva Skunkへ改名されたと説明しています。",
-          "aromaNote": "Sensi Seeds公式では、パングェントとスカンクの香りが挙げられています。"
+          "lineageNote": "Sensi Seeds公式ではNorthern Lights #5 × Skunk #1と明記されています。現行Regularページは85% Indicaを直接示していますが、残り15%をこちらでSativaと補完してはいません。",
+          "origin": "現行Sensi SeedsはShiva SkunkをNorthern Lights #5 × Skunk #1として扱っています。一方、同社の歴史記事では、この組み合わせは1987年にThe Seed Bankから市場投入され、1990年にSensi Seed ClubがThe Seed Bankの遺伝素材と育種を引き継いだと説明されています。前身組織と現在のSensi Seedsを単純に一つの作出主体へまとめていません。",
+          "history": "Sensi Seedsの歴史記事では、Northern Lights #5 × Skunk #1は1987年にThe Seed Bankから市場投入され、1988年の初回High Times Cannabis CupでMostly Indica部門を受賞し、1990年にSensi Seed ClubがThe Seed Bankの遺伝素材と育種を引き継いだ後にShiva Skunkへ改名されたと説明されています。現行商品ページの『1987年発売後まもなく改名』という簡略表現との時系列差は、そのまま残しています。",
+          "aromaNote": "Sensi Seedsの現行Regularページでは、ムスキーな香りにスイートシトラスのニュアンスが重なり、パングェントな強さを持つと説明されています。ほかにも追加の香り表現がありますが、未承認の自動翻訳はPUBLICへ出していません。",
+          "terpeneNote": "LeaflyではMyrcene、Caryophyllene、PineneがShiva Skunkのテルペンとして挙げられています。専門データベースの定性的な掲載情報として扱い、含有率・順位・優勢度や分析測定値には引き上げていません。",
+          "morphologyNote": "Sensi Seeds公式では、鮮やかな緑色のコンパクトな株、強い側枝、ずんぐりした樹形、大きく厚みのある花、強い樹脂被覆と大きなトリコームが説明されています。収量・開花期間・栽培適性は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -11124,8 +11208,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15323,6 +15407,19 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "leafly-shiva-skunk": {
+      "schemaVersion": 1,
+      "id": "leafly-shiva-skunk",
+      "publisher": "Leafly",
+      "title": "Shiva Skunk",
+      "url": "https://www.leafly.com/strains/shiva-skunk",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "leafly-warlock": {
       "schemaVersion": 1,
       "id": "leafly-warlock",
@@ -15505,6 +15602,24 @@
       "publishedAt": null,
       "checkedAt": "2026-08-30"
     },
+    "sensi-seeds-shiva-skunk-history": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-shiva-skunk-history",
+      "publisher": "Sensi Seeds",
+      "title": "Shiva Skunk Story & Shiva Skunk Feminized Grow Report",
+      "url": "https://sensiseeds.com/en/blog/shiva-skunk-story-shiva-skunk-feminized-grow-report/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "breeder",
+        "lineage",
+        "origin",
+        "history",
+        "aromas",
+        "visualMorphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "sensi-seeds-shiva-skunk": {
       "schemaVersion": 1,
       "id": "sensi-seeds-shiva-skunk",
@@ -15525,7 +15640,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "sensi-seeds-skunk-1": {
       "schemaVersion": 1,
