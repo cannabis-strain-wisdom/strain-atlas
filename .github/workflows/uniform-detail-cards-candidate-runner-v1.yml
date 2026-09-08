@@ -6,6 +6,8 @@ on:
       - candidate/uniform-detail-cards-v1-20260908
     paths:
       - .github/workflows/uniform-detail-cards-candidate-runner-v1.yml
+      - .github/scripts/public-detail-card-uniformity-v1.mjs
+      - .github/scripts/apply-uniform-detail-cards-candidate-v1.mjs
 
 permissions:
   contents: write
