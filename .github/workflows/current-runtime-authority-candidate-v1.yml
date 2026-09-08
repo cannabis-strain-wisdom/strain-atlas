@@ -1,0 +1,76 @@
+name: CURRENT RUNTIME AUTHORITY CANDIDATE V1
+
+on:
+  push:
+    branches:
+      - candidate/current-runtime-authority-v1-20260908
+    paths:
+      - .github/workflows/current-runtime-authority-candidate-v1.yml
+      - .github/scripts/apply-current-runtime-authority-v1.mjs
+      - .github/scripts/public-current-runtime-authority-v1.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Guard exact PUBLIC base
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=ca25641a7de421264d30379214f12c37c9903003
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "$BASE" || { echo PUBLIC_MAIN_ADVANCED; exit 75; }
+          git merge-base --is-ancestor "$BASE" HEAD
+      - name: Guard legacy overlay mutators for CURRENT cultivars
+        run: node .github/scripts/apply-current-runtime-authority-v1.mjs
+      - name: Static checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check app.min.js
+          node --check .github/scripts/public-current-runtime-authority-v1.mjs
+          grep -Fq '"CURRENT"!==i?.publicPresentation?.state&&t&&(' app.min.js
+      - name: Browser regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)}"
+          test -n "$CHROME_BIN"
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >"$RUNNER_TEMP/csw-authority-http.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for n in $(seq 1 40); do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 0.25; done
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
+      - name: Publish validated non-workflow files to clean branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=ca25641a7de421264d30379214f12c37c9903003
+          CLEAN_BRANCH=candidate/current-runtime-authority-clean-v1-20260908
+          cp app.min.js "$RUNNER_TEMP/app.min.js"
+          cp .github/scripts/public-current-runtime-authority-v1.mjs "$RUNNER_TEMP/public-current-runtime-authority-v1.mjs"
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "$BASE" || { echo PUBLIC_MAIN_ADVANCED; exit 75; }
+          git checkout --detach "$BASE"
+          git switch -c "$CLEAN_BRANCH"
+          cp "$RUNNER_TEMP/app.min.js" app.min.js
+          cp "$RUNNER_TEMP/public-current-runtime-authority-v1.mjs" .github/scripts/public-current-runtime-authority-v1.mjs
+          git config user.name cannabis-strain-wisdom
+          git config user.email 316430215+cannabis-strain-wisdom@users.noreply.github.com
+          git add app.min.js .github/scripts/public-current-runtime-authority-v1.mjs
+          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "2"
+          git diff --cached --check
+          git commit -m "Protect CURRENT runtime from legacy overlays"
+          git push origin HEAD:"refs/heads/$CLEAN_BRANCH"
