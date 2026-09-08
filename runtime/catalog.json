@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T02:48:42.187Z",
+  "generatedAt": "2026-09-08T03:59:12.241Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 88,
+    "sources": 89,
     "entities": 16
   },
   "explore": {
@@ -12313,7 +12313,8 @@
         "OG #18",
         "OG 18",
         "Private Reserve",
-        "Private Reserve OG"
+        "Private Reserve OG",
+        "Reserve OG"
       ],
       "classification": {
         "type": "hybrid"
@@ -12335,7 +12336,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Geneticsの現行ページではOG Kush S1を遺伝背景とし、最初にリリースしたフェミナイズドOG Kush種子から#18を選抜して再フェミナイズしたと説明されています。資料間でS1やBXなどの世代表現が揺れるため、育種世代そのものは確定していません。"
+          "textJa": "DNA Genetics / Reserva PrivadaはThe OG #18をOG Kush S1と表記し、最初にリリースしたフェミナイズドOG Kush種子群から#18を選抜して再フェミナイズしたと説明しています。一方、SeedFinderの系譜表示にはBX表記もあるため、育種世代そのものは確定せず未確定のまま保持しています。"
         }
       },
       "relations": [
@@ -12355,48 +12356,17 @@
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
-        "sourceRefs": [
-          "dna-eu-the-og-18"
-        ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "サワー",
-          "フューエル／ディーゼル"
-        ],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "サワー",
-            "フューエル／ディーゼル"
-          ],
-          "details": [
-            {
-              "rawMatch": "サワー",
-              "reviewLabelJa": "サワー",
-              "plainMeaningJa": "酸っぱさを思わせる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "酸味"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "フューエル / ディーゼル",
-              "reviewLabelJa": "フューエル／ディーゼル",
-              "plainMeaningJa": "燃料とディーゼルを思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "燃料"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "DNA Genetics / Reserva Privada公式では、サワーとフューエル / ディーゼル系の香りが挙げられています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
@@ -12429,22 +12399,20 @@
               "labelJa": "リナロール"
             }
           ],
-          "noteJa": "専門データベースでは、Limonene、Myrcene、LinaloolがThe OG #18のテルペンとして挙げられています。"
+          "noteJa": "LeaflyではLimonene、Myrcene、LinaloolがOG #18のテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [],
         "thc": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-eu-the-og-18"
-          ]
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "dna-eu-the-og-18"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -12461,7 +12429,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Reserva Privadaは、先にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズして展開したと説明しています。作出年や具体的な選抜地点は一次情報では確認できません。"
+          "textJa": "Reserva Privadaは、最初にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズしてThe OG #18として展開したと説明しています。正確な作出年や選抜地点は補っていません。"
         }
       },
       "history": {
@@ -12470,35 +12438,49 @@
         "basis": "breederOfficial",
         "sourceRefs": [
           "dna-eu-the-og-18",
-          "seedfinder-the-og-18"
+          "dna-genetics-awards-og18"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されています。"
+          "textJa": "DNA Geneticsの受賞記録では、OG #18は2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年High Times Cannabis Cup Amsterdam Indica 3位として掲載されています。育種元公式の受賞記録として扱い、主催者一次記録と同じA級には引き上げていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-eu-the-og-18"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "DNA Genetics / Reserva Privada公式では、花は硬く締まり、表面がクリスタル状に輝くと説明されています。開花期間・収量・栽培手順は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Geneticsの現行ページではOG Kush S1を遺伝背景とし、最初にリリースしたフェミナイズドOG Kush種子から#18を選抜して再フェミナイズしたと説明されています。資料間でS1やBXなどの世代表現が揺れるため、育種世代そのものは確定していません。",
-          "origin": "Reserva Privadaは、先にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズして展開したと説明しています。作出年や具体的な選抜地点は一次情報では確認できません。",
-          "history": "Reserva PrivadaのOG Kush選抜として展開され、公式商品ページでは2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年同Indica 3位の受賞歴が記載されています。",
-          "aromaNote": "DNA Genetics / Reserva Privada公式では、サワーとフューエル / ディーゼル系の香りが挙げられています。",
-          "terpeneNote": "専門データベースでは、Limonene、Myrcene、LinaloolがThe OG #18のテルペンとして挙げられています。"
+          "lineageNote": "DNA Genetics / Reserva PrivadaはThe OG #18をOG Kush S1と表記し、最初にリリースしたフェミナイズドOG Kush種子群から#18を選抜して再フェミナイズしたと説明しています。一方、SeedFinderの系譜表示にはBX表記もあるため、育種世代そのものは確定せず未確定のまま保持しています。",
+          "origin": "Reserva Privadaは、最初にリリースしたフェミナイズドOG Kush種子群から#18を選抜し、その個体を再フェミナイズしてThe OG #18として展開したと説明しています。正確な作出年や選抜地点は補っていません。",
+          "history": "DNA Geneticsの受賞記録では、OG #18は2011年Spannabis Hydro 1位、2009年High Times Cannabis Cup Indica 2位、2007年High Times Cannabis Cup Amsterdam Indica 3位として掲載されています。育種元公式の受賞記録として扱い、主催者一次記録と同じA級には引き上げていません。",
+          "terpeneNote": "LeaflyではLimonene、Myrcene、LinaloolがOG #18のテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。",
+          "morphologyNote": "DNA Genetics / Reserva Privada公式では、花は硬く締まり、表面がクリスタル状に輝くと説明されています。開花期間・収量・栽培手順は形態情報には含めていません。"
         }
       },
       "visuals": [
         {
           "role": "primary",
           "src": "assets/cultivars/the-og-18/primary.webp",
-          "alt": "The OG #18の実写資料で確認した密度の高い樹脂質な花姿を参考に作成したAI生成参考ビジュアル",
+          "alt": "The OG #18の公式テキストで確認できる硬く締まりクリスタル状の被覆が目立つ花形を反映したAI生成参考ビジュアル",
           "rights": "AI-generated project asset for Cannabis Strain Wisdom.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14584,17 +14566,33 @@
       "id": "dna-eu-the-og-18",
       "publisher": "DNA Genetics / Reserva Privada",
       "title": "The OG #18",
-      "url": "https://www.dnagenetics.eu/the-og-18.html",
+      "url": "https://www.dnagenetics.eu/seeds/categories/award-winning-cannabis-seeds/the-og-18.html",
       "sourceType": "breederOfficial",
       "supports": [
         "lineage",
         "breeder",
-        "aromas",
+        "breeding",
+        "origin",
         "history",
-        "breeding"
+        "awards",
+        "morphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-08"
+    },
+    "dna-genetics-awards-og18": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-awards-og18",
+      "publisher": "DNA Genetics",
+      "title": "DNA Genetics Awards",
+      "url": "https://www.dnagenetics.eu/awards",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-08"
     },
     "dna-genetics-cataract-kush-feminizing-history": {
       "schemaVersion": 1,
@@ -15140,11 +15138,10 @@
       "supports": [
         "aliases",
         "classification",
-        "aromas",
         "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16"
+      "checkedAt": "2026-09-08"
     },
     "leafly-og-history": {
       "schemaVersion": 1,
@@ -15293,7 +15290,7 @@
         "awards"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-16"
+      "checkedAt": "2026-09-08"
     },
     "sensi-seeds-jack-herer-launch-history": {
       "schemaVersion": 1,
