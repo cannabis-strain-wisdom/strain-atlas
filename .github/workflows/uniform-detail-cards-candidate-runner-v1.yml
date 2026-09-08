@@ -1,0 +1,80 @@
+name: UNIFORM DETAIL CARDS CANDIDATE RUNNER V1
+
+on:
+  push:
+    branches:
+      - candidate/uniform-detail-cards-v1-20260908
+    paths:
+      - .github/workflows/uniform-detail-cards-candidate-runner-v1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Guard exact PUBLIC base
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=34cd1e987da104dfd849317b2879902bd7e9ea9a
+          git merge-base --is-ancestor "$BASE" HEAD
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "$BASE" || { echo PUBLIC_MAIN_ADVANCED; exit 75; }
+
+      - name: Apply bounded UI patch
+        run: node .github/scripts/apply-uniform-detail-cards-candidate-v1.mjs
+
+      - name: Static checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check app.min.js
+          node --check presentation-contract-v1.js
+          node --check .github/scripts/public-detail-card-uniformity-v1.mjs
+          ! grep -Fq 'data-csw-hidden-presentation-live-guard-v1' app.min.js
+          grep -Fq 'UNIVERSAL_FIXED_DETAIL_CARDS_V1' presentation-contract-v1.js
+
+      - name: Browser QA for existing behavior and all cultivars
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)}"
+          test -n "$CHROME_BIN"
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >"$RUNNER_TEMP/csw-uniform-http.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for n in $(seq 1 40); do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && break
+            sleep 0.25
+          done
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
+
+      - name: Commit clean validated candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name cannabis-strain-wisdom
+          git config user.email 316430215+cannabis-strain-wisdom@users.noreply.github.com
+          git rm .github/workflows/uniform-detail-cards-candidate-v1.yml
+          git rm .github/workflows/uniform-detail-cards-candidate-runner-v1.yml
+          git rm .github/scripts/apply-uniform-detail-cards-candidate-v1.mjs
+          git add app.min.js presentation-contract-v1.js .github/scripts/public-detail-card-uniformity-v1.mjs .github/workflows/deploy-public-ui-pages.yml
+          BAD="$(git diff --cached --name-only | grep -Ev '^(app\.min\.js|presentation-contract-v1\.js|\.github/scripts/public-detail-card-uniformity-v1\.mjs|\.github/workflows/deploy-public-ui-pages\.yml|\.github/workflows/uniform-detail-cards-candidate-v1\.yml|\.github/workflows/uniform-detail-cards-candidate-runner-v1\.yml|\.github/scripts/apply-uniform-detail-cards-candidate-v1\.mjs)$' || true)"
+          test -z "$BAD" || { echo "$BAD"; exit 1; }
+          git diff --cached --check
+          git commit -m "Restore uniform cultivar detail cards"
+          git push origin HEAD:candidate/uniform-detail-cards-v1-20260908
