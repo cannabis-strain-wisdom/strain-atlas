@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T16:34:22.347Z",
+  "generatedAt": "2026-09-08T17:02:20.979Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 93,
+    "sources": 95,
     "entities": 16
   },
   "explore": {
@@ -7159,7 +7159,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-laughing-buddha"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 80,
+            "indica": 20,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 80,
+              "indica": 20,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
@@ -7171,14 +7197,14 @@
         "sourceRefs": [
           "barneys-farm-laughing-buddha"
         ],
-        "display": "Thai × Jamaican",
+        "display": "Thai Sativa × Jamaican Hybrid",
         "parents": [
-          "Thai",
-          "Jamaican"
+          "Thai Sativa",
+          "Jamaican Hybrid"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farm公式ではThai × Jamaicanとされ、80% sativa / 20% indicaと説明されています。"
+          "textJa": "Barney's Farm公式では、Laughing Buddhaはpure landrace Thai SativaとJamaican Hybridを交配して作られたと説明されています。出典が示す育種素材の表現をそのまま保持し、より細かな親系統名や世代は補っていません。"
         }
       },
       "relations": [
@@ -7192,7 +7218,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "barneys-farm-laughing-buddha"
+            "barneys-farm-laughing-buddha",
+            "barneys-farm-us-laughing-buddha"
           ]
         }
       ],
@@ -7262,36 +7289,61 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Barney's Farm公式では、フレッシュ、スイート、エキゾチックフルーツ、スパイシーの香りが挙げられています。"
+          "noteJa": "Barney's Farm公式では、フレッシュ、スイート、エキゾチックフルーツに加え、スパイシーなニュアンスを伴う香りが説明されています。Taste欄だけにあるパイナップル、レモン、ローストペッパー、ハーバルは香りへ移していません。"
         }
       },
       "terpenes": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "items": [],
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-laughing-buddha"
+        ],
+        "items": [
+          "Myrcene",
+          "Caryophyllene",
+          "Limonene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "LeaflyではMyrcene、Caryophyllene、LimoneneがLaughing Buddhaのテルペンとして挙げられています。専門データベースの定性的な掲載情報として扱い、含有率・順位・優勢度や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
         "sourceRefs": [
-          "barneys-farm-laughing-buddha"
+          "barneys-farm-laughing-buddha",
+          "barneys-farm-us-laughing-buddha"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
+          "sourceRefs": [
+            "barneys-farm-laughing-buddha",
+            "barneys-farm-us-laughing-buddha"
+          ]
+        },
+        "cbd": {
+          "status": "unknown",
           "sourceRefs": [
             "barneys-farm-laughing-buddha"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 23,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -7302,13 +7354,18 @@
               "targetId": "THC_UNSPECIFIED",
               "label": "THC",
               "valueKind": "exact",
-              "value": 23,
+              "value": 24,
               "unit": "%",
-              "valueText": "23%",
-              "confidence": "A",
+              "valueText": "24%",
+              "confidence": "B",
               "sourceRefs": [
                 "barneys-farm-laughing-buddha"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -7322,7 +7379,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farm公式では、ThaiとJamaicanの遺伝背景から開発したとされています。"
+          "textJa": "Barney's Farm公式では、Laughing Buddhaは同社のThai Sativa系統とJamaican Hybrid系統を交配して開発した品種とされています。ThaiやJamaicanという由来表現から、作出地までは推定していません。"
         }
       },
       "history": {
@@ -7334,15 +7391,32 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Barney's Farmの現行ページではLaughing Buddhaをカップ受賞歴のある品種と説明していますが、正確なリリース年や開発の時系列は示していません。"
+          "textJa": "Barney's Farmの現行ページではLaughing BuddhaをCup Winnerとして掲載していますが、正確な受賞年・部門・主催者結果やリリース年までは示していません。CSWでは確認できた範囲だけを履歴として残しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-laughing-buddha",
+          "barneys-farm-us-laughing-buddha"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Barney's Farm公式では、大きく締まった重い花が説明され、同社USページでは濃いオリーブグリーンの花、霜状のトリコーム、明るいオレンジ色の雌しべ、厚みのあるしっかりした花構造も記載されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Barney's Farm公式ではThai × Jamaicanとされ、80% sativa / 20% indicaと説明されています。",
-          "origin": "Barney's Farm公式では、ThaiとJamaicanの遺伝背景から開発したとされています。",
-          "history": "Barney's Farmの現行ページではLaughing Buddhaをカップ受賞歴のある品種と説明していますが、正確なリリース年や開発の時系列は示していません。",
-          "aromaNote": "Barney's Farm公式では、フレッシュ、スイート、エキゾチックフルーツ、スパイシーの香りが挙げられています。"
+          "lineageNote": "Barney's Farm公式では、Laughing Buddhaはpure landrace Thai SativaとJamaican Hybridを交配して作られたと説明されています。出典が示す育種素材の表現をそのまま保持し、より細かな親系統名や世代は補っていません。",
+          "origin": "Barney's Farm公式では、Laughing Buddhaは同社のThai Sativa系統とJamaican Hybrid系統を交配して開発した品種とされています。ThaiやJamaicanという由来表現から、作出地までは推定していません。",
+          "history": "Barney's Farmの現行ページではLaughing BuddhaをCup Winnerとして掲載していますが、正確な受賞年・部門・主催者結果やリリース年までは示していません。CSWでは確認できた範囲だけを履歴として残しています。",
+          "aromaNote": "Barney's Farm公式では、フレッシュ、スイート、エキゾチックフルーツに加え、スパイシーなニュアンスを伴う香りが説明されています。Taste欄だけにあるパイナップル、レモン、ローストペッパー、ハーバルは香りへ移していません。",
+          "terpeneNote": "LeaflyではMyrcene、Caryophyllene、LimoneneがLaughing Buddhaのテルペンとして挙げられています。専門データベースの定性的な掲載情報として扱い、含有率・順位・優勢度や分析測定値には引き上げていません。",
+          "morphologyNote": "Barney's Farm公式では、大きく締まった重い花が説明され、同社USページでは濃いオリーブグリーンの花、霜状のトリコーム、明るいオレンジ色の雌しべ、厚みのあるしっかりした花構造も記載されています。"
         }
       },
       "visuals": [
@@ -7356,8 +7430,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14437,7 +14511,27 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
+    },
+    "barneys-farm-us-laughing-buddha": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-us-laughing-buddha",
+      "publisher": "Barney's Farm",
+      "title": "Laughing Buddha Strain | USA",
+      "url": "https://www.barneysfarm.com/us/laughing-buddha-weed-strain-8",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "aromas",
+        "origin",
+        "history",
+        "visualMorphology",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
     },
     "brothers-grimm-cinderella-99-history": {
       "schemaVersion": 1,
@@ -15171,6 +15265,19 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
+    },
+    "leafly-laughing-buddha": {
+      "schemaVersion": 1,
+      "id": "leafly-laughing-buddha",
+      "publisher": "Leafly",
+      "title": "Laughing Buddha",
+      "url": "https://www.leafly.com/strains/laughing-buddha",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
     },
     "leafly-og-18": {
       "schemaVersion": 1,
