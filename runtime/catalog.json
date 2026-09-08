@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T12:25:52.709Z",
+  "generatedAt": "2026-09-08T16:34:22.347Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 92,
+    "sources": 93,
     "entities": 16
   },
   "explore": {
@@ -13056,14 +13056,13 @@
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
-        "display": "Skunk × Afghani",
+        "display": "Skunk",
         "parents": [
-          "Skunk",
-          "Afghani"
+          "Skunk"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seeds公式ではSkunk × Afghanistan由来系統のF1で、主にインディカのハイブリッドとされています。"
+          "textJa": "Serious Seeds公式では、WarlockはSkunkと「アフガニスタン由来の名称非開示系統」を直接親に持つF1・インディカ優勢ハイブリッドとされています。地域表現をAfghaniという特定の品種名へ置き換えていません。"
         }
       },
       "relations": [
@@ -13077,7 +13076,8 @@
           "confidence": "A",
           "basis": "breederOfficial",
           "sourceRefs": [
-            "serious-seeds-warlock"
+            "serious-seeds-warlock",
+            "serious-seeds-history"
           ]
         }
       ],
@@ -13089,7 +13089,6 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "ストロング",
           "スイート",
           "アシディック",
           "フレッシュフルーツ"
@@ -13098,22 +13097,11 @@
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "ストロング",
             "スイート",
             "アシディック",
             "フレッシュフルーツ"
           ],
           "details": [
-            {
-              "rawMatch": "strong",
-              "reviewLabelJa": "ストロング",
-              "plainMeaningJa": "はっきり強く感じる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "強い"
-              ],
-              "registryVersion": 1
-            },
             {
               "rawMatch": "sweet",
               "reviewLabelJa": "スイート",
@@ -13147,53 +13135,59 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Serious Seeds公式では、ストロング、スイート、アシディック、フレッシュフルーツの香りが挙げられています。"
+          "noteJa": "Serious Seeds公式のTaste and Aroma欄では、甘さを中心に、酸味を思わせるニュアンスとフレッシュフルーツが挙げられています。香りを含む統合欄なのでフラットな香り情報として保持し、強さの表現を独立した香調にはしていません。"
         }
       },
       "terpenes": {
-        "status": "unknown",
-        "basis": "breederOfficial",
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
         "sourceRefs": [
-          "serious-seeds-warlock"
+          "leafly-warlock"
         ],
-        "items": [],
+        "items": [
+          "Myrcene",
+          "Pinene",
+          "Caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "Pinene",
+              "labelJa": "ピネン"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyではMyrcene、Pinene、CaryophylleneがWarlockのテルペンとして挙げられています。専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "serious-seeds-warlock"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 20,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "serious-seeds-warlock"
-          ],
-          "measurement": {
-            "kind": "single",
-            "unit": "%",
-            "value": 1,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -13207,10 +13201,15 @@
               "value": 20,
               "unit": "%",
               "valueText": "20%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "serious-seeds-warlock"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -13220,10 +13219,15 @@
               "value": 1,
               "unit": "%",
               "valueText": "1%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "serious-seeds-warlock"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -13233,31 +13237,49 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "serious-seeds-warlock"
+          "serious-seeds-warlock",
+          "serious-seeds-history"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious Seedsは、WarlockがMagus Geneticsの代表品種として生まれ、現在はSerious Seedsが維持していると説明しています。"
+          "textJa": "Serious Seeds公式では、WarlockはGerritのMagus Geneticsで作られた代表品種で、その後2011年に残存する親株がSerious Seedsへ引き継がれたと説明されています。これは育種・組織上の来歴であり、地理的な原産地までは断定していません。"
         }
       },
       "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-warlock",
+          "serious-seeds-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsの現行Warlockページは1997年の導入とCup受賞を記載しています。一方、同社Historyは1997年のCup出品とは別に、1997〜1998年の選抜後、1998年High Times Cannabis Cupで商業用シード系統として初めて市場投入したと説明しています。CSWではこの公式内の時系列差を残し、単一のデビュー年へまとめていません。"
+        }
+      },
+      "morphology": {
         "status": "confirmed",
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
           "serious-seeds-warlock"
         ],
+        "scope": "cultivar",
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Serious SeedsはWarlockが1997年にデビューしたと説明しています。"
+          "mode": "summary",
+          "textJa": "Serious Seeds公式では、栄養成長期は低く厚みのある株姿で、開花期には伸長して大きくコンパクトな花頭を形成し、花周りの小葉は少なく、雌しべは成熟につれて白から濃いピンクへ変化すると説明されています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Serious Seeds公式ではSkunk × Afghanistan由来系統のF1で、主にインディカのハイブリッドとされています。",
-          "origin": "Serious Seedsは、WarlockがMagus Geneticsの代表品種として生まれ、現在はSerious Seedsが維持していると説明しています。",
-          "history": "Serious SeedsはWarlockが1997年にデビューしたと説明しています。",
-          "aromaNote": "Serious Seeds公式では、ストロング、スイート、アシディック、フレッシュフルーツの香りが挙げられています。"
+          "lineageNote": "Serious Seeds公式では、WarlockはSkunkと「アフガニスタン由来の名称非開示系統」を直接親に持つF1・インディカ優勢ハイブリッドとされています。地域表現をAfghaniという特定の品種名へ置き換えていません。",
+          "origin": "Serious Seeds公式では、WarlockはGerritのMagus Geneticsで作られた代表品種で、その後2011年に残存する親株がSerious Seedsへ引き継がれたと説明されています。これは育種・組織上の来歴であり、地理的な原産地までは断定していません。",
+          "history": "Serious Seedsの現行Warlockページは1997年の導入とCup受賞を記載しています。一方、同社Historyは1997年のCup出品とは別に、1997〜1998年の選抜後、1998年High Times Cannabis Cupで商業用シード系統として初めて市場投入したと説明しています。CSWではこの公式内の時系列差を残し、単一のデビュー年へまとめていません。",
+          "aromaNote": "Serious Seeds公式のTaste and Aroma欄では、甘さを中心に、酸味を思わせるニュアンスとフレッシュフルーツが挙げられています。香りを含む統合欄なのでフラットな香り情報として保持し、強さの表現を独立した香調にはしていません。",
+          "terpeneNote": "LeaflyではMyrcene、Pinene、CaryophylleneがWarlockのテルペンとして挙げられています。専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。",
+          "morphologyNote": "Serious Seeds公式では、栄養成長期は低く厚みのある株姿で、開花期には伸長して大きくコンパクトな花頭を形成し、花周りの小葉は少なく、雌しべは成熟につれて白から濃いピンクへ変化すると説明されています。"
         }
       },
       "visuals": [
@@ -13280,8 +13302,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15194,6 +15216,19 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "leafly-warlock": {
+      "schemaVersion": 1,
+      "id": "leafly-warlock",
+      "publisher": "Leafly",
+      "title": "Warlock",
+      "url": "https://www.leafly.com/strains/warlock",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "leafly-wedding-cake-2019": {
       "schemaVersion": 1,
       "id": "leafly-wedding-cake-2019",
@@ -15472,7 +15507,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-07"
+      "checkedAt": "2026-09-09"
     },
     "serious-seeds-kali-mist": {
       "schemaVersion": 1,
@@ -15539,7 +15574,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "soft-secrets-frisian-duck-outdoor-2016": {
       "schemaVersion": 1,
