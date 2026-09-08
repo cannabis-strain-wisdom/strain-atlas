@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T22:42:48.910Z",
+  "generatedAt": "2026-09-07T23:22:37.982Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 89,
+    "sources": 88,
     "entities": 16
   },
   "explore": {
@@ -11248,7 +11248,38 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "indica-dominant-hybrid"
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-strawberry-banana-s1"
+          ],
+          "measurement": {
+            "kind": "range-pair",
+            "unit": "%",
+            "sativaMin": 30,
+            "sativaMax": 40,
+            "indicaMin": 60,
+            "indicaMax": 70,
+            "approximate": true
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "range",
+            "measurement": {
+              "kind": "range-pair",
+              "unit": "%",
+              "sativaMin": 30,
+              "sativaMax": 40,
+              "indicaMin": 60,
+              "indicaMax": 70,
+              "approximate": true
+            },
+            "noteJa": "公式が範囲で記載しているため、単一の比率や未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "S1"
@@ -11266,7 +11297,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Geneticsの現行S1ページではOriginal Strawberry BananaをセルフしたS1として説明され、商品欄はOriginal Strawberry Banana × Strawberry Bananaと表記されています。ここではS1としての同一性を優先し、別版の数値は混ぜません。"
+          "textJa": "DNA Geneticsの現行ページでは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1として説明し、商品欄ではOriginal Strawberry Banana × Strawberry Bananaと表記しています。ここではS1としての同一性を優先し、Original Strawberry Bananaだけに属する情報は混ぜません。"
         }
       },
       "relations": [
@@ -11290,25 +11321,27 @@
         "sourceRefs": [
           "dna-strawberry-banana-s1"
         ],
-        "evidenceMode": "PROFILE",
+        "evidenceMode": "LAYERED",
         "items": [
           "ストロベリー",
           "バナナ",
           "バブルガム",
-          "ガス／フューエル"
+          "ガッシー"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
+          "mode": "layered",
+          "core": [
             "ストロベリー",
-            "バナナ",
-            "バブルガム",
-            "ガス／フューエル"
+            "バナナ"
           ],
-          "details": [
+          "accents": [
+            "バブルガム",
+            "ガッシー"
+          ],
+          "coreDetails": [
             {
-              "rawMatch": "ストロベリー",
+              "rawMatch": "strawberry",
               "reviewLabelJa": "ストロベリー",
               "plainMeaningJa": "いちごのような甘い果実香",
               "presentationRole": "NOTE",
@@ -11318,29 +11351,31 @@
               "registryVersion": 1
             },
             {
-              "rawMatch": "バナナ",
+              "rawMatch": "banana",
               "reviewLabelJa": "バナナ",
-              "plainMeaningJa": "バナナのような甘い果実香",
+              "plainMeaningJa": "バナナのような甘く熟した果実香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "果実"
+                "バナナ"
               ],
               "registryVersion": 1
-            },
+            }
+          ],
+          "accentDetails": [
             {
-              "rawMatch": "バブルガム",
+              "rawMatch": "bubblegum",
               "reviewLabelJa": "バブルガム",
-              "plainMeaningJa": "バブルガム菓子のような甘い香り",
+              "plainMeaningJa": "バブルガムのような甘い菓子香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "菓子"
+                "ガム"
               ],
               "registryVersion": 1
             },
             {
-              "rawMatch": "ガス / フューエル",
-              "reviewLabelJa": "ガス／フューエル",
-              "plainMeaningJa": "ガスと燃料を思わせる香り",
+              "rawMatch": "gassy",
+              "reviewLabelJa": "ガッシー",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "燃料"
@@ -11350,7 +11385,7 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエル系の香りが挙げられています。"
+          "noteJa": "DNA Genetics公式では、熟したストロベリーとクリーミーなバナナが香りの中心として説明され、バブルガムのヒントとガス／フューエル系の余韻も記載されています。この主役と補助の関係は公式記述に基づきます。"
         }
       },
       "terpenes": {
@@ -11395,27 +11430,20 @@
               "badge": "MAIN"
             }
           ],
-          "noteJa": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペン（dominant terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
+          "noteJa": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペンとして挙げています。3種間の順位や数値比率は示されていません。Geraniol、Humulene、Terpinoleneは寄与する可能性のある成分としての記載に留め、主要テルペンには加えていません。"
         }
       },
       "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
         "sourceRefs": [
           "dna-strawberry-banana-s1"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "dna-strawberry-banana-s1"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 18,
-            "max": 27,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
           "status": "unknown",
@@ -11436,10 +11464,15 @@
               "maxValue": 27,
               "unit": "%",
               "valueText": "18〜27%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "dna-strawberry-banana-s1"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -11453,7 +11486,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象です。"
+          "textJa": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象として扱います。"
         }
       },
       "history": {
@@ -11461,37 +11494,50 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "dna-strawberry-banana-s1",
-          "leafly-strawberry-banana",
-          "serious-seeds-bubble-gum"
+          "dna-strawberry-banana-s1"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Strawberry Banana S1はOriginal Strawberry Bananaをセルフして得た種子版です。Original Strawberry Bananaのみで確認された受賞歴や測定値は、このS1の実績としては扱えません。"
+          "textJa": "Strawberry Banana S1はOriginal Strawberry Bananaから作られたセルフ系統です。Original Strawberry Bananaだけで確認された受賞歴や測定値は、このS1の実績としては扱いません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-strawberry-banana-s1"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "DNA Genetics公式では、力強く頑丈な株姿、太い側枝、中〜高めの草丈、密度が高くトライコームの多い花が説明されています。栽培手順や収量情報は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "DNA Geneticsの現行S1ページではOriginal Strawberry BananaをセルフしたS1として説明され、商品欄はOriginal Strawberry Banana × Strawberry Bananaと表記されています。ここではS1としての同一性を優先し、別版の数値は混ぜません。",
-          "origin": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象です。",
-          "history": "Strawberry Banana S1はOriginal Strawberry Bananaをセルフして得た種子版です。Original Strawberry Bananaのみで確認された受賞歴や測定値は、このS1の実績としては扱えません。",
-          "aromaNote": "DNA Genetics公式では、ストロベリー、バナナ、バブルガム、ガス / フューエル系の香りが挙げられています。",
-          "terpeneNote": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペン（dominant terpenes）として挙げています。3種間の順位や数値比率は示されていません。"
+          "lineageNote": "DNA Geneticsの現行ページでは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1として説明し、商品欄ではOriginal Strawberry Banana × Strawberry Bananaと表記しています。ここではS1としての同一性を優先し、Original Strawberry Bananaだけに属する情報は混ぜません。",
+          "origin": "DNA Geneticsは、Strawberry Banana S1をOriginal Strawberry BananaをセルフしたS1版として提供しています。Original Strawberry Banana本体とは別の対象として扱います。",
+          "history": "Strawberry Banana S1はOriginal Strawberry Bananaから作られたセルフ系統です。Original Strawberry Bananaだけで確認された受賞歴や測定値は、このS1の実績としては扱いません。",
+          "aromaNote": "DNA Genetics公式では、熟したストロベリーとクリーミーなバナナが香りの中心として説明され、バブルガムのヒントとガス／フューエル系の余韻も記載されています。この主役と補助の関係は公式記述に基づきます。",
+          "terpeneNote": "DNA Genetics公式ではLimonene、Myrcene、Caryophylleneを同格の主要テルペンとして挙げています。3種間の順位や数値比率は示されていません。Geraniol、Humulene、Terpinoleneは寄与する可能性のある成分としての記載に留め、主要テルペンには加えていません。",
+          "morphologyNote": "DNA Genetics公式では、力強く頑丈な株姿、太い側枝、中〜高めの草丈、密度が高くトライコームの多い花が説明されています。栽培手順や収量情報は形態情報には含めていません。"
         }
       },
       "visuals": [
         {
           "role": "primary",
           "src": "assets/cultivars/strawberry-banana-s1/primary-20260817-r2.webp",
-          "alt": "Strawberry Bananaの実写資料の花姿を参照して作成したStrawberry Banana S1の乾燥前の花のAI生成参考ビジュアル",
+          "alt": "Strawberry Banana S1の乾燥前の花を表現したAI生成参考ビジュアル",
           "rights": "AI-generated project asset for Cannabis Strain Wisdom.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-02",
-      "updatedAt": "2026-09-02",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14603,10 +14649,12 @@
         "aromas",
         "terpenes",
         "history",
-        "cannabinoids"
+        "origin",
+        "cannabinoids",
+        "morphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-08"
     },
     "dutch-passion-auto-cinderella-jack-lab-article": {
       "schemaVersion": 1,
@@ -15147,23 +15195,6 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
-    },
-    "leafly-strawberry-banana": {
-      "schemaVersion": 1,
-      "id": "leafly-strawberry-banana",
-      "publisher": "Leafly",
-      "title": "Strawberry Banana",
-      "url": "https://www.leafly.com/strains/strawberry-banana",
-      "sourceType": "specialistDatabase",
-      "supports": [
-        "aliases",
-        "lineage",
-        "aromas",
-        "terpenes",
-        "history"
-      ],
-      "publishedAt": null,
-      "checkedAt": "2026-08-15"
     },
     "leafly-wedding-cake-2019": {
       "schemaVersion": 1,
