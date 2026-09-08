@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T09:46:13.654Z",
+  "generatedAt": "2026-09-08T12:25:52.709Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 91,
+    "sources": 92,
     "entities": 16
   },
   "explore": {
@@ -858,16 +858,36 @@
         }
       },
       "terpenes": {
-        "status": "unknown",
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
         "sourceRefs": [
-          "serious-seeds-ak-47"
+          "leafly-ak-47"
         ],
-        "items": [],
-        "evidenceMode": "UNKNOWN",
+        "items": [
+          "Myrcene",
+          "Pinene",
+          "Caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "Pinene",
+              "labelJa": "ピネン"
+            },
+            {
+              "id": "Caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyではMyrcene、Pinene、CaryophylleneがAK-47のテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
@@ -948,7 +968,8 @@
         "ja": {
           "lineageNote": "Serious Seeds公式では、AK-47はColombian、Mexican、Thai、Afghaniのseed stockから作られたF1・サティバ優勢ハイブリッドとされています。ただしSimonは正確なpedigreeを非公開としているため、4地域名を4つの親品種や順番付きの交配式には置き換えていません。公式記事の比率は65% Sativa / 35% Indicaです。",
           "history": "Serious Seedsの現行AK-47ページでは、Simonが多数の実験系統を選抜した末に1992年にAK-47を作ったと説明されています。一方、Serious Seeds自身のHistoryでは会社設立は1995年です。そのため1992年の作出者はSimonとして扱い、後年のSerious Seedsという会社名を作出時点へ遡らせていません。",
-          "aromaNote": "Serious Seedsの現行ページはTaste and Aromaを一つの欄で扱い、spicyとsweet citrusを挙げています。香りと味のどちらだけに属する語かは分けられていないため、ここでは両者を混ぜた公式の感覚表現としてフラットに保持しています。"
+          "aromaNote": "Serious Seedsの現行ページはTaste and Aromaを一つの欄で扱い、spicyとsweet citrusを挙げています。香りと味のどちらだけに属する語かは分けられていないため、ここでは両者を混ぜた公式の感覚表現としてフラットに保持しています。",
+          "terpeneNote": "LeaflyではMyrcene、Pinene、CaryophylleneがAK-47のテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。"
         }
       },
       "visuals": [
@@ -962,8 +983,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15083,6 +15104,19 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "leafly-ak-47": {
+      "schemaVersion": 1,
+      "id": "leafly-ak-47",
+      "publisher": "Leafly",
+      "title": "AK-47",
+      "url": "https://www.leafly.com/strains/ak-47",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-08"
     },
     "leafly-bubble-gum": {
       "schemaVersion": 1,
