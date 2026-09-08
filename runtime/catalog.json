@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T17:24:34.864Z",
+  "generatedAt": "2026-09-08T17:38:44.427Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -12002,7 +12002,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt CSI公式ではT-1000 × T-1000と記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。"
+          "textJa": "Humboldt CSI公式ではT-1000 × T-1000と明記され、S1のフェミナイズドシードとして提供されています。T-1000母株はOld Family Purple（Triangle Kush × Purple Urkle）からの選抜ですが、Triangle KushとPurple UrkleをS1の直接親へ置き換えてはいません。"
         }
       },
       "relations": [
@@ -12022,7 +12022,10 @@
       ],
       "aromas": {
         "status": "unknown",
-        "sourceRefs": [],
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-t-1000-s1"
+        ],
         "evidenceMode": "UNKNOWN",
         "items": [],
         "presentation": {
@@ -12035,8 +12038,11 @@
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "humboldt-csi-t-1000-s1"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -12044,7 +12050,11 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-t-1000-s1"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -12076,13 +12086,18 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt CSIはT-1000をOld Family Purple hybridからの選抜と説明し、現在そのT-1000 cutをS1のfeminized seed formで提供しているとしています。"
+          "textJa": "Humboldt CSIは、T-1000をOld Family Purple（Triangle Kush × Purple Urkle）からの選抜と説明し、Red Beard／Tigard Farms／CSI:Portlandが選抜・命名・普及した母株を、CSI:HumboldtとCSI:PortlandのコラボレーションとしてS1化して提供しているとしています。正確な発売年は公式ページから補っていません。"
         }
+      },
+      "morphology": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "scope": "cultivar"
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Humboldt CSI公式ではT-1000 × T-1000と記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。",
-          "history": "Humboldt CSIはT-1000をOld Family Purple hybridからの選抜と説明し、現在そのT-1000 cutをS1のfeminized seed formで提供しているとしています。"
+          "lineageNote": "Humboldt CSI公式ではT-1000 × T-1000と明記され、S1のフェミナイズドシードとして提供されています。T-1000母株はOld Family Purple（Triangle Kush × Purple Urkle）からの選抜ですが、Triangle KushとPurple UrkleをS1の直接親へ置き換えてはいません。",
+          "history": "Humboldt CSIは、T-1000をOld Family Purple（Triangle Kush × Purple Urkle）からの選抜と説明し、Red Beard／Tigard Farms／CSI:Portlandが選抜・命名・普及した母株を、CSI:HumboldtとCSI:PortlandのコラボレーションとしてS1化して提供しているとしています。正確な発売年は公式ページから補っていません。"
         }
       },
       "visuals": [
@@ -12096,8 +12111,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15189,7 +15204,7 @@
         "visualMorphology"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "humboldt-csi-trainwreck-s1": {
       "schemaVersion": 1,
