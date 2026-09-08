@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T20:20:10.969Z",
+  "generatedAt": "2026-09-08T20:56:48.987Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5964,7 +5964,33 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-guawi"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 85,
+            "indica": 15,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 85,
+              "indica": 15,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "F1"
@@ -5983,7 +6009,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Guawiは、Old Malawi Killerに、桃・マンゴー・インセンス系の表現を選抜したTikal F5を交配したF1サティバ・ハイブリッドとしてACE Seeds公式に記載されています。"
+          "textJa": "ACE Seeds公式では、GuawiはOld Malawi Killer × Tikal F5（桃・マンゴー・インセンス系の表現型）のF1で、85% Sativa / 15% Indicaと記載されています。公式本文にはpure sativa F1 hybridという表現もありますが、この図鑑では明示された85/15をそのまま表示し、100/0へ補完していません。"
         }
       },
       "relations": [
@@ -6115,13 +6141,17 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "公式説明では、スパイスと木質感を土台に、マンゴー、桃、ストロベリー、インセンスが重なり、深い樹脂感とオイリーな背景を伴う香りとして示されています。"
+          "noteJa": "ACE Seeds公式のBouquet欄では、最初にスパイスとウッディ、そこへマンゴー、桃、ストロベリー、インセンスが重なり、樹脂感とオイリーな背景を伴うと説明されています。現行契約で条件付きの香りとは確認できないため、一つのPROFILEとして保持しています。"
         }
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-guawi"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -6129,37 +6159,22 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-guawi"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-guawi"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 19,
-            "max": 23,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-guawi"
-          ],
-          "measurement": {
-            "kind": "less-than",
-            "unit": "%",
-            "value": 0.05,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -6174,10 +6189,15 @@
               "maxValue": 23,
               "unit": "%",
               "valueText": "19〜23%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-guawi"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -6187,10 +6207,33 @@
               "boundaryValue": 0.05,
               "unit": "%",
               "valueText": "0.05%未満",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-guawi"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.5,
+              "unit": "%",
+              "valueText": "0.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-guawi"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -6203,10 +6246,25 @@
         "status": "unknown",
         "sourceRefs": []
       },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-guawi"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、中〜大型のサティバ型で、強い構造と優れた分枝性を持つと説明されています。収量・開花期間・栽培手順は形態情報には含めていません。"
+        }
+      },
       "publicContent": {
         "ja": {
-          "lineageNote": "Guawiは、Old Malawi Killerに、桃・マンゴー・インセンス系の表現を選抜したTikal F5を交配したF1サティバ・ハイブリッドとしてACE Seeds公式に記載されています。",
-          "aromaNote": "公式説明では、スパイスと木質感を土台に、マンゴー、桃、ストロベリー、インセンスが重なり、深い樹脂感とオイリーな背景を伴う香りとして示されています。"
+          "lineageNote": "ACE Seeds公式では、GuawiはOld Malawi Killer × Tikal F5（桃・マンゴー・インセンス系の表現型）のF1で、85% Sativa / 15% Indicaと記載されています。公式本文にはpure sativa F1 hybridという表現もありますが、この図鑑では明示された85/15をそのまま表示し、100/0へ補完していません。",
+          "aromaNote": "ACE Seeds公式のBouquet欄では、最初にスパイスとウッディ、そこへマンゴー、桃、ストロベリー、インセンスが重なり、樹脂感とオイリーな背景を伴うと説明されています。現行契約で条件付きの香りとは確認できないため、一つのPROFILEとして保持しています。",
+          "morphologyNote": "ACE Seeds公式では、中〜大型のサティバ型で、強い構造と優れた分枝性を持つと説明されています。収量・開花期間・栽培手順は形態情報には含めていません。"
         }
       },
       "visuals": [
@@ -6220,8 +6278,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14314,7 +14372,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-killer-a5-haze": {
       "schemaVersion": 1,
