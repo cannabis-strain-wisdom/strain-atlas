@@ -12,7 +12,7 @@ on:
       - .github/scripts/apply-uniform-lineage-card-candidate-v1.mjs
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -74,20 +74,32 @@ jobs:
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
 
-      - name: Commit clean validated candidate
+      - name: Seal exact validated files
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name cannabis-strain-wisdom
-          git config user.email 316430215+cannabis-strain-wisdom@users.noreply.github.com
-          git rm .github/workflows/uniform-detail-cards-candidate-v1.yml
-          git rm .github/workflows/uniform-detail-cards-candidate-runner-v1.yml
-          git rm .github/scripts/apply-uniform-detail-cards-candidate-v1.mjs
-          git rm .github/scripts/apply-uniform-primary-cards-candidate-v1.mjs
-          git rm .github/scripts/apply-uniform-lineage-card-candidate-v1.mjs
-          git add app.min.js presentation-contract-v1.js .github/scripts/public-detail-card-uniformity-v1.mjs .github/workflows/deploy-public-ui-pages.yml
-          BAD="$(git diff --cached --name-only | grep -Ev '^(app\.min\.js|presentation-contract-v1\.js|\.github/scripts/public-detail-card-uniformity-v1\.mjs|\.github/workflows/deploy-public-ui-pages\.yml|\.github/workflows/uniform-detail-cards-candidate-v1\.yml|\.github/workflows/uniform-detail-cards-candidate-runner-v1\.yml|\.github/scripts/apply-uniform-detail-cards-candidate-v1\.mjs|\.github/scripts/apply-uniform-primary-cards-candidate-v1\.mjs|\.github/scripts/apply-uniform-lineage-card-candidate-v1\.mjs)$' || true)"
-          test -z "$BAD" || { echo "$BAD"; exit 1; }
-          git diff --cached --check
-          git commit -m "Restore uniform cultivar detail cards"
-          git push origin HEAD:candidate/uniform-detail-cards-v1-20260908
+          OUT="$RUNNER_TEMP/uniform-detail-cards-final"
+          mkdir -p "$OUT/.github/scripts" "$OUT/.github/workflows"
+          cp app.min.js "$OUT/app.min.js"
+          cp presentation-contract-v1.js "$OUT/presentation-contract-v1.js"
+          cp .github/scripts/public-detail-card-uniformity-v1.mjs "$OUT/.github/scripts/public-detail-card-uniformity-v1.mjs"
+          cp .github/workflows/deploy-public-ui-pages.yml "$OUT/.github/workflows/deploy-public-ui-pages.yml"
+          (
+            cd "$OUT"
+            sha256sum app.min.js presentation-contract-v1.js .github/scripts/public-detail-card-uniformity-v1.mjs .github/workflows/deploy-public-ui-pages.yml > SHA256SUMS
+            node - <<'NODE'
+          const fs=require('fs');
+          const sums=fs.readFileSync('SHA256SUMS','utf8').trim().split(/\n/).map(line=>{const [sha,...rest]=line.trim().split(/\s+/);return {path:rest.join(' '),sha256:sha};});
+          fs.writeFileSync('manifest.json',JSON.stringify({schemaVersion:1,publicBaseSha:'34cd1e987da104dfd849317b2879902bd7e9ea9a',qa:'UNIFORM DETAIL CARDS PASS 51/51 x 7 frames',files:sums},null,2)+'\n');
+          NODE
+          )
+          cat "$OUT/SHA256SUMS"
+
+      - name: Upload exact validated file set
+        uses: actions/upload-artifact@v4
+        with:
+          name: uniform-detail-cards-validated-${{ github.run_id }}
+          path: ${{ runner.temp }}/uniform-detail-cards-final/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
