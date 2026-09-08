@@ -54,8 +54,8 @@ async function main() {
     cdp.exceptions.length = 0;
     await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} document`);
-    await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'})()`), `${id} fixed detail cards`, 20000);
-    const state = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return {lineage:!!r?.querySelector('.ucd-lineage'),type:!!r?.querySelector('[data-ucd-primary-tab="type"],.ucd-type-only,.ucd-ratio-card'),cannabinoid:!!r?.querySelector('[data-ucd-primary-tab="cannabinoid"],.ucd-cannabinoid-card'),aroma:!!r?.querySelector('[data-ucd-tab="aroma"]'),terpene:!!r?.querySelector('[data-ucd-tab="terpene"]'),morphology:!!r?.querySelector('[data-ucd-tab="morphology"]'),originHistory:!!r?.querySelector('[data-ucd-tab="origin-history"]'),overflow:r?r.scrollWidth>r.clientWidth+1:true}})()`);
+    await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'})()`), `${id} fixed detail cards`, 20000);
+    const state = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return {lineage:!!document.querySelector('#detail-shell .ucd-lineage'),type:!!r?.querySelector('[data-ucd-primary-tab="type"]'),cannabinoid:!!r?.querySelector('[data-ucd-primary-tab="cannabinoid"]'),aroma:!!r?.querySelector('[data-ucd-tab="aroma"]'),terpene:!!r?.querySelector('[data-ucd-tab="terpene"]'),morphology:!!r?.querySelector('[data-ucd-tab="morphology"]'),originHistory:!!r?.querySelector('[data-ucd-tab="origin-history"]'),overflow:r?r.scrollWidth>r.clientWidth+1:true}})()`);
     const missing = Object.entries(state).filter(([key, value]) => key !== 'overflow' && !value).map(([key]) => key);
     if (state.overflow) missing.push('horizontalOverflow');
     if (cdp.exceptions.length) missing.push(`runtimeExceptions:${cdp.exceptions.length}`);
@@ -63,7 +63,7 @@ async function main() {
   }
   cdp.close();
   if (failures.length) throw new Error(`UNIFORM_DETAIL_CARD_FAILURES ${JSON.stringify(failures)}`);
-  console.log(`UNIFORM DETAIL CARDS PASS ${ids.length}/${ids.length}`);
+  console.log(`UNIFORM DETAIL CARDS PASS ${ids.length}/${ids.length} x 7 frames`);
 }
 
 try { await main(); }
