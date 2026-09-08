@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T17:38:44.427Z",
+  "generatedAt": "2026-09-08T18:38:33.003Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8940,49 +8940,17 @@
         }
       },
       "terpenes": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "scientificPublication",
+        "status": "unknown",
         "sourceRefs": [
           "fischedick-og-kush-terpenoids-2017",
           "acs-og-kush-volatiles-2021"
         ],
-        "items": [
-          "beta-myrcene",
-          "limonene",
-          "beta-caryophyllene"
-        ],
-        "evidenceMode": "QUALITATIVE",
+        "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "qualitative-profile",
-          "items": [
-            {
-              "id": "beta-myrcene",
-              "labelJa": "β-ミルセン",
-              "qualitativeLevel": "dominant",
-              "levelJa": "主要",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
-            },
-            {
-              "id": "limonene",
-              "labelJa": "リモネン",
-              "qualitativeLevel": "main",
-              "levelJa": "主要",
-              "visualRole": "lead-primary",
-              "badge": "MAIN"
-            },
-            {
-              "id": "beta-caryophyllene",
-              "labelJa": "β-カリオフィレン",
-              "qualitativeLevel": "high",
-              "levelJa": "多い",
-              "visualRole": "lead-secondary",
-              "badge": "HIGH"
-            }
-          ],
-          "noteJa": "査読研究のOG Kush名試料では、β-Myrcene、Limonene、β-Caryophylleneの相対的な傾向が報告されています。これは全てのOG Kush流通個体に固定された比率を示すものではありません。"
+          "mode": "hidden",
+          "items": []
         }
       },
       "cannabinoids": {
@@ -9037,8 +9005,7 @@
           "lineageNote": "親系統は確定していません。Josh D公式は1996年にFloridaからLos AngelesへTriangle Kush geneticsが持ち込まれた経緯を記録していますが、同じ公式サイトの2026年記事にも複数の異なる系譜説明があります。CSWではそれらを一つの親構成へ推定統合していません。",
           "origin": "Josh D公式と専門資料では、Florida由来のKush系統が1996年にLos Angelesへ渡った経緯が記録されています。この移動史から生物学的な親品種までは確定しません。",
           "history": "1996年にFlorida由来のKush系統がLos Angelesへ持ち込まれ、Josh Dが保存・栽培・共有の中心人物となりました。専門資料では1997年にNorthern Californiaへ持ち込まれ、Josh D本人は「Kush」にOGの呼称が加わった時期を1998〜1999年頃と回想しています。OGの語源そのものは断定しません。",
-          "aromaNote": "Josh D公式記事では、アーシー、ウッディ、パイン、シトラス／レモン、フューエルといった香りが記録されています。資料内で階層は宣言されていないため、CORE／ACCENTSには分けていません。",
-          "terpeneNote": "査読研究のOG Kush名試料では、β-Myrcene、Limonene、β-Caryophylleneの相対的な傾向が報告されています。これは全てのOG Kush流通個体に固定された比率を示すものではありません。"
+          "aromaNote": "Josh D公式記事では、アーシー、ウッディ、パイン、シトラス／レモン、フューエルといった香りが記録されています。資料内で階層は宣言されていないため、CORE／ACCENTSには分けていません。"
         }
       },
       "visuals": [
@@ -9061,8 +9028,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
