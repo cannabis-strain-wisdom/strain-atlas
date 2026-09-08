@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T18:38:33.003Z",
+  "generatedAt": "2026-09-08T18:47:52.982Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -12650,7 +12650,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt CSI公式ではTrainWreck × TrainWreckと記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。"
+          "textJa": "Humboldt CSI公式ではTrainWreck × TrainWreckと記載され、S1のフェミナイズドシードとして扱われています。元になった保存TrainWreck cloneの情報は、S1全個体の性質としては一般化していません。"
         }
       },
       "relations": [
@@ -12670,7 +12670,10 @@
       ],
       "aromas": {
         "status": "unknown",
-        "sourceRefs": [],
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-trainwreck-s1"
+        ],
         "evidenceMode": "UNKNOWN",
         "items": [],
         "presentation": {
@@ -12683,8 +12686,11 @@
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "humboldt-csi-trainwreck-s1"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -12692,7 +12698,11 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-trainwreck-s1"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -12729,7 +12739,7 @@
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Humboldt CSI公式ではTrainWreck × TrainWreckと記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。",
+          "lineageNote": "Humboldt CSI公式ではTrainWreck × TrainWreckと記載され、S1のフェミナイズドシードとして扱われています。元になった保存TrainWreck cloneの情報は、S1全個体の性質としては一般化していません。",
           "history": "Humboldt CSIは、1990年代半ばから後半のTrainWreck cloneを20年以上ライブラリで維持し、現在はS1 formで提供していると説明しています。"
         }
       },
@@ -12744,8 +12754,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15185,10 +15195,11 @@
         "breeder",
         "generation",
         "breeding",
-        "history"
+        "history",
+        "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "humboldt-csi-triangle-kush-s1": {
       "schemaVersion": 1,
