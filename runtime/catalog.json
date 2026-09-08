@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T03:59:12.241Z",
+  "generatedAt": "2026-09-08T06:03:08.529Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 89,
+    "sources": 90,
     "entities": 16
   },
   "explore": {
@@ -13298,7 +13298,8 @@
       "name": "Wedding Cake",
       "jp": null,
       "aliases": [
-        "Triangle Mints #23"
+        "Triangle Mints #23",
+        "Pink Cookies"
       ],
       "classification": {
         "type": "hybrid"
@@ -13322,7 +13323,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして記録され、近年の専門資料ではTriangle Kush × Animal Mintsで概ね一致します。一方で過去にはGSC × Cherry Pie説も広く流通しており、親系統には異説が残ります。"
+          "textJa": "専門資料では、この品種はTriangle Kush × Animal Mintsから作られたTriangle Mintsの選抜個体として記録されています。現在はTriangle Mints #23表記が広く確認できますが、初期流通に近い別資料には#3表記もあり、さらに過去にはGSC × Cherry Pie説も流通したため、選抜番号や旧説を無理に一つへ統合していません。"
         }
       },
       "relations": [
@@ -13343,110 +13344,94 @@
         "status": "confirmed",
         "confidence": "B",
         "sourceRefs": [
-          "leafly-wedding-cake",
-          "leafly-wedding-cake-2019",
-          "david-downs-wedding-cake-2026"
+          "leafly-wedding-cake-2019"
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "バニラ",
-          "スイート",
-          "アーシー",
-          "ペッパー",
-          "フューエル"
+          "バニラ・ドウ",
+          "スイート・アーシー"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "バニラ",
-            "スイート",
-            "アーシー",
-            "ペッパー",
-            "フューエル"
+            "バニラ・ドウ",
+            "スイート・アーシー"
           ],
           "details": [
             {
-              "rawMatch": "バニラ",
-              "reviewLabelJa": "バニラ",
-              "plainMeaningJa": "バニラのような甘い香り",
+              "rawMatch": "vanilla doughiness",
+              "reviewLabelJa": "バニラ・ドウ",
+              "plainMeaningJa": "バニラを思わせる甘さと、生地のような香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
+                "バニラ",
+                "生地",
                 "甘い香り"
               ],
               "registryVersion": 1
             },
             {
-              "rawMatch": "スイート",
-              "reviewLabelJa": "スイート",
-              "plainMeaningJa": "甘さを感じる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "甘い"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "アーシー",
-              "reviewLabelJa": "アーシー",
-              "plainMeaningJa": "土っぽい香り",
+              "rawMatch": "sweet earthiness",
+              "reviewLabelJa": "スイート・アーシー",
+              "plainMeaningJa": "甘さを伴う土っぽい香り",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
-                "土"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "ペッパー",
-              "reviewLabelJa": "ペッパー",
-              "plainMeaningJa": "胡椒のようなスパイス香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "胡椒"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "フューエル",
-              "reviewLabelJa": "フューエル",
-              "plainMeaningJa": "燃料を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "燃料"
+                "土",
+                "甘い香り"
               ],
               "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "既存の専門資料では、バニラ、スイート、アーシー、ペッパー、フューエルの香りが挙げられています。流通個体や表現型による差を含む記載として扱います。"
+          "noteJa": "Leaflyの2019年記事では、収穫直後の香りとしてバニラを思わせる生地のような甘さと、甘い土っぽさが記録されています。同じ文章のペッパー表現は後味として書かれているため、香りには混ぜていません。"
         }
       },
       "terpenes": {
-        "status": "unknown",
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
         "sourceRefs": [
           "leafly-wedding-cake"
         ],
-        "items": [],
+        "items": [
+          "Caryophyllene",
+          "Limonene",
+          "Myrcene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "Caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "Limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "Myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "LeaflyではCaryophyllene、Limonene、Myrceneがテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [],
         "thc": {
           "status": "unknown",
-          "sourceRefs": [
-            "seed-junky-official"
-          ]
+          "sourceRefs": []
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": [
-            "seed-junky-official"
-          ]
+          "sourceRefs": []
         },
         "presentation": {
           "schemaVersion": 1,
@@ -13464,7 +13449,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "専門資料では、Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜した表現型として記録されています。現在の公式ページでは、選抜時期・場所や#23表記までは直接確認できません。"
+          "textJa": "専門資料では、Seed Junky GeneticsのJ Beezyに関連するTriangle Mintsの選抜個体として記録されています。現行公式ページからは正確な選抜時期・場所・番号までは確定していないため補っていません。"
         }
       },
       "history": {
@@ -13472,28 +13457,45 @@
         "confidence": "B",
         "basis": "historicalSource",
         "sourceRefs": [
-          "leafly-wedding-cake-2019",
+          "high-times-norcal-2017-wedding-cake",
           "high-times-socal-2018-wedding-cake",
+          "leafly-wedding-cake-2019",
           "david-downs-wedding-cake-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "専門・歴史資料では、Wedding CakeはJ BeezyがTriangle Mintsから選抜した表現型として広まり、2018年SoCal High Times Cannabis Cupでハイブリッド・フラワー部門1位、2019年にLeaflyの年間品種に選出されたと記録されています。"
+          "textJa": "High Timesの記録では、2017年NorCal Cannabis Cupのインディカ・フラワー部門2位、2018年SoCal Cannabis Cupのハイブリッド・フラワー部門1位。2019年にはLeaflyの年間品種に選出されています。大会部門名は受賞区分として扱い、品種分類の根拠にはしていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-wedding-cake-2019"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyの2019年記事では、花は厚く密に締まり、濃い緑色にトライコームが広がり、紫の差し色とオレンジ色の毛が見られると説明されています。開花期間・収量・栽培手順は形態情報には含めていません。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜したphenotypeとして記録され、近年の専門資料ではTriangle Kush × Animal Mintsで概ね一致します。一方で過去にはGSC × Cherry Pie説も広く流通しており、親系統には異説が残ります。",
-          "origin": "専門資料では、Wedding CakeはSeed Junky GeneticsのJ BeezyがTriangle Mintsから選抜した表現型として記録されています。現在の公式ページでは、選抜時期・場所や#23表記までは直接確認できません。",
-          "history": "専門・歴史資料では、Wedding CakeはJ BeezyがTriangle Mintsから選抜した表現型として広まり、2018年SoCal High Times Cannabis Cupでハイブリッド・フラワー部門1位、2019年にLeaflyの年間品種に選出されたと記録されています。",
-          "aromaNote": "既存の専門資料では、バニラ、スイート、アーシー、ペッパー、フューエルの香りが挙げられています。流通個体や表現型による差を含む記載として扱います。"
+          "lineageNote": "専門資料では、この品種はTriangle Kush × Animal Mintsから作られたTriangle Mintsの選抜個体として記録されています。現在はTriangle Mints #23表記が広く確認できますが、初期流通に近い別資料には#3表記もあり、さらに過去にはGSC × Cherry Pie説も流通したため、選抜番号や旧説を無理に一つへ統合していません。",
+          "origin": "専門資料では、Seed Junky GeneticsのJ Beezyに関連するTriangle Mintsの選抜個体として記録されています。現行公式ページからは正確な選抜時期・場所・番号までは確定していないため補っていません。",
+          "history": "High Timesの記録では、2017年NorCal Cannabis Cupのインディカ・フラワー部門2位、2018年SoCal Cannabis Cupのハイブリッド・フラワー部門1位。2019年にはLeaflyの年間品種に選出されています。大会部門名は受賞区分として扱い、品種分類の根拠にはしていません。",
+          "aromaNote": "Leaflyの2019年記事では、収穫直後の香りとしてバニラを思わせる生地のような甘さと、甘い土っぽさが記録されています。同じ文章のペッパー表現は後味として書かれているため、香りには混ぜていません。",
+          "terpeneNote": "LeaflyではCaryophyllene、Limonene、Myrceneがテルペンとして挙げられています。ここでは専門データベースによる定性的な掲載情報として扱い、含有率・順位・固定的な組成や分析測定値には引き上げていません。",
+          "morphologyNote": "Leaflyの2019年記事では、花は厚く密に締まり、濃い緑色にトライコームが広がり、紫の差し色とオレンジ色の毛が見られると説明されています。開花期間・収量・栽培手順は形態情報には含めていません。"
         }
       },
       "visuals": [
         {
           "role": "primary",
           "src": "assets/cultivars/wedding-cake/wedding-cake-appearance.svg",
-          "alt": "Wedding CakeのAI生成参考ビジュアル",
+          "alt": "Wedding Cakeの専門資料で確認できる密に締まった濃緑の花、トライコーム、紫の差し色、オレンジ色の毛という形態情報を反映したAI生成参考ビジュアル",
           "rights": "Legacy AI-generated site asset; formal rights record pending review.",
           "scope": "cultivar",
           "aiGenerated": true,
@@ -13502,15 +13504,15 @@
         {
           "role": "aroma",
           "src": "assets/cultivars/wedding-cake/wedding-cake-aroma.svg",
-          "alt": "Wedding Cakeの香りを表現したAI生成イメージ",
+          "alt": "Wedding Cakeで香りとして確認できるバニラを思わせる生地のような甘さと甘い土っぽさを表現したAI生成イメージ",
           "rights": "Legacy AI-generated site asset; formal rights record pending review.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14465,11 +14467,10 @@
       "supports": [
         "breeder",
         "lineage",
-        "history",
-        "aromas"
+        "history"
       ],
       "publishedAt": "2026-07-17",
-      "checkedAt": "2026-08-16"
+      "checkedAt": "2026-09-08"
     },
     "dna-chocolope-256-reg": {
       "schemaVersion": 1,
@@ -14893,6 +14894,20 @@
       "publishedAt": null,
       "checkedAt": "2026-09-03"
     },
+    "high-times-norcal-2017-wedding-cake": {
+      "schemaVersion": 1,
+      "id": "high-times-norcal-2017-wedding-cake",
+      "publisher": "High Times",
+      "title": "Winners of the 2017 NorCal Cannabis Cup",
+      "url": "https://hightimes.com/news/winners-of-the-2017-norcal-cannabis-cup/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "history",
+        "award"
+      ],
+      "publishedAt": "2017-06-04",
+      "checkedAt": "2026-09-08"
+    },
     "high-times-socal-2018-wedding-cake": {
       "schemaVersion": 1,
       "id": "high-times-socal-2018-wedding-cake",
@@ -14902,11 +14917,10 @@
       "sourceType": "historicalSource",
       "supports": [
         "history",
-        "award",
-        "classification"
+        "award"
       ],
       "publishedAt": "2018-04-24",
-      "checkedAt": "2026-08-16"
+      "checkedAt": "2026-09-08"
     },
     "hsc-blueberry-muffin-us": {
       "schemaVersion": 1,
@@ -15184,10 +15198,11 @@
         "breeder",
         "history",
         "aliases",
-        "aromas"
+        "aromas",
+        "visualMorphology"
       ],
       "publishedAt": "2019-12-13",
-      "checkedAt": "2026-08-16"
+      "checkedAt": "2026-09-08"
     },
     "leafly-wedding-cake": {
       "schemaVersion": 1,
@@ -15199,11 +15214,11 @@
       "supports": [
         "aliases",
         "lineage",
-        "aromas",
+        "classification",
         "terpenes"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-14"
+      "checkedAt": "2026-09-08"
     },
     "mandala-seeds-satori": {
       "schemaVersion": 1,
