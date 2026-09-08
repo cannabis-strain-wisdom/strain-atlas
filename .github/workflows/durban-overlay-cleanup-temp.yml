@@ -1,0 +1,73 @@
+name: Durban Poison overlay cleanup temporary
+
+on:
+  push:
+    branches: [candidate/durban-poison-overlay-cleanup-20260908]
+    paths: [.github/workflows/durban-overlay-cleanup-temp.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: candidate/durban-poison-overlay-cleanup-20260908
+          fetch-depth: 0
+
+      - name: Guard exact PUBLIC base
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "7e92cd1509f12701a42209df07f110ef59c198be"
+          test "$(git merge-base HEAD origin/main)" = "7e92cd1509f12701a42209df07f110ef59c198be"
+
+      - name: Remove only stale Durban Poison overlays
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const file='app.min.js';
+          let text=fs.readFileSync(file,'utf8');
+          const before=text;
+          const stale=[
+            `"durban-poison":{thc:{status:"unknown",sourceRefs:["dutch-passion-durban-poison"],note:"Dutch Passion's current product page labels THC as High without a numeric percentage."}},`,
+            `"durban-poison":{classification:{type:"sativa-dominant-hybrid"},breeding:{generation:"unknown",method:"sativa-dominant hybrid"}},`
+          ];
+          for(const fragment of stale){
+            const count=text.split(fragment).length-1;
+            assert.equal(count,1,`expected exactly one stale fragment, got ${count}: ${fragment.slice(0,80)}`);
+            text=text.replace(fragment,'');
+          }
+          assert.equal(before.length-text.length,stale.reduce((n,s)=>n+s.length,0),'unexpected byte delta');
+          for(const fragment of stale) assert.equal(text.includes(fragment),false,'stale fragment remains');
+          fs.writeFileSync(file,text);
+          console.log(`SURGICAL_OVERLAY_REMOVAL_PASS bytes_removed=${before.length-text.length}`);
+          NODE
+          node --check app.min.js
+          git diff --check
+          test "$(git diff --name-only)" = "app.min.js"
+
+      - name: Commit candidate with no workflow residue
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add app.min.js
+          git rm .github/workflows/durban-overlay-cleanup-temp.yml
+          git diff --cached --check
+          git config user.name "cannabis-strain-wisdom"
+          git config user.email "316430215+cannabis-strain-wisdom@users.noreply.github.com"
+          git commit -m "Remove stale Durban Poison frontend overlays"
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "7e92cd1509f12701a42209df07f110ef59c198be"
+          mapfile -t changed < <(git diff --name-only origin/main...HEAD)
+          test "${#changed[@]}" -eq 1
+          test "${changed[0]}" = "app.min.js"
+          git push origin HEAD:candidate/durban-poison-overlay-cleanup-20260908
+          echo "PATCH_SHA=$(git rev-parse HEAD)"
