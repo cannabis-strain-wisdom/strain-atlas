@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T21:30:35.651Z",
+  "generatedAt": "2026-09-08T21:52:26.046Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -4868,7 +4868,32 @@
         "Ethiopian"
       ],
       "classification": {
-        "type": "sativa"
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-ethiopia"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -5074,37 +5099,22 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-ethiopia"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-ethiopia"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 6,
-            "max": 12,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-ethiopia"
-          ],
-          "measurement": {
-            "kind": "less-than",
-            "unit": "%",
-            "value": 0.05,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -5119,10 +5129,15 @@
               "maxValue": 12,
               "unit": "%",
               "valueText": "6〜12%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-ethiopia"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -5132,10 +5147,51 @@
               "boundaryValue": 0.05,
               "unit": "%",
               "valueText": "0.05%未満",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-ethiopia"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.6,
+              "unit": "%",
+              "valueText": "0.6%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-ethiopia"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THCV",
+              "label": "THCV",
+              "valueKind": "exact",
+              "value": 2,
+              "unit": "%",
+              "valueText": "2%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-ethiopia"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -5153,15 +5209,40 @@
         }
       },
       "history": {
-        "status": "unknown",
-        "sourceRefs": []
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-about-2026",
+          "ace-seeds-ethiopia"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsの公式沿革では、Ethiopiaは2017年にHondurasとともに新しい純サティバとして導入され、THCVの可能性を持つ系統として記載されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-ethiopia"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、背が高く、力強く柔軟で、強い分枝と長い節間を持つ熱帯サティバ構造として説明されています。耐性、収量、開花期間などの栽培特性は形態情報へ混ぜていません。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "公式のGenetics欄は「3rd generation pure Ethiopian sativa」。交配親を推測で追加せず、P3の純系ランドレースとして扱っています。",
           "origin": "ACE Seeds公式では、Ethiopiaはエチオピア由来の純粋な熱帯アフリカンサティバとして記載されています。",
+          "history": "ACE Seedsの公式沿革では、Ethiopiaは2017年にHondurasとともに新しい純サティバとして導入され、THCVの可能性を持つ系統として記載されています。",
           "aromaNote": "公式では、アーシーでウッディなアフリカンサティバ系の香りを軸に、フローラル、ムスク、発酵したシトラスのタッチが挙げられています。",
-          "terpeneNote": "ACE Seeds公式ではalpha-pineneが多く、beta-myrcene、trans-ocimene、beta-pineneが続きます。少量のlimoneneとterpinoleneには個体差があり、セスキテルペンではbeta-caryophyllene、alpha-humulene、trans-nerolidolが記載されています。"
+          "terpeneNote": "ACE Seeds公式ではalpha-pineneが多く、beta-myrcene、trans-ocimene、beta-pineneが続きます。少量のlimoneneとterpinoleneには個体差があり、セスキテルペンではbeta-caryophyllene、alpha-humulene、trans-nerolidolが記載されています。",
+          "morphologyNote": "ACE Seeds公式では、背が高く、力強く柔軟で、強い分枝と長い節間を持つ熱帯サティバ構造として説明されています。耐性、収量、開花期間などの栽培特性は形態情報へ混ぜていません。"
         }
       },
       "visuals": [
@@ -5175,8 +5256,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-28",
-      "updatedAt": "2026-08-28",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14402,7 +14483,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-golden-tiger": {
       "schemaVersion": 1,
