@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T19:59:14.540Z",
+  "generatedAt": "2026-09-08T20:10:26.935Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -12094,7 +12094,32 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa"
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-thai-chiang-mai"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -12110,13 +12135,14 @@
         "parents": [],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、Chiang Mai由来の純サティバを保存研究の中で複数世代にわたり再生しており、現行ラインをP3-P5（第3〜第5世代）の保存系統として示しています。"
+          "textJa": "ACE Seedsは、Chiang Mai由来の純サティバを保存研究の中で複数世代にわたり再生し、現行ラインをP3-P5（第3〜第5世代）のランドレース保存系統として示しています。P3-P5を親品種名や交配比率へ置き換えていません。"
         }
       },
       "relations": [
         {
           "entityId": "ace-seeds",
           "roles": [
+            "breeder",
             "seedCompany"
           ],
           "status": "confirmed",
@@ -12128,144 +12154,19 @@
         }
       ],
       "aromas": {
-        "status": "confirmed",
-        "confidence": "A",
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-thai-chiang-mai"
         ],
-        "evidenceMode": "PROFILE",
-        "items": [
-          "フレッシュ",
-          "レモンライム",
-          "ウッド",
-          "スパイス",
-          "スイート",
-          "クリーミー",
-          "パフュームド",
-          "フローラル",
-          "ムスキー",
-          "ストロベリー"
-        ],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
         "presentation": {
           "schemaVersion": 1,
-          "mode": "profile",
-          "items": [
-            "フレッシュ",
-            "レモンライム",
-            "ウッド",
-            "スパイス",
-            "スイート",
-            "クリーミー",
-            "パフュームド",
-            "フローラル",
-            "ムスキー",
-            "ストロベリー"
-          ],
-          "details": [
-            {
-              "rawMatch": "fresh",
-              "reviewLabelJa": "フレッシュ",
-              "plainMeaningJa": "新鮮で軽やかな印象の香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "新鮮"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "lemon-lime",
-              "reviewLabelJa": "レモンライム",
-              "plainMeaningJa": "レモンとライムを合わせたような柑橘香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "柑橘"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "wood",
-              "reviewLabelJa": "ウッド",
-              "plainMeaningJa": "木材そのものを思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "木"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "spices",
-              "reviewLabelJa": "スパイス",
-              "plainMeaningJa": "複数の香辛料を思わせる香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "香辛料"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "sweet",
-              "reviewLabelJa": "スイート",
-              "plainMeaningJa": "甘さを感じる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "甘い"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "creamy",
-              "reviewLabelJa": "クリーミー",
-              "plainMeaningJa": "クリームのようにまろやかな香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "まろやか"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "perfumed",
-              "reviewLabelJa": "パフュームド",
-              "plainMeaningJa": "香水のように華やかな香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "香水"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "floral",
-              "reviewLabelJa": "フローラル",
-              "plainMeaningJa": "花のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "花"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "musky",
-              "reviewLabelJa": "ムスキー",
-              "plainMeaningJa": "ムスクのような重く甘い香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "麝香"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "strawberry",
-              "reviewLabelJa": "ストロベリー",
-              "plainMeaningJa": "いちごのような甘い果実香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "いちご"
-              ],
-              "registryVersion": 1
-            }
-          ],
-          "reviewStatus": "APPROVED",
-          "registryVersion": 1,
-          "noteJa": "公式ページでは三つの香り表現が示され、レモンライム・木・スパイス系、甘くクリーミーでフローラル／ムスク系、そして少数のストロベリー系が確認されています。"
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
         }
       },
       "terpenes": {
@@ -12339,27 +12240,20 @@
               "visualRole": "presence"
             }
           ],
-          "noteJa": "公式テルペン欄ではbeta-myrceneとterpinoleneがそれぞれおよそ3分の1を占め、残りをbeta-pinene、trans-ocimene、alpha-pinene、limoneneが分ける構成とされています。セスキテルペンとしてbeta-caryophylleneが挙げられています。"
+          "noteJa": "ACE Seeds公式では、モノテルペンの相対構成としてβ-ミルセンとテルピノレンがそれぞれ約3分の1、残り約3分の1をβ-ピネン、trans-オシメン、α-ピネン、リモネンが分けると説明されています。セスキテルペンではβ-カリオフィレンのみが挙げられています。これは相対的な公式説明で、花中の絶対濃度として扱っていません。"
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-thai-chiang-mai"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-thai-chiang-mai"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 10,
-            "max": 15,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
           "status": "unknown",
@@ -12380,10 +12274,33 @@
               "maxValue": 15,
               "unit": "%",
               "valueText": "10〜15%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-thai-chiang-mai"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.41,
+              "unit": "%",
+              "valueText": "0.41%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-thai-chiang-mai"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -12397,28 +12314,43 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seeds公式では、この系統はタイ北西部のChiang Mai州に由来する伝統的な純サティバとして説明されています。"
+          "textJa": "ACE Seeds公式では、この系統はタイのChiang Mai州に由来する伝統的な純サティバとして説明されています。より細かな採取地点までは補っていません。"
         }
       },
       "history": {
         "status": "confirmed",
-        "confidence": "B",
+        "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-about"
+          "ace-seeds-about-2026",
+          "ace-seeds-thai-chiang-mai"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsの公式沿革では、このChiang Mai由来の古い純Thai系統を2022年に公開したと記載されています。"
+          "textJa": "ACE Seedsの公式沿革では、このChiang Mai由来の古い純Thai系統を2022年に公開したと記載されています。現行品種ページでは、古い系統を複数世代にわたり研究・保存して再生した経緯も説明されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-thai-chiang-mai"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式のStructure欄では、一般に背が高く細身で、淡色の細い葉、細く非常に柔軟な茎、長い節間、強い側枝をもつ熱帯サティバとして説明されています。別記では約10〜15%に、よりコンパクトで頑丈な個体が見られるともされています。"
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "ACE Seedsは、Chiang Mai由来の純サティバを保存研究の中で複数世代にわたり再生しており、現行ラインをP3-P5（第3〜第5世代）の保存系統として示しています。",
-          "origin": "ACE Seeds公式では、この系統はタイ北西部のChiang Mai州に由来する伝統的な純サティバとして説明されています。",
-          "history": "ACE Seedsの公式沿革では、このChiang Mai由来の古い純Thai系統を2022年に公開したと記載されています。",
-          "aromaNote": "公式ページでは三つの香り表現が示され、レモンライム・木・スパイス系、甘くクリーミーでフローラル／ムスク系、そして少数のストロベリー系が確認されています。",
-          "terpeneNote": "公式テルペン欄ではbeta-myrceneとterpinoleneがそれぞれおよそ3分の1を占め、残りをbeta-pinene、trans-ocimene、alpha-pinene、limoneneが分ける構成とされています。セスキテルペンとしてbeta-caryophylleneが挙げられています。"
+          "lineageNote": "ACE Seedsは、Chiang Mai由来の純サティバを保存研究の中で複数世代にわたり再生し、現行ラインをP3-P5（第3〜第5世代）のランドレース保存系統として示しています。P3-P5を親品種名や交配比率へ置き換えていません。",
+          "origin": "ACE Seeds公式では、この系統はタイのChiang Mai州に由来する伝統的な純サティバとして説明されています。より細かな採取地点までは補っていません。",
+          "history": "ACE Seedsの公式沿革では、このChiang Mai由来の古い純Thai系統を2022年に公開したと記載されています。現行品種ページでは、古い系統を複数世代にわたり研究・保存して再生した経緯も説明されています。",
+          "terpeneNote": "ACE Seeds公式では、モノテルペンの相対構成としてβ-ミルセンとテルピノレンがそれぞれ約3分の1、残り約3分の1をβ-ピネン、trans-オシメン、α-ピネン、リモネンが分けると説明されています。セスキテルペンではβ-カリオフィレンのみが挙げられています。これは相対的な公式説明で、花中の絶対濃度として扱っていません。",
+          "morphologyNote": "ACE Seeds公式のStructure欄では、一般に背が高く細身で、淡色の細い葉、細く非常に柔軟な茎、長い節間、強い側枝をもつ熱帯サティバとして説明されています。別記では約10〜15%に、よりコンパクトで頑丈な個体が見られるともされています。"
         }
       },
       "visuals": [
@@ -12432,8 +12364,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14089,7 +14021,7 @@
         "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-07"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-about": {
       "schemaVersion": 1,
@@ -14473,18 +14405,20 @@
       "url": "https://www.aceseeds.org/en/seeds/thai-regular-seeds/",
       "sourceType": "breederOfficial",
       "supports": [
+        "identity",
         "lineage",
         "breeder",
         "classification",
         "breeding",
         "aromas",
         "terpenes",
-        "visualMorphology",
+        "morphology",
         "origin",
-        "cannabinoids"
+        "cannabinoids",
+        "history"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-violeta": {
       "schemaVersion": 1,
