@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T21:52:26.046Z",
+  "generatedAt": "2026-09-08T22:05:22.875Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -7630,7 +7630,32 @@
         "Lebanon"
       ],
       "classification": {
-        "type": "sativa"
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-lebanese"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
       },
       "breeding": {
         "generation": "other"
@@ -7675,10 +7700,7 @@
           "スイート",
           "フローラル",
           "シトラス",
-          "マンゴー",
-          "ブロンドハッシュ",
-          "ウッディ",
-          "サワー"
+          "マンゴー"
         ],
         "presentation": {
           "schemaVersion": 1,
@@ -7687,10 +7709,7 @@
             "スイート",
             "フローラル",
             "シトラス",
-            "マンゴー",
-            "ブロンドハッシュ",
-            "ウッディ",
-            "サワー"
+            "マンゴー"
           ],
           "details": [
             {
@@ -7732,41 +7751,11 @@
                 "南国果実"
               ],
               "registryVersion": 1
-            },
-            {
-              "rawMatch": "blonde hash",
-              "reviewLabelJa": "ブロンドハッシュ",
-              "plainMeaningJa": "明るい色のハッシュを思わせる樹脂香",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "ハッシュ"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "woody",
-              "reviewLabelJa": "ウッディ",
-              "plainMeaningJa": "木のような香り",
-              "presentationRole": "NOTE",
-              "searchAliasesJa": [
-                "木"
-              ],
-              "registryVersion": 1
-            },
-            {
-              "rawMatch": "sour",
-              "reviewLabelJa": "サワー",
-              "plainMeaningJa": "酸っぱさを思わせる香り",
-              "presentationRole": "CHARACTER",
-              "searchAliasesJa": [
-                "酸味"
-              ],
-              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "開花中は甘さとフローラルが中心で、キュア後にシトラスとマンゴーの方向が加わるとされています。さらにブロンドハッシュを思わせる香り、木質、甘酸っぱいニュアンスも公式記載に含まれます。"
+          "noteJa": "ACE Seeds公式では、開花中は甘さとフローラル、キュア後にはシトラスとマンゴーの方向が加わるとされています。燃焼時のハッシュ系表現や味の表現は、花そのものの香りへ混ぜず別文脈として扱っています。"
         }
       },
       "terpenes": {
@@ -7846,6 +7835,7 @@
               "labelJa": "β-カリオフィレン",
               "qualitativeLevel": "main",
               "levelJa": "主要",
+              "sourceValueText": "75〜100%",
               "visualRole": "support"
             },
             {
@@ -7853,6 +7843,7 @@
               "labelJa": "α-フムレン",
               "qualitativeLevel": "present",
               "levelJa": "確認",
+              "sourceValueText": "0〜25%",
               "visualRole": "presence"
             }
           ],
@@ -7860,38 +7851,22 @@
         }
       },
       "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
         "sourceRefs": [
           "ace-seeds-lebanese"
         ],
         "thc": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-lebanese"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 0.5,
-            "max": 8,
-            "approximate": false
-          }
+          ]
         },
         "cbd": {
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "breederOfficial",
+          "status": "unknown",
           "sourceRefs": [
             "ace-seeds-lebanese"
-          ],
-          "measurement": {
-            "kind": "range",
-            "unit": "%",
-            "min": 6,
-            "max": 16,
-            "approximate": false
-          }
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
@@ -7906,10 +7881,15 @@
               "maxValue": 8,
               "unit": "%",
               "valueText": "0.5〜8%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-lebanese"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             },
             {
               "targetType": "ANALYTE",
@@ -7920,10 +7900,33 @@
               "maxValue": 16,
               "unit": "%",
               "valueText": "6〜16%",
-              "confidence": "A",
+              "confidence": "B",
               "sourceRefs": [
                 "ace-seeds-lebanese"
-              ]
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "less-than",
+              "boundaryValue": 0.2,
+              "unit": "%",
+              "valueText": "0.2%未満",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-lebanese"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
             }
           ]
         }
@@ -7945,11 +7948,12 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "ace-seeds-lebanese"
+          "ace-seeds-lebanese",
+          "ace-seeds-about-2026"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "ACE Seedsは、10年以上にわたる育種と強い選抜を経て提供する伝統的なレバノン系ハッシュプラントと説明し、赤・ブロンドのLebanese hashで知られる系統背景を記しています。"
+          "textJa": "ACE Seedsの公式沿革では、Lebaneseは2017年にレバノンのハッシュプラントとして導入されています。現行の品種ページでは、10年以上の育種と強い選抜を経たP4系統で、赤色・ブロンド色の伝統的なレバノンハッシュで知られる背景が記されています。"
         }
       },
       "positioning": {
@@ -7965,14 +7969,29 @@
           "textJa": "ACE Seedsは、このLebanese系統を10年以上の育種と選抜を経た伝統的なレバノン系ハッシュプラントとして紹介し、赤色・ブロンド色のレバノンハッシュで知られる系統背景を記しています。"
         }
       },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-lebanese"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seeds公式では、若い段階はやや頑丈で幅広い葉を持ち、成熟すると中型で細葉・強い分枝を持つ純サティバ形態へ移ると説明されています。花は繊細で樹脂質のある麦穂状で、再開花を重ねて大きなコーラを形成することがあるとされています。"
+        }
+      },
       "publicContent": {
         "ja": {
           "lineageNote": "公式のGenetics欄では「4th generation Lebanese pure sativa」とされ、交配親を追加せず、P4のランドレース系統として記録しています。",
           "origin": "ACE Seeds公式では、Lebaneseはレバノン由来の純系サティバとして扱われています。",
-          "history": "ACE Seedsは、10年以上にわたる育種と強い選抜を経て提供する伝統的なレバノン系ハッシュプラントと説明し、赤・ブロンドのLebanese hashで知られる系統背景を記しています。",
+          "history": "ACE Seedsの公式沿革では、Lebaneseは2017年にレバノンのハッシュプラントとして導入されています。現行の品種ページでは、10年以上の育種と強い選抜を経たP4系統で、赤色・ブロンド色の伝統的なレバノンハッシュで知られる背景が記されています。",
           "positioning": "ACE Seedsは、このLebanese系統を10年以上の育種と選抜を経た伝統的なレバノン系ハッシュプラントとして紹介し、赤色・ブロンド色のレバノンハッシュで知られる系統背景を記しています。",
-          "aromaNote": "開花中は甘さとフローラルが中心で、キュア後にシトラスとマンゴーの方向が加わるとされています。さらにブロンドハッシュを思わせる香り、木質、甘酸っぱいニュアンスも公式記載に含まれます。",
-          "terpeneNote": "ACE Seeds公式ではterpinoleneとalpha-pineneが多く、beta-pineneとlimoneneが中程度。beta-myrcene、linalool、trans-ocimeneには個体差があり、セスキテルペンではbeta-caryophylleneが中心、alpha-humuleneも記載されています。"
+          "aromaNote": "ACE Seeds公式では、開花中は甘さとフローラル、キュア後にはシトラスとマンゴーの方向が加わるとされています。燃焼時のハッシュ系表現や味の表現は、花そのものの香りへ混ぜず別文脈として扱っています。",
+          "terpeneNote": "ACE Seeds公式ではterpinoleneとalpha-pineneが多く、beta-pineneとlimoneneが中程度。beta-myrcene、linalool、trans-ocimeneには個体差があり、セスキテルペンではbeta-caryophylleneが中心、alpha-humuleneも記載されています。",
+          "morphologyNote": "ACE Seeds公式では、若い段階はやや頑丈で幅広い葉を持ち、成熟すると中型で細葉・強い分枝を持つ純サティバ形態へ移ると説明されています。花は繊細で樹脂質のある麦穂状で、再開花を重ねて大きなコーラを形成することがあるとされています。"
         }
       },
       "visuals": [
@@ -7986,8 +8005,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14571,7 +14590,7 @@
         "cannabinoids"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-02"
+      "checkedAt": "2026-09-09"
     },
     "ace-seeds-malawi": {
       "schemaVersion": 1,
