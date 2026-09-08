@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T18:47:52.982Z",
+  "generatedAt": "2026-09-08T19:59:14.540Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 51,
-    "sources": 97,
+    "sources": 98,
     "entities": 16
   },
   "explore": {
@@ -50,6 +50,7 @@
       "mazar",
       "shiva-skunk",
       "strawberry-banana-s1",
+      "triangle-kush-s1",
       "violeta",
       "warlock"
     ],
@@ -68,8 +69,7 @@
     "unclassified": [
       "freakshow",
       "t-1000-s1",
-      "trainwreck-s1",
-      "triangle-kush-s1"
+      "trainwreck-s1"
     ]
   },
   "cultivars": [
@@ -12770,7 +12770,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown"
+        "type": "indica-dominant-hybrid"
       },
       "breeding": {
         "generation": "S1"
@@ -12780,7 +12780,8 @@
         "confidence": "A",
         "basis": "breederOfficial",
         "sourceRefs": [
-          "humboldt-csi-triangle-kush-s1"
+          "humboldt-csi-triangle-kush-s1",
+          "seedfinder-triangle-kush-csi-humboldt"
         ],
         "display": "Triangle Kush（S1）",
         "parents": [
@@ -12788,7 +12789,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt CSI公式ではTriangle Kush × Triangle Kushと記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。"
+          "textJa": "Humboldt CSI公式ではTriangle Kush × Triangle Kushと明記され、S1のフェミナイズドシードとして提供されています。SeedFinderのCSI Humboldtレコードでも同じセルフクロスがS1として整理されています。"
         }
       },
       "relations": [
@@ -12808,7 +12809,10 @@
       ],
       "aromas": {
         "status": "unknown",
-        "sourceRefs": [],
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-triangle-kush-s1"
+        ],
         "evidenceMode": "UNKNOWN",
         "items": [],
         "presentation": {
@@ -12821,8 +12825,11 @@
       },
       "terpenes": {
         "status": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "humboldt-csi-triangle-kush-s1"
+        ],
         "items": [],
+        "evidenceMode": "UNKNOWN",
         "presentation": {
           "schemaVersion": 1,
           "mode": "hidden",
@@ -12830,7 +12837,11 @@
         }
       },
       "cannabinoids": {
-        "sourceRefs": [],
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "humboldt-csi-triangle-kush-s1"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
@@ -12862,13 +12873,18 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Humboldt CSIは、Triangle Kush mother cutを約4年にわたり繰り返しreversalしたのち、このS1 seed releaseに成功したと説明しています。"
+          "textJa": "Humboldt CSIは、Triangle Kush母株のreversalが難しく、約4年間に3回失敗したのち今回のS1作成に成功したと説明しています。大量のpollenを得てもseed数は少なかったとされますが、正確な発売年は公式ページから補っていません。"
         }
+      },
+      "morphology": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "scope": "cultivar"
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Humboldt CSI公式ではTriangle Kush × Triangle Kushと記載され、S1表記と合わせてセルフ化したS1ラインとして扱われています。",
-          "history": "Humboldt CSIは、Triangle Kush mother cutを約4年にわたり繰り返しreversalしたのち、このS1 seed releaseに成功したと説明しています。"
+          "lineageNote": "Humboldt CSI公式ではTriangle Kush × Triangle Kushと明記され、S1のフェミナイズドシードとして提供されています。SeedFinderのCSI Humboldtレコードでも同じセルフクロスがS1として整理されています。",
+          "history": "Humboldt CSIは、Triangle Kush母株のreversalが難しく、約4年間に3回失敗したのち今回のS1作成に成功したと説明しています。大量のpollenを得てもseed数は少なかったとされますが、正確な発売年は公式ページから補っていません。"
         }
       },
       "visuals": [
@@ -12882,8 +12898,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-08-30",
-      "updatedAt": "2026-08-30",
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15209,15 +15225,15 @@
       "url": "https://www.humboldtcsi.com/product/triangle-kush-s1/",
       "sourceType": "breederOfficial",
       "supports": [
+        "identity",
         "lineage",
         "breeder",
         "generation",
-        "breeding",
         "history",
-        "visualMorphology"
+        "visual"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-08-30"
+      "checkedAt": "2026-09-09"
     },
     "humboldt-seed-company-about": {
       "schemaVersion": 1,
@@ -15559,6 +15575,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "seedfinder-triangle-kush-csi-humboldt": {
+      "schemaVersion": 1,
+      "id": "seedfinder-triangle-kush-csi-humboldt",
+      "publisher": "SeedFinder",
+      "title": "Triangle Kush (CSI Humboldt)",
+      "url": "https://seedfinder.eu/en/strain-info/triangle-kush/humboldt-csi",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "generation",
+        "classification"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
     },
     "sensi-seeds-jack-herer-launch-history": {
       "schemaVersion": 1,
