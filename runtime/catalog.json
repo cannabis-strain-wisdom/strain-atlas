@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T09:25:56.919Z",
+  "generatedAt": "2026-09-09T13:39:47.911Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 55,
-    "sources": 105,
+    "cultivars": 59,
+    "sources": 109,
     "entities": 17
   },
   "explore": {
@@ -29,6 +29,7 @@
       "golden-tiger",
       "guawi",
       "honduras",
+      "jamaican-pearl",
       "kali-mist",
       "killer-a5-haze",
       "laughing-buddha",
@@ -38,6 +39,7 @@
       "new-caledonia",
       "orient-express",
       "panama",
+      "power-plant",
       "rush-of-siam",
       "satori",
       "shaman",
@@ -51,9 +53,11 @@
       "cataract-kush",
       "double-grape",
       "erdpurt",
+      "hindu-kush",
       "mazar",
       "shiva-skunk",
       "strawberry-banana-s1",
+      "super-skunk",
       "triangle-kush-s1",
       "violeta",
       "warlock"
@@ -6871,6 +6875,202 @@
     },
     {
       "schemaVersion": 1,
+      "id": "hindu-kush",
+      "status": "review",
+      "name": "Hindu Kush",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-hindu-kush"
+          ],
+          "measurement": {
+            "kind": "indica-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "indica-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-hindu-kush"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Hindu Kush山岳地域に由来するpure indica系統を、同じ遺伝子プール内で何世代にもわたり選抜したラインとして説明されています。名前付きの親品種は示されていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-hindu-kush"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-seeds-hindu-kush"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ウェットパイン"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ウェットパイン"
+          ],
+          "details": [
+            {
+              "rawMatch": "wet pine trees",
+              "reviewLabelJa": "ウェットパイン",
+              "plainMeaningJa": "濡れた松の木を思わせる樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松",
+                "濡れた松"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式で香りとして直接書かれているのは、濡れた松の木を思わせる香りです。サンダルウッドなど味として書かれた表現は香りへ転用していません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-hindu-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では、アフガニスタンからパキスタンにまたがるHindu Kush山岳地域に由来するpure indica系統とされています。国を一つに限定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-hindu-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは、同じ遺伝子プール内で安定性と品質を何世代にもわたり選抜してきた古いindica系統として説明しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-hindu-kush"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、濃緑でコンパクトかつ丈夫な株、幅広いindica系の葉、均一な苗、厚いトリコーム層が説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Hindu Kush山岳地域に由来するpure indica系統を、同じ遺伝子プール内で何世代にもわたり選抜したラインとして説明されています。名前付きの親品種は示されていません。",
+          "origin": "公式では、アフガニスタンからパキスタンにまたがるHindu Kush山岳地域に由来するpure indica系統とされています。国を一つに限定していません。",
+          "history": "Sensi Seedsは、同じ遺伝子プール内で安定性と品質を何世代にもわたり選抜してきた古いindica系統として説明しています。",
+          "aromaNote": "公式で香りとして直接書かれているのは、濡れた松の木を思わせる香りです。サンダルウッドなど味として書かれた表現は香りへ転用していません。",
+          "morphologyNote": "公式では、濃緑でコンパクトかつ丈夫な株、幅広いindica系の葉、均一な苗、厚いトリコーム層が説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/hindu-kush/primary.webp",
+          "alt": "Hindu Kushの公式形態情報に基づき、コンパクトなindica系主花と幅広い葉、厚いトリコーム層を安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "honduras",
       "status": "review",
       "name": "Honduras",
@@ -7503,6 +7703,184 @@
       ],
       "checkedAt": "2026-09-06",
       "updatedAt": "2026-09-06",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "jamaican-pearl",
+      "status": "review",
+      "name": "Jamaican Pearl",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-jamaican-pearl"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 85,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 85,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-jamaican-pearl"
+        ],
+        "display": "Marley’s Collie × Early Pearl",
+        "parents": [
+          "Marley’s Collie",
+          "Early Pearl"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Marley’s Collieを基礎にEarly Pearlを花粉親として使った系譜が説明されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-jamaican-pearl"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-jamaican-pearl"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは、ジャマイカ系サティバのトロピカルな特徴を残しながら、ヨーロッパの屋外環境にも対応しやすい品種としてJamaican Pearlを開発したと説明しています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-jamaican-pearl"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式ではMarley’s CollieとEarly Pearlを用い、トロピカルなサティバの特徴と早生・耐候性を両立させる育種が行われたと説明されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-jamaican-pearl"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では背が高く、大きく毛羽立ったような花と樹脂感のある花が説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Marley’s Collieを基礎にEarly Pearlを花粉親として使った系譜が説明されています。",
+          "origin": "Sensi Seedsは、ジャマイカ系サティバのトロピカルな特徴を残しながら、ヨーロッパの屋外環境にも対応しやすい品種としてJamaican Pearlを開発したと説明しています。",
+          "history": "公式ではMarley’s CollieとEarly Pearlを用い、トロピカルなサティバの特徴と早生・耐候性を両立させる育種が行われたと説明されています。",
+          "morphologyNote": "公式では背が高く、大きく毛羽立ったような花と樹脂感のある花が説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/jamaican-pearl/primary.webp",
+          "alt": "Jamaican Pearlの公式形態情報に基づき、背の高いサティバ系の主花と大きく毛羽立つ花を安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -11248,6 +11626,254 @@
     },
     {
       "schemaVersion": 1,
+      "id": "power-plant",
+      "status": "review",
+      "name": "Power Plant",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-power-plant"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch Passion公式では、南アフリカ由来の系統を戻し交配で維持してきたとされ、具体的な親品種名は示されていません。未開示の親は推定していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dutch-passion",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dutch-passion-power-plant"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dutch-passion-power-plant"
+        ],
+        "evidenceMode": "LAYERED",
+        "items": [
+          "ウッディ",
+          "スパイシー",
+          "アーシー",
+          "フローラル",
+          "パングェント",
+          "ユリ",
+          "ソフトバニラ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "layered",
+          "core": [
+            "ウッディ",
+            "スパイシー",
+            "アーシー",
+            "フローラル",
+            "パングェント"
+          ],
+          "accents": [
+            "ユリ",
+            "ソフトバニラ"
+          ],
+          "coreDetails": [
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pungent",
+              "reviewLabelJa": "パングェント",
+              "plainMeaningJa": "ツンと強い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "刺激"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "accentDetails": [
+            {
+              "rawMatch": "lilies",
+              "reviewLabelJa": "ユリ",
+              "plainMeaningJa": "ユリの花を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ユリ",
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "soft vanilla",
+              "reviewLabelJa": "ソフトバニラ",
+              "plainMeaningJa": "やわらかなバニラを思わせる甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "バニラ",
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式では、ウッディ、スパイシー、アーシー、フローラル、パングェントが目立つ香りとして示され、より控えめなリリー系とソフトなバニラ系のニュアンスも区別されています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-power-plant"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch Passion公式では、Power Plantの遺伝的な由来は南アフリカと説明されています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-power-plant"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch PassionはPower Plantを1997年に導入したクラシック品種として紹介し、交雑ではなく戻し交配によって発展させた系統と説明しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-power-plant"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、大きな花、比較的短い節間、長く積み重なるようなコーラ、粘着感のある樹脂被覆が説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Dutch Passion公式では、南アフリカ由来の系統を戻し交配で維持してきたとされ、具体的な親品種名は示されていません。未開示の親は推定していません。",
+          "origin": "Dutch Passion公式では、Power Plantの遺伝的な由来は南アフリカと説明されています。",
+          "history": "Dutch PassionはPower Plantを1997年に導入したクラシック品種として紹介し、交雑ではなく戻し交配によって発展させた系統と説明しています。",
+          "aromaNote": "公式では、ウッディ、スパイシー、アーシー、フローラル、パングェントが目立つ香りとして示され、より控えめなリリー系とソフトなバニラ系のニュアンスも区別されています。",
+          "morphologyNote": "公式では、大きな花、比較的短い節間、長く積み重なるようなコーラ、粘着感のある樹脂被覆が説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/power-plant/primary.webp",
+          "alt": "Power Plantの公式形態情報に基づき、長く積み重なる主花と樹脂感をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "rush-of-siam",
       "status": "review",
       "name": "Rush of Siam",
@@ -13497,6 +14123,233 @@
       ],
       "checkedAt": "2026-09-08",
       "updatedAt": "2026-09-08",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "super-skunk",
+      "status": "review",
+      "name": "Super Skunk",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-super-skunk"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 20,
+            "indica": 80,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 20,
+              "indica": 80,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-super-skunk"
+        ],
+        "display": "Skunk #1 × Afghan indica",
+        "parents": [
+          "Skunk #1",
+          "Afghan indica"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Skunk #1とハッシュプラント系の強いAfghan indicaを組み合わせた品種と説明されています。Afghan側の具体的な品種名は推定していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-super-skunk"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-seeds-super-skunk"
+        ],
+        "evidenceMode": "LAYERED",
+        "items": [
+          "スイートシトラス",
+          "アーシー",
+          "スパイシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "layered",
+          "core": [
+            "スイートシトラス"
+          ],
+          "accents": [
+            "アーシー",
+            "スパイシー"
+          ],
+          "coreDetails": [
+            {
+              "rawMatch": "sweet citrusy",
+              "reviewLabelJa": "スイートシトラス",
+              "plainMeaningJa": "甘みのある柑橘を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "accentDetails": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式ではスイートシトラス系の香りを中心に、アーシーとスパイシーがベースノートとして区別されています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-super-skunk"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi SeedsがSkunk #1とAfghan indicaを組み合わせたハイブリッドとして扱っています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-super-skunk"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi SeedsはSuper Skunkを1990年にリリースし、その後まもなくMostly Indica部門のCannabis Cupを獲得したと記録しています。受賞についてはブリーダー側の記録として保持しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-super-skunk"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、太く密度のある大きな花、円錐形の株姿、密に伸びる枝、強いトリコーム被覆が説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Skunk #1とハッシュプラント系の強いAfghan indicaを組み合わせた品種と説明されています。Afghan側の具体的な品種名は推定していません。",
+          "origin": "Sensi SeedsがSkunk #1とAfghan indicaを組み合わせたハイブリッドとして扱っています。",
+          "history": "Sensi SeedsはSuper Skunkを1990年にリリースし、その後まもなくMostly Indica部門のCannabis Cupを獲得したと記録しています。受賞についてはブリーダー側の記録として保持しています。",
+          "aromaNote": "公式ではスイートシトラス系の香りを中心に、アーシーとスパイシーがベースノートとして区別されています。",
+          "morphologyNote": "公式では、太く密度のある大きな花、円錐形の株姿、密に伸びる枝、強いトリコーム被覆が説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/super-skunk/primary.webp",
+          "alt": "Super Skunkの公式形態情報に基づき、大きく密度のある主花をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -16618,6 +17471,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "dutch-passion-power-plant": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-power-plant",
+      "publisher": "Dutch Passion",
+      "title": "Power Plant® Feminised Seeds",
+      "url": "https://dutch-passion.com/en/cannabis-seeds/power-plant",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "generation",
+        "aroma",
+        "history",
+        "origin",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "dutch-passion-shaman-story": {
       "schemaVersion": 1,
       "id": "dutch-passion-shaman-story",
@@ -17286,6 +18161,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "sensi-seeds-hindu-kush": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-hindu-kush",
+      "publisher": "Sensi Seeds",
+      "title": "Hindu Kush Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/hindu-kush",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "generation",
+        "aroma",
+        "history",
+        "origin",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "sensi-seeds-jack-herer-launch-history": {
       "schemaVersion": 1,
       "id": "sensi-seeds-jack-herer-launch-history",
@@ -17320,6 +18217,27 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-30"
+    },
+    "sensi-seeds-jamaican-pearl": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-jamaican-pearl",
+      "publisher": "Sensi Seeds",
+      "title": "Jamaican Pearl Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/jamaican-pearl",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "history",
+        "origin",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
     },
     "sensi-seeds-shiva-skunk-history": {
       "schemaVersion": 1,
@@ -17397,6 +18315,26 @@
       ],
       "publishedAt": "2020-09-05",
       "checkedAt": "2026-09-06"
+    },
+    "sensi-seeds-super-skunk": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-super-skunk",
+      "publisher": "Sensi Seeds",
+      "title": "Super Skunk Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/super-skunk",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
     },
     "serious-seeds-ak-47": {
       "schemaVersion": 1,

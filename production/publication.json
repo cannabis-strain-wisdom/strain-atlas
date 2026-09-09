@@ -335,6 +335,30 @@
       "strainId": "destroyer",
       "state": "published",
       "publishedAt": "2026-09-09T09:25:56Z"
+    },
+    {
+      "strainId": "hindu-kush",
+      "state": "published",
+      "publishedAt": "2026-09-09T13:39:45Z"
+    },
+    {
+      "strainId": "jamaican-pearl",
+      "state": "published",
+      "publishedAt": "2026-09-09T13:39:45Z"
+    },
+    {
+      "strainId": "power-plant",
+      "state": "published",
+      "publishedAt": "2026-09-09T13:39:45Z"
+    },
+    {
+      "strainId": "sensi-skunk",
+      "state": "pending"
+    },
+    {
+      "strainId": "super-skunk",
+      "state": "published",
+      "publishedAt": "2026-09-09T13:39:45Z"
     }
   ]
 }
