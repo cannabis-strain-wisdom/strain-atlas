@@ -1,5 +1,5 @@
 name: Deploy public UI to GitHub Pages
-# One-time detail-share installer. This file restores itself to the previous durable workflow in the feature commit.
+# Build, browser-smoke, deploy, and verify the exact live artifact.
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
   actions: read
@@ -23,188 +23,6 @@ jobs:
     steps:
       - name: Checkout public UI shell
         uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Install cultivar share and self-clean
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 <<'PY'
-          from pathlib import Path
-
-          path = Path('index.html')
-          html = path.read_text(encoding='utf-8')
-          style_id = 'csw-detail-share-v1-styles'
-          script_id = 'csw-detail-share-v1-script'
-
-          if style_id not in html and script_id not in html:
-              style = r'''  <style id="csw-detail-share-v1-styles">
-    .detail-shell.csw-detail-share-ready{padding-top:56px}
-    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{position:fixed!important;top:0;left:50%;right:auto;width:min(100%,980px);transform:translateX(-50%);z-index:90;box-sizing:border-box;background:rgba(3,9,6,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1 .detail-topbar-line{flex:0 0 44px}
-    .detail-share-button{appearance:none;display:grid;width:44px;height:44px;flex:0 0 44px;place-items:center;margin-left:auto;padding:0;border:1px solid rgba(217,182,93,.14);border-radius:50%;background:rgba(255,255,255,.025);color:#f4f1e7;cursor:pointer}
-    .detail-share-button+.close-detail{margin-left:0!important}
-    .detail-share-button svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .detail-share-button:focus-visible{outline:2px solid rgba(233,207,126,.82);outline-offset:2px}
-    .detail-share-button.is-copied{border-color:rgba(105,169,120,.42);color:#a8d9b2}
-    @media(max-width:699px){.detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{width:100%}}
-  </style>'''
-
-              script = r'''  <script id="csw-detail-share-v1-script">
-  (() => {
-    'use strict';
-    const shell = document.getElementById('detail-shell');
-    if (!shell) return;
-    const shareIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"></path><path d="m8 7 4-4 4 4"></path><path d="M5 11v8h14v-8"></path></svg>';
-    const copiedIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"></path></svg>';
-
-    const enhance = () => {
-      const bar = shell.querySelector(':scope > .detail-topbar');
-      const close = bar?.querySelector('.close-detail');
-      if (!bar || !close) {
-        shell.classList.remove('csw-detail-share-ready');
-        return;
-      }
-      bar.classList.add('csw-detail-actionbar-v1');
-      if (!bar.querySelector('[data-detail-share]')) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'detail-share-button';
-        button.dataset.detailShare = 'v1';
-        button.setAttribute('aria-label', 'この品種を共有');
-        button.innerHTML = shareIcon;
-        close.before(button);
-      }
-      shell.classList.add('csw-detail-share-ready');
-    };
-
-    const shareUrl = () => {
-      const current = new URL(location.href);
-      const clean = new URL(current.origin + current.pathname);
-      const strain = current.searchParams.get('strain');
-      if (strain) clean.searchParams.set('strain', strain);
-      return clean.href;
-    };
-
-    const copyUrl = async url => {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(url);
-        return;
-      }
-      const area = document.createElement('textarea');
-      area.value = url;
-      area.setAttribute('readonly', '');
-      area.style.position = 'fixed';
-      area.style.opacity = '0';
-      document.body.appendChild(area);
-      area.select();
-      const ok = document.execCommand('copy');
-      area.remove();
-      if (!ok) throw new Error('COPY_FAILED');
-    };
-
-    const copiedFeedback = button => {
-      button.classList.add('is-copied');
-      button.setAttribute('aria-label', 'リンクをコピーしました');
-      button.innerHTML = copiedIcon;
-      window.setTimeout(() => {
-        if (!button.isConnected) return;
-        button.classList.remove('is-copied');
-        button.setAttribute('aria-label', 'この品種を共有');
-        button.innerHTML = shareIcon;
-      }, 1400);
-    };
-
-    shell.addEventListener('click', async event => {
-      const button = event.target.closest('[data-detail-share]');
-      if (!button || !shell.contains(button)) return;
-      event.preventDefault();
-      event.stopPropagation();
-      const url = shareUrl();
-      const name = shell.querySelector('.detail-hero h2')?.textContent?.trim() || 'Cannabis Strain Wisdom';
-      try {
-        if (typeof navigator.share === 'function') {
-          await navigator.share({ title: `${name} | Cannabis Strain Wisdom`, text: `${name} | Cannabis Strain Wisdom`, url });
-          return;
-        }
-        await copyUrl(url);
-        copiedFeedback(button);
-      } catch (error) {
-        if (error?.name === 'AbortError') return;
-        try {
-          await copyUrl(url);
-          copiedFeedback(button);
-        } catch (_) {}
-      }
-    }, true);
-
-    new MutationObserver(enhance).observe(shell, { childList: true });
-    enhance();
-  })();
-  </script>'''
-
-              html = html.replace('</head>', style + '\n</head>', 1)
-              anchor = '  <script src="presentation-contract-v1.js?v=4" defer></script>'
-              if html.count(anchor) != 1:
-                  raise SystemExit('DETAIL_SHARE_SCRIPT_ANCHOR_MISMATCH')
-              html = html.replace(anchor, script + '\n' + anchor, 1)
-          elif not (style_id in html and script_id in html):
-              raise SystemExit('DETAIL_SHARE_PARTIAL_STATE')
-
-          if html.count(style_id) != 1 or html.count(script_id) != 1:
-              raise SystemExit('DETAIL_SHARE_SENTINEL_MISMATCH')
-          if html.count('data-website-id="176ab4f1-4681-422b-b47e-b4058890d210"') != 1:
-              raise SystemExit('UMAMI_TRACKER_MISMATCH')
-          path.write_text(html, encoding='utf-8')
-          PY
-
-          python3 <<'PY'
-          import re
-          from pathlib import Path
-          html = Path('index.html').read_text(encoding='utf-8')
-          match = re.search(r'<script id="csw-detail-share-v1-script">\n(.*?)\n  </script>', html, re.S)
-          if not match:
-              raise SystemExit('DETAIL_SHARE_SCRIPT_EXTRACTION_FAILED')
-          Path('/tmp/csw-detail-share-v1.js').write_text(match.group(1), encoding='utf-8')
-          PY
-          node --check /tmp/csw-detail-share-v1.js
-          grep -Fq 'id="csw-detail-share-v1-styles"' index.html
-          grep -Fq 'id="csw-detail-share-v1-script"' index.html
-          grep -Fq 'data-detail-share' index.html
-          grep -Fq 'navigator.share' index.html
-          grep -Fq "searchParams.set('strain', strain)" index.html
-
-          # Restore the durable deploy workflow from the parent commit and remove the failed temporary installer.
-          git checkout HEAD^ -- .github/workflows/deploy-public-ui-pages.yml
-          if [ -f .github/workflows/csw-detail-share-v1-temp.yml ]; then
-            git rm -f .github/workflows/csw-detail-share-v1-temp.yml
-          fi
-          git add -- index.html .github/workflows/deploy-public-ui-pages.yml
-          git diff --cached --check
-
-          mapfile -t changed < <(git diff --cached --name-only | sort)
-          expected=(
-            '.github/workflows/csw-detail-share-v1-temp.yml'
-            '.github/workflows/deploy-public-ui-pages.yml'
-            'index.html'
-          )
-          if [ "${changed[*]}" != "${expected[*]}" ]; then
-            printf 'Unexpected staged paths:\n%s\n' "${changed[*]}" >&2
-            exit 1
-          fi
-
-          git config user.name "csw-detail-share-installer"
-          git config user.email "actions@users.noreply.github.com"
-          git commit -m "Add cultivar detail share control"
-          git push origin HEAD:main
-
-          if git ls-remote --exit-code --heads origin refs/heads/tmp-detail-share-v1 >/dev/null 2>&1; then
-            git push origin --delete tmp-detail-share-v1
-          fi
-          test -z "$(git ls-remote --heads origin refs/heads/tmp-detail-share-v1)"
-          echo "DETAIL SHARE FEATURE COMMIT: $(git rev-parse HEAD)"
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
@@ -219,6 +37,8 @@ jobs:
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
 
+          # Generate content-based cache keys automatically so browsers/CDNs
+          # cannot keep an older JS/CSS build after the file contents change.
           app_key="$(sha256sum _site/app.min.js | cut -c1-12)"
           presentation_key="$(sha256sum _site/presentation-contract-v1.js | cut -c1-12)"
           css_key="$(sha256sum _site/styles.min.css | cut -c1-12)"
@@ -265,9 +85,6 @@ jobs:
           grep -q '新着の品種' _site/index.html
           grep -q 'すべての品種' _site/index.html
           grep -Fq 'id="detail-dialog"' _site/index.html
-          grep -Fq 'id="csw-detail-share-v1-styles"' _site/index.html
-          grep -Fq 'id="csw-detail-share-v1-script"' _site/index.html
-          grep -Fq 'data-website-id="176ab4f1-4681-422b-b47e-b4058890d210"' _site/index.html
           grep -Fq 'showModal' _site/app.min.js
           grep -Fq 'data-strain-id' _site/app.min.js
           grep -Fq "app.min.js?v=${app_key}" _site/index.html
@@ -399,8 +216,6 @@ jobs:
     steps:
       - name: Checkout exact deployed PUBLIC state
         uses: actions/checkout@v4
-        with:
-          ref: main
 
       - name: Wait for exact live artifact
         shell: bash
@@ -412,7 +227,6 @@ jobs:
 
           fetch_live() {
             nonce="$(date +%s%N)"
-            curl -fsSL "${BASE_URL}/index.html?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/index.html"
             curl -fsSL "${BASE_URL}/app.min.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/app.min.js"
             curl -fsSL "${BASE_URL}/presentation-contract-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/presentation-contract-v1.js"
             curl -fsSL "${BASE_URL}/styles.min.css?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/styles.min.css"
@@ -440,9 +254,6 @@ jobs:
 
           fetch_live
           exact_match
-          grep -Fq 'id="csw-detail-share-v1-styles"' "$LIVE_DIR/index.html"
-          grep -Fq 'id="csw-detail-share-v1-script"' "$LIVE_DIR/index.html"
-          grep -Fq 'data-website-id="176ab4f1-4681-422b-b47e-b4058890d210"' "$LIVE_DIR/index.html"
           grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' "$LIVE_DIR/presentation-contract-v1.js"
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
