@@ -29,6 +29,17 @@
   <style id="alphabet-browse-v1-styles">
     .alphabet-browse{margin:18px 0 16px}.alphabet-browse-heading,.keyword-search-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}.alphabet-browse-heading span,.keyword-search-heading span{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.12em}.alphabet-browse-heading strong,.keyword-search-heading strong{color:#dfe7e1;font-size:13px}.alphabet-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px 5px}.alphabet-chip{min-width:0;min-height:40px;padding:0 4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;touch-action:manipulation;user-select:none;-webkit-user-select:none}.alphabet-chip[data-alphabet="ALL"]{font-size:10px;letter-spacing:.04em}.alphabet-chip.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.18),rgba(50,99,67,.14));color:#f1e2a9;box-shadow:inset 0 0 0 1px rgba(216,189,98,.08)}.alphabet-chip:disabled,.alphabet-chip.is-empty{opacity:.28;cursor:default}.alphabet-help,.alphabet-status{margin:8px 0 0;color:#718279;font-size:10px;line-height:1.5}.alphabet-status{min-height:15px;color:#aebbb3;font-weight:750}.keyword-search-block{margin-top:17px;padding-top:15px;border-top:1px solid rgba(255,255,255,.07)}.filter-type-group .home-type-filters{margin-top:0}@media(max-width:360px){.alphabet-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.alphabet-chip{min-height:42px}}
   </style>
+  <style id="csw-detail-share-v1-styles">
+    .detail-shell.csw-detail-share-ready{padding-top:56px}
+    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{position:fixed!important;top:0;left:50%;right:auto;width:min(100%,980px);transform:translateX(-50%);z-index:90;box-sizing:border-box;background:rgba(3,9,6,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1 .detail-topbar-line{flex:0 0 44px}
+    .detail-share-button{appearance:none;display:grid;width:44px;height:44px;flex:0 0 44px;place-items:center;margin-left:auto;padding:0;border:1px solid rgba(217,182,93,.14);border-radius:50%;background:rgba(255,255,255,.025);color:#f4f1e7;cursor:pointer}
+    .detail-share-button+.close-detail{margin-left:0!important}
+    .detail-share-button svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .detail-share-button:focus-visible{outline:2px solid rgba(233,207,126,.82);outline-offset:2px}
+    .detail-share-button.is-copied{border-color:rgba(105,169,120,.42);color:#a8d9b2}
+    @media(max-width:699px){.detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{width:100%}}
+  </style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -319,6 +330,98 @@
     }).catch(() => {
       root.dataset.ready = 'error';
     });
+  })();
+  </script>
+  <script id="csw-detail-share-v1-script">
+  (() => {
+    'use strict';
+    const shell = document.getElementById('detail-shell');
+    if (!shell) return;
+    const shareIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"></path><path d="m8 7 4-4 4 4"></path><path d="M5 11v8h14v-8"></path></svg>';
+    const copiedIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"></path></svg>';
+
+    const enhance = () => {
+      const bar = shell.querySelector(':scope > .detail-topbar');
+      const close = bar?.querySelector('.close-detail');
+      if (!bar || !close) {
+        shell.classList.remove('csw-detail-share-ready');
+        return;
+      }
+      bar.classList.add('csw-detail-actionbar-v1');
+      if (!bar.querySelector('[data-detail-share]')) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'detail-share-button';
+        button.dataset.detailShare = 'v1';
+        button.setAttribute('aria-label', 'この品種を共有');
+        button.innerHTML = shareIcon;
+        close.before(button);
+      }
+      shell.classList.add('csw-detail-share-ready');
+    };
+
+    const shareUrl = () => {
+      const current = new URL(location.href);
+      const clean = new URL(current.origin + current.pathname);
+      const strain = current.searchParams.get('strain');
+      if (strain) clean.searchParams.set('strain', strain);
+      return clean.href;
+    };
+
+    const copyUrl = async url => {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        return;
+      }
+      const area = document.createElement('textarea');
+      area.value = url;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      const ok = document.execCommand('copy');
+      area.remove();
+      if (!ok) throw new Error('COPY_FAILED');
+    };
+
+    const copiedFeedback = button => {
+      button.classList.add('is-copied');
+      button.setAttribute('aria-label', 'リンクをコピーしました');
+      button.innerHTML = copiedIcon;
+      window.setTimeout(() => {
+        if (!button.isConnected) return;
+        button.classList.remove('is-copied');
+        button.setAttribute('aria-label', 'この品種を共有');
+        button.innerHTML = shareIcon;
+      }, 1400);
+    };
+
+    shell.addEventListener('click', async event => {
+      const button = event.target.closest('[data-detail-share]');
+      if (!button || !shell.contains(button)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const url = shareUrl();
+      const name = shell.querySelector('.detail-hero h2')?.textContent?.trim() || 'Cannabis Strain Wisdom';
+      try {
+        if (typeof navigator.share === 'function') {
+          await navigator.share({ title: `${name} | Cannabis Strain Wisdom`, text: `${name} | Cannabis Strain Wisdom`, url });
+          return;
+        }
+        await copyUrl(url);
+        copiedFeedback(button);
+      } catch (error) {
+        if (error?.name === 'AbortError') return;
+        try {
+          await copyUrl(url);
+          copiedFeedback(button);
+        } catch (_) {}
+      }
+    }, true);
+
+    new MutationObserver(enhance).observe(shell, { childList: true });
+    enhance();
   })();
   </script>
   <script src="presentation-contract-v1.js?v=4" defer></script>
