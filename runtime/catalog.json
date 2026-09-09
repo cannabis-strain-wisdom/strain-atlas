@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T04:38:05.096Z",
+  "generatedAt": "2026-09-09T05:26:20.685Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 53,
-    "sources": 103,
+    "cultivars": 54,
+    "sources": 104,
     "entities": 16
   },
   "explore": {
@@ -33,6 +33,7 @@
       "laughing-buddha",
       "lebanese",
       "malawi",
+      "nepal-jam",
       "new-caledonia",
       "orient-express",
       "panama",
@@ -9340,6 +9341,361 @@
     },
     {
       "schemaVersion": 1,
+      "id": "nepal-jam",
+      "status": "review",
+      "name": "Nepal Jam",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-nepal-jam"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-nepal-jam"
+        ],
+        "display": "(Nepalese/Jamaica '85) × Nepalese",
+        "parents": [
+          "Nepalese/Jamaica '85",
+          "Nepalese"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seeds公式の系統式は（Nepalese / Jamaica '85）× Nepalese、タイプはF7-F8 stabilized hybrid、比率はサティバ60%／インディカ40%です。系統式ではNepaleseが再び現れますが、公式はBX・BC1・backcrossとは表記していないため、CSWでもバッククロス世代を推定していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-nepal-jam"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-nepal-jam"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フローラル",
+          "クリーミー",
+          "カラメル",
+          "ハチミツ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フローラル",
+            "クリーミー",
+            "カラメル",
+            "ハチミツ"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "caramelized",
+              "reviewLabelJa": "カラメル",
+              "plainMeaningJa": "加熱して焦がした砂糖を思わせる甘く香ばしい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "焦がし砂糖",
+                "カラメル"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "honey",
+              "reviewLabelJa": "ハチミツ",
+              "plainMeaningJa": "ハチミツのような甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "蜂蜜"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE SeedsのBouquetでは、甘さ、フローラル、クリーミー、キャラメル調にハチミツのニュアンスが加わると記載されています。記述の強弱からCORE／ACCENTSの階層は推定せず、一つのフラットな香りプロファイルとして扱っています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-nepal-jam"
+        ],
+        "items": [
+          "beta-myrcene",
+          "beta-pinene",
+          "camphene",
+          "alpha-pinene",
+          "linalool",
+          "nerolidol",
+          "beta-caryophyllene",
+          "guaiol"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "camphene",
+              "labelJa": "カンフェン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "nerolidol",
+              "labelJa": "ネロリドール",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            }
+          ],
+          "noteJa": "ACE Seedsはβミルセンを非常に多い主要モノテルペンとして記載し、βピネン、カンフェン、αピネン、リナロールは痕跡量としています。セスキテルペンではネロリドールが主要、βカリオフィレンが少量、グアイオールが痕跡量と記載されています。数値割合は推定していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-nepal-jam"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 14,
+              "unit": "%",
+              "valueText": "14%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-jam"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0,
+              "maxValue": 0.5,
+              "unit": "%",
+              "valueText": "0〜0.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-jam"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0,
+              "maxValue": 0.5,
+              "unit": "%",
+              "valueText": "0〜0.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-jam"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-about-2026"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsの現行公式沿革では、Nepal Jamはregular seedのみで構成された2005年の最初のカタログに掲載された品種の一つとして挙げられています。これは2005年のカタログ掲載を示すもので、作出年そのものとは扱っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "ACE Seeds公式の系統式は（Nepalese / Jamaica '85）× Nepalese、タイプはF7-F8 stabilized hybrid、比率はサティバ60%／インディカ40%です。系統式ではNepaleseが再び現れますが、公式はBX・BC1・backcrossとは表記していないため、CSWでもバッククロス世代を推定していません。",
+          "history": "ACE Seedsの現行公式沿革では、Nepal Jamはregular seedのみで構成された2005年の最初のカタログに掲載された品種の一つとして挙げられています。これは2005年のカタログ掲載を示すもので、作出年そのものとは扱っていません。",
+          "aromaNote": "ACE SeedsのBouquetでは、甘さ、フローラル、クリーミー、キャラメル調にハチミツのニュアンスが加わると記載されています。記述の強弱からCORE／ACCENTSの階層は推定せず、一つのフラットな香りプロファイルとして扱っています。",
+          "terpeneNote": "ACE Seedsはβミルセンを非常に多い主要モノテルペンとして記載し、βピネン、カンフェン、αピネン、リナロールは痕跡量としています。セスキテルペンではネロリドールが主要、βカリオフィレンが少量、グアイオールが痕跡量と記載されています。数値割合は推定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/nepal-jam/primary.webp",
+          "alt": "Nepal Jamの小〜中型で柱状にまとまる生育構造を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "new-caledonia",
       "status": "review",
       "name": "New Caledonia",
@@ -15436,6 +15792,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "ace-seeds-nepal-jam": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-nepal-jam",
+      "publisher": "ACE Seeds",
+      "title": "Nepal Jam Regular",
+      "url": "https://www.aceseeds.org/en/seeds/nepal-jam-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "breeding",
+        "cannabinoids",
+        "aromas",
+        "terpenes",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-new-caledonia": {
       "schemaVersion": 1,
