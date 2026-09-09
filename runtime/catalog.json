@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T01:44:21.512Z",
+  "generatedAt": "2026-09-09T04:38:05.096Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 52,
-    "sources": 102,
+    "cultivars": 53,
+    "sources": 103,
     "entities": 16
   },
   "explore": {
@@ -27,6 +27,7 @@
       "ethiopia",
       "golden-tiger",
       "guawi",
+      "honduras",
       "kali-mist",
       "killer-a5-haze",
       "laughing-buddha",
@@ -6691,6 +6692,439 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "honduras",
+      "status": "review",
+      "name": "Honduras",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "display": "Honduras系統（P2・サティバ）",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Hondurasは、ACE Seeds公式でHonduras由来の純ランドレース・サティバを第2世代として維持した「LANDRACE STRAIN (P2)」と記載されています。P2を交配親や交配順とは解釈せず、親品種は推定していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-honduras"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フローラル",
+          "シトリック",
+          "ゼラニウム",
+          "ムスク",
+          "ウッディ",
+          "スパイシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フローラル",
+            "シトリック",
+            "ゼラニウム",
+            "ムスク",
+            "ウッディ",
+            "スパイシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "citric",
+              "reviewLabelJa": "シトリック",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "geranium",
+              "reviewLabelJa": "ゼラニウム",
+              "plainMeaningJa": "ゼラニウムの花や葉を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "musk",
+              "reviewLabelJa": "ムスク",
+              "plainMeaningJa": "ムスクを思わせる重く甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "麝香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE Seeds公式のBouquetでは、フローラル、シトラス、ゼラニウム、ムスク、ウッディ、スパイシーが挙げられています。公式は香りの階層を示していないため、CSWでは一つのフラットなプロフィールとして扱います。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "items": [
+          "terpinolene",
+          "beta-myrcene",
+          "alpha-pinene",
+          "trans-ocimene",
+          "beta-pinene",
+          "cedrol",
+          "limonene",
+          "linalool",
+          "trans-phytol",
+          "alpha-phellandrene",
+          "alpha-terpineol",
+          "alpha-terpinene",
+          "gamma-terpinene",
+          "squalene",
+          "beta-caryophyllene",
+          "beta-nerolidol",
+          "alpha-humulene",
+          "trans-nerolidol",
+          "guaiol"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "very-high",
+              "levelJa": "非常に多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "cedrol",
+              "labelJa": "セドロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "trans-phytol",
+              "labelJa": "トランス-フィトール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-phellandrene",
+              "labelJa": "α-フェランドレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-terpineol",
+              "labelJa": "α-テルピネオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-terpinene",
+              "labelJa": "α-テルピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "gamma-terpinene",
+              "labelJa": "γ-テルピネン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "squalene",
+              "labelJa": "スクアレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-nerolidol",
+              "labelJa": "β-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "alpha-humulene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            }
+          ],
+          "noteJa": "ACE Seeds公式では、terpinoleneが非常に多く、beta-myrceneが多いとされ、alpha-pineneは多い範囲で変動、trans-ocimeneは中程度、beta-pineneは中程度の範囲で変動すると記載されています。その他の列挙成分は少量として扱い、数値比率は推定していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 11,
+              "maxValue": 18,
+              "unit": "%",
+              "valueText": "11〜18%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-honduras"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "maximum",
+              "boundaryValue": 0.06,
+              "unit": "%",
+              "valueText": "最大0.06%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-honduras"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 1,
+              "unit": "%",
+              "valueText": "最大1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-honduras"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seeds公式では、この保存系統の由来はHondurasの中央アメリカ系純サティバとされています。2015年という記載はACEによる保存時期であり、Hondurasランドレース自体の作出年を意味しません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、このHonduras由来の中央アメリカ系純サティバを自社チームが2015年に保存したと説明しています。これは保存の履歴であり、ランドレースそのものが2015年に作出されたという意味ではありません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Hondurasは、ACE Seeds公式でHonduras由来の純ランドレース・サティバを第2世代として維持した「LANDRACE STRAIN (P2)」と記載されています。P2を交配親や交配順とは解釈せず、親品種は推定していません。",
+          "origin": "ACE Seeds公式では、この保存系統の由来はHondurasの中央アメリカ系純サティバとされています。2015年という記載はACEによる保存時期であり、Hondurasランドレース自体の作出年を意味しません。",
+          "history": "ACE Seedsは、このHonduras由来の中央アメリカ系純サティバを自社チームが2015年に保存したと説明しています。これは保存の履歴であり、ランドレースそのものが2015年に作出されたという意味ではありません。",
+          "aromaNote": "ACE Seeds公式のBouquetでは、フローラル、シトラス、ゼラニウム、ムスク、ウッディ、スパイシーが挙げられています。公式は香りの階層を示していないため、CSWでは一つのフラットなプロフィールとして扱います。",
+          "terpeneNote": "ACE Seeds公式では、terpinoleneが非常に多く、beta-myrceneが多いとされ、alpha-pineneは多い範囲で変動、trans-ocimeneは中程度、beta-pineneは中程度の範囲で変動すると記載されています。その他の列挙成分は少量として扱い、数値比率は推定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/honduras/primary.webp",
+          "alt": "Hondurasの背が高く柔軟な純熱帯サティバ構造、強い側枝と長めの節間を公式形態情報に基づいて表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No third-party image is copied; the prompt is constrained to cultivar-specific morphology supported by the cited official ACE Seeds source.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14916,6 +15350,29 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-09"
+    },
+    "ace-seeds-honduras": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-honduras",
+      "publisher": "ACE Seeds",
+      "title": "Honduras Regular",
+      "url": "https://www.aceseeds.org/en/seeds/honduras-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "classification",
+        "composition",
+        "breeding",
+        "cannabinoids",
+        "aromas",
+        "terpenes",
+        "origin",
+        "history",
+        "visualMorphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
     },
     "ace-seeds-killer-a5-haze": {
       "schemaVersion": 1,
