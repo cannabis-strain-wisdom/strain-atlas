@@ -353,7 +353,8 @@
     },
     {
       "strainId": "sensi-skunk",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-09T18:37:26Z"
     },
     {
       "strainId": "super-skunk",

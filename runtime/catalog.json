@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T13:39:47.911Z",
+  "generatedAt": "2026-09-09T18:37:27.331Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 59,
-    "sources": 109,
+    "cultivars": 60,
+    "sources": 110,
     "entities": 17
   },
   "explore": {
@@ -55,6 +55,7 @@
       "erdpurt",
       "hindu-kush",
       "mazar",
+      "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
       "super-skunk",
@@ -12708,6 +12709,179 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sensi-skunk",
+      "status": "review",
+      "name": "Sensi Skunk",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-sensi-skunk"
+        ],
+        "display": "Skunk #1",
+        "parents": [
+          "Skunk #1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Skunk #1と『非常に甘い秘密の母株』を交配した品種と説明されています。母株の品種名は開示されていないため推定していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-sensi-skunk"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-seeds-sensi-skunk"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "シュガリーシトラス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "シュガリーシトラス"
+          ],
+          "details": [
+            {
+              "rawMatch": "sugary citrus",
+              "reviewLabelJa": "シュガリーシトラス",
+              "plainMeaningJa": "砂糖を思わせる甘さのある柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い柑橘",
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式ページで香りとして直接確認できるのは、砂糖を思わせる甘いシトラス系の香りです。味として書かれたアーシー／ドライ表現は香りへ転用していません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-sensi-skunk"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi SeedsがSkunk #1と非公開の甘い母株から開発した品種として扱っています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-sensi-skunk"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは自社名を冠した長年の品種として紹介し、2006年Copa de la Marihuanaでの1位を記録しています。受賞情報は主催者一次資料ではなく、ブリーダー側の記録として扱っています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-sensi-skunk"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式ではSkunk #1より大きい萼、短めの雌しべ、厚みのある花が説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Skunk #1と『非常に甘い秘密の母株』を交配した品種と説明されています。母株の品種名は開示されていないため推定していません。",
+          "origin": "Sensi SeedsがSkunk #1と非公開の甘い母株から開発した品種として扱っています。",
+          "history": "Sensi Seedsは自社名を冠した長年の品種として紹介し、2006年Copa de la Marihuanaでの1位を記録しています。受賞情報は主催者一次資料ではなく、ブリーダー側の記録として扱っています。",
+          "aromaNote": "公式ページで香りとして直接確認できるのは、砂糖を思わせる甘いシトラス系の香りです。味として書かれたアーシー／ドライ表現は香りへ転用していません。",
+          "morphologyNote": "公式ではSkunk #1より大きい萼、短めの雌しべ、厚みのある花が説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sensi-skunk/primary.webp",
+          "alt": "Sensi Skunkの公式形態情報に基づき、厚みのある主花と安全余白を備えた構図で表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "serious-happiness",
       "status": "review",
       "name": "Serious Happiness",
@@ -18233,6 +18407,26 @@
         "aroma",
         "history",
         "origin",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
+    "sensi-seeds-sensi-skunk": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-sensi-skunk",
+      "publisher": "Sensi Seeds",
+      "title": "Sensi Skunk Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/sensi-skunk",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "history",
         "morphology",
         "visual"
       ],
