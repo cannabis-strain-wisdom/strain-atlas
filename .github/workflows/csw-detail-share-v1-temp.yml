@@ -1,5 +1,4 @@
 name: CSW detail share V1 temp
-# Trigger after workflow registration.
 
 on:
   push:
@@ -17,177 +16,68 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout exact current main
+      - name: Checkout current main
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
-      - name: Apply universal cultivar share control
+      - name: Install universal cultivar share
         shell: bash
         run: |
           set -euo pipefail
           python3 <<'PY'
+          import base64
+          import re
           from pathlib import Path
-
           path = Path('index.html')
           html = path.read_text(encoding='utf-8')
           style_id = 'csw-detail-share-v1-styles'
           script_id = 'csw-detail-share-v1-script'
+          style = base64.b64decode('ICA8c3R5bGUgaWQ9ImNzdy1kZXRhaWwtc2hhcmUtdjEtc3R5bGVzIj4KICAgIC5kZXRhaWwtc2hlbGwuY3N3LWRldGFpbC1zaGFyZS1yZWFkeXtwYWRkaW5nLXRvcDo1NnB4fQogICAgLmRldGFpbC1zaGVsbC5jc3ctZGV0YWlsLXNoYXJlLXJlYWR5Pi5jc3ctZGV0YWlsLWFjdGlvbmJhci12MXtwb3NpdGlvbjpmaXhlZCFpbXBvcnRhbnQ7dG9wOjA7bGVmdDo1MCU7cmlnaHQ6YXV0bzt3aWR0aDptaW4oMTAwJSw5ODBweCk7dHJhbnNmb3JtOnRyYW5zbGF0ZVgoLTUwJSk7ei1pbmRleDo5MDtib3gtc2l6aW5nOmJvcmRlci1ib3g7YmFja2dyb3VuZDpyZ2JhKDMsOSw2LC45Nik7YmFja2Ryb3AtZmlsdGVyOmJsdXIoMTZweCk7LXdlYmtpdC1iYWNrZHJvcC1maWx0ZXI6Ymx1cigxNnB4KX0KICAgIC5kZXRhaWwtc2hlbGwuY3N3LWRldGFpbC1zaGFyZS1yZWFkeT4uY3N3LWRldGFpbC1hY3Rpb25iYXItdjEgLmRldGFpbC10b3BiYXItbGluZXtmbGV4OjAgMCA0NHB4fQogICAgLmRldGFpbC1zaGFyZS1idXR0b257YXBwZWFyYW5jZTpub25lO2Rpc3BsYXk6Z3JpZDt3aWR0aDo0NHB4O2hlaWdodDo0NHB4O2ZsZXg6MCAwIDQ0cHg7cGxhY2UtaXRlbXM6Y2VudGVyO21hcmdpbi1sZWZ0OmF1dG87cGFkZGluZzowO2JvcmRlcjoxcHggc29saWQgcmdiYSgyMTcsMTgyLDkzLC4xNCk7Ym9yZGVyLXJhZGl1czo1MCU7YmFja2dyb3VuZDpyZ2JhKDI1NSwyNTUsMjU1LC4wMjUpO2NvbG9yOiNmNGYxZTc7Y3Vyc29yOnBvaW50ZXJ9CiAgICAuZGV0YWlsLXNoYXJlLWJ1dHRvbisuY2xvc2UtZGV0YWlse21hcmdpbi1sZWZ0OjAhaW1wb3J0YW50fQogICAgLmRldGFpbC1zaGFyZS1idXR0b24gc3Zne2Rpc3BsYXk6YmxvY2s7d2lkdGg6MTlweDtoZWlnaHQ6MTlweDtmaWxsOm5vbmU7c3Ryb2tlOmN1cnJlbnRDb2xvcjtzdHJva2Utd2lkdGg6MS44O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZH0KICAgIC5kZXRhaWwtc2hhcmUtYnV0dG9uOmZvY3VzLXZpc2libGV7b3V0bGluZToycHggc29saWQgcmdiYSgyMzMsMjA3LDEyNiwuODIpO291dGxpbmUtb2Zmc2V0OjJweH0KICAgIC5kZXRhaWwtc2hhcmUtYnV0dG9uLmlzLWNvcGllZHtib3JkZXItY29sb3I6cmdiYSgxMDUsMTY5LDEyMCwuNDIpO2NvbG9yOiNhOGQ5YjJ9CiAgICBAbWVkaWEobWF4LXdpZHRoOjY5OXB4KXsuZGV0YWlsLXNoZWxsLmNzdy1kZXRhaWwtc2hhcmUtcmVhZHk+LmNzdy1kZXRhaWwtYWN0aW9uYmFyLXYxe3dpZHRoOjEwMCV9fQogIDwvc3R5bGU+').decode('utf-8')
+          script = base64.b64decode('ICA8c2NyaXB0IGlkPSJjc3ctZGV0YWlsLXNoYXJlLXYxLXNjcmlwdCI+CiAgKCgpID0+IHsKICAgICd1c2Ugc3RyaWN0JzsKICAgIGNvbnN0IHNoZWxsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RldGFpbC1zaGVsbCcpOwogICAgaWYgKCFzaGVsbCkgcmV0dXJuOwogICAgY29uc3Qgc2hhcmVJY29uID0gJzxzdmcgdmlld0JveD0iMCAwIDI0IDI0IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PHBhdGggZD0iTTEyIDE1VjMiPjwvcGF0aD48cGF0aCBkPSJtOCA3IDQtNCA0IDQiPjwvcGF0aD48cGF0aCBkPSJNNSAxMXY4aDE0di04Ij48L3BhdGg+PC9zdmc+JzsKICAgIGNvbnN0IGNvcGllZEljb24gPSAnPHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGFyaWEtaGlkZGVuPSJ0cnVlIj48cGF0aCBkPSJtNSAxMiA0IDQgMTAtMTAiPjwvcGF0aD48L3N2Zz4nOwoKICAgIGNvbnN0IGVuaGFuY2UgPSAoKSA9PiB7CiAgICAgIGNvbnN0IGJhciA9IHNoZWxsLnF1ZXJ5U2VsZWN0b3IoJzpzY29wZSA+IC5kZXRhaWwtdG9wYmFyJyk7CiAgICAgIGNvbnN0IGNsb3NlID0gYmFyPy5xdWVyeVNlbGVjdG9yKCcuY2xvc2UtZGV0YWlsJyk7CiAgICAgIGlmICghYmFyIHx8ICFjbG9zZSkgewogICAgICAgIHNoZWxsLmNsYXNzTGlzdC5yZW1vdmUoJ2Nzdy1kZXRhaWwtc2hhcmUtcmVhZHknKTsKICAgICAgICByZXR1cm47CiAgICAgIH0KICAgICAgYmFyLmNsYXNzTGlzdC5hZGQoJ2Nzdy1kZXRhaWwtYWN0aW9uYmFyLXYxJyk7CiAgICAgIGlmICghYmFyLnF1ZXJ5U2VsZWN0b3IoJ1tkYXRhLWRldGFpbC1zaGFyZV0nKSkgewogICAgICAgIGNvbnN0IGJ1dHRvbiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2J1dHRvbicpOwogICAgICAgIGJ1dHRvbi50eXBlID0gJ2J1dHRvbic7CiAgICAgICAgYnV0dG9uLmNsYXNzTmFtZSA9ICdkZXRhaWwtc2hhcmUtYnV0dG9uJzsKICAgICAgICBidXR0b24uZGF0YXNldC5kZXRhaWxTaGFyZSA9ICd2MSc7CiAgICAgICAgYnV0dG9uLnNldEF0dHJpYnV0ZSgnYXJpYS1sYWJlbCcsICfjgZPjga7lk4HnqK7jgpLlhbHmnIknKTsKICAgICAgICBidXR0b24uaW5uZXJIVE1MID0gc2hhcmVJY29uOwogICAgICAgIGNsb3NlLmJlZm9yZShidXR0b24pOwogICAgICB9CiAgICAgIHNoZWxsLmNsYXNzTGlzdC5hZGQoJ2Nzdy1kZXRhaWwtc2hhcmUtcmVhZHknKTsKICAgIH07CgogICAgY29uc3Qgc2hhcmVVcmwgPSAoKSA9PiB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgVVJMKGxvY2F0aW9uLmhyZWYpOwogICAgICBjb25zdCBjbGVhbiA9IG5ldyBVUkwoY3VycmVudC5vcmlnaW4gKyBjdXJyZW50LnBhdGhuYW1lKTsKICAgICAgY29uc3Qgc3RyYWluID0gY3VycmVudC5zZWFyY2hQYXJhbXMuZ2V0KCdzdHJhaW4nKTsKICAgICAgaWYgKHN0cmFpbikgY2xlYW4uc2VhcmNoUGFyYW1zLnNldCgnc3RyYWluJywgc3RyYWluKTsKICAgICAgcmV0dXJuIGNsZWFuLmhyZWY7CiAgICB9OwoKICAgIGNvbnN0IGNvcHlVcmwgPSBhc3luYyB1cmwgPT4gewogICAgICBpZiAobmF2aWdhdG9yLmNsaXBib2FyZD8ud3JpdGVUZXh0KSB7CiAgICAgICAgYXdhaXQgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQodXJsKTsKICAgICAgICByZXR1cm47CiAgICAgIH0KICAgICAgY29uc3QgYXJlYSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3RleHRhcmVhJyk7CiAgICAgIGFyZWEudmFsdWUgPSB1cmw7CiAgICAgIGFyZWEuc2V0QXR0cmlidXRlKCdyZWFkb25seScsICcnKTsKICAgICAgYXJlYS5zdHlsZS5wb3NpdGlvbiA9ICdmaXhlZCc7CiAgICAgIGFyZWEuc3R5bGUub3BhY2l0eSA9ICcwJzsKICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhcmVhKTsKICAgICAgYXJlYS5zZWxlY3QoKTsKICAgICAgY29uc3Qgb2sgPSBkb2N1bWVudC5leGVjQ29tbWFuZCgnY29weScpOwogICAgICBhcmVhLnJlbW92ZSgpOwogICAgICBpZiAoIW9rKSB0aHJvdyBuZXcgRXJyb3IoJ0NPUFlfRkFJTEVEJyk7CiAgICB9OwoKICAgIGNvbnN0IGNvcGllZEZlZWRiYWNrID0gYnV0dG9uID0+IHsKICAgICAgYnV0dG9uLmNsYXNzTGlzdC5hZGQoJ2lzLWNvcGllZCcpOwogICAgICBidXR0b24uc2V0QXR0cmlidXRlKCdhcmlhLWxhYmVsJywgJ+ODquODs+OCr+OCkuOCs+ODlOODvOOBl+OBvuOBl+OBnycpOwogICAgICBidXR0b24uaW5uZXJIVE1MID0gY29waWVkSWNvbjsKICAgICAgd2luZG93LnNldFRpbWVvdXQoKCkgPT4gewogICAgICAgIGlmICghYnV0dG9uLmlzQ29ubmVjdGVkKSByZXR1cm47CiAgICAgICAgYnV0dG9uLmNsYXNzTGlzdC5yZW1vdmUoJ2lzLWNvcGllZCcpOwogICAgICAgIGJ1dHRvbi5zZXRBdHRyaWJ1dGUoJ2FyaWEtbGFiZWwnLCAn44GT44Gu5ZOB56iu44KS5YWx5pyJJyk7CiAgICAgICAgYnV0dG9uLmlubmVySFRNTCA9IHNoYXJlSWNvbjsKICAgICAgfSwgMTQwMCk7CiAgICB9OwoKICAgIHNoZWxsLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgYXN5bmMgZXZlbnQgPT4gewogICAgICBjb25zdCBidXR0b24gPSBldmVudC50YXJnZXQuY2xvc2VzdCgnW2RhdGEtZGV0YWlsLXNoYXJlXScpOwogICAgICBpZiAoIWJ1dHRvbiB8fCAhc2hlbGwuY29udGFpbnMoYnV0dG9uKSkgcmV0dXJuOwogICAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpOwogICAgICBldmVudC5zdG9wUHJvcGFnYXRpb24oKTsKICAgICAgY29uc3QgdXJsID0gc2hhcmVVcmwoKTsKICAgICAgY29uc3QgbmFtZSA9IHNoZWxsLnF1ZXJ5U2VsZWN0b3IoJy5kZXRhaWwtaGVybyBoMicpPy50ZXh0Q29udGVudD8udHJpbSgpIHx8ICdDYW5uYWJpcyBTdHJhaW4gV2lzZG9tJzsKICAgICAgdHJ5IHsKICAgICAgICBpZiAodHlwZW9mIG5hdmlnYXRvci5zaGFyZSA9PT0gJ2Z1bmN0aW9uJykgewogICAgICAgICAgYXdhaXQgbmF2aWdhdG9yLnNoYXJlKHsgdGl0bGU6IGAke25hbWV9IHwgQ2FubmFiaXMgU3RyYWluIFdpc2RvbWAsIHRleHQ6IGAke25hbWV9IHwgQ2FubmFiaXMgU3RyYWluIFdpc2RvbWAsIHVybCB9KTsKICAgICAgICAgIHJldHVybjsKICAgICAgICB9CiAgICAgICAgYXdhaXQgY29weVVybCh1cmwpOwogICAgICAgIGNvcGllZEZlZWRiYWNrKGJ1dHRvbik7CiAgICAgIH0gY2F0Y2ggKGVycm9yKSB7CiAgICAgICAgaWYgKGVycm9yPy5uYW1lID09PSAnQWJvcnRFcnJvcicpIHJldHVybjsKICAgICAgICB0cnkgewogICAgICAgICAgYXdhaXQgY29weVVybCh1cmwpOwogICAgICAgICAgY29waWVkRmVlZGJhY2soYnV0dG9uKTsKICAgICAgICB9IGNhdGNoIChfKSB7fQogICAgICB9CiAgICB9LCB0cnVlKTsKCiAgICBuZXcgTXV0YXRpb25PYnNlcnZlcihlbmhhbmNlKS5vYnNlcnZlKHNoZWxsLCB7IGNoaWxkTGlzdDogdHJ1ZSB9KTsKICAgIGVuaGFuY2UoKTsKICB9KSgpOwogIDwvc2NyaXB0Pg==').decode('utf-8')
           if style_id in html or script_id in html:
-              raise SystemExit('DETAIL_SHARE_ALREADY_PRESENT')
-
-          style = r'''  <style id="csw-detail-share-v1-styles">
-    .detail-shell.csw-detail-share-ready{padding-top:56px}
-    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{position:fixed!important;top:0;left:50%;right:auto;width:min(100%,980px);transform:translateX(-50%);z-index:90;box-sizing:border-box;background:rgba(3,9,6,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-    .detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1 .detail-topbar-line{flex:0 0 44px}
-    .detail-share-button{appearance:none;display:grid;width:44px;height:44px;flex:0 0 44px;place-items:center;margin-left:auto;padding:0;border:1px solid rgba(217,182,93,.14);border-radius:50%;background:rgba(255,255,255,.025);color:#f4f1e7;cursor:pointer}
-    .detail-share-button+ .close-detail{margin-left:0!important}
-    .detail-share-button svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .detail-share-button:focus-visible{outline:2px solid rgba(233,207,126,.82);outline-offset:2px}
-    .detail-share-button.is-copied{border-color:rgba(105,169,120,.42);color:#a8d9b2}
-    @media(max-width:699px){.detail-shell.csw-detail-share-ready>.csw-detail-actionbar-v1{width:100%}}
-  </style>'''
-
-          script = r'''  <script id="csw-detail-share-v1-script">
-  (() => {
-    'use strict';
-    const shell = document.getElementById('detail-shell');
-    if (!shell) return;
-    const shareIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"></path><path d="m8 7 4-4 4 4"></path><path d="M5 11v8h14v-8"></path></svg>';
-    const copiedIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10"></path></svg>';
-
-    const enhance = () => {
-      const bar = shell.querySelector(':scope > .detail-topbar');
-      const close = bar?.querySelector('.close-detail');
-      if (!bar || !close) {
-        shell.classList.remove('csw-detail-share-ready');
-        return;
-      }
-      bar.classList.add('csw-detail-actionbar-v1');
-      if (!bar.querySelector('[data-detail-share]')) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'detail-share-button';
-        button.dataset.detailShare = 'v1';
-        button.setAttribute('aria-label', 'この品種を共有');
-        button.innerHTML = shareIcon;
-        close.before(button);
-      }
-      shell.classList.add('csw-detail-share-ready');
-    };
-
-    const shareUrl = () => {
-      const current = new URL(location.href);
-      const clean = new URL(current.origin + current.pathname);
-      const strain = current.searchParams.get('strain');
-      if (strain) clean.searchParams.set('strain', strain);
-      return clean.href;
-    };
-
-    const copyUrl = async url => {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(url);
-        return;
-      }
-      const area = document.createElement('textarea');
-      area.value = url;
-      area.setAttribute('readonly', '');
-      area.style.position = 'fixed';
-      area.style.opacity = '0';
-      document.body.appendChild(area);
-      area.select();
-      const ok = document.execCommand('copy');
-      area.remove();
-      if (!ok) throw new Error('COPY_FAILED');
-    };
-
-    const copiedFeedback = button => {
-      button.classList.add('is-copied');
-      button.setAttribute('aria-label', 'リンクをコピーしました');
-      button.innerHTML = copiedIcon;
-      window.setTimeout(() => {
-        if (!button.isConnected) return;
-        button.classList.remove('is-copied');
-        button.setAttribute('aria-label', 'この品種を共有');
-        button.innerHTML = shareIcon;
-      }, 1400);
-    };
-
-    shell.addEventListener('click', async event => {
-      const button = event.target.closest('[data-detail-share]');
-      if (!button || !shell.contains(button)) return;
-      event.preventDefault();
-      event.stopPropagation();
-      const url = shareUrl();
-      const name = shell.querySelector('.detail-hero h2')?.textContent?.trim() || 'Cannabis Strain Wisdom';
-      try {
-        if (typeof navigator.share === 'function') {
-          await navigator.share({ title: `${name} | Cannabis Strain Wisdom`, text: `${name} | Cannabis Strain Wisdom`, url });
-          return;
-        }
-        await copyUrl(url);
-        copiedFeedback(button);
-      } catch (error) {
-        if (error?.name === 'AbortError') return;
-        try {
-          await copyUrl(url);
-          copiedFeedback(button);
-        } catch (_) {}
-      }
-    }, true);
-
-    new MutationObserver(enhance).observe(shell, { childList: true });
-    enhance();
-  })();
-  </script>'''
-
-          html = html.replace('</head>', style + '\n</head>', 1)
-          anchor = '  <script src="presentation-contract-v1.js?v=4" defer></script>'
-          if html.count(anchor) != 1:
-              raise SystemExit('DETAIL_SHARE_SCRIPT_ANCHOR_MISMATCH')
-          html = html.replace(anchor, script + '\n' + anchor, 1)
+              if not (style_id in html and script_id in html):
+                  raise SystemExit('DETAIL_SHARE_PARTIAL_STATE')
+          else:
+              html = html.replace('</head>', style + '\n</head>', 1)
+              anchor = '  <script src="presentation-contract-v1.js?v=4" defer></script>'
+              if html.count(anchor) != 1:
+                  raise SystemExit('DETAIL_SHARE_SCRIPT_ANCHOR_MISMATCH')
+              html = html.replace(anchor, script + '\n' + anchor, 1)
           if html.count(style_id) != 1 or html.count(script_id) != 1:
               raise SystemExit('DETAIL_SHARE_SENTINEL_MISMATCH')
           if html.count('data-website-id="176ab4f1-4681-422b-b47e-b4058890d210"') != 1:
               raise SystemExit('UMAMI_TRACKER_MISMATCH')
-          path.write_text(html, encoding='utf-8')
-          PY
-
-          python3 <<'PY'
-          import re
-          from pathlib import Path
-          html = Path('index.html').read_text(encoding='utf-8')
           match = re.search(r'<script id="csw-detail-share-v1-script">\n(.*?)\n  </script>', html, re.S)
           if not match:
               raise SystemExit('DETAIL_SHARE_SCRIPT_EXTRACTION_FAILED')
           Path('/tmp/csw-detail-share-v1.js').write_text(match.group(1), encoding='utf-8')
+          path.write_text(html, encoding='utf-8')
           PY
           node --check /tmp/csw-detail-share-v1.js
           git diff --check -- index.html
-          test "$(git diff --name-only)" = "index.html"
           grep -Fq 'id="csw-detail-share-v1-styles"' index.html
           grep -Fq 'id="csw-detail-share-v1-script"' index.html
-          grep -Fq 'data-detail-share' index.html
-          grep -Fq "navigator.share" index.html
-          grep -Fq "searchParams.set('strain', strain)" index.html
-
+          grep -Fq 'navigator.share' index.html
+          git rm -f .github/workflows/csw-detail-share-v1-temp.yml
+          git add -- index.html
+          git diff --cached --check
+          mapfile -t changed < <(git diff --cached --name-only | sort)
+          expected=('.github/workflows/csw-detail-share-v1-temp.yml' 'index.html')
+          if [ "${changed[*]}" != "${expected[*]}" ]; then
+            printf 'Unexpected staged paths: %s\n' "${changed[*]}" >&2
+            exit 1
+          fi
           git config user.name "csw-detail-share-installer"
           git config user.email "actions@users.noreply.github.com"
-          git add -- index.html
           git commit -m "Add cultivar detail share control"
           git push origin HEAD:main
-
-      - name: Remove accidental temporary branch
-        shell: bash
-        run: |
-          set -euo pipefail
           if git ls-remote --exit-code --heads origin refs/heads/tmp-detail-share-v1 >/dev/null 2>&1; then
-            git push origin --delete tmp-detail-share-v1
+            git push origin --delete tmp-detail-share-v1 || echo 'TEMP_BRANCH_DELETE_FAILED'
           fi
-          test -z "$(git ls-remote --heads origin refs/heads/tmp-detail-share-v1)"
 
-      - name: Dispatch Pages verification for feature commit
+      - name: Dispatch durable Pages verification
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -199,4 +89,4 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/deploy-public-ui-pages.yml/dispatches" \
             -d '{"ref":"main"}'
-          echo "Pages workflow dispatched"
+          echo 'Pages workflow dispatched'
