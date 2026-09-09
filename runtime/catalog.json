@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T05:26:20.685Z",
+  "generatedAt": "2026-09-09T09:25:56.919Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 54,
-    "sources": 104,
-    "entities": 16
+    "cultivars": 55,
+    "sources": 105,
+    "entities": 17
   },
   "explore": {
     "sativa": [
@@ -22,6 +22,7 @@
       "chocolope-256",
       "cinderella-99",
       "congo",
+      "destroyer",
       "dr-grinspoon",
       "durban-poison",
       "ethiopia",
@@ -4203,6 +4204,175 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "destroyer",
+      "status": "review",
+      "name": "Destroyer",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "seedfinder-destroyer-cannabiogen"
+          ],
+          "measurement": {
+            "kind": "sativa-single",
+            "unit": "%",
+            "value": 100,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "sativa-single",
+              "unit": "%",
+              "value": 100,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-destroyer-cannabiogen"
+        ],
+        "display": "Meao Thai × Mexico/Colombia",
+        "parents": [
+          "Meao Thai",
+          "Mexico/Colombia"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "SeedFinderに保存されたCannabiogenの説明では、DestroyerはMeao Thaiと、早生で安定したMexico/Colombia系統の交配として記録されています。Mexico/Colombiaは資料の粒度を保ち、より細かな親品種名へ推定分解していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "cannabiogen",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "seedfinder-destroyer-cannabiogen"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-destroyer-cannabiogen"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Cannabiogen由来の説明を保存するSeedFinderでは、Thai母株の順化が難しかったため、より早生で生産性のあるSativa系統を組み合わせ、戻し交配と選抜に7年以上を要したと記録されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-destroyer-cannabiogen"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "資料では、小さく数の多い苞葉と、その表面を多くのトリコームが覆う形態が記録されています。色や花の密度、雌しべの色は固定形質として推定していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "SeedFinderに保存されたCannabiogenの説明では、DestroyerはMeao Thaiと、早生で安定したMexico/Colombia系統の交配として記録されています。Mexico/Colombiaは資料の粒度を保ち、より細かな親品種名へ推定分解していません。",
+          "history": "Cannabiogen由来の説明を保存するSeedFinderでは、Thai母株の順化が難しかったため、より早生で生産性のあるSativa系統を組み合わせ、戻し交配と選抜に7年以上を要したと記録されています。",
+          "morphologyNote": "資料では、小さく数の多い苞葉と、その表面を多くのトリコームが覆う形態が記録されています。色や花の密度、雌しべの色は固定形質として推定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/destroyer/primary.webp",
+          "alt": "Destroyerの細身のSativa系葉姿と、小さく数の多い苞葉を持つ成熟した主花を、トップ全体と安全余白が見える構図で表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is redistributed or used as a copied composition.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -17052,6 +17222,24 @@
       "publishedAt": null,
       "checkedAt": "2026-08-30"
     },
+    "seedfinder-destroyer-cannabiogen": {
+      "schemaVersion": 1,
+      "id": "seedfinder-destroyer-cannabiogen",
+      "publisher": "SeedFinder.eu",
+      "title": "Destroyer (Cannabiogen) :: Cannabis Strain Info",
+      "url": "https://seedfinder.eu/en/strain-info/destroyer/cannabiogen",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-09"
+    },
     "seedfinder-durban-poison": {
       "schemaVersion": 1,
       "id": "seedfinder-durban-poison",
@@ -17396,6 +17584,18 @@
       "checkedAt": "2026-09-06",
       "updatedAt": "2026-09-06",
       "note": "Created from current first-party Cinderella 99 cultivar and breeder-history material during Cinderella 99 production research."
+    },
+    "cannabiogen": {
+      "schemaVersion": 1,
+      "id": "cannabiogen",
+      "name": "Cannabiogen",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-09",
+      "updatedAt": "2026-09-09",
+      "note": "Cannabiogen is identified as the breeder of Destroyer by the specialist cultivar record; the current cannabiogen.com site remains active under CBG Designs but no current Destroyer cultivar page was found."
     },
     "dna-genetics": {
       "schemaVersion": 1,

@@ -330,6 +330,11 @@
       "strainId": "skunk-1",
       "state": "published",
       "publishedAt": "2026-09-06T00:29:25Z"
+    },
+    {
+      "strainId": "destroyer",
+      "state": "published",
+      "publishedAt": "2026-09-09T09:25:56Z"
     }
   ]
 }
