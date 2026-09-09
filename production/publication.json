@@ -19,7 +19,8 @@
     },
     {
       "strainId": "dr-grinspoon",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-09T01:44:20Z"
     },
     {
       "strainId": "frisian-duck",

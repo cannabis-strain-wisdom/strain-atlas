@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T22:22:32.244Z",
+  "generatedAt": "2026-09-09T01:44:21.512Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 51,
-    "sources": 98,
+    "cultivars": 52,
+    "sources": 102,
     "entities": 16
   },
   "explore": {
@@ -22,6 +22,7 @@
       "chocolope-256",
       "cinderella-99",
       "congo",
+      "dr-grinspoon",
       "durban-poison",
       "ethiopia",
       "golden-tiger",
@@ -4410,6 +4411,292 @@
       ],
       "checkedAt": "2026-09-05",
       "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "dr-grinspoon",
+      "status": "review",
+      "name": "Dr Grinspoon",
+      "jp": null,
+      "aliases": [
+        "Dr. Grinspoon"
+      ],
+      "classification": {
+        "type": "sativa"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "unknown",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon",
+          "barneys-farm-dr-grinspoon-weedworld-2022"
+        ],
+        "display": "",
+        "parents": []
+      },
+      "relations": [
+        {
+          "entityId": "barneys-farm",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-dr-grinspoon"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スマック",
+          "レモン",
+          "タンギー",
+          "トロピカルフルーツ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スマック",
+            "レモン",
+            "タンギー",
+            "トロピカルフルーツ"
+          ],
+          "details": [
+            {
+              "rawMatch": "sumac",
+              "reviewLabelJa": "スマック",
+              "plainMeaningJa": "スマック（香辛料）を思わせる、酸味を帯びたスパイス香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スマック",
+                "スパイス"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemon",
+              "reviewLabelJa": "レモン",
+              "plainMeaningJa": "レモンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "tangy",
+              "reviewLabelJa": "タンギー",
+              "plainMeaningJa": "キュッとした酸味を思わせる、シャープな香りの印象",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味",
+                "シャープ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "tropical fruit",
+              "reviewLabelJa": "トロピカルフルーツ",
+              "plainMeaningJa": "南国の果実を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "南国果実"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Barney's Farm現行Aroma欄では、スマック、レモン、タンギー、トロピカルフルーツが並列で掲載されています。主従関係は示されていないため、CORE / ACCENTSには分けていません。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-dr-grinspoon"
+        ],
+        "items": [
+          "terpinolene",
+          "myrcene",
+          "pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "Leaflyではテルピノレン、ミルセン、ピネンが掲載されています。ただしこれは専門データベース由来のLISTED情報で、Barney's Farm公式の化学分析やCSWが直接確認した分析値ではありません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon",
+          "barneys-farm-dr-grinspoon-catalogue"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 27,
+              "unit": "%",
+              "valueText": "27%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-dr-grinspoon"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 26,
+              "unit": "%",
+              "valueText": "26%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-dr-grinspoon-catalogue"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.4,
+              "unit": "%",
+              "valueText": "0.4%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-dr-grinspoon-catalogue"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon-weedworld-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Barney's Farmが執筆・公開した2022年の資料では、Derryが1980年代にラオスとタイに滞在していた際、ラオスで遺伝素材を見つけ、種子をオランダへ持ち帰って選抜育種したと説明されています。これは遺伝素材の来歴と育種場所についての公式説明であり、親品種名を示すものではありません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon",
+          "barneys-farm-dr-grinspoon-weedworld-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Barney's Farmは、1980年代にラオスで見つけた遺伝素材をオランダへ持ち帰り、選抜育種してDr Grinspoonを育成したと説明しています。名称は精神科医・著者・カンナビス擁護者Dr. Lester Grinspoonへの敬意によるものです。同社が執筆・公開した2022年資料では、良質な種子生産に非常に時間と手間がかかるため一時入手できない時期があり、2019年に再登場したとも記載されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Barney's Farm公式では、背が高く細身の株姿と、細い茎にビーズ状の花が間隔をあけて付く独特の形態が説明されています。花色は緑から赤褐色まで見られるとされています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "origin": "Barney's Farmが執筆・公開した2022年の資料では、Derryが1980年代にラオスとタイに滞在していた際、ラオスで遺伝素材を見つけ、種子をオランダへ持ち帰って選抜育種したと説明されています。これは遺伝素材の来歴と育種場所についての公式説明であり、親品種名を示すものではありません。",
+          "history": "Barney's Farmは、1980年代にラオスで見つけた遺伝素材をオランダへ持ち帰り、選抜育種してDr Grinspoonを育成したと説明しています。名称は精神科医・著者・カンナビス擁護者Dr. Lester Grinspoonへの敬意によるものです。同社が執筆・公開した2022年資料では、良質な種子生産に非常に時間と手間がかかるため一時入手できない時期があり、2019年に再登場したとも記載されています。",
+          "aromaNote": "Barney's Farm現行Aroma欄では、スマック、レモン、タンギー、トロピカルフルーツが並列で掲載されています。主従関係は示されていないため、CORE / ACCENTSには分けていません。",
+          "terpeneNote": "Leaflyではテルピノレン、ミルセン、ピネンが掲載されています。ただしこれは専門データベース由来のLISTED情報で、Barney's Farm公式の化学分析やCSWが直接確認した分析値ではありません。",
+          "morphologyNote": "Barney's Farm公式では、背が高く細身の株姿と、細い茎にビーズ状の花が間隔をあけて付く独特の形態が説明されています。花色は緑から赤褐色まで見られるとされています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/dr-grinspoon/primary.webp",
+          "alt": "Dr Grinspoonの細長いサティバ株姿と、細い茎・節に沿って疎に分かれたビーズ状の花姿を公式形態情報に基づいて表現したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; prompt derived from cited breeder-official morphology evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-07",
+      "updatedAt": "2026-09-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14898,6 +15185,61 @@
       "publishedAt": null,
       "checkedAt": "2026-09-07"
     },
+    "barneys-farm-dr-grinspoon-catalogue": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-dr-grinspoon-catalogue",
+      "publisher": "Barney's Farm",
+      "title": "Dr. Grinspoon catalogue entry",
+      "url": "https://www.barneysfarm.com/brochures/uk-catalogue.pdf",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "classification",
+        "history",
+        "aromas",
+        "cannabinoids",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
+    "barneys-farm-dr-grinspoon-weedworld-2022": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-dr-grinspoon-weedworld-2022",
+      "publisher": "Barney's Farm",
+      "title": "Barney's Farm Strain Story - The Miraculous Dr. Grinspoon",
+      "url": "https://www.weedworldmagazine.org/2022/08/22/barneys-farm-strain-story-the-miraculous-dr-grinspoon/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "classification",
+        "history",
+        "origin",
+        "aromas",
+        "morphology"
+      ],
+      "publishedAt": "2022-08-22",
+      "checkedAt": "2026-09-07"
+    },
+    "barneys-farm-dr-grinspoon": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-dr-grinspoon",
+      "publisher": "Barney's Farm",
+      "title": "Dr Grinspoon Strain",
+      "url": "https://www.barneysfarm.com/dr-grinspoon-5",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "breeder",
+        "seedCompany",
+        "classification",
+        "lineage",
+        "history",
+        "aromas",
+        "flavors",
+        "cannabinoids",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
     "barneys-farm-laughing-buddha": {
       "schemaVersion": 1,
       "id": "barneys-farm-laughing-buddha",
@@ -15670,6 +16012,22 @@
         "flavors",
         "terpenes",
         "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-07"
+    },
+    "leafly-dr-grinspoon": {
+      "schemaVersion": 1,
+      "id": "leafly-dr-grinspoon",
+      "publisher": "Leafly",
+      "title": "Dr. Grinspoon strain",
+      "url": "https://www.leafly.com/strains/dr-grinspoon",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "terpenes",
+        "classification",
+        "aliases",
+        "flavors"
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
