@@ -1,4 +1,5 @@
 name: CSW detail share V1 temp
+# Trigger after workflow registration.
 
 on:
   push:
