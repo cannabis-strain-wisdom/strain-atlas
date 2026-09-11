@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T18:37:27.331Z",
+  "generatedAt": "2026-09-11T23:08:39.595Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 60,
-    "sources": 110,
-    "entities": 17
+    "cultivars": 61,
+    "sources": 111,
+    "entities": 18
   },
   "explore": {
     "sativa": [
@@ -53,6 +53,7 @@
       "cataract-kush",
       "double-grape",
       "erdpurt",
+      "fat-banana-auto",
       "hindu-kush",
       "mazar",
       "sensi-skunk",
@@ -5722,6 +5723,188 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "fat-banana-auto",
+      "status": "review",
+      "name": "Fat Banana Auto",
+      "jp": null,
+      "aliases": [
+        "Fat Banana Automatic"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "display": "Fat Banana × Cookies Auto",
+        "parents": [
+          "Fat Banana",
+          "Cookies Auto"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Royal Queen Seeds公式では、Fat Banana × Cookies Autoとして記載されています。Autoflowerであることは保持しつつ、Cookies Auto内部の未記載系譜は補っていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "royal-queen-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "rqs-fat-banana-auto"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティー",
+          "スイート"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティー",
+            "スイート"
+          ],
+          "details": [
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Royal Queen Seeds公式では、Fat Banana Autoが親系統からフルーティーで甘い香りを受け継いだと説明されています。香りの語からテルペン化合物は推定していません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "maximum",
+              "boundaryValue": 22,
+              "unit": "%",
+              "valueText": "最大22%",
+              "confidence": "B",
+              "sourceRefs": [
+                "rqs-fat-banana-auto"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Royal Queen Seeds公式では、大きくふっくらした花を付けると説明されています。固定的な花色やピストル色は根拠がないため補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Royal Queen Seeds公式では、Fat Banana × Cookies Autoとして記載されています。Autoflowerであることは保持しつつ、Cookies Auto内部の未記載系譜は補っていません。",
+          "aromaNote": "Royal Queen Seeds公式では、Fat Banana Autoが親系統からフルーティーで甘い香りを受け継いだと説明されています。香りの語からテルペン化合物は推定していません。",
+          "morphologyNote": "Royal Queen Seeds公式では、大きくふっくらした花を付けると説明されています。固定的な花色やピストル色は根拠がないため補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/fat-banana-auto/primary.webp",
+          "alt": "Fat Banana Autoの公式形態情報に基づき、大きくふっくらした主花をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-12",
+      "updatedAt": "2026-09-12",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -18257,6 +18440,27 @@
       "publishedAt": "2024-01-09",
       "checkedAt": "2026-09-05"
     },
+    "rqs-fat-banana-auto": {
+      "schemaVersion": 1,
+      "id": "rqs-fat-banana-auto",
+      "publisher": "Royal Queen Seeds",
+      "title": "Fat Banana Auto",
+      "url": "https://www.royalqueenseeds.com/autoflowering-cannabis-seeds/487-fat-banana-automatic.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-12"
+    },
     "seed-junky-official": {
       "schemaVersion": 1,
       "id": "seed-junky-official",
@@ -18838,6 +19042,18 @@
       "checkedAt": "2026-08-16",
       "updatedAt": "2026-08-16",
       "note": "DNA Genetics-associated breeding and seed line. The OG #18 is listed under Reserva Privada on DNA Genetics' current European catalog and historical Reserva Privada material."
+    },
+    "royal-queen-seeds": {
+      "schemaVersion": 1,
+      "id": "royal-queen-seeds",
+      "name": "Royal Queen Seeds",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-12",
+      "updatedAt": "2026-09-12"
     },
     "seed-junky-genetics": {
       "schemaVersion": 1,

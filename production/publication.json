@@ -360,6 +360,11 @@
       "strainId": "super-skunk",
       "state": "published",
       "publishedAt": "2026-09-09T13:39:45Z"
+    },
+    {
+      "strainId": "fat-banana-auto",
+      "state": "published",
+      "publishedAt": "2026-09-11T23:08:38Z"
     }
   ]
 }
