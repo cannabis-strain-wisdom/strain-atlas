@@ -462,7 +462,7 @@
     const decorateFlavorCopy = root => {
       for (const panel of root.querySelectorAll('[data-profile-kind="flavor"]')) {
         const heading = panel.querySelector('.ucd-sensory-head span');
-        if (heading && /FLAVOR/i.test(heading.textContent || '')) heading.textContent = 'FLAVOR PROFILE / フレーバー';
+        if (heading && heading.textContent !== 'FLAVOR PROFILE / フレーバー' && /FLAVOR/i.test(heading.textContent || '')) heading.textContent = 'FLAVOR PROFILE / フレーバー';
         const noteLabel = panel.querySelector('.ucd-note small');
         if (noteLabel && /味わい/.test(noteLabel.textContent || '')) noteLabel.textContent = '公式のフレーバー説明';
       }
