@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T02:07:37.117Z",
+  "generatedAt": "2026-09-12T06:02:33.699Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5832,6 +5832,89 @@
           "Banana",
           "Earthy",
           "Fruity"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "items": [
+          "Calming",
+          "Clear"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "observations": [
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "375 - 450 gr/m2",
+            "min": 375,
+            "max": 450,
+            "unit": "gr/m2"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "90 - 175 gr/plant",
+            "min": 90,
+            "max": 175,
+            "unit": "gr/plant"
+          },
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "70 - 100 cm",
+            "min": 70,
+            "max": 100,
+            "unit": "cm"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "80 - 120 cm",
+            "min": 80,
+            "max": 120,
+            "unit": "cm"
+          },
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "50 - 55 days",
+            "min": 50,
+            "max": 55,
+            "unit": "days"
+          },
+          {
+            "field": "harvestFromGermination",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "65 - 70 days after germination",
+            "min": 65,
+            "max": 70,
+            "unit": "days-after-germination"
+          },
+          {
+            "field": "climate",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "Long Summers",
+            "text": "Long Summers"
+          }
         ]
       },
       "terpenes": {
@@ -18470,7 +18553,9 @@
         "aroma",
         "flavor",
         "morphology",
-        "visual"
+        "visual",
+        "effects",
+        "cultivation"
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-12"
