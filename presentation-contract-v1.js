@@ -514,7 +514,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 (() => {
   'use strict';
   const MARK = 'CSW_STAGED_EFFECT_CULTIVATION_V1';
-  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41']);
+  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel']);
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 

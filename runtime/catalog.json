@@ -14379,6 +14379,48 @@
           "noteJa": "Sour Dieselにはガス系の香りが繰り返し関連付けられています。ただし香りの語からフレーバーやテルペン成分を推測して補っていません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sour-diesel"
+        ],
+        "items": [
+          "Diesel",
+          "Chemical",
+          "Skunk"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistArticle",
+        "sourceRefs": [
+          "leafly-sour-diesel"
+        ],
+        "items": [
+          "Energetic",
+          "Uplifted",
+          "Talkative"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistArticle",
+        "sourceRefs": [
+          "leafly-sour-diesel"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "EXACT",
+            "displayText": "77日"
+          }
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [
