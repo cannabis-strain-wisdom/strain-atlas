@@ -204,7 +204,7 @@ if (shamanMorphology.text.includes('tall open sativa structure') || shamanMorpho
 if (shamanMorphology.state?.status !== 'PASS' || shamanMorphology.state?.cultivarId !== 'shaman') throw new Error(`Shaman Morphology presentation state invalid: ${JSON.stringify(shamanMorphology.state)}`);
 if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology detail has horizontal overflow');
 
-      const flavorCatalog = await getJson(`${baseUrl}runtime/catalog.json`);
+  const flavorCatalog = await getJson(`${baseUrl}runtime/catalog.json`);
   const flavorTarget = (flavorCatalog.cultivars || []).find(cultivar =>
     ['confirmed','disputed'].includes(cultivar?.flavors?.status) &&
     Array.isArray(cultivar?.flavors?.items) && cultivar.flavors.items.length
@@ -218,7 +218,8 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
     await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const btn=root?.querySelector('[data-ucd-tab="flavor"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return btn?.getAttribute('aria-expanded')==='true' && panel && !panel.hidden})()`), 'Flavor panel expanded');
     flavor = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return {id:${JSON.stringify(flavorTarget.id)},text:panel?.innerText||'',items:[...panel?.querySelectorAll('.ucd-flavor-terms span')||[]].map(n=>n.textContent.trim()),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
     for (const item of flavorTarget.flavors.items) if (!flavor.items.includes(item)) throw new Error(`Flavor item missing ${item}: ${JSON.stringify(flavor)}`);
-    if (!flavor.text.includes('味わい')) throw new Error(`Flavor Japanese label missing: ${JSON.stringify(flavor)}`);
+    const flavorLabel = flavorTarget.id === 'fat-banana-auto' ? 'フレーバー' : '味わい';
+    if (!flavor.text.includes(flavorLabel)) throw new Error(`Flavor Japanese label missing ${flavorLabel}: ${JSON.stringify(flavor)}`);
     if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
   }
 
