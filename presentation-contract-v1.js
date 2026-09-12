@@ -575,7 +575,12 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     if (row.childNodes.length) box.appendChild(row);
   };
 
-  const buildEffect = (catalog, claim) => {
+  const MIMOSA_EFFECT_PUBLIC_TERMINOLOGY_V1 = new Map([
+    ['creative','創造的'],
+    ['laughter','笑い'],
+  ]);
+
+  const buildEffect = (catalog, claim, cultivarId) => {
     const section = document.createElement('section');
     section.dataset.cswStagedEcSection = 'effects';
     section.hidden = true;
@@ -590,7 +595,13 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     terms.className = 'csw-staged-effect-terms';
     for (const item of claim.items || []) {
       const chip = document.createElement('span');
-      chip.textContent = item;
+      const raw = String(item ?? '').trim();
+      const japanese = cultivarId === 'mimosa' ? MIMOSA_EFFECT_PUBLIC_TERMINOLOGY_V1.get(raw.toLowerCase()) : null;
+      chip.textContent = japanese || raw;
+      if (japanese) {
+        chip.dataset.effectPublicRaw = raw;
+        chip.dataset.effectPublicTerm = 'v1';
+      }
       terms.appendChild(chip);
     }
     section.append(head, terms);
@@ -682,7 +693,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
       subnav.appendChild(button);
     }
     group.appendChild(subnav);
-    if (hasEffects) group.appendChild(buildEffect(catalog, effects));
+    if (hasEffects) group.appendChild(buildEffect(catalog, effects, target));
     if (hasCultivation) group.appendChild(buildCultivation(catalog, cultivation));
     const beforePanel = panels.querySelector('[data-ucd-panel="morphology"],[data-ucd-panel="origin-history"]');
     beforePanel ? panels.insertBefore(group, beforePanel) : panels.appendChild(group);
