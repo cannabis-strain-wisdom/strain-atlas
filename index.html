@@ -424,6 +424,156 @@
     enhance();
   })();
   </script>
+  <script id="csw-fat-banana-sensory-group-v1">
+  (() => {
+    'use strict';
+    const MARK = 'CSW_FAT_BANANA_SENSORY_GROUP_V1';
+    const TARGET = 'fat-banana-auto';
+    const shell = document.getElementById('detail-shell');
+    if (!shell) return;
+
+    const style = document.createElement('style');
+    style.id = 'csw-fat-banana-sensory-group-v1-style';
+    style.textContent = `
+      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .ucd-profile-nav [data-csw-fat-sensory-source="v1"]{display:none!important}
+      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:4px 0 10px}
+      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
+      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-group-panel{padding-top:2px}
+      @media(max-width:350px){.detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav{gap:5px}.detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button{font-size:10px;padding-inline:4px}}
+    `;
+    document.head.appendChild(style);
+
+    const sourceKind = button => {
+      const kind = String(button?.dataset?.ucdTab || '').toLowerCase();
+      const text = (button?.textContent || '').trim();
+      if (kind === 'aroma' || text === '香り') return 'aroma';
+      if (kind === 'flavor' || /^(味わい|風味|フレーバー)$/.test(text)) return 'flavor';
+      if (kind === 'terpene' || text === 'テルペン') return 'terpene';
+      return null;
+    };
+
+    const choosePanel = (root, kind) => {
+      const list = [...root.querySelectorAll(`[data-profile-kind="${kind}"], [data-ucd-panel="${kind}"]`)];
+      if (kind === 'flavor') return list.find(panel => panel.querySelector('[data-flavor-presentation="v1"]')) || list.find(panel => panel.querySelector('.ucd-flavor-profile')) || list[0] || null;
+      return list[0] || null;
+    };
+
+    const decorateFlavorCopy = root => {
+      for (const panel of root.querySelectorAll('[data-profile-kind="flavor"]')) {
+        const heading = panel.querySelector('.ucd-sensory-head span');
+        if (heading && /FLAVOR/i.test(heading.textContent || '')) heading.textContent = 'FLAVOR PROFILE / フレーバー';
+        const noteLabel = panel.querySelector('.ucd-note small');
+        if (noteLabel && /味わい/.test(noteLabel.textContent || '')) noteLabel.textContent = '公式のフレーバー説明';
+      }
+    };
+
+    const decorate = () => {
+      if (new URL(location.href).searchParams.get('strain') !== TARGET) return;
+      const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET}"]`);
+      const profile = root?.querySelector('.ucd-profile');
+      const nav = profile?.querySelector('.ucd-profile-nav');
+      const panels = profile?.querySelector('.ucd-profile-panels');
+      if (!(root && profile && nav && panels)) return;
+
+      decorateFlavorCopy(root);
+      const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
+      sensoryButtons.forEach(button => { button.dataset.cswFatSensorySource = 'v1'; });
+
+      let parent = nav.querySelector('[data-csw-fat-sensory-parent="v1"]');
+      if (!parent) {
+        parent = document.createElement('button');
+        parent.type = 'button';
+        parent.dataset.ucdTab = 'sensory-group';
+        parent.dataset.cswFatSensoryParent = 'v1';
+        parent.setAttribute('aria-expanded', 'false');
+        parent.setAttribute('aria-controls', `ucd-${TARGET}-sensory-group`);
+        parent.innerHTML = '<span>香味・テルペン</span><i aria-hidden="true">⌄</i>';
+        const first = sensoryButtons[0];
+        first ? nav.insertBefore(parent, first) : nav.prepend(parent);
+      }
+
+      let group = panels.querySelector('[data-csw-fat-sensory-group="v1"]');
+      if (!group) {
+        group = document.createElement('section');
+        group.id = `ucd-${TARGET}-sensory-group`;
+        group.dataset.ucdPanel = 'sensory-group';
+        group.dataset.cswFatSensoryGroup = 'v1';
+        group.className = 'csw-fat-sensory-group-panel';
+        group.hidden = true;
+        const subnav = document.createElement('div');
+        subnav.className = 'csw-fat-sensory-subnav';
+        subnav.setAttribute('aria-label', '香味・テルペン');
+        for (const [kind, label] of [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']]) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.cswFatSensorySub = kind;
+          button.textContent = label;
+          button.setAttribute('aria-pressed', 'false');
+          subnav.appendChild(button);
+        }
+        group.appendChild(subnav);
+        panels.prepend(group);
+      }
+
+      if (parent.dataset.cswFatSensoryBound !== MARK) {
+        parent.dataset.cswFatSensoryBound = MARK;
+        parent.addEventListener('click', event => {
+          event.preventDefault();
+          const opening = parent.getAttribute('aria-expanded') !== 'true' || group.hidden;
+          root.querySelectorAll('[data-ucd-tab]').forEach(button => { button.setAttribute('aria-expanded', 'false'); button.classList.remove('is-active'); });
+          root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
+          group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(button => { button.classList.remove('is-active'); button.setAttribute('aria-pressed', 'false'); });
+          if (opening) {
+            parent.setAttribute('aria-expanded', 'true');
+            parent.classList.add('is-active');
+            group.hidden = false;
+          }
+        });
+      }
+
+      group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(sub => {
+        if (sub.dataset.cswFatSensoryBound === MARK) return;
+        sub.dataset.cswFatSensoryBound = MARK;
+        sub.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const kind = sub.dataset.cswFatSensorySub;
+          const target = choosePanel(root, kind);
+          root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
+          group.hidden = false;
+          if (target) target.hidden = false;
+          group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(button => {
+            const active = button === sub;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          parent.setAttribute('aria-expanded', 'true');
+          parent.classList.add('is-active');
+        });
+      });
+
+      const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswFatSensorySource !== 'v1');
+      nav.dataset.count = String(visibleTop.length);
+      root.dataset.fatBananaSensoryPrototype = 'v1';
+      window.__CSWFatBananaSensoryGroupV1 = { marker: MARK, status: 'READY', visibleTopLevel: visibleTop.length };
+    };
+
+    let queued = false;
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      queueMicrotask(() => {
+        queued = false;
+        try { decorate(); } catch (error) { window.__CSWFatBananaSensoryGroupV1Error = String(error?.message || error); }
+      });
+    };
+    new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
+    shell.addEventListener('click', queue, true);
+    window.addEventListener('popstate', queue);
+    queue();
+  })();
+  </script>
   <script src="presentation-contract-v1.js?v=4" defer></script>
   <script src="app.min.js?v=5" defer></script>
 </body></html>
