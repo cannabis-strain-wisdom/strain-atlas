@@ -375,6 +375,11 @@
       "strainId": "sour-diesel",
       "state": "published",
       "publishedAt": "2026-09-12T10:48:54Z"
+    },
+    {
+      "strainId": "mimosa",
+      "state": "published",
+      "publishedAt": "2026-09-12T13:49:27Z"
     }
   ]
 }

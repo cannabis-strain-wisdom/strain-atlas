@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T11:54:26.656Z",
+  "generatedAt": "2026-09-12T13:49:27.758Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 63,
-    "sources": 115,
+    "cultivars": 64,
+    "sources": 116,
     "entities": 18
   },
   "explore": {
@@ -35,6 +35,7 @@
       "laughing-buddha",
       "lebanese",
       "malawi",
+      "mimosa",
       "nepal-jam",
       "new-caledonia",
       "orient-express",
@@ -6677,8 +6678,23 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "中程度",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-frisian-duck"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "origin": {
@@ -8610,8 +8626,37 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "高い",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-kali-mist"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "qualitative",
+              "valueText": "低い",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-kali-mist"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "origin": {
@@ -10474,6 +10519,324 @@
       ],
       "checkedAt": "2026-09-06",
       "updatedAt": "2026-09-06",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "mimosa",
+      "status": "review",
+      "name": "Mimosa",
+      "jp": null,
+      "aliases": [
+        "Purple Mimosa"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "rqs-mimosa-current"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "display": "Clementine × Purple Punch",
+        "parents": [
+          "Clementine",
+          "Purple Punch"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Royal Queen Seeds公式では、現行MimosaをClementine × Purple Punchとして記載しています。この記載を、Mimosaという名称の歴史的起源全体へ一般化していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "royal-queen-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "rqs-mimosa-current"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "items": [
+          "Earthy",
+          "Sour"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "items": [
+          "Creative",
+          "Laughter"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "observations": [
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "350 - 400 gr/m2",
+            "min": 350,
+            "max": 400,
+            "unit": "gr/m2"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "500 - 550 gr/plant",
+            "min": 500,
+            "max": 550,
+            "unit": "gr/plant"
+          },
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "60 - 80 cm",
+            "min": 60,
+            "max": 80,
+            "unit": "cm"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "80 - 100 cm",
+            "min": 80,
+            "max": 100,
+            "unit": "cm"
+          },
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "60 - 65 days",
+            "min": 60,
+            "max": 65,
+            "unit": "days"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "10月中旬",
+            "text": "10月中旬"
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "長い夏",
+            "text": "長い夏"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "items": [
+          "beta-myrcene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            }
+          ],
+          "noteJa": "Royal Queen Seeds公式では、β-ミルセンが高い水準で含まれると記載しています。定性的情報として保持し、割合は推定していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "maximum",
+              "boundaryValue": 22,
+              "unit": "%",
+              "valueText": "最大22%",
+              "confidence": "B",
+              "sourceRefs": [
+                "rqs-mimosa-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 1,
+              "unit": "%",
+              "valueText": "1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "rqs-mimosa-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "qualitative",
+              "valueText": "低い",
+              "confidence": "B",
+              "sourceRefs": [
+                "rqs-mimosa-current"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-mimosa-current"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Royal Queen Seeds公式では、密度が高く霜をまとったような花、濃い紫と濃い緑の色合い、オレンジ色の雌しべが記載されています。現行RQS Mimosaの形態情報として保持し、未記載の特徴は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Royal Queen Seeds公式では、現行MimosaをClementine × Purple Punchとして記載しています。この記載を、Mimosaという名称の歴史的起源全体へ一般化していません。",
+          "terpeneNote": "Royal Queen Seeds公式では、β-ミルセンが高い水準で含まれると記載しています。定性的情報として保持し、割合は推定していません。",
+          "morphologyNote": "Royal Queen Seeds公式では、密度が高く霜をまとったような花、濃い紫と濃い緑の色合い、オレンジ色の雌しべが記載されています。現行RQS Mimosaの形態情報として保持し、未記載の特徴は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/mimosa/primary.webp",
+          "alt": "Royal Queen Seeds公式の現行Mimosa形態情報に基づき、密度の高い霜状の主花と濃紫・濃緑の色合い、オレンジ色の雌しべを安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-12",
+      "updatedAt": "2026-09-12",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13809,8 +14172,23 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "中程度",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-shaman"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "origin": {
@@ -14839,6 +15217,20 @@
               "contextLabel": "公式掲載値（分析未確認）",
               "analysisVerified": false,
               "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "qualitative",
+              "valueText": "低い",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-strawberry-banana-s1"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
               "evidenceScope": "cultivar"
             }
           ]
@@ -16862,6 +17254,34 @@
               "contextLabel": "公式掲載値（分析未確認）",
               "analysisVerified": false,
               "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "高い",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-warlock"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "qualitative",
+              "valueText": "中程度",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-warlock"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
               "evidenceScope": "cultivar"
             }
           ]
@@ -19240,6 +19660,29 @@
         "classification",
         "cannabinoids",
         "aroma",
+        "flavor",
+        "morphology",
+        "visual",
+        "effects",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-12"
+    },
+    "rqs-mimosa-current": {
+      "schemaVersion": 1,
+      "id": "rqs-mimosa-current",
+      "publisher": "Royal Queen Seeds",
+      "title": "Mimosa",
+      "url": "https://www.royalqueenseeds.com/uk/feminized-cannabis-seeds/569-mimosa.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "terpenes",
         "flavor",
         "morphology",
         "visual",
