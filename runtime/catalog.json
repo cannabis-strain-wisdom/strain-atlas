@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T08:05:37.611Z",
+  "generatedAt": "2026-09-12T10:48:55.704Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 62,
-    "sources": 112,
+    "cultivars": 63,
+    "sources": 115,
     "entities": 18
   },
   "explore": {
@@ -43,6 +43,7 @@
       "rush-of-siam",
       "satori",
       "shaman",
+      "sour-diesel",
       "super-lemon-haze",
       "thai-chiang-mai",
       "zamaldelica"
@@ -14315,6 +14316,142 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sour-diesel",
+      "status": "review",
+      "name": "Sour Diesel",
+      "jp": null,
+      "aliases": [
+        "Sour D",
+        "Sour Deez"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "disputed",
+        "confidence": "C",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-sour-diesel-authentication",
+          "leafly-sour-diesel"
+        ],
+        "display": "親系統は未確定",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sour Dieselの親系統は確定していません。Chemdog 91とSuper Skunkの影響が広く語られ、Leaflyの現行品種ページではChemdawg × Super Skunkと表示されていますが、Leafly自身のidentity検証記事は元ブリーダーと正確な遺伝系統を未確定としています。CSWではこの差を潰して親品種を確定しません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "C",
+        "sourceRefs": [
+          "leafly-sour-diesel-authentication"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ガス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ガス"
+          ],
+          "details": [
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Sour Dieselにはガス系の香りが繰り返し関連付けられています。ただし香りの語からフレーバーやテルペン成分を推測して補っていません。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [
+          "leafly-sour-diesel-authentication",
+          "zager-sour-diesel-chemistry-2019"
+        ],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-sour-diesel-authentication",
+          "leafly-sour-diesel"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sour Dieselは1990年代初頭から広く知られるようになりましたが、元ブリーダーと正確な遺伝的起源は現在も確定していません。また、Sour Diesel名義の分析データには複数のchemotypeが確認されているため、単一の化学プロファイルへ統合していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sour Dieselの親系統は確定していません。Chemdog 91とSuper Skunkの影響が広く語られ、Leaflyの現行品種ページではChemdawg × Super Skunkと表示されていますが、Leafly自身のidentity検証記事は元ブリーダーと正確な遺伝系統を未確定としています。CSWではこの差を潰して親品種を確定しません。",
+          "history": "Sour Dieselは1990年代初頭から広く知られるようになりましたが、元ブリーダーと正確な遺伝的起源は現在も確定していません。また、Sour Diesel名義の分析データには複数のchemotypeが確認されているため、単一の化学プロファイルへ統合していません。",
+          "aromaNote": "Sour Dieselにはガス系の香りが繰り返し関連付けられています。ただし香りの語からフレーバーやテルペン成分を推測して補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sour-diesel/primary.webp",
+          "alt": "現行Barney's Farm Sour Diesel系統の公式ビジュアルを限定的な参考根拠として、歴史的Sour Diesel全体の固定形態とは断定せず表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-12",
+      "updatedAt": "2026-09-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "strawberry-banana-s1",
       "status": "review",
       "name": "Strawberry Banana S1",
@@ -18769,6 +18906,43 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "leafly-sour-diesel-authentication": {
+      "schemaVersion": 1,
+      "id": "leafly-sour-diesel-authentication",
+      "publisher": "Leafly",
+      "title": "Are You Smoking the ‘Real’ Sour Diesel?",
+      "url": "https://www.leafly.com/news/strains-products/what-does-sour-diesel-cannabis-strain-look-like",
+      "sourceType": "specialistArticle",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "aroma",
+        "terpenes"
+      ],
+      "publishedAt": "2020-07-28",
+      "checkedAt": "2026-09-12"
+    },
+    "leafly-sour-diesel": {
+      "schemaVersion": 1,
+      "id": "leafly-sour-diesel",
+      "publisher": "Leafly",
+      "title": "Sour Diesel aka Sour D, Sour Deez Weed Strain Information",
+      "url": "https://www.leafly.com/strains/sour-diesel",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "history",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-12"
+    },
     "leafly-warlock": {
       "schemaVersion": 1,
       "id": "leafly-warlock",
@@ -19317,6 +19491,20 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "zager-sour-diesel-chemistry-2019": {
+      "schemaVersion": 1,
+      "id": "zager-sour-diesel-chemistry-2019",
+      "publisher": "Plant Physiology",
+      "title": "Gene Networks Underlying Cannabinoid and Terpenoid Accumulation in Cannabis",
+      "url": "https://academic.oup.com/plphys/article/180/4/1877/6117720",
+      "sourceType": "scientificPublication",
+      "supports": [
+        "cannabinoids",
+        "terpenes"
+      ],
+      "publishedAt": "2019-05-28",
+      "checkedAt": "2026-09-12"
     }
   },
   "entities": {

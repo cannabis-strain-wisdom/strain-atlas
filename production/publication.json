@@ -370,6 +370,11 @@
       "strainId": "blue-gelato-41",
       "state": "published",
       "publishedAt": "2026-09-12T08:05:36Z"
+    },
+    {
+      "strainId": "sour-diesel",
+      "state": "published",
+      "publishedAt": "2026-09-12T10:48:54Z"
     }
   ]
 }
