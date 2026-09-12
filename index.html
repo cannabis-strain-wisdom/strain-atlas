@@ -424,23 +424,23 @@
     enhance();
   })();
   </script>
-  <script id="csw-fat-banana-sensory-group-v1">
+  <script id="csw-staged-sensory-group-v1">
   (() => {
     'use strict';
-    const MARK = 'CSW_FAT_BANANA_SENSORY_GROUP_V1';
-    const TARGET = 'fat-banana-auto';
+    const MARK = 'CSW_STAGED_SENSORY_GROUP_V1';
+    const TARGETS = new Set(['fat-banana-auto','blue-gelato-41']);
     const shell = document.getElementById('detail-shell');
     if (!shell) return;
 
     const style = document.createElement('style');
-    style.id = 'csw-fat-banana-sensory-group-v1-style';
+    style.id = 'csw-staged-sensory-group-v1-style';
     style.textContent = `
-      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .ucd-profile-nav [data-csw-fat-sensory-source="v1"]{display:none!important}
-      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:4px 0 10px}
-      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
-      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
-      .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-group-panel{padding-top:2px}
-      @media(max-width:350px){.detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav{gap:5px}.detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-sensory-subnav button{font-size:10px;padding-inline:4px}}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .ucd-profile-nav [data-csw-staged-sensory-source="v1"]{display:none!important}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:4px 0 10px}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-group-panel{padding-top:2px}
+      @media(max-width:350px){.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav{gap:5px}.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{font-size:10px;padding-inline:4px}}
     `;
     document.head.appendChild(style);
 
@@ -469,45 +469,48 @@
     };
 
     const decorate = () => {
-      if (new URL(location.href).searchParams.get('strain') !== TARGET) return;
-      const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET}"]`);
+      const target = new URL(location.href).searchParams.get('strain');
+      if (!TARGETS.has(target)) return;
+      const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"]`);
       const profile = root?.querySelector('.ucd-profile');
       const nav = profile?.querySelector('.ucd-profile-nav');
       const panels = profile?.querySelector('.ucd-profile-panels');
       if (!(root && profile && nav && panels)) return;
 
+      root.dataset.cswStagedSensory = 'v1';
       decorateFlavorCopy(root);
       const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
-      sensoryButtons.forEach(button => { button.dataset.cswFatSensorySource = 'v1'; });
+      if (sensoryButtons.length < 3) return;
+      sensoryButtons.forEach(button => { button.dataset.cswStagedSensorySource = 'v1'; });
 
-      let parent = nav.querySelector('[data-csw-fat-sensory-parent="v1"]');
+      let parent = nav.querySelector('[data-csw-staged-sensory-parent="v1"]');
       if (!parent) {
         parent = document.createElement('button');
         parent.type = 'button';
         parent.dataset.ucdTab = 'sensory-group';
-        parent.dataset.cswFatSensoryParent = 'v1';
+        parent.dataset.cswStagedSensoryParent = 'v1';
         parent.setAttribute('aria-expanded', 'false');
-        parent.setAttribute('aria-controls', `ucd-${TARGET}-sensory-group`);
+        parent.setAttribute('aria-controls', `ucd-${target}-sensory-group`);
         parent.innerHTML = '<span>香味・テルペン</span><i aria-hidden="true">⌄</i>';
         const first = sensoryButtons[0];
         first ? nav.insertBefore(parent, first) : nav.prepend(parent);
       }
 
-      let group = panels.querySelector('[data-csw-fat-sensory-group="v1"]');
+      let group = panels.querySelector('[data-csw-staged-sensory-group="v1"]');
       if (!group) {
         group = document.createElement('section');
-        group.id = `ucd-${TARGET}-sensory-group`;
+        group.id = `ucd-${target}-sensory-group`;
         group.dataset.ucdPanel = 'sensory-group';
-        group.dataset.cswFatSensoryGroup = 'v1';
-        group.className = 'csw-fat-sensory-group-panel';
+        group.dataset.cswStagedSensoryGroup = 'v1';
+        group.className = 'csw-staged-sensory-group-panel';
         group.hidden = true;
         const subnav = document.createElement('div');
-        subnav.className = 'csw-fat-sensory-subnav';
+        subnav.className = 'csw-staged-sensory-subnav';
         subnav.setAttribute('aria-label', '香味・テルペン');
         for (const [kind, label] of [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']]) {
           const button = document.createElement('button');
           button.type = 'button';
-          button.dataset.cswFatSensorySub = kind;
+          button.dataset.cswStagedSensorySub = kind;
           button.textContent = label;
           button.setAttribute('aria-pressed', 'false');
           subnav.appendChild(button);
@@ -516,14 +519,14 @@
         panels.prepend(group);
       }
 
-      if (parent.dataset.cswFatSensoryBound !== MARK) {
-        parent.dataset.cswFatSensoryBound = MARK;
+      if (parent.dataset.cswStagedSensoryBound !== MARK) {
+        parent.dataset.cswStagedSensoryBound = MARK;
         parent.addEventListener('click', event => {
           event.preventDefault();
           const opening = parent.getAttribute('aria-expanded') !== 'true' || group.hidden;
           root.querySelectorAll('[data-ucd-tab]').forEach(button => { button.setAttribute('aria-expanded', 'false'); button.classList.remove('is-active'); });
           root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
-          group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(button => { button.classList.remove('is-active'); button.setAttribute('aria-pressed', 'false'); });
+          group.querySelectorAll('[data-csw-staged-sensory-sub]').forEach(button => { button.classList.remove('is-active'); button.setAttribute('aria-pressed', 'false'); });
           if (opening) {
             parent.setAttribute('aria-expanded', 'true');
             parent.classList.add('is-active');
@@ -532,18 +535,18 @@
         });
       }
 
-      group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(sub => {
-        if (sub.dataset.cswFatSensoryBound === MARK) return;
-        sub.dataset.cswFatSensoryBound = MARK;
+      group.querySelectorAll('[data-csw-staged-sensory-sub]').forEach(sub => {
+        if (sub.dataset.cswStagedSensoryBound === MARK) return;
+        sub.dataset.cswStagedSensoryBound = MARK;
         sub.addEventListener('click', event => {
           event.preventDefault();
           event.stopPropagation();
-          const kind = sub.dataset.cswFatSensorySub;
-          const target = choosePanel(root, kind);
+          const kind = sub.dataset.cswStagedSensorySub;
+          const targetPanel = choosePanel(root, kind);
           root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
           group.hidden = false;
-          if (target) target.hidden = false;
-          group.querySelectorAll('[data-csw-fat-sensory-sub]').forEach(button => {
+          if (targetPanel) targetPanel.hidden = false;
+          group.querySelectorAll('[data-csw-staged-sensory-sub]').forEach(button => {
             const active = button === sub;
             button.classList.toggle('is-active', active);
             button.setAttribute('aria-pressed', active ? 'true' : 'false');
@@ -553,10 +556,10 @@
         });
       });
 
-      const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswFatSensorySource !== 'v1');
+      const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswStagedSensorySource !== 'v1');
       nav.dataset.count = String(visibleTop.length);
-      root.dataset.fatBananaSensoryPrototype = 'v1';
-      window.__CSWFatBananaSensoryGroupV1 = { marker: MARK, status: 'READY', visibleTopLevel: visibleTop.length };
+      root.dataset.stagedSensoryGroup = 'v1';
+      window.__CSWStagedSensoryGroupV1 = { marker: MARK, status: 'READY', cultivarId: target, visibleTopLevel: visibleTop.length };
     };
 
     let queued = false;
@@ -565,7 +568,7 @@
       queued = true;
       queueMicrotask(() => {
         queued = false;
-        try { decorate(); } catch (error) { window.__CSWFatBananaSensoryGroupV1Error = String(error?.message || error); }
+        try { decorate(); } catch (error) { window.__CSWStagedSensoryGroupV1Error = String(error?.message || error); }
       });
     };
     new MutationObserver(queue).observe(shell, { childList: true, subtree: true });

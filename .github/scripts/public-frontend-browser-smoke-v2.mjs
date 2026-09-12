@@ -218,10 +218,38 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
     await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const btn=root?.querySelector('[data-ucd-tab="flavor"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return btn?.getAttribute('aria-expanded')==='true' && panel && !panel.hidden})()`), 'Flavor panel expanded');
     flavor = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return {id:${JSON.stringify(flavorTarget.id)},text:panel?.innerText||'',items:[...panel?.querySelectorAll('.ucd-flavor-terms span')||[]].map(n=>n.textContent.trim()),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
     for (const item of flavorTarget.flavors.items) if (!flavor.items.includes(item)) throw new Error(`Flavor item missing ${item}: ${JSON.stringify(flavor)}`);
-    const flavorLabel = flavorTarget.id === 'fat-banana-auto' ? 'フレーバー' : '味わい';
+    const flavorLabel = ['fat-banana-auto','blue-gelato-41'].includes(flavorTarget.id) ? 'フレーバー' : '味わい';
     if (!flavor.text.includes(flavorLabel)) throw new Error(`Flavor Japanese label missing ${flavorLabel}: ${JSON.stringify(flavor)}`);
     if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
   }
+
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=blue-gelato-41` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'Blue Gelato 41 document complete');
+  await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return !!root && root.querySelectorAll('[data-csw-staged-sensory-parent="v1"]').length===1 && root.querySelectorAll('[data-csw-staged-ec-parent="v1"]').length===1})()`), 'Blue Gelato grouped controls');
+  const blueTop = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return [...root.querySelectorAll('.ucd-profile-nav > [data-ucd-tab]')].filter(x=>x.matches('[data-ucd-tab]')&&getComputedStyle(x).display!=='none').map(x=>x.innerText.trim())})()`);
+  if (blueTop.filter(x=>x.includes('香味・テルペン')).length!==1 || blueTop.filter(x=>x.includes('効果・栽培')).length!==1) throw new Error(`Blue Gelato top groups mismatch ${JSON.stringify(blueTop)}`);
+  if (blueTop.some(x=>['香り','フレーバー','味わい','風味','テルペン'].includes(x))) throw new Error(`Blue Gelato duplicate sensory top control ${JSON.stringify(blueTop)}`);
+  await evalv(`document.querySelector('[data-csw-staged-sensory-parent="v1"]').click()`);
+  await evalv(`document.querySelector('[data-csw-staged-sensory-sub="aroma"]').click()`);
+  const blueAroma = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="aroma"]');if(!p||p.hidden)return false;return [...p.querySelectorAll('[data-aroma-public-term="v1"] strong')].map(x=>x.textContent.trim())})()`), 'Blue Gelato aroma child');
+  for (const term of ['Fresh','Fruity','Berry']) if (!blueAroma.includes(term)) throw new Error(`Blue Gelato Aroma missing ${term}: ${JSON.stringify(blueAroma)}`);
+  await evalv(`document.querySelector('[data-csw-staged-sensory-sub="flavor"]').click()`);
+  const blueFlavor = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="flavor"]');if(!p||p.hidden)return false;return {text:p.innerText,items:[...p.querySelectorAll('.ucd-flavor-terms span')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato flavor child');
+  for (const term of ['Sweet','Earthy','Citrus']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
+  if(!blueFlavor.text.includes('フレーバー')) throw new Error('Blue Gelato Flavor label not normalized');
+  await evalv(`document.querySelector('[data-csw-staged-sensory-sub="terpene"]').click()`);
+  const blueTerpene = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="terpene"]');if(!p||p.hidden)return false;return p.innerText})()`), 'Blue Gelato terpene child');
+  if(!blueTerpene.includes('個別テルペンは確認できていません')) throw new Error(`Blue Gelato UNKNOWN terpene message missing: ${blueTerpene}`);
+  await evalv(`document.querySelector('[data-csw-staged-ec-parent="v1"]').click()`);
+  await evalv(`document.querySelector('[data-csw-staged-ec-sub="effects"]').click()`);
+  const blueEffects = await waitFor(() => evalv(`(()=>{const s=document.querySelector('[data-csw-staged-ec-section="effects"]');if(!s||s.hidden)return false;return [...s.querySelectorAll('.csw-staged-effect-terms span')].map(x=>x.textContent.trim())})()`), 'Blue Gelato effects child');
+  for (const term of ['Clear Headed','Energetic','Creative']) if (!blueEffects.includes(term)) throw new Error(`Blue Gelato Effect missing ${term}: ${JSON.stringify(blueEffects)}`);
+  await evalv(`document.querySelector('[data-csw-staged-ec-sub="cultivation"]').click()`);
+  const blueCultivation = await waitFor(() => evalv(`(()=>{const s=document.querySelector('[data-csw-staged-ec-section="cultivation"]');if(!s||s.hidden)return false;return {labels:[...s.querySelectorAll('.csw-staged-cultivation-row small')].map(x=>x.textContent.trim()),values:[...s.querySelectorAll('.csw-staged-cultivation-value')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato cultivation child');
+  for (const value of ['110-150 cm','700-800 gr/㎡','63 - 70 days','150-200 cm','2500-3000 g/plant','10月 第2〜第3週']) if (!blueCultivation.values.includes(value)) throw new Error(`Blue Gelato cultivation missing ${value}: ${JSON.stringify(blueCultivation)}`);
+  if(!blueCultivation.labels.includes('収穫時期')) throw new Error(`Blue Gelato harvest label missing: ${JSON.stringify(blueCultivation.labels)}`);
+  const blueOverflow = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return r.scrollWidth>r.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1})()`);
+  if(blueOverflow) throw new Error('Blue Gelato detail has horizontal overflow');
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);

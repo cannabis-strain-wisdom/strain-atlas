@@ -513,24 +513,24 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 
 (() => {
   'use strict';
-  const MARK = 'CSW_FAT_BANANA_EFFECT_CULTIVATION_V1';
-  const TARGET = 'fat-banana-auto';
+  const MARK = 'CSW_STAGED_EFFECT_CULTIVATION_V1';
+  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41']);
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 
   const style = document.createElement('style');
-  style.id = 'csw-fat-banana-effect-cultivation-v1-style';
+  style.id = 'csw-staged-effect-cultivation-v1-style';
   style.textContent = `
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-ec-subnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:4px 0 10px}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-ec-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-ec-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-effect-terms{display:flex;flex-wrap:wrap;gap:8px}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-effect-terms span{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border:1px solid rgba(216,189,98,.22);border-radius:999px;background:rgba(216,189,98,.055);color:#e8eee9;font-size:11px;font-weight:780}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-cultivation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-cultivation-row{min-width:0;padding:11px 12px;border:1px solid rgba(216,189,98,.14);border-radius:12px;background:rgba(255,255,255,.018)}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-cultivation-row small{display:block;margin-bottom:5px;color:#8e9b93;font-size:9px;font-weight:800;letter-spacing:.03em}
-    .detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-cultivation-row strong{display:block;overflow-wrap:anywhere;color:#e6ece8;font-size:12px;line-height:1.45}
-    @media(max-width:420px){.detail-public-v1[data-public-detail-id="fat-banana-auto"] .csw-fat-cultivation-grid{grid-template-columns:1fr}}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-ec-subnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:4px 0 10px}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-ec-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-ec-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms{display:flex;flex-wrap:wrap;gap:8px}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border:1px solid rgba(216,189,98,.22);border-radius:999px;background:rgba(216,189,98,.055);color:#e8eee9;font-size:11px;font-weight:780}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-row{min-width:0;padding:11px 12px;border:1px solid rgba(216,189,98,.14);border-radius:12px;background:rgba(255,255,255,.018)}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-row small{display:block;margin-bottom:5px;color:#8e9b93;font-size:9px;font-weight:800;letter-spacing:.03em}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-row strong{display:block;overflow-wrap:anywhere;color:#e6ece8;font-size:12px;line-height:1.45}
+    @media(max-width:420px){.detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-grid{grid-template-columns:1fr}}
   `;
   document.head.appendChild(style);
 
@@ -549,6 +549,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     'height:outdoor': '高さ・屋外',
     'floweringTime:unspecified': '開花期間',
     'harvestFromGermination:unspecified': '発芽から収穫',
+    'harvestWindow:outdoor': '収穫時期',
     'climate:unspecified': '気候'
   };
 
@@ -576,17 +577,17 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 
   const buildEffect = (catalog, claim) => {
     const section = document.createElement('section');
-    section.dataset.cswFatEcSection = 'effects';
+    section.dataset.cswStagedEcSection = 'effects';
     section.hidden = true;
     const head = document.createElement('div');
     head.className = 'ucd-sensory-head';
     const title = document.createElement('span');
     title.textContent = 'EFFECT / 効果・体感';
     const small = document.createElement('small');
-    small.textContent = '公式データシートに記載されたEffect';
+    small.textContent = '公式資料に記載されたEffect';
     head.append(title, small);
     const terms = document.createElement('div');
-    terms.className = 'csw-fat-effect-terms';
+    terms.className = 'csw-staged-effect-terms';
     for (const item of claim.items || []) {
       const chip = document.createElement('span');
       chip.textContent = item;
@@ -599,24 +600,24 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 
   const buildCultivation = (catalog, claim) => {
     const section = document.createElement('section');
-    section.dataset.cswFatEcSection = 'cultivation';
+    section.dataset.cswStagedEcSection = 'cultivation';
     section.hidden = true;
     const head = document.createElement('div');
     head.className = 'ucd-sensory-head';
     const title = document.createElement('span');
     title.textContent = 'CULTIVATION / 栽培情報';
     const small = document.createElement('small');
-    small.textContent = '公式データシートに記載された値';
+    small.textContent = '公式資料に記載された値';
     head.append(title, small);
     const grid = document.createElement('div');
-    grid.className = 'csw-fat-cultivation-grid';
+    grid.className = 'csw-staged-cultivation-grid';
     for (const observation of claim.observations || []) {
       const row = document.createElement('div');
-      row.className = 'csw-fat-cultivation-row';
+      row.className = 'csw-staged-cultivation-row';
       const label = document.createElement('small');
       label.textContent = labels[`${observation.field}:${observation.environment}`] || observation.field;
       const value = document.createElement('strong');
-      value.className = 'csw-fat-cultivation-value';
+      value.className = 'csw-staged-cultivation-value';
       value.textContent = observation.displayText || '';
       row.append(label, value);
       grid.appendChild(row);
@@ -627,27 +628,29 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   };
 
   const decorate = async () => {
-    if (new URL(location.href).searchParams.get('strain') !== TARGET) return;
-    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET}"]`);
+    const target = new URL(location.href).searchParams.get('strain');
+    if (!TARGETS.has(target)) return;
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"]`);
     const profile = root?.querySelector('.ucd-profile');
     const nav = profile?.querySelector('.ucd-profile-nav');
     const panels = profile?.querySelector('.ucd-profile-panels');
     if (!(root && profile && nav && panels)) return;
-    if (root.dataset.fatBananaEffectCultivation === 'v1') return;
+    if (root.dataset.cswStagedEffectCultivation === 'v1') return;
 
     const catalog = await loadCatalog();
-    const cultivar = (catalog?.cultivars || []).find(item => item?.id === TARGET);
+    const cultivar = (catalog?.cultivars || []).find(item => item?.id === target);
     const effects = cultivar?.effects;
     const cultivation = cultivar?.cultivation;
     const hasEffects = effects && ['confirmed','disputed'].includes(effects.status) && Array.isArray(effects.items) && effects.items.length;
     const hasCultivation = cultivation && ['confirmed','disputed'].includes(cultivation.status) && Array.isArray(cultivation.observations) && cultivation.observations.length;
     if (!hasEffects && !hasCultivation) return;
 
-    const panelId = `ucd-${TARGET}-effect-cultivation`;
+    root.dataset.cswStagedEffectCultivation = 'v1';
+    const panelId = `ucd-${target}-effect-cultivation`;
     const parent = document.createElement('button');
     parent.type = 'button';
     parent.dataset.ucdTab = 'effect-cultivation';
-    parent.dataset.cswFatEcParent = 'v1';
+    parent.dataset.cswStagedEcParent = 'v1';
     parent.setAttribute('aria-expanded', 'false');
     parent.setAttribute('aria-controls', panelId);
     parent.innerHTML = `<span>${hasEffects && hasCultivation ? '効果・栽培' : hasEffects ? '効果・体感' : '栽培情報'}</span><i aria-hidden="true">⌄</i>`;
@@ -657,15 +660,15 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     const group = document.createElement('section');
     group.id = panelId;
     group.dataset.ucdPanel = 'effect-cultivation';
-    group.dataset.cswFatEcGroup = 'v1';
+    group.dataset.cswStagedEcGroup = 'v1';
     group.hidden = true;
     const subnav = document.createElement('div');
-    subnav.className = 'csw-fat-ec-subnav';
+    subnav.className = 'csw-staged-ec-subnav';
     subnav.setAttribute('aria-label', '効果・栽培');
     if (hasEffects) {
       const button = document.createElement('button');
       button.type = 'button';
-      button.dataset.cswFatEcSub = 'effects';
+      button.dataset.cswStagedEcSub = 'effects';
       button.textContent = '効果';
       button.setAttribute('aria-pressed', 'false');
       subnav.appendChild(button);
@@ -673,7 +676,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     if (hasCultivation) {
       const button = document.createElement('button');
       button.type = 'button';
-      button.dataset.cswFatEcSub = 'cultivation';
+      button.dataset.cswStagedEcSub = 'cultivation';
       button.textContent = '栽培情報';
       button.setAttribute('aria-pressed', 'false');
       subnav.appendChild(button);
@@ -687,16 +690,10 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     parent.addEventListener('click', event => {
       event.preventDefault();
       const opening = parent.getAttribute('aria-expanded') !== 'true' || group.hidden;
-      root.querySelectorAll('[data-ucd-tab]').forEach(button => {
-        button.setAttribute('aria-expanded', 'false');
-        button.classList.remove('is-active');
-      });
+      root.querySelectorAll('[data-ucd-tab]').forEach(button => { button.setAttribute('aria-expanded', 'false'); button.classList.remove('is-active'); });
       root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
-      group.querySelectorAll('[data-csw-fat-ec-sub]').forEach(button => {
-        button.classList.remove('is-active');
-        button.setAttribute('aria-pressed', 'false');
-      });
-      group.querySelectorAll('[data-csw-fat-ec-section]').forEach(section => { section.hidden = true; });
+      group.querySelectorAll('[data-csw-staged-ec-sub]').forEach(button => { button.classList.remove('is-active'); button.setAttribute('aria-pressed', 'false'); });
+      group.querySelectorAll('[data-csw-staged-ec-section]').forEach(section => { section.hidden = true; });
       if (opening) {
         parent.setAttribute('aria-expanded', 'true');
         parent.classList.add('is-active');
@@ -704,17 +701,15 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
       }
     });
 
-    group.querySelectorAll('[data-csw-fat-ec-sub]').forEach(button => {
+    group.querySelectorAll('[data-csw-staged-ec-sub]').forEach(button => {
       button.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
-        const kind = button.dataset.cswFatEcSub;
+        const kind = button.dataset.cswStagedEcSub;
         root.querySelectorAll('[data-ucd-panel]').forEach(panel => { panel.hidden = true; });
         group.hidden = false;
-        group.querySelectorAll('[data-csw-fat-ec-section]').forEach(section => {
-          section.hidden = section.dataset.cswFatEcSection !== kind;
-        });
-        group.querySelectorAll('[data-csw-fat-ec-sub]').forEach(item => {
+        group.querySelectorAll('[data-csw-staged-ec-section]').forEach(section => { section.hidden = section.dataset.cswStagedEcSection !== kind; });
+        group.querySelectorAll('[data-csw-staged-ec-sub]').forEach(item => {
           const active = item === button;
           item.classList.toggle('is-active', active);
           item.setAttribute('aria-pressed', active ? 'true' : 'false');
@@ -724,10 +719,9 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
       });
     });
 
-    const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswFatSensorySource !== 'v1');
+    const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswStagedSensorySource !== 'v1');
     nav.dataset.count = String(visibleTop.length);
-    root.dataset.fatBananaEffectCultivation = 'v1';
-    window.__CSWFatBananaEffectCultivationV1 = { marker: MARK, status: 'READY', cultivarId: TARGET };
+    window.__CSWStagedEffectCultivationV1 = { marker: MARK, status: 'READY', cultivarId: target };
   };
 
   let queued = false;
@@ -736,9 +730,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     queued = true;
     queueMicrotask(() => {
       queued = false;
-      decorate().catch(error => {
-        window.__CSWFatBananaEffectCultivationV1 = { marker: MARK, status: 'FAIL_CLOSED', error: String(error?.message || error) };
-      });
+      decorate().catch(error => { window.__CSWStagedEffectCultivationV1 = { marker: MARK, status: 'FAIL_CLOSED', error: String(error?.message || error) }; });
     });
   };
   new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
