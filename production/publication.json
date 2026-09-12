@@ -365,6 +365,11 @@
       "strainId": "fat-banana-auto",
       "state": "published",
       "publishedAt": "2026-09-11T23:08:38Z"
+    },
+    {
+      "strainId": "blue-gelato-41",
+      "state": "published",
+      "publishedAt": "2026-09-12T08:05:36Z"
     }
   ]
 }

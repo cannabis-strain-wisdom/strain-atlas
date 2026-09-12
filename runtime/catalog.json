@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T06:02:33.699Z",
+  "generatedAt": "2026-09-12T08:05:37.611Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 61,
-    "sources": 111,
+    "cultivars": 62,
+    "sources": 112,
     "entities": 18
   },
   "explore": {
@@ -48,6 +48,7 @@
       "zamaldelica"
     ],
     "indica": [
+      "blue-gelato-41",
       "blueberry-muffin",
       "california-octane",
       "cataract-kush",
@@ -1635,6 +1636,317 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blue-gelato-41",
+      "status": "review",
+      "name": "Blue Gelato 41",
+      "jp": null,
+      "aliases": [
+        "Blue Gelato"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-blue-gelato-41"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 40,
+            "indica": 60,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 40,
+              "indica": 60,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "display": "Blueberry × Thin Mint Girl Scout Cookies × Sunset Sherbert",
+        "parents": [
+          "Blueberry",
+          "Thin Mint Girl Scout Cookies",
+          "Sunset Sherbert"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Barney's Farm公式では、Blue Gelato 41をBlueberry × Thin Mint Girl Scout Cookies × Sunset Sherbertとして記載しています。公開されていない祖先構成は補っていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "barneys-farm",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-blue-gelato-41"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フレッシュ",
+          "フルーティー",
+          "ベリー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フレッシュ",
+            "フルーティー",
+            "ベリー"
+          ],
+          "details": [
+            {
+              "rawMatch": "fresh",
+              "reviewLabelJa": "フレッシュ",
+              "plainMeaningJa": "新鮮で軽やかな印象の香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "新鮮"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "berry",
+              "reviewLabelJa": "ベリー",
+              "plainMeaningJa": "ベリー類を思わせる甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Barney's Farmの現行グローバルページでは、香りをFresh、Fruity、Berryと記載しています。階層は示されていないためフラットな香りプロファイルとして扱い、香りからテルペン成分は推定していません。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "items": [
+          "Sweet",
+          "Earthy",
+          "Citrus"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "items": [
+          "Clear Headed",
+          "Energetic",
+          "Creative"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "observations": [
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "110-150 cm",
+            "min": 110,
+            "max": 150,
+            "unit": "cm"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "700-800 gr/㎡",
+            "min": 700,
+            "max": 800,
+            "unit": "gr/m2"
+          },
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "63 - 70 days",
+            "min": 63,
+            "max": 70,
+            "unit": "days"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "150-200 cm",
+            "min": 150,
+            "max": 200,
+            "unit": "cm"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "2500-3000 g/plant",
+            "min": 2500,
+            "max": 3000,
+            "unit": "g/plant"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "10月 第2〜第3週",
+            "text": "10月 第2〜第3週"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 28,
+              "unit": "%",
+              "valueText": "28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-blue-gelato-41"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-blue-gelato-41"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Barney's Farm公式では、厚い樹脂に覆われると説明されています。青〜紫の花色は多くの表現型で見られるという記述のため、品種全体の固定色としては扱っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Barney's Farm公式では、Blue Gelato 41をBlueberry × Thin Mint Girl Scout Cookies × Sunset Sherbertとして記載しています。公開されていない祖先構成は補っていません。",
+          "aromaNote": "Barney's Farmの現行グローバルページでは、香りをFresh、Fruity、Berryと記載しています。階層は示されていないためフラットな香りプロファイルとして扱い、香りからテルペン成分は推定していません。",
+          "morphologyNote": "Barney's Farm公式では、厚い樹脂に覆われると説明されています。青〜紫の花色は多くの表現型で見られるという記述のため、品種全体の固定色としては扱っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blue-gelato-41/primary.webp",
+          "alt": "Blue Gelato 41の公式形態記述に基づき、厚い樹脂をまとった主花をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-12",
+      "updatedAt": "2026-09-12",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -17493,6 +17805,30 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
+    },
+    "barneys-farm-blue-gelato-41": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-blue-gelato-41",
+      "publisher": "Barney's Farm",
+      "title": "Blue Gelato 41 Strain",
+      "url": "https://www.barneysfarm.com/blue-gelato-41-456",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "ratio",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-12"
     },
     "barneys-farm-dr-grinspoon-catalogue": {
       "schemaVersion": 1,
