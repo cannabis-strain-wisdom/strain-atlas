@@ -429,6 +429,10 @@
     'use strict';
     const MARK = 'CSW_STAGED_SENSORY_GROUP_V1';
     const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa']);
+    const FLAVOR_PUBLIC_TERMINOLOGY_V1 = new Map([
+      ['earthy','土っぽい'],
+      ['sour','酸味系'],
+    ]);
     const shell = document.getElementById('detail-shell');
     if (!shell) return;
 
@@ -461,6 +465,18 @@
 
     const decorateFlavorCopy = root => {
       for (const panel of root.querySelectorAll('[data-profile-kind="flavor"]')) {
+        const flavorContainer = panel.querySelector('[data-flavor-presentation="v1"]') || panel.querySelector('.ucd-flavor-profile');
+        if (flavorContainer) {
+          for (const node of flavorContainer.querySelectorAll('*')) {
+            if (node.children.length) continue;
+            const raw = (node.textContent || '').trim();
+            const japanese = FLAVOR_PUBLIC_TERMINOLOGY_V1.get(raw.toLowerCase());
+            if (!japanese) continue;
+            node.dataset.flavorPublicRaw = raw;
+            node.dataset.flavorPublicTerm = 'v1';
+            node.textContent = japanese;
+          }
+        }
         const heading = panel.querySelector('.ucd-sensory-head span');
         if (heading && heading.textContent !== 'FLAVOR PROFILE / フレーバー' && /FLAVOR/i.test(heading.textContent || '')) heading.textContent = 'FLAVOR PROFILE / フレーバー';
         const noteLabel = panel.querySelector('.ucd-note small');

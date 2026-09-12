@@ -217,7 +217,8 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
     await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-ucd-tab="flavor"]').click()`);
     await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const btn=root?.querySelector('[data-ucd-tab="flavor"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return btn?.getAttribute('aria-expanded')==='true' && panel && !panel.hidden})()`), 'Flavor panel expanded');
     flavor = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"]');const panel=root?.querySelector('[data-profile-kind="flavor"]');return {id:${JSON.stringify(flavorTarget.id)},text:panel?.innerText||'',items:[...panel?.querySelectorAll('.ucd-flavor-terms span')||[]].map(n=>n.textContent.trim()),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
-    for (const item of flavorTarget.flavors.items) if (!flavor.items.includes(item)) throw new Error(`Flavor item missing ${item}: ${JSON.stringify(flavor)}`);
+    const flavorDisplayTerm = item => ({ Earthy: '土っぽい', Sour: '酸味系' }[item] || item);
+    for (const item of flavorTarget.flavors.items) { const displayed = flavorDisplayTerm(item); if (!flavor.items.includes(displayed)) throw new Error(`Flavor item missing ${item}→${displayed}: ${JSON.stringify(flavor)}`); }
     const flavorLabel = ['fat-banana-auto','blue-gelato-41'].includes(flavorTarget.id) ? 'フレーバー' : '味わい';
     if (!flavor.text.includes(flavorLabel)) throw new Error(`Flavor Japanese label missing ${flavorLabel}: ${JSON.stringify(flavor)}`);
     if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
@@ -235,7 +236,7 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
   for (const term of ['Fresh','Fruity','Berry']) if (!blueAroma.includes(term)) throw new Error(`Blue Gelato Aroma missing ${term}: ${JSON.stringify(blueAroma)}`);
   await evalv(`document.querySelector('[data-csw-staged-sensory-sub="flavor"]').click()`);
   const blueFlavor = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="flavor"]');if(!p||p.hidden)return false;return {text:p.innerText,items:[...p.querySelectorAll('.ucd-flavor-terms span')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato flavor child');
-  for (const term of ['Sweet','Earthy','Citrus']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
+  for (const term of ['Sweet','土っぽい','Citrus']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
   if(!blueFlavor.text.includes('フレーバー')) throw new Error('Blue Gelato Flavor label not normalized');
   await evalv(`document.querySelector('[data-csw-staged-sensory-sub="terpene"]').click()`);
   const blueTerpene = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="terpene"]');if(!p||p.hidden)return false;return p.innerText})()`), 'Blue Gelato terpene child');
