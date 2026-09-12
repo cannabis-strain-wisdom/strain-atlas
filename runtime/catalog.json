@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T10:48:55.704Z",
+  "generatedAt": "2026-09-12T11:54:26.656Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -4779,7 +4779,7 @@
             {
               "rawMatch": "sour",
               "reviewLabelJa": "サワー",
-              "plainMeaningJa": "酸っぱさを思わせる香り",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
               "presentationRole": "CHARACTER",
               "searchAliasesJa": [
                 "酸味"
@@ -10984,7 +10984,7 @@
             {
               "rawMatch": "sour",
               "reviewLabelJa": "サワー",
-              "plainMeaningJa": "酸っぱさを思わせる香り",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
               "presentationRole": "CHARACTER",
               "searchAliasesJa": [
                 "酸味"
@@ -13747,7 +13747,7 @@
             {
               "rawMatch": "sour",
               "reviewLabelJa": "サワー",
-              "plainMeaningJa": "酸っぱさを思わせる香り",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
               "presentationRole": "CHARACTER",
               "searchAliasesJa": [
                 "酸味"
@@ -14320,53 +14320,116 @@
       "status": "review",
       "name": "Sour Diesel",
       "jp": null,
-      "aliases": [
-        "Sour D",
-        "Sour Deez"
-      ],
+      "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-sour-diesel-current"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
       },
       "breeding": {
         "generation": "unknown"
       },
       "lineage": {
-        "status": "disputed",
-        "confidence": "C",
-        "basis": "historicalSource",
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
         "sourceRefs": [
-          "leafly-sour-diesel-authentication",
-          "leafly-sour-diesel"
+          "barneys-farm-sour-diesel-current"
         ],
-        "display": "親系統は未確定",
-        "parents": [],
+        "display": "Super Skunk × Chemdawg",
+        "parents": [
+          "Super Skunk",
+          "Chemdawg"
+        ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Sour Dieselの親系統は確定していません。Chemdog 91とSuper Skunkの影響が広く語られ、Leaflyの現行品種ページではChemdawg × Super Skunkと表示されていますが、Leafly自身のidentity検証記事は元ブリーダーと正確な遺伝系統を未確定としています。CSWではこの差を潰して親品種を確定しません。"
+          "textJa": "Barney's Farmの現行Sour Dieselページでは、GeneticsをSuper Skunk × Chemdawgと記載しています。これはBarney's Farm現行ラインの公式情報として扱い、歴史上のSour Diesel全体へ一般化していません。"
         }
       },
-      "relations": [],
+      "relations": [
+        {
+          "entityId": "barneys-farm",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-sour-diesel-current"
+          ]
+        }
+      ],
       "aromas": {
         "status": "confirmed",
-        "confidence": "C",
+        "confidence": "A",
         "sourceRefs": [
-          "leafly-sour-diesel-authentication"
+          "barneys-farm-sour-diesel-current"
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "ガス"
+          "サワー",
+          "アーシー",
+          "ディーゼル"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "ガス"
+            "サワー",
+            "アーシー",
+            "ディーゼル"
           ],
           "details": [
             {
-              "rawMatch": "gas",
-              "reviewLabelJa": "ガス",
-              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "rawMatch": "sour",
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "diesel",
+              "reviewLabelJa": "ディーゼル",
+              "plainMeaningJa": "ディーゼル燃料を思わせる燃料香",
               "presentationRole": "NOTE",
               "searchAliasesJa": [
                 "燃料"
@@ -14376,56 +14439,101 @@
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Sour Dieselにはガス系の香りが繰り返し関連付けられています。ただし香りの語からフレーバーやテルペン成分を推測して補っていません。"
+          "noteJa": "Barney's Farmの現行Aroma欄では、Sour、Earthy、Dieselと記載されています。階層は示されていないためフラットな香りプロファイルとして扱い、香りから個別テルペン成分は推定していません。"
         }
       },
       "flavors": {
         "status": "confirmed",
-        "confidence": "C",
-        "basis": "specialistDatabase",
+        "confidence": "A",
+        "basis": "breederOfficial",
         "sourceRefs": [
-          "leafly-sour-diesel"
+          "barneys-farm-sour-diesel-current"
         ],
         "items": [
-          "Diesel",
-          "Chemical",
-          "Skunk"
+          "Sweet",
+          "Spicy",
+          "Lemon"
         ]
       },
       "effects": {
         "status": "confirmed",
-        "confidence": "C",
-        "basis": "specialistArticle",
+        "confidence": "A",
+        "basis": "breederOfficial",
         "sourceRefs": [
-          "leafly-sour-diesel"
+          "barneys-farm-sour-diesel-current"
         ],
         "items": [
           "Energetic",
-          "Uplifted",
-          "Talkative"
+          "Uplifting",
+          "Euphoric"
         ]
       },
       "cultivation": {
         "status": "confirmed",
-        "confidence": "C",
-        "basis": "specialistArticle",
+        "confidence": "A",
+        "basis": "breederOfficial",
         "sourceRefs": [
-          "leafly-sour-diesel"
+          "barneys-farm-sour-diesel-current"
         ],
         "observations": [
           {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "100-120 cm",
+            "min": 100,
+            "max": 120,
+            "unit": "cm"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "600-700 gr/㎡",
+            "min": 600,
+            "max": 700,
+            "unit": "gr/m2"
+          },
+          {
             "field": "floweringTime",
             "environment": "unspecified",
-            "valueForm": "EXACT",
-            "displayText": "77日"
+            "valueForm": "RANGE",
+            "displayText": "70 - 75 days",
+            "min": 70,
+            "max": 75,
+            "unit": "days"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "150-200 cm",
+            "min": 150,
+            "max": 200,
+            "unit": "cm"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "1500-2000 g/plant",
+            "min": 1500,
+            "max": 2000,
+            "unit": "g/plant"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "10月 第2〜第3週",
+            "text": "10月 第2〜第3週"
           }
         ]
       },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [
-          "leafly-sour-diesel-authentication",
-          "zager-sour-diesel-chemistry-2019"
+          "barneys-farm-sour-diesel-current"
         ],
         "items": [],
         "evidenceMode": "UNKNOWN",
@@ -14438,7 +14546,9 @@
       "cannabinoids": {
         "status": "unknown",
         "confidence": "unknown",
-        "sourceRefs": [],
+        "sourceRefs": [
+          "barneys-farm-sour-diesel-current"
+        ],
         "thc": {
           "status": "unknown",
           "sourceRefs": []
@@ -14449,28 +14559,33 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
-        }
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "leafly-sour-diesel-authentication",
-          "leafly-sour-diesel"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "Sour Dieselは1990年代初頭から広く知られるようになりましたが、元ブリーダーと正確な遺伝的起源は現在も確定していません。また、Sour Diesel名義の分析データには複数のchemotypeが確認されているため、単一の化学プロファイルへ統合していません。"
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 26,
+              "unit": "%",
+              "valueText": "26%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-sour-diesel-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Sour Dieselの親系統は確定していません。Chemdog 91とSuper Skunkの影響が広く語られ、Leaflyの現行品種ページではChemdawg × Super Skunkと表示されていますが、Leafly自身のidentity検証記事は元ブリーダーと正確な遺伝系統を未確定としています。CSWではこの差を潰して親品種を確定しません。",
-          "history": "Sour Dieselは1990年代初頭から広く知られるようになりましたが、元ブリーダーと正確な遺伝的起源は現在も確定していません。また、Sour Diesel名義の分析データには複数のchemotypeが確認されているため、単一の化学プロファイルへ統合していません。",
-          "aromaNote": "Sour Dieselにはガス系の香りが繰り返し関連付けられています。ただし香りの語からフレーバーやテルペン成分を推測して補っていません。"
+          "lineageNote": "Barney's Farmの現行Sour Dieselページでは、GeneticsをSuper Skunk × Chemdawgと記載しています。これはBarney's Farm現行ラインの公式情報として扱い、歴史上のSour Diesel全体へ一般化していません。",
+          "aromaNote": "Barney's Farmの現行Aroma欄では、Sour、Earthy、Dieselと記載されています。階層は示されていないためフラットな香りプロファイルとして扱い、香りから個別テルペン成分は推定していません。"
         }
       },
       "visuals": [
@@ -18086,6 +18201,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "barneys-farm-sour-diesel-current": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-sour-diesel-current",
+      "publisher": "Barney's Farm",
+      "title": "Sour Diesel Strain",
+      "url": "https://www.barneysfarm.com/sour-diesel-647",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "currentSeedLine",
+        "lineage",
+        "classification",
+        "ratio",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-12"
+    },
     "barneys-farm-us-laughing-buddha": {
       "schemaVersion": 1,
       "id": "barneys-farm-us-laughing-buddha",
@@ -19533,20 +19670,6 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
-    },
-    "zager-sour-diesel-chemistry-2019": {
-      "schemaVersion": 1,
-      "id": "zager-sour-diesel-chemistry-2019",
-      "publisher": "Plant Physiology",
-      "title": "Gene Networks Underlying Cannabinoid and Terpenoid Accumulation in Cannabis",
-      "url": "https://academic.oup.com/plphys/article/180/4/1877/6117720",
-      "sourceType": "scientificPublication",
-      "supports": [
-        "cannabinoids",
-        "terpenes"
-      ],
-      "publishedAt": "2019-05-28",
-      "checkedAt": "2026-09-12"
     }
   },
   "entities": {
