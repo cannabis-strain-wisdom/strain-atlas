@@ -526,6 +526,9 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-ec-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms{display:flex;flex-wrap:wrap;gap:8px}
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border:1px solid rgba(216,189,98,.22);border-radius:999px;background:rgba(216,189,98,.055);color:#e8eee9;font-size:11px;font-weight:780}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span[data-effect-public-term="v1"]{align-items:flex-start;flex-direction:column;justify-content:center;min-width:118px;min-height:52px;padding:8px 11px;border-radius:13px;line-height:1.25}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span[data-effect-public-term="v1"] strong{color:#eef3ef;font-size:14px;font-weight:820}
+    .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span[data-effect-public-term="v1"] small{margin-top:3px;color:#98a59d;font-size:11px;font-weight:650;letter-spacing:0}
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-row{min-width:0;padding:11px 12px;border:1px solid rgba(216,189,98,.14);border-radius:12px;background:rgba(255,255,255,.018)}
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-cultivation-row small{display:block;margin-bottom:5px;color:#8e9b93;font-size:9px;font-weight:800;letter-spacing:.03em}
@@ -576,8 +579,8 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   };
 
   const MIMOSA_EFFECT_PUBLIC_TERMINOLOGY_V1 = new Map([
-    ['creative','創造的'],
-    ['laughter','笑い'],
+    ['creative',{ meaningJa:'創造的な感覚' }],
+    ['laughter',{ meaningJa:'笑いを誘う感覚' }],
   ]);
 
   const buildEffect = (catalog, claim, cultivarId) => {
@@ -596,11 +599,17 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     for (const item of claim.items || []) {
       const chip = document.createElement('span');
       const raw = String(item ?? '').trim();
-      const japanese = cultivarId === 'mimosa' ? MIMOSA_EFFECT_PUBLIC_TERMINOLOGY_V1.get(raw.toLowerCase()) : null;
-      chip.textContent = japanese || raw;
-      if (japanese) {
+      const presentation = cultivarId === 'mimosa' ? MIMOSA_EFFECT_PUBLIC_TERMINOLOGY_V1.get(raw.toLowerCase()) : null;
+      if (presentation) {
         chip.dataset.effectPublicRaw = raw;
         chip.dataset.effectPublicTerm = 'v1';
+        const original = document.createElement('strong');
+        original.textContent = raw;
+        const meaning = document.createElement('small');
+        meaning.textContent = presentation.meaningJa;
+        chip.append(original, meaning);
+      } else {
+        chip.textContent = raw;
       }
       terms.appendChild(chip);
     }
