@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-11T23:08:39.595Z",
+  "generatedAt": "2026-09-12T02:07:37.117Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -5820,6 +5820,19 @@
           "registryVersion": 1,
           "noteJa": "Royal Queen Seeds公式では、Fat Banana Autoが親系統からフルーティーで甘い香りを受け継いだと説明されています。香りの語からテルペン化合物は推定していません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "rqs-fat-banana-auto"
+        ],
+        "items": [
+          "Banana",
+          "Earthy",
+          "Fruity"
+        ]
       },
       "terpenes": {
         "status": "unknown",
@@ -18455,6 +18468,7 @@
         "classification",
         "cannabinoids",
         "aroma",
+        "flavor",
         "morphology",
         "visual"
       ],
