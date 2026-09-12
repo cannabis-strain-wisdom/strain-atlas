@@ -758,3 +758,44 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   window.addEventListener('popstate', queue);
   queue();
 })();
+
+
+;(()=>{
+  'use strict';
+  const CONTRACT='MIMOSA_FLAVOR_BILINGUAL_V1';
+  const shell=document.getElementById('detail-shell');
+  if(!shell)return;
+  const terms=new Map([['earthy','土を思わせる風味'],['sour','酸味を思わせる風味']]);
+  const chooseFlavorPanel=root=>{
+    const list=[...root.querySelectorAll('[data-profile-kind="flavor"], [data-ucd-panel="flavor"]')];
+    return list.find(panel=>panel.querySelector('[data-flavor-presentation="v1"]')) || list.find(panel=>panel.querySelector('.ucd-flavor-profile')) || list[0] || null;
+  };
+  const decorate=()=>{
+    const id=new URL(location.href).searchParams.get('strain');
+    if(id!=='mimosa')return false;
+    const root=shell.querySelector('.detail-public-v1[data-public-detail-id="mimosa"]');
+    if(!root)return false;
+    const panel=chooseFlavorPanel(root);
+    const nodes=panel?[...panel.querySelectorAll('.ucd-flavor-terms span')]:[];
+    if(!nodes.length)return false;
+    let decorated=0;
+    for(const node of nodes){
+      if(node.dataset.flavorPublicTerm==='v1'){decorated++;continue;}
+      const raw=(node.textContent||'').trim();
+      const meaning=terms.get(raw.toLowerCase());
+      if(!meaning)continue;
+      node.replaceChildren();
+      node.dataset.flavorPublicRaw=raw;
+      node.dataset.flavorPublicTerm='v1';
+      const original=document.createElement('strong');original.textContent=raw;
+      const small=document.createElement('small');small.textContent=meaning;
+      node.append(original,small);decorated++;
+    }
+    if(decorated===2)root.dataset.mimosaFlavorBilingual=CONTRACT;
+    return decorated===2;
+  };
+  let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}));};
+  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});
+  shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);
+  schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
+})();
