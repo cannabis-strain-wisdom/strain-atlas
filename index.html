@@ -428,7 +428,7 @@
   (() => {
     'use strict';
     const MARK = 'CSW_STAGED_SENSORY_GROUP_V1';
-    const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel']);
+    const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa']);
     const shell = document.getElementById('detail-shell');
     if (!shell) return;
 
@@ -480,7 +480,11 @@
       root.dataset.cswStagedSensory = 'v1';
       decorateFlavorCopy(root);
       const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
-      if (sensoryButtons.length < 3) return;
+      const sensoryKinds = [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']].filter(([kind]) => {
+        const panel = choosePanel(root, kind);
+        return panel && !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1');
+      });
+      if (sensoryKinds.length < 2) return;
       sensoryButtons.forEach(button => { button.dataset.cswStagedSensorySource = 'v1'; });
 
       let parent = nav.querySelector('[data-csw-staged-sensory-parent="v1"]');
@@ -507,7 +511,7 @@
         const subnav = document.createElement('div');
         subnav.className = 'csw-staged-sensory-subnav';
         subnav.setAttribute('aria-label', '香味・テルペン');
-        for (const [kind, label] of [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']]) {
+        for (const [kind, label] of sensoryKinds) {
           const button = document.createElement('button');
           button.type = 'button';
           button.dataset.cswStagedSensorySub = kind;
@@ -515,6 +519,8 @@
           button.setAttribute('aria-pressed', 'false');
           subnav.appendChild(button);
         }
+        const subCount = subnav.querySelectorAll('[data-csw-staged-sensory-sub]').length;
+        subnav.style.gridTemplateColumns = `repeat(${subCount},minmax(0,1fr))`;
         group.appendChild(subnav);
         panels.prepend(group);
       }
@@ -577,6 +583,6 @@
     queue();
   })();
   </script>
-  <script src="presentation-contract-v1.js?v=4" defer></script>
+  <script src="presentation-contract-v1.js?v=5" defer></script>
   <script src="app.min.js?v=5" defer></script>
 </body></html>
