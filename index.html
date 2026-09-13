@@ -526,7 +526,7 @@
       const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
       const sensoryKinds = [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']].filter(([kind]) => {
         const panel = choosePanel(root, kind);
-        return panel && !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1');
+        return panel && (target === 'mac-1' || !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1'));
       });
       if (sensoryKinds.length < 2) return;
       sensoryButtons.forEach(button => { button.dataset.cswStagedSensorySource = 'v1'; });
