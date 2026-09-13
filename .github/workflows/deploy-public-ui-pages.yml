@@ -184,8 +184,17 @@ jobs:
           curl -fsS http://127.0.0.1:4173/runtime/catalog.json >/dev/null
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC FRONTEND BROWSER SMOKE PASS"
+
+      - name: Upload 390px grouped-detail QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grouped-detail-390px-${{ github.sha }}
+          path: ${{ runner.temp }}/csw-screenshots
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
@@ -281,5 +290,14 @@ jobs:
           "$CHROME_BIN" --version
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-current-runtime-authority-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-card-uniformity-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-live-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC LIVE BROWSER SMOKE PASS"
+
+      - name: Upload live 390px grouped-detail QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-grouped-detail-390px-${{ github.sha }}
+          path: ${{ runner.temp }}/csw-live-screenshots
+          if-no-files-found: warn
+          retention-days: 7

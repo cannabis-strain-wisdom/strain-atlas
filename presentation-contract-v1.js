@@ -526,7 +526,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 (() => {
   'use strict';
   const MARK = 'CSW_STAGED_EFFECT_CULTIVATION_V1';
-  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa']);
+  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa','apple-fritter']);
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 
@@ -659,6 +659,39 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     return section;
   };
 
+  const unavailable = {
+    effects: {
+      kicker: 'EFFECT / 効果・体感',
+      title: '効果・体感情報は確認できていません',
+      text: '現在の採用資料では、この品種に直接結びつく効果・体感情報を十分に確認できていません。一般的な傾向や近縁品種から推測して補うことはしていません。',
+    },
+    cultivation: {
+      kicker: 'CULTIVATION / 栽培情報',
+      title: '栽培情報は確認できていません',
+      text: '現在の採用資料では、この品種に直接結びつく栽培情報を十分に確認できていません。一般的な傾向や近縁品種から推測して補うことはしていません。',
+    },
+  };
+
+  const buildUnavailable = kind => {
+    const spec = unavailable[kind];
+    const section = document.createElement('section');
+    section.dataset.cswStagedEcSection = kind;
+    section.dataset.cswStagedEcUnknown = kind;
+    section.dataset.unavailableDetailCard = 'v1';
+    section.hidden = true;
+    const box = document.createElement('div');
+    box.className = 'ucd-terpene-unavailable ucd-data-unavailable';
+    const kicker = document.createElement('small');
+    kicker.textContent = spec.kicker;
+    const title = document.createElement('strong');
+    title.textContent = spec.title;
+    const text = document.createElement('p');
+    text.textContent = spec.text;
+    box.append(kicker, title, text);
+    section.appendChild(box);
+    return section;
+  };
+
   const decorate = async () => {
     const target = new URL(location.href).searchParams.get('strain');
     if (!TARGETS.has(target)) return;
@@ -675,7 +708,6 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     const cultivation = cultivar?.cultivation;
     const hasEffects = effects && ['confirmed','disputed'].includes(effects.status) && Array.isArray(effects.items) && effects.items.length;
     const hasCultivation = cultivation && ['confirmed','disputed'].includes(cultivation.status) && Array.isArray(cultivation.observations) && cultivation.observations.length;
-    if (!hasEffects && !hasCultivation) return;
 
     root.dataset.cswStagedEffectCultivation = 'v1';
     const panelId = `ucd-${target}-effect-cultivation`;
@@ -685,7 +717,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     parent.dataset.cswStagedEcParent = 'v1';
     parent.setAttribute('aria-expanded', 'false');
     parent.setAttribute('aria-controls', panelId);
-    parent.innerHTML = `<span>${hasEffects && hasCultivation ? '効果・栽培' : hasEffects ? '効果・体感' : '栽培情報'}</span><i aria-hidden="true">⌄</i>`;
+    parent.innerHTML = '<span>効果・栽培</span><i aria-hidden="true">⌄</i>';
     const beforeButton = nav.querySelector('[data-ucd-tab="morphology"],[data-ucd-tab="origin-history"]');
     beforeButton ? nav.insertBefore(parent, beforeButton) : nav.appendChild(parent);
 
@@ -697,25 +729,17 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     const subnav = document.createElement('div');
     subnav.className = 'csw-staged-ec-subnav';
     subnav.setAttribute('aria-label', '効果・栽培');
-    if (hasEffects) {
+    for (const [kind, label] of [['effects','効果'],['cultivation','栽培情報']]) {
       const button = document.createElement('button');
       button.type = 'button';
-      button.dataset.cswStagedEcSub = 'effects';
-      button.textContent = '効果';
-      button.setAttribute('aria-pressed', 'false');
-      subnav.appendChild(button);
-    }
-    if (hasCultivation) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.dataset.cswStagedEcSub = 'cultivation';
-      button.textContent = '栽培情報';
+      button.dataset.cswStagedEcSub = kind;
+      button.textContent = label;
       button.setAttribute('aria-pressed', 'false');
       subnav.appendChild(button);
     }
     group.appendChild(subnav);
-    if (hasEffects) group.appendChild(buildEffect(catalog, effects, target));
-    if (hasCultivation) group.appendChild(buildCultivation(catalog, cultivation));
+    group.appendChild(hasEffects ? buildEffect(catalog, effects, target) : buildUnavailable('effects'));
+    group.appendChild(hasCultivation ? buildCultivation(catalog, cultivation) : buildUnavailable('cultivation'));
     const beforePanel = panels.querySelector('[data-ucd-panel="morphology"],[data-ucd-panel="origin-history"]');
     beforePanel ? panels.insertBefore(group, beforePanel) : panels.appendChild(group);
 
