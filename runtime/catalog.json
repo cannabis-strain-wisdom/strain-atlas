@@ -10179,6 +10179,25 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cannabis-now-return-of-the-mac"
+        ],
+        "observations": [
+          {
+            "field": "vegetativeStage",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "rawText": "The real cut can take a little longer in the vegetative stage.",
+            "text": "The authentic MAC1 cut can take a little longer in the vegetative stage.",
+            "displayText": "栄養成長期はやや長め"
+          }
+        ],
+        "note": "A direct written interview with Capulator describes the authentic MAC1 cut as taking a little longer in the vegetative stage. This is preserved as a qualitative vegetative-stage observation and is not converted into flowering time or a numeric duration."
       }
     },
     {

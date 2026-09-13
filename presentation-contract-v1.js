@@ -526,7 +526,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 (() => {
   'use strict';
   const MARK = 'CSW_STAGED_EFFECT_CULTIVATION_V1';
-  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa','apple-fritter']);
+  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa','apple-fritter','mac-1']);
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 
@@ -565,7 +565,8 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     'floweringTime:unspecified': '開花期間',
     'harvestFromGermination:unspecified': '発芽から収穫',
     'harvestWindow:outdoor': '収穫時期',
-    'climate:unspecified': '気候'
+    'climate:unspecified': '気候',
+    'vegetativeStage:unspecified': '栄養成長期'
   };
 
   const addEvidence = (box, catalog, claim) => {
