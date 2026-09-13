@@ -388,7 +388,8 @@
     },
     {
       "strainId": "mac-1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-13T07:11:55Z"
     }
   ]
 }

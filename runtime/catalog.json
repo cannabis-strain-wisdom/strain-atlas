@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-13T07:01:03.340Z",
+  "generatedAt": "2026-09-13T07:11:56.686Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 65,
-    "sources": 118,
-    "entities": 19
+    "cultivars": 66,
+    "sources": 120,
+    "entities": 20
   },
   "explore": {
     "sativa": [
@@ -74,6 +74,7 @@
       "bubble-gum",
       "frisian-duck",
       "jack-herer",
+      "mac-1",
       "og-kush",
       "serious-happiness",
       "skunk-1",
@@ -10053,6 +10054,135 @@
     },
     {
       "schemaVersion": 1,
+      "id": "mac-1",
+      "status": "review",
+      "name": "MAC 1",
+      "jp": null,
+      "aliases": [
+        "MAC1"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "capulator-original-mac-10-year",
+          "cannabis-now-return-of-the-mac"
+        ],
+        "display": "Alien Cookies F2 #7 × Miracle 15",
+        "parents": [
+          "Alien Cookies F2 #7",
+          "Miracle 15"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Capulator公式ではOriginal MACをAlien Cookies F2 #7 × Miracle 15と記載しています。Capulator本人へのインタビューでは、その種子10個体から選ばれた個体がMAC1と説明されています。genericなMACをMAC1の無条件な別名としては扱っていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "capulator",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "capulator-original-mac-10-year",
+            "cannabis-now-return-of-the-mac"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cannabis-now-return-of-the-mac"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Capulator本人へのインタビューでは、最初のMAC種子を2016年1月1日に発芽させ、その10個体からMAC1を選抜したと説明されています。のちにMAC1のcutを限定的に配布し、2016年のChaliceではMAC種子も配布したとされています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Capulator公式ではOriginal MACをAlien Cookies F2 #7 × Miracle 15と記載しています。Capulator本人へのインタビューでは、その種子10個体から選ばれた個体がMAC1と説明されています。genericなMACをMAC1の無条件な別名としては扱っていません。",
+          "history": "Capulator本人へのインタビューでは、最初のMAC種子を2016年1月1日に発芽させ、その10個体からMAC1を選抜したと説明されています。のちにMAC1のcutを限定的に配布し、2016年のChaliceではMAC種子も配布したとされています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/mac-1/primary.webp",
+          "alt": "Capulator MAC1の確認済み系譜と限定的な専門資料の外観文脈を基に、トップ全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; official and third-party images are reference evidence only and are not redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-13",
+      "updatedAt": "2026-09-13",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "malawi",
       "status": "review",
       "name": "Malawi",
@@ -18830,6 +18960,40 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "cannabis-now-return-of-the-mac": {
+      "schemaVersion": 1,
+      "id": "cannabis-now-return-of-the-mac",
+      "publisher": "Cannabis Now",
+      "title": "Return of the MAC",
+      "url": "https://cannabisnow.com/return-of-the-mac/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "history",
+        "cultivation"
+      ],
+      "publishedAt": "2019-10-21",
+      "checkedAt": "2026-09-13"
+    },
+    "capulator-original-mac-10-year": {
+      "schemaVersion": 1,
+      "id": "capulator-original-mac-10-year",
+      "publisher": "Capulator",
+      "title": "MAC 10 year anniversary edition box set",
+      "url": "https://thecapulator.com/product/mac-10-year-anniversary-edition-box-set/",
+      "sourceType": "originatorOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-13"
+    },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
       "id": "david-downs-wedding-cake-2026",
@@ -20325,6 +20489,18 @@
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
       "note": "Cannabiogen is identified as the breeder of Destroyer by the specialist cultivar record; the current cannabiogen.com site remains active under CBG Designs but no current Destroyer cultivar page was found."
+    },
+    "capulator": {
+      "schemaVersion": 1,
+      "id": "capulator",
+      "name": "Capulator",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-13",
+      "updatedAt": "2026-09-13"
     },
     "dna-genetics": {
       "schemaVersion": 1,
