@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T22:27:45.164Z",
+  "generatedAt": "2026-09-13T00:09:15.867Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 64,
-    "sources": 116,
-    "entities": 18
+    "cultivars": 65,
+    "sources": 118,
+    "entities": 19
   },
   "explore": {
     "sativa": [
@@ -50,6 +50,7 @@
       "zamaldelica"
     ],
     "indica": [
+      "apple-fritter",
       "blue-gelato-41",
       "blueberry-muffin",
       "california-octane",
@@ -998,6 +999,120 @@
       ],
       "checkedAt": "2026-09-08",
       "updatedAt": "2026-09-08",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "apple-fritter",
+      "status": "review",
+      "name": "Apple Fritter",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "lumpys-apple-fritter-current"
+        ],
+        "display": "Animal Cookies × Sour Apple",
+        "parents": [
+          "Animal Cookies",
+          "Sour Apple"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Lumpy’s Flowers公式の現行Apple Fritterページでは、Animal Cookies × Sour Appleと記載されています。公開されていない祖先構成は補っていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "lumpys-flowers",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "lumpys-apple-fritter-creator"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "basis": "No eligible cultivar-specific compound-level terpene evidence in the current official research package.",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Lumpy’s Flowers公式の現行Apple Fritterページでは、Animal Cookies × Sour Appleと記載されています。公開されていない祖先構成は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/apple-fritter/primary.webp",
+          "alt": "Lumpy’s Flowers公式Apple Fritterビジュアルを一時参照し、花の構造・色・雌しべ・樹脂表現を根拠範囲で反映したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. Official Lumpy’s Flowers imagery is used only as transient visual reference and is not redistributed or copied as the project asset.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-13",
+      "updatedAt": "2026-09-13",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -19589,6 +19704,38 @@
       "publishedAt": null,
       "checkedAt": "2026-09-08"
     },
+    "lumpys-apple-fritter-creator": {
+      "schemaVersion": 1,
+      "id": "lumpys-apple-fritter-creator",
+      "publisher": "Lumpy’s Flowers",
+      "title": "About Us",
+      "url": "https://old.lumpysflowers.com/about-us/",
+      "sourceType": "originatorOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-13"
+    },
+    "lumpys-apple-fritter-current": {
+      "schemaVersion": 1,
+      "id": "lumpys-apple-fritter-current",
+      "publisher": "Lumpy’s Flowers",
+      "title": "Apple Fritter",
+      "url": "https://www.lumpysflowers.com/strains/apple-fritter",
+      "sourceType": "originatorOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "classification",
+        "flavor",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-13"
+    },
     "mandala-seeds-satori": {
       "schemaVersion": 1,
       "id": "mandala-seeds-satori",
@@ -20236,6 +20383,18 @@
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17",
       "note": "Humboldt Seed Company official product and About pages identify the company as the breeder/seed company for California Octane."
+    },
+    "lumpys-flowers": {
+      "schemaVersion": 1,
+      "id": "lumpys-flowers",
+      "name": "Lumpy’s Flowers",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-13",
+      "updatedAt": "2026-09-13"
     },
     "mandala-seeds": {
       "schemaVersion": 1,

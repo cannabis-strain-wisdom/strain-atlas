@@ -383,7 +383,8 @@
     },
     {
       "strainId": "apple-fritter",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-13T00:09:15Z"
     }
   ]
 }
