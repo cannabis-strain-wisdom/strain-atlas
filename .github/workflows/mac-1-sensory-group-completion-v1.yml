@@ -1,0 +1,56 @@
+name: MAC 1 SENSORY GROUP COMPLETION V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mac-1-sensory-group-completion-v1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Preserve Apple behavior and admit MAC unknown aroma into grouped shell
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          text=p.read_text()
+          old="        return panel && !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1');"
+          new="        return panel && (target === 'mac-1' || !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1'));"
+          if text.count(old) != 1:
+              raise SystemExit(f'SENSORY_FILTER_SHAPE:{text.count(old)}')
+          p.write_text(text.replace(old,new,1))
+          PY
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const text=fs.readFileSync('index.html','utf8');
+          if(!text.includes("target === 'mac-1' || !(kind === 'aroma'")) throw new Error('MAC1_UNKNOWN_AROMA_GROUP_EXCEPTION_MISSING');
+          if(!text.includes("'apple-fritter','mac-1'")) throw new Error('MAC1_SENSORY_TARGET_MISSING');
+          if(!text.includes("parent.innerHTML = '<span>香味・テルペン</span>")) throw new Error('SENSORY_PARENT_LABEL_MISSING');
+          console.log('MAC1_SENSORY_GROUP_COMPLETION_PASS');
+          NODE
+          git diff --check
+
+      - name: Commit and remove one-shot workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'cannabis-strain-wisdom'
+          git config user.email '316430215+cannabis-strain-wisdom@users.noreply.github.com'
+          rm .github/workflows/mac-1-sensory-group-completion-v1.yml
+          git add index.html .github/workflows/mac-1-sensory-group-completion-v1.yml
+          git diff --cached --check
+          git commit -m 'Complete MAC 1 sensory grouped shell'
+          git push origin HEAD:main
