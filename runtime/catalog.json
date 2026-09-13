@@ -1064,6 +1064,21 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "lumpys-apple-fritter-current"
+        ],
+        "items": [
+          "sweet baked apple",
+          "creamy vanilla",
+          "warm cinnamon",
+          "earthy",
+          "diesel"
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "confidence": "unknown",

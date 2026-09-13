@@ -330,6 +330,9 @@
     .ucd-terpene-unavailable>small{display:block;margin-bottom:8px;color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.1em}
     .ucd-terpene-unavailable>strong{display:block;margin-bottom:8px;color:#dfe7e1;font-size:13px}
     .ucd-terpene-unavailable>p{margin:0;color:#93a098;font-size:10px;line-height:1.75}
+    .ucd-data-unavailable>small{font-size:13px!important}
+    .ucd-data-unavailable>strong{font-size:16px!important;line-height:1.45}
+    .ucd-data-unavailable>p{font-size:15px!important;line-height:1.75}
   `; document.head.appendChild(style);
   let scheduled = false;
   const schedule = () => { if (scheduled) return; scheduled = true; queueMicrotask(() => { scheduled = false; govern().catch(error => { window.__CSWPublicPresentationContractV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) }; console.error('PUBLIC_PRESENTATION_CONTRACT_V1', error); }); }); };
@@ -407,8 +410,17 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   function decorate(){
     const root=shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
     if(!root||root.dataset.publicPresentationReady!=='true')return false;
-    const profile=root.querySelector('.ucd-profile'),nav=profile?.querySelector('.ucd-profile-nav'),panels=profile?.querySelector('.ucd-profile-panels');
-    if(!(profile&&nav&&panels))return false;
+    let profile=root.querySelector('.ucd-profile');
+    if(!profile){
+      profile=document.createElement('section');profile.className='ucd-profile';profile.dataset.fixedProfileShell='v1';
+      const createdNav=document.createElement('nav');createdNav.className='ucd-profile-nav';createdNav.setAttribute('aria-label','詳細情報');
+      const createdPanels=document.createElement('div');createdPanels.className='ucd-profile-panels';
+      profile.append(createdNav,createdPanels);
+      const controls=root.querySelector('.ucd-primary-controls');
+      controls?controls.insertAdjacentElement('afterend',profile):root.append(profile);
+    }
+    const nav=profile.querySelector('.ucd-profile-nav'),panels=profile.querySelector('.ucd-profile-panels');
+    if(!(nav&&panels))return false;
     for(const kind of Object.keys(specs))ensure(root,nav,panels,kind);
     reorder(nav,panels);nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);root.dataset.fixedDetailCardsV1='true';return true;
   }
@@ -798,4 +810,14 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});
   shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);
   schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
+})();
+
+
+;(()=>{
+  'use strict';
+  const CONTRACT='APPLE_FRITTER_FLAVOR_BILINGUAL_V1',shell=document.getElementById('detail-shell');if(!shell)return;
+  const terms=new Map([['sweet baked apple','焼いたリンゴのような甘い風味'],['creamy vanilla','クリーミーなバニラを思わせる風味'],['warm cinnamon','温かみのあるシナモンを思わせる風味'],['earthy','土を思わせる風味'],['diesel','ディーゼル燃料を思わせる風味']]);
+  const chooseFlavorPanel=root=>{const list=[...root.querySelectorAll('[data-profile-kind="flavor"], [data-ucd-panel="flavor"]')];return list.find(panel=>panel.querySelector('[data-flavor-presentation="v1"]'))||list.find(panel=>panel.querySelector('.ucd-flavor-profile'))||list[0]||null};
+  const decorate=()=>{const id=new URL(location.href).searchParams.get('strain');if(id!=='apple-fritter')return false;const root=shell.querySelector('.detail-public-v1[data-public-detail-id="apple-fritter"]');if(!root)return false;const panel=chooseFlavorPanel(root),nodes=panel?[...panel.querySelectorAll('.ucd-flavor-terms span')]:[];if(nodes.length!==terms.size)return false;let decorated=0;for(const node of nodes){if(node.dataset.flavorPublicTerm==='v1'){decorated++;continue}const raw=(node.textContent||'').trim(),meaning=terms.get(raw.toLowerCase());if(!meaning)continue;node.replaceChildren();node.dataset.flavorPublicRaw=raw;node.dataset.flavorPublicTerm='v1';const original=document.createElement('strong');original.textContent=raw.replace(/\b[a-z]/g,char=>char.toUpperCase());const small=document.createElement('small');small.textContent=meaning;node.append(original,small);decorated++}if(decorated===terms.size)root.dataset.appleFritterFlavorBilingual=CONTRACT;return decorated===terms.size};
+  let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}))};new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
 })();
