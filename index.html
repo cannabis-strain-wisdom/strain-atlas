@@ -481,17 +481,25 @@
     style.textContent = `
       .detail-public-v1[data-csw-staged-sensory="v1"] .ucd-profile-nav [data-csw-staged-sensory-source="v1"]{display:none!important}
       .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:4px 0 10px}
-      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{appearance:none;min-width:0;min-height:38px;padding:8px 6px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 11px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{appearance:none;display:grid;align-content:center;gap:3px;min-width:0;min-height:64px;padding:8px 7px;border:1px solid rgba(216,189,98,.18);border-radius:11px;background:rgba(255,255,255,.025);color:#aebbb3;text-align:left;cursor:pointer}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button>span{color:#e4e9e5;font:850 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button>small{color:#7f8e85;font:650 9px/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-wrap:anywhere}
       .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.17),rgba(50,99,67,.12));color:#f1e2a9}
       .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-group-panel{padding-top:2px}
-      @media(max-width:350px){.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav{gap:5px}.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{font-size:10px;padding-inline:4px}}
+      @media(max-width:350px){.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav{gap:5px}.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{min-height:62px;padding-inline:5px}.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button>span{font-size:11px}.detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button>small{font-size:8.5px}}
     `;
     document.head.appendChild(style);
+
+    const sensorySpec = {
+      flavor: { label: 'フレーバー', helper: '口に含んだ時に感じる風味' },
+      aroma: { label: 'アロマ', helper: '鼻で感じる香り' },
+      terpene: { label: 'テルペン', helper: '確認できた成分情報' },
+    };
 
     const sourceKind = button => {
       const kind = String(button?.dataset?.ucdTab || '').toLowerCase();
       const text = (button?.textContent || '').trim();
-      if (kind === 'aroma' || text === '香り') return 'aroma';
+      if (kind === 'aroma' || text === '香り' || text === 'アロマ') return 'aroma';
       if (kind === 'flavor' || /^(味わい|風味|フレーバー)$/.test(text)) return 'flavor';
       if (kind === 'terpene' || text === 'テルペン') return 'terpene';
       return null;
@@ -503,12 +511,32 @@
       return list[0] || null;
     };
 
-    const decorateFlavorCopy = root => {
+    const decorateSensoryCopy = root => {
       for (const panel of root.querySelectorAll('[data-profile-kind="flavor"]')) {
         const heading = panel.querySelector('.ucd-sensory-head span');
-        if (heading && heading.textContent !== 'FLAVOR PROFILE / フレーバー' && /FLAVOR/i.test(heading.textContent || '')) heading.textContent = 'FLAVOR PROFILE / フレーバー';
+        if (heading && /FLAVOR/i.test(heading.textContent || '') && heading.textContent !== 'FLAVOR PROFILE / フレーバー') heading.textContent = 'FLAVOR PROFILE / フレーバー';
+        const helper = panel.querySelector('.ucd-sensory-head small');
+        if (helper && helper.textContent !== sensorySpec.flavor.helper) helper.textContent = sensorySpec.flavor.helper;
         const noteLabel = panel.querySelector('.ucd-note small');
         if (noteLabel && /味わい/.test(noteLabel.textContent || '')) noteLabel.textContent = '公式のフレーバー説明';
+      }
+      for (const panel of root.querySelectorAll('[data-profile-kind="aroma"]')) {
+        const heading = panel.querySelector('.ucd-sensory-head span');
+        if (heading && /AROMA/i.test(heading.textContent || '') && heading.textContent !== 'AROMA PROFILE / アロマ') heading.textContent = 'AROMA PROFILE / アロマ';
+        const helper = panel.querySelector('.ucd-sensory-head small');
+        if (helper && helper.textContent !== sensorySpec.aroma.helper) helper.textContent = sensorySpec.aroma.helper;
+        const unavailableKicker = panel.querySelector('.ucd-data-unavailable > small');
+        if (unavailableKicker && unavailableKicker.textContent !== 'AROMA / アロマ') unavailableKicker.textContent = 'AROMA / アロマ';
+        const unavailableTitle = panel.querySelector('.ucd-data-unavailable > strong');
+        if (unavailableTitle && unavailableTitle.textContent === '香り情報は確認できていません') unavailableTitle.textContent = 'アロマ情報は確認できていません';
+      }
+    };
+
+    const labelSensoryPanels = root => {
+      for (const [kind, spec] of Object.entries(sensorySpec)) {
+        for (const panel of root.querySelectorAll(`[data-profile-kind="${kind}"], [data-ucd-panel="${kind}"]`)) {
+          if (panel.getAttribute('aria-label') !== spec.label) panel.setAttribute('aria-label', spec.label);
+        }
       }
     };
 
@@ -522,9 +550,10 @@
       if (!(root && profile && nav && panels)) return;
 
       root.dataset.cswStagedSensory = 'v1';
-      decorateFlavorCopy(root);
+      decorateSensoryCopy(root);
+      labelSensoryPanels(root);
       const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
-      const sensoryKinds = [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']].filter(([kind]) => {
+      const sensoryKinds = ['aroma','flavor','terpene'].filter(kind => {
         const panel = choosePanel(root, kind);
         return !!panel;
       });
@@ -555,12 +584,19 @@
         const subnav = document.createElement('div');
         subnav.className = 'csw-staged-sensory-subnav';
         subnav.setAttribute('aria-label', '香味・テルペン');
-        for (const [kind, label] of sensoryKinds) {
+        for (const kind of sensoryKinds) {
+          const spec = sensorySpec[kind];
           const button = document.createElement('button');
           button.type = 'button';
           button.dataset.cswStagedSensorySub = kind;
-          button.textContent = label;
+          button.dataset.cswSensoryHelper = spec.helper;
           button.setAttribute('aria-pressed', 'false');
+          button.setAttribute('aria-label', `${spec.label}：${spec.helper}`);
+          const label = document.createElement('span');
+          label.textContent = spec.label;
+          const helper = document.createElement('small');
+          helper.textContent = spec.helper;
+          button.append(label, helper);
           subnav.appendChild(button);
         }
         const subCount = subnav.querySelectorAll('[data-csw-staged-sensory-sub]').length;
@@ -568,6 +604,37 @@
         group.appendChild(subnav);
         panels.prepend(group);
       }
+
+      const reconciledSubnav = group.querySelector('.csw-staged-sensory-subnav');
+      for (const kind of sensoryKinds) {
+        const spec = sensorySpec[kind];
+        let button = reconciledSubnav.querySelector(`[data-csw-staged-sensory-sub="${kind}"]`);
+        if (!button) {
+          button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.cswStagedSensorySub = kind;
+          button.setAttribute('aria-pressed', 'false');
+          reconciledSubnav.appendChild(button);
+        }
+        button.dataset.cswSensoryHelper = spec.helper;
+        button.setAttribute('aria-label', `${spec.label}：${spec.helper}`);
+        const currentLabel = button.querySelector('span')?.textContent || '';
+        const currentHelper = button.querySelector('small')?.textContent || '';
+        if (currentLabel !== spec.label || currentHelper !== spec.helper) {
+          const label = document.createElement('span');
+          label.textContent = spec.label;
+          const helper = document.createElement('small');
+          helper.textContent = spec.helper;
+          button.replaceChildren(label, helper);
+        }
+      }
+      reconciledSubnav.querySelectorAll('[data-csw-staged-sensory-sub]').forEach(button => {
+        if (!sensoryKinds.includes(button.dataset.cswStagedSensorySub)) button.remove();
+      });
+      const orderedSubButtons = sensoryKinds.map(kind => reconciledSubnav.querySelector(`[data-csw-staged-sensory-sub="${kind}"]`)).filter(Boolean);
+      const currentSubButtons = [...reconciledSubnav.querySelectorAll(':scope > [data-csw-staged-sensory-sub]')];
+      if (orderedSubButtons.some((button, index) => currentSubButtons[index] !== button)) orderedSubButtons.forEach(button => reconciledSubnav.appendChild(button));
+      reconciledSubnav.style.gridTemplateColumns = `repeat(${sensoryKinds.length},minmax(0,1fr))`;
 
       if (parent.dataset.cswStagedSensoryBound !== MARK) {
         parent.dataset.cswStagedSensoryBound = MARK;
@@ -618,6 +685,7 @@
       const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswStagedSensorySource !== 'v1');
       nav.dataset.count = String(visibleTop.length);
       root.dataset.stagedSensoryGroup = 'v1';
+      root.dataset.sensorySemanticPresentation = 'v1';
       window.__CSWStagedSensoryGroupV1 = { marker: MARK, status: 'READY', cultivarId: target, visibleTopLevel: visibleTop.length };
     };
 

@@ -50,13 +50,15 @@ async function main() {
     return r.result.value;
   }
   const catalog = await getJson(new URL('runtime/catalog.json', baseUrl));
-  const ids = (catalog.cultivars || []).map(item => item.id); if (!ids.length) throw new Error('No public cultivars');
+  const ids = (catalog.cultivars || []).map(item => item.id); if (ids.length !== 66) throw new Error(`Expected 66 public cultivars, got ${ids.length}`);
   const failures = [];
   for (const id of ids) {
     cdp.exceptions.length = 0;
     await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} document`);
     await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'})()`), `${id} fixed detail cards`, 20000);
+    const expectedSensoryCount=2+(['confirmed','disputed'].includes((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.status)&&Array.isArray((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.items)&&(catalog.cultivars||[]).find(item=>item.id===id).flavors.items.length>0?1:0);
+    await waitFor(() => evalv(`document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]')?.querySelectorAll('[data-csw-staged-sensory-sub]').length===${expectedSensoryCount}`), `${id} sensory domain reconciliation`, 20000);
     const state = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return {lineage:!!document.querySelector('#detail-shell .ucd-lineage'),type:!!r?.querySelector('[data-ucd-primary-tab="type"]'),cannabinoid:!!r?.querySelector('[data-ucd-primary-tab="cannabinoid"]'),aroma:!!r?.querySelector('[data-ucd-tab="aroma"]'),terpene:!!r?.querySelector('[data-ucd-tab="terpene"]'),morphology:!!r?.querySelector('[data-ucd-tab="morphology"]'),originHistory:!!r?.querySelector('[data-ucd-tab="origin-history"]'),flavor:${JSON.stringify(id)}!=='apple-fritter'||!!r?.querySelector('[data-ucd-tab="flavor"]'),flavorBilingual:${JSON.stringify(id)}!=='apple-fritter'||r?.dataset.appleFritterFlavorBilingual==='APPLE_FRITTER_FLAVOR_BILINGUAL_V1',overflow:r?r.scrollWidth>r.clientWidth+1:true}})()`);
     const missing = Object.entries(state).filter(([key, value]) => key !== 'overflow' && !value).map(([key]) => key);
     if (state.overflow) missing.push('horizontalOverflow');
@@ -71,17 +73,29 @@ async function main() {
     await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} structure document`);
     await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'&&r.dataset.stagedSensoryGroup==='v1'&&r.dataset.cswStagedEffectCultivation==='v1'})()`), `${id} universal grouping markers`, 20000);
+    const expectedSensoryCount=2+(['confirmed','disputed'].includes((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.status)&&Array.isArray((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.items)&&(catalog.cultivars||[]).find(item=>item.id===id).flavors.items.length>0?1:0);
+    await waitFor(() => evalv(`document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]')?.querySelectorAll('[data-csw-staged-sensory-sub]').length===${expectedSensoryCount}`), `${id} strict sensory domain reconciliation`, 20000);
     structures[id] = await evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');
       const nav=root.querySelector('.ucd-profile-nav');
       const visible=[...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button=>getComputedStyle(button).display!=='none');
       const rects=visible.map(button=>{const rect=button.getBoundingClientRect();return {label:button.querySelector('span')?.textContent.trim()||'',x:rect.x,y:rect.y,width:rect.width,height:rect.height}});
       const firstStyle=getComputedStyle(visible[0]);
-      const unknownKinds=['aroma','terpene','morphology','origin-history'].filter(kind=>{const panel=root.querySelector('[data-ucd-panel="'+kind+'"]');return panel?.dataset.unavailableDetailCard==='v1'&&!!panel.querySelector('.ucd-data-unavailable')});
+      const unknownKinds=['aroma','terpene','morphology','origin-history'].filter(kind=>[...root.querySelectorAll('[data-ucd-panel="'+kind+'"]')].some(panel=>{const box=panel.querySelector('.ucd-data-unavailable,.ucd-terpene-unavailable');return !!box&&!!box.querySelector('strong')&&/確認できていません/.test(box.textContent||'')}));
       const ecUnknown=[...root.querySelectorAll('[data-csw-staged-ec-unknown]')].map(section=>section.dataset.cswStagedEcUnknown).sort();
       const flavorPanel=[...root.querySelectorAll('[data-profile-kind="flavor"],[data-ucd-panel="flavor"]')].find(panel=>panel.querySelector('[data-flavor-presentation="v1"]'));
       const flavorTerms=[...flavorPanel?.querySelectorAll('[data-flavor-public-term="v1"]')||[]].map(node=>({raw:(node.dataset.flavorPublicRaw||'').trim(),gloss:(node.querySelector('small')?.textContent||'').trim()}));
       const sources=root.querySelector('.ucd-sources');
+      const sensoryChildren=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||'',helperMarker:button.dataset.cswSensoryHelper||'',ariaLabel:button.getAttribute('aria-label')||''}));
+      const sensoryInteractions=sensoryChildren.map(({kind})=>{
+        const button=root.querySelector('[data-csw-staged-sensory-sub="'+kind+'"]');
+        button.click();
+        const candidates=[...root.querySelectorAll('[data-profile-kind="'+kind+'"],[data-ucd-panel="'+kind+'"]')];
+        const panel=kind==='flavor'?(candidates.find(item=>item.querySelector('[data-flavor-presentation="v1"]'))||candidates[0]):candidates[0];
+        const otherVisible=[...root.querySelectorAll('[data-profile-kind="flavor"],[data-profile-kind="aroma"],[data-profile-kind="terpene"]')].filter(item=>item!==panel&&!item.hidden).map(item=>item.dataset.profileKind||item.dataset.ucdPanel||'unknown');
+        return {kind,pressed:button.getAttribute('aria-pressed')==='true',panelKind:panel?.dataset.profileKind||panel?.dataset.ucdPanel||'',panelVisible:!!panel&&!panel.hidden,otherVisible};
+      });
+      const sensoryPanelLabels=Object.fromEntries(['flavor','aroma','terpene'].map(kind=>{const candidates=[...root.querySelectorAll('[data-profile-kind="'+kind+'"],[data-ucd-panel="'+kind+'"]')];const panel=kind==='flavor'?(candidates.find(item=>item.querySelector('[data-flavor-presentation="v1"]'))||candidates[0]):candidates[0];return [kind,panel?.getAttribute('aria-label')||panel?.querySelector('.ucd-sensory-head span,.ucd-data-unavailable > small')?.textContent.trim()||'']}));
       return {
         viewport:{width:innerWidth,height:innerHeight},
         labels:rects.map(item=>item.label),rects,
@@ -89,7 +103,7 @@ async function main() {
         navGap:getComputedStyle(nav).gap,
         buttonStyle:{minHeight:firstStyle.minHeight,padding:firstStyle.padding,fontSize:firstStyle.fontSize,whiteSpace:firstStyle.whiteSpace},
         oldStandaloneVisible:rects.filter(item=>['味わい','風味','香り','テルペン'].includes(item.label)).map(item=>item.label),positioningTopLevel:!!nav.querySelector(':scope > [data-ucd-tab=\"positioning\"]'),positioningIntegrated:!!root.querySelector('[data-ucd-panel=\"origin-history\"] [data-csw-positioning-section=\"v1\"]'),
-        unknownKinds,ecUnknown,flavorTerms,
+        sensorySemanticMarker:root.dataset.sensorySemanticPresentation||'',sensoryChildren,sensoryInteractions,sensoryPanelLabels,unknownKinds,ecUnknown,flavorTerms,
         flavorMarker:root.dataset.appleFritterFlavorBilingual||root.dataset.mimosaFlavorBilingual||'',
         effectSections:[...root.querySelectorAll('[data-csw-staged-ec-section]')].map(section=>section.dataset.cswStagedEcSection).sort(),
         sources:{present:!!sources,summary:sources?.querySelector('summary')?.innerText.trim()||'',count:sources?.querySelectorAll(':scope > div > a').length||0},
@@ -109,13 +123,25 @@ async function main() {
 
   const expectedLabels = ['香味・テルペン','効果・栽培','形態','起源と歴史'];
   for (const [id, state] of Object.entries(structures)) {
+    const cultivar=(catalog.cultivars||[]).find(item=>item.id===id);
     if (state.viewport.width !== 390) throw new Error(`${id} viewport is not 390px: ${JSON.stringify(state.viewport)}`);
     if (JSON.stringify(state.labels) !== JSON.stringify(expectedLabels)) throw new Error(`${id} grouped labels mismatch: ${JSON.stringify(state.labels)}`);
     if (state.columns !== 2) throw new Error(`${id} grouped cards are not two columns: ${JSON.stringify(state)}`);
     if (!(Math.abs(state.rects[0].y-state.rects[1].y)<1&&state.rects[2].y>state.rects[0].y&&Math.abs(state.rects[2].y-state.rects[3].y)<1)) throw new Error(`${id} grouped card wrapping mismatch: ${JSON.stringify(state.rects)}`);
     if (state.oldStandaloneVisible.length) throw new Error(`${id} legacy standalone sensory cards remain visible: ${JSON.stringify(state.oldStandaloneVisible)}`);
+    if (state.sensorySemanticMarker !== 'v1') throw new Error(`${id} sensory semantic marker missing`);
+    const helperSpec={flavor:{label:'フレーバー',helper:'口に含んだ時に感じる風味'},aroma:{label:'アロマ',helper:'鼻で感じる香り'},terpene:{label:'テルペン',helper:'確認できた成分情報'}};
+    const flavorSupported=['confirmed','disputed'].includes(cultivar?.flavors?.status)&&Array.isArray(cultivar?.flavors?.items)&&cultivar.flavors.items.length>0;
+    const expectedSensoryKinds=['aroma',...(flavorSupported?['flavor']:[]),'terpene'];
+    if (JSON.stringify(state.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(expectedSensoryKinds)) throw new Error(`${id} sensory domain order mismatch: ${JSON.stringify(state.sensoryChildren)}`);
+    for (const item of state.sensoryChildren) { const spec=helperSpec[item.kind]; if (!spec||item.label!==spec.label||item.helper!==spec.helper||item.helperMarker!==spec.helper||item.ariaLabel!==`${spec.label}：${spec.helper}`) throw new Error(`${id} sensory helper mismatch: ${JSON.stringify(item)}`); }
+    for (const interaction of state.sensoryInteractions) if (!interaction.pressed||!interaction.panelVisible||interaction.panelKind!==interaction.kind||interaction.otherVisible.length) throw new Error(`${id} cross-domain sensory interaction mismatch: ${JSON.stringify(interaction)}`);
+    if (flavorSupported && !/フレーバー/.test(state.sensoryPanelLabels.flavor)) throw new Error(`${id} Flavor panel label mismatch: ${state.sensoryPanelLabels.flavor}`);
+    if (!/アロマ/.test(state.sensoryPanelLabels.aroma)) throw new Error(`${id} Aroma panel label mismatch: ${state.sensoryPanelLabels.aroma}`);
+    if (!/テルペン/.test(state.sensoryPanelLabels.terpene)) throw new Error(`${id} Terpene panel label mismatch: ${state.sensoryPanelLabels.terpene}`);
+    if (cultivar?.aromas?.status==='unknown'&&!state.unknownKinds.includes('aroma')) throw new Error(`${id} Aroma UNKNOWN lost`);
+    if (cultivar?.terpenes?.status==='unknown'&&!state.unknownKinds.includes('terpene')) throw new Error(`${id} Terpene UNKNOWN lost`);
     if (state.positioningTopLevel) throw new Error(`${id} standalone positioning card remains visible`);
-    const cultivar=(catalog.cultivars||[]).find(item=>item.id===id);
     if (['confirmed','disputed'].includes(cultivar?.positioning?.status)&&!state.positioningIntegrated) throw new Error(`${id} positioning content was not integrated`);
     if (state.effectSections.join(',') !== 'cultivation,effects') throw new Error(`${id} effect/cultivation shell mismatch: ${JSON.stringify(state.effectSections)}`);
     if (!state.sources.present || !state.sources.summary || state.sources.count<1) throw new Error(`${id} sources grouping mismatch: ${JSON.stringify(state.sources)}`);
@@ -124,13 +150,16 @@ async function main() {
   const mimosa = structures.mimosa;
   const apple = structures['apple-fritter'];
   if (JSON.stringify(apple.unknownKinds) !== JSON.stringify(['aroma','terpene','morphology','origin-history'])) throw new Error(`Apple Fritter UNKNOWN detail shell mismatch: ${JSON.stringify(apple.unknownKinds)}`);
+  if (JSON.stringify(apple.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(['aroma','flavor','terpene'])) throw new Error(`Apple Fritter sensory domains mismatch: ${JSON.stringify(apple.sensoryChildren)}`);
+  const african=structures['african-gas'];
+  if (JSON.stringify(african.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(['aroma','terpene']) || african.unknownKinds.some(kind=>kind==='aroma'||kind==='terpene')) throw new Error(`African Gas confirmed Aroma/Terpene regression: ${JSON.stringify(african)}`);
   if (JSON.stringify(apple.ecUnknown) !== JSON.stringify(['cultivation','effects'])) throw new Error(`Apple Fritter UNKNOWN effect/cultivation shell mismatch: ${JSON.stringify(apple.ecUnknown)}`);
   if (apple.flavorMarker !== 'APPLE_FRITTER_FLAVOR_BILINGUAL_V1' || apple.flavorTerms.length !== 5 || apple.flavorTerms.some(term=>!term.raw||!term.gloss)) throw new Error(`Apple Fritter bilingual Flavor mismatch: ${JSON.stringify(apple.flavorTerms)}`);
   if (mimosa.flavorMarker !== 'MIMOSA_FLAVOR_BILINGUAL_V1' || mimosa.flavorTerms.length !== 2 || mimosa.flavorTerms.some(term=>!term.raw||!term.gloss)) throw new Error(`Mimosa bilingual Flavor regression: ${JSON.stringify(mimosa.flavorTerms)}`);
   if (mimosa.ecUnknown.length) throw new Error(`Mimosa effect/cultivation regressed to UNKNOWN: ${JSON.stringify(mimosa.ecUnknown)}`);
   for (const key of ['navGap','buttonStyle']) if (JSON.stringify(apple[key]) !== JSON.stringify(mimosa[key])) throw new Error(`Apple Fritter ${key} differs from Mimosa: ${JSON.stringify({apple:apple[key],mimosa:mimosa[key]})}`);
   cdp.close();
-  console.log(`UNIFORM DETAIL CARDS PASS ${ids.length}/${ids.length}; UNIVERSAL 390PX GROUPING PASS`);
+  console.log(`SENSORY SEMANTIC PRESENTATION PASS ${ids.length}/${ids.length}; UNIVERSAL 390PX GROUPING PASS; CROSS-DOMAIN MIGRATION 0`);
 }
 
 try { await main(); }

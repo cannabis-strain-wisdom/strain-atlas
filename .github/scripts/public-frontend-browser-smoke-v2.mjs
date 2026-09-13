@@ -223,6 +223,13 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
     if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
   }
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=apple-fritter` });
+await waitFor(() => evalv(`document.readyState==='complete'`), 'Apple Fritter sensory document complete');
+const appleSensory = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="apple-fritter"]');if(root?.dataset.sensorySemanticPresentation!=='v1'||root.querySelectorAll('[data-csw-staged-sensory-sub]').length!==3)return false;const children=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||''}));const unknown=['aroma','terpene'].filter(kind=>root.querySelector('[data-ucd-panel="'+kind+'"]')?.dataset.unavailableDetailCard==='v1');return {children,unknown,overflow:root.scrollWidth>root.clientWidth+1}})()`), 'Apple Fritter sensory semantic presentation');
+if (JSON.stringify(appleSensory.children)!==JSON.stringify([{kind:'aroma',label:'アロマ',helper:'鼻で感じる香り'},{kind:'flavor',label:'フレーバー',helper:'口に含んだ時に感じる風味'},{kind:'terpene',label:'テルペン',helper:'確認できた成分情報'}])) throw new Error(`Apple Fritter sensory semantics mismatch: ${JSON.stringify(appleSensory)}`);
+if (JSON.stringify(appleSensory.unknown)!==JSON.stringify(['aroma','terpene'])) throw new Error(`Apple Fritter UNKNOWN domain mismatch: ${JSON.stringify(appleSensory)}`);
+if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation has horizontal overflow');
+
   await cdp.send('Page.navigate', { url: `${baseUrl}?strain=blue-gelato-41` });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Blue Gelato 41 document complete');
   await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return !!root && root.querySelectorAll('[data-csw-staged-sensory-parent="v1"]').length===1 && root.querySelectorAll('[data-csw-staged-ec-parent="v1"]').length===1})()`), 'Blue Gelato grouped controls');
@@ -230,6 +237,8 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
   if (blueTop.filter(x=>x.includes('香味・テルペン')).length!==1 || blueTop.filter(x=>x.includes('効果・栽培')).length!==1) throw new Error(`Blue Gelato top groups mismatch ${JSON.stringify(blueTop)}`);
   if (blueTop.some(x=>['香り','フレーバー','味わい','風味','テルペン'].includes(x))) throw new Error(`Blue Gelato duplicate sensory top control ${JSON.stringify(blueTop)}`);
   await evalv(`document.querySelector('[data-csw-staged-sensory-parent="v1"]').click()`);
+  const blueSensoryHelpers = await evalv(`[...document.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||''}))`);
+  if (JSON.stringify(blueSensoryHelpers)!==JSON.stringify([{kind:'aroma',label:'アロマ',helper:'鼻で感じる香り'},{kind:'flavor',label:'フレーバー',helper:'口に含んだ時に感じる風味'},{kind:'terpene',label:'テルペン',helper:'確認できた成分情報'}])) throw new Error(`Blue Gelato sensory semantics mismatch: ${JSON.stringify(blueSensoryHelpers)}`);
   await evalv(`document.querySelector('[data-csw-staged-sensory-sub="aroma"]').click()`);
   const blueAroma = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="aroma"]');if(!p||p.hidden)return false;return [...p.querySelectorAll('[data-aroma-public-term="v1"] strong')].map(x=>x.textContent.trim())})()`), 'Blue Gelato aroma child');
   for (const term of ['Fresh','Fruity','Berry']) if (!blueAroma.includes(term)) throw new Error(`Blue Gelato Aroma missing ${term}: ${JSON.stringify(blueAroma)}`);
