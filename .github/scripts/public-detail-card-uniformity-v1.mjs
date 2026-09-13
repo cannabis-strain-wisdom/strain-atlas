@@ -66,13 +66,13 @@ async function main() {
   if (failures.length) throw new Error(`UNIFORM_DETAIL_CARD_FAILURES ${JSON.stringify(failures)}`);
 
   const structures = {};
-  for (const id of ['mimosa', 'apple-fritter']) {
+  for (const id of ids) {
     cdp.exceptions.length = 0;
     await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} structure document`);
-    await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.stagedSensoryGroup==='v1'&&r.dataset.cswStagedEffectCultivation==='v1'})()`), `${id} Mimosa-baseline groups`, 20000);
+    await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'&&r.dataset.stagedSensoryGroup==='v1'&&r.dataset.cswStagedEffectCultivation==='v1'})()`), `${id} universal grouping markers`, 20000);
     structures[id] = await evalv(`(()=>{
-      const root=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}]');
+      const root=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');
       const nav=root.querySelector('.ucd-profile-nav');
       const visible=[...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button=>getComputedStyle(button).display!=='none');
       const rects=visible.map(button=>{const rect=button.getBoundingClientRect();return {label:button.querySelector('span')?.textContent.trim()||'',x:rect.x,y:rect.y,width:rect.width,height:rect.height}});
@@ -88,7 +88,7 @@ async function main() {
         columns:getComputedStyle(nav).gridTemplateColumns.split(/\\s+/).filter(Boolean).length,
         navGap:getComputedStyle(nav).gap,
         buttonStyle:{minHeight:firstStyle.minHeight,padding:firstStyle.padding,fontSize:firstStyle.fontSize,whiteSpace:firstStyle.whiteSpace},
-        oldStandaloneVisible:rects.filter(item=>['味わい','風味','香り','テルペン'].includes(item.label)).map(item=>item.label),
+        oldStandaloneVisible:rects.filter(item=>['味わい','風味','香り','テルペン'].includes(item.label)).map(item=>item.label),positioningTopLevel:!!nav.querySelector(':scope > [data-ucd-tab=\"positioning\"]'),positioningIntegrated:!!root.querySelector('[data-ucd-panel=\"origin-history\"] [data-csw-positioning-section=\"v1\"]'),
         unknownKinds,ecUnknown,flavorTerms,
         flavorMarker:root.dataset.appleFritterFlavorBilingual||root.dataset.mimosaFlavorBilingual||'',
         effectSections:[...root.querySelectorAll('[data-csw-staged-ec-section]')].map(section=>section.dataset.cswStagedEcSection).sort(),
@@ -114,6 +114,9 @@ async function main() {
     if (state.columns !== 2) throw new Error(`${id} grouped cards are not two columns: ${JSON.stringify(state)}`);
     if (!(Math.abs(state.rects[0].y-state.rects[1].y)<1&&state.rects[2].y>state.rects[0].y&&Math.abs(state.rects[2].y-state.rects[3].y)<1)) throw new Error(`${id} grouped card wrapping mismatch: ${JSON.stringify(state.rects)}`);
     if (state.oldStandaloneVisible.length) throw new Error(`${id} legacy standalone sensory cards remain visible: ${JSON.stringify(state.oldStandaloneVisible)}`);
+    if (state.positioningTopLevel) throw new Error(`${id} standalone positioning card remains visible`);
+    const cultivar=(catalog.cultivars||[]).find(item=>item.id===id);
+    if (['confirmed','disputed'].includes(cultivar?.positioning?.status)&&!state.positioningIntegrated) throw new Error(`${id} positioning content was not integrated`);
     if (state.effectSections.join(',') !== 'cultivation,effects') throw new Error(`${id} effect/cultivation shell mismatch: ${JSON.stringify(state.effectSections)}`);
     if (!state.sources.present || !state.sources.summary || state.sources.count<1) throw new Error(`${id} sources grouping mismatch: ${JSON.stringify(state.sources)}`);
     if (state.overflow) throw new Error(`${id} has 390px horizontal overflow`);
@@ -127,7 +130,7 @@ async function main() {
   if (mimosa.ecUnknown.length) throw new Error(`Mimosa effect/cultivation regressed to UNKNOWN: ${JSON.stringify(mimosa.ecUnknown)}`);
   for (const key of ['navGap','buttonStyle']) if (JSON.stringify(apple[key]) !== JSON.stringify(mimosa[key])) throw new Error(`Apple Fritter ${key} differs from Mimosa: ${JSON.stringify({apple:apple[key],mimosa:mimosa[key]})}`);
   cdp.close();
-  console.log(`UNIFORM DETAIL CARDS PASS ${ids.length}/${ids.length}; MIMOSA BASELINE + APPLE FRITTER 390PX GROUPING PASS`);
+  console.log(`UNIFORM DETAIL CARDS PASS ${ids.length}/${ids.length}; UNIVERSAL 390PX GROUPING PASS`);
 }
 
 try { await main(); }

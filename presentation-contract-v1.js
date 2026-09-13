@@ -422,6 +422,19 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     const nav=profile.querySelector('.ucd-profile-nav'),panels=profile.querySelector('.ucd-profile-panels');
     if(!(nav&&panels))return false;
     for(const kind of Object.keys(specs))ensure(root,nav,panels,kind);
+    const positioningButton=nav.querySelector('[data-ucd-tab="positioning"]');
+    const positioningPanel=panels.querySelector('[data-ucd-panel="positioning"]');
+    const originHistoryPanel=panels.querySelector('[data-ucd-panel="origin-history"]');
+    if(positioningPanel&&originHistoryPanel){
+      if(!originHistoryPanel.querySelector('[data-csw-positioning-section="v1"]')){
+        const section=document.createElement('section');section.className='ucd-origin-history-section';section.dataset.cswPositioningSection='v1';
+        const heading=document.createElement('small');heading.className='ucd-origin-history-heading';heading.textContent='POSITIONING / 位置づけ';section.append(heading);
+        while(positioningPanel.firstChild)section.append(positioningPanel.firstChild);
+        originHistoryPanel.append(section);
+      }
+      positioningPanel.remove();
+    }
+    if(!positioningPanel||originHistoryPanel)positioningButton?.remove();
     reorder(nav,panels);nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);root.dataset.fixedDetailCardsV1='true';return true;
   }
   let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}));};
@@ -526,7 +539,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 (() => {
   'use strict';
   const MARK = 'CSW_STAGED_EFFECT_CULTIVATION_V1';
-  const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa','apple-fritter','mac-1']);
+  const TARGETS = null;
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 
@@ -695,8 +708,8 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
 
   const decorate = async () => {
     const target = new URL(location.href).searchParams.get('strain');
-    if (!TARGETS.has(target)) return;
-    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"]`);
+    if (!target) return;
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"],.ucd-root[data-public-detail-id="${target}"]`);
     const profile = root?.querySelector('.ucd-profile');
     const nav = profile?.querySelector('.ucd-profile-nav');
     const panels = profile?.querySelector('.ucd-profile-panels');
@@ -775,6 +788,15 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
         parent.classList.add('is-active');
       });
     });
+
+
+  const deterministicKinds = ['sensory-group','effect-cultivation','morphology','origin-history'];
+  const orderedButtons = deterministicKinds.map(kind => nav.querySelector(`:scope > [data-ucd-tab="${kind}"]`)).filter(Boolean);
+  const currentButtons = [...nav.children].filter(node => deterministicKinds.includes(node.dataset?.ucdTab));
+  if (orderedButtons.some((node, index) => currentButtons[index] !== node)) orderedButtons.forEach(node => nav.appendChild(node));
+  const orderedPanels = deterministicKinds.map(kind => panels.querySelector(`:scope > [data-ucd-panel="${kind}"]`)).filter(Boolean);
+  const currentPanels = [...panels.children].filter(node => deterministicKinds.includes(node.dataset?.ucdPanel));
+  if (orderedPanels.some((node, index) => currentPanels[index] !== node)) orderedPanels.forEach(node => panels.appendChild(node));
 
     const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswStagedSensorySource !== 'v1');
     nav.dataset.count = String(visibleTop.length);

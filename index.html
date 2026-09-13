@@ -472,7 +472,7 @@
   (() => {
     'use strict';
     const MARK = 'CSW_STAGED_SENSORY_GROUP_V1';
-    const TARGETS = new Set(['fat-banana-auto','blue-gelato-41','sour-diesel','mimosa','apple-fritter','mac-1']);
+    const TARGETS = null;
     const shell = document.getElementById('detail-shell');
     if (!shell) return;
 
@@ -514,8 +514,8 @@
 
     const decorate = () => {
       const target = new URL(location.href).searchParams.get('strain');
-      if (!TARGETS.has(target)) return;
-      const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"]`);
+      if (!target) return;
+      const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${target}"],.ucd-root[data-public-detail-id="${target}"]`);
       const profile = root?.querySelector('.ucd-profile');
       const nav = profile?.querySelector('.ucd-profile-nav');
       const panels = profile?.querySelector('.ucd-profile-panels');
@@ -526,7 +526,7 @@
       const sensoryButtons = [...nav.querySelectorAll('[data-ucd-tab]')].filter(button => sourceKind(button));
       const sensoryKinds = [['aroma','香り'],['flavor','フレーバー'],['terpene','テルペン']].filter(([kind]) => {
         const panel = choosePanel(root, kind);
-        return panel && (target === 'mac-1' || !(kind === 'aroma' && panel.dataset.unavailableDetailCard === 'v1'));
+        return !!panel;
       });
       if (sensoryKinds.length < 2) return;
       sensoryButtons.forEach(button => { button.dataset.cswStagedSensorySource = 'v1'; });
@@ -605,6 +605,15 @@
           parent.classList.add('is-active');
         });
       });
+
+
+    const deterministicKinds = ['sensory-group','effect-cultivation','morphology','origin-history'];
+    const orderedButtons = deterministicKinds.map(kind => nav.querySelector(`:scope > [data-ucd-tab="${kind}"]`)).filter(Boolean);
+    const currentButtons = [...nav.children].filter(node => deterministicKinds.includes(node.dataset?.ucdTab));
+    if (orderedButtons.some((node, index) => currentButtons[index] !== node)) orderedButtons.forEach(node => nav.appendChild(node));
+    const orderedPanels = deterministicKinds.map(kind => panels.querySelector(`:scope > [data-ucd-panel="${kind}"]`)).filter(Boolean);
+    const currentPanels = [...panels.children].filter(node => deterministicKinds.includes(node.dataset?.ucdPanel));
+    if (orderedPanels.some((node, index) => currentPanels[index] !== node)) orderedPanels.forEach(node => panels.appendChild(node));
 
       const visibleTop = [...nav.querySelectorAll(':scope > [data-ucd-tab]')].filter(button => button.dataset.cswStagedSensorySource !== 'v1');
       nav.dataset.count = String(visibleTop.length);
