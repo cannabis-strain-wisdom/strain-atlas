@@ -395,6 +395,11 @@
       "strainId": "super-boof",
       "state": "published",
       "publishedAt": "2026-09-14T09:56:29Z"
+    },
+    {
+      "strainId": "papaya",
+      "state": "published",
+      "publishedAt": "2026-09-14T23:47:58Z"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T10:03:51.347Z",
+  "generatedAt": "2026-09-14T23:47:59.517Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 67,
-    "sources": 121,
-    "entities": 21
+    "cultivars": 68,
+    "sources": 122,
+    "entities": 22
   },
   "explore": {
     "sativa": [
@@ -76,6 +76,7 @@
       "jack-herer",
       "mac-1",
       "og-kush",
+      "papaya",
       "serious-happiness",
       "skunk-1",
       "super-boof",
@@ -12859,6 +12860,342 @@
     },
     {
       "schemaVersion": 1,
+      "id": "papaya",
+      "status": "review",
+      "name": "Papaya",
+      "jp": null,
+      "aliases": [
+        "Papaya Feminized"
+      ],
+      "classification": {
+        "type": "balanced-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "display": "Citral × Ice",
+        "parents": [
+          "Citral",
+          "Ice"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Nirvana Seeds公式では、Papaya Feminizedの遺伝背景をCitral × Iceと記載しています。二次資料にある番号付き親系統や別系譜説は、現在の公式表記へ混ぜていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "nirvana-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "nirvana-papaya-feminized"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フレッシュマンゴー",
+          "ペッパースパイス",
+          "パパイヤ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フレッシュマンゴー",
+            "ペッパースパイス",
+            "パパイヤ"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fresh mango",
+              "reviewLabelJa": "フレッシュマンゴー",
+              "plainMeaningJa": "フレッシュなマンゴーを思わせる南国果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "マンゴー",
+                "南国果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "peppery spices",
+              "reviewLabelJa": "ペッパースパイス",
+              "plainMeaningJa": "胡椒を思わせる刺激を伴うスパイス香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "胡椒",
+                "スパイス"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "papaya fruit",
+              "reviewLabelJa": "パパイヤ",
+              "plainMeaningJa": "パパイヤ果実を思わせる南国果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "パパイヤ",
+                "南国果実"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Nirvana Seeds公式では、甘さ、フレッシュマンゴー、ペッパー系スパイス、パパイヤ果実を思わせる香りが記述されています。香りの語からテルペン成分を推定していません。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "items": [
+          "Fruity",
+          "Sweet",
+          "Tropical"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "items": [
+          "Sedating",
+          "Euphoric",
+          "Relieving"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "observations": [
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "屋内では約3〜3.9 ft",
+            "min": 3,
+            "max": 3.9,
+            "unit": "ft"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "屋内収量の公式目安は350〜450 g/m²",
+            "min": 350,
+            "max": 450,
+            "unit": "g/m²"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "屋外では約4〜6 ft",
+            "min": 4,
+            "max": 6,
+            "unit": "ft"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は1株あたり最大約17.5 ozと公式が記載",
+            "text": "Nirvana reports up to about 17.5 oz per plant outdoors."
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "5月植えの場合、屋外収穫は10月末ごろ",
+            "text": "Nirvana places outdoor harvest around the end of October when planted in May."
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "items": [
+          "beta-myrcene",
+          "limonene",
+          "beta-caryophyllene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "dominant",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            }
+          ],
+          "noteJa": "Nirvana Seeds公式はDominant TerpenesとしてMyrcene、Limonene、Caryophylleneを明記しています。割合や含有量は示されていないため、数値は補っていません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 13,
+              "maxValue": 18,
+              "unit": "%",
+              "valueText": "13〜18%",
+              "confidence": "B",
+              "sourceRefs": [
+                "nirvana-papaya-feminized"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "qualitative",
+              "valueText": "低い",
+              "confidence": "B",
+              "sourceRefs": [
+                "nirvana-papaya-feminized"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "nirvana-papaya-feminized"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Nirvana Seeds公式では、きらめくような厚みのある花と明るいオレンジ色のピストル、低めにまとまる生育傾向が記述されています。未確認の固定色や葉の特徴は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Nirvana Seeds公式では、Papaya Feminizedの遺伝背景をCitral × Iceと記載しています。二次資料にある番号付き親系統や別系譜説は、現在の公式表記へ混ぜていません。",
+          "aromaNote": "Nirvana Seeds公式では、甘さ、フレッシュマンゴー、ペッパー系スパイス、パパイヤ果実を思わせる香りが記述されています。香りの語からテルペン成分を推定していません。",
+          "terpeneNote": "Nirvana Seeds公式はDominant TerpenesとしてMyrcene、Limonene、Caryophylleneを明記しています。割合や含有量は示されていないため、数値は補っていません。",
+          "morphologyNote": "Nirvana Seeds公式では、きらめくような厚みのある花と明るいオレンジ色のピストル、低めにまとまる生育傾向が記述されています。未確認の固定色や葉の特徴は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/papaya/primary.webp",
+          "alt": "Papayaの公式形態情報に基づき、きらめく厚みのある花と明るいオレンジ色のピストルをトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-15",
+      "updatedAt": "2026-09-15",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "power-plant",
       "status": "review",
       "name": "Power Plant",
@@ -20212,6 +20549,31 @@
       "publishedAt": "2024-01-09",
       "checkedAt": "2026-09-05"
     },
+    "nirvana-papaya-feminized": {
+      "schemaVersion": 1,
+      "id": "nirvana-papaya-feminized",
+      "publisher": "Nirvana Seeds",
+      "title": "Papaya Feminized",
+      "url": "https://usa.nirvanashop.com/products/papaya-feminized",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "terpenes",
+        "morphology",
+        "cultivation",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-15"
+    },
     "rqs-fat-banana-auto": {
       "schemaVersion": 1,
       "id": "rqs-fat-banana-auto",
@@ -20862,6 +21224,18 @@
       "checkedAt": "2026-09-05",
       "updatedAt": "2026-09-05",
       "note": "Mephisto Genetics official Double Grape cultivar page identifies its own breeding release and lists Sour Stomper x Grape Crinkle."
+    },
+    "nirvana-seeds": {
+      "schemaVersion": 1,
+      "id": "nirvana-seeds",
+      "name": "Nirvana Seeds",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-15",
+      "updatedAt": "2026-09-15"
     },
     "reserva-privada": {
       "schemaVersion": 1,
