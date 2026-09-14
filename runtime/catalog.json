@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-13T07:11:56.686Z",
+  "generatedAt": "2026-09-14T09:56:30.374Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 66,
-    "sources": 120,
-    "entities": 20
+    "cultivars": 67,
+    "sources": 121,
+    "entities": 21
   },
   "explore": {
     "sativa": [
@@ -78,6 +78,7 @@
       "og-kush",
       "serious-happiness",
       "skunk-1",
+      "super-boof",
       "the-og-18",
       "wedding-cake"
     ],
@@ -10179,25 +10180,6 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
-      },
-      "cultivation": {
-        "status": "confirmed",
-        "confidence": "B",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "cannabis-now-return-of-the-mac"
-        ],
-        "observations": [
-          {
-            "field": "vegetativeStage",
-            "environment": "unspecified",
-            "valueForm": "TEXT",
-            "rawText": "The real cut can take a little longer in the vegetative stage.",
-            "text": "The authentic MAC1 cut can take a little longer in the vegetative stage.",
-            "displayText": "栄養成長期はやや長め"
-          }
-        ],
-        "note": "A direct written interview with Capulator describes the authentic MAC1 cut as taking a little longer in the vegetative stage. This is preserved as a qualitative vegetative-stage observation and is not converted into flowering time or a numeric duration."
       }
     },
     {
@@ -15584,6 +15566,178 @@
     },
     {
       "schemaVersion": 1,
+      "id": "super-boof",
+      "status": "review",
+      "name": "Super Boof",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "display": "Black Cherry Punch × Tropicana Cookies",
+        "parents": [
+          "Black Cherry Punch",
+          "Tropicana Cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Leaflyの直接取材では、BlockheadがBlack Cherry Punch × Tropicana CookiesとしてBlockberryを作り、そのBlockberry種子5粒からMobilejayが選抜した個体がSuper Boofとされています。Blockberry全体をSuper Boofの無条件な別名にはしていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "blockhead",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-super-boof-strain-of-year-2024"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "オレンジ・クッキー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "オレンジ・クッキー"
+          ],
+          "details": [
+            {
+              "rawMatch": "orange cookie",
+              "reviewLabelJa": "オレンジ・クッキー",
+              "plainMeaningJa": "オレンジ・クッキーを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "オレンジクッキー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyの直接取材では「loud orange cookie smell」と記述されています。CSWではこの複合表現を分解せず、「オレンジ・クッキー」として掲載しています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "LeaflyのBlockhead／Mobilejay直接取材では、元のBlockberry交配は米国カリフォルニア州サンディエゴでBlockheadが作出し、その種子からMobilejayがミシガン州でSuper Boofとなる個体を選抜・増殖したと説明されています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Blockheadは2019年にBlockberryの種子を作り、その後5粒をMobilejayへ送りました。Mobilejayは5粒すべてを発芽させ、最良個体を選んでSuper Boofと命名。2021〜2022年にクローンが広がり、Leaflyは2024年のStrain of the Yearに選出しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyでは、大きく目立つ花姿とグリーン／パープルの外観が記述されています。正確な花形、密度、ピストル色など未確認の形態は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Leaflyの直接取材では、BlockheadがBlack Cherry Punch × Tropicana CookiesとしてBlockberryを作り、そのBlockberry種子5粒からMobilejayが選抜した個体がSuper Boofとされています。Blockberry全体をSuper Boofの無条件な別名にはしていません。",
+          "origin": "LeaflyのBlockhead／Mobilejay直接取材では、元のBlockberry交配は米国カリフォルニア州サンディエゴでBlockheadが作出し、その種子からMobilejayがミシガン州でSuper Boofとなる個体を選抜・増殖したと説明されています。",
+          "history": "Blockheadは2019年にBlockberryの種子を作り、その後5粒をMobilejayへ送りました。Mobilejayは5粒すべてを発芽させ、最良個体を選んでSuper Boofと命名。2021〜2022年にクローンが広がり、Leaflyは2024年のStrain of the Yearに選出しています。",
+          "aromaNote": "Leaflyの直接取材では「loud orange cookie smell」と記述されています。CSWではこの複合表現を分解せず、「オレンジ・クッキー」として掲載しています。",
+          "morphologyNote": "Leaflyでは、大きく目立つ花姿とグリーン／パープルの外観が記述されています。正確な花形、密度、ピストル色など未確認の形態は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/super-boof/primary.webp",
+          "alt": "Super Boofの選抜個体として確認できる大きく目立つグリーン／パープルの花姿を限定的な専門資料に基づき、トップ全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; official and third-party images are reference evidence only and are not redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-14",
+      "updatedAt": "2026-09-14",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "super-lemon-haze",
       "status": "review",
       "name": "Super Lemon Haze",
@@ -19855,6 +20009,30 @@
       "publishedAt": null,
       "checkedAt": "2026-09-12"
     },
+    "leafly-super-boof-strain-of-year-2024": {
+      "schemaVersion": 1,
+      "id": "leafly-super-boof-strain-of-year-2024",
+      "publisher": "Leafly",
+      "title": "Spark joy with Super Boof—Leafly Strain of the Year 2024",
+      "url": "https://www.leafly.com/news/strains-products/super-boof-leafly-strain-of-the-year-2024",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "history",
+        "origin",
+        "awards",
+        "morphology",
+        "cultivation",
+        "visual"
+      ],
+      "publishedAt": "2024-12-12",
+      "checkedAt": "2026-09-14"
+    },
     "leafly-warlock": {
       "schemaVersion": 1,
       "id": "leafly-warlock",
@@ -20484,6 +20662,17 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "blockhead": {
+      "schemaVersion": 1,
+      "id": "blockhead",
+      "name": "Blockhead",
+      "roles": [
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-14",
+      "updatedAt": "2026-09-14"
     },
     "brothers-grimm-seeds": {
       "schemaVersion": 1,
