@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T09:56:30.374Z",
+  "generatedAt": "2026-09-14T10:03:51.347Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -10116,6 +10116,22 @@
           "unresolvedCount": 0
         }
       },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cannabis-now-return-of-the-mac"
+        ],
+        "observations": [
+          {
+            "field": "vegetativeStage",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "栄養成長期はやや長め"
+          }
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -15640,6 +15656,34 @@
           "registryVersion": 1,
           "noteJa": "Leaflyの直接取材では「loud orange cookie smell」と記述されています。CSWではこの複合表現を分解せず、「オレンジ・クッキー」として掲載しています。"
         }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-super-boof-strain-of-year-2024"
+        ],
+        "observations": [
+          {
+            "field": "lightTolerance",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "強い光にも耐えるとMobilejayが報告"
+          },
+          {
+            "field": "outdoorPerformance",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外で良好な生育を示すとMobilejayが報告"
+          },
+          {
+            "field": "powderyMildewResistance",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "うどんこ病への耐性が非常に高いとMobilejayが報告"
+          }
+        ]
       },
       "terpenes": {
         "status": "unknown",
