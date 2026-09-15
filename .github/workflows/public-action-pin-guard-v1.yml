@@ -1,0 +1,51 @@
+name: PUBLIC ACTION PIN GUARD V1
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Require immutable external Action refs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PUBLIC state
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Reject mutable uses refs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          pattern = re.compile(r'^\s*(?:-\s*)?uses:\s*["\']?([^@"\'\s]+)@([^"\'\s#]+)')
+          immutable = re.compile(r'^[0-9a-fA-F]{40}$')
+          problems = []
+
+          for path in sorted(Path('.github/workflows').glob('*.y*ml')):
+              for lineno, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+                  match = pattern.match(line)
+                  if not match:
+                      continue
+                  target, ref = match.groups()
+                  if not immutable.fullmatch(ref):
+                      problems.append(f'{path}:{lineno}: mutable uses ref {target}@{ref}')
+
+          if problems:
+              print('\n'.join(problems))
+              raise SystemExit(1)
+
+          print('PUBLIC_ACTION_PIN_GUARD_PASS')
+          PY
