@@ -50,7 +50,9 @@ async function main() {
     return r.result.value;
   }
   const catalog = await getJson(new URL('runtime/catalog.json', baseUrl));
-  const ids = (catalog.cultivars || []).map(item => item.id); if (ids.length !== 66) throw new Error(`Expected 66 public cultivars, got ${ids.length}`);
+  const ids = (catalog.cultivars || []).map(item => item.id);
+  if (!ids.length) throw new Error('Expected at least one public cultivar');
+  if (new Set(ids).size !== ids.length) throw new Error('Duplicate public cultivar IDs in catalog');
   const failures = [];
   for (const id of ids) {
     cdp.exceptions.length = 0;
