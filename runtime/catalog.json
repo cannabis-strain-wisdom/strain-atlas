@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T18:11:53.237Z",
+  "generatedAt": "2026-09-15T22:47:23.499Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 70,
-    "sources": 129,
-    "entities": 25
+    "cultivars": 71,
+    "sources": 133,
+    "entities": 26
   },
   "explore": {
     "sativa": [
@@ -79,6 +79,7 @@
       "mac-1",
       "og-kush",
       "papaya",
+      "rainbow-belts",
       "serious-happiness",
       "skunk-1",
       "super-boof",
@@ -7066,7 +7067,8 @@
               "id": "limonene",
               "labelJa": "リモネン"
             }
-          ]
+          ],
+          "noteJa": "Leaflyのroot GSCページがTerpenesとしてCaryophyllene、Myrcene、Limoneneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合や順位、分析測定値は補っていません。"
         }
       },
       "cannabinoids": {
@@ -7181,6 +7183,7 @@
           "lineageNote": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。",
           "origin": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。",
           "history": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。",
+          "terpeneNote": "Leaflyのroot GSCページがTerpenesとしてCaryophyllene、Myrcene、Limoneneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合や順位、分析測定値は補っていません。",
           "morphologyNote": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
         }
       },
@@ -7199,13 +7202,8 @@
       "updatedAt": "2026-09-16",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "terpeneNote",
-            "state": "UNAPPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -14051,6 +14049,178 @@
     },
     {
       "schemaVersion": 1,
+      "id": "rainbow-belts",
+      "status": "review",
+      "name": "Rainbow Belts",
+      "jp": null,
+      "aliases": [
+        "Rainbow Beltz",
+        "Rainbow Belt",
+        "RaB"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-rainbow-belts-root"
+        ],
+        "display": "Zkittlez × Moonbow #75",
+        "parents": [
+          "Zkittlez",
+          "Moonbow #75"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive Seed Bank公式のrootページでは、Rainbow Beltsの系譜をZkittlez × Moonbow #75と表示しています。本文ではMoonBow #75 F1の選抜個体をOriginal Zkittlezへ戻し交配した経緯も説明されています。ここでのF1は親側の表記であり、完成したRainbow Belts自体をF1やBX1と決めつけていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "archive-seed-bank",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "archive-rainbow-belts-root"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "archive-rainbow-belts-root"
+        ],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rainbow-belts"
+        ],
+        "items": [
+          "caryophyllene",
+          "linalool",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "LeaflyはRainbow BeltsのTerpenesとしてCaryophyllene、Linalool、Limoneneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合やroot cultivar全体の分析測定値には変換していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-rainbow-belts-root",
+          "archive-rainbow-belts-2-0",
+          "archive-rainbow-belts-3-0"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive Seed Bankは、元のRainbow Beltsをfeminized lineとして扱い、Rainbow Belts 2.0をそのoriginalとは別のregular-seed version、3.0をさらに別系譜のcontinuationとして掲載しています。Rainbow Beltz／Rainbow Beltは専門資料で確認できる別表記ですが、2.0・3.0やAutoをrootへ統合していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-rainbow-belts-root"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Archive Seed Bankのroot説明では、樹脂が非常にstickyな質感になったことが明記されています。2.0／3.0で説明される花形・色・生育特性はrootへ移植せず、未確認の固定色やピストル色、葉形も補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Archive Seed Bank公式のrootページでは、Rainbow Beltsの系譜をZkittlez × Moonbow #75と表示しています。本文ではMoonBow #75 F1の選抜個体をOriginal Zkittlezへ戻し交配した経緯も説明されています。ここでのF1は親側の表記であり、完成したRainbow Belts自体をF1やBX1と決めつけていません。",
+          "history": "Archive Seed Bankは、元のRainbow Beltsをfeminized lineとして扱い、Rainbow Belts 2.0をそのoriginalとは別のregular-seed version、3.0をさらに別系譜のcontinuationとして掲載しています。Rainbow Beltz／Rainbow Beltは専門資料で確認できる別表記ですが、2.0・3.0やAutoをrootへ統合していません。",
+          "terpeneNote": "LeaflyはRainbow BeltsのTerpenesとしてCaryophyllene、Linalool、Limoneneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合やroot cultivar全体の分析測定値には変換していません。",
+          "morphologyNote": "Archive Seed Bankのroot説明では、樹脂が非常にstickyな質感になったことが明記されています。2.0／3.0で説明される花形・色・生育特性はrootへ移植せず、未確認の固定色やピストル色、葉形も補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/rainbow-belts/primary.webp",
+          "alt": "Rainbow Belts rootのArchive Seed Bank公式記述で確認できるstickyな樹脂表現だけを形態手掛かりとし、2.0／3.0／Autoの特徴を混ぜずトップ全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; official and third-party images are not redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "rush-of-siam",
       "status": "review",
       "name": "Rush of Siam",
@@ -19900,6 +20070,58 @@
       "publishedAt": "2021-11-12",
       "checkedAt": "2026-09-06"
     },
+    "archive-rainbow-belts-2-0": {
+      "schemaVersion": 1,
+      "id": "archive-rainbow-belts-2-0",
+      "publisher": "Archive Seed Bank",
+      "title": "Rainbow Belts 2.0",
+      "url": "https://archiveseedbank.com/products/rainbow-belts-2-0",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identityBoundary",
+        "generationBoundary",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
+    },
+    "archive-rainbow-belts-3-0": {
+      "schemaVersion": 1,
+      "id": "archive-rainbow-belts-3-0",
+      "publisher": "Archive Seed Bank",
+      "title": "Rainbow Belts 3.0",
+      "url": "https://archiveseedbank.com/products/rainbow-belts-3-0",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identityBoundary",
+        "generationBoundary",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
+    },
+    "archive-rainbow-belts-root": {
+      "schemaVersion": 1,
+      "id": "archive-rainbow-belts-root",
+      "publisher": "Archive Seed Bank",
+      "title": "Rainbow Belts",
+      "url": "https://archiveseedbank.com/products/rainbow-belts-1-0",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "generation",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
+    },
     "barneys-farm-acapulco-gold-de": {
       "schemaVersion": 1,
       "id": "barneys-farm-acapulco-gold-de",
@@ -21045,6 +21267,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "leafly-rainbow-belts": {
+      "schemaVersion": 1,
+      "id": "leafly-rainbow-belts",
+      "publisher": "Leafly",
+      "title": "Rainbow Belts aka Rainbow Belt Weed Strain Information",
+      "url": "https://www.leafly.com/strains/rainbow-belt",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "effects",
+        "terpenes",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
+    },
     "leafly-shiva-skunk": {
       "schemaVersion": 1,
       "id": "leafly-shiva-skunk",
@@ -21797,6 +22038,19 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "archive-seed-bank": {
+      "schemaVersion": 1,
+      "id": "archive-seed-bank",
+      "name": "Archive Seed Bank",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "note": "Archive Seed Bank's first-party Rainbow Belts page presents the original root cultivar and its breeding description; Archive's separate 2.0 and 3.0 pages document later iterations."
     },
     "barneys-farm": {
       "schemaVersion": 1,

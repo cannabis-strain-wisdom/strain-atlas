@@ -410,6 +410,11 @@
       "strainId": "girl-scout-cookies",
       "state": "published",
       "publishedAt": "2026-09-15T16:49:13Z"
+    },
+    {
+      "strainId": "rainbow-belts",
+      "state": "published",
+      "publishedAt": "2026-09-15T22:47:22Z"
     }
   ]
 }
