@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T16:49:14.040Z",
+  "generatedAt": "2026-09-15T18:11:53.237Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 70,
-    "sources": 128,
+    "sources": 129,
     "entities": 25
   },
   "explore": {
@@ -6894,6 +6894,322 @@
     },
     {
       "schemaVersion": 1,
+      "id": "girl-scout-cookies",
+      "status": "review",
+      "name": "Girl Scout Cookies",
+      "jp": null,
+      "aliases": [
+        "GSC",
+        "Cookies",
+        "Original Girl Scout Cookies"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "display": "F1 Durban × Kush",
+        "parents": [
+          "F1 Durban",
+          "Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "cookie-family",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "high-times-inside-girl-scout-cookies-2014"
+          ]
+        },
+        {
+          "entityId": "jai-jigga-chang",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "weedmaps-strains-that-made-cookies-2021"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "mixed",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-gsc-current",
+          "leafly-gsc"
+        ],
+        "observations": [
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "背が高く細身に育つとoriginatorが説明"
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "高収量型ではないとoriginatorが説明"
+          },
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "屋内開花の目安は62〜71日",
+            "min": 62,
+            "max": 71,
+            "unit": "days",
+            "sourceRefs": [
+              "weedmaps-gsc-current"
+            ],
+            "confidence": "B",
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          },
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "栽培者報告では平均9〜10週",
+            "min": 9,
+            "max": 10,
+            "unit": "weeks",
+            "sourceRefs": [
+              "leafly-gsc"
+            ],
+            "confidence": "C",
+            "evidenceLevel": "COMMUNITY",
+            "claimOrigin": "grower-community-report"
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "栽培者報告の平均収量は25〜30 g/plant",
+            "min": 25,
+            "max": 30,
+            "unit": "g/plant",
+            "sourceRefs": [
+              "leafly-gsc"
+            ],
+            "confidence": "C",
+            "evidenceLevel": "COMMUNITY",
+            "claimOrigin": "grower-community-report"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gsc"
+        ],
+        "items": [
+          "caryophyllene",
+          "myrcene",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ]
+        }
+      },
+      "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-gsc",
+          "weedmaps-gsc-current"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 25,
+              "unit": "%",
+              "valueText": "25%",
+              "confidence": "B",
+              "sourceRefs": [
+                "leafly-gsc"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "専門データベース掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar",
+              "evidenceLevel": "SECONDARY_SPECIALIST",
+              "claimOrigin": "specialist-curation",
+              "limitation": "Cultivar-page figure, not a CSW-verified laboratory measurement.",
+              "conflictState": "NONE"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 18,
+              "maxValue": 28,
+              "unit": "%",
+              "valueText": "18〜28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "weedmaps-gsc-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "専門データベース掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar",
+              "evidenceLevel": "SECONDARY_SPECIALIST",
+              "claimOrigin": "specialist-curation",
+              "limitation": "Cultivar-page range, not a CSW-verified laboratory measurement.",
+              "conflictState": "NONE"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。",
+          "origin": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。",
+          "history": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。",
+          "morphologyNote": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/girl-scout-cookies/primary.webp",
+          "alt": "Jigga本人の記述に基づき、密度が高く光沢感のあるGSCの成熟トップバッドを表現したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset planned for Cannabis Strain Wisdom; no third-party image is copied. The visual prompt is constrained to cited cultivar-specific morphology evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "terpeneNote",
+            "state": "UNAPPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "golden-tiger",
       "status": "review",
       "name": "Golden Tiger",
@@ -7281,198 +7597,6 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
-      "publicPresentation": {
-        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "CURRENT",
-        "heldFields": []
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "girl-scout-cookies",
-      "status": "review",
-      "name": "GSC",
-      "jp": null,
-      "aliases": [
-        "Girl Scout Cookies",
-        "Cookies",
-        "Original Girl Scout Cookies"
-      ],
-      "classification": {
-        "type": "hybrid"
-      },
-      "breeding": {
-        "generation": "other"
-      },
-      "lineage": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "high-times-inside-girl-scout-cookies-2014",
-          "weedmaps-strains-that-made-cookies-2021"
-        ],
-        "display": "F1 Durban × Kush",
-        "parents": [
-          "F1 Durban",
-          "Kush"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。"
-        }
-      },
-      "relations": [
-        {
-          "entityId": "cookie-family",
-          "roles": [
-            "originator",
-            "breeder"
-          ],
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "historicalSource",
-          "sourceRefs": [
-            "high-times-inside-girl-scout-cookies-2014"
-          ]
-        },
-        {
-          "entityId": "jai-jigga-chang",
-          "roles": [
-            "breeder"
-          ],
-          "status": "confirmed",
-          "confidence": "A",
-          "basis": "historicalSource",
-          "sourceRefs": [
-            "weedmaps-strains-that-made-cookies-2021"
-          ]
-        }
-      ],
-      "aromas": {
-        "status": "unknown",
-        "confidence": "unknown",
-        "sourceRefs": [],
-        "evidenceMode": "UNKNOWN",
-        "items": [],
-        "presentation": {
-          "schemaVersion": 1,
-          "mode": "hidden",
-          "items": [],
-          "reviewStatus": "NOT_APPLICABLE",
-          "unresolvedCount": 0
-        }
-      },
-      "cultivation": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "high-times-inside-girl-scout-cookies-2014"
-        ],
-        "observations": [
-          {
-            "field": "height",
-            "environment": "unspecified",
-            "valueForm": "TEXT",
-            "displayText": "背が高く細身に育つとoriginatorが説明"
-          },
-          {
-            "field": "yield",
-            "environment": "unspecified",
-            "valueForm": "TEXT",
-            "displayText": "高収量型ではないとoriginatorが説明"
-          }
-        ]
-      },
-      "terpenes": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "items": [],
-        "evidenceMode": "UNKNOWN",
-        "presentation": {
-          "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
-        }
-      },
-      "cannabinoids": {
-        "sourceRefs": [],
-        "thc": {
-          "status": "unknown",
-          "sourceRefs": []
-        },
-        "cbd": {
-          "status": "unknown",
-          "sourceRefs": []
-        },
-        "presentation": {
-          "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
-        }
-      },
-      "origin": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "weedmaps-strains-that-made-cookies-2021"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。"
-        }
-      },
-      "history": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "high-times-inside-girl-scout-cookies-2014",
-          "weedmaps-strains-that-made-cookies-2021"
-        ],
-        "presentation": {
-          "schemaVersion": 1,
-          "textJa": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。"
-        }
-      },
-      "morphology": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "historicalSource",
-        "sourceRefs": [
-          "high-times-inside-girl-scout-cookies-2014",
-          "weedmaps-strains-that-made-cookies-2021"
-        ],
-        "scope": "cultivar",
-        "presentation": {
-          "schemaVersion": 1,
-          "mode": "summary",
-          "textJa": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
-        }
-      },
-      "publicContent": {
-        "ja": {
-          "lineageNote": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。",
-          "origin": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。",
-          "history": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。",
-          "morphologyNote": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
-        }
-      },
-      "visuals": [
-        {
-          "role": "primary",
-          "src": "assets/cultivars/girl-scout-cookies/primary.webp",
-          "alt": "Jigga本人の記述に基づき、密度が高く光沢感のあるGSCの成熟トップバッドを表現したAI生成参考ビジュアル",
-          "rights": "AI-generated project asset planned for Cannabis Strain Wisdom; no third-party image is copied. The visual prompt is constrained to cited cultivar-specific morphology evidence.",
-          "scope": "cultivar",
-          "aiGenerated": true,
-          "sourceType": "aiGenerated"
-        }
-      ],
-      "checkedAt": "2026-09-16",
-      "updatedAt": "2026-09-16",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -21623,6 +21747,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "weedmaps-gsc-current": {
+      "schemaVersion": 1,
+      "id": "weedmaps-gsc-current",
+      "publisher": "Weedmaps",
+      "title": "GSC (aka Girl Scout Cookies) Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/gsc",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "cannabinoids",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
     },
     "weedmaps-strains-that-made-cookies-2021": {
       "schemaVersion": 1,

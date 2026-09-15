@@ -704,6 +704,284 @@
     queue();
   })();
   </script>
+  <!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_START -->
+<script id="csw-public-evidence-badge-v1">
+(() => {
+  'use strict';
+
+  const CONTRACT = 'PUBLIC_EVIDENCE_BADGE_V1';
+  const shell = document.getElementById('detail-shell');
+  if (!shell) return;
+
+  let catalogPromise;
+  const loadCatalog = () => {
+    if (window.__CSWRuntimeCatalogPromise && typeof window.__CSWRuntimeCatalogPromise.then === 'function') {
+      return Promise.resolve(window.__CSWRuntimeCatalogPromise);
+    }
+    catalogPromise ||= fetch('runtime/catalog.json', { cache: 'no-store' }).then(response => {
+      if (!response.ok) throw new Error(`catalog HTTP ${response.status}`);
+      return response.json();
+    });
+    return catalogPromise;
+  };
+
+  const evidenceLevelLabels = Object.freeze({
+    PRIMARY: '一次情報',
+    PRIMARY_SOURCE: '一次情報',
+    ORIGINATOR_PRIMARY: '一次情報',
+    BREEDER_PRIMARY: '一次情報',
+    SCIENTIFIC_PRIMARY: '一次情報',
+    ANALYTICAL_PRIMARY: '一次情報',
+    DIRECT_INTERVIEW: '直接取材',
+    ORIGINATOR_INTERVIEW: '直接取材',
+    SECONDARY_SPECIALIST: '専門資料',
+    SPECIALIST: '専門資料',
+    SPECIALIST_DATABASE: '専門資料',
+    RETAIL: '販売資料',
+    RETAIL_SOURCE: '販売資料',
+    RETAILER: '販売資料',
+    RETAIL_LISTING: '販売資料',
+    COMMUNITY: '利用者報告',
+    USER_REPORT: '利用者報告',
+    GROWER_REPORT: '利用者報告'
+  });
+
+  const claimOriginLabels = Object.freeze({
+    'originator-official': '一次情報',
+    'breeder-official': '一次情報',
+    'originator-interview': '直接取材',
+    'direct-interview': '直接取材',
+    'specialist-curation': '専門資料',
+    'retail-listing': '販売資料',
+    'retailer-listing': '販売資料',
+    'grower-community-report': '利用者報告',
+    'community-report': '利用者報告',
+    'user-report': '利用者報告'
+  });
+
+  const authorityRoleLabels = Object.freeze({
+    ORIGINATOR_OFFICIAL: '一次情報',
+    SCIENTIFIC_PRIMARY: '一次情報',
+    ANALYTICAL_PRIMARY: '一次情報',
+    SPECIALIST_CURATED: '専門資料',
+    RETAILER: '販売資料',
+    COMMUNITY: '利用者報告'
+  });
+
+  const basisLabels = Object.freeze({
+    breederOfficial: '一次情報',
+    originatorOfficial: '一次情報',
+    scientificPrimary: '一次情報',
+    analyticalPrimary: '一次情報',
+    specialistDatabase: '専門資料',
+    retailListing: '販売資料',
+    retailerListing: '販売資料',
+    communityReport: '利用者報告',
+    growerReport: '利用者報告',
+    userReport: '利用者報告'
+  });
+
+  const sourceTypeLabels = Object.freeze({
+    breederOfficial: '一次情報',
+    originatorOfficial: '一次情報',
+    officialCultivarPage: '一次情報',
+    scientificPrimary: '一次情報',
+    scientificPaper: '一次情報',
+    analyticalPrimary: '一次情報',
+    analyticalReport: '一次情報',
+    originatorInterview: '直接取材',
+    specialistDatabase: '専門資料',
+    retailListing: '販売資料',
+    retailerListing: '販売資料',
+    communityReport: '利用者報告',
+    growerReport: '利用者報告',
+    userReport: '利用者報告'
+  });
+
+  const normalized = value => typeof value === 'string' ? value.trim() : '';
+  const sourceLabels = (record, catalog) => {
+    const refs = Array.isArray(record?.sourceRefs) ? record.sourceRefs.filter(Boolean) : [];
+    if (!refs.length) return [];
+    return [...new Set(refs.map(ref => sourceTypeLabels[catalog?.sources?.[ref]?.sourceType]).filter(Boolean))];
+  };
+
+  const resolveEvidenceLabel = (record, catalog) => {
+    if (!record || typeof record !== 'object') return null;
+    const level = normalized(record.evidenceLevel);
+    if (level && evidenceLevelLabels[level]) return evidenceLevelLabels[level];
+    const origin = normalized(record.claimOrigin);
+    if (origin && claimOriginLabels[origin]) return claimOriginLabels[origin];
+    const authority = normalized(record.authorityRole);
+    if (authority && authorityRoleLabels[authority]) return authorityRoleLabels[authority];
+    const basis = normalized(record.basis);
+    if (basis && basisLabels[basis]) return basisLabels[basis];
+    const labels = sourceLabels(record, catalog);
+    return labels.length === 1 ? labels[0] : null;
+  };
+
+  const badge = (label, key) => {
+    const span = document.createElement('span');
+    span.className = 'csw-evidence-badge-v1';
+    span.dataset.evidenceBadgeV1 = key || 'claim';
+    span.dataset.evidenceLabel = label;
+    span.textContent = label;
+    return span;
+  };
+
+  const ensureBadge = (host, label, key) => {
+    if (!host || !label) return false;
+    const selector = `[data-evidence-badge-v1="${CSS.escape(key || 'claim')}"]`;
+    const existing = host.querySelector(selector);
+    if (existing) {
+      existing.dataset.evidenceLabel = label;
+      existing.textContent = label;
+      return true;
+    }
+    host.appendChild(badge(label, key));
+    return true;
+  };
+
+  const evidenceHost = panel => panel?.querySelector('.ucd-evidence-row') || panel?.querySelector('.ucd-sensory-head') || panel;
+
+  const decorateClaimPanel = (root, selector, claim, catalog, key) => {
+    const panel = root.querySelector(selector);
+    const label = resolveEvidenceLabel(claim, catalog);
+    return ensureBadge(evidenceHost(panel), label, key);
+  };
+
+  const decorateCannabinoids = (root, cultivar, catalog) => {
+    const items = Array.isArray(cultivar?.cannabinoids?.presentation?.items) ? cultivar.cannabinoids.presentation.items : [];
+    const grid = root.querySelector('.ucd-cannabinoid-grid');
+    if (!grid || !items.length) return false;
+    const cells = [...grid.children];
+    const labels = [];
+    items.forEach((item, index) => {
+      const label = resolveEvidenceLabel(item, catalog);
+      labels.push(label);
+      if (cells[index] && label) ensureBadge(cells[index], label, `cannabinoid-${index}`);
+    });
+
+    const declared = items.filter(item => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC');
+    if (declared.length) {
+      const declaredLabels = [...new Set(declared.map(item => resolveEvidenceLabel(item, catalog)).filter(Boolean))];
+      const contextTitle = root.querySelector('[data-cannabinoid-source-context="v1"] .ucd-cannabinoid-source-context-top strong');
+      if (contextTitle && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
+        contextTitle.textContent = `${declaredLabels[0]}の掲載値`;
+      } else if (contextTitle && declaredLabels.length > 1) {
+        contextTitle.textContent = '出典別の掲載値';
+      }
+      const explanation = root.querySelector('.ucd-cannabinoid-source-explanation');
+      if (explanation && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
+        explanation.textContent = declared.length > 1
+          ? `上の値は${declaredLabels[0]}に掲載された別々の値です。出典ごとの差を保ったまま表示し、1つの確定値へ統合していません。`
+          : `上の値は${declaredLabels[0]}に掲載された値です。品種全体の固定値として確定した分析値ではありません。`;
+      } else if (explanation && declaredLabels.length > 1) {
+        explanation.textContent = '上の値は出典ごとの掲載値です。根拠レベルを分けて表示し、1つの確定値へ統合していません。';
+      }
+    }
+    return labels.some(Boolean);
+  };
+
+  const decorateTerpenes = (root, cultivar, catalog) => {
+    const claim = cultivar?.terpenes;
+    const panel = root.querySelector('[data-profile-kind="terpene"]');
+    if (!panel || !claim || claim.status === 'unknown') return false;
+    const label = resolveEvidenceLabel(claim, catalog);
+    ensureBadge(evidenceHost(panel), label, 'terpene');
+    const paragraph = panel.querySelector('p');
+    if (paragraph && claim.evidenceMode === 'LISTED' && label && label !== '一次情報') {
+      paragraph.textContent = `${label}で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。`;
+    }
+    return Boolean(label);
+  };
+
+  const decorateCultivation = (root, cultivar, catalog) => {
+    const claim = cultivar?.cultivation;
+    const section = root.querySelector('[data-csw-staged-ec-section="cultivation"]');
+    if (!section || !Array.isArray(claim?.observations)) return false;
+    const rows = [...section.querySelectorAll('.csw-staged-cultivation-row')];
+    let decorated = false;
+    claim.observations.forEach((observation, index) => {
+      const label = resolveEvidenceLabel(observation, catalog);
+      if (rows[index] && label) decorated = ensureBadge(rows[index], label, `cultivation-${index}`) || decorated;
+    });
+    const labels = claim.observations.map(item => resolveEvidenceLabel(item, catalog)).filter(Boolean);
+    if (labels.some(label => label !== '一次情報')) {
+      const helper = section.querySelector('.ucd-sensory-head small');
+      if (helper) helper.textContent = '採用資料・報告に記載された値';
+    }
+    return decorated;
+  };
+
+  const decorateOriginHistory = (root, cultivar, catalog) => {
+    const panel = root.querySelector('[data-profile-kind="origin-history"]');
+    if (!panel) return false;
+    const sections = [...panel.querySelectorAll('.ucd-origin-history-section')];
+    let decorated = false;
+    const ordered = [cultivar?.origin, cultivar?.history];
+    ordered.forEach((claim, index) => {
+      if (!sections[index] || !claim || claim.status === 'unknown') return;
+      const label = resolveEvidenceLabel(claim, catalog);
+      if (label) decorated = ensureBadge(evidenceHost(sections[index]), label, `origin-history-${index}`) || decorated;
+    });
+    return decorated;
+  };
+
+  const decorate = async () => {
+    const id = new URL(location.href).searchParams.get('strain');
+    if (!id) return;
+    const catalog = await loadCatalog();
+    const cultivar = (catalog?.cultivars || []).find(item => item?.id === id);
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(id)}"],.ucd-root[data-public-detail-id="${CSS.escape(id)}"]`);
+    if (!cultivar || !root) return;
+
+    decorateCannabinoids(root, cultivar, catalog);
+    decorateTerpenes(root, cultivar, catalog);
+    decorateCultivation(root, cultivar, catalog);
+    decorateOriginHistory(root, cultivar, catalog);
+    decorateClaimPanel(root, '[data-profile-kind="morphology"]', cultivar?.morphology, catalog, 'morphology');
+    decorateClaimPanel(root, '[data-profile-kind="flavor"]', cultivar?.flavors, catalog, 'flavor');
+    decorateClaimPanel(root, '[data-csw-staged-ec-section="effects"]', cultivar?.effects, catalog, 'effects');
+    decorateClaimPanel(root, '[data-profile-kind="aroma"]', cultivar?.aromas, catalog, 'aroma');
+    decorateClaimPanel(root, '.ucd-lineage', cultivar?.lineage, catalog, 'lineage');
+
+    root.dataset.publicEvidenceBadge = 'v1';
+    window.__CSWPublicEvidenceBadgeV1 = { status: 'PASS', cultivarId: id, contract: CONTRACT };
+  };
+
+  if (!document.getElementById('csw-public-evidence-badge-v1-style')) {
+    const style = document.createElement('style');
+    style.id = 'csw-public-evidence-badge-v1-style';
+    style.textContent = `
+      .csw-evidence-badge-v1{display:inline-flex;align-items:center;justify-content:center;min-height:20px;margin-left:6px;padding:2px 7px;border:1px solid rgba(216,189,98,.22);border-radius:999px;background:rgba(216,189,98,.055);color:#d7c986;font-size:10px;font-weight:800;line-height:1.2;letter-spacing:.02em;vertical-align:middle;white-space:nowrap}
+      .csw-staged-cultivation-row>.csw-evidence-badge-v1{margin:7px 0 0}
+      .ucd-cannabinoid-grid>*>.csw-evidence-badge-v1{margin:6px 0 0}
+      .ucd-origin-history-heading+.csw-evidence-badge-v1{margin-top:6px}
+      @media(max-width:390px){.csw-evidence-badge-v1{font-size:9.5px;padding:2px 6px}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  let queued = false;
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(() => {
+      queued = false;
+      decorate().catch(error => {
+        window.__CSWPublicEvidenceBadgeV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
+        console.error(CONTRACT, error);
+      });
+    });
+  };
+
+  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  shell.addEventListener('click', schedule, true);
+  window.addEventListener('popstate', schedule);
+  schedule();
+})();
+</script>
+<!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_END -->
   <script src="presentation-contract-v1.js?v=5" defer></script>
   <script src="app.min.js?v=5" defer></script>
 </body></html>
