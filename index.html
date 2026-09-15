@@ -877,8 +877,29 @@
       } else if (contextTitle && declaredLabels.length > 1) {
         setTextIfChanged(contextTitle, '出典別の掲載値');
       }
+
+      const isGsc = cultivar?.id === 'girl-scout-cookies' && declared.length > 1;
+      if (isGsc) {
+        const sourceValues = declared.map(item => {
+          const ref = Array.isArray(item?.sourceRefs) ? item.sourceRefs.find(Boolean) : null;
+          const publisher = ref ? normalized(catalog?.sources?.[ref]?.publisher) : '';
+          const value = normalized(item?.valueText);
+          return publisher && value ? `${publisher}は${value}` : '';
+        }).filter(Boolean);
+        const contextParagraph = root.querySelector('[data-cannabinoid-source-context="v1"] p');
+        if (contextParagraph && sourceValues.length === declared.length) {
+          const unverified = declared.every(item => item?.analysisVerified === false);
+          setTextIfChanged(
+            contextParagraph,
+            `同じGirl Scout Cookiesについて、${sourceValues.join('、')}を掲載しています。資料ごとに値が異なるため、どちらか一方を品種の固定値とはせず、出典別に併記しています。これらが同一サンプル・同一条件の測定結果とは確認できないため、平均化や代表値への統合はしていません。${unverified ? 'CSWでは元の分析書そのものまでは確認できていないため、分析確認済みの測定値としては扱っていません。' : ''}`
+          );
+        }
+      }
+
       const explanation = root.querySelector('.ucd-cannabinoid-source-explanation');
-      if (explanation && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
+      if (explanation && isGsc) {
+        setTextIfChanged(explanation, 'LeaflyとWeedmapsで異なるTHC値が掲載されているため、出典ごとの差を残して別々に表示しています。');
+      } else if (explanation && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
         setTextIfChanged(explanation, declared.length > 1
           ? `上の値は${declaredLabels[0]}に掲載された別々の値です。出典ごとの差を保ったまま表示し、1つの確定値へ統合していません。`
           : `上の値は${declaredLabels[0]}に掲載された値です。品種全体の固定値として確定した分析値ではありません。`);
