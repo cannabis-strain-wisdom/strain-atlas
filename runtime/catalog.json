@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T11:22:34.442Z",
+  "generatedAt": "2026-09-15T16:49:14.040Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 69,
-    "sources": 125,
-    "entities": 23
+    "cultivars": 70,
+    "sources": 128,
+    "entities": 25
   },
   "explore": {
     "sativa": [
@@ -74,6 +74,7 @@
       "blue-zushi",
       "bubble-gum",
       "frisian-duck",
+      "girl-scout-cookies",
       "jack-herer",
       "mac-1",
       "og-kush",
@@ -7280,6 +7281,198 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "girl-scout-cookies",
+      "status": "review",
+      "name": "GSC",
+      "jp": null,
+      "aliases": [
+        "Girl Scout Cookies",
+        "Cookies",
+        "Original Girl Scout Cookies"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "display": "F1 Durban × Kush",
+        "parents": [
+          "F1 Durban",
+          "Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "cookie-family",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "high-times-inside-girl-scout-cookies-2014"
+          ]
+        },
+        {
+          "entityId": "jai-jigga-chang",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "weedmaps-strains-that-made-cookies-2021"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014"
+        ],
+        "observations": [
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "背が高く細身に育つとoriginatorが説明"
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "高収量型ではないとoriginatorが説明"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-inside-girl-scout-cookies-2014",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Cookie Familyの2014年の説明では、まず独自品種「F1」をDurban Poisonと交配して安定化し、その系統をKushと交配しています。ここでのF1は世代記号ではなく親品種のニックネームだと本人たちが明示しています。CSWでは単純な「OG Kush × Durban Poison」へ丸めず、S1や派生cutとも混同しません。",
+          "origin": "Jigga本人の回想では、GSCは2005〜2007年ごろ、サンフランシスコのSunset District、Noriega Streetと25th Avenue付近のCookie Famの家から生まれたとされています。",
+          "history": "現在はGSCと呼ばれるOriginal Girl Scout Cookies。Cookie Family/Jiggaの直接取材では、2000年代半ばのSan Franciscoで成立し、その後Bernerが広く流通させた経緯が語られています。Thin Mint、Platinum GSC、Forum Cutなどはこのroot recordへ自動統合しません。",
+          "morphologyNote": "Jigga本人はGSCを背が高く細身に育つと説明し、初期の花を非常にshinyでdenseなnugsだったと回想しています。未確認の固定色・雌しべ色・葉形は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/girl-scout-cookies/primary.webp",
+          "alt": "Jigga本人の記述に基づき、密度が高く光沢感のあるGSCの成熟トップバッドを表現したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset planned for Cannabis Strain Wisdom; no third-party image is copied. The visual prompt is constrained to cited cultivar-specific morphology evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -20354,6 +20547,25 @@
       "publishedAt": "2017-10-05",
       "checkedAt": "2026-09-15"
     },
+    "high-times-inside-girl-scout-cookies-2014": {
+      "schemaVersion": 1,
+      "id": "high-times-inside-girl-scout-cookies-2014",
+      "publisher": "High Times",
+      "title": "Inside Girl Scout Cookies",
+      "url": "https://hightimes.com/grow/inside-girl-scout-cookies/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "lineage",
+        "originator",
+        "breeder",
+        "cultivation",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": "2014-02-18",
+      "checkedAt": "2026-09-16"
+    },
     "high-times-norcal-2017-wedding-cake": {
       "schemaVersion": 1,
       "id": "high-times-norcal-2017-wedding-cake",
@@ -20631,6 +20843,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
+    },
+    "leafly-gsc": {
+      "schemaVersion": 1,
+      "id": "leafly-gsc",
+      "publisher": "Leafly",
+      "title": "GSC aka Girl Scout Cookies, Cookies Weed Strain Information",
+      "url": "https://www.leafly.com/strains/gsc",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "effects",
+        "terpenes",
+        "cannabinoids",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
     },
     "leafly-laughing-buddha": {
       "schemaVersion": 1,
@@ -21391,6 +21623,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "weedmaps-strains-that-made-cookies-2021": {
+      "schemaVersion": 1,
+      "id": "weedmaps-strains-that-made-cookies-2021",
+      "publisher": "Weedmaps",
+      "title": "The strains that made Cookies",
+      "url": "https://weedmaps.com/news/2021/09/the-strains-that-made-cookies/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "aliases",
+        "breeder",
+        "lineage",
+        "origin",
+        "history",
+        "morphology",
+        "sensoryContext"
+      ],
+      "publishedAt": "2021-09-10",
+      "checkedAt": "2026-09-16"
     }
   },
   "entities": {
@@ -21464,6 +21716,18 @@
       "status": "confirmed",
       "checkedAt": "2026-09-13",
       "updatedAt": "2026-09-13"
+    },
+    "cookie-family": {
+      "schemaVersion": 1,
+      "id": "cookie-family",
+      "name": "Cookie Family",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "note": "High Times' 2014 direct interview identifies the Cookie Family as the breeders/originators of genuine Girl Scout Cookies."
     },
     "dna-genetics": {
       "schemaVersion": 1,
@@ -21549,6 +21813,17 @@
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17",
       "note": "Humboldt Seed Company official product and About pages identify the company as the breeder/seed company for California Octane."
+    },
+    "jai-jigga-chang": {
+      "schemaVersion": 1,
+      "id": "jai-jigga-chang",
+      "name": "Jai “Jigga” Chang",
+      "roles": [
+        "breeder"
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "note": "Weedmaps' 2021 direct interview identifies Jai “Jigga” Chang as GSC breeder and Cookies co-founder."
     },
     "lumpys-flowers": {
       "schemaVersion": 1,

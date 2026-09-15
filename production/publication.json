@@ -405,6 +405,11 @@
       "strainId": "gorilla-glue-4",
       "state": "published",
       "publishedAt": "2026-09-15T11:22:33Z"
+    },
+    {
+      "strainId": "girl-scout-cookies",
+      "state": "published",
+      "publishedAt": "2026-09-15T16:49:13Z"
     }
   ]
 }
