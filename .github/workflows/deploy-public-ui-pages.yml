@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout public UI shell
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
 
       - name: Stage public UI artifact
         shell: bash
@@ -189,7 +189,7 @@ jobs:
 
       - name: Upload 390px grouped-detail QA screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: grouped-detail-390px-${{ github.sha }}
           path: ${{ runner.temp }}/csw-screenshots
@@ -197,7 +197,7 @@ jobs:
           retention-days: 7
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: _site
           include-hidden-files: true
@@ -215,7 +215,7 @@ jobs:
     steps:
       - name: Deploy public UI
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
 
   verify-live:
     needs: deploy
@@ -224,7 +224,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout exact deployed PUBLIC state
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Wait for exact live artifact
         shell: bash
@@ -295,7 +295,7 @@ jobs:
 
       - name: Upload live 390px grouped-detail QA screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: live-grouped-detail-390px-${{ github.sha }}
           path: ${{ runner.temp }}/csw-live-screenshots
