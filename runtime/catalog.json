@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T23:47:59.517Z",
+  "generatedAt": "2026-09-15T11:22:34.442Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 68,
-    "sources": 122,
-    "entities": 22
+    "cultivars": 69,
+    "sources": 125,
+    "entities": 23
   },
   "explore": {
     "sativa": [
@@ -60,6 +60,7 @@
       "fat-banana-auto",
       "hindu-kush",
       "mazar",
+      "gorilla-glue-4",
       "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
@@ -12558,6 +12559,295 @@
     },
     {
       "schemaVersion": 1,
+      "id": "gorilla-glue-4",
+      "status": "review",
+      "name": "Original Glue",
+      "jp": null,
+      "aliases": [
+        "GG4",
+        "Gorilla Glue #4",
+        "Gorilla Glue 4"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "gg-strains-original-glue-leafly"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 37,
+            "indica": 63,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 37,
+              "indica": 63,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly"
+        ],
+        "display": "Sour Dubb × Chem Sis × Chocolate Diesel",
+        "parents": [
+          "Sour Dubb",
+          "Chem Sis",
+          "Chocolate Diesel"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "GG Strainsのroot cultivarでは、系譜をSour Dubb × Chem Sis × Chocolate Dieselと記載しています。既存のGorilla Glue 4 S1から親情報を借りたものではありません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "gg-strains",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "gg-strains-original-glue-leafly",
+            "gg-strains-original-glue-cbt-2019"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "サワー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "サワー"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sour",
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "GG Strainsのroot GG4説明では、土っぽさとサワー系の香りが明記されています。テルペン名から香りを逆算していません。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly",
+          "gg-strains-original-glue-cbt-2019"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "開花目安は58〜63日",
+            "min": 58,
+            "max": 63,
+            "unit": "days"
+          },
+          {
+            "field": "climate",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "目安環境は約74〜78°F・相対湿度45%"
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "公式記載は屋内・屋外ともHigh Yield"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-cbt-2019"
+        ],
+        "items": [
+          "caryophyllene",
+          "myrcene",
+          "humulene",
+          "limonene",
+          "pinene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            },
+            {
+              "id": "humulene",
+              "labelJa": "フムレン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            }
+          ],
+          "noteJa": "GG Strainsのbreeder principalsによる栽培資料では、caryophylleneとmyrceneが最上位、humulene・limonene・pineneが中程度とされています。元の分析artifactを直接確認できていないため、総テルペン量の数値はcultivar分析値として採用していません。"
+        }
+      },
+      "cannabinoids": {
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly",
+          "high-times-gorilla-glue-settlement-2017"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "現在のGG Strains表記ではOriginal Glue（GG4）、旧称Gorilla Glue #4として扱われています。2017年の商標紛争の和解後に名称・ブランド表記が変更されましたが、別の遺伝系統へ変わったという意味ではありません。CSWではroot GG4とHumboldt CSIのGorilla Glue 4 S1を別recordとして保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "GG Strainsのroot GG4説明では、厚みのあるchunkyな花と強い樹脂被覆が記述されています。未確認の固定色や葉形は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "GG Strainsのroot cultivarでは、系譜をSour Dubb × Chem Sis × Chocolate Dieselと記載しています。既存のGorilla Glue 4 S1から親情報を借りたものではありません。",
+          "history": "現在のGG Strains表記ではOriginal Glue（GG4）、旧称Gorilla Glue #4として扱われています。2017年の商標紛争の和解後に名称・ブランド表記が変更されましたが、別の遺伝系統へ変わったという意味ではありません。CSWではroot GG4とHumboldt CSIのGorilla Glue 4 S1を別recordとして保持します。",
+          "aromaNote": "GG Strainsのroot GG4説明では、土っぽさとサワー系の香りが明記されています。テルペン名から香りを逆算していません。",
+          "terpeneNote": "GG Strainsのbreeder principalsによる栽培資料では、caryophylleneとmyrceneが最上位、humulene・limonene・pineneが中程度とされています。元の分析artifactを直接確認できていないため、総テルペン量の数値はcultivar分析値として採用していません。",
+          "morphologyNote": "GG Strainsのroot GG4説明では、厚みのあるchunkyな花と強い樹脂被覆が記述されています。未確認の固定色や葉形は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/gorilla-glue-4/primary.webp",
+          "alt": "Original Glue（GG4）のroot固有情報に基づき、厚みのある樹脂質の花をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed and no Gorilla Glue 4 S1 visual is used.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-15",
+      "updatedAt": "2026-09-15",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "panama",
       "status": "review",
       "name": "Panama",
@@ -19964,6 +20254,51 @@
       "publishedAt": null,
       "checkedAt": "2026-09-02"
     },
+    "gg-strains-original-glue-cbt-2019": {
+      "schemaVersion": 1,
+      "id": "gg-strains-original-glue-cbt-2019",
+      "publisher": "GG Strains LLC",
+      "title": "Original Glue (GG4) From GG Strains",
+      "url": "https://www.cannabisbusinesstimes.com/top-stories/article/15698530/original-glue-gg4-from-gg-strains",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "generation",
+        "cultivation",
+        "flowering",
+        "terpenes",
+        "visual"
+      ],
+      "publishedAt": "2019-05-30",
+      "checkedAt": "2026-09-15"
+    },
+    "gg-strains-original-glue-leafly": {
+      "schemaVersion": 1,
+      "id": "gg-strains-original-glue-leafly",
+      "publisher": "GG Strains LLC",
+      "title": "Original Glue (GG4) (fka Gorilla Glue #4)",
+      "url": "https://www.leafly.com/brands/gg-strains/products/gg-strains-gg4-aka-gg-4",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "morphology",
+        "cultivation",
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-15"
+    },
     "ghsc-super-lemon-haze": {
       "schemaVersion": 1,
       "id": "ghsc-super-lemon-haze",
@@ -20004,6 +20339,20 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-03"
+    },
+    "high-times-gorilla-glue-settlement-2017": {
+      "schemaVersion": 1,
+      "id": "high-times-gorilla-glue-settlement-2017",
+      "publisher": "High Times",
+      "title": "Gorilla Glue and Cannabis Company Reach Settlement",
+      "url": "https://hightimes.com/news/gorilla-glue-and-cannabis-company-reach-settlement/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "history"
+      ],
+      "publishedAt": "2017-10-05",
+      "checkedAt": "2026-09-15"
     },
     "high-times-norcal-2017-wedding-cake": {
       "schemaVersion": 1,
@@ -21139,6 +21488,18 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "gg-strains": {
+      "schemaVersion": 1,
+      "id": "gg-strains",
+      "name": "GG Strains LLC",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-09-15",
+      "updatedAt": "2026-09-15"
     },
     "green-house-seed-co": {
       "schemaVersion": 1,

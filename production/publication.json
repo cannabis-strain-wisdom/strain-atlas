@@ -400,6 +400,11 @@
       "strainId": "papaya",
       "state": "published",
       "publishedAt": "2026-09-14T23:47:58Z"
+    },
+    {
+      "strainId": "gorilla-glue-4",
+      "state": "published",
+      "publishedAt": "2026-09-15T11:22:33Z"
     }
   ]
 }
