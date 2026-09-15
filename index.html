@@ -799,6 +799,13 @@
   });
 
   const normalized = value => typeof value === 'string' ? value.trim() : '';
+  const setTextIfChanged = (node, text) => {
+    if (!node) return false;
+    const next = String(text ?? '');
+    if (node.textContent === next) return false;
+    node.textContent = next;
+    return true;
+  };
   const sourceLabels = (record, catalog) => {
     const refs = Array.isArray(record?.sourceRefs) ? record.sourceRefs.filter(Boolean) : [];
     if (!refs.length) return [];
@@ -833,8 +840,8 @@
     const selector = `[data-evidence-badge-v1="${CSS.escape(key || 'claim')}"]`;
     const existing = host.querySelector(selector);
     if (existing) {
-      existing.dataset.evidenceLabel = label;
-      existing.textContent = label;
+      if (existing.dataset.evidenceLabel !== label) existing.dataset.evidenceLabel = label;
+      setTextIfChanged(existing, label);
       return true;
     }
     host.appendChild(badge(label, key));
@@ -866,17 +873,17 @@
       const declaredLabels = [...new Set(declared.map(item => resolveEvidenceLabel(item, catalog)).filter(Boolean))];
       const contextTitle = root.querySelector('[data-cannabinoid-source-context="v1"] .ucd-cannabinoid-source-context-top strong');
       if (contextTitle && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
-        contextTitle.textContent = `${declaredLabels[0]}の掲載値`;
+        setTextIfChanged(contextTitle, `${declaredLabels[0]}の掲載値`);
       } else if (contextTitle && declaredLabels.length > 1) {
-        contextTitle.textContent = '出典別の掲載値';
+        setTextIfChanged(contextTitle, '出典別の掲載値');
       }
       const explanation = root.querySelector('.ucd-cannabinoid-source-explanation');
       if (explanation && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
-        explanation.textContent = declared.length > 1
+        setTextIfChanged(explanation, declared.length > 1
           ? `上の値は${declaredLabels[0]}に掲載された別々の値です。出典ごとの差を保ったまま表示し、1つの確定値へ統合していません。`
-          : `上の値は${declaredLabels[0]}に掲載された値です。品種全体の固定値として確定した分析値ではありません。`;
+          : `上の値は${declaredLabels[0]}に掲載された値です。品種全体の固定値として確定した分析値ではありません。`);
       } else if (explanation && declaredLabels.length > 1) {
-        explanation.textContent = '上の値は出典ごとの掲載値です。根拠レベルを分けて表示し、1つの確定値へ統合していません。';
+        setTextIfChanged(explanation, '上の値は出典ごとの掲載値です。根拠レベルを分けて表示し、1つの確定値へ統合していません。');
       }
     }
     return labels.some(Boolean);
@@ -890,7 +897,7 @@
     ensureBadge(evidenceHost(panel), label, 'terpene');
     const paragraph = panel.querySelector('p');
     if (paragraph && claim.evidenceMode === 'LISTED' && label && label !== '一次情報') {
-      paragraph.textContent = `${label}で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。`;
+      setTextIfChanged(paragraph, `${label}で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。`);
     }
     return Boolean(label);
   };
@@ -908,7 +915,7 @@
     const labels = claim.observations.map(item => resolveEvidenceLabel(item, catalog)).filter(Boolean);
     if (labels.some(label => label !== '一次情報')) {
       const helper = section.querySelector('.ucd-sensory-head small');
-      if (helper) helper.textContent = '採用資料・報告に記載された値';
+      setTextIfChanged(helper, '採用資料・報告に記載された値');
     }
     return decorated;
   };
