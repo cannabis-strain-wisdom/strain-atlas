@@ -301,6 +301,7 @@
     const hiddenParagraph = [...lineage.querySelectorAll(':scope > div > p')].find(item => item.textContent.trim() === noteText);
     hiddenParagraph?.remove();
     root.dataset.lineageNoteVisible = 'v1';
+    root.dataset.permanentMarkerLineageNote = 'v1';
     return true;
   };
   const processed = new WeakSet();
