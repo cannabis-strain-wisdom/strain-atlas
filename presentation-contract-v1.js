@@ -284,6 +284,24 @@
     root.dataset.compactDetailNav = 'v1';
     return true;
   };
+  const decorateLineageNote = (root, cultivar) => {
+    const lineage = root.querySelector('.ucd-lineage');
+    const noteText = String(cultivar?.publicContent?.ja?.lineageNote || cultivar?.lineage?.presentation?.textJa || '').trim();
+    const existing = root.querySelector('[data-lineage-note-v1="true"]');
+    if (!lineage || !noteText) { existing?.remove(); return false; }
+    let note = existing;
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'ucd-lineage-note-v1';
+      note.dataset.lineageNoteV1 = 'true';
+      lineage.insertAdjacentElement('afterend', note);
+    }
+    if (note.textContent !== noteText) note.textContent = noteText;
+    const hiddenParagraph = [...lineage.querySelectorAll(':scope > div > p')].find(item => item.textContent.trim() === noteText);
+    hiddenParagraph?.remove();
+    root.dataset.lineageNoteVisible = 'v1';
+    return true;
+  };
   const processed = new WeakSet();
   const govern = async () => {
     const root = shell.querySelector('.ucd-root[data-public-detail-id][data-universal-detail-version="UNIVERSAL_CULTIVAR_DETAIL_V1"]');
@@ -305,9 +323,11 @@
     const terpeneListedClarified = clarifyListedTerpenes(root, cultivar);
     const terpeneUnavailable = addUnavailableTerpene(root, cultivar);
     const compactNavigation = compactDetailNavigation(root, cultivar);
+    const lineageNoteVisible = decorateLineageNote(root, cultivar);
     if (!root.querySelector('[data-compact-primary-controls="v1"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);
+    if (cultivar?.publicContent?.ja?.lineageNote && !root.querySelector('[data-lineage-note-v1="true"]')) throw new Error(`LINEAGE_NOTE_PRESENTATION_MISSING:${cultivar.id}`);
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
-    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable };
+    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable, lineageNoteVisible };
   };
   const style = document.createElement('style'); style.id = 'public-presentation-contract-v1-style'; style.textContent = `
     #detail-shell:not(:has(.ucd-root[data-public-presentation-ready="true"])) > :not(.detail-topbar){visibility:hidden!important}
@@ -315,6 +335,7 @@
     .ucd-aroma-terms span[data-aroma-public-term="v1"] strong{color:inherit;font:inherit}
     .ucd-aroma-terms span[data-aroma-public-term="v1"] small{color:#93a098;font-size:9px;font-weight:650;letter-spacing:0}
     .ucd-lineage summary>.ucd-grade{display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76}
+    .ucd-lineage-note-v1{margin:8px 2px 0;color:#98a59d;font-size:12px;line-height:1.65}
     .ucd-ratio-unavailable{margin:9px auto 0;max-width:32rem;color:#93a098;font-size:10px;line-height:1.6;text-align:center}
     .ucd-cannabinoid-card[data-source-declared-cannabinoids="v1"] summary{display:grid}
     .ucd-cannabinoid-source-context{margin:10px 0 4px;padding:11px 12px;border:1px solid rgba(216,189,98,.24);border-radius:12px;background:rgba(216,189,98,.05)}
