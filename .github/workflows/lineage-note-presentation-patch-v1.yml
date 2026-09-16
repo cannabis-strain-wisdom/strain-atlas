@@ -1,0 +1,85 @@
+name: Lineage note presentation patch V1
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/lineage-note-presentation-patch-v1.yml
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact public main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Apply lineage note presentation patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp presentation-contract-v1.js /tmp/presentation-contract-v1.before.js
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('presentation-contract-v1.js')
+          s = p.read_text(encoding='utf-8')
+
+          anchor = """  const processed = new WeakSet();\n  const govern = async () => {\n"""
+          insert = """  const decorateLineageNote = (root, cultivar) => {\n    const lineage = root.querySelector('.ucd-lineage');\n    const noteText = String(cultivar?.publicContent?.ja?.lineageNote || cultivar?.lineage?.presentation?.textJa || '').trim();\n    const existing = root.querySelector('[data-lineage-note-v1=\"true\"]');\n    if (!lineage || !noteText) { existing?.remove(); return false; }\n    let note = existing;\n    if (!note) {\n      note = document.createElement('p');\n      note.className = 'ucd-lineage-note-v1';\n      note.dataset.lineageNoteV1 = 'true';\n      lineage.insertAdjacentElement('afterend', note);\n    }\n    if (note.textContent !== noteText) note.textContent = noteText;\n    const hiddenParagraph = [...lineage.querySelectorAll(':scope > div > p')].find(item => item.textContent.trim() === noteText);\n    hiddenParagraph?.remove();\n    root.dataset.lineageNoteVisible = 'v1';\n    return true;\n  };\n  const processed = new WeakSet();\n  const govern = async () => {\n"""
+          if anchor not in s:
+              raise SystemExit('lineage decorator anchor not found')
+          s = s.replace(anchor, insert, 1)
+
+          old = """    const compactNavigation = compactDetailNavigation(root, cultivar);\n    if (!root.querySelector('[data-compact-primary-controls=\"v1\"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);\n    root.dataset.publicPresentationReady = 'true'; processed.add(root);\n    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable };\n"""
+          new = """    const compactNavigation = compactDetailNavigation(root, cultivar);\n    const lineageNoteVisible = decorateLineageNote(root, cultivar);\n    if (!root.querySelector('[data-compact-primary-controls=\"v1\"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);\n    if (cultivar?.publicContent?.ja?.lineageNote && !root.querySelector('[data-lineage-note-v1=\"true\"]')) throw new Error(`LINEAGE_NOTE_PRESENTATION_MISSING:${cultivar.id}`);\n    root.dataset.publicPresentationReady = 'true'; processed.add(root);\n    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable, lineageNoteVisible };\n"""
+          if old not in s:
+              raise SystemExit('govern anchor not found')
+          s = s.replace(old, new, 1)
+
+          old_css = '''    .ucd-lineage summary>.ucd-grade{display:inline-flex;flex:0 0 auto;width:auto;min-width:0;max-width:max-content;min-height:18px;padding:2px 5px;align-self:center;justify-self:end;white-space:nowrap;font-size:8px;font-weight:750;letter-spacing:.02em;opacity:.76}\n'''
+          new_css = old_css + '''    .ucd-lineage-note-v1{margin:8px 2px 0;color:#98a59d;font-size:12px;line-height:1.65}\n'''
+          if old_css not in s:
+              raise SystemExit('lineage css anchor not found')
+          s = s.replace(old_css, new_css, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          node --check presentation-contract-v1.js
+          grep -Fq 'decorateLineageNote' presentation-contract-v1.js
+          grep -Fq 'LINEAGE_NOTE_PRESENTATION_MISSING' presentation-contract-v1.js
+          grep -Fq '.ucd-lineage-note-v1' presentation-contract-v1.js
+          git diff --check
+          git diff -- presentation-contract-v1.js
+
+      - name: Commit patch and remove one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "csw-public-presentation-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add presentation-contract-v1.js
+          git rm .github/workflows/lineage-note-presentation-patch-v1.yml
+          git diff --cached --check
+          git commit -m "Show lineage notes beneath lineage cards"
+          git push origin HEAD:main
+
+      - name: Dispatch exact Pages validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/deploy-public-ui-pages.yml/dispatches \
+            -d '{"ref":"main"}'
