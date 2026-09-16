@@ -420,6 +420,11 @@
       "strainId": "permanent-marker",
       "state": "published",
       "publishedAt": "2026-09-16T10:44:57Z"
+    },
+    {
+      "strainId": "lemon-cherry-gelato",
+      "state": "published",
+      "publishedAt": "2026-09-16T21:27:28Z"
     }
   ]
 }

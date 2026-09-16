@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T10:44:58.732Z",
+  "generatedAt": "2026-09-16T21:27:29.017Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 72,
+    "cultivars": 73,
     "sources": 138,
-    "entities": 26
+    "entities": 27
   },
   "explore": {
     "sativa": [
@@ -77,6 +77,7 @@
       "frisian-duck",
       "girl-scout-cookies",
       "jack-herer",
+      "lemon-cherry-gelato",
       "mac-1",
       "og-kush",
       "papaya",
@@ -10365,6 +10366,144 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "lemon-cherry-gelato",
+      "status": "review",
+      "name": "Lemon Cherry Gelato",
+      "jp": null,
+      "aliases": [
+        "LCG"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-best-strains-2022"
+        ],
+        "display": "Gelato #33",
+        "parents": [
+          "Gelato #33"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Quesada本人が確認しているのは、ConnectedのGelato #33パック由来のbagseedという点までです。種子側の由来はGelato #33に結びつきますが、花粉親は確認できていません。CSWではroot LCGをSunset Sherbet × GSCという意図的な直交配へ置き換えず、後年のseed-company版とも混同しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "backpack-boyz",
+          "roles": [
+            "originator"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "high-times-best-strains-2022"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-best-strains-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Backpack Boyz創設者Juan Quesada本人の説明では、Lemon Cherry Gelatoは2016年にConnectedのGelato #33パックから見つかったbagseedを発芽させたものです。より細かな作出地は、この一次寄りの取材だけでは断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-best-strains-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "2016年に発芽したBackpack Boyz由来のcutは、初期には厳格に保持され、2018年ごろには生産規模が拡大したとQuesada本人が語っています。最初のCookies Melrose dropを境に認知が急速に広がったという回想も、同じ直接取材に残されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Quesada本人が確認しているのは、ConnectedのGelato #33パック由来のbagseedという点までです。種子側の由来はGelato #33に結びつきますが、花粉親は確認できていません。CSWではroot LCGをSunset Sherbet × GSCという意図的な直交配へ置き換えず、後年のseed-company版とも混同しません。",
+          "origin": "Backpack Boyz創設者Juan Quesada本人の説明では、Lemon Cherry Gelatoは2016年にConnectedのGelato #33パックから見つかったbagseedを発芽させたものです。より細かな作出地は、この一次寄りの取材だけでは断定していません。",
+          "history": "2016年に発芽したBackpack Boyz由来のcutは、初期には厳格に保持され、2018年ごろには生産規模が拡大したとQuesada本人が語っています。最初のCookies Melrose dropを境に認知が急速に広がったという回想も、同じ直接取材に残されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/lemon-cherry-gelato/primary.webp",
+          "alt": "Backpack Boyz由来のroot Lemon Cherry Gelatoを対象に、限定的な形態根拠と安全なトップバッド余白で作成するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No official or third-party image is copied or stored; the prompt uses only bounded cited text evidence and identity context.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-17",
+      "updatedAt": "2026-09-17",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -22393,6 +22532,18 @@
       "checkedAt": "2026-09-16",
       "updatedAt": "2026-09-16",
       "note": "Archive Seed Bank's first-party Rainbow Belts page presents the original root cultivar and its breeding description; Archive's separate 2.0 and 3.0 pages document later iterations."
+    },
+    "backpack-boyz": {
+      "schemaVersion": 1,
+      "id": "backpack-boyz",
+      "name": "Backpack Boyz",
+      "roles": [
+        "originator",
+        "brand"
+      ],
+      "checkedAt": "2026-09-17",
+      "updatedAt": "2026-09-17",
+      "note": "High Times' direct interview with founder Juan Quesada establishes Backpack Boyz as the originator/selector and early propagator of the Lemon Cherry Gelato bagseed cut. This entity record does not assert a known intentional breeder cross or identify the unknown pollen donor."
     },
     "barneys-farm": {
       "schemaVersion": 1,
