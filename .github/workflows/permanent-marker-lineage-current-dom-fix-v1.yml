@@ -31,44 +31,46 @@ jobs:
           s = presentation.read_text(encoding='utf-8')
           marker = 'PERMANENT_MARKER_LINEAGE_CURRENT_DOM_V1'
           if marker not in s:
-              s += r'''
-
-;(()=>{
-  'use strict';
-  const CONTRACT='PERMANENT_MARKER_LINEAGE_CURRENT_DOM_V1';
-  const TARGET='permanent-marker';
-  const shell=document.getElementById('detail-shell');
-  if(!shell)return;
-  let catalogPromise=null;
-  const loadCatalog=()=>catalogPromise||(catalogPromise=window.__CSWRuntimeCatalogPromise?Promise.resolve(window.__CSWRuntimeCatalogPromise):fetch('runtime/catalog.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`catalog HTTP ${response.status}`);return response.json()}));
-  const removeStale=()=>shell.querySelectorAll('[data-lineage-note-v1="true"]').forEach(note=>note.remove());
-  const decorate=async()=>{
-    const id=new URL(location.href).searchParams.get('strain');
-    if(id!==TARGET){removeStale();return false;}
-    const root=shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET}"],.ucd-root[data-public-detail-id="${TARGET}"]`);
-    const lineage=shell.querySelector('.ucd-lineage');
-    if(!root||!lineage)return false;
-    const catalog=await loadCatalog();
-    const cultivar=(catalog?.cultivars||[]).find(item=>item?.id===TARGET);
-    const noteText=String(cultivar?.publicContent?.ja?.lineageNote||cultivar?.lineage?.presentation?.textJa||'').trim();
-    if(!cultivar||!noteText)throw new Error('PERMANENT_MARKER_LINEAGE_NOTE_DATA_MISSING');
-    let note=shell.querySelector('[data-lineage-note-v1="true"]');
-    if(!note){note=document.createElement('p');note.className='ucd-lineage-note-v1';note.dataset.lineageNoteV1='true'}
-    if(note.textContent!==noteText)note.textContent=noteText;
-    if(lineage.nextElementSibling!==note)lineage.insertAdjacentElement('afterend',note);
-    [...lineage.querySelectorAll(':scope > div > p')].filter(item=>item.textContent.trim()===noteText).forEach(item=>item.remove());
-    root.dataset.permanentMarkerLineageNote='v1';
-    window.__CSWPermanentMarkerLineageCurrentDomV1={status:'PASS',contract:CONTRACT,cultivarId:TARGET};
-    return true;
-  };
-  let queued=false;
-  const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate().catch(error=>{window.__CSWPermanentMarkerLineageCurrentDomV1={status:'FAIL_CLOSED',contract:CONTRACT,error:String(error?.message||error)};console.error(CONTRACT,error)})}))};
-  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});
-  shell.addEventListener('click',schedule,true);
-  window.addEventListener('popstate',schedule);
-  schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
-})();
-'''
+              block = [
+                  '',
+                  ";(()=>{",
+                  "  'use strict';",
+                  "  const CONTRACT='PERMANENT_MARKER_LINEAGE_CURRENT_DOM_V1';",
+                  "  const TARGET='permanent-marker';",
+                  "  const shell=document.getElementById('detail-shell');",
+                  "  if(!shell)return;",
+                  "  let catalogPromise=null;",
+                  "  const loadCatalog=()=>catalogPromise||(catalogPromise=window.__CSWRuntimeCatalogPromise?Promise.resolve(window.__CSWRuntimeCatalogPromise):fetch('runtime/catalog.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`catalog HTTP ${response.status}`);return response.json()}));",
+                  "  const removeStale=()=>shell.querySelectorAll('[data-lineage-note-v1=\"true\"]').forEach(note=>note.remove());",
+                  "  const decorate=async()=>{",
+                  "    const id=new URL(location.href).searchParams.get('strain');",
+                  "    if(id!==TARGET){removeStale();return false;}",
+                  "    const root=shell.querySelector(`.detail-public-v1[data-public-detail-id=\"${TARGET}\"],.ucd-root[data-public-detail-id=\"${TARGET}\"]`);",
+                  "    const lineage=shell.querySelector('.ucd-lineage');",
+                  "    if(!root||!lineage)return false;",
+                  "    const catalog=await loadCatalog();",
+                  "    const cultivar=(catalog?.cultivars||[]).find(item=>item?.id===TARGET);",
+                  "    const noteText=String(cultivar?.publicContent?.ja?.lineageNote||cultivar?.lineage?.presentation?.textJa||'').trim();",
+                  "    if(!cultivar||!noteText)throw new Error('PERMANENT_MARKER_LINEAGE_NOTE_DATA_MISSING');",
+                  "    let note=shell.querySelector('[data-lineage-note-v1=\"true\"]');",
+                  "    if(!note){note=document.createElement('p');note.className='ucd-lineage-note-v1';note.dataset.lineageNoteV1='true'}",
+                  "    if(note.textContent!==noteText)note.textContent=noteText;",
+                  "    if(lineage.nextElementSibling!==note)lineage.insertAdjacentElement('afterend',note);",
+                  "    [...lineage.querySelectorAll(':scope > div > p')].filter(item=>item.textContent.trim()===noteText).forEach(item=>item.remove());",
+                  "    root.dataset.permanentMarkerLineageNote='v1';",
+                  "    window.__CSWPermanentMarkerLineageCurrentDomV1={status:'PASS',contract:CONTRACT,cultivarId:TARGET};",
+                  "    return true;",
+                  "  };",
+                  "  let queued=false;",
+                  "  const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate().catch(error=>{window.__CSWPermanentMarkerLineageCurrentDomV1={status:'FAIL_CLOSED',contract:CONTRACT,error:String(error?.message||error)};console.error(CONTRACT,error)})}))};",
+                  "  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});",
+                  "  shell.addEventListener('click',schedule,true);",
+                  "  window.addEventListener('popstate',schedule);",
+                  "  schedule();setTimeout(schedule,250);setTimeout(schedule,1000);",
+                  "})();",
+                  '',
+              ]
+              s += '\n'.join(block)
           presentation.write_text(s, encoding='utf-8')
 
           qa = Path('.github/scripts/public-frontend-browser-smoke-v2.mjs')
