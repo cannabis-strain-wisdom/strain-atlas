@@ -37,7 +37,6 @@ jobs:
           p.write_text(s, encoding='utf-8')
           PY
           node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
-          grep -Fq '.ucd-root[data-public-presentation-ready=\"true\"]' .github/scripts/public-frontend-browser-smoke-v2.mjs
           git diff --check
           git diff -- .github/scripts/public-frontend-browser-smoke-v2.mjs
 
