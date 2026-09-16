@@ -1010,6 +1010,214 @@
 })();
 </script>
 <!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_END -->
+  <!-- CSW_RAINBOW_BELTS_IDENTITY_FAMILY_PILOT_V1_START -->
+<script id="csw-rainbow-belts-identity-family-pilot-v1">
+(() => {
+  'use strict';
+
+  const CONTRACT = 'RAINBOW_BELTS_IDENTITY_FAMILY_PILOT_V1';
+  const TARGET_ID = 'rainbow-belts';
+  const shell = document.getElementById('detail-shell');
+  if (!shell) return;
+
+  let catalogPromise;
+  const loadCatalog = () => {
+    if (window.__CSWRuntimeCatalogPromise && typeof window.__CSWRuntimeCatalogPromise.then === 'function') {
+      return Promise.resolve(window.__CSWRuntimeCatalogPromise);
+    }
+    catalogPromise ||= fetch('runtime/catalog.json', { cache: 'no-store' }).then(response => {
+      if (!response.ok) throw new Error(`catalog HTTP ${response.status}`);
+      return response.json();
+    });
+    return catalogPromise;
+  };
+
+  const text = value => typeof value === 'string' ? value.trim() : '';
+  const unique = values => [...new Set(values.map(text).filter(Boolean))];
+
+  const makeChip = (label, tone = 'alias') => {
+    const chip = document.createElement('span');
+    chip.className = `csw-identity-family-chip is-${tone}`;
+    chip.textContent = label;
+    return chip;
+  };
+
+  const makeRow = (label, contentNode) => {
+    const row = document.createElement('div');
+    row.className = 'csw-identity-family-row';
+    const key = document.createElement('span');
+    key.className = 'csw-identity-family-key';
+    key.textContent = label;
+    const value = document.createElement('div');
+    value.className = 'csw-identity-family-value';
+    value.appendChild(contentNode);
+    row.append(key, value);
+    return row;
+  };
+
+  const makeNameLine = (name, badgeText, badgeTone) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'csw-identity-family-name-line';
+    const strong = document.createElement('strong');
+    strong.textContent = name;
+    wrap.appendChild(strong);
+    if (badgeText) wrap.appendChild(makeChip(badgeText, badgeTone));
+    return wrap;
+  };
+
+  const decorate = async () => {
+    const id = new URL(location.href).searchParams.get('strain');
+    if (id !== TARGET_ID) return;
+
+    const catalog = await loadCatalog();
+    const cultivar = (catalog?.cultivars || []).find(item => item?.id === TARGET_ID);
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET_ID}"],.ucd-root[data-public-detail-id="${TARGET_ID}"]`);
+    if (!cultivar || !root) return;
+    if (root.querySelector('[data-identity-family-pilot="v1"]')) return;
+    if (text(cultivar.name) !== 'Rainbow Belts') throw new Error('canonical Rainbow Belts identity mismatch');
+
+    const aliases = unique(cultivar.aliases || []).filter(alias => alias !== cultivar.name && !/\b(?:2\.0|3\.0|auto)\b/i.test(alias));
+    const sourceIds = ['archive-rainbow-belts-2-0', 'archive-rainbow-belts-3-0'];
+    const separateLines = sourceIds.map(sourceId => catalog?.sources?.[sourceId]).filter(source =>
+      source && source.sourceType === 'breederOfficial' && text(source.publisher) === 'Archive Seed Bank' && text(source.title)
+    );
+    if (separateLines.length !== 2) throw new Error('official numbered Rainbow Belts boundary sources missing');
+
+    const historyText = [cultivar?.history?.presentation?.textJa, cultivar?.publicContent?.ja?.history].map(text).filter(Boolean).join(' ');
+    const autoBoundaryConfirmed = /Auto/.test(historyText);
+
+    const card = document.createElement('details');
+    card.className = 'csw-identity-family-pilot';
+    card.dataset.identityFamilyPilot = 'v1';
+
+    const summary = document.createElement('summary');
+    const summaryCopy = document.createElement('span');
+    summaryCopy.className = 'csw-identity-family-summary-copy';
+    const kicker = document.createElement('small');
+    kicker.textContent = 'NAME & DERIVATIVES';
+    const title = document.createElement('strong');
+    title.textContent = '名前・派生を確認';
+    summaryCopy.append(kicker, title);
+    const summaryBadge = makeChip('ROOT', 'root');
+    const chevron = document.createElement('i');
+    chevron.className = 'csw-identity-family-chevron';
+    chevron.setAttribute('aria-hidden', 'true');
+    chevron.textContent = '⌄';
+    summary.append(summaryCopy, summaryBadge, chevron);
+
+    const body = document.createElement('div');
+    body.className = 'csw-identity-family-body';
+    body.appendChild(makeRow('このページ', makeNameLine(cultivar.name, 'ROOT', 'root')));
+
+    if (aliases.length) {
+      const aliasList = document.createElement('div');
+      aliasList.className = 'csw-identity-family-chips';
+      aliases.forEach(alias => aliasList.appendChild(makeChip(alias, 'alias')));
+      const aliasWrap = document.createElement('div');
+      const aliasHint = document.createElement('small');
+      aliasHint.className = 'csw-identity-family-hint';
+      aliasHint.textContent = '同じroot cultivarの別名・表記';
+      aliasWrap.append(aliasList, aliasHint);
+      body.appendChild(makeRow('別名', aliasWrap));
+    }
+
+    const separateWrap = document.createElement('div');
+    separateWrap.className = 'csw-identity-family-stack';
+    separateLines.forEach(source => {
+      const line = makeNameLine(source.title, '別ライン', 'separate');
+      const hint = document.createElement('small');
+      hint.className = 'csw-identity-family-hint';
+      hint.textContent = 'Archive Seed Bank公式でrootとは別に掲載';
+      const group = document.createElement('div');
+      group.className = 'csw-identity-family-item';
+      group.append(line, hint);
+      separateWrap.appendChild(group);
+    });
+    body.appendChild(makeRow('別系統', separateWrap));
+
+    if (autoBoundaryConfirmed) {
+      const autoWrap = document.createElement('div');
+      autoWrap.className = 'csw-identity-family-item';
+      autoWrap.appendChild(makeNameLine('Auto系', '別派生', 'derivative'));
+      const autoHint = document.createElement('small');
+      autoHint.className = 'csw-identity-family-hint';
+      autoHint.textContent = '単一のroot identityとしては統合していません';
+      autoWrap.appendChild(autoHint);
+      body.appendChild(makeRow('派生', autoWrap));
+    }
+
+    const note = document.createElement('p');
+    note.className = 'csw-identity-family-note';
+    note.textContent = '2.0・3.0・Auto系の栽培特性や成分情報は、このRainbow Belts rootページへ混ぜていません。';
+    body.appendChild(note);
+
+    card.append(summary, body);
+    root.prepend(card);
+    root.dataset.identityFamilyPilot = 'v1';
+    window.__CSWRainbowBeltsIdentityFamilyPilotV1 = {
+      status: 'PASS',
+      cultivarId: TARGET_ID,
+      aliases,
+      separateLines: separateLines.map(source => source.title),
+      autoBoundary: autoBoundaryConfirmed,
+      contract: CONTRACT
+    };
+  };
+
+  if (!document.getElementById('csw-identity-family-pilot-v1-style')) {
+    const style = document.createElement('style');
+    style.id = 'csw-identity-family-pilot-v1-style';
+    style.textContent = `
+      .csw-identity-family-pilot{margin:13px 14px 4px;overflow:hidden;border:1px solid rgba(216,189,98,.18);border-radius:15px;background:linear-gradient(145deg,rgba(13,31,21,.78),rgba(5,14,9,.95));box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}
+      .csw-identity-family-pilot>summary{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;min-height:54px;padding:9px 12px;cursor:pointer;list-style:none;color:#eef1ec}
+      .csw-identity-family-pilot>summary::-webkit-details-marker{display:none}
+      .csw-identity-family-summary-copy{display:grid;gap:3px;min-width:0}
+      .csw-identity-family-summary-copy small{color:#8d9b93;font-size:8px;font-weight:850;letter-spacing:.13em;line-height:1.2}
+      .csw-identity-family-summary-copy strong{font-size:14px;font-weight:790;line-height:1.3}
+      .csw-identity-family-chevron{color:#d8bd62;font-size:16px;font-style:normal;line-height:1;transition:transform .16s ease}
+      .csw-identity-family-pilot[open] .csw-identity-family-chevron{transform:rotate(180deg)}
+      .csw-identity-family-body{display:grid;gap:0;padding:0 12px 12px;border-top:1px solid rgba(216,189,98,.11)}
+      .csw-identity-family-row{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.055)}
+      .csw-identity-family-row:last-of-type{border-bottom:0}
+      .csw-identity-family-key{padding-top:3px;color:#7e8e85;font-size:10px;font-weight:800;letter-spacing:.04em;line-height:1.35}
+      .csw-identity-family-value{min-width:0;color:#dfe5e0}
+      .csw-identity-family-name-line{display:flex;flex-wrap:wrap;align-items:center;gap:7px;min-width:0}
+      .csw-identity-family-name-line strong{min-width:0;color:#edf0ec;font-size:13px;font-weight:790;line-height:1.35}
+      .csw-identity-family-chips{display:flex;flex-wrap:wrap;gap:6px}
+      .csw-identity-family-chip{display:inline-flex;align-items:center;justify-content:center;min-height:21px;padding:3px 7px;border:1px solid rgba(255,255,255,.10);border-radius:999px;background:rgba(255,255,255,.025);color:#aebbb3;font-size:9px;font-weight:800;line-height:1.15;white-space:nowrap}
+      .csw-identity-family-chip.is-root{border-color:rgba(216,189,98,.34);background:rgba(216,189,98,.09);color:#e0ca7d;letter-spacing:.05em}
+      .csw-identity-family-chip.is-separate{border-color:rgba(121,156,139,.24);background:rgba(77,115,91,.10);color:#b9c7bf}
+      .csw-identity-family-chip.is-derivative{border-color:rgba(139,128,167,.25);background:rgba(102,82,132,.10);color:#c9bed8}
+      .csw-identity-family-stack{display:grid;gap:10px}
+      .csw-identity-family-item{display:grid;gap:3px}
+      .csw-identity-family-hint{display:block;margin-top:4px;color:#74847b;font-size:9px;line-height:1.5}
+      .csw-identity-family-note{margin:10px 0 0;padding:9px 10px;border-radius:10px;background:rgba(216,189,98,.045);color:#8d9b93;font-size:9px;line-height:1.55}
+      @media(max-width:390px){.csw-identity-family-pilot{margin-inline:12px}.csw-identity-family-row{grid-template-columns:62px minmax(0,1fr);gap:8px}.csw-identity-family-summary-copy strong{font-size:13.5px}.csw-identity-family-name-line strong{font-size:12.5px}}
+      @media(max-width:350px){.csw-identity-family-row{grid-template-columns:1fr;gap:5px}.csw-identity-family-key{padding-top:0}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  let queued = false;
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(() => {
+      queued = false;
+      decorate().catch(error => {
+        window.__CSWRainbowBeltsIdentityFamilyPilotV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
+        console.error(CONTRACT, error);
+      });
+    });
+  };
+
+  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  shell.addEventListener('click', schedule, true);
+  window.addEventListener('popstate', schedule);
+  schedule();
+})();
+</script>
+<!-- CSW_RAINBOW_BELTS_IDENTITY_FAMILY_PILOT_V1_END -->
   <script src="presentation-contract-v1.js?v=5" defer></script>
   <script src="app.min.js?v=5" defer></script>
 </body></html>
