@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T22:47:23.499Z",
+  "generatedAt": "2026-09-16T10:44:58.732Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 71,
-    "sources": 133,
+    "cultivars": 72,
+    "sources": 138,
     "entities": 26
   },
   "explore": {
@@ -61,6 +61,7 @@
       "hindu-kush",
       "mazar",
       "gorilla-glue-4",
+      "permanent-marker",
       "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
@@ -13801,6 +13802,256 @@
     },
     {
       "schemaVersion": 1,
+      "id": "permanent-marker",
+      "status": "review",
+      "name": "Permanent Marker",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-permanent-marker-soty-2023",
+          "doja-permanent-marker-official"
+        ],
+        "display": "(Biscotti S1 × Sherb Bx1) × Jealousy F2",
+        "parents": [
+          "Biscotti S1 × Sherb Bx1",
+          "Jealousy F2"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Seed Junky / JBeezy本人への取材では、まずBiscotti S1 × Sherb Bx1からkeeperを選び、それへJealousy F2を交配したと説明されています。親側のS1／Bx1／F2表記を、完成したPermanent Marker自体の世代記号には置き換えていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-permanent-marker-soty-2023"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "doja-permanent-marker-official"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティーベリー",
+          "ミンティーアース"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティーベリー",
+            "ミンティーアース"
+          ],
+          "details": [
+            {
+              "rawMatch": "fruity berries",
+              "reviewLabelJa": "フルーティーベリー",
+              "plainMeaningJa": "フルーティーなベリー類を思わせる果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー",
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "minty earth",
+              "reviewLabelJa": "ミンティーアース",
+              "plainMeaningJa": "ミントのような清涼感と土っぽさが重なる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ミント",
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Doja Exclusive公式では、花を割った際の香りとしてfruity berriesとminty earthが明記されています。より広いmarketing上の甘さ・diesel・candy表現をAroma／Flavor／Terpeneへ勝手に分配していません。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixed",
+        "sourceRefs": [
+          "leafly-permanent-marker-grow-2023"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "屋内開花の目安は約8〜9週",
+            "min": 8,
+            "max": 9,
+            "unit": "weeks",
+            "sourceRefs": [
+              "leafly-permanent-marker-grow-2023"
+            ],
+            "confidence": "B",
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "中程度の収量とされ、栽培者の技量で変動",
+            "sourceRefs": [
+              "leafly-permanent-marker-grow-2023"
+            ],
+            "confidence": "B",
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-permanent-marker"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはTerpenesとしてMyrcene、Limonene、Caryophylleneを掲載しています。専門資料由来の成分一覧として保持し、割合・順位・分析測定値は補っていません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-permanent-marker-soty-2023",
+          "leafly-permanent-marker-grow-2023"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Seed Junky / JBeezyの直接取材では、Permanent Markerは2019〜2021年にロサンゼルス周辺で育種され、Northridgeの屋内環境で開発された系統です。Doja Exclusiveがその中からwinning cutを選抜・命名し、市場へ展開しました。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "doja-permanent-marker-official",
+          "leafly-permanent-marker-soty-2023",
+          "high-times-best-strains-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Permanent MarkerはSeed Junky Geneticsが育種し、Doja Exclusiveがwinning cutを選抜・命名して展開したmodern cultivarです。Adios MF、Gunnpowwder、HH 1.5といった過去名称・selection表記には資料間で扱いの差があるため、CSWでは現時点で正式aliasへ統合していません。商品・vape・menu上の同名表記もcultivar evidenceには使用していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "doja-permanent-marker-official"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Doja Exclusive公式では、円錐状で密度のある花、violet／boysenberry系の葉色、rich greenの花、electric orangeのピストル、clear trichomes、stickyな表面が記述されています。商品画像や派生・再現版の見た目はrootへ混ぜていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Seed Junky / JBeezy本人への取材では、まずBiscotti S1 × Sherb Bx1からkeeperを選び、それへJealousy F2を交配したと説明されています。親側のS1／Bx1／F2表記を、完成したPermanent Marker自体の世代記号には置き換えていません。",
+          "origin": "Seed Junky / JBeezyの直接取材では、Permanent Markerは2019〜2021年にロサンゼルス周辺で育種され、Northridgeの屋内環境で開発された系統です。Doja Exclusiveがその中からwinning cutを選抜・命名し、市場へ展開しました。",
+          "history": "Permanent MarkerはSeed Junky Geneticsが育種し、Doja Exclusiveがwinning cutを選抜・命名して展開したmodern cultivarです。Adios MF、Gunnpowwder、HH 1.5といった過去名称・selection表記には資料間で扱いの差があるため、CSWでは現時点で正式aliasへ統合していません。商品・vape・menu上の同名表記もcultivar evidenceには使用していません。",
+          "aromaNote": "Doja Exclusive公式では、花を割った際の香りとしてfruity berriesとminty earthが明記されています。より広いmarketing上の甘さ・diesel・candy表現をAroma／Flavor／Terpeneへ勝手に分配していません。",
+          "terpeneNote": "LeaflyはTerpenesとしてMyrcene、Limonene、Caryophylleneを掲載しています。専門資料由来の成分一覧として保持し、割合・順位・分析測定値は補っていません。",
+          "morphologyNote": "Doja Exclusive公式では、円錐状で密度のある花、violet／boysenberry系の葉色、rich greenの花、electric orangeのピストル、clear trichomes、stickyな表面が記述されています。商品画像や派生・再現版の見た目はrootへ混ぜていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/permanent-marker/primary.webp",
+          "alt": "Permanent MarkerのDoja Exclusive公式形態記述に基づき、円錐状で密度のある緑の花、violet／boysenberry系の葉色、electric orangeのピストル、clear trichomeとstickyな表面をトップ全体の安全余白つきで表現したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; official and third-party images are not redistributed or copied.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-16",
+      "updatedAt": "2026-09-16",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "power-plant",
       "status": "review",
       "name": "Power Plant",
@@ -20553,6 +20804,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-08"
     },
+    "doja-permanent-marker-official": {
+      "schemaVersion": 1,
+      "id": "doja-permanent-marker-official",
+      "publisher": "Doja Exclusive",
+      "title": "Permanent Marker",
+      "url": "https://www.dojaexclusive.com/permanent-marker/",
+      "sourceType": "officialCultivarPage",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "classification",
+        "selection",
+        "history",
+        "aroma",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
+    },
     "dutch-passion-auto-cinderella-jack-lab-article": {
       "schemaVersion": 1,
       "id": "dutch-passion-auto-cinderella-jack-lab-article",
@@ -20878,6 +21149,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-03"
+    },
+    "high-times-best-strains-2022": {
+      "schemaVersion": 1,
+      "id": "high-times-best-strains-2022",
+      "publisher": "High Times",
+      "title": "The Best Strains of 2022",
+      "url": "https://hightimes.com/strains/the-best-strains-of-2022/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identityBoundary",
+        "selection",
+        "history",
+        "workingName"
+      ],
+      "publishedAt": "2022-12-27",
+      "checkedAt": "2026-09-16"
     },
     "high-times-gorilla-glue-settlement-2017": {
       "schemaVersion": 1,
@@ -21266,6 +21553,61 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "leafly-permanent-marker-grow-2023": {
+      "schemaVersion": 1,
+      "id": "leafly-permanent-marker-grow-2023",
+      "publisher": "Leafly",
+      "title": "How to grow the Permanent Marker strain",
+      "url": "https://www.leafly.com/news/growing/how-to-grow-the-permanent-marker-strain",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "cultivation",
+        "flowering",
+        "yield",
+        "origin",
+        "growerTestimony"
+      ],
+      "publishedAt": "2023-12-07",
+      "checkedAt": "2026-09-16"
+    },
+    "leafly-permanent-marker-soty-2023": {
+      "schemaVersion": 1,
+      "id": "leafly-permanent-marker-soty-2023",
+      "publisher": "Leafly",
+      "title": "Permanent Marker is Leafly Strain of the Year 2023",
+      "url": "https://www.leafly.com/news/strains-products/permanent-marker-2023-leafly-strain-of-the-year",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "breedingMethod",
+        "origin",
+        "history",
+        "award",
+        "identityBoundary"
+      ],
+      "publishedAt": "2023-12-05",
+      "checkedAt": "2026-09-16"
+    },
+    "leafly-permanent-marker": {
+      "schemaVersion": 1,
+      "id": "leafly-permanent-marker",
+      "publisher": "Leafly",
+      "title": "Permanent Marker Weed Strain Information",
+      "url": "https://www.leafly.com/strains/permanent-marker",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "flavor",
+        "effects",
+        "terpenes",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-16"
     },
     "leafly-rainbow-belts": {
       "schemaVersion": 1,

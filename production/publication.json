@@ -415,6 +415,11 @@
       "strainId": "rainbow-belts",
       "state": "published",
       "publishedAt": "2026-09-15T22:47:22Z"
+    },
+    {
+      "strainId": "permanent-marker",
+      "state": "published",
+      "publishedAt": "2026-09-16T10:44:57Z"
     }
   ]
 }
