@@ -185,6 +185,15 @@ async function main() {
   if (rush.forbiddenEnglish.length) throw new Error(`Rush raw English fallback: ${rush.forbiddenEnglish.join(', ')}`);
   if (rush.horizontalOverflow) throw new Error('Rush detail has horizontal overflow');
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=permanent-marker` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'Permanent Marker document complete');
+  await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="permanent-marker"]');return document.getElementById('detail-dialog').open===true && root?.dataset.publicPresentationReady==='true' && root.querySelector('[data-lineage-note-v1="true"]')})()`), 'Permanent Marker inline lineage note');
+  const permanentMarkerLineage = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="permanent-marker"]');const lineage=root?.querySelector('.ucd-lineage');const note=root?.querySelector('[data-lineage-note-v1="true"]');const noteText=note?.textContent?.trim()||'';const duplicate=[...lineage?.querySelectorAll(':scope > div > p')||[]].some(node=>node.textContent.trim()===noteText);return {noteText,directSibling:lineage?.nextElementSibling===note,duplicate,visible:note?getComputedStyle(note).display!=='none':false,horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
+  if (!permanentMarkerLineage.noteText.includes('親側のS1／Bx1／F2表記') || !permanentMarkerLineage.noteText.includes('完成したPermanent Marker自体の世代記号')) throw new Error(`Permanent Marker lineage generation note missing: ${JSON.stringify(permanentMarkerLineage)}`);
+  if (!permanentMarkerLineage.directSibling || !permanentMarkerLineage.visible) throw new Error(`Permanent Marker lineage note placement invalid: ${JSON.stringify(permanentMarkerLineage)}`);
+  if (permanentMarkerLineage.duplicate) throw new Error(`Permanent Marker lineage note duplicated inside collapsed lineage: ${JSON.stringify(permanentMarkerLineage)}`);
+  if (permanentMarkerLineage.horizontalOverflow) throw new Error('Permanent Marker lineage note causes horizontal overflow');
+
   await cdp.send('Page.navigate', { url: `${baseUrl}?strain=new-caledonia` });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'New Caledonia document complete');
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]') && document.querySelector('.ucd-lineage summary strong')`), 'New Caledonia universal lineage');

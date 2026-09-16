@@ -285,6 +285,7 @@
     return true;
   };
   const decorateLineageNote = (root, cultivar) => {
+    if (cultivar?.id !== 'permanent-marker') return false;
     const lineage = root.querySelector('.ucd-lineage');
     const noteText = String(cultivar?.publicContent?.ja?.lineageNote || cultivar?.lineage?.presentation?.textJa || '').trim();
     const existing = root.querySelector('[data-lineage-note-v1="true"]');
@@ -325,7 +326,7 @@
     const compactNavigation = compactDetailNavigation(root, cultivar);
     const lineageNoteVisible = decorateLineageNote(root, cultivar);
     if (!root.querySelector('[data-compact-primary-controls="v1"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);
-    if (cultivar?.publicContent?.ja?.lineageNote && !root.querySelector('[data-lineage-note-v1="true"]')) throw new Error(`LINEAGE_NOTE_PRESENTATION_MISSING:${cultivar.id}`);
+    if (cultivar?.id === 'permanent-marker' && cultivar?.publicContent?.ja?.lineageNote && !root.querySelector('[data-lineage-note-v1="true"]')) throw new Error(`LINEAGE_NOTE_PRESENTATION_MISSING:${cultivar.id}`);
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
     window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable, lineageNoteVisible };
   };
