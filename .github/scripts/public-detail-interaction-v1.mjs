@@ -178,12 +178,12 @@ async function main() {
   await navigate('rainbow-belts');
   const rainbow = await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="rainbow-belts"],.ucd-root[data-public-detail-id="rainbow-belts"]');
-    const lineage=root?.querySelector('.ucd-lineage');
+    const lineage=document.querySelector('#detail-shell .ucd-lineage');
     const body=lineage?.querySelector(':scope > div');
     const evidence=body?.querySelector(':scope > .ucd-evidence-row');
     if(!root||!lineage||!body||!evidence||window.__CSWRainbowBeltsNameRelationshipRailV1?.status!=='PASS') return false;
     return {
-      lineageCount:root.querySelectorAll('.ucd-lineage').length,
+      lineageCount:document.querySelectorAll('#detail-shell .ucd-lineage').length,
       rootLineage:lineage.querySelector(':scope > summary strong')?.textContent.trim()||'',
       kicker:lineage.querySelector(':scope > summary > span > small')?.textContent.trim()||'',
       evidenceLast:body.lastElementChild===evidence,
