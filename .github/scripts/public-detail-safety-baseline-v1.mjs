@@ -178,7 +178,8 @@ async function main() {
   const blue = await evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');
     const kinds=[...root?.querySelectorAll('[data-csw-staged-sensory-sub]')||[]].map(node=>node.dataset.cswStagedSensorySub).sort();
-    const terpeneUnknown=root?.querySelector('[data-ucd-panel="terpene"]')?.dataset.unavailableDetailCard==='v1';
+    const terpenePanel=root?.querySelector('[data-ucd-panel="terpene"]');
+    const terpeneUnknown=terpenePanel?.dataset.unavailableDetailCard==='v1'||/個別テルペンは確認できていません/.test(terpenePanel?.innerText||'');
     const effectCultivation=root?.querySelectorAll('[data-csw-staged-ec-parent="v1"]').length||0;
     return {kinds,terpeneUnknown,effectCultivation,overflow:!root||root.scrollWidth>root.clientWidth+1};
   })()`);
