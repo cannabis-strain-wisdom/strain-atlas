@@ -209,5 +209,4 @@ try {
   process.exitCode = 1;
 } finally {
   proc.kill('SIGTERM');
-  fs.rmSync(profile, { recursive: true, force: true });
 }
