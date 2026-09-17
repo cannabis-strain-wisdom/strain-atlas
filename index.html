@@ -84,6 +84,12 @@
     .detail-public-v1[data-csw-staged-effect-cultivation="v1"] .csw-staged-effect-terms span[data-effect-public-term="v1"] small{font-size:13px!important;line-height:1.35}
     @media(max-width:380px){.detail-public-v1 .ucd-primary-nav-copy strong{font-size:16px!important}.detail-public-v1 .ucd-primary-nav [data-ucd-primary-tab="type"] .ucd-primary-nav-copy strong{font-size:15px!important}.detail-public-v1 .ucd-profile-nav>button>span{font-size:14.5px!important}}
   </style>
+
+  <style id="csw-home-order-unification-v1-styles">
+    .home-stance>span{max-width:620px}
+    #home-content>.home-search{position:relative;z-index:1;width:auto;margin:18px 0 0;padding:12px;border-radius:17px;box-shadow:0 12px 28px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.035)}
+    @media(min-width:700px){#home-content>.home-search{width:auto;margin:26px 0 0;padding:15px}}
+  </style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -94,8 +100,8 @@
         <div class="home-hero-content">
           <span class="home-hero-kicker">CULTIVARS · CULTURE · KNOWLEDGE</span>
           <h1 class="home-hero-title" id="site-title">Cannabis <span>Strain Wisdom</span></h1>
-          <p class="home-hero-summary">品種・系譜・香り・歴史を、出典とともに記録する情報アーカイブ。</p>
-          <div class="home-stance"><strong>教育・資料アーカイブ</strong><span>一次情報を優先し、確認できた根拠と確度を分けて整理しています。</span></div>
+          <p class="home-hero-summary">品種の背景まで、根拠とともに。</p>
+          <div class="home-stance"><span>系譜・香り・成分・歴史を、確認できる出典から整理。</span></div>
           <span class="home-hero-caption" id="home-hero-caption" aria-hidden="true">ARCHIVE VISUAL · Bubble Gum</span>
         </div>
       </section>
@@ -1220,4 +1226,29 @@
 <!-- CSW_RAINBOW_BELTS_IDENTITY_FAMILY_PILOT_V1_END -->
   <script src="presentation-contract-v1.js?v=5" defer></script>
   <script src="app.min.js?v=5" defer></script>
+
+  <script id="csw-home-order-unification-v1-script">
+  (() => {
+    'use strict';
+    const apply = () => {
+      const search = document.querySelector('.home-search');
+      const latest = document.getElementById('latest-disclosure');
+      const all = document.getElementById('all-disclosure');
+      const content = document.getElementById('home-content');
+      const legal = document.getElementById('legal-alert');
+      const hero = document.querySelector('.home-hero');
+      if (!(search && latest && all && content && legal && hero)) {
+        window.__CSWHomeOrderUnificationV1 = { status: 'FAIL_CLOSED', reason: 'REQUIRED_NODE_MISSING' };
+        return;
+      }
+      if (search.parentElement !== content || latest.nextElementSibling !== search) latest.insertAdjacentElement('afterend', search);
+      const follows = (a, b) => Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
+      const pass = follows(hero, legal) && follows(legal, latest) && follows(latest, search) && follows(search, all);
+      window.__CSWHomeOrderUnificationV1 = { status: pass ? 'PASS' : 'FAIL_CLOSED', order: pass ? 'hero>legal>latest>search>all' : 'ORDER_MISMATCH' };
+      if (!pass) throw new Error('CSW_HOME_ORDER_UNIFICATION_V1_ORDER_MISMATCH');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply, { once: true });
+    else apply();
+  })();
+  </script>
 </body></html>
