@@ -3,6 +3,7 @@
 
   const TARGET_ID = 'rainbow-belts';
   const CONTRACT = 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1';
+  const PRESENTATION = 'RAINBOW_BELTS_LINEAGE_RELATIONSHIPS_INTEGRATED_V2';
   const DERIVED = [
     {
       sourceId: 'archive-rainbow-belts-2-0',
@@ -35,21 +36,22 @@
     return catalogPromise;
   };
 
-  const makeTrack = ({ root = false, last = false } = {}) => {
+  const makeTrack = ({ node = false, last = false } = {}) => {
     const track = document.createElement('span');
     track.className = 'csw-name-rel-track';
-    if (root) track.classList.add('is-root');
     if (last) track.classList.add('is-last');
     track.setAttribute('aria-hidden', 'true');
-    const node = document.createElement('span');
-    node.className = 'csw-name-rel-node';
-    track.appendChild(node);
+    if (node) {
+      const marker = document.createElement('span');
+      marker.className = 'csw-name-rel-node';
+      track.appendChild(marker);
+    }
     return track;
   };
 
-  const makeRelationshipLabel = (ja, en, tone) => {
+  const makeRelationshipLabel = (ja, en) => {
     const label = document.createElement('span');
-    label.className = `csw-name-rel-label is-${tone}`;
+    label.className = 'csw-name-rel-label is-derived';
     const jaNode = document.createElement('span');
     jaNode.textContent = ja;
     const enNode = document.createElement('small');
@@ -58,19 +60,18 @@
     return label;
   };
 
-  const makeNameBlock = ({ name, lineage, ja, en, tone, root = false }) => {
+  const makeDerivedBlock = line => {
     const block = document.createElement('div');
     block.className = 'csw-name-rel-name-block';
-    if (root) block.classList.add('is-root');
     const title = document.createElement('strong');
     title.className = 'csw-name-rel-name';
-    title.textContent = name;
+    title.textContent = line.name;
     const formula = document.createElement('p');
     formula.className = 'csw-name-rel-lineage';
-    formula.textContent = lineage;
+    formula.textContent = line.lineage;
     const relation = document.createElement('div');
     relation.className = 'csw-name-rel-relation';
-    relation.appendChild(makeRelationshipLabel(ja, en, tone));
+    relation.appendChild(makeRelationshipLabel('別系統', 'DERIVED LINE'));
     block.append(title, formula, relation);
     return block;
   };
@@ -79,10 +80,7 @@
     if (!aliases.length) return null;
     const row = document.createElement('div');
     row.className = 'csw-name-rel-alias-row';
-    const track = document.createElement('span');
-    track.className = 'csw-name-rel-track';
-    track.setAttribute('aria-hidden', 'true');
-    row.appendChild(track);
+    row.appendChild(makeTrack());
 
     const content = document.createElement('div');
     content.className = 'csw-name-rel-alias-block';
@@ -118,92 +116,70 @@
 
   const decorate = async () => {
     if (currentId() !== TARGET_ID) return false;
+
     const catalog = await loadCatalog();
     const cultivar = (catalog?.cultivars || []).find(item => item?.id === TARGET_ID);
     const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET_ID}"],.ucd-root[data-public-detail-id="${TARGET_ID}"]`);
-    if (!cultivar || !root) return false;
+    const lineageCard = shell.querySelector('.ucd-lineage');
+    if (!cultivar || !root || !lineageCard) return false;
+
     if (text(cultivar.name) !== 'Rainbow Belts') throw new Error('RAINBOW_BELTS_CANONICAL_NAME_MISMATCH');
     const rootLineage = text(cultivar?.lineage?.display);
     if (!rootLineage) throw new Error('RAINBOW_BELTS_ROOT_LINEAGE_MISSING');
     assertBoundarySources(catalog);
 
     const legacy = root.querySelector('[data-identity-family-pilot="v1"]');
-    const legacyWasOpen = Boolean(legacy?.open);
     if (legacy) {
       legacy.hidden = true;
       legacy.setAttribute('aria-hidden', 'true');
-      legacy.dataset.replacedByNameRelationships = 'v1';
+      legacy.dataset.replacedByNameRelationships = 'v2';
     }
 
-    if (root.querySelector('[data-name-relationships="v1"]')) return true;
+    root.querySelector('[data-name-relationships="v1"]')?.remove();
+
+    const summaryKicker = lineageCard.querySelector(':scope > summary > span > small');
+    if (!summaryKicker) throw new Error('RAINBOW_BELTS_LINEAGE_SUMMARY_KICKER_MISSING');
+    summaryKicker.textContent = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
+
+    let body = lineageCard.querySelector(':scope > div');
+    if (!body) {
+      body = document.createElement('div');
+      lineageCard.appendChild(body);
+    }
+
+    if (body.querySelector('[data-name-relationships-integrated="v2"]')) return true;
 
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name && !/\b(?:2\.0|3\.0|auto)\b/i.test(alias));
-    const card = document.createElement('details');
-    card.className = 'csw-name-rel-card';
-    card.dataset.nameRelationships = 'v1';
-    if (legacyWasOpen) card.open = true;
-
-    const summary = document.createElement('summary');
-    const copy = document.createElement('span');
-    copy.className = 'csw-name-rel-summary-copy';
-    const title = document.createElement('strong');
-    title.textContent = '名前・系統関係';
-    const english = document.createElement('small');
-    english.textContent = 'NAME & RELATIONSHIPS';
-    copy.append(title, english);
-    const chevron = document.createElement('i');
-    chevron.className = 'csw-name-rel-chevron';
-    chevron.setAttribute('aria-hidden', 'true');
-    chevron.textContent = '⌄';
-    summary.append(copy, chevron);
-
-    const body = document.createElement('div');
-    body.className = 'csw-name-rel-body';
-
-    const rootRow = document.createElement('div');
-    rootRow.className = 'csw-name-rel-rail-item is-root';
-    rootRow.append(
-      makeTrack({ root: true }),
-      makeNameBlock({
-        name: cultivar.name,
-        lineage: rootLineage,
-        ja: '元の品種',
-        en: 'ROOT',
-        tone: 'root',
-        root: true
-      })
-    );
-    body.appendChild(rootRow);
+    const integrated = document.createElement('section');
+    integrated.className = 'csw-name-rel-integrated';
+    integrated.dataset.nameRelationshipsIntegrated = 'v2';
 
     const aliasRow = makeAliasRow(aliases);
-    if (aliasRow) body.appendChild(aliasRow);
+    if (aliasRow) integrated.appendChild(aliasRow);
 
     DERIVED.forEach((line, index) => {
       const row = document.createElement('div');
       row.className = 'csw-name-rel-rail-item';
       row.append(
-        makeTrack({ last: index === DERIVED.length - 1 }),
-        makeNameBlock({
-          name: line.name,
-          lineage: line.lineage,
-          ja: '別系統',
-          en: 'DERIVED LINE',
-          tone: 'derived'
-        })
+        makeTrack({ node: true, last: index === DERIVED.length - 1 }),
+        makeDerivedBlock(line)
       );
-      body.appendChild(row);
+      integrated.appendChild(row);
     });
 
-    card.append(summary, body);
-    if (legacy) legacy.insertAdjacentElement('beforebegin', card);
-    else root.prepend(card);
-    root.dataset.nameRelationships = 'v1';
+    body.appendChild(integrated);
+    lineageCard.dataset.lineageRelationships = 'v2';
+    root.dataset.nameRelationships = 'v2';
+
     window.__CSWRainbowBeltsNameRelationshipRailV1 = {
       status: 'PASS',
       cultivarId: TARGET_ID,
-      aliases,
+      presentation: PRESENTATION,
       rootLineage,
+      rootExplanationPreserved: true,
+      aliases,
       derivedLines: DERIVED.map(line => ({ name: line.name, lineage: line.lineage })),
+      separateRelationshipCard: false,
       autoRow: false,
       contract: CONTRACT
     };
@@ -214,45 +190,36 @@
     const style = document.createElement('style');
     style.id = 'csw-name-relationships-v1-style';
     style.textContent = `
-      .csw-name-rel-card{margin:13px 14px 4px;overflow:hidden;border:1px solid rgba(216,189,98,.18);border-radius:15px;background:linear-gradient(145deg,rgba(13,31,21,.78),rgba(5,14,9,.95));box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}
-      .csw-name-rel-card>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;min-height:54px;padding:10px 12px;cursor:pointer;list-style:none;color:#eef1ec}
-      .csw-name-rel-card>summary::-webkit-details-marker{display:none}
-      .csw-name-rel-summary-copy{display:grid;gap:2px;min-width:0}
-      .csw-name-rel-summary-copy strong{font-size:14px;font-weight:790;line-height:1.3}
-      .csw-name-rel-summary-copy small,.csw-name-rel-section-label small,.csw-name-rel-label small{font-size:8px;font-weight:850;letter-spacing:.10em;line-height:1.2}
-      .csw-name-rel-summary-copy small{color:#8d9b93}
-      .csw-name-rel-chevron{color:#d8bd62;font-size:16px;font-style:normal;line-height:1;transition:transform .16s ease}
-      .csw-name-rel-card[open] .csw-name-rel-chevron{transform:rotate(180deg)}
-      .csw-name-rel-body{display:grid;padding:8px 12px 11px;border-top:1px solid rgba(216,189,98,.11)}
+      .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{letter-spacing:.10em}
+      .ucd-lineage[data-lineage-relationships="v2"]>div{padding-bottom:11px}
+      .csw-name-rel-integrated{display:grid;margin-top:11px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
       .csw-name-rel-rail-item,.csw-name-rel-alias-row{display:grid;grid-template-columns:22px minmax(0,1fr);gap:7px;min-width:0}
       .csw-name-rel-rail-item{padding:5px 0}
-      .csw-name-rel-rail-item.is-root{padding:6px 0 4px}
       .csw-name-rel-name-block{display:grid;gap:3px;min-width:0;padding:7px 0}
-      .csw-name-rel-name-block.is-root{padding:10px 11px;border:1px solid rgba(216,189,98,.24);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.075),rgba(255,255,255,.018));box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
       .csw-name-rel-name{min-width:0;color:#edf0ec;font-size:13px;font-weight:820;line-height:1.32}
-      .csw-name-rel-name-block.is-root .csw-name-rel-name{font-size:14px}
-      .csw-name-rel-lineage{margin:0;color:#a8b5ad;font-size:11px;font-weight:620;line-height:1.38;overflow-wrap:anywhere}
-      .csw-name-rel-name-block.is-root .csw-name-rel-lineage{color:#c0c9c3}
+      .csw-name-rel-lineage{margin:0!important;color:#a8b5ad;font-size:11px!important;font-weight:620;line-height:1.38!important;overflow-wrap:anywhere}
       .csw-name-rel-relation{display:flex;justify-content:flex-start;margin-top:1px}
-      .csw-name-rel-label{display:inline-flex;align-items:baseline;gap:5px;color:#8fa198;font-size:9px;font-weight:800;line-height:1.15}
-      .csw-name-rel-label small{color:#667a70}
-      .csw-name-rel-label.is-root{color:#d8bd62}
-      .csw-name-rel-label.is-root small{color:#998743}
-      .csw-name-rel-label.is-derived{color:#9fb0a6}
+      .csw-name-rel-label{display:inline-flex;align-items:baseline;gap:5px;color:#9fb0a6;font-size:9px;font-weight:800;line-height:1.15}
+      .csw-name-rel-label small,.csw-name-rel-section-label small{color:#667a70;font-size:8px;font-weight:850;letter-spacing:.10em;line-height:1.2}
       .csw-name-rel-section-label{display:flex;align-items:baseline;gap:6px;color:#94a29a}
       .csw-name-rel-section-label strong{font-size:10px;font-weight:800;line-height:1.3}
-      .csw-name-rel-section-label small{color:#6f8077}
-      .csw-name-rel-alias-row{padding:3px 0 6px}
-      .csw-name-rel-alias-block{display:grid;gap:6px;padding:5px 0 7px}
+      .csw-name-rel-alias-row{padding:2px 0 6px}
+      .csw-name-rel-alias-block{display:grid;gap:6px;padding:4px 0 7px}
       .csw-name-rel-chips{display:flex;flex-wrap:wrap;gap:5px}
       .csw-name-rel-chip{display:inline-flex;align-items:center;min-height:22px;padding:3px 8px;border:1px solid rgba(255,255,255,.085);border-radius:999px;background:rgba(255,255,255,.022);color:#b8c3bc;font-size:10px;font-weight:760;line-height:1.15}
       .csw-name-rel-track{position:relative;display:block;min-height:100%}
-      .csw-name-rel-track:before{content:'';position:absolute;left:10px;top:-9px;bottom:-9px;width:1px;background:linear-gradient(rgba(216,189,98,.48),rgba(216,189,98,.24))}
-      .csw-name-rel-track.is-root:before{top:12px}
+      .csw-name-rel-track:before{content:'';position:absolute;left:10px;top:-10px;bottom:-10px;width:1px;background:linear-gradient(rgba(216,189,98,.42),rgba(216,189,98,.22))}
       .csw-name-rel-track.is-last:before{bottom:calc(100% - 12px)}
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
-      .csw-name-rel-rail-item.is-root .csw-name-rel-node{top:12px;border-color:#d8bd62;background:#13251a;box-shadow:0 0 0 4px rgba(216,189,98,.07)}
-      @media(max-width:390px){.csw-name-rel-card{margin-inline:12px}.csw-name-rel-body{padding-inline:10px}.csw-name-rel-summary-copy strong{font-size:13.5px}.csw-name-rel-name{font-size:12.5px}.csw-name-rel-name-block.is-root .csw-name-rel-name{font-size:13.5px}.csw-name-rel-lineage{font-size:10.5px}.csw-name-rel-rail-item,.csw-name-rel-alias-row{grid-template-columns:20px minmax(0,1fr);gap:6px}.csw-name-rel-track:before{left:9px}.csw-name-rel-node{left:5px}}
+      @media(max-width:390px){
+        .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{font-size:8px;letter-spacing:.075em}
+        .csw-name-rel-integrated{margin-top:10px;padding-top:9px}
+        .csw-name-rel-name{font-size:12.5px}
+        .csw-name-rel-lineage{font-size:10.5px!important}
+        .csw-name-rel-rail-item,.csw-name-rel-alias-row{grid-template-columns:20px minmax(0,1fr);gap:6px}
+        .csw-name-rel-track:before{left:9px}
+        .csw-name-rel-node{left:5px}
+      }
     `;
     document.head.appendChild(style);
   }
@@ -277,8 +244,8 @@
   schedule();
 
   setTimeout(() => {
-    if (currentId() === TARGET_ID && !document.querySelector('[data-name-relationships="v1"]')) {
-      throw new Error('RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_NOT_RENDERED');
+    if (currentId() === TARGET_ID && !document.querySelector('[data-name-relationships-integrated="v2"]')) {
+      throw new Error('RAINBOW_BELTS_LINEAGE_RELATIONSHIPS_NOT_INTEGRATED');
     }
   }, 8000);
 })();
