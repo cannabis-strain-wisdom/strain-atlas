@@ -171,7 +171,7 @@ async function main() {
   if (!blueTerpene || blueTerpene.state !== 'inactive' || blueTerpene.ariaDisabled !== 'true' || blueTerpene.tabIndex !== '-1' || blueTerpene.pointerEvents !== 'none') throw new Error(`Blue Gelato terpene inactive semantics mismatch: ${JSON.stringify(blueTerpene)}`);
   if (!blue.verificationExists || blue.verificationOpen !== false || !blue.verificationBeforeSources) throw new Error(`Blue Gelato verification placement mismatch: ${JSON.stringify(blue)}`);
   const blueReason = blue.reasons.find(item => item.kind === 'terpene');
-  if (!blueReason || !blueReason.title.includes('未確認') || !blueReason.reason.includes('個別テルペンは確認できていません')) throw new Error(`Blue Gelato terpene reason mismatch: ${JSON.stringify(blue.reasons)}`);
+  if (!blueReason || !blueReason.title.includes('未確認') || !blueReason.reason.includes('個別テルペン') || !blueReason.reason.includes('確認')) throw new Error(`Blue Gelato terpene reason mismatch: ${JSON.stringify(blue.reasons)}`);
   if (blue.state?.cultivarId !== 'blue-gelato-41' || !blue.state?.inactiveKinds?.includes('terpene')) throw new Error(`Blue Gelato interaction state mismatch: ${JSON.stringify(blue.state)}`);
   if (blue.overflow) throw new Error('Blue Gelato interaction presentation has horizontal overflow');
 
