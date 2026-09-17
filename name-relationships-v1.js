@@ -198,6 +198,8 @@
     style.textContent = `
       .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{letter-spacing:.10em}
       .ucd-lineage[data-lineage-relationships="v2"]>div{padding-bottom:11px}
+      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row>a{margin-left:0!important}
       .csw-name-rel-integrated{display:grid;margin-top:11px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
       .csw-name-rel-rail-item,.csw-name-rel-alias-row{display:grid;grid-template-columns:22px minmax(0,1fr);gap:7px;min-width:0}
       .csw-name-rel-rail-item{padding:5px 0}
