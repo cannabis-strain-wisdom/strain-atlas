@@ -65,7 +65,7 @@
         content:'⌄';color:#d8bd62;font-size:14px;font-weight:800;line-height:1
       }
       .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]{
-        position:relative;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:default;opacity:.58;
+        position:relative;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:default;opacity:.58;pointer-events:none;
         border-color:rgba(255,255,255,.075);background:rgba(255,255,255,.012)
       }
       .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]::after{
@@ -149,10 +149,14 @@
       const panel = choosePanel(root, kind);
       const unavailable = isUnavailable(panel, kind);
       button.dataset.cswDetailState = unavailable ? 'inactive' : 'active';
-      button.disabled = unavailable;
       button.setAttribute('aria-disabled', unavailable ? 'true' : 'false');
       button.setAttribute('aria-label', unavailable ? `${LABELS[kind]}：未確認` : LABELS[kind]);
-      if (unavailable) reasons.push(reasonFor(panel, kind));
+      if (unavailable) {
+        button.setAttribute('tabindex', '-1');
+        reasons.push(reasonFor(panel, kind));
+      } else if (button.getAttribute('tabindex') === '-1') {
+        button.removeAttribute('tabindex');
+      }
     }
 
     renderVerificationStatus(root, reasons);
@@ -186,7 +190,15 @@
   };
 
   new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
-  shell.addEventListener('click', schedule, true);
+  shell.addEventListener('click', event => {
+    const inactive = event.target?.closest?.('[data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]');
+    if (inactive && event.isTrusted) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return;
+    }
+    schedule();
+  }, true);
   window.addEventListener('popstate', schedule);
   schedule();
 })();
