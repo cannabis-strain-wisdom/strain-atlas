@@ -1,0 +1,122 @@
+name: HOME presentation unification V1 once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/home-order-unification-v1-once.yml
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: csw-home-order-unification-v1-once
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact trigger state
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 2
+
+      - name: Guard expected parent and scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_parent='bf590e417f913ab5516cc1aa982495da7cc508e5'
+          actual_parent="$(git rev-parse HEAD^)"
+          test "$actual_parent" = "$expected_parent" || {
+            echo "SAFE_STOP_EXPECTED_PARENT_MISMATCH expected=$expected_parent actual=$actual_parent" >&2
+            exit 42
+          }
+          changed="$(git diff --name-only HEAD^ HEAD)"
+          test "$changed" = '.github/workflows/home-order-unification-v1-once.yml' || {
+            echo "SAFE_STOP_CREATION_SCOPE_MISMATCH files=$changed" >&2
+            exit 43
+          }
+
+      - name: Apply minimal HOME presentation delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+
+          if 'csw-home-order-unification-v1' in html:
+              raise SystemExit('SAFE_STOP_HOME_UNIFICATION_MARKER_ALREADY_PRESENT')
+
+          old_summary = '<p class="home-hero-summary">品種・系譜・香り・歴史を、出典とともに記録する情報アーカイブ。</p>'
+          new_summary = '<p class="home-hero-summary">品種の背景まで、根拠とともに。</p>'
+          if html.count(old_summary) != 1:
+              raise SystemExit(f'SAFE_STOP_HERO_SUMMARY_MATCH_COUNT:{html.count(old_summary)}')
+          html = html.replace(old_summary, new_summary, 1)
+
+          old_stance = '<div class="home-stance"><strong>教育・資料アーカイブ</strong><span>一次情報を優先し、確認できた根拠と確度を分けて整理しています。</span></div>'
+          new_stance = '<div class="home-stance"><span>系譜・香り・成分・歴史を、確認できる出典から整理。</span></div>'
+          if html.count(old_stance) != 1:
+              raise SystemExit(f'SAFE_STOP_HERO_STANCE_MATCH_COUNT:{html.count(old_stance)}')
+          html = html.replace(old_stance, new_stance, 1)
+
+          style = '''\n  <style id="csw-home-order-unification-v1-styles">\n    .home-stance>span{max-width:620px}\n    #home-content>.home-search{position:relative;z-index:1;width:auto;margin:18px 0 0;padding:12px;border-radius:17px;box-shadow:0 12px 28px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.035)}\n    @media(min-width:700px){#home-content>.home-search{width:auto;margin:26px 0 0;padding:15px}}\n  </style>\n'''
+          if html.count('</head>') != 1:
+              raise SystemExit('SAFE_STOP_HEAD_CLOSE_COUNT')
+          html = html.replace('</head>', style + '</head>', 1)
+
+          script = '''\n  <script id="csw-home-order-unification-v1-script">\n  (() => {\n    'use strict';\n    const apply = () => {\n      const search = document.querySelector('.home-search');\n      const latest = document.getElementById('latest-disclosure');\n      const all = document.getElementById('all-disclosure');\n      const content = document.getElementById('home-content');\n      const legal = document.getElementById('legal-alert');\n      const hero = document.querySelector('.home-hero');\n      if (!(search && latest && all && content && legal && hero)) {\n        window.__CSWHomeOrderUnificationV1 = { status: 'FAIL_CLOSED', reason: 'REQUIRED_NODE_MISSING' };\n        return;\n      }\n      if (search.parentElement !== content || latest.nextElementSibling !== search) latest.insertAdjacentElement('afterend', search);\n      const follows = (a, b) => Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);\n      const pass = follows(hero, legal) && follows(legal, latest) && follows(latest, search) && follows(search, all);\n      window.__CSWHomeOrderUnificationV1 = { status: pass ? 'PASS' : 'FAIL_CLOSED', order: pass ? 'hero>legal>latest>search>all' : 'ORDER_MISMATCH' };\n      if (!pass) throw new Error('CSW_HOME_ORDER_UNIFICATION_V1_ORDER_MISMATCH');\n    };\n    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply, { once: true });\n    else apply();\n  })();\n  </script>\n'''
+          if html.count('</body>') != 1:
+              raise SystemExit('SAFE_STOP_BODY_CLOSE_COUNT')
+          html = html.replace('</body>', script + '</body>', 1)
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+          grep -Fq '品種の背景まで、根拠とともに。' index.html
+          grep -Fq '系譜・香り・成分・歴史を、確認できる出典から整理。' index.html
+          grep -Fq 'csw-home-order-unification-v1-styles' index.html
+          grep -Fq 'csw-home-order-unification-v1-script' index.html
+          grep -Fq 'RAINBOW_BELTS' name-relationships-v1.js
+          node --check app.min.js
+          node --check presentation-contract-v1.js
+          node --check name-relationships-v1.js
+
+      - name: Recheck remote and publish exact delta
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          trigger_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git rev-parse origin/main)"
+          test "$remote_sha" = "$trigger_sha" || {
+            echo "SAFE_STOP_REMOTE_ADVANCED trigger=$trigger_sha remote=$remote_sha" >&2
+            exit 44
+          }
+
+          git config user.name 'cannabis-strain-wisdom'
+          git config user.email '316430215+cannabis-strain-wisdom@users.noreply.github.com'
+          git rm .github/workflows/home-order-unification-v1-once.yml
+          git add index.html
+          git diff --cached --name-only | sort > /tmp/changed.txt
+          printf '%s\n' '.github/workflows/home-order-unification-v1-once.yml' 'index.html' | sort > /tmp/expected.txt
+          diff -u /tmp/expected.txt /tmp/changed.txt
+          git commit -m 'Unify HOME presentation order and hero copy'
+          git push origin HEAD:main
+          new_sha="$(git rev-parse HEAD)"
+          echo "NEW_PUBLIC_SHA=$new_sha"
+
+          curl --fail-with-body -sS -L \
+            -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            https://api.github.com/repos/cannabis-strain-wisdom/strain-atlas/actions/workflows/deploy-public-ui-pages.yml/dispatches \
+            -d '{"ref":"main"}'
+          echo 'DEPLOY_DISPATCHED'
