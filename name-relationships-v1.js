@@ -1,20 +1,14 @@
 (() => {
   'use strict';
 
-  const TARGET_ID = 'rainbow-belts';
-  const CONTRACT = 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1';
-  const PRESENTATION = 'RAINBOW_BELTS_LINEAGE_RELATIONSHIPS_INTEGRATED_V2';
-  const DERIVED = [
-    {
-      sourceId: 'archive-rainbow-belts-2-0',
-      name: 'Rainbow Belts 2.0',
-      lineage: 'Rainbow Belts #20 × Rainbow Belts F1'
-    },
-    {
-      sourceId: 'archive-rainbow-belts-3-0',
-      name: 'Rainbow Belts 3.0',
-      lineage: 'Rainbow Belts #20 × Moonbow #112 F2 #60'
-    }
+  const RAINBOW_ID = 'rainbow-belts';
+  const RAINBOW_CONTRACT = 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1';
+  const RAINBOW_PRESENTATION = 'RAINBOW_BELTS_LINEAGE_RELATIONSHIPS_INTEGRATED_V2';
+  const SITEWIDE_CONTRACT = 'CSW_SITEWIDE_LINEAGE_RELATIONSHIPS_V1';
+  const INTEGRATED_TITLE = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
+  const RAINBOW_DERIVED = [
+    { sourceId: 'archive-rainbow-belts-2-0', name: 'Rainbow Belts 2.0', lineage: 'Rainbow Belts #20 × Rainbow Belts F1' },
+    { sourceId: 'archive-rainbow-belts-3-0', name: 'Rainbow Belts 3.0', lineage: 'Rainbow Belts #20 × Moonbow #112 F2 #60' }
   ];
 
   const shell = document.getElementById('detail-shell');
@@ -76,10 +70,11 @@
     return block;
   };
 
-  const makeAliasRow = aliases => {
+  const makeAliasRow = (aliases, { standalone = false } = {}) => {
     if (!aliases.length) return null;
     const row = document.createElement('div');
     row.className = 'csw-name-rel-alias-row';
+    if (standalone) row.classList.add('is-standalone');
     row.appendChild(makeTrack());
 
     const content = document.createElement('div');
@@ -105,8 +100,8 @@
     return row;
   };
 
-  const assertBoundarySources = catalog => {
-    for (const line of DERIVED) {
+  const assertRainbowBoundarySources = catalog => {
+    for (const line of RAINBOW_DERIVED) {
       const source = catalog?.sources?.[line.sourceId];
       if (!source || source.sourceType !== 'breederOfficial' || text(source.publisher) !== 'Archive Seed Bank' || text(source.title) !== line.name) {
         throw new Error(`RAINBOW_BELTS_DERIVED_SOURCE_MISMATCH:${line.sourceId}`);
@@ -114,22 +109,45 @@
     }
   };
 
-  const decorate = async () => {
-    if (currentId() !== TARGET_ID) return false;
-
+  const resolveCurrent = async () => {
+    const id = currentId();
+    if (!id) return null;
     const catalog = await loadCatalog();
-    const cultivar = (catalog?.cultivars || []).find(item => item?.id === TARGET_ID);
-    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${TARGET_ID}"],.ucd-root[data-public-detail-id="${TARGET_ID}"]`);
-    const lineageCard = shell.querySelector('.ucd-lineage');
-    if (!cultivar || !root || !lineageCard) return false;
+    const cultivar = (catalog?.cultivars || []).find(item => item?.id === id);
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]`);
+    const lineageCard = root?.querySelector('.ucd-lineage') || shell.querySelector('.ucd-lineage');
+    if (!cultivar || !root || !lineageCard) return null;
+    return { id, catalog, cultivar, root, lineageCard };
+  };
 
+  const setIntegratedTitle = lineageCard => {
+    const kicker = lineageCard.querySelector(':scope > summary > span > small');
+    if (!kicker) throw new Error('LINEAGE_SUMMARY_KICKER_MISSING');
+    if (kicker.textContent !== INTEGRATED_TITLE) kicker.textContent = INTEGRATED_TITLE;
+  };
+
+  const moveEvidenceFooterLast = lineageCard => {
+    const body = lineageCard.querySelector(':scope > div');
+    if (!body) return false;
+    const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
+    if (evidence && body.lastElementChild !== evidence) body.appendChild(evidence);
+    return Boolean(evidence);
+  };
+
+  const decorateRainbow = ({ catalog, cultivar, root, lineageCard }) => {
     if (text(cultivar.name) !== 'Rainbow Belts') throw new Error('RAINBOW_BELTS_CANONICAL_NAME_MISMATCH');
     const rootLineage = text(cultivar?.lineage?.display);
     if (!rootLineage) throw new Error('RAINBOW_BELTS_ROOT_LINEAGE_MISSING');
-    assertBoundarySources(catalog);
+    assertRainbowBoundarySources(catalog);
+    setIntegratedTitle(lineageCard);
 
     let body = lineageCard.querySelector(':scope > div');
-    if (lineageCard.dataset.lineageRelationships === 'v2' && body?.querySelector('[data-name-relationships-integrated="v2"]')) {
+    if (!body) {
+      body = document.createElement('div');
+      lineageCard.appendChild(body);
+    }
+    if (lineageCard.dataset.lineageRelationships === 'v2' && body.querySelector('[data-name-relationships-integrated="v2"]')) {
+      moveEvidenceFooterLast(lineageCard);
       return true;
     }
 
@@ -139,21 +157,8 @@
       legacy.setAttribute('aria-hidden', 'true');
       legacy.dataset.replacedByNameRelationships = 'v2';
     }
-
     root.querySelector('[data-name-relationships="v1"]')?.remove();
-
-    const summaryKicker = lineageCard.querySelector(':scope > summary > span > small');
-    if (!summaryKicker) throw new Error('RAINBOW_BELTS_LINEAGE_SUMMARY_KICKER_MISSING');
-    const integratedTitle = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
-    if (summaryKicker.textContent !== integratedTitle) summaryKicker.textContent = integratedTitle;
-
-    body = lineageCard.querySelector(':scope > div');
-    if (!body) {
-      body = document.createElement('div');
-      lineageCard.appendChild(body);
-    }
-
-    if (body.querySelector('[data-name-relationships-integrated="v2"]')) return true;
+    body.querySelector('[data-sitewide-lineage-integrated="v1"]')?.remove();
 
     const evidenceRow = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name && !/\b(?:2\.0|3\.0|auto)\b/i.test(alias));
@@ -163,48 +168,77 @@
 
     const aliasRow = makeAliasRow(aliases);
     if (aliasRow) integrated.appendChild(aliasRow);
-
-    DERIVED.forEach((line, index) => {
+    RAINBOW_DERIVED.forEach((line, index) => {
       const row = document.createElement('div');
       row.className = 'csw-name-rel-rail-item';
-      row.append(
-        makeTrack({ node: true, last: index === DERIVED.length - 1 }),
-        makeDerivedBlock(line)
-      );
+      row.append(makeTrack({ node: true, last: index === RAINBOW_DERIVED.length - 1 }), makeDerivedBlock(line));
       integrated.appendChild(row);
     });
 
     body.appendChild(integrated);
     if (evidenceRow) body.appendChild(evidenceRow);
     lineageCard.dataset.lineageRelationships = 'v2';
+    lineageCard.dataset.sitewideLineage = 'v1';
     root.dataset.nameRelationships = 'v2';
+    root.dataset.sitewideLineageRelationships = 'v1';
 
     window.__CSWRainbowBeltsNameRelationshipRailV1 = {
-      status: 'PASS',
-      cultivarId: TARGET_ID,
-      presentation: PRESENTATION,
-      rootLineage,
-      rootExplanationPreserved: true,
-      evidenceFooterAtBottom: Boolean(evidenceRow),
-      aliases,
-      derivedLines: DERIVED.map(line => ({ name: line.name, lineage: line.lineage })),
-      separateRelationshipCard: false,
-      autoRow: false,
-      contract: CONTRACT
+      status: 'PASS', cultivarId: RAINBOW_ID, presentation: RAINBOW_PRESENTATION,
+      rootLineage, rootExplanationPreserved: true, evidenceFooterAtBottom: Boolean(evidenceRow),
+      aliases, derivedLines: RAINBOW_DERIVED.map(line => ({ name: line.name, lineage: line.lineage })),
+      separateRelationshipCard: false, autoRow: false, contract: RAINBOW_CONTRACT
     };
     return true;
+  };
+
+  const decorateUniversal = ({ id, cultivar, root, lineageCard }) => {
+    setIntegratedTitle(lineageCard);
+    const body = lineageCard.querySelector(':scope > div');
+    if (!body) return false;
+
+    let integrated = body.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
+    const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name);
+    if (!integrated && aliases.length) {
+      integrated = document.createElement('section');
+      integrated.className = 'csw-name-rel-integrated csw-name-rel-integrated-sitewide';
+      integrated.dataset.sitewideLineageIntegrated = 'v1';
+      const aliasRow = makeAliasRow(aliases, { standalone: true });
+      if (aliasRow) integrated.appendChild(aliasRow);
+      const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
+      if (evidence) body.insertBefore(integrated, evidence);
+      else body.appendChild(integrated);
+    }
+
+    const evidenceFooterAtBottom = moveEvidenceFooterLast(lineageCard);
+    lineageCard.dataset.sitewideLineage = 'v1';
+    root.dataset.sitewideLineageRelationships = 'v1';
+    window.__CSWSitewideLineageRelationshipsV1 = {
+      status: 'PASS', contract: SITEWIDE_CONTRACT, cultivarId: id,
+      lineageStatus: text(cultivar?.lineage?.status) || 'unknown',
+      aliases, aliasCount: aliases.length, evidenceFooterAtBottom
+    };
+    return true;
+  };
+
+  const decorate = async () => {
+    const state = await resolveCurrent();
+    if (!state) return false;
+    return state.id === RAINBOW_ID ? decorateRainbow(state) : decorateUniversal(state);
   };
 
   if (!document.getElementById('csw-name-relationships-v1-style')) {
     const style = document.createElement('style');
     style.id = 'csw-name-relationships-v1-style';
     style.textContent = `
-      .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{letter-spacing:.10em}
-      .ucd-lineage[data-lineage-relationships="v2"]>div{padding-bottom:11px}
-      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
-      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row>a{margin-left:0!important}
+      .ucd-lineage[data-sitewide-lineage="v1"]>summary>span>small{letter-spacing:.10em}
+      .ucd-lineage[data-sitewide-lineage="v1"]>div{padding-bottom:11px}
+      .ucd-lineage[data-sitewide-lineage="v1"] .ucd-evidence-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
+      .ucd-lineage[data-sitewide-lineage="v1"] .ucd-evidence-row>a{margin-left:0!important}
       .csw-name-rel-integrated{display:grid;margin-top:11px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
+      .csw-name-rel-integrated-sitewide{padding-bottom:1px}
       .csw-name-rel-rail-item,.csw-name-rel-alias-row{display:grid;grid-template-columns:22px minmax(0,1fr);gap:7px;min-width:0}
+      .csw-name-rel-alias-row.is-standalone{grid-template-columns:minmax(0,1fr)}
+      .csw-name-rel-alias-row.is-standalone>.csw-name-rel-track{display:none}
       .csw-name-rel-rail-item{padding:5px 0}
       .csw-name-rel-name-block{display:grid;gap:3px;min-width:0;padding:7px 0}
       .csw-name-rel-name{min-width:0;color:#edf0ec;font-size:13px;font-weight:820;line-height:1.32}
@@ -223,11 +257,12 @@
       .csw-name-rel-track.is-last:before{bottom:calc(100% - 12px)}
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
       @media(max-width:390px){
-        .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{font-size:8px;letter-spacing:.075em}
+        .ucd-lineage[data-sitewide-lineage="v1"]>summary>span>small{font-size:8px;letter-spacing:.075em}
         .csw-name-rel-integrated{margin-top:10px;padding-top:9px}
         .csw-name-rel-name{font-size:12.5px}
         .csw-name-rel-lineage{font-size:10.5px!important}
         .csw-name-rel-rail-item,.csw-name-rel-alias-row{grid-template-columns:20px minmax(0,1fr);gap:6px}
+        .csw-name-rel-alias-row.is-standalone{grid-template-columns:minmax(0,1fr)}
         .csw-name-rel-track:before{left:9px}
         .csw-name-rel-node{left:5px}
       }
@@ -237,13 +272,15 @@
 
   let queued = false;
   const schedule = () => {
-    if (queued || currentId() !== TARGET_ID) return;
+    if (queued || !currentId()) return;
     queued = true;
     queueMicrotask(() => {
       queued = false;
       decorate().catch(error => {
-        window.__CSWRainbowBeltsNameRelationshipRailV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
-        console.error(CONTRACT, error);
+        const id = currentId();
+        if (id === RAINBOW_ID) window.__CSWRainbowBeltsNameRelationshipRailV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
+        window.__CSWSitewideLineageRelationshipsV1 = { status: 'FAIL_CLOSED', cultivarId: id, error: String(error?.message || error) };
+        console.error(SITEWIDE_CONTRACT, error);
         queueMicrotask(() => { throw error; });
       });
     });
@@ -253,10 +290,15 @@
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();
+  setTimeout(schedule, 250);
+  setTimeout(schedule, 1000);
 
   setTimeout(() => {
-    if (currentId() === TARGET_ID && !document.querySelector('[data-name-relationships-integrated="v2"]')) {
-      throw new Error('RAINBOW_BELTS_LINEAGE_RELATIONSHIPS_NOT_INTEGRATED');
+    const id = currentId();
+    if (!id) return;
+    const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]`);
+    if (root && root.dataset.sitewideLineageRelationships !== 'v1') {
+      throw new Error(`SITEWIDE_LINEAGE_RELATIONSHIPS_NOT_INTEGRATED:${id}`);
     }
   }, 8000);
 })();
