@@ -111,7 +111,7 @@ async function main() {
   url.hash = 'ignored-fragment';
   await cdp.send('Page.navigate', { url: url.href });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'document complete');
-  await waitFor(() => evalv(`!!document.querySelector('#detail-shell [data-detail-share="v1"]') && !!document.querySelector('.detail-public-v1[data-public-detail-id="sunset-sherbert"],.ucd-root[data-public-detail-id="sunset-sherbert"]')`), 'Sunset Sherbert share button');
+  await waitFor(() => evalv(`!!document.querySelector('#detail-shell [data-detail-share="v1"]') && !!document.querySelector('.detail-public-v1[data-public-detail-id="sunset-sherbert"],.ucd-root[data-public-detail-id="sunset-sherbert"]') && window.__CSWDetailShareV2?.contract==='CSW_DETAIL_SHARE_V2'`), 'Sunset Sherbert share V2 ready');
 
   const baseline = await evalv(`(()=>{
     const shell=document.getElementById('detail-shell');
@@ -125,11 +125,12 @@ async function main() {
       barPosition:bar?getComputedStyle(bar).position:'',
       buttonWidth:button?Math.round(button.getBoundingClientRect().width):0,
       buttonHeight:button?Math.round(button.getBoundingClientRect().height):0,
-      title:root?.querySelector('.detail-hero h2')?.textContent.trim()||'',
+      cultivarId:root?.dataset?.publicDetailId||'',
+      shareContract:window.__CSWDetailShareV2?.contract||'',
       overflow:!!root&&(root.scrollWidth>root.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1)
     };
   })()`);
-  if (baseline.label !== 'この品種を共有' || !baseline.shellReady || !baseline.actionbar || baseline.barPosition !== 'fixed' || baseline.buttonWidth < 40 || baseline.buttonHeight < 40 || baseline.title !== 'Sunset Sherbert' || baseline.overflow) {
+  if (baseline.label !== 'この品種を共有' || !baseline.shellReady || !baseline.actionbar || baseline.barPosition !== 'fixed' || baseline.buttonWidth < 40 || baseline.buttonHeight < 40 || baseline.cultivarId !== 'sunset-sherbert' || baseline.shareContract !== 'CSW_DETAIL_SHARE_V2' || baseline.overflow) {
     throw new Error(`Share presentation baseline mismatch: ${JSON.stringify(baseline)}`);
   }
 
@@ -140,9 +141,10 @@ async function main() {
     return true;
   })()`);
   const nativeShare = await waitFor(() => evalv(`window.__CSWShareCapture||false`), 'native share payload');
+  const nativeState = await waitFor(() => evalv(`window.__CSWDetailShareV2?.method==='native'&&window.__CSWDetailShareV2?.status==='SHARED'?window.__CSWDetailShareV2:false`), 'native share state');
   const nativeUrl = new URL(nativeShare.url);
-  if (nativeShare.title !== 'Sunset Sherbert | Cannabis Strain Wisdom' || nativeShare.text !== 'Sunset Sherbert | Cannabis Strain Wisdom') {
-    throw new Error(`Native share copy mismatch: ${JSON.stringify(nativeShare)}`);
+  if (nativeShare.title !== 'Sunset Sherbert | Cannabis Strain Wisdom' || nativeShare.text !== 'Sunset Sherbert | Cannabis Strain Wisdom' || nativeState.cultivarName !== 'Sunset Sherbert') {
+    throw new Error(`Native share copy mismatch: ${JSON.stringify({ nativeShare, nativeState })}`);
   }
   if (nativeUrl.searchParams.get('strain') !== 'sunset-sherbert' || nativeUrl.searchParams.size !== 1 || nativeUrl.hash) {
     throw new Error(`Native share URL was not canonicalized: ${nativeShare.url}`);
@@ -158,9 +160,10 @@ async function main() {
     return true;
   })()`);
   const copiedUrl = await waitFor(() => evalv(`window.__CSWClipboardCapture||false`), 'clipboard fallback');
+  const clipboardState = await waitFor(() => evalv(`window.__CSWDetailShareV2?.method==='clipboard'&&window.__CSWDetailShareV2?.status==='SHARED'?window.__CSWDetailShareV2:false`), 'clipboard share state');
   const fallbackUrl = new URL(copiedUrl);
-  if (fallbackUrl.searchParams.get('strain') !== 'sunset-sherbert' || fallbackUrl.searchParams.size !== 1 || fallbackUrl.hash) {
-    throw new Error(`Clipboard share URL was not canonicalized: ${copiedUrl}`);
+  if (fallbackUrl.searchParams.get('strain') !== 'sunset-sherbert' || fallbackUrl.searchParams.size !== 1 || fallbackUrl.hash || clipboardState.cultivarName !== 'Sunset Sherbert') {
+    throw new Error(`Clipboard share mismatch: ${JSON.stringify({ copiedUrl, clipboardState })}`);
   }
   const copiedFeedback = await evalv(`document.querySelector('#detail-shell [data-detail-share="v1"]')?.classList.contains('is-copied')||false`);
   if (!copiedFeedback) throw new Error('Clipboard fallback did not surface copied feedback');
@@ -174,7 +177,9 @@ async function main() {
     cultivar: 'sunset-sherbert',
     baseline,
     nativeShare,
+    nativeState,
     copiedUrl,
+    clipboardState,
     runtimeErrors: 0,
   }, null, 2));
   cdp.close();
