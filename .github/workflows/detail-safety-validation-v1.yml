@@ -26,6 +26,7 @@ jobs:
           node --check app.min.js
           node --check presentation-contract-v1.js
           node --check name-relationships-v1.js
+          node --check detail-interaction-v1.js
           node --check .github/scripts/public-current-runtime-authority-v1.mjs
           node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
           node --check .github/scripts/public-detail-card-uniformity-v1.mjs
@@ -36,7 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _qa/runtime _qa/production _qa/assets
-          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js styles.min.css site-updates.json .nojekyll _qa/
+          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js styles.min.css site-updates.json .nojekyll _qa/
           install -m 0644 runtime/catalog.json _qa/runtime/catalog.json
           install -m 0644 production/publication.json _qa/production/publication.json
           rsync -a assets/ _qa/assets/
@@ -45,14 +46,21 @@ jobs:
           from pathlib import Path
           path = Path('_qa/index.html')
           html = path.read_text(encoding='utf-8')
+          scripts = []
+          if 'detail-interaction-v1.js' not in html:
+              scripts.append('  <script defer src="detail-interaction-v1.js"></script>')
           if 'name-relationships-v1.js' not in html:
+              scripts.append('  <script defer src="name-relationships-v1.js"></script>')
+          if scripts:
               if html.count('</body>') != 1:
                   raise SystemExit('Expected exactly one closing body tag')
-              html = html.replace('</body>', '  <script defer src="name-relationships-v1.js"></script>\n</body>', 1)
+              html = html.replace('</body>', '\n'.join(scripts) + '\n</body>', 1)
           path.write_text(html, encoding='utf-8')
           PY
 
+          grep -Fq 'detail-interaction-v1.js' _qa/index.html
           grep -Fq 'name-relationships-v1.js' _qa/index.html
+          grep -Fq 'CSW_DETAIL_INTERACTION_V1' _qa/detail-interaction-v1.js
           grep -Fq 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1' _qa/name-relationships-v1.js
 
       - name: Local browser safety baseline
