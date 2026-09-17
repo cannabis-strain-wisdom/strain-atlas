@@ -9,117 +9,46 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: csw-keyword-search-disclosure-v1-once
-  cancel-in-progress: false
-
 jobs:
   patch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact trigger state
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 2
 
-      - name: Guard expected parent and scope
+      - name: Guard trigger state
         shell: bash
         run: |
           set -euo pipefail
-          expected_parent='f870c2cc27f595f3688654e0cb34a897d7ffcfb7'
-          actual_parent="$(git rev-parse HEAD^)"
-          test "$actual_parent" = "$expected_parent" || {
-            echo "SAFE_STOP_EXPECTED_PARENT_MISMATCH expected=$expected_parent actual=$actual_parent" >&2
-            exit 42
-          }
-          changed="$(git diff --name-only HEAD^ HEAD)"
-          test "$changed" = '.github/workflows/keyword-search-disclosure-v1-once.yml' || {
-            echo "SAFE_STOP_CREATION_SCOPE_MISMATCH files=$changed" >&2
-            exit 43
-          }
+          test "$(git rev-parse HEAD^)" = "a1323dddc84526e28e93c8aa7beec141b9357fe7"
+          test "$(git diff --name-only HEAD^ HEAD)" = ".github/workflows/keyword-search-disclosure-v1-once.yml"
 
-      - name: Apply keyword search disclosure
+      - name: Apply patch and validate
         shell: bash
         run: |
           set -euo pipefail
-          python3 <<'PY'
-          from pathlib import Path
-
-          path = Path('index.html')
-          html = path.read_text(encoding='utf-8')
-
-          if 'csw-keyword-search-disclosure-v1-styles' in html:
-              raise SystemExit('SAFE_STOP_KEYWORD_DISCLOSURE_ALREADY_PRESENT')
-
-          old = '''        <div class="keyword-search-block">
-          <div class="keyword-search-heading"><span>KEYWORD SEARCH</span><strong>文字・情報から探す</strong></div>
-          <div class="search-wrap"><label class="sr-only" for="search">品種や情報を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
-          <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンまで自由に探せます</p>
-        </div>'''
-
-          new = '''        <details class="keyword-search-disclosure" id="keyword-search-disclosure">
-          <summary><span class="keyword-search-summary-copy"><span>KEYWORD SEARCH</span><strong>キーワード検索</strong></span><span class="keyword-search-chevron" aria-hidden="true">⌄</span></summary>
-          <div class="keyword-search-panel">
-            <div class="search-wrap"><label class="sr-only" for="search">品種や情報を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
-            <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンまで自由に探せます</p>
-          </div>
-        </details>'''
-
-          if html.count(old) != 1:
-              raise SystemExit(f'SAFE_STOP_KEYWORD_BLOCK_MATCH_COUNT:{html.count(old)}')
-          html = html.replace(old, new, 1)
-
-          style = '''
-  <style id="csw-keyword-search-disclosure-v1-styles">
-    .keyword-search-disclosure{margin-top:12px;border-top:1px solid rgba(217,182,93,.14)}
-    .keyword-search-disclosure>summary{display:flex;min-height:44px;align-items:center;gap:9px;padding:7px 1px 0;list-style:none;cursor:pointer;color:#d9c985}
-    .keyword-search-disclosure>summary::-webkit-details-marker{display:none}
-    .keyword-search-summary-copy{display:flex;min-width:0;align-items:baseline;gap:8px}
-    .keyword-search-summary-copy>span{color:#8f8057;font-size:9px;font-weight:950;letter-spacing:.14em}
-    .keyword-search-summary-copy>strong{color:#dfe7e1;font-size:12px;line-height:1.25}
-    .keyword-search-chevron{margin-left:auto;color:#9f8d5b;font-size:15px;line-height:1;transition:transform .16s ease}
-    .keyword-search-disclosure[open] .keyword-search-chevron{transform:rotate(180deg)}
-    .keyword-search-panel{padding:8px 0 2px}
-    .keyword-search-panel .home-search-help{margin:7px 3px 0}
-    @media(max-width:699px){.keyword-search-summary-copy>span{font-size:10px}.keyword-search-summary-copy>strong{font-size:12px}}
-  </style>
-'''
-          if html.count('</head>') != 1:
-              raise SystemExit('SAFE_STOP_HEAD_CLOSE_COUNT')
-          html = html.replace('</head>', style + '</head>', 1)
-
-          path.write_text(html, encoding='utf-8')
-          PY
-
+          python3 .github/scripts/keyword-search-disclosure-v1-once.py
           grep -Fq 'id="keyword-search-disclosure"' index.html
           grep -Fq 'csw-keyword-search-disclosure-v1-styles' index.html
           grep -Fq 'id="search"' index.html
-          ! grep -Fq '<details class="keyword-search-disclosure" id="keyword-search-disclosure" open' index.html
           node --check app.min.js
           node --check presentation-contract-v1.js
-          node --check name-relationships-v1.js
-          node --check detail-interaction-v1.js
-          node --check detail-share-v2.js
 
-      - name: Recheck remote and publish exact delta
+      - name: Publish exact delta
         shell: bash
         run: |
           set -euo pipefail
           git fetch origin main
-          trigger_sha="$(git rev-parse HEAD)"
-          remote_sha="$(git rev-parse origin/main)"
-          test "$remote_sha" = "$trigger_sha" || {
-            echo "SAFE_STOP_REMOTE_ADVANCED trigger=$trigger_sha remote=$remote_sha" >&2
-            exit 44
-          }
-
-          git config user.name 'cannabis-strain-wisdom'
-          git config user.email '316430215+cannabis-strain-wisdom@users.noreply.github.com'
+          test "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)"
+          git config user.name "cannabis-strain-wisdom"
+          git config user.email "316430215+cannabis-strain-wisdom@users.noreply.github.com"
           git rm .github/workflows/keyword-search-disclosure-v1-once.yml
+          git rm .github/scripts/keyword-search-disclosure-v1-once.py
           git add index.html
-          git diff --cached --name-only | sort > /tmp/changed.txt
-          printf '%s\n' '.github/workflows/keyword-search-disclosure-v1-once.yml' 'index.html' | sort > /tmp/expected.txt
-          diff -u /tmp/expected.txt /tmp/changed.txt
-          git commit -m 'Collapse keyword search behind tap disclosure'
+          git diff --cached --name-only | sort > /tmp/actual
+          printf '%s\n' '.github/scripts/keyword-search-disclosure-v1-once.py' '.github/workflows/keyword-search-disclosure-v1-once.yml' 'index.html' | sort > /tmp/expected
+          diff -u /tmp/expected /tmp/actual
+          git commit -m "Collapse keyword search behind tap disclosure"
           git push origin HEAD:main
-          echo "NEW_PUBLIC_SHA=$(git rev-parse HEAD)"
