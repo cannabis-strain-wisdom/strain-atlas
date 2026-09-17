@@ -148,9 +148,10 @@
       if (!LABELS[kind]) continue;
       const panel = choosePanel(root, kind);
       const unavailable = isUnavailable(panel, kind);
+      const helper = text(button.dataset.cswSensoryHelper) || text(button.querySelector('small')?.textContent);
       button.dataset.cswDetailState = unavailable ? 'inactive' : 'active';
       button.setAttribute('aria-disabled', unavailable ? 'true' : 'false');
-      button.setAttribute('aria-label', unavailable ? `${LABELS[kind]}：未確認` : LABELS[kind]);
+      button.setAttribute('aria-label', helper ? `${LABELS[kind]}：${helper}` : LABELS[kind]);
       if (unavailable) {
         button.setAttribute('tabindex', '-1');
         reasons.push(reasonFor(panel, kind));
