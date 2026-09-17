@@ -128,6 +128,11 @@
     if (!rootLineage) throw new Error('RAINBOW_BELTS_ROOT_LINEAGE_MISSING');
     assertBoundarySources(catalog);
 
+    let body = lineageCard.querySelector(':scope > div');
+    if (lineageCard.dataset.lineageRelationships === 'v2' && body?.querySelector('[data-name-relationships-integrated="v2"]')) {
+      return true;
+    }
+
     const legacy = root.querySelector('[data-identity-family-pilot="v1"]');
     if (legacy) {
       legacy.hidden = true;
@@ -139,9 +144,10 @@
 
     const summaryKicker = lineageCard.querySelector(':scope > summary > span > small');
     if (!summaryKicker) throw new Error('RAINBOW_BELTS_LINEAGE_SUMMARY_KICKER_MISSING');
-    summaryKicker.textContent = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
+    const integratedTitle = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
+    if (summaryKicker.textContent !== integratedTitle) summaryKicker.textContent = integratedTitle;
 
-    let body = lineageCard.querySelector(':scope > div');
+    body = lineageCard.querySelector(':scope > div');
     if (!body) {
       body = document.createElement('div');
       lineageCard.appendChild(body);
