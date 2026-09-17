@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T21:27:29.017Z",
+  "generatedAt": "2026-09-17T05:19:25.766Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 73,
-    "sources": 138,
-    "entities": 27
+    "cultivars": 74,
+    "sources": 143,
+    "entities": 28
   },
   "explore": {
     "sativa": [
@@ -65,6 +65,7 @@
       "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
+      "sunset-sherbert",
       "super-skunk",
       "triangle-kush-s1",
       "violeta",
@@ -17086,6 +17087,288 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sunset-sherbert",
+      "status": "review",
+      "name": "Sunset Sherbert",
+      "jp": null,
+      "aliases": [
+        "Sunset Sherbet",
+        "Sherbert"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "display": "Girl Scout Cookies × Pink Panties",
+        "parents": [
+          "Girl Scout Cookies",
+          "Pink Panties"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mr. Sherbinski本人は、Pink Pantiesの雄株がCookiesの栽培室を受粉し、そのCookies × Pink Pantiesの種からSherbertが生まれたと説明しています。CSWでは現在の親identityに合わせてGirl Scout Cookies × Pink Pantiesと表示し、Thin Mint、S1、BX、Autoなどの後発表記はrootへ混ぜていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mario-guzman-sherbinski",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "high-times-sherbinski-sunset-sherbert-2018",
+            "leafly-cookies-cakes-sunset-sherbert-2024"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "weedmaps-sherbet"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイートベリー",
+          "クリーミーフルーツ",
+          "ブライトシトラス",
+          "アーシーファンク",
+          "ペッパースパイス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイートベリー",
+            "クリーミーフルーツ",
+            "ブライトシトラス",
+            "アーシーファンク",
+            "ペッパースパイス"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet berries",
+              "reviewLabelJa": "スイートベリー",
+              "plainMeaningJa": "甘さを伴うベリー類を思わせる果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー",
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy fruit",
+              "reviewLabelJa": "クリーミーフルーツ",
+              "plainMeaningJa": "クリーミーなまろやかさを伴う果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実",
+                "クリーミー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "bright citrus",
+              "reviewLabelJa": "ブライトシトラス",
+              "plainMeaningJa": "明るく鮮やかな印象の柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘",
+                "シトラス"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy funk",
+              "reviewLabelJa": "アーシーファンク",
+              "plainMeaningJa": "土っぽさに独特のファンク感が重なる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土",
+                "アーシー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "peppery spice",
+              "reviewLabelJa": "ペッパースパイス",
+              "plainMeaningJa": "胡椒を思わせる刺激を伴うスパイス香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "胡椒",
+                "スパイス"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Weedmapsのroot cultivarページがnoseとしてsweet berries、creamy fruit、bright citrus、earthy funk、peppery spiceを分けて記載しています。専門資料由来のPROFILEとして保持し、テルペンから香りを逆算していません。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sherbert"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "栽培者報告では開花63〜72日",
+            "min": 63,
+            "max": 72,
+            "unit": "days",
+            "sourceRefs": [
+              "leafly-sherbert"
+            ],
+            "confidence": "C",
+            "evidenceLevel": "COMMUNITY",
+            "claimOrigin": "grower-community-report"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sherbert"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "LeaflyはSherbertのTerpenesとしてCaryophyllene、Limonene、Myrceneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合・順位・分析測定値には変換していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mr. Sherbinski本人の説明と後年の直接取材では、Sunset SherbertはサンフランシスコのSunset Districtで生まれた系統として追えます。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024",
+          "high-times-medical-cannabis-cup-2016"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "creator本人が使う表記はSunset Sherbertです。一方、High Timesの2016年公式受賞結果にはSunset Sherbet表記があり、同一cultivarの歴史的な別表記として確認できます。CSWではSunset Sherbertを主表示、Sunset Sherbetを検索可能な別表記として保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sherbert"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyの栽培者報告では、oblongでfluffyな花、豊富なtrichome、dark amber hairs、light/dark green foliageが記載されています。名前から夕焼け色や紫色を足さず、S1・BX・Autoの形態もrootへ移植していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Mr. Sherbinski本人は、Pink Pantiesの雄株がCookiesの栽培室を受粉し、そのCookies × Pink Pantiesの種からSherbertが生まれたと説明しています。CSWでは現在の親identityに合わせてGirl Scout Cookies × Pink Pantiesと表示し、Thin Mint、S1、BX、Autoなどの後発表記はrootへ混ぜていません。",
+          "origin": "Mr. Sherbinski本人の説明と後年の直接取材では、Sunset SherbertはサンフランシスコのSunset Districtで生まれた系統として追えます。",
+          "history": "creator本人が使う表記はSunset Sherbertです。一方、High Timesの2016年公式受賞結果にはSunset Sherbet表記があり、同一cultivarの歴史的な別表記として確認できます。CSWではSunset Sherbertを主表示、Sunset Sherbetを検索可能な別表記として保持します。",
+          "aromaNote": "Weedmapsのroot cultivarページがnoseとしてsweet berries、creamy fruit、bright citrus、earthy funk、peppery spiceを分けて記載しています。専門資料由来のPROFILEとして保持し、テルペンから香りを逆算していません。",
+          "terpeneNote": "LeaflyはSherbertのTerpenesとしてCaryophyllene、Limonene、Myrceneを掲載しています。CSWでは専門資料由来の成分一覧として保持し、割合・順位・分析測定値には変換していません。",
+          "morphologyNote": "Leaflyの栽培者報告では、oblongでfluffyな花、豊富なtrichome、dark amber hairs、light/dark green foliageが記載されています。名前から夕焼け色や紫色を足さず、S1・BX・Autoの形態もrootへ移植していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sunset-sherbert/primary.webp",
+          "alt": "Sunset Sherbertの栽培者報告に基づき、oblongでややfluffyな花、豊富なtrichome、dark amber hairs、緑色の葉をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed. Product, S1, BX, Auto and descendant images are not used as the production asset.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-17",
+      "updatedAt": "2026-09-17",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "super-boof",
       "status": "review",
       "name": "Super Boof",
@@ -21338,6 +21621,22 @@
       "publishedAt": "2014-02-18",
       "checkedAt": "2026-09-16"
     },
+    "high-times-medical-cannabis-cup-2016": {
+      "schemaVersion": 1,
+      "id": "high-times-medical-cannabis-cup-2016",
+      "publisher": "High Times",
+      "title": "Winners of the 2016 Medical Cannabis Cup—A Live Cannabis Experience",
+      "url": "https://hightimes.com/news/winners-of-the-2016-medical-cannabis-cup-a-live-cannabis-experience/",
+      "sourceType": "awardOfficial",
+      "supports": [
+        "identity",
+        "aliases",
+        "history",
+        "awards"
+      ],
+      "publishedAt": "2016-10-09",
+      "checkedAt": "2026-09-17"
+    },
     "high-times-norcal-2017-wedding-cake": {
       "schemaVersion": 1,
       "id": "high-times-norcal-2017-wedding-cake",
@@ -21351,6 +21650,26 @@
       ],
       "publishedAt": "2017-06-04",
       "checkedAt": "2026-09-08"
+    },
+    "high-times-sherbinski-sunset-sherbert-2018": {
+      "schemaVersion": 1,
+      "id": "high-times-sherbinski-sunset-sherbert-2018",
+      "publisher": "High Times",
+      "title": "4 Minutes and 20 Seconds with Sherbinski, Iconic Strain Cultivator",
+      "url": "https://hightimes.com/grow/4-minutes-and-20-seconds-with-sherbinski-iconic-strain-cultivator/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "generation",
+        "origin",
+        "history"
+      ],
+      "publishedAt": "2018-12-28",
+      "checkedAt": "2026-09-17"
     },
     "high-times-socal-2018-wedding-cake": {
       "schemaVersion": 1,
@@ -21600,6 +21919,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-07"
     },
+    "leafly-cookies-cakes-sunset-sherbert-2024": {
+      "schemaVersion": 1,
+      "id": "leafly-cookies-cakes-sunset-sherbert-2024",
+      "publisher": "Leafly",
+      "title": "Just desserts: The Cookies and Cakes family genealogy",
+      "url": "https://www.leafly.com/news/strains-products/cookies-cakes-marijuana-family-strains-appreciation",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "origin",
+        "history",
+        "flavor"
+      ],
+      "publishedAt": "2024-04-09",
+      "checkedAt": "2026-09-17"
+    },
     "leafly-dr-grinspoon": {
       "schemaVersion": 1,
       "id": "leafly-dr-grinspoon",
@@ -21766,6 +22105,28 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-16"
+    },
+    "leafly-sherbert": {
+      "schemaVersion": 1,
+      "id": "leafly-sherbert",
+      "publisher": "Leafly",
+      "title": "Sherbert aka Sherbet, Sunset Sherbet, Sunset Sherbert Weed Strain Information",
+      "url": "https://www.leafly.com/strains/sunset-sherbert",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "cannabinoids",
+        "terpenes",
+        "flavor",
+        "effects",
+        "morphology",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-17"
     },
     "leafly-shiva-skunk": {
       "schemaVersion": 1,
@@ -22486,6 +22847,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-16"
     },
+    "weedmaps-sherbet": {
+      "schemaVersion": 1,
+      "id": "weedmaps-sherbet",
+      "publisher": "Weedmaps",
+      "title": "Sherbet (aka Sunset Sherbert) Weed Strain",
+      "url": "https://weedmaps.com/strains/sherbet",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "aroma",
+        "flavor",
+        "effects",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-17"
+    },
     "weedmaps-strains-that-made-cookies-2021": {
       "schemaVersion": 1,
       "id": "weedmaps-strains-that-made-cookies-2021",
@@ -22735,6 +23116,18 @@
       "status": "confirmed",
       "checkedAt": "2026-09-05",
       "updatedAt": "2026-09-05"
+    },
+    "mario-guzman-sherbinski": {
+      "schemaVersion": 1,
+      "id": "mario-guzman-sherbinski",
+      "name": "Mario Guzman (Mr. Sherbinski)",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-17",
+      "updatedAt": "2026-09-17",
+      "note": "Direct High Times and Leafly interviews identify Mario Guzman / Mr. Sherbinski as the creator/breeder of Sunset Sherbert and describe the breeding event in his own words."
     },
     "mephisto-genetics": {
       "schemaVersion": 1,
