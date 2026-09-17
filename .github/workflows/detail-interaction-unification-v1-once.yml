@@ -1,0 +1,291 @@
+name: Detail interaction unification V1 once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/detail-interaction-unification-v1-once.yml
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: csw-detail-interaction-unification-v1-once
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact trigger state
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 2
+
+      - name: Guard expected parent and scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_parent='3a0a0dbaec572228c5b89f657229168168cca9dc'
+          actual_parent="$(git rev-parse HEAD^)"
+          test "$actual_parent" = "$expected_parent" || {
+            echo "SAFE_STOP_EXPECTED_PARENT_MISMATCH expected=$expected_parent actual=$actual_parent" >&2
+            exit 42
+          }
+          changed="$(git diff --name-only HEAD^ HEAD)"
+          test "$changed" = '.github/workflows/detail-interaction-unification-v1-once.yml' || {
+            echo "SAFE_STOP_CREATION_SCOPE_MISMATCH files=$changed" >&2
+            exit 43
+          }
+
+      - name: Apply proven detail interaction delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          index_path = Path('index.html')
+          smoke_path = Path('.github/scripts/public-frontend-browser-smoke-v2.mjs')
+          html = index_path.read_text(encoding='utf-8')
+          smoke = smoke_path.read_text(encoding='utf-8')
+
+          if 'CSW_DETAIL_INTERACTION_UNIFICATION_V1' in html:
+              raise SystemExit('SAFE_STOP_DETAIL_INTERACTION_MARKER_ALREADY_PRESENT')
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'SAFE_STOP_{label}_MATCH_COUNT:{count}')
+              return text.replace(old, new, 1)
+
+          # Sensory availability is a presentation state. Explicit unavailable cards must not be interactive.
+          choose_anchor = """    const decorateSensoryCopy = root => {\n"""
+          availability = """    const isAvailableSensoryPanel = (panel, kind) => {\n      if (!panel) return false;\n      if (panel.dataset?.unavailableDetailCard === 'v1') return false;\n      if (kind === 'terpene' && panel.matches?.('[data-terpene-unavailable=\"v1\"]')) return false;\n      if (panel.querySelector?.('.ucd-terpene-unavailable,.ucd-data-unavailable,[data-unavailable-detail-card=\"v1\"]')) return false;\n      return true;\n    };\n\n"""
+          html = replace_once(html, choose_anchor, availability + choose_anchor, 'SENSORY_AVAILABILITY_ANCHOR')
+
+          old_kinds = """      const sensoryKinds = ['aroma','flavor','terpene'].filter(kind => {\n        const panel = choosePanel(root, kind);\n        return !!panel;\n      });\n      if (sensoryKinds.length < 2) return;\n"""
+          new_kinds = """      const sensoryKinds = ['flavor','aroma','terpene'];\n      const availableSensoryKinds = new Set(sensoryKinds.filter(kind => isAvailableSensoryPanel(choosePanel(root, kind), kind)));\n      const hasSensoryPresence = sensoryKinds.some(kind => !!choosePanel(root, kind));\n      if (!hasSensoryPresence) return;\n"""
+          html = replace_once(html, old_kinds, new_kinds, 'SENSORY_KIND_BLOCK')
+
+          old_reconcile = """        button.dataset.cswSensoryHelper = spec.helper;\n        button.setAttribute('aria-label', `${spec.label}：${spec.helper}`);\n        const currentLabel = button.querySelector('span')?.textContent || '';\n        const currentHelper = button.querySelector('small')?.textContent || '';\n        if (currentLabel !== spec.label || currentHelper !== spec.helper) {\n          const label = document.createElement('span');\n          label.textContent = spec.label;\n          const helper = document.createElement('small');\n          helper.textContent = spec.helper;\n          button.replaceChildren(label, helper);\n        }\n"""
+          new_reconcile = """        const available = availableSensoryKinds.has(kind);\n        const state = available ? 'active' : 'inactive';\n        delete button.dataset.cswSensoryHelper;\n        button.dataset.cswSensoryState = state;\n        button.disabled = !available;\n        button.setAttribute('aria-disabled', available ? 'false' : 'true');\n        button.setAttribute('aria-label', available ? spec.label : `${spec.label}：未確認`);\n        const signature = `${kind}:${state}:${spec.label}`;\n        if (button.dataset.cswSensoryRendered !== signature) {\n          const label = document.createElement('span');\n          label.textContent = spec.label;\n          if (available) {\n            const chevron = document.createElement('i');\n            chevron.setAttribute('aria-hidden', 'true');\n            chevron.textContent = '⌄';\n            button.replaceChildren(label, chevron);\n          } else {\n            const status = document.createElement('small');\n            status.textContent = '未確認';\n            button.replaceChildren(label, status);\n          }\n          button.dataset.cswSensoryRendered = signature;\n        }\n"""
+          html = replace_once(html, old_reconcile, new_reconcile, 'SENSORY_RECONCILE_BLOCK')
+
+          click_anchor = """          event.preventDefault();\n          event.stopPropagation();\n          const kind = sub.dataset.cswStagedSensorySub;\n"""
+          click_new = """          event.preventDefault();\n          event.stopPropagation();\n          if (sub.disabled || sub.dataset.cswSensoryState !== 'active') return;\n          const kind = sub.dataset.cswStagedSensorySub;\n"""
+          html = replace_once(html, click_anchor, click_new, 'SENSORY_CLICK_GUARD')
+
+          # Share V2: native share and copy fallback use the same dynamic, public-only cultivar summary.
+          old_copy = """    const copyUrl = async url => {\n      if (navigator.clipboard?.writeText) {\n        await navigator.clipboard.writeText(url);\n        return;\n      }\n      const area = document.createElement('textarea');\n      area.value = url;\n      area.setAttribute('readonly', '');\n      area.style.position = 'fixed';\n      area.style.opacity = '0';\n      document.body.appendChild(area);\n      area.select();\n      const ok = document.execCommand('copy');\n      area.remove();\n      if (!ok) throw new Error('COPY_FAILED');\n    };\n"""
+          new_copy = """    const copyText = async text => {\n      if (navigator.clipboard?.writeText) {\n        await navigator.clipboard.writeText(text);\n        return;\n      }\n      const area = document.createElement('textarea');\n      area.value = text;\n      area.setAttribute('readonly', '');\n      area.style.position = 'fixed';\n      area.style.opacity = '0';\n      document.body.appendChild(area);\n      area.select();\n      const ok = document.execCommand('copy');\n      area.remove();\n      if (!ok) throw new Error('COPY_FAILED');\n    };\n\n    const cleanPublicText = value => {\n      const text = String(value || '').replace(/\\s+/g, ' ').trim();\n      return text && !/(?:UNKNOWN|未確認|未登録)/i.test(text) ? text : '';\n    };\n\n    const buildShareText = () => {\n      const url = shareUrl();\n      const name = cleanPublicText(shell.querySelector('.detail-hero h2')?.textContent) || 'Cannabis Strain Wisdom';\n      const lines = [name];\n      const breeders = [...shell.querySelectorAll('.ucd-hero-meta > span')].map(node => cleanPublicText(node.textContent)).filter(Boolean);\n      if (breeders.length) lines.push(`ブリーダー: ${[...new Set(breeders)].join(' / ')}`);\n      const lineage = cleanPublicText(shell.querySelector('.ucd-lineage summary strong')?.textContent);\n      if (lineage) lines.push(`系譜: ${lineage}`);\n      const type = cleanPublicText(\n        shell.querySelector('[data-ucd-primary-tab=\"type\"] .ucd-primary-nav-copy strong')?.textContent ||\n        shell.querySelector('.ucd-type-only > strong')?.textContent ||\n        shell.querySelector('.ucd-ratio-head > b')?.textContent\n      );\n      if (type) lines.push(`タイプ: ${type}`);\n      const cannabinoids = [...shell.querySelectorAll('.ucd-cannabinoid-grid > div')].map(cell => {\n        const label = cleanPublicText(cell.querySelector('small')?.textContent);\n        const value = cleanPublicText(cell.querySelector('strong')?.textContent);\n        return label && value ? `${label} ${value}` : '';\n      }).filter(Boolean);\n      if (cannabinoids.length) lines.push(`カンナビノイド: ${cannabinoids.join(' / ')}`);\n      lines.push('Cannabis Strain Wisdom', url);\n      return lines.join('\\n');\n    };\n    window.__CSWBuildDetailShareV2 = buildShareText;\n"""
+          html = replace_once(html, old_copy, new_copy, 'SHARE_COPY_FUNCTION')
+
+          feedback_anchor = """    shell.addEventListener('click', async event => {\n"""
+          failed_feedback = """    const failedFeedback = button => {\n      button.classList.add('is-copy-failed');\n      button.setAttribute('aria-label', '共有できませんでした');\n      window.setTimeout(() => {\n        if (!button.isConnected) return;\n        button.classList.remove('is-copy-failed');\n        button.setAttribute('aria-label', 'この品種を共有');\n        button.innerHTML = shareIcon;\n      }, 1600);\n    };\n\n"""
+          html = replace_once(html, feedback_anchor, failed_feedback + feedback_anchor, 'SHARE_FEEDBACK_ANCHOR')
+
+          old_share_body = """      const url = shareUrl();\n      const name = shell.querySelector('.detail-hero h2')?.textContent?.trim() || 'Cannabis Strain Wisdom';\n      try {\n        if (typeof navigator.share === 'function') {\n          await navigator.share({ title: `${name} | Cannabis Strain Wisdom`, text: `${name} | Cannabis Strain Wisdom`, url });\n          return;\n        }\n        await copyUrl(url);\n        copiedFeedback(button);\n      } catch (error) {\n        if (error?.name === 'AbortError') return;\n        try {\n          await copyUrl(url);\n          copiedFeedback(button);\n        } catch (_) {}\n      }\n"""
+          new_share_body = """      const name = cleanPublicText(shell.querySelector('.detail-hero h2')?.textContent) || 'Cannabis Strain Wisdom';\n      const text = buildShareText();\n      try {\n        if (typeof navigator.share === 'function') {\n          await navigator.share({ title: `${name} | Cannabis Strain Wisdom`, text });\n          return;\n        }\n        await copyText(text);\n        copiedFeedback(button);\n      } catch (error) {\n        if (error?.name === 'AbortError') return;\n        try {\n          await copyText(text);\n          copiedFeedback(button);\n        } catch (_) {\n          failedFeedback(button);\n        }\n      }\n"""
+          html = replace_once(html, old_share_body, new_share_body, 'SHARE_HANDLER')
+
+          # CSS overrides for active/inactive sensory state and verification disclosure.
+          style_block = """
+  <style id="csw-detail-interaction-unification-v1-styles">
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button{position:relative;min-height:48px!important;align-items:center!important;align-content:center!important}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="active"]{grid-template-columns:minmax(0,1fr) auto;cursor:pointer}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="active"]>i{display:block;color:#d8bd62;font-size:14px;font-style:normal;line-height:1}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="inactive"]{cursor:default;opacity:.58;border-color:rgba(255,255,255,.075);background:rgba(255,255,255,.012)}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="inactive"]>span{color:#89968e}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="inactive"]>small{color:#66756c;font-size:10px;font-weight:700}
+    .detail-public-v1[data-csw-staged-sensory="v1"] .csw-staged-sensory-subnav button[data-csw-sensory-state="inactive"]:disabled{opacity:.58}
+    .detail-share-button.is-copy-failed{border-color:rgba(205,111,92,.48);color:#e2a08f}
+    .csw-verification-status-v1{margin:18px 0 0;border-top:1px solid rgba(216,189,98,.10);border-bottom:1px solid rgba(216,189,98,.10)}
+    .csw-verification-status-v1>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:10px 2px;cursor:pointer;list-style:none;color:#aebbb3}
+    .csw-verification-status-v1>summary::-webkit-details-marker{display:none}
+    .csw-verification-status-v1>summary>span{font-size:12px;font-weight:850;letter-spacing:.04em}
+    .csw-verification-status-v1>summary>i{color:#d8bd62;font-size:14px;font-style:normal;transition:transform .16s ease}
+    .csw-verification-status-v1[open]>summary>i{transform:rotate(180deg)}
+    .csw-verification-status-v1-body{display:grid;gap:9px;padding:0 0 13px}
+    .csw-verification-status-v1-item{padding:10px 11px;border:1px solid rgba(255,255,255,.065);border-radius:11px;background:rgba(255,255,255,.018)}
+    .csw-verification-status-v1-item strong{display:block;color:#c4cec7;font-size:13px;line-height:1.4}
+    .csw-verification-status-v1-item p{margin:5px 0 0;color:#829087;font-size:13px;line-height:1.65}
+  </style>
+"""
+          html = replace_once(html, '</head>', style_block + '</head>', 'HEAD_CLOSE')
+
+          verification_script = r'''
+  <script id="csw-detail-interaction-unification-v1-script">
+  (() => {
+    'use strict';
+    const CONTRACT = 'CSW_DETAIL_INTERACTION_UNIFICATION_V1';
+    const shell = document.getElementById('detail-shell');
+    if (!shell) return;
+
+    const collectReasons = root => {
+      const seen = new Set();
+      return [...root.querySelectorAll('.ucd-terpene-unavailable,.ucd-data-unavailable')].map(box => {
+        const title = String(box.querySelector('strong')?.textContent || '').trim();
+        const text = String(box.querySelector('p')?.textContent || '').trim();
+        const signature = `${title}\n${text}`;
+        if ((!title && !text) || seen.has(signature)) return null;
+        seen.add(signature);
+        return { title: title || '未確認', text };
+      }).filter(Boolean);
+    };
+
+    const decorate = () => {
+      const root = shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
+      const sources = root?.querySelector('.ucd-sources');
+      if (!(root && sources)) return;
+      const reasons = collectReasons(root);
+      let disclosure = root.querySelector('[data-csw-verification-status="v1"]');
+      if (!reasons.length) {
+        if (disclosure) disclosure.remove();
+        window.__CSWDetailInteractionUnificationV1 = { status: 'PASS', cultivarId: root.dataset.publicDetailId || '', reasons: 0 };
+        return;
+      }
+      const signature = JSON.stringify(reasons);
+      if (!disclosure) {
+        disclosure = document.createElement('details');
+        disclosure.className = 'csw-verification-status-v1';
+        disclosure.dataset.cswVerificationStatus = 'v1';
+        const summary = document.createElement('summary');
+        const label = document.createElement('span');
+        label.textContent = '確認状況';
+        const chevron = document.createElement('i');
+        chevron.setAttribute('aria-hidden', 'true');
+        chevron.textContent = '⌄';
+        summary.append(label, chevron);
+        const body = document.createElement('div');
+        body.className = 'csw-verification-status-v1-body';
+        disclosure.append(summary, body);
+        sources.insertAdjacentElement('beforebegin', disclosure);
+      }
+      if (disclosure.dataset.cswVerificationSignature !== signature) {
+        const body = disclosure.querySelector('.csw-verification-status-v1-body');
+        body.replaceChildren(...reasons.map(reason => {
+          const item = document.createElement('div');
+          item.className = 'csw-verification-status-v1-item';
+          const title = document.createElement('strong');
+          title.textContent = reason.title;
+          item.appendChild(title);
+          if (reason.text) {
+            const text = document.createElement('p');
+            text.textContent = reason.text;
+            item.appendChild(text);
+          }
+          return item;
+        }));
+        disclosure.dataset.cswVerificationSignature = signature;
+      }
+      disclosure.open = false;
+      window.__CSWDetailInteractionUnificationV1 = { status: 'PASS', cultivarId: root.dataset.publicDetailId || '', reasons: reasons.length };
+    };
+
+    let queued = false;
+    const schedule = () => {
+      if (queued) return;
+      queued = true;
+      queueMicrotask(() => {
+        queued = false;
+        try { decorate(); } catch (error) {
+          window.__CSWDetailInteractionUnificationV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
+        }
+      });
+    };
+    new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+    shell.addEventListener('click', schedule, true);
+    window.addEventListener('popstate', schedule);
+    schedule();
+  })();
+  </script>
+'''
+          html = replace_once(html, '  <!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_START -->', verification_script + '  <!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_START -->', 'VERIFICATION_SCRIPT_ANCHOR')
+
+          # Browser regression updates: final inactive semantics, moved reason, dynamic share, protected Rainbow card, OFUSE.
+          old_apple_eval = """const appleSensory = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id=\"apple-fritter\"]');if(root?.dataset.sensorySemanticPresentation!=='v1'||root.querySelectorAll('[data-csw-staged-sensory-sub]').length!==3)return false;const children=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||''}));const unknown=['aroma','terpene'].filter(kind=>root.querySelector('[data-ucd-panel=\"'+kind+'\"]')?.dataset.unavailableDetailCard==='v1');return {children,unknown,overflow:root.scrollWidth>root.clientWidth+1}})()`), 'Apple Fritter sensory semantic presentation');\nif (JSON.stringify(appleSensory.children)!==JSON.stringify([{kind:'aroma',label:'アロマ',helper:'鼻で感じる香り'},{kind:'flavor',label:'フレーバー',helper:'口に含んだ時に感じる風味'},{kind:'terpene',label:'テルペン',helper:'確認できた成分情報'}])) throw new Error(`Apple Fritter sensory semantics mismatch: ${JSON.stringify(appleSensory)}`);\n"""
+          new_apple_eval = """const appleSensory = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id=\"apple-fritter\"]');if(root?.dataset.sensorySemanticPresentation!=='v1'||root.querySelectorAll('[data-csw-staged-sensory-sub]').length!==3)return false;const children=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',state:button.dataset.cswSensoryState||'',status:button.querySelector('small')?.textContent.trim()||'',disabled:button.disabled}));const unknown=['aroma','terpene'].filter(kind=>root.querySelector('[data-ucd-panel=\"'+kind+'\"]')?.dataset.unavailableDetailCard==='v1');return {children,unknown,overflow:root.scrollWidth>root.clientWidth+1}})()`), 'Apple Fritter sensory semantic presentation');\nif (JSON.stringify(appleSensory.children)!==JSON.stringify([{kind:'flavor',label:'フレーバー',state:'active',status:'',disabled:false},{kind:'aroma',label:'アロマ',state:'inactive',status:'未確認',disabled:true},{kind:'terpene',label:'テルペン',state:'inactive',status:'未確認',disabled:true}])) throw new Error(`Apple Fritter sensory semantics mismatch: ${JSON.stringify(appleSensory)}`);\n"""
+          smoke = replace_once(smoke, old_apple_eval, new_apple_eval, 'QA_APPLE_SENSORY')
+
+          old_blue_semantics = """  const blueSensoryHelpers = await evalv(`[...document.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||''}))`);\n  if (JSON.stringify(blueSensoryHelpers)!==JSON.stringify([{kind:'aroma',label:'アロマ',helper:'鼻で感じる香り'},{kind:'flavor',label:'フレーバー',helper:'口に含んだ時に感じる風味'},{kind:'terpene',label:'テルペン',helper:'確認できた成分情報'}])) throw new Error(`Blue Gelato sensory semantics mismatch: ${JSON.stringify(blueSensoryHelpers)}`);\n"""
+          new_blue_semantics = """  const blueSensoryHelpers = await evalv(`[...document.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',state:button.dataset.cswSensoryState||'',status:button.querySelector('small')?.textContent.trim()||'',disabled:button.disabled}))`);\n  if (JSON.stringify(blueSensoryHelpers)!==JSON.stringify([{kind:'flavor',label:'フレーバー',state:'active',status:'',disabled:false},{kind:'aroma',label:'アロマ',state:'active',status:'',disabled:false},{kind:'terpene',label:'テルペン',state:'inactive',status:'未確認',disabled:true}])) throw new Error(`Blue Gelato sensory semantics mismatch: ${JSON.stringify(blueSensoryHelpers)}`);\n"""
+          smoke = replace_once(smoke, old_blue_semantics, new_blue_semantics, 'QA_BLUE_SENSORY')
+
+          old_blue_terpene = """  await evalv(`document.querySelector('[data-csw-staged-sensory-sub=\"terpene\"]').click()`);\n  const blueTerpene = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind=\"terpene\"]');if(!p||p.hidden)return false;return p.innerText})()`), 'Blue Gelato terpene child');\n  if(!blueTerpene.includes('個別テルペンは確認できていません')) throw new Error(`Blue Gelato UNKNOWN terpene message missing: ${blueTerpene}`);\n"""
+          new_blue_terpene = """  const blueTerpene = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id=\"blue-gelato-41\"]');const button=root?.querySelector('[data-csw-staged-sensory-sub=\"terpene\"]');const panel=root?.querySelector('[data-profile-kind=\"terpene\"]');const verification=root?.querySelector('[data-csw-verification-status=\"v1\"]');const sources=root?.querySelector('.ucd-sources');return button&&verification&&sources?{disabled:button.disabled,state:button.dataset.cswSensoryState,status:button.querySelector('small')?.textContent.trim()||'',panelHidden:panel?.hidden!==false,verificationOpen:verification.open,verificationText:verification.innerText,beforeSources:Boolean(verification.compareDocumentPosition(sources)&Node.DOCUMENT_POSITION_FOLLOWING)}:false})()`), 'Blue Gelato inactive terpene and verification status');\n  if(!blueTerpene.disabled||blueTerpene.state!=='inactive'||blueTerpene.status!=='未確認'||!blueTerpene.panelHidden||blueTerpene.verificationOpen||!blueTerpene.beforeSources||!blueTerpene.verificationText.includes('個別テルペンは確認できていません')) throw new Error(`Blue Gelato inactive terpene mismatch: ${JSON.stringify(blueTerpene)}`);\n"""
+          smoke = replace_once(smoke, old_blue_terpene, new_blue_terpene, 'QA_BLUE_TERPENE')
+
+          runtime_anchor = """  const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');\n"""
+          extra_qa = """  const ofuse = await evalv(`(()=>{const a=document.querySelector('[data-support-ofuse] a.support-link');if(!a)return null;const u=new URL(a.href);return {host:u.hostname,path:u.pathname}})()`);\n  if (!ofuse || ofuse.host!=='ofuse.me' || ofuse.path!=='/2b445cd2') throw new Error(`OFUSE target mismatch: ${JSON.stringify(ofuse)}`);\n\n  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=rainbow-belts` });\n  await waitFor(() => evalv(`document.readyState==='complete'`), 'Rainbow Belts document complete');\n  const rainbowShare = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id=\"rainbow-belts\"]');const build=window.__CSWBuildDetailShareV2;const lineage=document.querySelector('#detail-shell .ucd-lineage');if(!root||typeof build!=='function'||!lineage)return false;return {text:build(),lineageCount:document.querySelectorAll('#detail-shell .ucd-lineage').length,lineageLabel:lineage.querySelector('summary small')?.textContent.trim()||'',relationshipCards:document.querySelectorAll('#detail-shell [data-name-relationships=\"v1\"]').length,overflow:root.scrollWidth>root.clientWidth+1}})()`), 'Rainbow Belts share and protected lineage');\n  if (!rainbowShare.text.includes('Rainbow Belts') || !rainbowShare.text.includes('ブリーダー: Archive Seed Bank') || !rainbowShare.text.includes('系譜: Zkittlez × Moonbow #75') || !rainbowShare.text.includes('strain=rainbow-belts') || /UNKNOWN|未確認|未登録/i.test(rainbowShare.text)) throw new Error(`Rainbow Belts share summary mismatch: ${JSON.stringify(rainbowShare)}`);\n  if (rainbowShare.lineageCount!==1 || !rainbowShare.lineageLabel.includes('系譜・系統関係') || rainbowShare.relationshipCards!==0 || rainbowShare.overflow) throw new Error(`Rainbow Belts protected lineage mismatch: ${JSON.stringify(rainbowShare)}`);\n\n"""
+          smoke = replace_once(smoke, runtime_anchor, extra_qa + runtime_anchor, 'QA_FINAL_ANCHOR')
+
+          index_path.write_text(html, encoding='utf-8')
+          smoke_path.write_text(smoke, encoding='utf-8')
+          PY
+
+          grep -Fq 'CSW_DETAIL_INTERACTION_UNIFICATION_V1' index.html
+          grep -Fq 'window.__CSWBuildDetailShareV2' index.html
+          grep -Fq 'data-csw-verification-status="v1"' index.html
+          grep -Fq "const sensoryKinds = ['flavor','aroma','terpene'];" index.html
+          grep -Fq 'Blue Gelato inactive terpene mismatch' .github/scripts/public-frontend-browser-smoke-v2.mjs
+          grep -Fq 'Rainbow Belts protected lineage mismatch' .github/scripts/public-frontend-browser-smoke-v2.mjs
+          grep -Fq 'Zkittlez × Moonbow #75' name-relationships-v1.js
+          node --check app.min.js
+          node --check presentation-contract-v1.js
+          node --check name-relationships-v1.js
+          node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
+
+      - name: Run real browser regression before write
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 >/tmp/csw-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          for _ in $(seq 1 50); do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && break
+            sleep .1
+          done
+          CHROME_BIN="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN" || { echo 'SAFE_STOP_CHROME_NOT_FOUND' >&2; exit 45; }
+          export CHROME_BIN
+          export CSW_BASE_URL='http://127.0.0.1:4173/'
+          node .github/scripts/public-frontend-browser-smoke-v2.mjs
+
+      - name: Recheck remote and publish exact delta
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          trigger_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git rev-parse origin/main)"
+          test "$remote_sha" = "$trigger_sha" || {
+            echo "SAFE_STOP_REMOTE_ADVANCED trigger=$trigger_sha remote=$remote_sha" >&2
+            exit 46
+          }
+
+          git config user.name 'cannabis-strain-wisdom'
+          git config user.email '316430215+cannabis-strain-wisdom@users.noreply.github.com'
+          git rm .github/workflows/detail-interaction-unification-v1-once.yml
+          git add index.html .github/scripts/public-frontend-browser-smoke-v2.mjs
+          git diff --cached --name-only | sort > /tmp/changed.txt
+          printf '%s\n' '.github/scripts/public-frontend-browser-smoke-v2.mjs' '.github/workflows/detail-interaction-unification-v1-once.yml' 'index.html' | sort > /tmp/expected.txt
+          diff -u /tmp/expected.txt /tmp/changed.txt
+          git commit -m 'Unify detail interaction and share presentation'
+          git push origin HEAD:main
+          new_sha="$(git rev-parse HEAD)"
+          echo "NEW_PUBLIC_SHA=$new_sha"
+
+          curl --fail-with-body -sS -L \
+            -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            https://api.github.com/repos/cannabis-strain-wisdom/strain-atlas/actions/workflows/deploy-public-ui-pages.yml/dispatches \
+            -d '{"ref":"main"}'
+          echo 'DEPLOY_DISPATCHED'
