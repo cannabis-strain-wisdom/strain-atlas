@@ -176,21 +176,22 @@ async function main() {
   if (blue.overflow) throw new Error('Blue Gelato interaction presentation has horizontal overflow');
 
   await navigate('rainbow-belts');
-  const rainbow = await evalv(`(()=>{
+  const rainbow = await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="rainbow-belts"],.ucd-root[data-public-detail-id="rainbow-belts"]');
-    const lineage=root.querySelector('.ucd-lineage');
+    const lineage=root?.querySelector('.ucd-lineage');
     const body=lineage?.querySelector(':scope > div');
     const evidence=body?.querySelector(':scope > .ucd-evidence-row');
+    if(!root||!lineage||!body||!evidence||window.__CSWRainbowBeltsNameRelationshipRailV1?.status!=='PASS') return false;
     return {
       lineageCount:root.querySelectorAll('.ucd-lineage').length,
-      rootLineage:lineage?.querySelector(':scope > summary strong')?.textContent.trim()||'',
-      kicker:lineage?.querySelector(':scope > summary > span > small')?.textContent.trim()||'',
-      evidenceLast:!!body&&body.lastElementChild===evidence,
-      evidenceJustify:evidence?getComputedStyle(evidence).justifyContent:'',
-      integratedCount:body?.querySelectorAll('[data-name-relationships-integrated="v2"]').length||0,
+      rootLineage:lineage.querySelector(':scope > summary strong')?.textContent.trim()||'',
+      kicker:lineage.querySelector(':scope > summary > span > small')?.textContent.trim()||'',
+      evidenceLast:body.lastElementChild===evidence,
+      evidenceJustify:getComputedStyle(evidence).justifyContent,
+      integratedCount:body.querySelectorAll('[data-name-relationships-integrated="v2"]').length,
       overflow:root.scrollWidth>root.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
-  })()`);
+  })()`), 'Rainbow Belts protected lineage after interaction overlay');
   if (rainbow.lineageCount !== 1 || rainbow.rootLineage !== 'Zkittlez × Moonbow #75' || rainbow.kicker !== '系譜・系統関係 / LINEAGE & RELATIONSHIPS' || !rainbow.evidenceLast || rainbow.evidenceJustify !== 'flex-end' || rainbow.integratedCount !== 1 || rainbow.overflow) {
     throw new Error(`Rainbow Belts protected lineage changed under interaction overlay: ${JSON.stringify(rainbow)}`);
   }
