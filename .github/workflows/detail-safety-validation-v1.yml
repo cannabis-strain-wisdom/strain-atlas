@@ -31,6 +31,7 @@ jobs:
           node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
           node --check .github/scripts/public-detail-card-uniformity-v1.mjs
           node --check .github/scripts/public-detail-safety-baseline-v1.mjs
+          node --check .github/scripts/public-detail-interaction-v1.mjs
 
       - name: Stage validation artifact
         shell: bash
@@ -88,6 +89,7 @@ jobs:
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-interaction-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-detail-safety-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
 
           echo 'DETAIL SAFETY VALIDATION V1 PASS'
