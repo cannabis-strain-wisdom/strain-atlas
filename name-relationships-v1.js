@@ -155,6 +155,7 @@
 
     if (body.querySelector('[data-name-relationships-integrated="v2"]')) return true;
 
+    const evidenceRow = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name && !/\b(?:2\.0|3\.0|auto)\b/i.test(alias));
     const integrated = document.createElement('section');
     integrated.className = 'csw-name-rel-integrated';
@@ -174,6 +175,7 @@
     });
 
     body.appendChild(integrated);
+    if (evidenceRow) body.appendChild(evidenceRow);
     lineageCard.dataset.lineageRelationships = 'v2';
     root.dataset.nameRelationships = 'v2';
 
@@ -183,6 +185,7 @@
       presentation: PRESENTATION,
       rootLineage,
       rootExplanationPreserved: true,
+      evidenceFooterAtBottom: Boolean(evidenceRow),
       aliases,
       derivedLines: DERIVED.map(line => ({ name: line.name, lineage: line.lineage })),
       separateRelationshipCard: false,
@@ -198,7 +201,7 @@
     style.textContent = `
       .ucd-lineage[data-lineage-relationships="v2"]>summary>span>small{letter-spacing:.10em}
       .ucd-lineage[data-lineage-relationships="v2"]>div{padding-bottom:11px}
-      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+      .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
       .ucd-lineage[data-lineage-relationships="v2"] .ucd-evidence-row>a{margin-left:0!important}
       .csw-name-rel-integrated{display:grid;margin-top:11px;padding-top:10px;border-top:1px solid rgba(216,189,98,.13)}
       .csw-name-rel-rail-item,.csw-name-rel-alias-row{display:grid;grid-template-columns:22px minmax(0,1fr);gap:7px;min-width:0}
