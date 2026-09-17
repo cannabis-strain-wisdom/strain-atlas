@@ -1,0 +1,61 @@
+name: Detail safety validation V1
+
+on:
+  push:
+    branches:
+      - validated/detail-safety-baseline-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: csw-detail-safety-validation-v1
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout validation branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Static syntax checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check app.min.js
+          node --check presentation-contract-v1.js
+          node --check name-relationships-v1.js
+          node --check .github/scripts/public-current-runtime-authority-v1.mjs
+          node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
+          node --check .github/scripts/public-detail-card-uniformity-v1.mjs
+          node --check .github/scripts/public-detail-safety-baseline-v1.mjs
+
+      - name: Local browser safety baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
+          "$CHROME_BIN" --version
+
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >"$RUNNER_TEMP/csw-detail-safety-http.log" 2>&1 &
+          SERVER_PID=$!
+          cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+
+          for n in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.25
+          done
+          curl -fsS http://127.0.0.1:4173/runtime/catalog.json >/dev/null
+
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-detail-safety-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
+
+          echo 'DETAIL SAFETY VALIDATION V1 PASS'
