@@ -31,6 +31,30 @@ jobs:
           node --check .github/scripts/public-detail-card-uniformity-v1.mjs
           node --check .github/scripts/public-detail-safety-baseline-v1.mjs
 
+      - name: Stage validation artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _qa/runtime _qa/production _qa/assets
+          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js styles.min.css site-updates.json .nojekyll _qa/
+          install -m 0644 runtime/catalog.json _qa/runtime/catalog.json
+          install -m 0644 production/publication.json _qa/production/publication.json
+          rsync -a assets/ _qa/assets/
+
+          python3 <<'PY'
+          from pathlib import Path
+          path = Path('_qa/index.html')
+          html = path.read_text(encoding='utf-8')
+          if 'name-relationships-v1.js' not in html:
+              if html.count('</body>') != 1:
+                  raise SystemExit('Expected exactly one closing body tag')
+              html = html.replace('</body>', '  <script defer src="name-relationships-v1.js"></script>\n</body>', 1)
+          path.write_text(html, encoding='utf-8')
+          PY
+
+          grep -Fq 'name-relationships-v1.js' _qa/index.html
+          grep -Fq 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1' _qa/name-relationships-v1.js
+
       - name: Local browser safety baseline
         shell: bash
         run: |
@@ -42,7 +66,7 @@ jobs:
           test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
           "$CHROME_BIN" --version
 
-          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >"$RUNNER_TEMP/csw-detail-safety-http.log" 2>&1 &
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/_qa" >"$RUNNER_TEMP/csw-detail-safety-http.log" 2>&1 &
           SERVER_PID=$!
           cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }
           trap cleanup EXIT
