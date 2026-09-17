@@ -90,6 +90,20 @@
     #home-content>.home-search{position:relative;z-index:1;width:auto;margin:18px 0 0;padding:12px;border-radius:17px;box-shadow:0 12px 28px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.035)}
     @media(min-width:700px){#home-content>.home-search{width:auto;margin:26px 0 0;padding:15px}}
   </style>
+
+  <style id="csw-keyword-search-disclosure-v1-styles">
+    .keyword-search-disclosure{margin-top:12px;border-top:1px solid rgba(217,182,93,.14)}
+    .keyword-search-disclosure>summary{display:flex;min-height:44px;align-items:center;gap:9px;padding:7px 1px 0;list-style:none;cursor:pointer;color:#d9c985}
+    .keyword-search-disclosure>summary::-webkit-details-marker{display:none}
+    .keyword-search-summary-copy{display:flex;min-width:0;align-items:baseline;gap:8px}
+    .keyword-search-summary-copy>span{color:#8f8057;font-size:9px;font-weight:950;letter-spacing:.14em}
+    .keyword-search-summary-copy>strong{color:#dfe7e1;font-size:12px;line-height:1.25}
+    .keyword-search-chevron{margin-left:auto;color:#9f8d5b;font-size:15px;line-height:1;transition:transform .16s ease}
+    .keyword-search-disclosure[open] .keyword-search-chevron{transform:rotate(180deg)}
+    .keyword-search-panel{padding:8px 0 2px}
+    .keyword-search-panel .home-search-help{margin:7px 3px 0}
+    @media(max-width:699px){.keyword-search-summary-copy>span{font-size:10px}.keyword-search-summary-copy>strong{font-size:12px}}
+  </style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -117,11 +131,13 @@
           <p class="alphabet-help">頭文字をタップすると、その文字で始まる品種を表示します。</p>
           <p class="alphabet-status" id="alphabet-status" aria-live="polite"></p>
         </section>
-        <div class="keyword-search-block">
-          <div class="keyword-search-heading"><span>KEYWORD SEARCH</span><strong>文字・情報から探す</strong></div>
-          <div class="search-wrap"><label class="sr-only" for="search">品種や情報を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
-          <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンまで自由に探せます</p>
-        </div>
+        <details class="keyword-search-disclosure" id="keyword-search-disclosure">
+          <summary><span class="keyword-search-summary-copy"><span>KEYWORD SEARCH</span><strong>キーワード検索</strong></span><span class="keyword-search-chevron" aria-hidden="true">⌄</span></summary>
+          <div class="keyword-search-panel">
+            <div class="search-wrap"><label class="sr-only" for="search">品種や情報を検索</label><input id="search" type="search" autocomplete="off" placeholder="例：Bubble Gum、Kush、Humboldt CSI"></div>
+            <p class="home-search-help">品種名・別名・ブリーダー／関連組織・generation・系譜・香り・テルペンまで自由に探せます</p>
+          </div>
+        </details>
         <details class="filter-disclosure" id="filter-disclosure">
           <summary><span class="filter-summary-label">さらに検索</span><span class="filter-summary-count" id="filter-summary-count" hidden>0</span><span class="filter-chevron" aria-hidden="true">⌄</span></summary>
           <div class="filter-panel">
