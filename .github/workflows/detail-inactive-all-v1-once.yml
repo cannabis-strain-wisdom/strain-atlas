@@ -24,12 +24,14 @@ jobs:
           set -euo pipefail
           BASE='ce2a8f4df52958faf6a1f1f2d4d64ae783844dc2'
           changed="$(git diff --name-only "$BASE"..HEAD | sort)"
-          expected=$'.github/scripts/public-detail-all-cultivars-390-v1.mjs\n.github/workflows/detail-inactive-all-v1-once.yml\ndetail-interaction-v1.js'
+          expected=$'.github/scripts/public-detail-all-cultivars-390-v1.mjs\n.github/scripts/public-frontend-browser-smoke-v2.mjs\n.github/workflows/detail-inactive-all-v1-once.yml\ndetail-interaction-v1.js'
           test "$changed" = "$expected" || { echo "SAFE_STOP_UNEXPECTED_FILES"; printf '%s\n' "$changed"; exit 1; }
           grep -Fq "scope: 'all-detail-categories'" detail-interaction-v1.js
           grep -Fq "inactive detail chevron still visible" .github/scripts/public-detail-all-cultivars-390-v1.mjs
+          grep -Fq "Blue Gelato UNKNOWN terpene should be inactive" .github/scripts/public-frontend-browser-smoke-v2.mjs
           node --check detail-interaction-v1.js
           node --check .github/scripts/public-detail-all-cultivars-390-v1.mjs
+          node --check .github/scripts/public-frontend-browser-smoke-v2.mjs
 
       - name: Stage like Pages and run browser QA
         shell: bash
