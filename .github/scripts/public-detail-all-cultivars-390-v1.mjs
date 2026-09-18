@@ -126,6 +126,15 @@ async function main() {
         const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');
         return !!root && !!document.querySelector('#detail-shell [data-detail-share]') && window.__CSWDetailShareV2?.contract==='CSW_DETAIL_SHARE_V2';
       })()`), `${id} detail ready`);
+      await waitFor(() => evalv(`(()=>{
+        const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');
+        return !!root &&
+          root.dataset.cswDetailInactiveScope==='all' &&
+          window.__CSWDetailInteractionV1?.status==='PASS' &&
+          window.__CSWDetailInteractionV1?.cultivarId==='${id}' &&
+          window.__CSWDetailInteractionV1?.scope==='all-detail-categories';
+      })()`), `${id} full inactive-state contract`);
+      await sleep(80);
 
       const state = await evalv(`(()=>{
         const shell=document.getElementById('detail-shell');
@@ -141,7 +150,21 @@ async function main() {
           pointerEvents:getComputedStyle(node).pointerEvents,
           helperDisplay:node.querySelector('small')?getComputedStyle(node.querySelector('small')).display:null
         }));
-        const inactive=sensory.filter(item=>item.state==='inactive');
+        const managedNodes=[...new Set([
+          ...root.querySelectorAll('button[data-csw-detail-state],summary[data-csw-detail-state]'),
+          ...shell.querySelectorAll('.ucd-lineage summary[data-csw-detail-state]')
+        ])];
+        const managed=managedNodes.map(node=>({
+          kind:node.dataset.cswStagedSensorySub||node.dataset.cswStagedEcSub||node.dataset.ucdPrimaryTab||node.dataset.ucdTab||(node.closest('.ucd-lineage')?'lineage':''),
+          tag:node.tagName.toLowerCase(),
+          state:node.dataset.cswDetailState||'',
+          ariaDisabled:node.getAttribute('aria-disabled'),
+          tabIndex:node.getAttribute('tabindex'),
+          pointerEvents:getComputedStyle(node).pointerEvents,
+          disabled:'disabled' in node?node.disabled:null,
+          chevronVisible:!!node.querySelector(':scope > i')&&getComputedStyle(node.querySelector(':scope > i')).display!=='none'
+        }));
+        const interaction=window.__CSWDetailInteractionV1||null;
         const verification=root.querySelector('[data-csw-verification-status="v1"]');
         const reasons=verification?[...verification.querySelectorAll('[data-csw-verification-kind]')].map(row=>row.dataset.cswVerificationKind||'').filter(Boolean):[];
         return {
@@ -152,7 +175,10 @@ async function main() {
           shareHeight:button?Math.round(button.getBoundingClientRect().height):0,
           barPosition:bar?getComputedStyle(bar).position:'',
           sensory,
-          inactiveKinds:inactive.map(item=>item.kind),
+          managed,
+          interactionStatus:interaction?.status||'',
+          interactionScope:interaction?.scope||'',
+          inactiveKinds:Array.isArray(interaction?.inactiveKinds)?interaction.inactiveKinds:[],
           verificationExists:!!verification,
           verificationOpen:verification?.open??null,
           verificationBeforeSources:!!verification&&!!root.querySelector('.ucd-sources')&&verification.nextElementSibling===root.querySelector('.ucd-sources'),
@@ -166,21 +192,28 @@ async function main() {
       if (state.shareLabel !== 'この品種を共有' || state.shareWidth < 40 || state.shareHeight < 40 || state.barPosition !== 'fixed') throw new Error(`share control mismatch ${JSON.stringify(state)}`);
       if (state.overflow) throw new Error('horizontal overflow');
 
+      if (state.interactionStatus !== 'PASS' || state.interactionScope !== 'all-detail-categories') throw new Error(`detail interaction scope mismatch ${JSON.stringify(state)}`);
       for (const item of state.sensory) {
         if (item.helperDisplay !== 'none') throw new Error(`sensory helper remained visible ${JSON.stringify(item)}`);
+      }
+      if (!state.managed.length) throw new Error('no managed detail category controls');
+      for (const item of state.managed) {
         if (item.state === 'inactive') {
-          if (item.ariaDisabled !== 'true' || item.tabIndex !== '-1' || item.pointerEvents !== 'none') throw new Error(`inactive sensory semantics mismatch ${JSON.stringify(item)}`);
+          if (item.ariaDisabled !== 'true' || item.tabIndex !== '-1' || item.pointerEvents !== 'none') throw new Error(`inactive detail semantics mismatch ${JSON.stringify(item)}`);
+          if (item.tag === 'button' && item.disabled !== true) throw new Error(`inactive detail button not natively disabled ${JSON.stringify(item)}`);
+          if (item.chevronVisible) throw new Error(`inactive detail chevron still visible ${JSON.stringify(item)}`);
         } else if (item.state === 'active') {
-          if (item.ariaDisabled !== 'false' || item.pointerEvents === 'none') throw new Error(`active sensory semantics mismatch ${JSON.stringify(item)}`);
+          if (item.ariaDisabled !== 'false' || item.pointerEvents === 'none') throw new Error(`active detail semantics mismatch ${JSON.stringify(item)}`);
+          if (item.tag === 'button' && item.disabled === true) throw new Error(`active detail button disabled ${JSON.stringify(item)}`);
         } else {
-          throw new Error(`sensory state missing ${JSON.stringify(item)}`);
+          throw new Error(`detail state missing ${JSON.stringify(item)}`);
         }
       }
       if (state.inactiveKinds.length) {
         if (!state.verificationExists || state.verificationOpen !== false || !state.verificationBeforeSources) throw new Error(`verification disclosure mismatch ${JSON.stringify(state)}`);
         for (const kind of state.inactiveKinds) if (!state.reasons.includes(kind)) throw new Error(`verification reason missing for ${kind}`);
       } else if (state.verificationExists) {
-        throw new Error('verification disclosure rendered without inactive sensory state');
+        throw new Error('verification disclosure rendered without inactive detail state');
       }
 
       await evalv(`(()=>{
