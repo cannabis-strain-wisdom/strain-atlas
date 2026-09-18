@@ -44,3 +44,26 @@
   .ucd-primary-nav-copy strong{font-size:17px}
   .ucd-primary-nav button{min-height:68px;padding:11px 11px}
 }
+
+.csw-search-compact-v1{}
+@media(max-width:699px){
+.home-search .alphabet-browse{margin:14px 0 12px}
+.home-search .alphabet-grid{gap:5px 5px}
+.home-search .alphabet-status{margin-top:7px;min-height:0}
+.home-search .alphabet-status:empty{display:none}
+.home-search .keyword-search-disclosure{margin-top:10px}
+.home-search .keyword-search-disclosure>summary,.home-search .filter-disclosure>summary{min-height:42px;padding-top:6px}
+.home-search .keyword-search-panel{padding:7px 0 1px}
+.home-search .keyword-search-panel .home-search-help{margin-top:6px;line-height:1.45}
+.home-search .filter-disclosure{margin-top:7px}
+.home-search .filter-panel{gap:0;padding:5px 0 0}
+.home-search .filter-group{padding:10px 2px 9px;border:0;border-top:1px solid rgba(217,182,93,.10);border-radius:0;background:none;box-shadow:none}
+.home-search .filter-group:first-child{border-top:0;padding-top:7px}
+.home-search .filter-group-heading{gap:3px!important}
+.home-search .generation-options{gap:5px;margin-top:7px}
+.home-search .generation-chip{min-height:38px;padding:0 9px}
+.home-search .home-type-filters{gap:5px;margin-top:7px}
+.home-search .home-type-filters .explore-chip{min-height:38px;padding:0 10px}
+.home-search .breeder-select{min-height:40px;margin-top:7px}
+.home-search .filter-clear{min-height:40px;margin-top:4px}
+}

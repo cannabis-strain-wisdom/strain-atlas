@@ -25,7 +25,7 @@
   <meta name="theme-color" content="#06100c">
   <title>Cannabis Strain Wisdom</title>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="176ab4f1-4681-422b-b47e-b4058890d210"></script>
-  <link rel="stylesheet" href="styles.min.css?v=7">
+  <link rel="stylesheet" href="styles.min.css?v=8">
   <style id="alphabet-browse-v1-styles">
     .alphabet-browse{margin:18px 0 16px}.alphabet-browse-heading,.keyword-search-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}.alphabet-browse-heading span,.keyword-search-heading span{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.12em}.alphabet-browse-heading strong,.keyword-search-heading strong{color:#dfe7e1;font-size:13px}.alphabet-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px 5px}.alphabet-chip{min-width:0;min-height:40px;padding:0 4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(255,255,255,.025);color:#aebbb3;font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;touch-action:manipulation;user-select:none;-webkit-user-select:none}.alphabet-chip[data-alphabet="ALL"]{font-size:10px;letter-spacing:.04em}.alphabet-chip.is-active{border-color:rgba(216,189,98,.62);background:linear-gradient(135deg,rgba(216,189,98,.18),rgba(50,99,67,.14));color:#f1e2a9;box-shadow:inset 0 0 0 1px rgba(216,189,98,.08)}.alphabet-chip:disabled,.alphabet-chip.is-empty{opacity:.28;cursor:default}.alphabet-help,.alphabet-status{margin:8px 0 0;color:#718279;font-size:10px;line-height:1.5}.alphabet-status{min-height:15px;color:#aebbb3;font-weight:750}.keyword-search-block{margin-top:17px;padding-top:15px;border-top:1px solid rgba(255,255,255,.07)}.filter-type-group .home-type-filters{margin-top:0}@media(max-width:360px){.alphabet-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.alphabet-chip{min-height:42px}}
   </style>
@@ -136,7 +136,7 @@
             <button type="button" class="alphabet-chip is-active" data-alphabet="ALL" aria-pressed="true">ALL</button>
             <button type="button" class="alphabet-chip" data-alphabet="A" aria-pressed="false">A</button><button type="button" class="alphabet-chip" data-alphabet="B" aria-pressed="false">B</button><button type="button" class="alphabet-chip" data-alphabet="C" aria-pressed="false">C</button><button type="button" class="alphabet-chip" data-alphabet="D" aria-pressed="false">D</button><button type="button" class="alphabet-chip" data-alphabet="E" aria-pressed="false">E</button><button type="button" class="alphabet-chip" data-alphabet="F" aria-pressed="false">F</button><button type="button" class="alphabet-chip" data-alphabet="G" aria-pressed="false">G</button><button type="button" class="alphabet-chip" data-alphabet="H" aria-pressed="false">H</button><button type="button" class="alphabet-chip" data-alphabet="I" aria-pressed="false">I</button><button type="button" class="alphabet-chip" data-alphabet="J" aria-pressed="false">J</button><button type="button" class="alphabet-chip" data-alphabet="K" aria-pressed="false">K</button><button type="button" class="alphabet-chip" data-alphabet="L" aria-pressed="false">L</button><button type="button" class="alphabet-chip" data-alphabet="M" aria-pressed="false">M</button><button type="button" class="alphabet-chip" data-alphabet="N" aria-pressed="false">N</button><button type="button" class="alphabet-chip" data-alphabet="O" aria-pressed="false">O</button><button type="button" class="alphabet-chip" data-alphabet="P" aria-pressed="false">P</button><button type="button" class="alphabet-chip" data-alphabet="Q" aria-pressed="false">Q</button><button type="button" class="alphabet-chip" data-alphabet="R" aria-pressed="false">R</button><button type="button" class="alphabet-chip" data-alphabet="S" aria-pressed="false">S</button><button type="button" class="alphabet-chip" data-alphabet="T" aria-pressed="false">T</button><button type="button" class="alphabet-chip" data-alphabet="U" aria-pressed="false">U</button><button type="button" class="alphabet-chip" data-alphabet="V" aria-pressed="false">V</button><button type="button" class="alphabet-chip" data-alphabet="W" aria-pressed="false">W</button><button type="button" class="alphabet-chip" data-alphabet="X" aria-pressed="false">X</button><button type="button" class="alphabet-chip" data-alphabet="Y" aria-pressed="false">Y</button><button type="button" class="alphabet-chip" data-alphabet="Z" aria-pressed="false">Z</button>
           </div>
-          <p class="alphabet-help">頭文字をタップすると、その文字で始まる品種を表示します。</p>
+          
           <p class="alphabet-status" id="alphabet-status" aria-live="polite"></p>
         </section>
         <details class="keyword-search-disclosure" id="keyword-search-disclosure">
@@ -1270,6 +1270,29 @@
       const pass = follows(hero, legal) && follows(legal, latest) && follows(latest, search) && follows(search, all);
       window.__CSWHomeOrderUnificationV1 = { status: pass ? 'PASS' : 'FAIL_CLOSED', order: pass ? 'hero>legal>latest>search>all' : 'ORDER_MISMATCH' };
       if (!pass) throw new Error('CSW_HOME_ORDER_UNIFICATION_V1_ORDER_MISMATCH');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply, { once: true });
+    else apply();
+  })();
+  </script>
+
+  <script id="csw-search-compact-v1-script">
+  (() => {
+    'use strict';
+    const apply = () => {
+      const keyword = document.getElementById('keyword-search-disclosure');
+      const filters = document.getElementById('filter-disclosure');
+      if (!(keyword && filters)) {
+        window.__CSWSearchCompactV1 = { status: 'FAIL_CLOSED', reason: 'REQUIRED_NODE_MISSING' };
+        return;
+      }
+      const closeOther = (opened, other) => {
+        if (opened.open && other.open) other.open = false;
+      };
+      keyword.addEventListener('toggle', () => closeOther(keyword, filters));
+      filters.addEventListener('toggle', () => closeOther(filters, keyword));
+      if (keyword.open && filters.open) filters.open = false;
+      window.__CSWSearchCompactV1 = { status: 'PASS', exclusiveDisclosures: true, alphabetHelpRemoved: true };
     };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply, { once: true });
     else apply();
