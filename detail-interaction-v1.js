@@ -133,8 +133,15 @@
       .detail-public-v1 [data-csw-staged-ec-sub][data-csw-detail-state="inactive"]{
         position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px
       }
-      .detail-public-v1 .ucd-lineage[data-lineage-unavailable="v1"]>summary[data-csw-detail-state="inactive"]{
-        display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center
+      #detail-shell .ucd-lineage[data-lineage-unavailable="v1"]>summary[data-csw-detail-state="inactive"]{
+        display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:default!important;
+        opacity:.58;pointer-events:none!important
+      }
+      #detail-shell .ucd-lineage[data-lineage-unavailable="v1"]>summary[data-csw-detail-state="inactive"]>i{
+        display:none!important
+      }
+      #detail-shell .ucd-lineage[data-lineage-unavailable="v1"]>summary[data-csw-detail-state="inactive"]::after{
+        content:'未確認';color:#66756c;font-size:10px;font-weight:800;line-height:1.2;letter-spacing:0
       }
       .csw-verification-status-v1{
         margin:18px 0 0;border-top:1px solid rgba(216,189,98,.10);border-bottom:1px solid rgba(216,189,98,.10)
