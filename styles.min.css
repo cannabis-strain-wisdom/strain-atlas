@@ -73,12 +73,11 @@
 .all-cultivars-section>.cultivar-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
 .all-cultivars-section .cultivar-card{height:100%;border-radius:12px}
 .all-cultivars-section .tile-type{left:5px;bottom:5px;max-width:calc(100% - 10px);padding:3px 5px;font-size:7px;line-height:1.2;white-space:normal}
-.all-cultivars-section .tile-copy{display:flex;min-height:82px;flex-direction:column;padding:8px 7px 7px}
+.all-cultivars-section .tile-copy{display:flex;min-height:64px;flex-direction:column;padding:8px 7px 7px}
 .all-cultivars-section .tile-name{overflow:visible;font-size:12px;line-height:1.25;white-space:normal}
-.all-cultivars-section .tile-name-row{display:flex;min-height:49px;align-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:4px}
+.all-cultivars-section .tile-name-row{display:flex;min-height:30px;align-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:4px}
 .all-cultivars-section .tile-display-name{display:-webkit-box;flex:1 0 100%;min-height:30px;max-height:30px;overflow:hidden;white-space:normal;line-height:1.25;-webkit-box-orient:vertical;-webkit-line-clamp:2}
-.all-cultivars-section .generation-badge{align-self:flex-start;padding:2px 5px;font-size:7px;line-height:1.2}
-.all-cultivars-section .generation-badge[data-generation-value="other"]{display:none}
+.all-cultivars-section .generation-badge{display:none}
 .all-cultivars-section .tile-breeder{margin-top:auto;padding-top:4px;overflow:hidden;color:#8fa097;font-size:8px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
 }
 
