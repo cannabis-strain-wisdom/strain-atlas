@@ -83,6 +83,8 @@ async function main() {
   const aggregate = new Map();
   const sampleCultivars = new Set(['apple-fritter','mimosa','rainbow-belts','dr-grinspoon','blue-gelato-41','sunset-sherbert']);
   const samples = {};
+  const readabilityFailures = [];
+  const floorSummary = {};
 
   for (const cultivar of cultivars) {
     const id=cultivar.id;
@@ -127,7 +129,71 @@ async function main() {
       }).filter(item=>item.font>0&&item.font<14);
     })()`);
 
-    if (sampleCultivars.has(id)) samples[id]=rows.slice(0,160);
+    const floors=await evalv(`(()=>{
+      const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');
+      const shell=document.getElementById('detail-shell');
+      const font=selector=>{const n=shell?.querySelector(selector);return n?parseFloat(getComputedStyle(n).fontSize)||0:null};
+      const line=selector=>{const n=shell?.querySelector(selector);return n?parseFloat(getComputedStyle(n).lineHeight)||0:null};
+      return {
+        lineageKicker:font('.ucd-lineage[data-sitewide-lineage="v1"]>summary>span>small'),
+        lineageBody:font('.ucd-lineage>div'),
+        lineageBodyParagraph:font('.ucd-lineage>div>p'),
+        lineageNote:font('.ucd-lineage-note-v1'),
+        evidenceGrade:font('.ucd-evidence-row .ucd-grade'),
+        evidenceLink:font('.ucd-evidence-row a'),
+        aliasHeading:font('.csw-name-rel-section-label strong'),
+        aliasCode:font('.csw-name-rel-section-label small'),
+        aliasChip:font('.csw-name-rel-chip'),
+        relatedName:font('.csw-name-rel-name'),
+        relatedLineage:font('.csw-name-rel-lineage'),
+        relationshipLabel:font('.csw-name-rel-label'),
+        relationshipCode:font('.csw-name-rel-label small'),
+        sourcesKicker:font('.ucd-sources summary small'),
+        sourceMeta:font('.ucd-sources a>span'),
+        sourceTitle:font('.ucd-sources a>strong'),
+        primaryKicker:font('.ucd-primary-nav-copy small'),
+        verificationSummary:font('.csw-verification-status-v1>summary>span'),
+        verificationTitle:font('.csw-verification-status-v1-item strong'),
+        verificationBody:font('.csw-verification-status-v1-item p'),
+        lineageLine:line('.ucd-lineage>div'),
+        overflow:!!root&&(root.scrollWidth>root.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1)
+      };
+    })()`);
+
+    const requirements={
+      lineageKicker:11,
+      lineageBody:15,
+      lineageBodyParagraph:15,
+      lineageNote:14.5,
+      evidenceGrade:11,
+      evidenceLink:12.5,
+      aliasHeading:13,
+      aliasCode:10,
+      aliasChip:12.5,
+      relatedName:14.5,
+      relatedLineage:13.5,
+      relationshipLabel:11.5,
+      relationshipCode:10,
+      sourcesKicker:11,
+      sourceMeta:11.5,
+      sourceTitle:13,
+      primaryKicker:12.5,
+      verificationSummary:13,
+      verificationTitle:14,
+      verificationBody:14.5
+    };
+    for(const [key,min] of Object.entries(requirements)){
+      const value=floors[key];
+      if(value!==null&&value+0.01<min) readabilityFailures.push({id,key,value,min});
+      if(value!==null){
+        const agg=floorSummary[key]||{min:value,max:value,count:0};
+        agg.min=Math.min(agg.min,value);agg.max=Math.max(agg.max,value);agg.count+=1;floorSummary[key]=agg;
+      }
+    }
+    if(floors.overflow) readabilityFailures.push({id,key:'horizontalOverflow'});
+    if(floors.lineageLine!==null&&floors.lineageLine<24) readabilityFailures.push({id,key:'lineageLineHeight',value:floors.lineageLine,min:24});
+
+    if (sampleCultivars.has(id)) samples[id]={smallText:rows.slice(0,160),floors};
     for (const row of rows) {
       const key=[row.tag,row.cls,row.parent,row.font,row.line,row.weight].join('|');
       const prev=aggregate.get(key)||{...row,count:0,cultivars:new Set(),examples:[]};
@@ -145,10 +211,12 @@ async function main() {
 
   const runtimeErrors=cdp.events.filter(event=>event.method==='Runtime.exceptionThrown');
   const result={
-    status:runtimeErrors.length?'FAIL':'PASS',
+    status:runtimeErrors.length||readabilityFailures.length?'FAIL':'PASS',
     viewport:'390x844',
     cultivars:cultivars.length,
     signatures:summary.length,
+    floorSummary,
+    readabilityFailures,
     below12:summary.filter(x=>x.font<12),
     from12to13_9:summary.filter(x=>x.font>=12&&x.font<14),
     samples,
@@ -156,7 +224,8 @@ async function main() {
   };
   console.log(JSON.stringify(result,null,2));
   if(runtimeErrors.length) throw new Error('Runtime exceptions during readability audit');
-  console.log('DETAIL READABILITY AUDIT PASS');
+  if(readabilityFailures.length) throw new Error(`DETAIL_READABILITY_FLOOR_FAILURES ${JSON.stringify(readabilityFailures.slice(0,20))}`);
+  console.log('DETAIL READABILITY AUDIT PASS 74/74');
   cdp.close();
 }
 
