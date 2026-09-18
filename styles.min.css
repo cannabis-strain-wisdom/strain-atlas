@@ -78,6 +78,7 @@
 .all-cultivars-section .tile-name-row{display:flex;min-height:49px;align-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:4px}
 .all-cultivars-section .tile-display-name{display:-webkit-box;flex:1 0 100%;min-height:30px;max-height:30px;overflow:hidden;white-space:normal;line-height:1.25;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .all-cultivars-section .generation-badge{align-self:flex-start;padding:2px 5px;font-size:7px;line-height:1.2}
-.all-cultivars-section .tile-breeder{margin-top:auto;padding-top:4px;overflow:hidden;color:#8fa097;font-size:7.5px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+.all-cultivars-section .generation-badge[data-generation-value="other"]{display:none}
+.all-cultivars-section .tile-breeder{margin-top:auto;padding-top:4px;overflow:hidden;color:#8fa097;font-size:8px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
 }
 
