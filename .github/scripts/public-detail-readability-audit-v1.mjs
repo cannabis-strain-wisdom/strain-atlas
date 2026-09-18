@@ -28,6 +28,11 @@ async function main(){
     lineageKicker:'.ucd-lineage summary small',
     lineageBody:'.ucd-lineage > div p',
     lineageNote:'.ucd-lineage-note-v1',
+    relationshipName:'.csw-name-rel-name',
+    relationshipLineage:'.csw-name-rel-lineage',
+    relationshipLabel:'.csw-name-rel-label',
+    relationshipLabelSmall:'.csw-name-rel-label small,.csw-name-rel-section-label small',
+    aliasChip:'.csw-name-rel-chip',
     alias:'[class*="alias"]',
     evidenceLink:'.ucd-evidence-row a',
     evidenceGrade:'.ucd-evidence-row .ucd-grade',
@@ -48,7 +53,7 @@ async function main(){
     const id=cultivar.id;const url=new URL(baseUrl);url.searchParams.set('strain',id);url.searchParams.set('qa','readability-audit');
     await cdp.send('Page.navigate',{url:url.href});await waitFor(()=>evalv("document.readyState==='complete'"),id+' complete');
     await waitFor(()=>evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');return !!r&&r.dataset.cswDetailInactiveScope==='all'&&window.__CSWDetailInteractionV1?.status==='PASS'})()`),id+' detail contract');
-    const rows=await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');const selectors=${JSON.stringify(selectors)};const out={};for(const [k,sel] of Object.entries(selectors)){out[k]=[...root.querySelectorAll(sel)].filter(n=>(n.textContent||'').trim()).map(n=>({size:parseFloat(getComputedStyle(n).fontSize),line:parseFloat(getComputedStyle(n).lineHeight)||0,text:(n.textContent||'').trim().replace(/\\s+/g,' ').slice(0,80)}));}return out;})()`);
+    const rows=await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');const selectors=${JSON.stringify(selectors)};const shell=document.getElementById('detail-shell');const shellKeys=new Set(['lineageTitle','lineageKicker','lineageBody','lineageNote','relationshipName','relationshipLineage','relationshipLabel','relationshipLabelSmall','aliasChip','alias']);const out={};for(const [k,sel] of Object.entries(selectors)){const scope=shellKeys.has(k)?shell:root;out[k]=[...scope.querySelectorAll(sel)].filter(n=>(n.textContent||'').trim()).map(n=>({size:parseFloat(getComputedStyle(n).fontSize),line:parseFloat(getComputedStyle(n).lineHeight)||0,text:(n.textContent||'').trim().replace(/\\s+/g,' ').slice(0,80)}));}return out;})()`);
     for(const [key,items] of Object.entries(rows)){
       for(const item of items){const a=agg[key];a.count++;a.min=Math.min(a.min,item.size);a.max=Math.max(a.max,item.size);if(a.samples.length<4)a.samples.push({id,size:item.size,line:item.line,text:item.text});}
     }
