@@ -59,8 +59,35 @@ async function main(){
     }
   }
   for(const a of Object.values(agg)) if(a.count===0){a.min=null;a.max=null;}
+  const floors={
+    lineageTitle:15,
+    lineageKicker:11,
+    lineageNote:14,
+    relationshipName:14,
+    relationshipLineage:13,
+    relationshipLabel:11,
+    relationshipLabelSmall:10,
+    aliasChip:12,
+    evidenceLink:13.5,
+    evidenceGrade:12,
+    noteBody:15,
+    noteLabel:11,
+    morphologyBody:15,
+    cannabinoidContext:14.5,
+    cannabinoidExplanation:14.5,
+    originHistory:15,
+    unavailableBody:15,
+    sensoryHelper:12,
+    cultivationLabel:12,
+    cultivationValue:15
+  };
+  for(const [key,floor] of Object.entries(floors)){
+    const a=agg[key];
+    if(!a||a.count===0) continue;
+    if(a.min+0.001<floor) throw new Error('READABILITY_FLOOR_FAIL '+key+' min='+a.min+' expected>='+floor);
+  }
   console.log(JSON.stringify({status:'PASS',viewport:'390x844',total:cultivars.length,typography:agg},null,2));
-  console.log('DETAIL READABILITY AUDIT PASS 74/74');
+  console.log('DETAIL READABILITY VALIDATION PASS 74/74');
   cdp.close();
 }
 try{await main();}catch(e){console.error(e);process.exitCode=1;}finally{try{proc.kill('SIGTERM')}catch{}}
