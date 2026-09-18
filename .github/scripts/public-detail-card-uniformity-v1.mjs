@@ -88,14 +88,14 @@ async function main() {
       const flavorPanel=[...root.querySelectorAll('[data-profile-kind="flavor"],[data-ucd-panel="flavor"]')].find(panel=>panel.querySelector('[data-flavor-presentation="v1"]'));
       const flavorTerms=[...flavorPanel?.querySelectorAll('[data-flavor-public-term="v1"]')||[]].map(node=>({raw:(node.dataset.flavorPublicRaw||'').trim(),gloss:(node.querySelector('small')?.textContent||'').trim()}));
       const sources=root.querySelector('.ucd-sources');
-      const sensoryChildren=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||'',helperMarker:button.dataset.cswSensoryHelper||'',ariaLabel:button.getAttribute('aria-label')||''}));
+      const sensoryChildren=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||'',helperMarker:button.dataset.cswSensoryHelper||'',ariaLabel:button.getAttribute('aria-label')||'',state:button.dataset.cswDetailState||'',ariaDisabled:button.getAttribute('aria-disabled')||'',disabled:button.disabled===true,pointerEvents:getComputedStyle(button).pointerEvents,chevronVisible:!!button.querySelector(':scope > i')&&getComputedStyle(button.querySelector(':scope > i')).display!=='none'}));
       const sensoryInteractions=sensoryChildren.map(({kind})=>{
         const button=root.querySelector('[data-csw-staged-sensory-sub="'+kind+'"]');
         button.click();
         const candidates=[...root.querySelectorAll('[data-profile-kind="'+kind+'"],[data-ucd-panel="'+kind+'"]')];
         const panel=kind==='flavor'?(candidates.find(item=>item.querySelector('[data-flavor-presentation="v1"]'))||candidates[0]):candidates[0];
         const otherVisible=[...root.querySelectorAll('[data-profile-kind="flavor"],[data-profile-kind="aroma"],[data-profile-kind="terpene"]')].filter(item=>item!==panel&&!item.hidden).map(item=>item.dataset.profileKind||item.dataset.ucdPanel||'unknown');
-        return {kind,pressed:button.getAttribute('aria-pressed')==='true',panelKind:panel?.dataset.profileKind||panel?.dataset.ucdPanel||'',panelVisible:!!panel&&!panel.hidden,otherVisible};
+        return {kind,state:button.dataset.cswDetailState||'',pressed:button.getAttribute('aria-pressed')==='true',panelKind:panel?.dataset.profileKind||panel?.dataset.ucdPanel||'',panelVisible:!!panel&&!panel.hidden,otherVisible};
       });
       const sensoryPanelLabels=Object.fromEntries(['flavor','aroma','terpene'].map(kind=>{const candidates=[...root.querySelectorAll('[data-profile-kind="'+kind+'"],[data-ucd-panel="'+kind+'"]')];const panel=kind==='flavor'?(candidates.find(item=>item.querySelector('[data-flavor-presentation="v1"]'))||candidates[0]):candidates[0];return [kind,panel?.getAttribute('aria-label')||panel?.querySelector('.ucd-sensory-head span,.ucd-data-unavailable > small')?.textContent.trim()||'']}));
       return {
@@ -136,8 +136,24 @@ async function main() {
     const flavorSupported=['confirmed','disputed'].includes(cultivar?.flavors?.status)&&Array.isArray(cultivar?.flavors?.items)&&cultivar.flavors.items.length>0;
     const expectedSensoryKinds=['aroma',...(flavorSupported?['flavor']:[]),'terpene'];
     if (JSON.stringify(state.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(expectedSensoryKinds)) throw new Error(`${id} sensory domain order mismatch: ${JSON.stringify(state.sensoryChildren)}`);
-    for (const item of state.sensoryChildren) { const spec=helperSpec[item.kind]; if (!spec||item.label!==spec.label||item.helper!==spec.helper||item.helperMarker!==spec.helper||item.ariaLabel!==`${spec.label}：${spec.helper}`) throw new Error(`${id} sensory helper mismatch: ${JSON.stringify(item)}`); }
-    for (const interaction of state.sensoryInteractions) if (!interaction.pressed||!interaction.panelVisible||interaction.panelKind!==interaction.kind||interaction.otherVisible.length) throw new Error(`${id} cross-domain sensory interaction mismatch: ${JSON.stringify(interaction)}`);
+    for (const item of state.sensoryChildren) {
+      const spec=helperSpec[item.kind];
+      if (!spec||item.label!==spec.label||item.helper!==spec.helper||item.helperMarker!==spec.helper) throw new Error(`${id} sensory helper mismatch: ${JSON.stringify(item)}`);
+      if (item.state==='inactive') {
+        if (item.ariaLabel!==`${spec.label}：未確認`||item.ariaDisabled!=='true'||!item.disabled||item.pointerEvents!=='none'||item.chevronVisible) throw new Error(`${id} inactive sensory contract mismatch: ${JSON.stringify(item)}`);
+      } else if (item.state==='active') {
+        if (item.ariaLabel!==`${spec.label}：${spec.helper}`||item.ariaDisabled!=='false'||item.disabled||item.pointerEvents==='none') throw new Error(`${id} active sensory contract mismatch: ${JSON.stringify(item)}`);
+      } else {
+        throw new Error(`${id} sensory state missing: ${JSON.stringify(item)}`);
+      }
+    }
+    for (const interaction of state.sensoryInteractions) {
+      if (interaction.state==='inactive') {
+        if (interaction.pressed||interaction.panelVisible) throw new Error(`${id} inactive sensory opened: ${JSON.stringify(interaction)}`);
+      } else if (!interaction.pressed||!interaction.panelVisible||interaction.panelKind!==interaction.kind||interaction.otherVisible.length) {
+        throw new Error(`${id} cross-domain sensory interaction mismatch: ${JSON.stringify(interaction)}`);
+      }
+    }
     if (flavorSupported && !/フレーバー/.test(state.sensoryPanelLabels.flavor)) throw new Error(`${id} Flavor panel label mismatch: ${state.sensoryPanelLabels.flavor}`);
     if (!/アロマ/.test(state.sensoryPanelLabels.aroma)) throw new Error(`${id} Aroma panel label mismatch: ${state.sensoryPanelLabels.aroma}`);
     if (!/テルペン/.test(state.sensoryPanelLabels.terpene)) throw new Error(`${id} Terpene panel label mismatch: ${state.sensoryPanelLabels.terpene}`);
