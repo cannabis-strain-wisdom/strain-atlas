@@ -82,3 +82,36 @@
 .all-cultivars-section .generation-badge,.all-cultivars-section .tile-breeder{display:none}
 }
 
+.csw-recently-published-showcase-polish-v1{}
+.latest-disclosure .latest-summary{border-color:rgba(217,182,93,.22);background:radial-gradient(circle at 88% 18%,rgba(217,182,93,.08),transparent 32%),linear-gradient(145deg,rgba(18,43,29,.72),rgba(5,15,10,.92));box-shadow:0 16px 34px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.04)}
+.latest-disclosure .latest-summary-copy .section-kicker{color:#e1c76f}
+.latest-disclosure .section-count{border-color:rgba(217,182,93,.26);background:rgba(217,182,93,.075);color:#ddc779;font-weight:900}
+.latest-disclosure .latest-body{background:radial-gradient(circle at 50% 0,rgba(68,112,75,.09),transparent 34%),linear-gradient(180deg,rgba(8,24,15,.88),rgba(4,12,8,.96));box-shadow:0 18px 36px rgba(0,0,0,.12)}
+.latest-disclosure .latest-grid{gap:10px;margin-top:8px}
+.latest-grid .is-latest-card{position:relative;isolation:isolate;overflow:hidden;border-color:rgba(217,182,93,.24);border-radius:17px;background:linear-gradient(180deg,rgba(16,36,24,.92),rgba(5,14,9,.98));box-shadow:0 14px 28px rgba(0,0,0,.27),inset 0 1px 0 rgba(255,255,255,.045)}
+.latest-grid .is-latest-card::before{content:"";position:absolute;z-index:5;inset:0 12% auto;height:1px;background:linear-gradient(90deg,transparent,rgba(232,204,118,.55),transparent);pointer-events:none}
+.latest-grid .is-latest-card:focus-visible{outline:2px solid rgba(232,204,118,.78);outline-offset:3px}
+.latest-grid .is-latest-card .tile-visual{aspect-ratio:4/5;border-bottom:1px solid rgba(217,182,93,.10)}
+.latest-grid .is-latest-card .tile-visual::after{content:"";position:absolute;z-index:2;inset:42% 0 0;background:linear-gradient(180deg,transparent,rgba(3,10,6,.10) 34%,rgba(3,10,6,.64));pointer-events:none}
+.latest-grid .is-latest-card .tile-visual img{filter:saturate(1.04) contrast(1.035)}
+.latest-grid .is-latest-card .tile-type{z-index:3;left:9px;bottom:9px;max-width:calc(100% - 18px);padding:5px 8px;border-color:rgba(157,197,139,.34);background:rgba(4,15,9,.82);color:#d8ebd8;font-size:8px;letter-spacing:.025em;box-shadow:0 5px 16px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.06)}
+.latest-grid .is-latest-card .tile-copy{padding:11px 10px 10px;background:linear-gradient(180deg,rgba(13,31,21,.96),rgba(5,14,9,.99))}
+.latest-grid .is-latest-card .tile-name{overflow:visible;font-size:14px;line-height:1.18;white-space:normal;letter-spacing:-.012em}
+.latest-grid .is-latest-card .tile-name-row{align-items:flex-start;flex-wrap:wrap;gap:5px 6px}
+.latest-grid .is-latest-card .tile-display-name{display:-webkit-box;flex:1 0 100%;min-height:2.36em;max-height:2.36em;overflow:hidden;color:#f6f1df;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-shadow:0 1px 8px rgba(0,0,0,.28)}
+.latest-grid .is-latest-card .generation-badge{padding:3px 6px;border-color:rgba(217,182,93,.34);background:linear-gradient(135deg,rgba(217,182,93,.15),rgba(95,124,70,.10));color:#ead687;font-size:7px;letter-spacing:.055em;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.latest-grid .is-latest-card .tile-breeder{margin-top:6px;color:#9aaba1;font-size:7.5px;line-height:1.35}
+.latest-grid .is-latest-card .tile-aromas{gap:5px;min-height:19px;margin-top:8px}
+.latest-grid .is-latest-card .tile-aromas span{padding:4px 6px;border:1px solid rgba(255,255,255,.055);background:rgba(255,255,255,.045);color:#bdc9c1;font-size:7px}
+.latest-grid .is-latest-card .tile-meta{margin-top:9px;padding-top:8px;border-top-color:rgba(217,182,93,.10);color:#8f9f96;font-size:7px;font-weight:800;letter-spacing:.055em}
+.latest-grid .is-latest-card:active{transform:scale(.982)}
+@media(min-width:700px){
+.latest-disclosure .latest-grid{gap:13px}
+.latest-grid .is-latest-card{border-radius:19px}
+.latest-grid .is-latest-card .tile-copy{padding:13px 13px 12px}
+.latest-grid .is-latest-card .tile-name{font-size:16px}
+.latest-grid .is-latest-card .tile-type{font-size:8.5px}
+.latest-grid .is-latest-card .tile-breeder{font-size:8px}
+.latest-grid .is-latest-card .tile-aromas span,.latest-grid .is-latest-card .tile-meta{font-size:7.5px}
+}
+
