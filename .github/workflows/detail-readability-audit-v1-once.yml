@@ -18,17 +18,19 @@ jobs:
           ref: validated/detail-readability-v1
           fetch-depth: 0
 
-      - name: Guard audit-only delta
+      - name: Guard exact readability delta
         shell: bash
         run: |
           set -euo pipefail
           BASE='dafb8b954e0bce5bf95d345fe0191ff483ad177c'
           changed="$(git diff --name-only "$BASE"..HEAD | sort)"
-          expected=$'.github/scripts/public-detail-readability-audit-v1.mjs\n.github/workflows/detail-readability-audit-v1-once.yml'
+          expected=$'.github/scripts/public-detail-readability-audit-v1.mjs\n.github/workflows/detail-readability-audit-v1-once.yml\nstyles.min.css'
           test "$changed" = "$expected" || { echo "SAFE_STOP_UNEXPECTED_FILES"; printf '%s\n' "$changed"; exit 1; }
+          grep -Fq 'CSW_DETAIL_READABILITY_V2' styles.min.css
+          grep -Fq 'DETAIL READABILITY AUDIT PASS 74/74' .github/scripts/public-detail-readability-audit-v1.mjs
           node --check .github/scripts/public-detail-readability-audit-v1.mjs
 
-      - name: Stage like Pages and audit 390px text
+      - name: Stage like Pages and run full 390px QA
         shell: bash
         run: |
           set -euo pipefail
@@ -59,4 +61,8 @@ jobs:
           for n in $(seq 1 40); do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep .25; done
 
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-all-cultivars-390-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-readability-audit-v1.mjs
