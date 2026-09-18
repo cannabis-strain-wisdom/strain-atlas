@@ -256,9 +256,28 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const blueFlavor = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="flavor"]');if(!p||p.hidden)return false;return {text:p.innerText,items:[...p.querySelectorAll('.ucd-flavor-terms span')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato flavor child');
   for (const term of ['Sweet','Earthy','Citrus']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
   if(!blueFlavor.text.includes('フレーバー')) throw new Error('Blue Gelato Flavor label not normalized');
-  await evalv(`document.querySelector('[data-csw-staged-sensory-sub="terpene"]').click()`);
-  const blueTerpene = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="terpene"]');if(!p||p.hidden)return false;return p.innerText})()`), 'Blue Gelato terpene child');
-  if(!blueTerpene.includes('個別テルペンは確認できていません')) throw new Error(`Blue Gelato UNKNOWN terpene message missing: ${blueTerpene}`);
+  const blueTerpeneState = await evalv(`(()=>{
+    const button=document.querySelector('[data-csw-staged-sensory-sub="terpene"]');
+    const panel=document.querySelector('[data-profile-kind="terpene"]');
+    const chevron=button?.querySelector(':scope > i');
+    const verification=document.querySelector('[data-csw-verification-kind="terpene"]');
+    return {
+      state:button?.dataset.cswDetailState||'',
+      ariaDisabled:button?.getAttribute('aria-disabled')||'',
+      tabIndex:button?.getAttribute('tabindex')||'',
+      disabled:button?.disabled===true,
+      pointerEvents:button?getComputedStyle(button).pointerEvents:'',
+      chevronVisible:!!chevron&&getComputedStyle(chevron).display!=='none',
+      panelHidden:panel?.hidden===true,
+      message:panel?.textContent||'',
+      verification:verification?.textContent||''
+    };
+  })()`);
+  if(blueTerpeneState.state!=='inactive'||blueTerpeneState.ariaDisabled!=='true'||blueTerpeneState.tabIndex!=='-1'||!blueTerpeneState.disabled||blueTerpeneState.pointerEvents!=='none'||blueTerpeneState.chevronVisible||!blueTerpeneState.panelHidden) throw new Error(`Blue Gelato UNKNOWN terpene should be inactive: ${JSON.stringify(blueTerpeneState)}`);
+  if(!blueTerpeneState.message.includes('個別テルペンは確認できていません')||!blueTerpeneState.verification.includes('テルペン：未確認')) throw new Error(`Blue Gelato UNKNOWN terpene reason missing: ${JSON.stringify(blueTerpeneState)}`);
+  await evalv(`document.querySelector('[data-csw-staged-sensory-sub="terpene"]').click();true`);
+  const blueTerpeneStayedClosed = await evalv(`document.querySelector('[data-profile-kind="terpene"]')?.hidden===true`);
+  if(!blueTerpeneStayedClosed) throw new Error('Blue Gelato inactive terpene opened after click');
   await evalv(`document.querySelector('[data-csw-staged-ec-parent="v1"]').click()`);
   await evalv(`document.querySelector('[data-csw-staged-ec-sub="effects"]').click()`);
   const blueEffects = await waitFor(() => evalv(`(()=>{const s=document.querySelector('[data-csw-staged-ec-section="effects"]');if(!s||s.hidden)return false;return [...s.querySelectorAll('.csw-staged-effect-terms span')].map(x=>x.textContent.trim())})()`), 'Blue Gelato effects child');
