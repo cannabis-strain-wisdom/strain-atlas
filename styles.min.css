@@ -71,13 +71,14 @@
 .csw-all-index-readable-v1{}
 @media(max-width:699px){
 .all-cultivars-section>.cultivar-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
-.all-cultivars-section .cultivar-card{height:100%;border-radius:12px}
-.all-cultivars-section .tile-type{left:5px;bottom:5px;max-width:calc(100% - 10px);padding:3px 5px;font-size:7px;line-height:1.2;white-space:normal}
-.all-cultivars-section .tile-copy{display:flex;height:70px;min-height:70px;flex-direction:column;justify-content:flex-start;padding:8px 7px 7px}
-.all-cultivars-section .tile-name{overflow:visible;font-size:12px;line-height:1.25;white-space:normal}
-.all-cultivars-section .tile-name-row{display:flex;height:30px;min-height:30px;max-height:30px;align-content:flex-start;align-items:flex-start;flex-wrap:wrap;gap:4px}
-.all-cultivars-section .tile-display-name{display:-webkit-box;flex:1 0 100%;min-height:30px;max-height:30px;overflow:hidden;white-space:normal;line-height:1.25;-webkit-box-orient:vertical;-webkit-line-clamp:2}
-.all-cultivars-section .generation-badge{display:none}
-.all-cultivars-section .tile-breeder{min-height:10px;margin-top:8px;padding-top:0;overflow:hidden;color:#8fa097;font-size:8px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+.all-cultivars-section .cultivar-card{position:relative;height:auto;aspect-ratio:4/5;overflow:hidden;border-radius:12px}
+.all-cultivars-section .tile-visual{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+.all-cultivars-section .tile-visual::after{content:"";position:absolute;z-index:1;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(4,12,8,0),rgba(4,12,8,.84) 62%,rgba(4,12,8,.96));pointer-events:none}
+.all-cultivars-section .tile-type{display:none}
+.all-cultivars-section .tile-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;display:block;height:auto;min-height:0;padding:0 8px 9px;background:none}
+.all-cultivars-section .tile-name{overflow:visible;font-size:12px;line-height:1.22;white-space:normal}
+.all-cultivars-section .tile-name-row{display:block;height:auto;min-height:0;max-height:none}
+.all-cultivars-section .tile-display-name{display:-webkit-box;min-height:0;max-height:2.44em;overflow:hidden;color:#f4f1e7;text-shadow:0 1px 4px rgba(0,0,0,.72);white-space:normal;line-height:1.22;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.all-cultivars-section .generation-badge,.all-cultivars-section .tile-breeder{display:none}
 }
 
