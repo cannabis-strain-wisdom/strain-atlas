@@ -1,4 +1,4 @@
-name: Detail readability audit V1 once
+name: Detail readability validation V1 once
 
 on:
   push:
@@ -9,48 +9,60 @@ permissions:
   contents: read
 
 jobs:
-  audit:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact audit branch
+      - name: Checkout exact validation branch
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: validated/detail-readability-audit-v1
           fetch-depth: 0
 
-      - name: Guard read-only audit delta
+      - name: Guard exact validation delta
         shell: bash
         run: |
           set -euo pipefail
           BASE='dafb8b954e0bce5bf95d345fe0191ff483ad177c'
           changed="$(git diff --name-only "$BASE"..HEAD | sort)"
-          expected=$'.github/scripts/public-detail-readability-audit-v1.mjs\n.github/workflows/detail-readability-audit-v1-once.yml'
+          expected=$'.github/scripts/public-detail-readability-audit-v1.mjs\n.github/workflows/detail-readability-audit-v1-once.yml\nstyles.min.css'
           test "$changed" = "$expected" || { echo "SAFE_STOP_UNEXPECTED_FILES"; printf '%s\n' "$changed"; exit 1; }
+          grep -Fq 'CSW_DETAIL_READABILITY_V1' styles.min.css
+          grep -Fq "DETAIL READABILITY VALIDATION PASS 74/74" .github/scripts/public-detail-readability-audit-v1.mjs
           node --check .github/scripts/public-detail-readability-audit-v1.mjs
 
-      - name: Stage current PUBLIC state and audit 390px typography
+      - name: Stage like Pages and run full browser QA
         shell: bash
         run: |
           set -euo pipefail
           CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
           test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found' >&2; exit 1; }
+
           mkdir -p _site/runtime _site/production _site/assets
           install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json _site/
           install -m 0644 runtime/catalog.json _site/runtime/catalog.json
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
-          python3 - <<'PY'
+
+          python3 <<'PY'
           from pathlib import Path
           p=Path("_site/index.html")
           h=p.read_text()
           pending=[f'  <script defer src="{f}"></script>' for f in ("detail-share-v2.js","detail-interaction-v1.js","name-relationships-v1.js") if f not in h]
           if pending:
+              if h.count("</body>") != 1:
+                  raise SystemExit("SAFE_STOP_BODY_COUNT")
               h=h.replace("</body>","\n".join(pending)+"\n</body>",1)
           p.write_text(h)
           PY
+
           python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/_site" >"$RUNNER_TEMP/http.log" 2>&1 &
           PID=$!
           trap 'kill "$PID" 2>/dev/null || true' EXIT
           for n in $(seq 1 40); do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep .25; done
+
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-card-uniformity-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-all-cultivars-390-v1.mjs
           CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-readability-audit-v1.mjs
