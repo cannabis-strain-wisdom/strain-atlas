@@ -6,10 +6,30 @@
   if (!shell) return;
 
   const LABELS = {
+    lineage: '系譜',
+    type: 'タイプ',
+    cannabinoid: 'カンナビノイド',
     aroma: 'アロマ',
     flavor: 'フレーバー',
     terpene: 'テルペン',
+    effects: '効果',
+    cultivation: '栽培情報',
+    morphology: '形態',
+    'origin-history': '起源と歴史',
   };
+
+  const REASON_ORDER = [
+    'lineage',
+    'type',
+    'cannabinoid',
+    'aroma',
+    'flavor',
+    'terpene',
+    'effects',
+    'cultivation',
+    'morphology',
+    'origin-history',
+  ];
 
   const text = value => typeof value === 'string' ? value.trim() : '';
 
@@ -49,27 +69,72 @@
     };
   };
 
+  const setButtonState = (button, unavailable, kind) => {
+    if (!button) return;
+    button.dataset.cswDetailState = unavailable ? 'inactive' : 'active';
+    button.setAttribute('aria-disabled', unavailable ? 'true' : 'false');
+    if (unavailable) {
+      button.setAttribute('tabindex', '-1');
+      if ('disabled' in button) button.disabled = true;
+      if (button.hasAttribute('aria-expanded')) button.setAttribute('aria-expanded', 'false');
+      if (button.hasAttribute('aria-pressed')) button.setAttribute('aria-pressed', 'false');
+      button.classList.remove('is-active');
+      if (kind && LABELS[kind]) button.setAttribute('aria-label', `${LABELS[kind]}：未確認`);
+    } else {
+      if ('disabled' in button) button.disabled = false;
+      if (button.getAttribute('tabindex') === '-1') button.removeAttribute('tabindex');
+    }
+  };
+
+  const setSummaryState = (summary, unavailable, kind) => {
+    if (!summary) return;
+    summary.dataset.cswDetailState = unavailable ? 'inactive' : 'active';
+    summary.setAttribute('aria-disabled', unavailable ? 'true' : 'false');
+    if (unavailable) {
+      summary.setAttribute('tabindex', '-1');
+      if (kind && LABELS[kind]) summary.setAttribute('aria-label', `${LABELS[kind]}：未確認`);
+    } else if (summary.getAttribute('tabindex') === '-1') {
+      summary.removeAttribute('tabindex');
+    }
+  };
+
   const ensureStyle = () => {
     if (document.getElementById('csw-detail-interaction-v1-style')) return;
     const style = document.createElement('style');
     style.id = 'csw-detail-interaction-v1-style';
     style.textContent = `
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="active"]{
-        position:relative;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:pointer
+      .detail-public-v1 [data-csw-detail-state="inactive"]{
+        cursor:default!important;opacity:.58;pointer-events:none!important;
+        border-color:rgba(255,255,255,.075)!important;background:rgba(255,255,255,.012)!important
       }
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="active"]>small,
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]>small{
+      .detail-public-v1 button[data-csw-detail-state="inactive"]>i,
+      .detail-public-v1 summary[data-csw-detail-state="inactive"]>i{
         display:none!important
       }
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="active"]::after{
+      .detail-public-v1 button[data-csw-detail-state="inactive"]::after,
+      .detail-public-v1 summary[data-csw-detail-state="inactive"]::after{
+        content:'未確認';flex:0 0 auto;color:#66756c;font-size:10px;font-weight:800;line-height:1.2;letter-spacing:0
+      }
+      .detail-public-v1 .ucd-primary-nav button[data-csw-detail-state="inactive"],
+      .detail-public-v1 .ucd-profile-nav button[data-csw-detail-state="inactive"]{
+        grid-template-columns:minmax(0,1fr) auto;align-items:center
+      }
+      .detail-public-v1 [data-csw-staged-sensory-sub][data-csw-detail-state="active"]{
+        position:relative;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:pointer
+      }
+      .detail-public-v1 [data-csw-staged-sensory-sub][data-csw-detail-state="active"]>small,
+      .detail-public-v1 [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]>small{
+        display:none!important
+      }
+      .detail-public-v1 [data-csw-staged-sensory-sub][data-csw-detail-state="active"]::after{
         content:'⌄';color:#d8bd62;font-size:14px;font-weight:800;line-height:1
       }
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]{
-        position:relative;grid-template-columns:minmax(0,1fr) auto;align-items:center;cursor:default;opacity:.58;pointer-events:none;
-        border-color:rgba(255,255,255,.075);background:rgba(255,255,255,.012)
+      .detail-public-v1 [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"],
+      .detail-public-v1 [data-csw-staged-ec-sub][data-csw-detail-state="inactive"]{
+        position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px
       }
-      .detail-public-v1[data-csw-staged-sensory="v1"] [data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]::after{
-        content:'未確認';color:#66756c;font-size:10px;font-weight:800;line-height:1.2
+      .detail-public-v1 .ucd-lineage[data-lineage-unavailable="v1"]>summary[data-csw-detail-state="inactive"]{
+        display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center
       }
       .csw-verification-status-v1{
         margin:18px 0 0;border-top:1px solid rgba(216,189,98,.10);border-bottom:1px solid rgba(216,189,98,.10)
@@ -100,7 +165,10 @@
       return;
     }
 
-    const signature = JSON.stringify(reasons);
+    const ordered = [...reasons].sort((a, b) =>
+      REASON_ORDER.indexOf(a.kind) - REASON_ORDER.indexOf(b.kind)
+    );
+    const signature = JSON.stringify(ordered);
     if (!disclosure) {
       disclosure = document.createElement('details');
       disclosure.className = 'csw-verification-status-v1';
@@ -117,7 +185,7 @@
 
     if (disclosure.dataset.cswVerificationSignature !== signature) {
       const body = disclosure.querySelector('.csw-verification-status-v1-body');
-      const nodes = reasons.map(item => {
+      const nodes = ordered.map(item => {
         const row = document.createElement('div');
         row.className = 'csw-verification-status-v1-item';
         row.dataset.cswVerificationKind = item.kind;
@@ -139,33 +207,82 @@
     const root = shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
     if (!root) return false;
 
-    const buttons = [...root.querySelectorAll('[data-csw-staged-sensory-sub]')];
-    if (!buttons.length) return false;
+    const reasonMap = new Map();
+    const addReason = (panel, kind) => {
+      if (!LABELS[kind] || reasonMap.has(kind)) return;
+      reasonMap.set(kind, reasonFor(panel, kind));
+    };
 
-    const reasons = [];
-    for (const button of buttons) {
+    const sensoryButtons = [...root.querySelectorAll('[data-csw-staged-sensory-sub]')];
+    for (const button of sensoryButtons) {
       const kind = button.dataset.cswStagedSensorySub;
       if (!LABELS[kind]) continue;
       const panel = choosePanel(root, kind);
       const unavailable = isUnavailable(panel, kind);
       const helper = text(button.dataset.cswSensoryHelper) || text(button.querySelector('small')?.textContent);
-      button.dataset.cswDetailState = unavailable ? 'inactive' : 'active';
-      button.setAttribute('aria-disabled', unavailable ? 'true' : 'false');
-      button.setAttribute('aria-label', helper ? `${LABELS[kind]}：${helper}` : LABELS[kind]);
-      if (unavailable) {
-        button.setAttribute('tabindex', '-1');
-        reasons.push(reasonFor(panel, kind));
-      } else if (button.getAttribute('tabindex') === '-1') {
-        button.removeAttribute('tabindex');
-      }
+      setButtonState(button, unavailable, kind);
+      if (!unavailable && helper) button.setAttribute('aria-label', `${LABELS[kind]}：${helper}`);
+      if (unavailable) addReason(panel, kind);
     }
 
+    const ecButtons = [...root.querySelectorAll('[data-csw-staged-ec-sub]')];
+    for (const button of ecButtons) {
+      const kind = button.dataset.cswStagedEcSub;
+      if (!LABELS[kind]) continue;
+      const panel = root.querySelector(`[data-csw-staged-ec-section="${kind}"]`);
+      const unavailable = isUnavailable(panel, kind);
+      setButtonState(button, unavailable, kind);
+      if (unavailable) addReason(panel, kind);
+    }
+
+    const primaryButtons = [...root.querySelectorAll('[data-ucd-primary-tab]')];
+    for (const button of primaryButtons) {
+      const kind = button.dataset.ucdPrimaryTab;
+      if (!LABELS[kind]) continue;
+      const panel = root.querySelector(`[data-ucd-primary-panel="${kind}"]`);
+      const unavailable = isUnavailable(panel, kind);
+      setButtonState(button, unavailable, kind);
+      if (unavailable) addReason(panel, kind);
+    }
+
+    const profileButtons = [...root.querySelectorAll('[data-ucd-tab]')];
+    for (const button of profileButtons) {
+      const kind = button.dataset.ucdTab;
+      if (kind === 'sensory-group' || kind === 'effect-cultivation' || !LABELS[kind]) continue;
+      const panel = root.querySelector(`[data-ucd-panel="${kind}"]`);
+      const unavailable = isUnavailable(panel, kind);
+      setButtonState(button, unavailable, kind);
+      if (unavailable) addReason(panel, kind);
+    }
+
+    const sensoryParent = root.querySelector('[data-csw-staged-sensory-parent],[data-ucd-tab="sensory-group"]');
+    if (sensoryParent && sensoryButtons.length) {
+      setButtonState(sensoryParent, sensoryButtons.every(button => button.dataset.cswDetailState === 'inactive'));
+    }
+
+    const ecParent = root.querySelector('[data-csw-staged-ec-parent],[data-ucd-tab="effect-cultivation"]');
+    if (ecParent && ecButtons.length) {
+      setButtonState(ecParent, ecButtons.every(button => button.dataset.cswDetailState === 'inactive'));
+    }
+
+    const unavailableLineage = shell.querySelector('.ucd-lineage[data-lineage-unavailable="v1"]');
+    if (unavailableLineage) {
+      const summary = unavailableLineage.querySelector(':scope > summary');
+      const body = unavailableLineage.querySelector(':scope > div');
+      unavailableLineage.open = false;
+      setSummaryState(summary, true, 'lineage');
+      addReason(body || unavailableLineage, 'lineage');
+    }
+
+    const reasons = [...reasonMap.values()];
     renderVerificationStatus(root, reasons);
     root.dataset.cswDetailInteraction = 'v1';
+    root.dataset.cswDetailInactiveScope = 'all';
     window.__CSWDetailInteractionV1 = {
       status: 'PASS',
       contract: CONTRACT,
       cultivarId: root.dataset.publicDetailId || '',
+      scope: 'all-detail-categories',
       inactiveKinds: reasons.map(item => item.kind),
     };
     return true;
@@ -192,8 +309,8 @@
 
   new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
   shell.addEventListener('click', event => {
-    const inactive = event.target?.closest?.('[data-csw-staged-sensory-sub][data-csw-detail-state="inactive"]');
-    if (inactive && event.isTrusted) {
+    const inactive = event.target?.closest?.('[data-csw-detail-state="inactive"]');
+    if (inactive) {
       event.preventDefault();
       event.stopImmediatePropagation();
       return;
@@ -202,4 +319,6 @@
   }, true);
   window.addEventListener('popstate', schedule);
   schedule();
+  setTimeout(schedule, 250);
+  setTimeout(schedule, 1000);
 })();
