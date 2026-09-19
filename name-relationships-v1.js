@@ -17,7 +17,19 @@
     'papaya',
     'skunk-1',
     'super-skunk',
-    'sunset-sherbert'
+    'sunset-sherbert',
+    'og-kush'
+  ]);
+  const EXPLICIT_TYPED_RELATIONSHIPS = new Map([
+    ['og-kush', [
+      {
+        targetId: 'the-og-18',
+        relationshipType: 'selection',
+        relationshipDisplay: 'OG Kushから選抜・再フェミナイズ',
+        requiredSourceRefs: ['dna-eu-the-og-18'],
+        expectedGeneration: 'unknown'
+      }
+    ]]
   ]);
 
   const shell = document.getElementById('detail-shell');
@@ -95,6 +107,22 @@
     return block;
   };
 
+  const makeSelectionBlock = line => {
+    const block = document.createElement('div');
+    block.className = 'csw-name-rel-name-block';
+    const title = document.createElement('strong');
+    title.className = 'csw-name-rel-name';
+    title.textContent = line.name;
+    const formula = document.createElement('p');
+    formula.className = 'csw-name-rel-lineage';
+    formula.textContent = line.relationshipDisplay;
+    const relation = document.createElement('div');
+    relation.className = 'csw-name-rel-relation';
+    relation.appendChild(makeRelationshipLabel('選抜系統', 'SELECTION', 'selection'));
+    block.append(title, formula, relation);
+    return block;
+  };
+
   const makeAliasRow = (aliases, { standalone = false } = {}) => {
     if (!aliases.length) return null;
     const row = document.createElement('div');
@@ -136,12 +164,32 @@
 
   const normalizeIdentity = value => text(value).normalize('NFKC').toLowerCase();
 
+  const selectionSpecsFor = parent => {
+    const projected = parent?.publicPresentation?.nameRelationships?.selections;
+    if (Array.isArray(projected) && projected.length) {
+      return projected.map((line, index) => {
+        if (line?.relationshipType !== 'selection' || !text(line?.id) || !text(line?.relationshipDisplay)) {
+          throw new Error(`SELECTION_RELATIONSHIP_PROJECTED_INVALID:${parent?.id || 'unknown'}:${index}`);
+        }
+        return {
+          targetId: text(line.id),
+          relationshipType: 'selection',
+          relationshipDisplay: text(line.relationshipDisplay),
+          requiredSourceRefs: [],
+          expectedGeneration: null
+        };
+      });
+    }
+    return EXPLICIT_TYPED_RELATIONSHIPS.get(parent?.id) || [];
+  };
+
   const resolveChildLines = (catalog, parent) => {
     if (!CHILD_RELATIONSHIP_ROOT_IDS.has(parent?.id)) return [];
+    const explicitNonChildTargets = new Set(selectionSpecsFor(parent).map(line => text(line?.targetId)).filter(Boolean));
     const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
     return (catalog?.cultivars || [])
       .filter(child => {
-        if (!child || child.id === parent.id) return false;
+        if (!child || child.id === parent.id || explicitNonChildTargets.has(child.id)) return false;
         if (text(child?.lineage?.status) !== 'confirmed' || text(child?.lineage?.basis) !== 'breederOfficial') return false;
         if (!Array.isArray(child?.lineage?.sourceRefs) || !child.lineage.sourceRefs.length) return false;
         const parents = unique(child?.lineage?.parents || []).map(normalizeIdentity);
@@ -151,9 +199,43 @@
         const name = text(child.name);
         const lineage = text(child?.lineage?.display);
         if (!name || !lineage) throw new Error(`CHILD_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${child.id}`);
-        return { id: child.id, name, lineage };
+        return { id: child.id, name, lineage, relationshipType: 'child-line' };
       })
       .sort((a, b) => a.name.localeCompare(b.name, 'en'));
+  };
+
+  const resolveSelectionLines = (catalog, parent) => {
+    const specs = selectionSpecsFor(parent);
+    if (!specs.length) return [];
+    const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
+    return specs.map((spec, index) => {
+      if (spec?.relationshipType !== 'selection') throw new Error(`SELECTION_RELATIONSHIP_TYPE_INVALID:${parent?.id || 'unknown'}:${index}`);
+      const targetId = text(spec?.targetId);
+      const target = (catalog?.cultivars || []).find(item => item?.id === targetId);
+      if (!target) throw new Error(`SELECTION_RELATIONSHIP_TARGET_MISSING:${parent?.id || 'unknown'}:${targetId || index}`);
+      if (text(target?.lineage?.status) !== 'confirmed' || text(target?.lineage?.basis) !== 'breederOfficial') {
+        throw new Error(`SELECTION_RELATIONSHIP_EVIDENCE_INCOMPLETE:${parent.id}:${target.id}`);
+      }
+      if (!Array.isArray(target?.lineage?.sourceRefs) || !target.lineage.sourceRefs.length) {
+        throw new Error(`SELECTION_RELATIONSHIP_SOURCES_MISSING:${parent.id}:${target.id}`);
+      }
+      const requiredSourceRefs = unique(spec?.requiredSourceRefs || []);
+      if (requiredSourceRefs.some(sourceRef => !target.lineage.sourceRefs.includes(sourceRef))) {
+        throw new Error(`SELECTION_RELATIONSHIP_SOURCE_MISMATCH:${parent.id}:${target.id}`);
+      }
+      const parents = unique(target?.lineage?.parents || []).map(normalizeIdentity);
+      if (!parents.some(name => parentNames.has(name))) {
+        throw new Error(`SELECTION_RELATIONSHIP_PARENT_MISMATCH:${parent.id}:${target.id}`);
+      }
+      if (spec?.expectedGeneration && text(target?.breeding?.generation) !== spec.expectedGeneration) {
+        throw new Error(`SELECTION_RELATIONSHIP_GENERATION_CHANGED:${parent.id}:${target.id}`);
+      }
+      const name = text(target?.name);
+      const relationshipDisplay = text(spec?.relationshipDisplay);
+      if (!name || !relationshipDisplay) throw new Error(`SELECTION_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${target.id}`);
+      if (/\b(?:S1|BX)\b/i.test(relationshipDisplay)) throw new Error(`SELECTION_RELATIONSHIP_GENERATION_LABEL_FORBIDDEN:${parent.id}:${target.id}`);
+      return { id: target.id, name, relationshipDisplay, relationshipType: 'selection' };
+    });
   };
 
   const resolveCurrent = async () => {
@@ -246,17 +328,27 @@
     let integrated = body.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name);
     const childLines = resolveChildLines(catalog, cultivar);
-    if (!integrated && (aliases.length || childLines.length)) {
+    const selectionLines = resolveSelectionLines(catalog, cultivar);
+    const typedRows = [
+      ...childLines.map(line => ({ type: 'child-line', line })),
+      ...selectionLines.map(line => ({ type: 'selection', line }))
+    ];
+    if (!integrated && (aliases.length || typedRows.length)) {
       integrated = document.createElement('section');
       integrated.className = 'csw-name-rel-integrated csw-name-rel-integrated-sitewide';
       integrated.dataset.sitewideLineageIntegrated = 'v1';
-      const aliasRow = makeAliasRow(aliases, { standalone: childLines.length === 0 });
+      const aliasRow = makeAliasRow(aliases, { standalone: typedRows.length === 0 });
       if (aliasRow) integrated.appendChild(aliasRow);
-      childLines.forEach((line, index) => {
+      typedRows.forEach((item, index) => {
         const row = document.createElement('div');
         row.className = 'csw-name-rel-rail-item';
-        row.dataset.childRelationship = line.id;
-        row.append(makeTrack({ node: true, last: index === childLines.length - 1 }), makeChildBlock(line));
+        if (item.type === 'child-line') {
+          row.dataset.childRelationship = item.line.id;
+          row.append(makeTrack({ node: true, last: index === typedRows.length - 1 }), makeChildBlock(item.line));
+        } else {
+          row.dataset.selectionRelationship = item.line.id;
+          row.append(makeTrack({ node: true, last: index === typedRows.length - 1 }), makeSelectionBlock(item.line));
+        }
         integrated.appendChild(row);
       });
       const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
@@ -273,6 +365,8 @@
       aliases, aliasCount: aliases.length,
       childLines: childLines.map(line => ({ id: line.id, name: line.name, lineage: line.lineage })),
       childCount: childLines.length,
+      selectionLines: selectionLines.map(line => ({ id: line.id, name: line.name, relationshipDisplay: line.relationshipDisplay })),
+      selectionCount: selectionLines.length,
       evidenceFooterAtBottom
     };
     return true;

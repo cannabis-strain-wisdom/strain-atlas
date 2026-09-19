@@ -299,7 +299,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     { parentId: 'papaya', childIds: ['california-octane'] },
     { parentId: 'skunk-1', childIds: ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'] },
     { parentId: 'super-skunk', childIds: ['sour-diesel'] },
-    { parentId: 'sunset-sherbert', childIds: ['blue-gelato-41'] }
+    { parentId: 'sunset-sherbert', childIds: ['blue-gelato-41'] },
+    { parentId: 'og-kush', childIds: ['cataract-kush'] }
   ];
   const childRelationshipResults = [];
   for (const testCase of childRelationshipCases) {
@@ -338,10 +339,44 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     childRelationshipResults.push({parentId:testCase.parentId,childIds:actualIds});
   }
 
+  await waitFor(() => evalv(`(()=>{
+    const root=document.querySelector('.detail-public-v1[data-public-detail-id="og-kush"],.ucd-root[data-public-detail-id="og-kush"]');
+    const lineage=document.querySelector('#detail-shell .ucd-lineage');
+    return root?.dataset.sitewideLineageRelationships==='v1' && lineage?.querySelectorAll('[data-selection-relationship="the-og-18"]').length===1;
+  })()`), 'OG Kush selection relationship rendered');
+  const ogRelationshipState = await evalv(`(()=>{
+    const root=document.querySelector('.detail-public-v1[data-public-detail-id="og-kush"],.ucd-root[data-public-detail-id="og-kush"]');
+    const lineage=document.querySelector('#detail-shell .ucd-lineage');
+    const body=lineage?.querySelector(':scope > div');
+    const childRows=[...lineage?.querySelectorAll('[data-child-relationship]')||[]].map(row=>row.dataset.childRelationship);
+    const selectionRows=[...lineage?.querySelectorAll('[data-selection-relationship]')||[]].map(row=>({
+      id:row.dataset.selectionRelationship,
+      name:row.querySelector('.csw-name-rel-name')?.textContent.trim()||'',
+      relationship:row.querySelector('.csw-name-rel-lineage')?.textContent.trim()||'',
+      label:row.querySelector('.csw-name-rel-label')?.textContent.replace(/\\s+/g,' ').trim()||''
+    }));
+    const evidence=body?.querySelector(':scope > .ucd-evidence-row');
+    return {
+      childRows,
+      selectionRows,
+      state:window.__CSWSitewideLineageRelationshipsV1||null,
+      evidenceLast:!!body&&body.lastElementChild===evidence,
+      overflow:(root?root.scrollWidth>root.clientWidth+1:true)||(document.getElementById('detail-shell')?.scrollWidth>document.getElementById('detail-shell')?.clientWidth+1)
+    };
+  })()`);
+  if (JSON.stringify(ogRelationshipState.childRows)!==JSON.stringify(['cataract-kush'])) throw new Error(`OG Kush CHILD LINE must contain only Cataract Kush: ${JSON.stringify(ogRelationshipState)}`);
+  if (ogRelationshipState.selectionRows.length!==1) throw new Error(`OG Kush selection row count invalid: ${JSON.stringify(ogRelationshipState)}`);
+  const ogSelection=ogRelationshipState.selectionRows[0];
+  if (ogSelection.id!=='the-og-18'||ogSelection.name!=='The OG #18'||!ogSelection.relationship||!ogSelection.label.includes('選抜系統')||!ogSelection.label.includes('SELECTION')) throw new Error(`OG Kush selection relationship content invalid: ${JSON.stringify(ogRelationshipState)}`);
+  if (/\\b(?:S1|BX)\\b/i.test(ogSelection.relationship)||/\\b(?:S1|BX)\\b/i.test(ogSelection.label)) throw new Error(`The OG #18 selection rail must not resolve the S1/BX generation conflict: ${JSON.stringify(ogRelationshipState)}`);
+  if (ogRelationshipState.state?.status!=='PASS'||ogRelationshipState.state?.cultivarId!=='og-kush'||ogRelationshipState.state?.childCount!==1||ogRelationshipState.state?.selectionCount!==1) throw new Error(`OG Kush typed relationship state invalid: ${JSON.stringify(ogRelationshipState)}`);
+  if (!ogRelationshipState.evidenceLast) throw new Error('OG Kush lineage evidence footer not last');
+  if (ogRelationshipState.overflow) throw new Error('OG Kush typed relationship presentation overflow');
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,runtimeErrors:0}, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 
