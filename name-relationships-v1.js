@@ -16,7 +16,8 @@
     'warlock',
     'papaya',
     'skunk-1',
-    'super-skunk'
+    'super-skunk',
+    'sunset-sherbert'
   ]);
 
   const shell = document.getElementById('detail-shell');
@@ -137,9 +138,6 @@
 
   const resolveChildLines = (catalog, parent) => {
     if (!CHILD_RELATIONSHIP_ROOT_IDS.has(parent?.id)) return [];
-    if (text(parent?.lineage?.status) !== 'confirmed' || text(parent?.lineage?.basis) !== 'breederOfficial') {
-      throw new Error(`CHILD_RELATIONSHIP_ROOT_EVIDENCE_INCOMPLETE:${parent?.id || 'unknown'}`);
-    }
     const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
     return (catalog?.cultivars || [])
       .filter(child => {

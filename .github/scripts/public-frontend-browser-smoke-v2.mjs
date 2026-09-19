@@ -298,7 +298,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     { parentId: 'warlock', childIds: ['serious-happiness'] },
     { parentId: 'papaya', childIds: ['california-octane'] },
     { parentId: 'skunk-1', childIds: ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'] },
-    { parentId: 'super-skunk', childIds: ['sour-diesel'] }
+    { parentId: 'super-skunk', childIds: ['sour-diesel'] },
+    { parentId: 'sunset-sherbert', childIds: ['blue-gelato-41'] }
   ];
   const childRelationshipResults = [];
   for (const testCase of childRelationshipCases) {
