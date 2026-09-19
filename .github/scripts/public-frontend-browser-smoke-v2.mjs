@@ -306,22 +306,26 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await waitFor(() => evalv(`document.readyState==='complete'`), `${testCase.parentId} relationship document complete`);
     await waitFor(() => evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
-      return root?.dataset.sitewideLineageRelationships==='v1' || window.__CSWSitewideLineageRelationshipsV1?.status==='FAIL_CLOSED';
-    })()`), `${testCase.parentId} relationship integration state`);
+      const lineage=document.querySelector('#detail-shell .ucd-lineage');
+      const rows=[...lineage?.querySelectorAll('[data-child-relationship]')||[]];
+      return root?.dataset.sitewideLineageRelationships==='v1' && rows.length===${testCase.childIds.length};
+    })()`), `${testCase.parentId} child relationships rendered`);
     const relationshipState = await evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
-      const rows=[...root.querySelectorAll('[data-child-relationship]')].map(row=>({
+      const lineage=document.querySelector('#detail-shell .ucd-lineage');
+      const body=lineage?.querySelector(':scope > div');
+      const rows=[...lineage?.querySelectorAll('[data-child-relationship]')||[]].map(row=>({
         id:row.dataset.childRelationship,
         name:row.querySelector('.csw-name-rel-name')?.textContent.trim()||'',
         lineage:row.querySelector('.csw-name-rel-lineage')?.textContent.trim()||'',
         label:row.querySelector('.csw-name-rel-label')?.textContent.replace(/\\s+/g,' ').trim()||''
       }));
-      const lineage=root.querySelector('.ucd-lineage');
+      const evidence=body?.querySelector(':scope > .ucd-evidence-row');
       return {
         rows,
         state:window.__CSWSitewideLineageRelationshipsV1||null,
-        evidenceLast:!!lineage?.querySelector(':scope > div > .ucd-evidence-row:last-child'),
-        overflow:root.scrollWidth>root.clientWidth+1
+        evidenceLast:!!body&&body.lastElementChild===evidence,
+        overflow:(root?root.scrollWidth>root.clientWidth+1:true)||(document.getElementById('detail-shell')?.scrollWidth>document.getElementById('detail-shell')?.clientWidth+1)
       };
     })()`);
     const actualIds = relationshipState.rows.map(row=>row.id);
