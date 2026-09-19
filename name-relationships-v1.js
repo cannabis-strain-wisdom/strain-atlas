@@ -162,7 +162,7 @@
     const catalog = await loadCatalog();
     const cultivar = (catalog?.cultivars || []).find(item => item?.id === id);
     const root = shell.querySelector(`.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]`);
-    const lineageCard = root?.querySelector('.ucd-lineage');
+    const lineageCard = root?.querySelector('.ucd-lineage') || shell.querySelector('.ucd-lineage');
     if (!cultivar || !root || !lineageCard) return null;
     return { id, catalog, cultivar, root, lineageCard };
   };
