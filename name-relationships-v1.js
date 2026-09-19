@@ -10,14 +10,14 @@
     { sourceId: 'archive-rainbow-belts-2-0', name: 'Rainbow Belts 2.0', lineage: 'Rainbow Belts #20 × Rainbow Belts F1' },
     { sourceId: 'archive-rainbow-belts-3-0', name: 'Rainbow Belts 3.0', lineage: 'Rainbow Belts #20 × Moonbow #112 F2 #60' }
   ];
-  const CHILD_RELATIONSHIP_IDS = Object.freeze({
-    'acapulco-gold': ['skunk-1'],
-    'ak-47': ['serious-happiness'],
-    'warlock': ['serious-happiness'],
-    'papaya': ['california-octane'],
-    'skunk-1': ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'],
-    'super-skunk': ['sour-diesel']
-  });
+  const CHILD_RELATIONSHIP_ROOT_IDS = new Set([
+    'acapulco-gold',
+    'ak-47',
+    'warlock',
+    'papaya',
+    'skunk-1',
+    'super-skunk'
+  ]);
 
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
@@ -136,24 +136,26 @@
   const normalizeIdentity = value => text(value).normalize('NFKC').toLowerCase();
 
   const resolveChildLines = (catalog, parent) => {
-    const childIds = CHILD_RELATIONSHIP_IDS[parent?.id] || [];
-    if (!childIds.length) return [];
+    if (!CHILD_RELATIONSHIP_ROOT_IDS.has(parent?.id)) return [];
+    if (text(parent?.lineage?.status) !== 'confirmed' || text(parent?.lineage?.basis) !== 'breederOfficial') {
+      throw new Error(`CHILD_RELATIONSHIP_ROOT_EVIDENCE_INCOMPLETE:${parent?.id || 'unknown'}`);
+    }
     const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
-    return childIds.map(childId => {
-      const child = (catalog?.cultivars || []).find(item => item?.id === childId);
-      if (!child) throw new Error(`CHILD_RELATIONSHIP_TARGET_MISSING:${parent.id}:${childId}`);
-      const parents = unique(child?.lineage?.parents || []).map(normalizeIdentity);
-      if (!parents.some(name => parentNames.has(name))) {
-        throw new Error(`CHILD_RELATIONSHIP_PARENT_MISMATCH:${parent.id}:${childId}`);
-      }
-      if (text(child?.lineage?.status) !== 'confirmed' || !Array.isArray(child?.lineage?.sourceRefs) || !child.lineage.sourceRefs.length) {
-        throw new Error(`CHILD_RELATIONSHIP_EVIDENCE_INCOMPLETE:${parent.id}:${childId}`);
-      }
-      const name = text(child.name);
-      const lineage = text(child?.lineage?.display);
-      if (!name || !lineage) throw new Error(`CHILD_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${childId}`);
-      return { id: childId, name, lineage };
-    });
+    return (catalog?.cultivars || [])
+      .filter(child => {
+        if (!child || child.id === parent.id) return false;
+        if (text(child?.lineage?.status) !== 'confirmed' || text(child?.lineage?.basis) !== 'breederOfficial') return false;
+        if (!Array.isArray(child?.lineage?.sourceRefs) || !child.lineage.sourceRefs.length) return false;
+        const parents = unique(child?.lineage?.parents || []).map(normalizeIdentity);
+        return parents.some(name => parentNames.has(name));
+      })
+      .map(child => {
+        const name = text(child.name);
+        const lineage = text(child?.lineage?.display);
+        if (!name || !lineage) throw new Error(`CHILD_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${child.id}`);
+        return { id: child.id, name, lineage };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name, 'en'));
   };
 
   const resolveCurrent = async () => {
