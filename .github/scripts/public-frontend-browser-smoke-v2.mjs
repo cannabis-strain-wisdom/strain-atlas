@@ -306,9 +306,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await waitFor(() => evalv(`document.readyState==='complete'`), `${testCase.parentId} relationship document complete`);
     await waitFor(() => evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
-      const rows=[...root?.querySelectorAll('[data-child-relationship]')||[]];
-      return root?.dataset.sitewideLineageRelationships==='v1' && rows.length===${testCase.childIds.length};
-    })()`), `${testCase.parentId} child relationships rendered`);
+      return root?.dataset.sitewideLineageRelationships==='v1' || window.__CSWSitewideLineageRelationshipsV1?.status==='FAIL_CLOSED';
+    })()`), `${testCase.parentId} relationship integration state`);
     const relationshipState = await evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
       const rows=[...root.querySelectorAll('[data-child-relationship]')].map(row=>({
