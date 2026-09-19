@@ -288,21 +288,16 @@
     if (cultivar?.id !== 'permanent-marker') return false;
     const lineage = shell.querySelector('.ucd-lineage');
     const noteText = String(cultivar?.publicContent?.ja?.lineageNote || cultivar?.lineage?.presentation?.textJa || '').trim();
-    const existing = shell.querySelector('[data-lineage-note-v1="true"]');
-    if (!lineage || !noteText) { existing?.remove(); return false; }
-    let note = existing;
-    if (!note) {
-      note = document.createElement('p');
-      note.className = 'ucd-lineage-note-v1';
-      note.dataset.lineageNoteV1 = 'true';
-      lineage.insertAdjacentElement('afterend', note);
-    }
-    if (note.textContent !== noteText) note.textContent = noteText;
-    const hiddenParagraph = [...lineage.querySelectorAll(':scope > div > p')].find(item => item.textContent.trim() === noteText);
-    hiddenParagraph?.remove();
-    root.dataset.lineageNoteVisible = 'v1';
-    root.dataset.permanentMarkerLineageNote = 'v1';
-    return true;
+    shell.querySelector('[data-lineage-note-v1="true"]')?.remove();
+    delete root.dataset.lineageNoteVisible;
+    delete root.dataset.permanentMarkerLineageNote;
+    if (!lineage || !noteText) return false;
+    lineage.open = false;
+    const inlineParagraph = [...lineage.querySelectorAll(':scope > div > p')]
+      .find(item => item.textContent.trim() === noteText);
+    if (!inlineParagraph) throw new Error(`PERMANENT_MARKER_LINEAGE_NOTE_INLINE_MISSING:${cultivar.id}`);
+    root.dataset.permanentMarkerLineageCollapsed = 'v1';
+    return false;
   };
   const processed = new WeakSet();
   const govern = async () => {
@@ -327,7 +322,15 @@
     const compactNavigation = compactDetailNavigation(root, cultivar);
     const lineageNoteVisible = decorateLineageNote(root, cultivar);
     if (!root.querySelector('[data-compact-primary-controls="v1"]') && root.querySelector('.ucd-specs')) throw new Error(`COMPACT_PRIMARY_NAV_MISSING:${cultivar.id}`);
-    if (cultivar?.id === 'permanent-marker' && cultivar?.publicContent?.ja?.lineageNote && !shell.querySelector('[data-lineage-note-v1="true"]')) throw new Error(`LINEAGE_NOTE_PRESENTATION_MISSING:${cultivar.id}`);
+    if (cultivar?.id === 'permanent-marker') {
+      const lineage = shell.querySelector('.ucd-lineage');
+      const noteText = String(cultivar?.publicContent?.ja?.lineageNote || cultivar?.lineage?.presentation?.textJa || '').trim();
+      const inlineNote = [...lineage?.querySelectorAll(':scope > div > p') || []]
+        .some(item => item.textContent.trim() === noteText);
+      if (!lineage || lineage.open || !inlineNote || shell.querySelector('[data-lineage-note-v1="true"]')) {
+        throw new Error(`PERMANENT_MARKER_LINEAGE_COLLAPSE_CONTRACT_FAIL:${cultivar.id}`);
+      }
+    }
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
     window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable, lineageNoteVisible };
   };
