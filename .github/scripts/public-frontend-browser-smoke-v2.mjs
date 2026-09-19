@@ -292,10 +292,55 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const blueOverflow = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return r.scrollWidth>r.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1})()`);
   if(blueOverflow) throw new Error('Blue Gelato detail has horizontal overflow');
 
+  const childRelationshipCases = [
+    { parentId: 'acapulco-gold', childIds: ['skunk-1'] },
+    { parentId: 'ak-47', childIds: ['serious-happiness'] },
+    { parentId: 'warlock', childIds: ['serious-happiness'] },
+    { parentId: 'papaya', childIds: ['california-octane'] },
+    { parentId: 'skunk-1', childIds: ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'] },
+    { parentId: 'super-skunk', childIds: ['sour-diesel'] }
+  ];
+  const childRelationshipResults = [];
+  for (const testCase of childRelationshipCases) {
+    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(testCase.parentId)}` });
+    await waitFor(() => evalv(`document.readyState==='complete'`), `${testCase.parentId} relationship document complete`);
+    await waitFor(() => evalv(`(()=>{
+      const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
+      const lineage=document.querySelector('#detail-shell .ucd-lineage');
+      const rows=[...lineage?.querySelectorAll('[data-child-relationship]')||[]];
+      return root?.dataset.sitewideLineageRelationships==='v1' && rows.length===${testCase.childIds.length};
+    })()`), `${testCase.parentId} child relationships rendered`);
+    const relationshipState = await evalv(`(()=>{
+      const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
+      const lineage=document.querySelector('#detail-shell .ucd-lineage');
+      const body=lineage?.querySelector(':scope > div');
+      const rows=[...lineage?.querySelectorAll('[data-child-relationship]')||[]].map(row=>({
+        id:row.dataset.childRelationship,
+        name:row.querySelector('.csw-name-rel-name')?.textContent.trim()||'',
+        lineage:row.querySelector('.csw-name-rel-lineage')?.textContent.trim()||'',
+        label:row.querySelector('.csw-name-rel-label')?.textContent.replace(/\\s+/g,' ').trim()||''
+      }));
+      const evidence=body?.querySelector(':scope > .ucd-evidence-row');
+      return {
+        rows,
+        state:window.__CSWSitewideLineageRelationshipsV1||null,
+        evidenceLast:!!body&&body.lastElementChild===evidence,
+        overflow:(root?root.scrollWidth>root.clientWidth+1:true)||(document.getElementById('detail-shell')?.scrollWidth>document.getElementById('detail-shell')?.clientWidth+1)
+      };
+    })()`);
+    const actualIds = relationshipState.rows.map(row=>row.id);
+    if (JSON.stringify(actualIds)!==JSON.stringify(testCase.childIds)) throw new Error(`${testCase.parentId} child IDs mismatch: ${JSON.stringify(relationshipState)}`);
+    if (relationshipState.rows.some(row=>!row.name||!row.lineage||!row.label.includes('子系統')||!row.label.includes('CHILD LINE'))) throw new Error(`${testCase.parentId} child relationship content invalid: ${JSON.stringify(relationshipState)}`);
+    if (relationshipState.state?.status!=='PASS'||relationshipState.state?.cultivarId!==testCase.parentId||relationshipState.state?.childCount!==testCase.childIds.length) throw new Error(`${testCase.parentId} relationship state invalid: ${JSON.stringify(relationshipState)}`);
+    if (!relationshipState.evidenceLast) throw new Error(`${testCase.parentId} lineage evidence footer not last`);
+    if (relationshipState.overflow) throw new Error(`${testCase.parentId} child relationship overflow`);
+    childRelationshipResults.push({parentId:testCase.parentId,childIds:actualIds});
+  }
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,runtimeErrors:0}, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 
