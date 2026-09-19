@@ -10,6 +10,14 @@
     { sourceId: 'archive-rainbow-belts-2-0', name: 'Rainbow Belts 2.0', lineage: 'Rainbow Belts #20 × Rainbow Belts F1' },
     { sourceId: 'archive-rainbow-belts-3-0', name: 'Rainbow Belts 3.0', lineage: 'Rainbow Belts #20 × Moonbow #112 F2 #60' }
   ];
+  const CHILD_RELATIONSHIP_IDS = Object.freeze({
+    'acapulco-gold': ['skunk-1'],
+    'ak-47': ['serious-happiness'],
+    'warlock': ['serious-happiness'],
+    'papaya': ['california-octane'],
+    'skunk-1': ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'],
+    'super-skunk': ['sour-diesel']
+  });
 
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
@@ -43,9 +51,9 @@
     return track;
   };
 
-  const makeRelationshipLabel = (ja, en) => {
+  const makeRelationshipLabel = (ja, en, tone = 'derived') => {
     const label = document.createElement('span');
-    label.className = 'csw-name-rel-label is-derived';
+    label.className = `csw-name-rel-label is-${tone}`;
     const jaNode = document.createElement('span');
     jaNode.textContent = ja;
     const enNode = document.createElement('small');
@@ -66,6 +74,22 @@
     const relation = document.createElement('div');
     relation.className = 'csw-name-rel-relation';
     relation.appendChild(makeRelationshipLabel('別系統', 'DERIVED LINE'));
+    block.append(title, formula, relation);
+    return block;
+  };
+
+  const makeChildBlock = line => {
+    const block = document.createElement('div');
+    block.className = 'csw-name-rel-name-block';
+    const title = document.createElement('strong');
+    title.className = 'csw-name-rel-name';
+    title.textContent = line.name;
+    const formula = document.createElement('p');
+    formula.className = 'csw-name-rel-lineage';
+    formula.textContent = line.lineage;
+    const relation = document.createElement('div');
+    relation.className = 'csw-name-rel-relation';
+    relation.appendChild(makeRelationshipLabel('子系統', 'CHILD LINE', 'child'));
     block.append(title, formula, relation);
     return block;
   };
@@ -107,6 +131,29 @@
         throw new Error(`RAINBOW_BELTS_DERIVED_SOURCE_MISMATCH:${line.sourceId}`);
       }
     }
+  };
+
+  const normalizeIdentity = value => text(value).normalize('NFKC').toLowerCase();
+
+  const resolveChildLines = (catalog, parent) => {
+    const childIds = CHILD_RELATIONSHIP_IDS[parent?.id] || [];
+    if (!childIds.length) return [];
+    const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
+    return childIds.map(childId => {
+      const child = (catalog?.cultivars || []).find(item => item?.id === childId);
+      if (!child) throw new Error(`CHILD_RELATIONSHIP_TARGET_MISSING:${parent.id}:${childId}`);
+      const parents = unique(child?.lineage?.parents || []).map(normalizeIdentity);
+      if (!parents.some(name => parentNames.has(name))) {
+        throw new Error(`CHILD_RELATIONSHIP_PARENT_MISMATCH:${parent.id}:${childId}`);
+      }
+      if (text(child?.lineage?.status) !== 'confirmed' || !Array.isArray(child?.lineage?.sourceRefs) || !child.lineage.sourceRefs.length) {
+        throw new Error(`CHILD_RELATIONSHIP_EVIDENCE_INCOMPLETE:${parent.id}:${childId}`);
+      }
+      const name = text(child.name);
+      const lineage = text(child?.lineage?.display);
+      if (!name || !lineage) throw new Error(`CHILD_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${childId}`);
+      return { id: childId, name, lineage };
+    });
   };
 
   const resolveCurrent = async () => {
@@ -191,19 +238,27 @@
     return true;
   };
 
-  const decorateUniversal = ({ id, cultivar, root, lineageCard }) => {
+  const decorateUniversal = ({ id, catalog, cultivar, root, lineageCard }) => {
     setIntegratedTitle(lineageCard);
     const body = lineageCard.querySelector(':scope > div');
     if (!body) return false;
 
     let integrated = body.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name);
-    if (!integrated && aliases.length) {
+    const childLines = resolveChildLines(catalog, cultivar);
+    if (!integrated && (aliases.length || childLines.length)) {
       integrated = document.createElement('section');
       integrated.className = 'csw-name-rel-integrated csw-name-rel-integrated-sitewide';
       integrated.dataset.sitewideLineageIntegrated = 'v1';
-      const aliasRow = makeAliasRow(aliases, { standalone: true });
+      const aliasRow = makeAliasRow(aliases, { standalone: childLines.length === 0 });
       if (aliasRow) integrated.appendChild(aliasRow);
+      childLines.forEach((line, index) => {
+        const row = document.createElement('div');
+        row.className = 'csw-name-rel-rail-item';
+        row.dataset.childRelationship = line.id;
+        row.append(makeTrack({ node: true, last: index === childLines.length - 1 }), makeChildBlock(line));
+        integrated.appendChild(row);
+      });
       const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
       if (evidence) body.insertBefore(integrated, evidence);
       else body.appendChild(integrated);
@@ -215,7 +270,10 @@
     window.__CSWSitewideLineageRelationshipsV1 = {
       status: 'PASS', contract: SITEWIDE_CONTRACT, cultivarId: id,
       lineageStatus: text(cultivar?.lineage?.status) || 'unknown',
-      aliases, aliasCount: aliases.length, evidenceFooterAtBottom
+      aliases, aliasCount: aliases.length,
+      childLines: childLines.map(line => ({ id: line.id, name: line.name, lineage: line.lineage })),
+      childCount: childLines.length,
+      evidenceFooterAtBottom
     };
     return true;
   };
