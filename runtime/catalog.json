@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-19T23:46:06.283Z",
+  "generatedAt": "2026-09-20T15:33:18.311Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -18251,16 +18251,16 @@
       "visuals": [
         {
           "role": "primary",
-          "src": "assets/cultivars/super-lemon-haze/super-lemon-haze-appearance.svg",
-          "alt": "Super Lemon HazeのAI生成参考ビジュアル",
-          "rights": "Legacy AI-generated site asset; formal rights record pending review.",
+          "src": "assets/cultivars/super-lemon-haze/primary.webp",
+          "alt": "Green House Seed Co.公式の形態記述に基づき、丸みのあるHaze型の花、大きめの萼、コンパクトな花の構造と樹脂表現を安全余白つきでまとめたSuper Lemon HazeのAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. The current Green House Seed Co. text description is used only as bounded morphology evidence.",
           "scope": "cultivar",
           "aiGenerated": true,
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-08",
-      "updatedAt": "2026-09-08",
+      "checkedAt": "2026-09-20",
+      "updatedAt": "2026-09-20",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -22011,10 +22011,13 @@
         "history",
         "awards",
         "cannabinoids",
-        "morphology"
+        "morphology",
+        "flavors",
+        "effects",
+        "cultivation"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-08"
+      "checkedAt": "2026-09-20"
     },
     "hi-elevation-freakshow": {
       "schemaVersion": 1,
