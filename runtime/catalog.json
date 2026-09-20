@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-17T05:19:25.766Z",
+  "generatedAt": "2026-09-19T23:46:06.283Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 74,
-    "sources": 143,
+    "cultivars": 75,
+    "sources": 146,
     "entities": 28
   },
   "explore": {
@@ -59,6 +59,7 @@
       "erdpurt",
       "fat-banana-auto",
       "hindu-kush",
+      "la-confidential",
       "mazar",
       "gorilla-glue-4",
       "permanent-marker",
@@ -9695,6 +9696,317 @@
     },
     {
       "schemaVersion": 1,
+      "id": "la-confidential",
+      "status": "review",
+      "name": "LA Confidential",
+      "jp": null,
+      "aliases": [
+        "L.A. Confidential"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-genetics-la-confidential-2025"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 5,
+            "indica": 95,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 5,
+              "indica": 95,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "display": "OG LA Affie × Afghani",
+        "parents": [
+          "OG LA Affie",
+          "Afghani"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Genetics公式では、OG LA Affie × Afghaniとして記載されています。F・S・BXなどの世代表記は確認できないため、generationはunknownのまま保持します。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dna-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-genetics-la-confidential-2025"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "パイニー",
+          "スカンキー・アンダートーン"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "パイニー",
+            "スカンキー・アンダートーン"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "piney",
+              "reviewLabelJa": "パイニー",
+              "plainMeaningJa": "松のような樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "skunky undertones",
+              "reviewLabelJa": "スカンキー・アンダートーン",
+              "plainMeaningJa": "スカンク系を思わせる香りが下支えするニュアンス",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スカンク系",
+                "スカンキー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "DNA Genetics公式では、earthy、piney、skunky undertonesと明記されています。香りの強弱階層は作らず、公式一次情報のPROFILEとしてそのまま整理しています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-la-confidential"
+        ],
+        "items": [
+          "pinene",
+          "caryophyllene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "LeaflyはLA ConfidentialのTerpenesとしてPinene、Caryophyllene、Myrceneを掲載しています。専門資料由来のLISTED evidenceとして保持し、割合や順位へ変換していません。DNA Genetics公式ページ内のテルペン記載には内部差異があるため、それらを無理に一つの一覧へ統合していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 17,
+              "maxValue": 30,
+              "unit": "%",
+              "valueText": "17〜30%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-genetics-la-confidential-2025"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-about-la-confidential-2004-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsの公式ヒストリーでは、LA Confidentialは同社の定番品種の一つとして2004年High Times Cannabis CupのIndica部門3位を獲得し、その後に種子化へ進んだことが記録されています。同じ公式資料でL.A. Confidential表記も確認できるため、CSWではLA Confidentialを主表示、L.A. Confidentialを別表記として保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "DNA Genetics公式では、密度が高く樹脂に覆われた花、エメラルドグリーンに紫のアクセント、コンパクトな構造が説明されています。未記載のピストル色などは補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "DNA Genetics公式では、OG LA Affie × Afghaniとして記載されています。F・S・BXなどの世代表記は確認できないため、generationはunknownのまま保持します。",
+          "history": "DNA Geneticsの公式ヒストリーでは、LA Confidentialは同社の定番品種の一つとして2004年High Times Cannabis CupのIndica部門3位を獲得し、その後に種子化へ進んだことが記録されています。同じ公式資料でL.A. Confidential表記も確認できるため、CSWではLA Confidentialを主表示、L.A. Confidentialを別表記として保持します。",
+          "aromaNote": "DNA Genetics公式では、earthy、piney、skunky undertonesと明記されています。香りの強弱階層は作らず、公式一次情報のPROFILEとしてそのまま整理しています。",
+          "terpeneNote": "LeaflyはLA ConfidentialのTerpenesとしてPinene、Caryophyllene、Myrceneを掲載しています。専門資料由来のLISTED evidenceとして保持し、割合や順位へ変換していません。DNA Genetics公式ページ内のテルペン記載には内部差異があるため、それらを無理に一つの一覧へ統合していません。",
+          "morphologyNote": "DNA Genetics公式では、密度が高く樹脂に覆われた花、エメラルドグリーンに紫のアクセント、コンパクトな構造が説明されています。未記載のピストル色などは補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/la-confidential/primary.webp",
+          "alt": "DNA Genetics公式の形態記述に基づき、密度が高く樹脂に覆われたエメラルドグリーンの花に控えめな紫のアクセントを持たせ、トップ全体の安全余白を確保したLA ConfidentialのAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed. External images are not used as the production asset.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-20",
+      "updatedAt": "2026-09-20",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": [],
+        "nameRelationships": {
+          "schemaVersion": 1,
+          "contractVersion": "CULTIVAR_NAME_RELATIONSHIPS_V1",
+          "layout": "LINEAGE_RAIL",
+          "labels": {
+            "section": {
+              "ja": "名前・系統関係",
+              "en": "NAME & RELATIONSHIPS"
+            },
+            "root": {
+              "ja": "元の品種",
+              "en": "ROOT"
+            },
+            "aliases": {
+              "ja": "別名・表記違い",
+              "en": "ALIAS"
+            },
+            "derivedLine": {
+              "ja": "別系統",
+              "en": "DERIVED LINE"
+            },
+            "childLine": {
+              "ja": "子系統",
+              "en": "CHILD LINE"
+            },
+            "selection": {
+              "ja": "選抜系統",
+              "en": "SELECTION"
+            }
+          },
+          "root": {
+            "name": "LA Confidential",
+            "lineageDisplay": "OG LA Affie × Afghani"
+          },
+          "aliases": [
+            "L.A. Confidential"
+          ],
+          "derivedLines": [],
+          "childLines": [
+            {
+              "id": "cataract-kush",
+              "name": "Cataract Kush",
+              "lineageDisplay": "OG Kush × L.A. Confidential",
+              "relationshipType": "child-line"
+            }
+          ],
+          "selections": [],
+          "noteJa": "Cataract Kushは、DNA Genetics公式の系譜でLA Confidentialを直接の親に含むことが確認できるため、CHILD LINEとして表示します。"
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "laughing-buddha",
       "status": "review",
       "name": "Laughing Buddha",
@@ -12632,7 +12944,63 @@
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
-        "heldFields": []
+        "heldFields": [],
+        "nameRelationships": {
+          "schemaVersion": 1,
+          "contractVersion": "CULTIVAR_NAME_RELATIONSHIPS_V1",
+          "layout": "LINEAGE_RAIL",
+          "labels": {
+            "section": {
+              "ja": "名前・系統関係",
+              "en": "NAME & RELATIONSHIPS"
+            },
+            "root": {
+              "ja": "元の品種",
+              "en": "ROOT"
+            },
+            "aliases": {
+              "ja": "別名・表記違い",
+              "en": "ALIAS"
+            },
+            "derivedLine": {
+              "ja": "別系統",
+              "en": "DERIVED LINE"
+            },
+            "childLine": {
+              "ja": "子系統",
+              "en": "CHILD LINE"
+            },
+            "selection": {
+              "ja": "選抜系統",
+              "en": "SELECTION"
+            }
+          },
+          "root": {
+            "name": "OG Kush",
+            "lineageDisplay": "親系統は確定していない。Florida / Triangle Kush系統との関連と複数の異なる ancestry 説明が存在する"
+          },
+          "aliases": [
+            "Premium OG Kush"
+          ],
+          "derivedLines": [],
+          "childLines": [
+            {
+              "id": "cataract-kush",
+              "name": "Cataract Kush",
+              "lineageDisplay": "OG Kush × L.A. Confidential",
+              "relationshipType": "child-line"
+            }
+          ],
+          "selections": [
+            {
+              "id": "the-og-18",
+              "name": "The OG #18",
+              "relationshipDisplay": "OG Kushから選抜・再フェミナイズ",
+              "relationshipType": "selection"
+            }
+          ],
+          "noteJa": "The OG #18はDNA Genetics / Reserva Privadaの説明に基づき、OG Kush由来の選抜系統として扱います。S1 / BXの世代表記は競合するため、関係ラベルではS1と断定しません。"
+        }
       }
     },
     {
@@ -14607,7 +14975,62 @@
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
-        "heldFields": []
+        "heldFields": [],
+        "nameRelationships": {
+          "schemaVersion": 1,
+          "contractVersion": "CULTIVAR_NAME_RELATIONSHIPS_V1",
+          "layout": "LINEAGE_RAIL",
+          "labels": {
+            "section": {
+              "ja": "名前・系統関係",
+              "en": "NAME & RELATIONSHIPS"
+            },
+            "root": {
+              "ja": "元の品種",
+              "en": "ROOT"
+            },
+            "aliases": {
+              "ja": "別名・表記違い",
+              "en": "ALIAS"
+            },
+            "derivedLine": {
+              "ja": "別系統",
+              "en": "DERIVED LINE"
+            },
+            "childLine": {
+              "ja": "子系統",
+              "en": "CHILD LINE"
+            },
+            "selection": {
+              "ja": "選抜系統",
+              "en": "SELECTION"
+            }
+          },
+          "root": {
+            "name": "Rainbow Belts",
+            "lineageDisplay": "Zkittlez × Moonbow #75"
+          },
+          "aliases": [
+            "Rainbow Beltz",
+            "Rainbow Belt",
+            "RaB"
+          ],
+          "derivedLines": [
+            {
+              "name": "Rainbow Belts 2.0",
+              "lineageDisplay": "Rainbow Belts #20 × Rainbow Belts F1",
+              "relationshipType": "derived-line"
+            },
+            {
+              "name": "Rainbow Belts 3.0",
+              "lineageDisplay": "Rainbow Belts #20 × Moonbow #112 F2 #60",
+              "relationshipType": "derived-line"
+            }
+          ],
+          "childLines": [],
+          "selections": [],
+          "noteJa": "2.0・3.0はRainbow Beltsの別名ではなく、Archive Seed Bankが別系統として掲載しているラインです。各ラインの特性は元のRainbow Beltsへ混ぜていません。"
+        }
       }
     },
     {
@@ -21174,6 +21597,23 @@
       "publishedAt": null,
       "checkedAt": "2026-09-08"
     },
+    "dna-genetics-about-la-confidential-2004-history": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-about-la-confidential-2004-history",
+      "publisher": "DNA Genetics",
+      "title": "About DNA Genetics",
+      "url": "https://dnagenetics.com/about/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "aliases",
+        "breeder",
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-20"
+    },
     "dna-genetics-awards-og18": {
       "schemaVersion": 1,
       "id": "dna-genetics-awards-og18",
@@ -21203,6 +21643,30 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
+    },
+    "dna-genetics-la-confidential-2025": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-la-confidential-2025",
+      "publisher": "DNA Genetics",
+      "title": "LA Confidential Cannabis Strain",
+      "url": "https://dnagenetics.com/la-confidential-cannabis-strain-2/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "cultivation",
+        "morphology",
+        "visualMorphology"
+      ],
+      "publishedAt": "2025-03-31",
+      "checkedAt": "2026-09-20"
     },
     "dna-strawberry-banana-s1": {
       "schemaVersion": 1,
@@ -21974,6 +22438,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-16"
+    },
+    "leafly-la-confidential": {
+      "schemaVersion": 1,
+      "id": "leafly-la-confidential",
+      "publisher": "Leafly",
+      "title": "LA Confidential Weed Strain Information",
+      "url": "https://www.leafly.com/strains/la-confidential",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "terpenes",
+        "flavor",
+        "effects",
+        "morphology",
+        "cultivation",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-20"
     },
     "leafly-laughing-buddha": {
       "schemaVersion": 1,
