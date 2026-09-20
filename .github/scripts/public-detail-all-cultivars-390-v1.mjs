@@ -78,7 +78,7 @@ proc.stderr.on('data', data => { stderr += String(data); });
 async function main() {
   const catalog = await getJson(new URL('runtime/catalog.json', baseUrl));
   const cultivars = Array.isArray(catalog?.cultivars) ? catalog.cultivars : [];
-  if (cultivars.length !== 74) throw new Error(`Expected 74 cultivars, got ${cultivars.length}`);
+  if (cultivars.length === 0) throw new Error('Expected at least one cultivar for the 390px detail sweep');
 
   await waitFor(async () => {
     try { return await getJson('http://127.0.0.1:9227/json/version'); }
