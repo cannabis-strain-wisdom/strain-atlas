@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T15:33:18.311Z",
+  "generatedAt": "2026-09-20T20:22:58.524Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 75,
-    "sources": 146,
+    "cultivars": 76,
+    "sources": 147,
     "entities": 28
   },
   "explore": {
@@ -80,6 +80,7 @@
       "girl-scout-cookies",
       "jack-herer",
       "lemon-cherry-gelato",
+      "lemon-skunk",
       "mac-1",
       "og-kush",
       "papaya",
@@ -10817,6 +10818,299 @@
       ],
       "checkedAt": "2026-09-17",
       "updatedAt": "2026-09-17",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "lemon-skunk",
+      "status": "review",
+      "name": "Lemon Skunk",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "balanced-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-lemon-skunk"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 50,
+            "indica": 50,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 50,
+              "indica": 50,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "display": "Skunk × Citral",
+        "parents": [
+          "Skunk",
+          "Citral"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Co.公式ではSkunk × Citralと記載されています。本文ではClassic Skunkという表現もありますが、Skunk #1へ決め打ちせず、generationもunknownのまま保持します。同名のDNA Genetics版Lemon Skunkとは統合していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "green-house-seed-co",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-lemon-skunk"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "シトラス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "シトラス"
+          ],
+          "details": [
+            {
+              "rawMatch": "citrus",
+              "reviewLabelJa": "シトラス",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Green House Seed Co.公式がIntense citrus aromaと直接記載しているため、citrusのみをAromaとして採用しています。味として書かれたlemonyやskunkyなどはAromaへ横滑りさせていません。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "EXACT",
+            "displayText": "屋内開花は8週間"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は最大800 g/m²と公式が記載"
+          },
+          {
+            "field": "training",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "SCRoG / LST向きと公式が記載"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "北半球では9月末ごろ"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は最大800 g/株と公式が記載"
+          },
+          {
+            "field": "support",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "長い栄養成長後は開花終盤に支柱が必要になる場合あり"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 23.12,
+              "unit": "%",
+              "valueText": "23.12%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-lemon-skunk"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.23,
+              "unit": "%",
+              "valueText": "0.23%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-lemon-skunk"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 0.75,
+              "unit": "%",
+              "valueText": "0.75%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-lemon-skunk"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Co.公式はLemon Skunkの受賞歴として1st Highlife 2007を掲載しています。主催者一次記録と同じ強さには引き上げず、originator公式の歴史情報として保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Green House Seed Co.公式では、つる状に伸びる多枝性、中〜長めの節間、濃い緑色、白い樹脂に覆われた硬い花、終盤の赤〜オレンジ色のピストルが説明されています。未記載の形態は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Green House Seed Co.公式ではSkunk × Citralと記載されています。本文ではClassic Skunkという表現もありますが、Skunk #1へ決め打ちせず、generationもunknownのまま保持します。同名のDNA Genetics版Lemon Skunkとは統合していません。",
+          "history": "Green House Seed Co.公式はLemon Skunkの受賞歴として1st Highlife 2007を掲載しています。主催者一次記録と同じ強さには引き上げず、originator公式の歴史情報として保持します。",
+          "aromaNote": "Green House Seed Co.公式がIntense citrus aromaと直接記載しているため、citrusのみをAromaとして採用しています。味として書かれたlemonyやskunkyなどはAromaへ横滑りさせていません。",
+          "morphologyNote": "Green House Seed Co.公式では、つる状に伸びる多枝性、中〜長めの節間、濃い緑色、白い樹脂に覆われた硬い花、終盤の赤〜オレンジ色のピストルが説明されています。未記載の形態は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/lemon-skunk/primary.webp",
+          "alt": "Green House Seed Co.公式の形態記述に基づき、濃い緑色と白い樹脂に覆われた硬い花、終盤の赤〜オレンジ色のピストルを安全余白つきでまとめたLemon SkunkのAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. The current Green House Seed Co. text description is used only as bounded morphology evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -21994,6 +22288,32 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-15"
+    },
+    "ghsc-lemon-skunk": {
+      "schemaVersion": 1,
+      "id": "ghsc-lemon-skunk",
+      "publisher": "Green House Seed Co.",
+      "title": "Lemon Skunk (Feminised)",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/lemon-skunk/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visualMorphology",
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-21"
     },
     "ghsc-super-lemon-haze": {
       "schemaVersion": 1,

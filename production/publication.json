@@ -435,6 +435,11 @@
       "strainId": "la-confidential",
       "state": "published",
       "publishedAt": "2026-09-19T23:46:05Z"
+    },
+    {
+      "strainId": "lemon-skunk",
+      "state": "published",
+      "publishedAt": "2026-09-20T20:22:57Z"
     }
   ]
 }
