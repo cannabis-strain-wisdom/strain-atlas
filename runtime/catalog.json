@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T20:22:58.524Z",
+  "generatedAt": "2026-09-21T13:04:15.575Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 76,
-    "sources": 147,
-    "entities": 28
+    "cultivars": 77,
+    "sources": 152,
+    "entities": 29
   },
   "explore": {
     "sativa": [
@@ -52,6 +52,7 @@
     "indica": [
       "apple-fritter",
       "blue-gelato-41",
+      "blueberry",
       "blueberry-muffin",
       "california-octane",
       "cataract-kush",
@@ -2326,6 +2327,241 @@
       ],
       "checkedAt": "2026-09-05",
       "updatedAt": "2026-09-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blueberry",
+      "status": "review",
+      "name": "Blueberry",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "seedfinder-dj-short-blueberry"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 20,
+            "indica": 80,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 20,
+              "indica": 80,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "dj-short-blueberry-origins-1999"
+        ],
+        "display": "Juicy Fruit Thai or Purple Thai (♀) × Afghani Indica (♂)",
+        "parents": [
+          "Juicy Fruit Thai (Highland Thai) or Purple Thai (female route)",
+          "Afghani Indica (male)"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DJ Short本人の1999年の説明では、Blueberryは単純な3系統の一発交配ではありません。雌のJuicy Fruit Thai（Highland Thai）またはPurple Thaiに、雄のAfghani Indicaを掛けたF1群を起点に、後代で選抜と固定を重ねた系統です。Purple Thai自体はHighland Oaxaca Gold × Chocolate Thaiと説明されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dj-short",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dj-short-blueberry-official-about"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dj-short-blueberry-official-about"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フレッシュブルーベリー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フレッシュブルーベリー"
+          ],
+          "details": [
+            {
+              "rawMatch": "fresh blueberries",
+              "reviewLabelJa": "フレッシュブルーベリー",
+              "plainMeaningJa": "新鮮なブルーベリー果実を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ブルーベリー",
+                "ベリー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "DJ Short公式はBlueberryについてfresh blueberriesのように香ると直接説明しています。原文の複合表現を分割せず、AromaはフラットなPROFILEとして保持しています。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-dj-short-blueberry"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "専門資料では屋内開花45〜55日",
+            "min": 45,
+            "max": 55,
+            "unit": "days"
+          },
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "専門資料では高さ0.7〜1m",
+            "min": 0.7,
+            "max": 1,
+            "unit": "m"
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "良条件下では多収量と専門資料が記載"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "willamette-week-blueberry-origins-2017"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "JD Shortへの直接取材では、Blueberryの代表的な表現は1979年ごろのDJ Shortの仕事に現れ、Eugeneから北カリフォルニアへ広がっていった流れが語られています。CSWでは米国オレゴン州Eugene周辺の1970年代末の育種文脈として整理しています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dj-short-blueberry-official-about",
+          "dj-short-blueberry-f5-current"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DJ Short公式ではBlueberryは1970年代末にさかのぼり、1981年ごろには特徴的なBlueberryとして形になっていた経緯が示されています。2000年High Times Cannabis Cup受賞も公式に記録されています。現在公式販売されるBlueberry F5は後代リリースとして分け、root Blueberryそのものと同一generationにはしていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-dj-short-blueberry"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "専門資料では、密でがっしりした株、赤・紫・青系の発色、medium〜large calyxが記録されています。ただし発色は固定条件とはせず、品種名から極端な青紫色を足していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "DJ Short本人の1999年の説明では、Blueberryは単純な3系統の一発交配ではありません。雌のJuicy Fruit Thai（Highland Thai）またはPurple Thaiに、雄のAfghani Indicaを掛けたF1群を起点に、後代で選抜と固定を重ねた系統です。Purple Thai自体はHighland Oaxaca Gold × Chocolate Thaiと説明されています。",
+          "origin": "JD Shortへの直接取材では、Blueberryの代表的な表現は1979年ごろのDJ Shortの仕事に現れ、Eugeneから北カリフォルニアへ広がっていった流れが語られています。CSWでは米国オレゴン州Eugene周辺の1970年代末の育種文脈として整理しています。",
+          "history": "DJ Short公式ではBlueberryは1970年代末にさかのぼり、1981年ごろには特徴的なBlueberryとして形になっていた経緯が示されています。2000年High Times Cannabis Cup受賞も公式に記録されています。現在公式販売されるBlueberry F5は後代リリースとして分け、root Blueberryそのものと同一generationにはしていません。",
+          "aromaNote": "DJ Short公式はBlueberryについてfresh blueberriesのように香ると直接説明しています。原文の複合表現を分割せず、AromaはフラットなPROFILEとして保持しています。",
+          "morphologyNote": "専門資料では、密でがっしりした株、赤・紫・青系の発色、medium〜large calyxが記録されています。ただし発色は固定条件とはせず、品種名から極端な青紫色を足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blueberry/primary.webp",
+          "alt": "DJ Short Blueberryの歴史的rootについて確認できる密でがっしりした花姿と、可変的な赤・紫・青系の発色を控えめに反映し、トップバッズ全体と安全余白を確保したAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. No official or third-party image is copied or redistributed; only bounded textual cultivar evidence is used to constrain the generated visual.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -21812,6 +22048,62 @@
       "publishedAt": "2026-07-17",
       "checkedAt": "2026-09-08"
     },
+    "dj-short-blueberry-f5-current": {
+      "schemaVersion": 1,
+      "id": "dj-short-blueberry-f5-current",
+      "publisher": "DJ Short Seeds",
+      "title": "Blueberry F5",
+      "url": "https://www.djgenetics.com/strains/blueberry/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "generation",
+        "history",
+        "awards",
+        "classification",
+        "aroma",
+        "flavor",
+        "cultivation",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-21"
+    },
+    "dj-short-blueberry-official-about": {
+      "schemaVersion": 1,
+      "id": "dj-short-blueberry-official-about",
+      "publisher": "DJ Short Seeds",
+      "title": "About DJ Short",
+      "url": "https://www.djgenetics.com/about-dj-short/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "breeder",
+        "history",
+        "aroma",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-21"
+    },
+    "dj-short-blueberry-origins-1999": {
+      "schemaVersion": 1,
+      "id": "dj-short-blueberry-origins-1999",
+      "publisher": "Cannabis Culture",
+      "title": "On the origins of Blueberry",
+      "url": "https://www.cannabisculture.com/content/1999/09/01/1511/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "history"
+      ],
+      "publishedAt": "1999-09-01",
+      "checkedAt": "2026-09-21"
+    },
     "dna-chocolope-256-reg": {
       "schemaVersion": 1,
       "id": "dna-chocolope-256-reg",
@@ -23278,6 +23570,23 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "seedfinder-dj-short-blueberry": {
+      "schemaVersion": 1,
+      "id": "seedfinder-dj-short-blueberry",
+      "publisher": "SeedFinder",
+      "title": "Blueberry (DJ Short) :: Cannabis Strain Info",
+      "url": "https://seedfinder.eu/en/strain-info/blueberry/dj-short",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "flavor",
+        "cultivation",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-21"
+    },
     "seedfinder-durban-poison": {
       "schemaVersion": 1,
       "id": "seedfinder-durban-poison",
@@ -23723,6 +24032,24 @@
       ],
       "publishedAt": "2021-09-10",
       "checkedAt": "2026-09-16"
+    },
+    "willamette-week-blueberry-origins-2017": {
+      "schemaVersion": 1,
+      "id": "willamette-week-blueberry-origins-2017",
+      "publisher": "Willamette Week",
+      "title": "We Talked To JD Short, Son of Legendary Eugene Breeder DJ Short, About The Origins of Blueberry",
+      "url": "https://www.wweek.com/cannabis/2017/04/17/we-talked-to-jd-short-son-of-legendary-eugene-breeder-dj-short-about-the-origins-of-blueberry/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "origin",
+        "history",
+        "aroma"
+      ],
+      "publishedAt": "2017-04-17",
+      "checkedAt": "2026-09-21"
     }
   },
   "entities": {
@@ -23833,6 +24160,18 @@
       "checkedAt": "2026-09-16",
       "updatedAt": "2026-09-16",
       "note": "High Times' 2014 direct interview identifies the Cookie Family as the breeders/originators of genuine Girl Scout Cookies."
+    },
+    "dj-short": {
+      "schemaVersion": 1,
+      "id": "dj-short",
+      "name": "DJ Short",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-21",
+      "updatedAt": "2026-09-21",
+      "note": "Daniel John “D.J.” Short, verified through the current first-party DJ Short Seeds site as the creator/breeder associated with Blueberry."
     },
     "dna-genetics": {
       "schemaVersion": 1,
