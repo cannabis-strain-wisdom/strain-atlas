@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T20:20:45.417Z",
+  "generatedAt": "2026-09-21T20:47:24.365Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 79,
-    "sources": 159,
-    "entities": 29
+    "cultivars": 80,
+    "sources": 162,
+    "entities": 30
   },
   "explore": {
     "sativa": [
@@ -37,6 +37,7 @@
       "malawi",
       "mimosa",
       "nepal-jam",
+      "nevilles-haze",
       "new-caledonia",
       "orient-express",
       "panama",
@@ -13116,6 +13117,341 @@
     },
     {
       "schemaVersion": 1,
+      "id": "nevilles-haze",
+      "status": "review",
+      "name": "Neville's Haze",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "mr-nice-nevilles-haze-current",
+          "ghsc-nevilles-haze-current"
+        ],
+        "display": "NL5/HazeA × HazeC",
+        "parents": [
+          "NL5/HazeA",
+          "HazeC"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mr. Nice現行公式はFamily BreedをNL5/HazeA × HazeCとし、Green House現行公式も複数のHaze系とNL5を使ったalmost pure Hazeとして説明しています。CSWではHaze × NL5由来という大枠を確認扱いにし、現行各社seed lineのgenerationまで同一とはしていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "nevil-schoenmakers",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "mr-nice-nevilles-haze-current",
+            "mr-nice-nevil-history",
+            "ghsc-nevilles-haze-current"
+          ]
+        },
+        {
+          "entityId": "green-house-seed-co",
+          "roles": [
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-nevilles-haze-current"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スパイシー",
+          "メタリック",
+          "インセンス",
+          "フローラル",
+          "ウッディ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スパイシー",
+            "メタリック",
+            "インセンス",
+            "フローラル",
+            "ウッディ"
+          ],
+          "details": [
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "metallic",
+              "reviewLabelJa": "メタリック",
+              "plainMeaningJa": "金属を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "金属"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Green House現行公式ではspicy、metallic、incense、floral、woodyが香りとして直接確認できます。強弱表現はありますが、CSWでは無理にCORE / ACCENT階層へ変換せず、フラットなAroma profileとして保持しています。"
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "屋内開花は詳細説明で約14〜16週間",
+            "min": 14,
+            "max": 16,
+            "unit": "weeks"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は最大700 g/m²と公式が記載"
+          },
+          {
+            "field": "training",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "ScrOG / LST向きと公式が記載"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "北半球では11月中旬ごろ"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は最大1200 g/株と公式が記載"
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "赤道・熱帯・亜熱帯・温帯向け、支柱が必要と公式が記載"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 22.6,
+              "unit": "%",
+              "valueText": "22.6%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-nevilles-haze-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.15,
+              "unit": "%",
+              "valueText": "0.15%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-nevilles-haze-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 0.17,
+              "unit": "%",
+              "valueText": "0.17%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-nevilles-haze-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current",
+          "mr-nice-nevilles-haze-current",
+          "mr-nice-nevil-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green HouseとMr. Niceの現行公式はいずれもNeville's HazeをNevil Schoenmakersに結び付け、1998年High Times Cannabis CupのSeeds系部門1位を記録しています。一方、現行lineの比率はGreen Houseが90% Sativa / 10% Indica、Mr. Niceが3/4 sativaと異なるため、rootではsativa-dominantまでに留めています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Green House現行公式では、背が高く長く広い枝を持ち、開花中も強くstretchし、細長いが締まった花に樹脂が付き、calyxも長く大きいと説明されています。Hazeという名前から霧や煙の演出は足していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Mr. Nice現行公式はFamily BreedをNL5/HazeA × HazeCとし、Green House現行公式も複数のHaze系とNL5を使ったalmost pure Hazeとして説明しています。CSWではHaze × NL5由来という大枠を確認扱いにし、現行各社seed lineのgenerationまで同一とはしていません。",
+          "history": "Green HouseとMr. Niceの現行公式はいずれもNeville's HazeをNevil Schoenmakersに結び付け、1998年High Times Cannabis CupのSeeds系部門1位を記録しています。一方、現行lineの比率はGreen Houseが90% Sativa / 10% Indica、Mr. Niceが3/4 sativaと異なるため、rootではsativa-dominantまでに留めています。",
+          "aromaNote": "Green House現行公式ではspicy、metallic、incense、floral、woodyが香りとして直接確認できます。強弱表現はありますが、CSWでは無理にCORE / ACCENT階層へ変換せず、フラットなAroma profileとして保持しています。",
+          "morphologyNote": "Green House現行公式では、背が高く長く広い枝を持ち、開花中も強くstretchし、細長いが締まった花に樹脂が付き、calyxも長く大きいと説明されています。Hazeという名前から霧や煙の演出は足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/nevilles-haze/primary.webp",
+          "alt": "Green Houseの現行Neville's Haze形態記述に基づき、長く伸びるSativa系構造と、細長く締まった樹脂質の花、長く大きいcalyxをトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed. Modern derivatives, autoflowering lines, portraits and name-derived haze/smoke effects are excluded.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "new-caledonia",
       "status": "review",
       "name": "New Caledonia",
@@ -23281,6 +23617,30 @@
       "publishedAt": null,
       "checkedAt": "2026-09-21"
     },
+    "ghsc-nevilles-haze-current": {
+      "schemaVersion": 1,
+      "id": "ghsc-nevilles-haze-current",
+      "publisher": "Green House Seed Company",
+      "title": "Neville's Haze (Feminised)",
+      "url": "https://shop.greenhouseseeds.nl/medicinal-seeds/nevilles-haze/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visualMorphology",
+        "history",
+        "awards",
+        "lineage"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "ghsc-super-lemon-haze": {
       "schemaVersion": 1,
       "id": "ghsc-super-lemon-haze",
@@ -24182,6 +24542,43 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "mr-nice-nevil-history": {
+      "schemaVersion": 1,
+      "id": "mr-nice-nevil-history",
+      "publisher": "Mr. Nice Seedbank",
+      "title": "About",
+      "url": "https://mrnice.com/about/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "breeder",
+        "history",
+        "identity"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
+    "mr-nice-nevilles-haze-current": {
+      "schemaVersion": 1,
+      "id": "mr-nice-nevilles-haze-current",
+      "publisher": "Mr. Nice Seedbank",
+      "title": "Neville's Haze",
+      "url": "https://mrnice.com/product/nevilles-haze/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "history",
+        "awards",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "nirvana-papaya-feminized": {
       "schemaVersion": 1,
       "id": "nirvana-papaya-feminized",
@@ -25064,6 +25461,18 @@
       "checkedAt": "2026-09-05",
       "updatedAt": "2026-09-05",
       "note": "Mephisto Genetics official Double Grape cultivar page identifies its own breeding release and lists Sour Stomper x Grape Crinkle."
+    },
+    "nevil-schoenmakers": {
+      "schemaVersion": 1,
+      "id": "nevil-schoenmakers",
+      "name": "Nevil Schoenmakers",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "note": "Historical cannabis breeder associated by current Green House and Mr. Nice sources with the origin of Neville's Haze. Entity identity is kept separate from modern seed-company ownership."
     },
     "nirvana-seeds": {
       "schemaVersion": 1,
