@@ -1309,4 +1309,118 @@
     else apply();
   })();
   </script>
+<!-- CSW_CULTIVAR_LEAF_V1_START -->
+<script id="csw-cultivar-leaf-v1">
+(() => {
+  'use strict';
+
+  const CONTRACT = 'CSW_CULTIVAR_LEAF_V1';
+  const EVENT_NAME = 'cultivar-leaf';
+  const shell = document.getElementById('detail-shell');
+  if (!shell) return;
+
+  const styleId = 'csw-cultivar-leaf-v1-styles';
+  if (!document.getElementById(styleId)) {
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.textContent = [
+      '.detail-leaf-button{appearance:none;display:grid;width:44px;height:44px;flex:0 0 44px;place-items:center;margin-left:0;padding:0;border:1px solid rgba(105,169,120,.20);border-radius:50%;background:rgba(255,255,255,.025);color:#b7d8bd;cursor:pointer;font:700 18px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}',
+      '.detail-leaf-button:focus-visible{outline:2px solid rgba(168,217,178,.82);outline-offset:2px}',
+      '.detail-leaf-button.is-sent{border-color:rgba(105,169,120,.55);background:rgba(105,169,120,.12);color:#d8efdd}',
+      '.detail-leaf-button:disabled{cursor:default}'
+    ].join('');
+    document.head.appendChild(style);
+  }
+
+  const cleanId = value => {
+    const id = typeof value === 'string' ? value.trim() : '';
+    return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id) ? id : '';
+  };
+
+  const currentCultivarId = () => {
+    const root = shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
+    return cleanId(root?.dataset?.publicDetailId) || cleanId(new URL(location.href).searchParams.get('strain'));
+  };
+
+  const dntEnabled = () => {
+    const value = String(navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || '').toLowerCase();
+    return value === '1' || value === 'yes';
+  };
+
+  const enhance = () => {
+    const bar = shell.querySelector(':scope > .detail-topbar');
+    const close = bar?.querySelector('.close-detail');
+    if (!bar || !close || bar.querySelector('[data-cultivar-leaf]')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'detail-leaf-button';
+    button.dataset.cultivarLeaf = 'v1';
+    button.setAttribute('aria-label', 'この品種にリアクション');
+    button.textContent = '🌿';
+    const share = bar.querySelector('[data-detail-share]');
+    (share || close).before(button);
+  };
+
+  const resetFailSoft = button => {
+    window.setTimeout(() => {
+      if (!button.isConnected || button.dataset.leafSent === '1') return;
+      button.disabled = false;
+      button.classList.remove('is-sent');
+    }, 600);
+  };
+
+  shell.addEventListener('click', event => {
+    const button = event.target?.closest?.('[data-cultivar-leaf]');
+    if (!button || !shell.contains(button) || button.disabled) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const id = currentCultivarId();
+    if (!id) return;
+
+    button.disabled = true;
+
+    if (dntEnabled()) {
+      window.__CSWCultivarLeafV1 = { status: 'DNT_RESPECTED', contract: CONTRACT };
+      resetFailSoft(button);
+      return;
+    }
+
+    const tracker = window.umami;
+    if (!tracker || typeof tracker.track !== 'function') {
+      window.__CSWCultivarLeafV1 = { status: 'UNAVAILABLE', contract: CONTRACT };
+      resetFailSoft(button);
+      return;
+    }
+
+    try {
+      const result = tracker.track(EVENT_NAME, { cultivarId: id });
+      Promise.resolve(result).then(() => {
+        if (!button.isConnected) return;
+        button.dataset.leafSent = '1';
+        button.classList.add('is-sent');
+        button.setAttribute('aria-label', 'リアクションを送信しました');
+        window.__CSWCultivarLeafV1 = { status: 'TRACKED', contract: CONTRACT, cultivarId: id };
+      }).catch(() => {
+        window.__CSWCultivarLeafV1 = { status: 'FAIL_SOFT', contract: CONTRACT };
+        resetFailSoft(button);
+      });
+    } catch (_) {
+      window.__CSWCultivarLeafV1 = { status: 'FAIL_SOFT', contract: CONTRACT };
+      resetFailSoft(button);
+    }
+  }, true);
+
+  new MutationObserver(enhance).observe(shell, { childList: true });
+  enhance();
+
+  window.__CSWCultivarLeafV1 = {
+    status: 'READY',
+    contract: CONTRACT,
+    eventName: EVENT_NAME
+  };
+})();
+</script>
+<!-- CSW_CULTIVAR_LEAF_V1_END -->
 </body></html>
