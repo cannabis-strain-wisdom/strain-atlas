@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T19:05:37.397Z",
+  "generatedAt": "2026-09-21T19:39:21.728Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 77,
-    "sources": 152,
+    "cultivars": 78,
+    "sources": 157,
     "entities": 29
   },
   "explore": {
@@ -71,7 +71,8 @@
       "super-skunk",
       "triangle-kush-s1",
       "violeta",
-      "warlock"
+      "warlock",
+      "white-widow"
     ],
     "hybrid": [
       "auto-cinderella-jack",
@@ -20842,6 +20843,315 @@
     },
     {
       "schemaVersion": 1,
+      "id": "white-widow",
+      "status": "review",
+      "name": "White Widow",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-white-widow-current"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 40,
+            "indica": 60,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 40,
+              "indica": 60,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "ghsc-white-widow-current",
+          "mr-nice-black-widow-origin-account",
+          "high-times-white-widow-profile"
+        ],
+        "display": "Brazilian × South Indian",
+        "parents": [
+          "Brazilian cannabis line",
+          "South Indian cannabis line"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜の大枠は、Green Houseの現行公式情報とMr. Nice側の対立する起源説明の両方がBrazilian × South Indianで一致しています。CSWではこの大枠だけを確認扱いにし、親の性別やSouth IndianをIndica／Hybridのどちらと呼ぶかは固定していません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "high-times-white-widow-profile"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "ウッディ",
+          "ペッパリー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "ウッディ",
+            "ペッパリー"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "peppery",
+              "reviewLabelJa": "ペッパリー",
+              "plainMeaningJa": "胡椒を思わせるスパイス香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "胡椒",
+                "スパイス"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "High Timesの現行White Widow profileでは、aromaとしてearthy、woody、pepperyが明示されています。専門資料由来のPROFILEとして平坦に保持し、Terpeneから香りの順位は作っていません。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "items": [
+          "myrcene",
+          "alpha-pinene",
+          "beta-caryophyllene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            }
+          ],
+          "noteJa": "Green Houseの現行公式ページはMyrcene、α-Pinene、β-Caryophylleneをmost expressed terpenesとして挙げています。CSWでは公式の定性的な成分優勢情報として保持し、分析値や割合には変換していません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 25.76,
+              "unit": "%",
+              "valueText": "25.76%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-white-widow-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.1,
+              "unit": "%",
+              "valueText": "0.1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-white-widow-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 0.28,
+              "unit": "%",
+              "valueText": "0.28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-white-widow-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-white-widow-profile",
+          "ghsc-white-widow-awards"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "White Widowが広く知られるようになった舞台は、1990年代半ばのAmsterdamのseed／coffeeshopシーンです。1995年HTCCでの受賞も確認できます。ただし、植物そのものを最初に作った場所までAmsterdamと断定するのは避けています。"
+        }
+      },
+      "history": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "ghsc-white-widow-current",
+          "ghsc-white-widow-awards",
+          "mr-nice-black-widow-origin-account",
+          "high-times-white-widow-profile",
+          "seedfinder-ghsc-white-widow"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "White Widowは1995年HTCCの受賞で広く知られましたが、creator attributionは現在も割れています。Mr. NiceはShantibabaをoriginatorとし、現在のBlack Widowがoriginal White Widowの親系統を引き継ぐと説明。一方、Green Houseの歴史説明として残る資料ではIngemarによるより早い起源説があります。CSWはどちらかを勝手に確定せず、Black Widowも別identityのまま保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Green Houseの現行公式説明では、short internodes、large leaves、bushy growth、dense buds、budを覆うfrosty trichome layerが確認できます。White Widowという名前から蜘蛛や黒色などの外見は足していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜の大枠は、Green Houseの現行公式情報とMr. Nice側の対立する起源説明の両方がBrazilian × South Indianで一致しています。CSWではこの大枠だけを確認扱いにし、親の性別やSouth IndianをIndica／Hybridのどちらと呼ぶかは固定していません。",
+          "origin": "White Widowが広く知られるようになった舞台は、1990年代半ばのAmsterdamのseed／coffeeshopシーンです。1995年HTCCでの受賞も確認できます。ただし、植物そのものを最初に作った場所までAmsterdamと断定するのは避けています。",
+          "history": "White Widowは1995年HTCCの受賞で広く知られましたが、creator attributionは現在も割れています。Mr. NiceはShantibabaをoriginatorとし、現在のBlack Widowがoriginal White Widowの親系統を引き継ぐと説明。一方、Green Houseの歴史説明として残る資料ではIngemarによるより早い起源説があります。CSWはどちらかを勝手に確定せず、Black Widowも別identityのまま保持します。",
+          "aromaNote": "High Timesの現行White Widow profileでは、aromaとしてearthy、woody、pepperyが明示されています。専門資料由来のPROFILEとして平坦に保持し、Terpeneから香りの順位は作っていません。",
+          "terpeneNote": "Green Houseの現行公式ページはMyrcene、α-Pinene、β-Caryophylleneをmost expressed terpenesとして挙げています。CSWでは公式の定性的な成分優勢情報として保持し、分析値や割合には変換していません。",
+          "morphologyNote": "Green Houseの現行公式説明では、short internodes、large leaves、bushy growth、dense buds、budを覆うfrosty trichome layerが確認できます。White Widowという名前から蜘蛛や黒色などの外見は足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/white-widow/primary.webp",
+          "alt": "Green Houseの現行White Widow形態記述に基づき、short internodes・large leaves・bushy structure・dense buds・frosty trichome layerをトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed. Black Widow, Auto derivatives, later reproductions and descendant imagery are not used as the production asset.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "zamaldelica",
       "status": "review",
       "name": "Zamaldelica",
@@ -22661,6 +22971,44 @@
       "publishedAt": null,
       "checkedAt": "2026-09-20"
     },
+    "ghsc-white-widow-awards": {
+      "schemaVersion": 1,
+      "id": "ghsc-white-widow-awards",
+      "publisher": "Green House Seed Company",
+      "title": "Cannabis Cup Awards",
+      "url": "https://shop.greenhouseseeds.nl/research-and-development/cannabis-cup-awards",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
+    "ghsc-white-widow-current": {
+      "schemaVersion": 1,
+      "id": "ghsc-white-widow-current",
+      "publisher": "Green House Seed Company",
+      "title": "White Widow (Feminised)",
+      "url": "https://shop.greenhouseseeds.nl/award-winning-seeds/high-times-cannabis-cup/white-widow/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "classification",
+        "cannabinoids",
+        "terpenes",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "hi-elevation-freakshow": {
       "schemaVersion": 1,
       "id": "hi-elevation-freakshow",
@@ -22793,6 +23141,24 @@
       ],
       "publishedAt": "2018-04-24",
       "checkedAt": "2026-09-08"
+    },
+    "high-times-white-widow-profile": {
+      "schemaVersion": 1,
+      "id": "high-times-white-widow-profile",
+      "publisher": "High Times",
+      "title": "White Widow: High Times Strain Profile",
+      "url": "https://hightimes.com/strains/white-widow/",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "aroma",
+        "origin",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
     },
     "hsc-blueberry-muffin-us": {
       "schemaVersion": 1,
@@ -23466,6 +23832,22 @@
       "publishedAt": "2024-01-09",
       "checkedAt": "2026-09-05"
     },
+    "mr-nice-black-widow-origin-account": {
+      "schemaVersion": 1,
+      "id": "mr-nice-black-widow-origin-account",
+      "publisher": "Mr. Nice Seedbank",
+      "title": "Black Widow",
+      "url": "https://mrnice.com/product/black-widow/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "nirvana-papaya-feminized": {
       "schemaVersion": 1,
       "id": "nirvana-papaya-feminized",
@@ -23599,6 +23981,24 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "seedfinder-ghsc-white-widow": {
+      "schemaVersion": 1,
+      "id": "seedfinder-ghsc-white-widow",
+      "publisher": "SeedFinder",
+      "title": "White Widow (Green House Seeds)",
+      "url": "https://seedfinder.eu/en/strain-info/white-widow/green-house-seeds",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "history",
+        "cultivation",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
     },
     "seedfinder-the-og-18": {
       "schemaVersion": 1,

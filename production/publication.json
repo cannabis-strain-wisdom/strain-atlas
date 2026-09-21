@@ -448,7 +448,8 @@
     },
     {
       "strainId": "white-widow",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-09-21T19:39:20Z"
     }
   ]
 }
