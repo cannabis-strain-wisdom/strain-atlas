@@ -257,7 +257,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   for (const term of ['Fresh','Fruity','Berry']) if (!blueAroma.includes(term)) throw new Error(`Blue Gelato Aroma missing ${term}: ${JSON.stringify(blueAroma)}`);
   await evalv(`document.querySelector('[data-csw-staged-sensory-sub="flavor"]').click()`);
   const blueFlavor = await waitFor(() => evalv(`(()=>{const p=document.querySelector('[data-profile-kind="flavor"]');if(!p||p.hidden)return false;return {text:p.innerText,items:[...p.querySelectorAll('.ucd-flavor-terms span')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato flavor child');
-  for (const term of ['Sweet','Earthy','Citrus']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
+  for (const term of ['スイート','アーシー','シトラス']) if (!blueFlavor.items.includes(term)) throw new Error(`Blue Gelato Flavor missing ${term}: ${JSON.stringify(blueFlavor)}`);
   if(!blueFlavor.text.includes('フレーバー')) throw new Error('Blue Gelato Flavor label not normalized');
   const blueTerpeneState = await evalv(`(()=>{
     const button=document.querySelector('[data-csw-staged-sensory-sub="terpene"]');
