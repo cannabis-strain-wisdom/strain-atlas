@@ -10928,6 +10928,35 @@
           "noteJa": "Green House Seed Co.公式がIntense citrus aromaと直接記載しているため、citrusのみをAromaとして採用しています。味として書かれたlemonyやskunkyなどはAromaへ横滑りさせていません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "items": [
+          "skunky",
+          "sweet",
+          "earthy",
+          "lemony",
+          "fresh herbal",
+          "spicy"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-lemon-skunk"
+        ],
+        "items": [
+          "sleepy head buzz",
+          "full-body relaxation",
+          "long-lasting buzz"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "A",
@@ -10946,31 +10975,36 @@
             "field": "yield",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "屋内収量は最大800 g/m²と公式が記載"
+            "displayText": "屋内収量は最大800 g/m²と公式が記載",
+            "text": "Green House Seed Co. states indoor yield up to 800 g/m²."
           },
           {
             "field": "training",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "SCRoG / LST向きと公式が記載"
+            "displayText": "SCRoG / LST向きと公式が記載",
+            "text": "Green House Seed Co. says it is good for SCRoG or LST."
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "北半球では9月末ごろ"
+            "displayText": "北半球では9月末ごろ",
+            "text": "Ready at the end of September in the Northern Hemisphere."
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "屋外収量は最大800 g/株と公式が記載"
+            "displayText": "屋外収量は最大800 g/株と公式が記載",
+            "text": "Green House Seed Co. states outdoor production up to 800 g/plant."
           },
           {
             "field": "support",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "長い栄養成長後は開花終盤に支柱が必要になる場合あり"
+            "displayText": "長い栄養成長後は開花終盤に支柱が必要になる場合あり",
+            "text": "May need support late in flowering after long vegetative growth."
           }
         ]
       },
@@ -11059,10 +11093,6 @@
             }
           ]
         }
-      },
-      "origin": {
-        "status": "unknown",
-        "sourceRefs": []
       },
       "history": {
         "status": "confirmed",
