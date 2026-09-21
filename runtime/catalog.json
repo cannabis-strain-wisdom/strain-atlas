@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T19:39:21.728Z",
+  "generatedAt": "2026-09-21T20:20:45.417Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 78,
-    "sources": 157,
+    "cultivars": 79,
+    "sources": 159,
     "entities": 29
   },
   "explore": {
@@ -51,6 +51,7 @@
     ],
     "indica": [
       "apple-fritter",
+      "big-bang",
       "blue-gelato-41",
       "blueberry",
       "blueberry-muffin",
@@ -1781,6 +1782,313 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "big-bang",
+      "status": "review",
+      "name": "Big Bang",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-big-bang-current"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 30,
+            "indica": 70,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 30,
+              "indica": 70,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "display": "Skunk × Northern Light × El Niño",
+        "parents": [
+          "Skunk",
+          "Northern Light",
+          "El Niño"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Companyの現行公式ではSkunk × Northern Light × El Niño。本文ではNorthern Lightsとも書かれていますが、CSWではSkunkをSkunk #1、Northern LightをNL #5などへ決め打ちせず、公式が示す大枠の親名だけを保持しています。Big Bang AutoはRuderalisを含む別identityです。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "green-house-seed-co",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-big-bang-current"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "EXACT",
+            "displayText": "屋内開花は9週間と公式が記載"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は最大800 g/m²と公式が記載"
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "北半球では9月末ごろ"
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は最大1000 g/株と公式が記載"
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "RANGE",
+            "displayText": "屋外では平均約160〜180 cmと公式が記載",
+            "min": 160,
+            "max": 180,
+            "unit": "cm"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "items": [
+          "myrcene",
+          "alpha-pinene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            }
+          ],
+          "noteJa": "Green House公式はMyrcene、α-Pinene、Caryophylleneをmost expressed terpenesとして挙げています。Caryophylleneを根拠なくβ-Caryophylleneへ変換せず、公式表記の粒度で保持しています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 19.8,
+              "unit": "%",
+              "valueText": "19.8%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-big-bang-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.12,
+              "unit": "%",
+              "valueText": "0.12%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-big-bang-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 0.28,
+              "unit": "%",
+              "valueText": "0.28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ghsc-big-bang-current"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "ghsc-big-bang-current",
+          "seedfinder-htcc-big-bang"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House公式はBig BangをHTCC 2000年3位としています。一方、SeedFinderの歴代結果では2001年3位がGreenhouse / Big Bangで、2000年3位はWhite Smurf。CSWでは年を勝手に確定せず、この食い違いをそのまま残しています。Green Houseが記すDutch pharmacyでの処方薬販売についても、独立した一次確認が取れないため公式側の主張として扱います。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Green House公式では、背が低く枝分かれの多いbushyな株で、縦より横に広がり、花は大きく密でtrichomeに覆われると説明されています。Big Bangという名前から宇宙・爆発・星などの外見は足していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Green House Seed Companyの現行公式ではSkunk × Northern Light × El Niño。本文ではNorthern Lightsとも書かれていますが、CSWではSkunkをSkunk #1、Northern LightをNL #5などへ決め打ちせず、公式が示す大枠の親名だけを保持しています。Big Bang AutoはRuderalisを含む別identityです。",
+          "history": "Green House公式はBig BangをHTCC 2000年3位としています。一方、SeedFinderの歴代結果では2001年3位がGreenhouse / Big Bangで、2000年3位はWhite Smurf。CSWでは年を勝手に確定せず、この食い違いをそのまま残しています。Green Houseが記すDutch pharmacyでの処方薬販売についても、独立した一次確認が取れないため公式側の主張として扱います。",
+          "terpeneNote": "Green House公式はMyrcene、α-Pinene、Caryophylleneをmost expressed terpenesとして挙げています。Caryophylleneを根拠なくβ-Caryophylleneへ変換せず、公式表記の粒度で保持しています。",
+          "morphologyNote": "Green House公式では、背が低く枝分かれの多いbushyな株で、縦より横に広がり、花は大きく密でtrichomeに覆われると説明されています。Big Bangという名前から宇宙・爆発・星などの外見は足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/big-bang/primary.webp",
+          "alt": "Green Houseの現行Big Bang形態記述に基づき、低くbushyで横に広がる構造と、trichomeに覆われた大きく密な花をトップ全体の安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed. Big Bang Auto/Ruderalis derivatives and name-derived cosmic imagery are excluded from the production asset.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -22921,6 +23229,32 @@
       "publishedAt": null,
       "checkedAt": "2026-09-15"
     },
+    "ghsc-big-bang-current": {
+      "schemaVersion": 1,
+      "id": "ghsc-big-bang-current",
+      "publisher": "Green House Seed Company",
+      "title": "Big Bang (Feminised)",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/big-bang/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "terpenes",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visualMorphology",
+        "history",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "ghsc-lemon-skunk": {
       "schemaVersion": 1,
       "id": "ghsc-lemon-skunk",
@@ -23995,6 +24329,20 @@
         "breeder",
         "history",
         "cultivation",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
+    "seedfinder-htcc-big-bang": {
+      "schemaVersion": 1,
+      "id": "seedfinder-htcc-big-bang",
+      "publisher": "SeedFinder",
+      "title": "Cannabis Cup / Best Cannabis winners",
+      "url": "https://seedfinder.eu/en/database/cup-winner/cannabiscup.html",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "history",
         "awards"
       ],
       "publishedAt": null,

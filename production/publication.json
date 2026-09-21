@@ -450,6 +450,11 @@
       "strainId": "white-widow",
       "state": "published",
       "publishedAt": "2026-09-21T19:39:20Z"
+    },
+    {
+      "strainId": "big-bang",
+      "state": "published",
+      "publishedAt": "2026-09-21T20:20:44Z"
     }
   ]
 }
