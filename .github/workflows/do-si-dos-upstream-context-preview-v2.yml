@@ -134,8 +134,9 @@ jobs:
             if(!state||state.viewport!==390||state.contextCount!==2||state.separateContextPanelCount!==0||state.miniLabelCount!==0||state.overflow||!state.mapPresent||state.pathCount<2) throw new Error(`Preview state mismatch: ${JSON.stringify(state)}`);
             if(!state.contexts.every(x=>x.parentFont>x.contextFont)) throw new Error(`Context hierarchy mismatch: ${JSON.stringify(state.contexts)}`);
             if(!state.contexts.some(x=>x.parent==='OGKB'&&x.value==='Cookies / GSC side')||!state.contexts.some(x=>x.parent==='Face Off OG BX1'&&x.value==='OG side')) throw new Error(`Context content mismatch: ${JSON.stringify(state.contexts)}`);
-            const rect=await evalv(`(()=>{const e=document.querySelector('#detail-shell .ucd-lineage');const r=e.getBoundingClientRect();return{x:Math.max(0,r.x),y:Math.max(0,r.y),width:Math.min(window.innerWidth-r.x,r.width),height:r.height};})()`);
-            const shot=await cdp.send('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:true,clip:{x:rect.x,y:rect.y,width:rect.width,height:rect.height,scale:1}});
+            await evalv(`(()=>{const e=document.querySelector('#detail-shell .ucd-lineage');if(!e)return false;e.scrollIntoView({block:'start'});return true;})()`);
+            await sleep(200);
+            const shot=await cdp.send('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
             fs.writeFileSync(path.join(out,'do-si-dos-upstream-context-v2-390.png'),Buffer.from(shot.data,'base64'));
             fs.writeFileSync(path.join(out,'do-si-dos-upstream-context-v2-390.json'),JSON.stringify(state,null,2)+'\n');
             console.log(JSON.stringify(state,null,2));
