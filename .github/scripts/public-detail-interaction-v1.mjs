@@ -202,7 +202,7 @@ async function main() {
     const lineage=document.querySelector('#detail-shell .ucd-lineage');
     const body=lineage?.querySelector(':scope > div');
     const integrated=body?.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
-    if(!root||!lineage||!body||!integrated||window.__CSWDoSiDosUpstreamRailV1?.status!=='PASS') return false;
+    if(!root||!lineage||!body||!integrated||window.__CSWSitewideLineageRelationshipsV1?.status!=='PASS'||window.__CSWSitewideLineageRelationshipsV1?.cultivarId!=='do-si-dos') return false;
     const upstream=[...integrated.querySelectorAll(':scope > [data-upstream-family-context]')].map(row=>({
       parent:row.dataset.upstreamFamilyContext||'',
       kind:row.dataset.lineageContextKind||'',
@@ -228,8 +228,8 @@ async function main() {
       aliasTrackDisplay:alias?getComputedStyle(alias.querySelector('.csw-name-rel-track')).display:'',
       prose:prose?.textContent.trim()||'',
       evidenceAfterRail:Boolean(evidence&&integrated.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
-      ready:root.dataset.doSiDosUpstreamRail||'',
-      state:window.__CSWDoSiDosUpstreamRailV1||null,
+      ready:root.dataset.sitewideLineageRelationships||'',
+      state:window.__CSWSitewideLineageRelationshipsV1||null,
       documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
   })()`), 'Do-Si-Dos upstream relationship rail');
@@ -249,9 +249,9 @@ async function main() {
     doSiDosRail.aliasTrackDisplay === 'none' ||
     doSiDosRail.prose !== 'OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。' ||
     !doSiDosRail.evidenceAfterRail ||
-    doSiDosRail.state?.presentation !== 'sitewide-relationship-rail' ||
-    doSiDosRail.state?.mapRendered !== false ||
-    doSiDosRail.state?.duplicateParentSummary !== false ||
+    doSiDosRail.state?.presentation !== 'relationship-rail-only' ||
+    doSiDosRail.state?.upstreamCount !== 2 ||
+    doSiDosRail.state?.lineageMapRendered !== false ||
     doSiDosRail.documentOverflow
   ) {
     throw new Error(`Do-Si-Dos upstream relationship rail mismatch: ${JSON.stringify(doSiDosRail)}`);
