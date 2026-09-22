@@ -208,17 +208,20 @@ async function main() {
       linked:node.classList.contains('is-linked')
     }));
     const miniLabels=[...map.querySelectorAll('.csw-lineage-map-upstream')];
-    const contexts=[...map.querySelectorAll('.csw-lineage-context-item')].map(item=>({
+    const contextPanels=[...map.querySelectorAll('.csw-lineage-context-v1')];
+    const contexts=[...map.querySelectorAll('.csw-lineage-map-node.is-contextual')].map(item=>({
       parent:item.dataset.lineageContextFor||'',
       kind:item.dataset.lineageContextKind||'',
-      text:item.querySelector('.csw-lineage-context-value')?.textContent.trim()||'',
+      text:item.querySelector('.csw-lineage-map-node-context')?.textContent.trim()||'',
       parentText:item.querySelector('strong')?.textContent.trim()||'',
-      clickable:item.matches('a,button,[role="button"]'),
-      display:getComputedStyle(item).display
+      contextual:item.classList.contains('is-contextual'),
+      separateNode:item.querySelectorAll('.csw-lineage-map-node').length>0,
+      contextElement:item.querySelector('.csw-lineage-map-node-context')?.tagName||'',
+      nodeMinHeight:parseFloat(getComputedStyle(item).minHeight)||0
     }));
     return {
       mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
-      contextPanelCount:map.querySelectorAll('[data-lineage-context-v1="do-si-dos"]').length,
+      contextPanelCount:contextPanels.length,
       ready:root.dataset.lineageMapV1||'',
       names:nodes.map(node=>node.name),
       rootName:nodes.find(node=>node.root)?.name||'',
@@ -239,11 +242,11 @@ async function main() {
     doSiDosMap.nodeCount < 3 ||
     !doSiDosMap.names.includes('OGKB') ||
     !doSiDosMap.names.includes('Face Off OG BX1') ||
-    doSiDosMap.contextPanelCount !== 1 ||
+    doSiDosMap.contextPanelCount !== 0 ||
     doSiDosMap.miniLabelCount !== 0 ||
     doSiDosMap.contextCount !== 2 ||
-    !doSiDosMap.contexts.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.text === 'Cookies / GSC side' && item.kind === 'family-side' && !item.clickable && item.display === 'grid') ||
-    !doSiDosMap.contexts.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.text === 'OG side' && item.kind === 'family-side' && !item.clickable && item.display === 'grid') ||
+    !doSiDosMap.contexts.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.text === 'Cookies / GSC side' && item.kind === 'family-side' && item.contextual && !item.separateNode && item.contextElement === 'SPAN' && item.nodeMinHeight >= 60) ||
+    !doSiDosMap.contexts.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.text === 'OG side' && item.kind === 'family-side' && item.contextual && !item.separateNode && item.contextElement === 'SPAN' && item.nodeMinHeight >= 60) ||
     doSiDosMap.state?.cultivarId !== 'do-si-dos' ||
     doSiDosMap.state?.upstreamContextCount !== 2 ||
     doSiDosMap.documentOverflow
