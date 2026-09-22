@@ -443,6 +443,108 @@
     return branch;
   };
 
+  const decorateDoSiDosComposition = ({ id, catalog, cultivar, root, lineageCard }) => {
+    if (id !== 'do-si-dos') return false;
+    const parents = confirmedLineageParents(cultivar);
+    if (parents.length !== 2) throw new Error(`DO_SI_DOS_COMPOSITION_PARENT_COUNT:${parents.length}`);
+    const body = lineageCard.querySelector(':scope > div');
+    if (!body) return false;
+    if (body.querySelector('[data-lineage-composition-v1="do-si-dos"]')) {
+      root.dataset.lineageCompositionV1 = 'ready';
+      return true;
+    }
+
+    const resolve = buildLineageResolver(catalog);
+    const parentItems = parents.map(parent => {
+      const context = lineageUpstreamLabel(id, parent);
+      if (!context) throw new Error(`DO_SI_DOS_COMPOSITION_CONTEXT_MISSING:${parent}`);
+      return { parent, context, resolved: resolve(parent) };
+    });
+
+    const section = document.createElement('section');
+    section.className = 'csw-lineage-composition-v1';
+    section.dataset.lineageCompositionV1 = id;
+
+    const heading = document.createElement('div');
+    heading.className = 'csw-lineage-composition-heading';
+    const headingTitle = document.createElement('span');
+    headingTitle.textContent = 'LINEAGE COMPOSITION / 系譜構成';
+    const headingMeta = document.createElement('small');
+    headingMeta.textContent = 'direct parents + family context';
+    heading.append(headingTitle, headingMeta);
+
+    const plate = document.createElement('div');
+    plate.className = 'csw-lineage-composition-plate';
+
+    const pair = document.createElement('div');
+    pair.className = 'csw-lineage-composition-pair';
+    parentItems.forEach((item, index) => {
+      if (index) {
+        const cross = document.createElement('span');
+        cross.className = 'csw-lineage-composition-cross';
+        cross.textContent = '×';
+        cross.setAttribute('aria-hidden', 'true');
+        pair.appendChild(cross);
+      }
+
+      const linked = Boolean(item.resolved);
+      const parent = document.createElement(linked ? 'a' : 'div');
+      parent.className = 'csw-lineage-composition-parent';
+      parent.dataset.lineageCompositionParent = item.parent;
+      parent.dataset.lineageContextKind = 'family-side';
+      if (linked) {
+        parent.href = lineageHref(item.resolved.id);
+        parent.setAttribute('aria-label', `${item.parent}の詳細を見る。上流文脈: ${item.context}`);
+      } else {
+        parent.setAttribute('aria-label', `${item.parent}。上流文脈: ${item.context}`);
+      }
+
+      const context = document.createElement('span');
+      context.className = 'csw-lineage-composition-context';
+      context.textContent = item.context;
+      const name = document.createElement('strong');
+      name.textContent = item.parent;
+      const role = document.createElement('small');
+      role.textContent = 'DIRECT PARENT';
+      parent.append(context, name, role);
+      pair.appendChild(parent);
+    });
+
+    const stem = document.createElement('div');
+    stem.className = 'csw-lineage-composition-stem';
+    stem.setAttribute('aria-hidden', 'true');
+
+    const result = document.createElement('div');
+    result.className = 'csw-lineage-composition-result';
+    result.dataset.lineageCompositionResult = id;
+    const resultRole = document.createElement('small');
+    resultRole.textContent = 'CULTIVAR';
+    const resultName = document.createElement('strong');
+    resultName.textContent = text(cultivar.name);
+    result.append(resultRole, resultName);
+
+    plate.append(pair, stem, result);
+
+    const note = document.createElement('p');
+    note.className = 'csw-lineage-composition-note';
+    note.textContent = '親名は確認済みのdirect parent。各親の小さな上段はfamily-side contextで、別の親ノードではありません。';
+
+    section.append(heading, plate, note);
+    body.prepend(section);
+
+    root.dataset.lineageCompositionV1 = 'ready';
+    window.__CSWLineageCompositionV1 = {
+      status: 'PASS',
+      cultivarId: id,
+      directParents: parentItems.map(item => item.parent),
+      familyContexts: parentItems.map(item => ({ parent: item.parent, label: item.context })),
+      layout: 'single-composition-strip',
+      branchLines: 0,
+      separateContextPanels: 0
+    };
+    return true;
+  };
+
   const decorateLineageMap = ({ id, catalog, cultivar, root, lineageCard }) => {
     if (!confirmedLineageParents(cultivar).length) return false;
     const body = lineageCard.querySelector(':scope > div');
@@ -608,7 +710,8 @@
     const state = await resolveCurrent();
     if (!state) return false;
     const relationshipsReady = state.id === RAINBOW_ID ? decorateRainbow(state) : decorateUniversal(state);
-    decorateLineageMap(state);
+    if (state.id === 'do-si-dos') decorateDoSiDosComposition(state);
+    else decorateLineageMap(state);
     return relationshipsReady;
   };
 
@@ -642,7 +745,24 @@
       .csw-name-rel-track:before{content:'';position:absolute;left:10px;top:-10px;bottom:-10px;width:1px;background:linear-gradient(rgba(216,189,98,.42),rgba(216,189,98,.22))}
       .csw-name-rel-track.is-last:before{bottom:calc(100% - 12px)}
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
-      .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
+      .csw-lineage-composition-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
+      .csw-lineage-composition-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 10px}
+      .csw-lineage-composition-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
+      .csw-lineage-composition-heading small{color:#7f9186;font-size:8.5px;font-weight:700;white-space:nowrap}
+      .csw-lineage-composition-plate{display:flex;flex-direction:column;align-items:center;padding:12px 10px 11px;border:1px solid rgba(217,182,93,.13);border-radius:15px;background:linear-gradient(155deg,rgba(217,182,93,.045),rgba(22,49,32,.16) 52%,rgba(255,255,255,.012))}
+      .csw-lineage-composition-pair{display:grid;width:100%;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(6,18,12,.56);overflow:hidden}
+      .csw-lineage-composition-parent{display:grid;align-content:center;justify-items:center;gap:3px;min-width:0;min-height:82px;padding:10px 8px;color:#eef1ec;text-align:center;text-decoration:none;position:relative}
+      .csw-lineage-composition-parent:first-child:after{content:'';position:absolute;right:0;top:13px;bottom:13px;width:1px;background:linear-gradient(transparent,rgba(216,189,98,.18),transparent)}
+      .csw-lineage-composition-context{display:block;max-width:100%;color:#8fa397;font-size:8.5px;font-weight:740;line-height:1.2;letter-spacing:.015em;overflow-wrap:anywhere}
+      .csw-lineage-composition-parent strong{display:block;max-width:100%;color:#f1f3ee;font-size:13px;font-weight:850;line-height:1.22;overflow-wrap:anywhere}
+      .csw-lineage-composition-parent small{color:#657b6e;font-size:7px;font-weight:900;line-height:1.15;letter-spacing:.12em}
+      .csw-lineage-composition-cross{display:flex;align-items:center;justify-content:center;color:#d8bd62;font-size:17px;font-weight:500;line-height:1;background:linear-gradient(180deg,rgba(216,189,98,.05),rgba(216,189,98,.015))}
+      .csw-lineage-composition-stem{width:1px;height:16px;background:linear-gradient(rgba(216,189,98,.5),rgba(216,189,98,.14))}
+      .csw-lineage-composition-result{display:grid;justify-items:center;gap:3px;min-width:150px;padding:9px 20px 10px;border-top:1px solid rgba(216,189,98,.48);border-bottom:1px solid rgba(216,189,98,.22);background:linear-gradient(90deg,transparent,rgba(216,189,98,.07),transparent)}
+      .csw-lineage-composition-result small{color:#9c8b52;font-size:7px;font-weight:900;line-height:1.15;letter-spacing:.14em}
+      .csw-lineage-composition-result strong{color:#fff7dc;font-size:14px;font-weight:900;line-height:1.2}
+      .csw-lineage-composition-note{margin:9px 2px 0!important;color:#87968e!important;font-size:10px!important;line-height:1.5!important}
+            .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
       .csw-lineage-map-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 10px}
       .csw-lineage-map-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
       .csw-lineage-map-heading small{color:#8f9d95;font-size:9px;font-weight:700;white-space:nowrap}
@@ -665,6 +785,19 @@
       .csw-lineage-map-edges path{fill:none;stroke:rgba(217,182,93,.48);stroke-width:1.35;stroke-linecap:round}
       .csw-lineage-map-note{margin:9px 2px 0!important;color:#8f9d95!important;font-size:10px!important;line-height:1.55!important}
       @media(max-width:390px){
+        .csw-lineage-composition-heading{align-items:flex-start;flex-direction:column;gap:3px}
+        .csw-lineage-composition-heading span{font-size:10.5px}
+        .csw-lineage-composition-heading small{font-size:8px}
+        .csw-lineage-composition-plate{padding:10px 7px 10px}
+        .csw-lineage-composition-pair{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr)}
+        .csw-lineage-composition-parent{min-height:78px;padding:9px 6px}
+        .csw-lineage-composition-context{font-size:8px}
+        .csw-lineage-composition-parent strong{font-size:12px}
+        .csw-lineage-composition-parent small{font-size:6.5px}
+        .csw-lineage-composition-cross{font-size:15px}
+        .csw-lineage-composition-result{min-width:142px;padding:8px 18px 9px}
+        .csw-lineage-composition-result strong{font-size:13.5px}
+        .csw-lineage-composition-note{font-size:10px!important}
         .csw-lineage-map-heading{align-items:flex-start;flex-direction:column;gap:3px}
         .csw-lineage-map-heading span{font-size:10.5px}
         .csw-lineage-map-heading small{font-size:9.5px}
