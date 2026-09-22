@@ -207,22 +207,26 @@ async function main() {
       root:node.classList.contains('is-root'),
       linked:node.classList.contains('is-linked')
     }));
-    const upstream=[...map.querySelectorAll('.csw-lineage-map-upstream')].map(label=>({
-      text:label.textContent.trim(),
-      parent:label.dataset.lineageUpstreamFor||'',
-      context:label.dataset.lineageUpstreamContext||'',
-      clickable:label.matches('a,button,[role="button"]'),
-      connector:getComputedStyle(label,'::after').borderLeftStyle
+    const miniLabels=[...map.querySelectorAll('.csw-lineage-map-upstream')];
+    const contexts=[...map.querySelectorAll('.csw-lineage-context-item')].map(item=>({
+      parent:item.dataset.lineageContextFor||'',
+      kind:item.dataset.lineageContextKind||'',
+      text:item.querySelector('.csw-lineage-context-value')?.textContent.trim()||'',
+      parentText:item.querySelector('strong')?.textContent.trim()||'',
+      clickable:item.matches('a,button,[role="button"]'),
+      display:getComputedStyle(item).display
     }));
     return {
       mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
+      contextPanelCount:map.querySelectorAll('[data-lineage-context-v1="do-si-dos"]').length,
       ready:root.dataset.lineageMapV1||'',
       names:nodes.map(node=>node.name),
       rootName:nodes.find(node=>node.root)?.name||'',
       nodeCount:nodes.length,
       pathCount:map.querySelectorAll('.csw-lineage-map-edges path').length,
-      upstream,
-      upstreamCount:upstream.length,
+      miniLabelCount:miniLabels.length,
+      contexts,
+      contextCount:contexts.length,
       state:window.__CSWLineageMapV1||null,
       documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
@@ -235,11 +239,13 @@ async function main() {
     doSiDosMap.nodeCount < 3 ||
     !doSiDosMap.names.includes('OGKB') ||
     !doSiDosMap.names.includes('Face Off OG BX1') ||
-    doSiDosMap.upstreamCount !== 2 ||
-    !doSiDosMap.upstream.some(item => item.parent === 'OGKB' && item.text === 'Cookies / GSC side' && item.context === 'family-side' && !item.clickable && item.connector === 'dashed') ||
-    !doSiDosMap.upstream.some(item => item.parent === 'Face Off OG BX1' && item.text === 'OG side' && item.context === 'family-side' && !item.clickable && item.connector === 'dashed') ||
+    doSiDosMap.contextPanelCount !== 1 ||
+    doSiDosMap.miniLabelCount !== 0 ||
+    doSiDosMap.contextCount !== 2 ||
+    !doSiDosMap.contexts.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.text === 'Cookies / GSC side' && item.kind === 'family-side' && !item.clickable && item.display === 'grid') ||
+    !doSiDosMap.contexts.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.text === 'OG side' && item.kind === 'family-side' && !item.clickable && item.display === 'grid') ||
     doSiDosMap.state?.cultivarId !== 'do-si-dos' ||
-    doSiDosMap.state?.upstreamLabelCount !== 2 ||
+    doSiDosMap.state?.upstreamContextCount !== 2 ||
     doSiDosMap.documentOverflow
   ) {
     throw new Error(`Do-Si-Dos lineage map mismatch: ${JSON.stringify(doSiDosMap)}`);
