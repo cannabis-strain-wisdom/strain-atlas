@@ -1,0 +1,281 @@
+name: Sitewide lineage rail regression preview V1
+
+on:
+  push:
+    branches:
+      - preview/sitewide-lineage-relationship-rail-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: csw-sitewide-lineage-rail-regression-v1
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify narrow change scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='d790135333fee189d4836a8c3c8167d29392dd82'
+          git cat-file -e "$BASE^{commit}"
+          mapfile -t changed < <(git diff --name-only "$BASE"...HEAD | sort)
+          printf '%s\n' "${changed[@]}"
+          allowed=(
+            ".github/scripts/public-detail-interaction-v1.mjs"
+            ".github/workflows/sitewide-lineage-rail-regression-preview-v1.yml"
+            "name-relationships-v1.js"
+          )
+          for file in "${changed[@]}"; do
+            ok=0
+            for a in "${allowed[@]}"; do
+              if [ "$file" = "$a" ]; then ok=1; break; fi
+            done
+            if [ "$ok" -ne 1 ]; then
+              echo "UNEXPECTED_CHANGED_PATH: $file" >&2
+              exit 1
+            fi
+          done
+          git diff --quiet "$BASE"...HEAD -- runtime/catalog.json production/publication.json app.min.js styles.min.css assets/ || {
+            echo "DETAIL_OR_DATA_ARTIFACT_CHANGED" >&2
+            exit 1
+          }
+
+      - name: Static checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check name-relationships-v1.js
+          node --check .github/scripts/public-detail-interaction-v1.mjs
+
+      - name: Stage baseline and candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='d790135333fee189d4836a8c3c8167d29392dd82'
+          BASE_SRC="$RUNNER_TEMP/base-src"
+          BASE_SITE="$RUNNER_TEMP/base-site"
+          CAND_SITE="$RUNNER_TEMP/candidate-site"
+          mkdir -p "$BASE_SRC" "$BASE_SITE/runtime" "$BASE_SITE/production" "$BASE_SITE/assets" "$CAND_SITE/runtime" "$CAND_SITE/production" "$CAND_SITE/assets"
+          git archive "$BASE" | tar -x -C "$BASE_SRC"
+
+          stage_site() {
+            src="$1"
+            dst="$2"
+            install -m 0644 "$src/index.html" "$src/app.min.js" "$src/presentation-contract-v1.js" "$src/name-relationships-v1.js" "$src/detail-interaction-v1.js" "$src/detail-share-v2.js" "$src/styles.min.css" "$src/site-updates.json" "$src/.nojekyll" "$dst/"
+            install -m 0644 "$src/runtime/catalog.json" "$dst/runtime/catalog.json"
+            install -m 0644 "$src/production/publication.json" "$dst/production/publication.json"
+            rsync -a "$src/assets/" "$dst/assets/"
+            SITE_DIR="$dst" python3 <<'PY'
+          import os
+          from pathlib import Path
+          path = Path(os.environ['SITE_DIR']) / 'index.html'
+          html = path.read_text(encoding='utf-8')
+          pending = []
+          for filename in ['detail-share-v2.js','detail-interaction-v1.js','name-relationships-v1.js']:
+              if filename not in html:
+                  pending.append(f'  <script defer src="{filename}"></script>')
+          if pending:
+              if html.count('</body>') != 1:
+                  raise SystemExit('Expected exactly one closing body tag')
+              html = html.replace('</body>', '\n'.join(pending) + '\n</body>', 1)
+          path.write_text(html, encoding='utf-8')
+          PY
+          }
+
+          stage_site "$BASE_SRC" "$BASE_SITE"
+          stage_site "$GITHUB_WORKSPACE" "$CAND_SITE"
+
+          cmp "$BASE_SITE/runtime/catalog.json" "$CAND_SITE/runtime/catalog.json"
+          cmp "$BASE_SITE/production/publication.json" "$CAND_SITE/production/publication.json"
+          cmp "$BASE_SITE/app.min.js" "$CAND_SITE/app.min.js"
+          cmp "$BASE_SITE/styles.min.css" "$CAND_SITE/styles.min.css"
+
+      - name: Compare all 84 cultivar details at 390px
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found' >&2; exit 1; }
+
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$RUNNER_TEMP/base-site" >"$RUNNER_TEMP/base-http.log" 2>&1 &
+          BASE_PID=$!
+          python3 -m http.server 4174 --bind 127.0.0.1 --directory "$RUNNER_TEMP/candidate-site" >"$RUNNER_TEMP/candidate-http.log" 2>&1 &
+          CAND_PID=$!
+          cleanup() { kill "$BASE_PID" "$CAND_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+
+          for port in 4173 4174; do
+            for n in $(seq 1 60); do
+              if curl -fsS "http://127.0.0.1:$port/" >/dev/null; then break; fi
+              sleep 0.25
+            done
+          done
+
+          CHROME_BIN="$CHROME_BIN" OUT_DIR="$RUNNER_TEMP/sitewide-lineage-rail-regression" node --input-type=module <<'NODE'
+          import { spawn } from 'node:child_process';
+          import fs from 'node:fs';
+          import os from 'node:os';
+          import path from 'node:path';
+
+          const chrome=process.env.CHROME_BIN;
+          const out=process.env.OUT_DIR;
+          fs.mkdirSync(out,{recursive:true});
+          const baseUrl='http://127.0.0.1:4173/';
+          const candUrl='http://127.0.0.1:4174/';
+          const representatives=new Set(['do-si-dos','og-kush','rainbow-belts','acapulco-gold','blue-gelato-41','african-gas']);
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function getJson(url){const r=await fetch(url);if(!r.ok)throw new Error(`${url} HTTP ${r.status}`);return r.json();}
+          async function waitFor(fn,label,timeout=20000){const started=Date.now();let last;while(Date.now()-started<timeout){try{last=await fn();if(last)return last;}catch(e){last=e;}await sleep(80);}throw new Error(`Timeout waiting for ${label}: ${last?.message||last||''}`);}
+
+          class CDP{
+            constructor(url){this.ws=new WebSocket(url);this.id=0;this.pending=new Map();this.exceptions=[];}
+            async open(){
+              await new Promise((resolve,reject)=>{this.ws.addEventListener('open',resolve,{once:true});this.ws.addEventListener('error',reject,{once:true});});
+              this.ws.addEventListener('message',event=>{
+                const m=JSON.parse(event.data);
+                if(m.id){
+                  const p=this.pending.get(m.id); if(!p)return;
+                  this.pending.delete(m.id);
+                  m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);
+                  return;
+                }
+                if(m.method==='Runtime.exceptionThrown') this.exceptions.push(m);
+              });
+            }
+            send(method,params={}){const id=++this.id;return new Promise((resolve,reject)=>{this.pending.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}
+            close(){this.ws.close();}
+          }
+
+          let proc,page,port;
+          for(let attempt=0;attempt<2;attempt++){
+            const profile=fs.mkdtempSync(path.join(os.tmpdir(),`csw-sitewide-rail-${attempt}-`));
+            port=9260+attempt;
+            proc=spawn(chrome,['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage',`--remote-debugging-port=${port}`,`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','pipe','pipe']});
+            try{
+              await waitFor(async()=>{try{return await getJson(`http://127.0.0.1:${port}/json/version`)}catch{return false}},'chrome',12000);
+              const pages=await getJson(`http://127.0.0.1:${port}/json/list`);
+              page=pages.find(x=>x.type==='page');
+              if(page) break;
+            }catch(e){
+              proc.kill('SIGTERM');
+              if(attempt===1) throw e;
+              await sleep(400);
+            }
+          }
+          if(!page) throw new Error('No page target');
+
+          const cdp=new CDP(page.webSocketDebuggerUrl);
+          try{
+            await cdp.open();
+            await cdp.send('Page.enable');
+            await cdp.send('Runtime.enable');
+            await cdp.send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
+            const evalv=async expression=>{
+              const r=await cdp.send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
+              if(r.exceptionDetails) throw new Error(r.exceptionDetails.text);
+              return r.result.value;
+            };
+
+            const catalog=await getJson(candUrl+'runtime/catalog.json');
+            const ids=(catalog.cultivars||[]).map(x=>x.id);
+            if(ids.length!==84) throw new Error(`Expected 84 cultivars, got ${ids.length}`);
+
+            async function snapshot(origin,id,isCandidate){
+              await cdp.send('Page.navigate',{url:origin+'?strain='+encodeURIComponent(id)});
+              await waitFor(()=>evalv(`document.readyState==='complete' && Boolean(document.querySelector('.ucd-root[data-public-detail-id="${id}"],.detail-public-v1[data-public-detail-id="${id}"]'))`),`root ${id}`);
+              if(id==='rainbow-belts'){
+                await waitFor(()=>evalv(`window.__CSWRainbowBeltsNameRelationshipRailV1?.status==='PASS'`),`rainbow contract ${id}`);
+              } else {
+                await waitFor(()=>evalv(`window.__CSWSitewideLineageRelationshipsV1?.status==='PASS' && window.__CSWSitewideLineageRelationshipsV1?.cultivarId===${JSON.stringify(id)}`),`sitewide contract ${id}`);
+              }
+              await evalv(`(()=>{const lineage=document.querySelector('#detail-shell .ucd-lineage');if(lineage)lineage.open=true;return true;})()`);
+              await sleep(35);
+              const snap=await evalv(`(()=>{
+                const root=document.querySelector('.ucd-root[data-public-detail-id="${id}"],.detail-public-v1[data-public-detail-id="${id}"]');
+                const lineage=root?.querySelector('.ucd-lineage')||document.querySelector('#detail-shell .ucd-lineage');
+                if(!root||!lineage)return null;
+                const clone=root.cloneNode(true);
+                clone.querySelectorAll('.csw-lineage-map-v1').forEach(x=>x.remove());
+                const norm=s=>String(s||'').replace(/\\s+/g,' ').trim();
+                const links=[...clone.querySelectorAll('a[href]')].map(a=>{const u=new URL(a.getAttribute('href'),location.href);return [norm(a.textContent),u.pathname+u.search+u.hash];});
+                const rail=[...lineage.querySelectorAll('[data-sitewide-lineage-integrated="v1"] > .csw-name-rel-rail-item,[data-name-relationships-integrated="v2"] > .csw-name-rel-rail-item')].map(row=>({
+                  upstream:row.dataset.upstreamFamilyContext||'',
+                  child:row.dataset.childRelationship||'',
+                  selection:row.dataset.selectionRelationship||'',
+                  title:norm(row.querySelector('.csw-name-rel-name')?.textContent),
+                  formula:norm(row.querySelector('.csw-name-rel-lineage')?.textContent),
+                  relation:norm(row.querySelector('.csw-name-rel-relation')?.textContent)
+                }));
+                const aliases=[...lineage.querySelectorAll('.csw-name-rel-chip')].map(x=>norm(x.textContent));
+                const evidence=lineage.querySelector('.ucd-evidence-row');
+                return {
+                  id:${JSON.stringify(id)},
+                  rootText:norm(clone.textContent),
+                  summary:norm(lineage.querySelector(':scope > summary')?.textContent),
+                  prose:norm(lineage.querySelector(':scope > div > p')?.textContent),
+                  aliases,
+                  rail,
+                  evidenceText:norm(evidence?.textContent),
+                  evidenceLinks:evidence?[...evidence.querySelectorAll('a[href]')].map(a=>{const u=new URL(a.getAttribute('href'),location.href);return [norm(a.textContent),u.pathname+u.search+u.hash];}):[],
+                  links,
+                  mapCount:lineage.querySelectorAll('.csw-lineage-map-v1').length,
+                  integratedCount:lineage.querySelectorAll('[data-sitewide-lineage-integrated="v1"],[data-name-relationships-integrated="v2"]').length,
+                  overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
+                };
+              })()`);
+              if(!snap) throw new Error(`Missing snapshot ${id}`);
+              if(isCandidate&&snap.mapCount!==0) throw new Error(`Generic lineage map remained for ${id}: ${snap.mapCount}`);
+              if(isCandidate&&snap.overflow) throw new Error(`390px document overflow for ${id}`);
+              if(isCandidate&&representatives.has(id)){
+                await evalv(`document.querySelector('#detail-shell .ucd-lineage')?.scrollIntoView({block:'start'})`);
+                await sleep(40);
+                const shot=await cdp.send('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+                fs.writeFileSync(path.join(out,`${id}-candidate-390.png`),Buffer.from(shot.data,'base64'));
+              }
+              return snap;
+            }
+
+            const report=[];
+            for(const id of ids){
+              const before=await snapshot(baseUrl,id,false);
+              const after=await snapshot(candUrl,id,true);
+              const stripMap=({mapCount,...rest})=>rest;
+              const b=JSON.stringify(stripMap(before));
+              const a=JSON.stringify(stripMap(after));
+              if(b!==a){
+                fs.writeFileSync(path.join(out,'failure-'+id+'.json'),JSON.stringify({before,after},null,2)+'\n');
+                throw new Error(`NON_PRESENTATION_DETAIL_DIFF:${id}`);
+              }
+              report.push({id,baselineMapCount:before.mapCount,candidateMapCount:after.mapCount,railRows:after.rail.length,aliases:after.aliases.length});
+            }
+            if(cdp.exceptions.length) throw new Error(`Runtime exceptions: ${JSON.stringify(cdp.exceptions.slice(0,5))}`);
+            const baselineMaps=report.reduce((n,x)=>n+x.baselineMapCount,0);
+            const candidateMaps=report.reduce((n,x)=>n+x.candidateMapCount,0);
+            fs.writeFileSync(path.join(out,'all-84-regression.json'),JSON.stringify({status:'PASS',cultivars:ids.length,baselineMaps,candidateMaps,report},null,2)+'\n');
+            console.log(JSON.stringify({status:'PASS',cultivars:ids.length,baselineMaps,candidateMaps,runtimeExceptions:0},null,2));
+            cdp.close();
+          } finally {
+            proc?.kill('SIGTERM');
+          }
+          NODE
+
+      - name: Upload exhaustive regression evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sitewide-lineage-rail-regression-${{ github.sha }}
+          path: ${{ runner.temp }}/sitewide-lineage-rail-regression
+          if-no-files-found: warn
+          retention-days: 7
