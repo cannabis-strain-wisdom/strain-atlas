@@ -101,12 +101,13 @@ jobs:
             await cdp.send('Page.navigate',{url:'http://127.0.0.1:4173/?strain=do-si-dos'});
             await waitFor(()=>evalv(`document.readyState==='complete'`),'document');
             await waitFor(()=>evalv(`window.__CSWLineageMapV1?.status==='PASS'&&document.querySelectorAll('.csw-lineage-map-node.is-contextual').length===2`),'integrated parent context');
+            await evalv(`(()=>{const lineage=document.querySelector('#detail-shell .ucd-lineage');if(!lineage)return false;lineage.open=true;lineage.scrollIntoView({block:'start'});return true;})()`);
+            await sleep(300);
+            await waitFor(()=>evalv(`document.querySelector('[data-lineage-map-v1="do-si-dos"] .csw-lineage-map-edges path')!==null`),'lineage edge draw');
             const state=await evalv(`(()=>{
               const root=document.querySelector('.ucd-root[data-public-detail-id="do-si-dos"],.detail-public-v1[data-public-detail-id="do-si-dos"]');
               const lineage=document.querySelector('#detail-shell .ucd-lineage');
               if(!root||!lineage)return null;
-              lineage.open=true;
-              lineage.scrollIntoView({block:'start'});
               const map=lineage.querySelector('[data-lineage-map-v1="do-si-dos"]');
               const contexts=[...map.querySelectorAll('.csw-lineage-map-node.is-contextual')].map(item=>({
                 parent:item.dataset.lineageContextFor||'',
