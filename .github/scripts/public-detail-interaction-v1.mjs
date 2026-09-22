@@ -197,52 +197,45 @@ async function main() {
   }
 
   await navigate('do-si-dos');
-  const doSiDosMap = await waitFor(() => evalv(`(()=>{
+  const doSiDosComposition = await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.ucd-root[data-public-detail-id="do-si-dos"]');
     const lineage=document.querySelector('#detail-shell .ucd-lineage');
-    const map=lineage?.querySelector('[data-lineage-map-v1="do-si-dos"]');
-    if(!root||!lineage||!map||window.__CSWLineageMapV1?.status!=='PASS') return false;
-    const nodes=[...map.querySelectorAll('.csw-lineage-map-node')].map(node=>({
-      name:node.querySelector('strong')?.textContent.trim()||'',
-      root:node.classList.contains('is-root'),
-      linked:node.classList.contains('is-linked')
-    }));
-    const upstream=[...map.querySelectorAll('.csw-lineage-map-upstream')].map(label=>({
-      text:label.textContent.trim(),
-      parent:label.dataset.lineageUpstreamFor||'',
-      context:label.dataset.lineageUpstreamContext||'',
-      clickable:label.matches('a,button,[role="button"]'),
-      connector:getComputedStyle(label,'::after').borderLeftStyle
+    const composition=lineage?.querySelector('[data-lineage-composition-v1="do-si-dos"]');
+    if(!root||!lineage||!composition||window.__CSWLineageCompositionV1?.status!=='PASS') return false;
+    const parents=[...composition.querySelectorAll('[data-lineage-composition-parent]')].map(item=>({
+      name:item.querySelector('strong')?.textContent.trim()||'',
+      context:item.querySelector('.csw-lineage-composition-context')?.textContent.trim()||'',
+      kind:item.dataset.lineageContextKind||'',
+      role:item.querySelector('small')?.textContent.trim()||''
     }));
     return {
-      mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
-      ready:root.dataset.lineageMapV1||'',
-      names:nodes.map(node=>node.name),
-      rootName:nodes.find(node=>node.root)?.name||'',
-      nodeCount:nodes.length,
-      pathCount:map.querySelectorAll('.csw-lineage-map-edges path').length,
-      upstream,
-      upstreamCount:upstream.length,
-      state:window.__CSWLineageMapV1||null,
+      compositionCount:lineage.querySelectorAll('[data-lineage-composition-v1="do-si-dos"]').length,
+      genericMapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
+      ready:root.dataset.lineageCompositionV1||'',
+      parents,
+      crossCount:composition.querySelectorAll('.csw-lineage-composition-cross').length,
+      result:composition.querySelector('[data-lineage-composition-result="do-si-dos"] strong')?.textContent.trim()||'',
+      branchPathCount:composition.querySelectorAll('svg path,.csw-lineage-map-edges path').length,
+      state:window.__CSWLineageCompositionV1||null,
       documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
-  })()`), 'Do-Si-Dos lineage map');
+  })()`), 'Do-Si-Dos lineage composition');
 
   if (
-    doSiDosMap.mapCount !== 1 ||
-    doSiDosMap.ready !== 'ready' ||
-    doSiDosMap.rootName !== 'Do-Si-Dos' ||
-    doSiDosMap.nodeCount < 3 ||
-    !doSiDosMap.names.includes('OGKB') ||
-    !doSiDosMap.names.includes('Face Off OG BX1') ||
-    doSiDosMap.upstreamCount !== 2 ||
-    !doSiDosMap.upstream.some(item => item.parent === 'OGKB' && item.text === 'Cookies / GSC side' && item.context === 'family-side' && !item.clickable && item.connector === 'dashed') ||
-    !doSiDosMap.upstream.some(item => item.parent === 'Face Off OG BX1' && item.text === 'OG side' && item.context === 'family-side' && !item.clickable && item.connector === 'dashed') ||
-    doSiDosMap.state?.cultivarId !== 'do-si-dos' ||
-    doSiDosMap.state?.upstreamLabelCount !== 2 ||
-    doSiDosMap.documentOverflow
+    doSiDosComposition.compositionCount !== 1 ||
+    doSiDosComposition.genericMapCount !== 0 ||
+    doSiDosComposition.ready !== 'ready' ||
+    doSiDosComposition.parents.length !== 2 ||
+    !doSiDosComposition.parents.some(item => item.name === 'OGKB' && item.context === 'Cookies / GSC side' && item.kind === 'family-side' && item.role === 'DIRECT PARENT') ||
+    !doSiDosComposition.parents.some(item => item.name === 'Face Off OG BX1' && item.context === 'OG side' && item.kind === 'family-side' && item.role === 'DIRECT PARENT') ||
+    doSiDosComposition.crossCount !== 1 ||
+    doSiDosComposition.result !== 'Do-Si-Dos' ||
+    doSiDosComposition.branchPathCount !== 0 ||
+    doSiDosComposition.state?.layout !== 'single-composition-strip' ||
+    doSiDosComposition.state?.branchLines !== 0 ||
+    doSiDosComposition.documentOverflow
   ) {
-    throw new Error(`Do-Si-Dos lineage map mismatch: ${JSON.stringify(doSiDosMap)}`);
+    throw new Error(`Do-Si-Dos lineage composition mismatch: ${JSON.stringify(doSiDosComposition)}`);
   }
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
