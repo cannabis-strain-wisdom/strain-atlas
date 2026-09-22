@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T22:09:12.024Z",
+  "generatedAt": "2026-09-22T06:40:42.460Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 80,
-    "sources": 162,
+    "cultivars": 81,
+    "sources": 165,
     "entities": 30
   },
   "explore": {
@@ -61,6 +61,7 @@
       "double-grape",
       "erdpurt",
       "fat-banana-auto",
+      "gmo-cookies",
       "hindu-kush",
       "la-confidential",
       "mazar",
@@ -7751,6 +7752,274 @@
       ],
       "checkedAt": "2026-09-16",
       "updatedAt": "2026-09-16",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gmo-cookies",
+      "status": "review",
+      "name": "GMO Cookies",
+      "jp": null,
+      "aliases": [
+        "GMO",
+        "Garlic Cookies"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "display": "Chem D × Forum GSC",
+        "parents": [
+          "Chem D",
+          "Forum GSC"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜はChem D × Forum GSC。これはGMOそのものを種子で固定したという意味ではなく、GMOが選抜されたMamiko SeedsのChem Cookies populationの親系統です。Chem Cookies全体をGMOのaliasにはしていません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ディーゼル",
+          "ニンニク",
+          "タマネギ",
+          "湿った土",
+          "コショウ",
+          "スカンク",
+          "クッキーの甘さ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ディーゼル",
+            "ニンニク",
+            "タマネギ",
+            "湿った土",
+            "コショウ",
+            "スカンク",
+            "クッキーの甘さ"
+          ],
+          "details": [
+            {
+              "rawMatch": "diesel",
+              "reviewLabelJa": "ディーゼル",
+              "plainMeaningJa": "ディーゼル燃料を思わせる燃料香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "garlic",
+              "reviewLabelJa": "ニンニク",
+              "plainMeaningJa": "ニンニクを思わせるセイボリーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ニンニク",
+                "ガーリック"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "onion",
+              "reviewLabelJa": "タマネギ",
+              "plainMeaningJa": "タマネギを思わせるセイボリーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "タマネギ",
+                "オニオン"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "damp earth",
+              "reviewLabelJa": "湿った土",
+              "plainMeaningJa": "湿った土を思わせるアーシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "湿った土",
+                "土",
+                "アーシー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pepper",
+              "reviewLabelJa": "コショウ",
+              "plainMeaningJa": "コショウを思わせるスパイシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "コショウ",
+                "胡椒",
+                "ペッパー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "skunk",
+              "reviewLabelJa": "スカンク",
+              "plainMeaningJa": "スカンク系を思わせる強い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スカンク系"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "cookie sweetness",
+              "reviewLabelJa": "クッキーの甘さ",
+              "plainMeaningJa": "焼き菓子を思わせる穏やかな甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "クッキー",
+                "甘い香り",
+                "焼き菓子"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "High Timesのcultivar profileで、ディーゼル、ニンニク、タマネギ、湿った土、コショウ、スカンク、クッキー系の甘さが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないため、PROFILEとして保持しています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "items": [
+          "beta-caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "Beta-Caryophyllene、Limonene、Myrceneがcultivar-specific specialist資料で明示されています。分析artifactではないため、順位や含有率を固定せずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "soft-secrets-mamiko-gmo-interview",
+          "high-times-gmo-profile"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mamiko Seedsがスペインで作ったChem Cookiesのseed populationから、Skunkmasterflexが2013年に受け取った種子をミシガンで選抜し、GMOとして保存・命名・拡散したcutです。交配を作った役割と、GMOという特定cloneを選んだ役割を分けて整理しています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "soft-secrets-mamiko-gmo-interview",
+          "high-times-midwest-2017-gmo-results",
+          "high-times-gmo-profile"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "GMOの名称はDavid Mamikoへの直接取材でGenetic Modified Organism由来と説明されています。Garlic / Mushroom / Onionの頭文字という有名な説は、今回の名称由来には採用していません。2017年High Times Midwest Cannabis CupではGMO CookiesがIndica Flowers 1位に入っています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "原型cutについて、背が高く勢いがあり、節間が長く、強くstretchし、大きく樹脂の多いcolaを作るという記述を採用しています。色やpistilなど未確認の外観は補完していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜はChem D × Forum GSC。これはGMOそのものを種子で固定したという意味ではなく、GMOが選抜されたMamiko SeedsのChem Cookies populationの親系統です。Chem Cookies全体をGMOのaliasにはしていません。",
+          "origin": "Mamiko Seedsがスペインで作ったChem Cookiesのseed populationから、Skunkmasterflexが2013年に受け取った種子をミシガンで選抜し、GMOとして保存・命名・拡散したcutです。交配を作った役割と、GMOという特定cloneを選んだ役割を分けて整理しています。",
+          "history": "GMOの名称はDavid Mamikoへの直接取材でGenetic Modified Organism由来と説明されています。Garlic / Mushroom / Onionの頭文字という有名な説は、今回の名称由来には採用していません。2017年High Times Midwest Cannabis CupではGMO CookiesがIndica Flowers 1位に入っています。",
+          "aromaNote": "High Timesのcultivar profileで、ディーゼル、ニンニク、タマネギ、湿った土、コショウ、スカンク、クッキー系の甘さが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないため、PROFILEとして保持しています。",
+          "terpeneNote": "Beta-Caryophyllene、Limonene、Myrceneがcultivar-specific specialist資料で明示されています。分析artifactではないため、順位や含有率を固定せずLISTEDとして扱っています。",
+          "morphologyNote": "原型cutについて、背が高く勢いがあり、節間が長く、強くstretchし、大きく樹脂の多いcolaを作るという記述を採用しています。色やpistilなど未確認の外観は補完していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/gmo-cookies/primary.webp",
+          "alt": "GMO CookiesのAI生成参考ビジュアル。主花全体とトップバッズ先端をフレーム内に収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -23797,6 +24066,30 @@
       "publishedAt": "2022-12-27",
       "checkedAt": "2026-09-16"
     },
+    "high-times-gmo-profile": {
+      "schemaVersion": 1,
+      "id": "high-times-gmo-profile",
+      "publisher": "High Times",
+      "title": "GMO: High Times Strain Profile",
+      "url": "https://hightimes.com/strains/gmo/",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "cannabinoids",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history",
+        "origin"
+      ],
+      "checkedAt": "2026-09-22"
+    },
     "high-times-gorilla-glue-settlement-2017": {
       "schemaVersion": 1,
       "id": "high-times-gorilla-glue-settlement-2017",
@@ -23845,6 +24138,21 @@
       ],
       "publishedAt": "2016-10-09",
       "checkedAt": "2026-09-17"
+    },
+    "high-times-midwest-2017-gmo-results": {
+      "schemaVersion": 1,
+      "id": "high-times-midwest-2017-gmo-results",
+      "publisher": "High Times",
+      "title": "All of the Top 10 Entries from the 2017 Midwest Cannabis Cup",
+      "url": "https://hightimes.com/culture/all-of-the-top-10-entries-from-the-2017-midwest-cannabis-cup/",
+      "sourceType": "awardingBodyOfficial",
+      "supports": [
+        "identity",
+        "awards",
+        "history"
+      ],
+      "publishedAt": "2017-06-25",
+      "checkedAt": "2026-09-22"
     },
     "high-times-norcal-2017-wedding-cake": {
       "schemaVersion": 1,
@@ -25166,6 +25474,25 @@
       ],
       "publishedAt": "2016-05-02",
       "checkedAt": "2026-09-08"
+    },
+    "soft-secrets-mamiko-gmo-interview": {
+      "schemaVersion": 1,
+      "id": "soft-secrets-mamiko-gmo-interview",
+      "publisher": "Soft Secrets",
+      "title": "El criador de la G.M.O. es trabajador de Soft Secrets",
+      "url": "https://softsecrets.com/es-ES/articulo/el-criador-de-la-gmo-es-trabajador-de-soft-secrets",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "naming",
+        "breeder",
+        "originator",
+        "lineage",
+        "history",
+        "origin"
+      ],
+      "publishedAt": "2019-07-29",
+      "checkedAt": "2026-09-22"
     },
     "thseeds-bubblegum": {
       "schemaVersion": 1,

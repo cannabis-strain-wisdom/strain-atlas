@@ -460,6 +460,11 @@
       "strainId": "nevilles-haze",
       "state": "published",
       "publishedAt": "2026-09-21T20:47:23Z"
+    },
+    {
+      "strainId": "gmo-cookies",
+      "state": "published",
+      "publishedAt": "2026-09-22T06:40:41Z"
     }
   ]
 }
