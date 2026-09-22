@@ -552,6 +552,58 @@
     return true;
   };
 
+  const decorateDoSiDosParentContext = ({ id, cultivar, root, lineageCard }) => {
+    if (id !== 'do-si-dos') return false;
+    const body = lineageCard.querySelector(':scope > div');
+    if (!body) return false;
+    if (body.querySelector('[data-lineage-parent-context-v1="do-si-dos"]')) {
+      root.dataset.lineageParentContextV1 = 'ready';
+      return true;
+    }
+
+    const parents = confirmedLineageParents(cultivar);
+    const items = parents.map(parent => ({
+      parent,
+      context: lineageUpstreamLabel(id, parent)
+    })).filter(item => item.context);
+    if (items.length !== parents.length || items.length !== 2) {
+      throw new Error(`DO_SI_DOS_PARENT_CONTEXT_INCOMPLETE:${items.length}/${parents.length}`);
+    }
+
+    const context = document.createElement('div');
+    context.className = 'csw-lineage-parent-context-v1';
+    context.dataset.lineageParentContextV1 = id;
+
+    items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'csw-lineage-parent-context-row';
+      row.dataset.lineageParent = item.parent;
+      row.dataset.lineageContextKind = 'family-side';
+
+      const parent = document.createElement('strong');
+      parent.textContent = item.parent;
+      const family = document.createElement('span');
+      family.textContent = item.context;
+      row.append(parent, family);
+      context.appendChild(row);
+    });
+
+    const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
+    if (evidence?.parentElement === body) body.insertBefore(context, evidence);
+    else body.appendChild(context);
+
+    root.dataset.lineageParentContextV1 = 'ready';
+    window.__CSWLineageParentContextV1 = {
+      status: 'PASS',
+      cultivarId: id,
+      directLineage: text(cultivar?.lineage?.display),
+      items,
+      mapRendered: false,
+      presentation: 'inline-inside-existing-lineage'
+    };
+    return true;
+  };
+
   const decorateUniversal = ({ id, catalog, cultivar, root, lineageCard }) => {
     setIntegratedTitle(lineageCard);
     const body = lineageCard.querySelector(':scope > div');
@@ -608,7 +660,8 @@
     const state = await resolveCurrent();
     if (!state) return false;
     const relationshipsReady = state.id === RAINBOW_ID ? decorateRainbow(state) : decorateUniversal(state);
-    decorateLineageMap(state);
+    if (state.id === 'do-si-dos') decorateDoSiDosParentContext(state);
+    else decorateLineageMap(state);
     return relationshipsReady;
   };
 
@@ -642,7 +695,11 @@
       .csw-name-rel-track:before{content:'';position:absolute;left:10px;top:-10px;bottom:-10px;width:1px;background:linear-gradient(rgba(216,189,98,.42),rgba(216,189,98,.22))}
       .csw-name-rel-track.is-last:before{bottom:calc(100% - 12px)}
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
-      .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
+      .csw-lineage-parent-context-v1{display:grid;gap:4px;margin-top:9px;padding-top:8px;border-top:1px solid rgba(216,189,98,.11)}
+      .csw-lineage-parent-context-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px;min-width:0;padding:2px 0}
+      .csw-lineage-parent-context-row strong{min-width:0;color:#dfe6e1;font-size:11px;font-weight:800;line-height:1.3;overflow-wrap:anywhere}
+      .csw-lineage-parent-context-row span{max-width:128px;color:#8fa197;font-size:9.5px;font-weight:700;line-height:1.3;text-align:right;overflow-wrap:anywhere}
+            .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
       .csw-lineage-map-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 10px}
       .csw-lineage-map-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
       .csw-lineage-map-heading small{color:#8f9d95;font-size:9px;font-weight:700;white-space:nowrap}
@@ -665,6 +722,9 @@
       .csw-lineage-map-edges path{fill:none;stroke:rgba(217,182,93,.48);stroke-width:1.35;stroke-linecap:round}
       .csw-lineage-map-note{margin:9px 2px 0!important;color:#8f9d95!important;font-size:10px!important;line-height:1.55!important}
       @media(max-width:390px){
+        .csw-lineage-parent-context-row{gap:8px}
+        .csw-lineage-parent-context-row strong{font-size:10.75px}
+        .csw-lineage-parent-context-row span{max-width:116px;font-size:9px}
         .csw-lineage-map-heading{align-items:flex-start;flex-direction:column;gap:3px}
         .csw-lineage-map-heading span{font-size:10.5px}
         .csw-lineage-map-heading small{font-size:9.5px}
