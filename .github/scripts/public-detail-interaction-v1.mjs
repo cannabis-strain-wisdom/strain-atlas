@@ -247,7 +247,7 @@ async function main() {
     !doSiDosRail.aliasPresent ||
     doSiDosRail.aliasStandalone ||
     doSiDosRail.aliasTrackDisplay === 'none' ||
-    doSiDosRail.prose !== 'CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。' ||
+    doSiDosRail.prose !== 'OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。' ||
     !doSiDosRail.evidenceAfterRail ||
     doSiDosRail.state?.presentation !== 'sitewide-relationship-rail' ||
     doSiDosRail.state?.mapRendered !== false ||
