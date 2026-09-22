@@ -7,6 +7,12 @@
   const SITEWIDE_CONTRACT = 'CSW_SITEWIDE_LINEAGE_RELATIONSHIPS_V1';
   const LINEAGE_MAP_CONTRACT = 'CSW_LINEAGE_MAP_V1';
   const LINEAGE_MAP_MAX_DEPTH = 3;
+  const LINEAGE_MAP_UPSTREAM_CONTEXT = new Map([
+    ['do-si-dos', new Map([
+      ['ogkb', 'Cookies / GSC side'],
+      ['face off og bx1', 'OG side']
+    ])]
+  ]);
   const INTEGRATED_TITLE = '系譜・系統関係 / LINEAGE & RELATIONSHIPS';
   const RAINBOW_DERIVED = [
     { sourceId: 'archive-rainbow-belts-2-0', name: 'Rainbow Belts 2.0', lineage: 'Rainbow Belts #20 × Rainbow Belts F1' },
@@ -335,6 +341,9 @@
     return unique(lineage.parents || []);
   };
 
+  const lineageUpstreamLabel = (rootId, parentLabel) =>
+    text(LINEAGE_MAP_UPSTREAM_CONTEXT.get(rootId)?.get(normalizeLineageIdentity(parentLabel)));
+
   const buildLineageResolver = catalog => {
     const index = new Map();
     for (const item of catalog?.cultivars || []) {
@@ -364,6 +373,7 @@
         label: text(label) || text(resolved?.name) || 'Unknown',
         cultivar: resolved,
         isRoot,
+        upstreamLabel: depth === 1 ? lineageUpstreamLabel(cultivar?.id, label) : '',
         parents: []
       };
       if (!resolved || depth >= LINEAGE_MAP_MAX_DEPTH) return node;
@@ -416,7 +426,20 @@
       node.parents.forEach(parent => parents.appendChild(renderLineageMapBranch(parent)));
       branch.appendChild(parents);
     }
-    branch.appendChild(makeLineageMapNode(node));
+
+    const stack = document.createElement('div');
+    stack.className = 'csw-lineage-map-node-stack';
+    if (node.upstreamLabel) {
+      const upstream = document.createElement('div');
+      upstream.className = 'csw-lineage-map-upstream';
+      upstream.dataset.lineageUpstreamFor = node.label;
+      upstream.dataset.lineageUpstreamContext = 'family-side';
+      upstream.textContent = node.upstreamLabel;
+      upstream.setAttribute('aria-label', `${node.label}の上流系統: ${node.upstreamLabel}`);
+      stack.appendChild(upstream);
+    }
+    stack.appendChild(makeLineageMapNode(node));
+    branch.appendChild(stack);
     return branch;
   };
 
@@ -464,7 +487,9 @@
 
     const note = document.createElement('p');
     note.className = 'csw-lineage-map-note';
-    note.textContent = '現在のCSWで確認済みのdirect parentだけを接続。名称や系統イメージだけでは推測接続しません。';
+    note.textContent = section.querySelector('.csw-lineage-map-upstream')
+      ? '主線は確認済みのdirect parentのみ。小さな点線ラベルは上流のfamily contextで、parent nodeではありません。'
+      : '現在のCSWで確認済みのdirect parentだけを接続。名称や系統イメージだけでは推測接続しません。';
 
     section.append(heading, viewport, note);
     body.prepend(section);
@@ -517,6 +542,11 @@
       cultivarId: id,
       directParents: confirmedLineageParents(cultivar).length,
       nodeCount: section.querySelectorAll('.csw-lineage-map-node').length,
+      upstreamLabelCount: section.querySelectorAll('.csw-lineage-map-upstream').length,
+      upstreamLabels: [...section.querySelectorAll('.csw-lineage-map-upstream')].map(label => ({
+        parent: label.dataset.lineageUpstreamFor || '',
+        label: label.textContent.trim()
+      })),
       maxDepth: LINEAGE_MAP_MAX_DEPTH
     };
     return true;
@@ -621,6 +651,9 @@
       .csw-lineage-map-tree{position:relative;z-index:2;display:flex;justify-content:center;min-width:max-content}
       .csw-lineage-map-branch{display:flex;flex:0 0 auto;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;min-width:134px;padding:0 5px}
       .csw-lineage-map-parents{display:flex;align-items:flex-end;justify-content:center;gap:8px}
+      .csw-lineage-map-node-stack{display:flex;flex-direction:column;align-items:center;gap:8px}
+      .csw-lineage-map-upstream{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:24px;max-width:112px;padding:4px 8px;border:1px solid rgba(216,189,98,.18);border-radius:999px;background:rgba(216,189,98,.045);color:#9daa9f;font-size:8.5px;font-weight:760;line-height:1.25;text-align:center;white-space:nowrap}
+      .csw-lineage-map-upstream:after{content:'';position:absolute;left:50%;top:100%;height:8px;border-left:1px dashed rgba(216,189,98,.38);transform:translateX(-.5px)}
       .csw-lineage-map-node{position:relative;z-index:2;display:flex;width:124px;min-height:52px;padding:9px 8px 7px;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#0a1711;color:#edf1e9;text-align:center;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.16)}
       .csw-lineage-map-node strong{display:block;max-width:100%;font-size:11.5px;line-height:1.28;overflow-wrap:anywhere}
       .csw-lineage-map-node small{color:#86978d;font-size:7px;font-weight:850;letter-spacing:.12em}
@@ -638,6 +671,7 @@
         .csw-lineage-map-viewport{padding:7px 6px 11px}
         .csw-lineage-map-inner{padding-inline:10px}
         .csw-lineage-map-branch{min-width:126px;padding-inline:4px}
+        .csw-lineage-map-upstream{max-width:108px;min-height:23px;padding:3px 7px;font-size:8.25px}
         .csw-lineage-map-node{width:116px;min-height:50px;padding:8px 7px 6px}
         .csw-lineage-map-node strong{font-size:11px}
         .csw-lineage-map-note{font-size:10.5px!important}
