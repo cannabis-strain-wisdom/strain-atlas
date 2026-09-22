@@ -141,7 +141,7 @@ jobs:
             })()`);
 
             if(!state||state.viewport!==390||state.parents.length!==2||state.result.name!=='Do-Si-Dos'||state.crossCount!==1||state.arrowCount!==1||state.genericMapCount!==0||state.separateContextPanelCount!==0||state.svgPathCount!==0||state.overflow) throw new Error(`Wide composition state mismatch: ${JSON.stringify(state)}`);
-            if(state.ribbon.width<300||state.ribbon.height>72||state.ribbon.ratio<4.2) throw new Error(`Wide proportion mismatch: ${JSON.stringify(state.ribbon)}`);
+            if(state.ribbon.width<285||state.ribbon.height>68||state.ribbon.ratio<4.5) throw new Error(`Wide proportion mismatch: ${JSON.stringify(state.ribbon)}`);
             if(!state.parents.every(x=>x.width>state.result.width&&x.height===state.result.height)) throw new Error(`Parent/result hierarchy mismatch: ${JSON.stringify(state)}`);
             if(!state.parents.some(x=>x.name==='OGKB'&&x.context==='Cookies / GSC side'&&x.role==='DIRECT PARENT')) throw new Error(`OGKB mismatch: ${JSON.stringify(state.parents)}`);
             if(!state.parents.some(x=>x.name==='Face Off OG BX1'&&x.context==='OG side'&&x.role==='DIRECT PARENT')) throw new Error(`Face Off mismatch: ${JSON.stringify(state.parents)}`);
