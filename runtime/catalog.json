@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T07:51:39.955Z",
+  "generatedAt": "2026-09-22T11:08:04.215Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 82,
-    "sources": 169,
-    "entities": 30
+    "cultivars": 83,
+    "sources": 175,
+    "entities": 31
   },
   "explore": {
     "sativa": [
@@ -91,6 +91,7 @@
       "og-kush",
       "papaya",
       "rainbow-belts",
+      "rainbow-sherbert-11",
       "serious-happiness",
       "skunk-1",
       "super-boof",
@@ -16883,6 +16884,226 @@
     },
     {
       "schemaVersion": 1,
+      "id": "rainbow-sherbert-11",
+      "status": "review",
+      "name": "Rainbow Sherbert #11",
+      "jp": null,
+      "aliases": [
+        "RS11",
+        "RS-11",
+        "Rainbow Sherbert 11",
+        "Rainbow Sherbet #11",
+        "Rainbow Sherb #11"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "la-weekly-deo-farms-rs11-2021"
+        ],
+        "display": "Pink Guava × Sunset Sherbert",
+        "parents": [
+          "Pink Guava",
+          "Sunset Sherbert"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜はPink Guava × Sunset Sherbert。DEO Farms本人の取材でこの交配からRainbow Sherbert lineが生まれたことが説明され、Wizard Treesが同じ初期seed stockから#11と#54を選抜したとされています。一部資料のPink Guava × OZK表記は、より強いdirect testimonyと衝突するため採用していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "deo-farms",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "deo-farms-about-rs11",
+            "la-weekly-deo-farms-rs11-2021"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-rs11"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "スパイシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "スパイシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "LeaflyはRS11の香りをsweetとspicyが残るaromaとして記載しています。今回はこの2語を同格のPROFILEとして保持し、FlavorやTerpeneから香りを足していません。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rs11"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "humulene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "humulene",
+              "labelJa": "フムレン"
+            }
+          ],
+          "noteJa": "Leafly Certified Strain ScienceではCaryophyllene、Limonene、Humuleneが掲載されています。個別の分析artifactを直接確認できていないため、含有率や固定順位にはせずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "deo-farms-about-rs11",
+          "la-weekly-deo-farms-rs11-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DEO FarmsはOaklandを拠点とするbreeder/originatorで、Wizard Treesが同じ初期Rainbow Sherbert seed stockから#11をLos Angeles側で選抜しています。Pink Guava × Sunset Sherbertの交配そのものが行われた正確な場所までは、今回の根拠から断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "deo-farms-about-rs11",
+          "la-weekly-deo-farms-rs11-2021",
+          "leafly-rs11-highlight-2025",
+          "prime-cuts-rs11"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DEO FarmsがRainbow Sherbertの遺伝系統を作り、Wizard Treesが同じ初期seed stockから#11を選抜し、Doja Pakを含むロサンゼルスでの共同展開によってRS11が広まりました。主表示はcreator側の綴りに合わせてRainbow Sherbert #11とし、RS11、RS-11、Rainbow Sherbet #11などは別表記として保持します。Leaflyでは2023年の年間品種選出で次点として記録されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rs11",
+          "weedmaps-rs11"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "栽培者・専門資料ではlime green〜yellow系の花色、dense〜fluffyな花、light-orange pistils、白っぽいtrichome被覆が報告されています。名前から虹色やデザート色、紫色を足していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜はPink Guava × Sunset Sherbert。DEO Farms本人の取材でこの交配からRainbow Sherbert lineが生まれたことが説明され、Wizard Treesが同じ初期seed stockから#11と#54を選抜したとされています。一部資料のPink Guava × OZK表記は、より強いdirect testimonyと衝突するため採用していません。",
+          "origin": "DEO FarmsはOaklandを拠点とするbreeder/originatorで、Wizard Treesが同じ初期Rainbow Sherbert seed stockから#11をLos Angeles側で選抜しています。Pink Guava × Sunset Sherbertの交配そのものが行われた正確な場所までは、今回の根拠から断定していません。",
+          "history": "DEO FarmsがRainbow Sherbertの遺伝系統を作り、Wizard Treesが同じ初期seed stockから#11を選抜し、Doja Pakを含むロサンゼルスでの共同展開によってRS11が広まりました。主表示はcreator側の綴りに合わせてRainbow Sherbert #11とし、RS11、RS-11、Rainbow Sherbet #11などは別表記として保持します。Leaflyでは2023年の年間品種選出で次点として記録されています。",
+          "aromaNote": "LeaflyはRS11の香りをsweetとspicyが残るaromaとして記載しています。今回はこの2語を同格のPROFILEとして保持し、FlavorやTerpeneから香りを足していません。",
+          "terpeneNote": "Leafly Certified Strain ScienceではCaryophyllene、Limonene、Humuleneが掲載されています。個別の分析artifactを直接確認できていないため、含有率や固定順位にはせずLISTEDとして扱っています。",
+          "morphologyNote": "栽培者・専門資料ではlime green〜yellow系の花色、dense〜fluffyな花、light-orange pistils、白っぽいtrichome被覆が報告されています。名前から虹色やデザート色、紫色を足していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/rainbow-sherbert-11/primary.webp",
+          "alt": "Rainbow Sherbert #11（RS11）のAI生成参考ビジュアル。lime green〜yellow系の主花と白っぽいtrichome被覆を、トップバッズ先端まで安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "rush-of-siam",
       "status": "review",
       "name": "Rush of Siam",
@@ -23645,6 +23866,24 @@
       "publishedAt": "2026-07-17",
       "checkedAt": "2026-09-08"
     },
+    "deo-farms-about-rs11": {
+      "schemaVersion": 1,
+      "id": "deo-farms-about-rs11",
+      "publisher": "DEO Farms",
+      "title": "About Us",
+      "url": "https://deofarms.com/about/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "breeder",
+        "originator",
+        "origin",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "dj-short-blueberry-f5-current": {
       "schemaVersion": 1,
       "id": "dj-short-blueberry-f5-current",
@@ -24725,6 +24964,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "la-weekly-deo-farms-rs11-2021": {
+      "schemaVersion": 1,
+      "id": "la-weekly-deo-farms-rs11-2021",
+      "publisher": "LA Weekly",
+      "title": "Streets to Heat: The Deep East Oakland Farms Story",
+      "url": "https://www.laweekly.com/streets-to-heat-the-deep-east-oakland-farms-story/",
+      "sourceType": "originatorInterview",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "originator",
+        "generation",
+        "history",
+        "origin"
+      ],
+      "publishedAt": "2021-07-15",
+      "checkedAt": "2026-09-22"
+    },
     "leafly-ak-47": {
       "schemaVersion": 1,
       "id": "leafly-ak-47",
@@ -25014,6 +25273,46 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-16"
+    },
+    "leafly-rs11-highlight-2025": {
+      "schemaVersion": 1,
+      "id": "leafly-rs11-highlight-2025",
+      "publisher": "Leafly",
+      "title": "Rainbows for your brain: RS-11 is January 2025's HighLight strain",
+      "url": "https://www.leafly.com/news/strains-products/rs11-strain-january-2025-highlight",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "history",
+        "awards"
+      ],
+      "publishedAt": "2025-01-03",
+      "checkedAt": "2026-09-22"
+    },
+    "leafly-rs11": {
+      "schemaVersion": 1,
+      "id": "leafly-rs11",
+      "publisher": "Leafly",
+      "title": "RS11 aka RS-11, Rainbow Sherbert #11 Weed Strain Information",
+      "url": "https://www.leafly.com/strains/rs11",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "cannabinoids",
+        "effects",
+        "cultivation",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
     },
     "leafly-sherbert": {
       "schemaVersion": 1,
@@ -25323,6 +25622,23 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-15"
+    },
+    "prime-cuts-rs11": {
+      "schemaVersion": 1,
+      "id": "prime-cuts-rs11",
+      "publisher": "Prime Cuts Nursery",
+      "title": "RS-11 Strain – Grow Guide & Genetics",
+      "url": "https://www.primecutsnursery.com/strains/rs-11",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "breeder",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
     },
     "rqs-fat-banana-auto": {
       "schemaVersion": 1,
@@ -25910,6 +26226,24 @@
       "publishedAt": null,
       "checkedAt": "2026-09-16"
     },
+    "weedmaps-rs11": {
+      "schemaVersion": 1,
+      "id": "weedmaps-rs11",
+      "publisher": "Weedmaps",
+      "title": "RS11 (aka RS 11) Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/rs11",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "effects",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "weedmaps-sherbet": {
       "schemaVersion": 1,
       "id": "weedmaps-sherbet",
@@ -26077,6 +26411,18 @@
       "checkedAt": "2026-09-16",
       "updatedAt": "2026-09-16",
       "note": "High Times' 2014 direct interview identifies the Cookie Family as the breeders/originators of genuine Girl Scout Cookies."
+    },
+    "deo-farms": {
+      "schemaVersion": 1,
+      "id": "deo-farms",
+      "name": "DEO Farms",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "note": "Deep East Oakland Farms (DEO Farms), the Oakland-based creator/breeder identified by first-party DEO material and direct interview evidence for the Rainbow Sherbert line. Wizard Trees' later #11 phenotype selection is kept separate from this root genetic-creator role."
     },
     "dj-short": {
       "schemaVersion": 1,
