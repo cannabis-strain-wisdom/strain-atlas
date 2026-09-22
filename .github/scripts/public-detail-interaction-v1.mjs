@@ -222,6 +222,17 @@ async function main() {
       rows,
       storyText:story?.querySelector('p')?.textContent.trim()||'',
       storyKicker:story?.querySelector('.csw-lineage-story-kicker')?.textContent.trim()||'',
+      contextMetaCount:context.querySelectorAll('.csw-lineage-parent-context-head small').length,
+      contextStyle:{
+        border:getComputedStyle(context).borderTopStyle,
+        background:getComputedStyle(context).backgroundImage,
+        radius:getComputedStyle(context).borderTopLeftRadius
+      },
+      storyStyle:{
+        background:getComputedStyle(story).backgroundImage,
+        radius:getComputedStyle(story).borderTopRightRadius,
+        leftBorder:getComputedStyle(story).borderLeftStyle
+      },
       contextBeforeStory:Boolean(story&&context.compareDocumentPosition(story)&Node.DOCUMENT_POSITION_FOLLOWING),
       storyBeforeEvidence:Boolean(story&&evidence&&story.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
       ready:root.dataset.lineageParentContextV1||'',
@@ -241,13 +252,19 @@ async function main() {
     !doSiDosContext.rows.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.contextText === 'Cookies / GSC side' && item.kind === 'family-side' && item.display === 'grid') ||
     !doSiDosContext.rows.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.contextText === 'OG side' && item.kind === 'family-side' && item.display === 'grid') ||
     doSiDosContext.storyKicker !== 'BACKGROUND / CONTEXT' ||
-    !doSiDosContext.storyText.includes('OGKB') ||
-    !doSiDosContext.storyText.includes('Face Off OG BX1') ||
+    doSiDosContext.storyText !== 'CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。' ||
+    doSiDosContext.contextMetaCount !== 0 ||
+    doSiDosContext.contextStyle.background !== 'none' ||
+    doSiDosContext.contextStyle.radius !== '0px' ||
+    doSiDosContext.storyStyle.background !== 'none' ||
+    doSiDosContext.storyStyle.radius !== '0px' ||
+    doSiDosContext.storyStyle.leftBorder !== 'solid' ||
     !doSiDosContext.contextBeforeStory ||
     !doSiDosContext.storyBeforeEvidence ||
-    doSiDosContext.state?.presentation !== 'polished-inline-inside-existing-lineage' ||
+    doSiDosContext.state?.presentation !== 'reduced-polish-inline-inside-existing-lineage' ||
     doSiDosContext.state?.mapRendered !== false ||
     doSiDosContext.state?.storyWrapped !== true ||
+    doSiDosContext.state?.metaLabelRemoved !== true ||
     doSiDosContext.documentOverflow
   ) {
     throw new Error(`Do-Si-Dos inline parent context mismatch: ${JSON.stringify(doSiDosContext)}`);
