@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/runtime _site/production _site/assets
-          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _site/
+          install -m 0644 index.html app.min.js lineage-map-v1.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _site/
           install -m 0644 runtime/catalog.json _site/runtime/catalog.json
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
@@ -44,8 +44,9 @@ jobs:
           name_relationships_key="$(sha256sum _site/name-relationships-v1.js | cut -c1-12)"
           detail_interaction_key="$(sha256sum _site/detail-interaction-v1.js | cut -c1-12)"
           detail_share_key="$(sha256sum _site/detail-share-v2.js | cut -c1-12)"
+          lineage_map_key="$(sha256sum _site/lineage-map-v1.js | cut -c1-12)"
           css_key="$(sha256sum _site/styles.min.css | cut -c1-12)"
-          APP_KEY="$app_key" PRESENTATION_KEY="$presentation_key" NAME_RELATIONSHIPS_KEY="$name_relationships_key" DETAIL_INTERACTION_KEY="$detail_interaction_key" DETAIL_SHARE_KEY="$detail_share_key" CSS_KEY="$css_key" python3 <<'PY'
+          APP_KEY="$app_key" PRESENTATION_KEY="$presentation_key" NAME_RELATIONSHIPS_KEY="$name_relationships_key" DETAIL_INTERACTION_KEY="$detail_interaction_key" DETAIL_SHARE_KEY="$detail_share_key" LINEAGE_MAP_KEY="$lineage_map_key" CSS_KEY="$css_key" python3 <<'PY'
           import os
           import re
           from pathlib import Path
@@ -77,6 +78,7 @@ jobs:
 
           scripts = [
               ('detail-share-v2.js', os.environ['DETAIL_SHARE_KEY']),
+              ('lineage-map-v1.js', os.environ['LINEAGE_MAP_KEY']),
               ('detail-interaction-v1.js', os.environ['DETAIL_INTERACTION_KEY']),
               ('name-relationships-v1.js', os.environ['NAME_RELATIONSHIPS_KEY']),
           ]
@@ -105,6 +107,7 @@ jobs:
 
           test -f _site/index.html
           test -f _site/app.min.js
+          test -f _site/lineage-map-v1.js
           test -f _site/presentation-contract-v1.js
           test -f _site/name-relationships-v1.js
           test -f _site/detail-interaction-v1.js
@@ -120,6 +123,7 @@ jobs:
           grep -Fq 'showModal' _site/app.min.js
           grep -Fq 'data-strain-id' _site/app.min.js
           grep -Fq "app.min.js?v=${app_key}" _site/index.html
+          grep -Fq "lineage-map-v1.js?v=${lineage_map_key}" _site/index.html
           grep -Fq "presentation-contract-v1.js?v=${presentation_key}" _site/index.html
           grep -Fq "name-relationships-v1.js?v=${name_relationships_key}" _site/index.html
           grep -Fq "detail-interaction-v1.js?v=${detail_interaction_key}" _site/index.html
@@ -128,7 +132,9 @@ jobs:
           grep -Fq 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1' _site/name-relationships-v1.js
           grep -Fq 'CSW_DETAIL_INTERACTION_V1' _site/detail-interaction-v1.js
           grep -Fq 'CSW_DETAIL_SHARE_V2' _site/detail-share-v2.js
+          grep -Fq 'CSW_LINEAGE_MAP_V1' _site/lineage-map-v1.js
           node --check _site/app.min.js
+          node --check _site/lineage-map-v1.js
           node --check _site/presentation-contract-v1.js
           node --check _site/name-relationships-v1.js
           node --check _site/detail-interaction-v1.js
@@ -142,7 +148,7 @@ jobs:
 
           while IFS= read -r file; do
             case "$file" in
-              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/presentation-contract-v1.js|_site/name-relationships-v1.js|_site/detail-interaction-v1.js|_site/detail-share-v2.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
+              _site/.nojekyll|_site/index.html|_site/app.min.js|_site/lineage-map-v1.js|_site/presentation-contract-v1.js|_site/name-relationships-v1.js|_site/detail-interaction-v1.js|_site/detail-share-v2.js|_site/styles.min.css|_site/site-updates.json|_site/runtime/catalog.json|_site/production/publication.json|_site/assets/cultivars/*.webp|_site/assets/cultivars/*.svg|_site/assets/ogp/cannabis-strain-wisdom-v3.jpg) ;;
               *) echo "Unexpected Pages artifact: $file" >&2; exit 1 ;;
             esac
           done < <(find _site -type f -print | sort)
@@ -282,6 +288,7 @@ jobs:
           fetch_live() {
             nonce="$(date +%s%N)"
             curl -fsSL "${BASE_URL}/app.min.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/app.min.js"
+            curl -fsSL "${BASE_URL}/lineage-map-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/lineage-map-v1.js"
             curl -fsSL "${BASE_URL}/presentation-contract-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/presentation-contract-v1.js"
             curl -fsSL "${BASE_URL}/name-relationships-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/name-relationships-v1.js"
             curl -fsSL "${BASE_URL}/detail-interaction-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/detail-interaction-v1.js"
@@ -293,6 +300,7 @@ jobs:
 
           exact_match() {
             cmp -s app.min.js "$LIVE_DIR/app.min.js" &&
+            cmp -s lineage-map-v1.js "$LIVE_DIR/lineage-map-v1.js" &&
             cmp -s presentation-contract-v1.js "$LIVE_DIR/presentation-contract-v1.js" &&
             cmp -s name-relationships-v1.js "$LIVE_DIR/name-relationships-v1.js" &&
             cmp -s detail-interaction-v1.js "$LIVE_DIR/detail-interaction-v1.js" &&
@@ -314,6 +322,7 @@ jobs:
 
           fetch_live
           exact_match
+          grep -Fq 'CSW_LINEAGE_MAP_V1' "$LIVE_DIR/lineage-map-v1.js"
           grep -Fq 'UNIVERSAL_MORPHOLOGY_PRESENTATION_V1' "$LIVE_DIR/presentation-contract-v1.js"
           grep -Fq 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1' "$LIVE_DIR/name-relationships-v1.js"
           grep -Fq 'CSW_DETAIL_INTERACTION_V1' "$LIVE_DIR/detail-interaction-v1.js"
