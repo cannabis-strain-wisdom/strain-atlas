@@ -210,15 +210,21 @@ async function main() {
       contextText:row.querySelector('span')?.textContent.trim()||'',
       display:getComputedStyle(row).display
     }));
+    const story=body.querySelector('[data-lineage-story-v1="do-si-dos"]');
     const evidence=body.querySelector(':scope > .ucd-evidence-row');
     return {
       lineageValue:lineage.querySelector(':scope > summary strong')?.textContent.trim()||'',
       mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
+      compositionCount:lineage.querySelectorAll('[data-lineage-composition-v1="do-si-dos"]').length,
       contextCount:lineage.querySelectorAll('[data-lineage-parent-context-v1="do-si-dos"]').length,
+      storyCount:lineage.querySelectorAll('[data-lineage-story-v1="do-si-dos"]').length,
       rowCount:rows.length,
       rows,
+      storyText:story?.querySelector('p')?.textContent.trim()||'',
+      storyKicker:story?.querySelector('.csw-lineage-story-kicker')?.textContent.trim()||'',
+      contextBeforeStory:Boolean(story&&context.compareDocumentPosition(story)&Node.DOCUMENT_POSITION_FOLLOWING),
+      storyBeforeEvidence:Boolean(story&&evidence&&story.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
       ready:root.dataset.lineageParentContextV1||'',
-      evidenceAfterContext:Boolean(evidence&&context.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
       state:window.__CSWLineageParentContextV1||null,
       documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
@@ -227,14 +233,21 @@ async function main() {
   if (
     doSiDosContext.lineageValue !== 'OGKB × Face Off OG BX1' ||
     doSiDosContext.mapCount !== 0 ||
+    doSiDosContext.compositionCount !== 0 ||
     doSiDosContext.contextCount !== 1 ||
+    doSiDosContext.storyCount !== 1 ||
     doSiDosContext.rowCount !== 2 ||
     doSiDosContext.ready !== 'ready' ||
     !doSiDosContext.rows.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.contextText === 'Cookies / GSC side' && item.kind === 'family-side' && item.display === 'grid') ||
     !doSiDosContext.rows.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.contextText === 'OG side' && item.kind === 'family-side' && item.display === 'grid') ||
-    !doSiDosContext.evidenceAfterContext ||
-    doSiDosContext.state?.presentation !== 'inline-inside-existing-lineage' ||
+    doSiDosContext.storyKicker !== 'BACKGROUND / CONTEXT' ||
+    !doSiDosContext.storyText.includes('OGKB') ||
+    !doSiDosContext.storyText.includes('Face Off OG BX1') ||
+    !doSiDosContext.contextBeforeStory ||
+    !doSiDosContext.storyBeforeEvidence ||
+    doSiDosContext.state?.presentation !== 'polished-inline-inside-existing-lineage' ||
     doSiDosContext.state?.mapRendered !== false ||
+    doSiDosContext.state?.storyWrapped !== true ||
     doSiDosContext.documentOverflow
   ) {
     throw new Error(`Do-Si-Dos inline parent context mismatch: ${JSON.stringify(doSiDosContext)}`);
