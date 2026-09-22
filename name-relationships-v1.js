@@ -751,22 +751,28 @@
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
       .csw-lineage-composition-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
       .csw-lineage-composition-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 8px}
-      .csw-lineage-composition-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
-      .csw-lineage-composition-heading small{color:#7f9186;font-size:8.5px;font-weight:700;white-space:nowrap}
-      .csw-lineage-composition-plate{width:100%;padding:5px;border:1px solid rgba(217,182,93,.14);border-radius:13px;background:linear-gradient(90deg,rgba(217,182,93,.035),rgba(22,49,32,.13) 48%,rgba(217,182,93,.025))}
-      .csw-lineage-composition-ribbon{display:grid;width:100%;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr) 22px minmax(78px,.74fr);align-items:stretch;min-height:64px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(6,18,12,.58);overflow:hidden}
-      .csw-lineage-composition-parent{display:grid;align-content:center;justify-items:center;gap:2px;min-width:0;padding:7px 5px;color:#eef1ec;text-align:center;text-decoration:none;position:relative}
-      .csw-lineage-composition-parent+.csw-lineage-composition-cross{border-left:1px solid rgba(216,189,98,.09)}
-      .csw-lineage-composition-context{display:block;max-width:100%;color:#8fa397;font-size:7.8px;font-weight:740;line-height:1.15;letter-spacing:.01em;overflow-wrap:anywhere}
-      .csw-lineage-composition-parent strong{display:block;max-width:100%;color:#f1f3ee;font-size:12px;font-weight:860;line-height:1.15;overflow-wrap:anywhere}
-      .csw-lineage-composition-parent small{color:#657b6e;font-size:6.2px;font-weight:900;line-height:1.1;letter-spacing:.105em}
-      .csw-lineage-composition-cross,.csw-lineage-composition-arrow{display:flex;align-items:center;justify-content:center;line-height:1}
-      .csw-lineage-composition-cross{color:#d8bd62;font-size:15px;font-weight:600;background:rgba(216,189,98,.025)}
-      .csw-lineage-composition-arrow{color:#6f8b78;font-size:15px;font-weight:500;border-left:1px solid rgba(255,255,255,.045);background:linear-gradient(90deg,rgba(216,189,98,.018),rgba(105,169,120,.025))}
-      .csw-lineage-composition-result{display:grid;align-content:center;justify-items:center;gap:2px;min-width:0;padding:7px 5px;border-left:1px solid rgba(216,189,98,.16);background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(35,74,48,.16))}
-      .csw-lineage-composition-result small{color:#9c8b52;font-size:6.2px;font-weight:900;line-height:1.1;letter-spacing:.12em}
-      .csw-lineage-composition-result strong{max-width:100%;color:#fff7dc;font-size:11.2px;font-weight:900;line-height:1.15;text-align:center;overflow-wrap:anywhere}
-      .csw-lineage-composition-note{margin:8px 2px 0!important;color:#87968e!important;font-size:9.5px!important;line-height:1.45!important}
+      .csw-lineage-composition-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.105em;text-shadow:0 0 14px rgba(216,189,98,.08)}
+      .csw-lineage-composition-heading small{color:#768a7e;font-size:8.5px;font-weight:720;white-space:nowrap}
+      .csw-lineage-composition-plate{position:relative;width:100%;padding:4px;border:1px solid rgba(217,182,93,.17);border-radius:14px;background:linear-gradient(115deg,rgba(217,182,93,.045),rgba(12,31,20,.22) 36%,rgba(17,42,27,.18) 70%,rgba(217,182,93,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 10px 26px rgba(0,0,0,.12)}
+      .csw-lineage-composition-plate:before{content:'';position:absolute;left:14px;right:14px;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(216,189,98,.38),transparent);pointer-events:none}
+      .csw-lineage-composition-ribbon{display:grid;width:100%;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr) 22px minmax(78px,.74fr);align-items:stretch;min-height:64px;border:1px solid rgba(255,255,255,.075);border-radius:10px;background:linear-gradient(90deg,rgba(7,23,15,.96),rgba(9,28,18,.92) 48%,rgba(8,24,16,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.018);overflow:hidden}
+      .csw-lineage-composition-parent{display:grid;align-content:center;justify-items:center;gap:2px;min-width:0;padding:7px 5px;color:#eef1ec;text-align:center;text-decoration:none;position:relative;background:linear-gradient(180deg,rgba(105,169,120,.035),rgba(255,255,255,.004))}
+      .csw-lineage-composition-parent:before{content:'';position:absolute;left:12px;right:12px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(216,189,98,.34),transparent)}
+      .csw-lineage-composition-parent:after{content:'';position:absolute;left:12px;right:12px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(105,169,120,.14),transparent)}
+      .csw-lineage-composition-context{display:block;max-width:100%;color:#91a79a;font-size:7.8px;font-weight:760;line-height:1.15;letter-spacing:.018em;overflow-wrap:anywhere}
+      .csw-lineage-composition-parent strong{display:block;max-width:100%;color:#f4f5f1;font-size:12px;font-weight:880;line-height:1.15;letter-spacing:.005em;text-shadow:0 1px 0 rgba(0,0,0,.35);overflow-wrap:anywhere}
+      .csw-lineage-composition-parent small{color:#63786c;font-size:6.2px;font-weight:900;line-height:1.1;letter-spacing:.11em}
+      .csw-lineage-composition-cross,.csw-lineage-composition-arrow{position:relative;display:flex;align-items:center;justify-content:center;line-height:1}
+      .csw-lineage-composition-cross{color:#dfc878;font-size:14px;font-weight:700;background:radial-gradient(circle at center,rgba(216,189,98,.09),rgba(216,189,98,.015) 58%,transparent 72%);text-shadow:0 0 10px rgba(216,189,98,.16)}
+      .csw-lineage-composition-cross:before{content:'';position:absolute;width:17px;height:17px;border:1px solid rgba(216,189,98,.12);border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.01)}
+      .csw-lineage-composition-arrow{color:#779987;font-size:14px;font-weight:650;border-left:1px solid rgba(255,255,255,.035);background:linear-gradient(90deg,rgba(216,189,98,.012),rgba(105,169,120,.035))}
+      .csw-lineage-composition-arrow:after{content:'';position:absolute;left:2px;right:2px;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(105,169,120,.11),transparent);transform:translateY(-50%)}
+      .csw-lineage-composition-result{position:relative;display:grid;align-content:center;justify-items:center;gap:2px;min-width:0;padding:7px 5px;border-left:1px solid rgba(216,189,98,.18);background:linear-gradient(135deg,rgba(216,189,98,.095),rgba(27,62,40,.22) 72%,rgba(105,169,120,.06));box-shadow:inset 8px 0 18px rgba(216,189,98,.018)}
+      .csw-lineage-composition-result:before{content:'';position:absolute;left:10px;right:10px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(216,189,98,.48),transparent)}
+      .csw-lineage-composition-result:after{content:'';position:absolute;left:10px;right:10px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(216,189,98,.22),transparent)}
+      .csw-lineage-composition-result small{color:#a28f54;font-size:6.2px;font-weight:900;line-height:1.1;letter-spacing:.13em}
+      .csw-lineage-composition-result strong{max-width:100%;color:#fff8df;font-size:11.2px;font-weight:920;line-height:1.15;text-align:center;text-shadow:0 0 12px rgba(216,189,98,.09);overflow-wrap:anywhere}
+      .csw-lineage-composition-note{margin:8px 2px 0!important;color:#819188!important;font-size:9.5px!important;line-height:1.45!important}
             .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
       .csw-lineage-map-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 10px}
       .csw-lineage-map-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
