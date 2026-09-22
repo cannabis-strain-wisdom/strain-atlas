@@ -1,0 +1,166 @@
+name: Do-Si-Dos lineage composition wide preview V2
+
+on:
+  push:
+    branches:
+      - preview/do-si-dos-lineage-composition-wide-v2
+
+permissions:
+  contents: read
+
+concurrency:
+  group: csw-do-si-dos-lineage-composition-wide-v2
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Static checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check name-relationships-v1.js
+          node --check .github/scripts/public-detail-interaction-v1.mjs
+
+      - name: Stage local preview artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _qa/runtime _qa/production _qa/assets
+          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _qa/
+          install -m 0644 runtime/catalog.json _qa/runtime/catalog.json
+          install -m 0644 production/publication.json _qa/production/publication.json
+          rsync -a assets/ _qa/assets/
+          python3 <<'PY'
+          from pathlib import Path
+          path = Path('_qa/index.html')
+          html = path.read_text(encoding='utf-8')
+          pending = []
+          for filename in ['detail-share-v2.js','detail-interaction-v1.js','name-relationships-v1.js']:
+              if filename not in html:
+                  pending.append(f'  <script defer src="{filename}"></script>')
+          if pending:
+              if html.count('</body>') != 1:
+                  raise SystemExit('Expected exactly one closing body tag')
+              html = html.replace('</body>', '\n'.join(pending) + '\n</body>', 1)
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Browser semantics and 390px wide preview capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
+
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/_qa" >"$RUNNER_TEMP/csw-wide-preview-http.log" 2>&1 &
+          SERVER_PID=$!
+          cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+          for n in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.25
+          done
+
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-interaction-v1.mjs
+
+          CHROME_BIN="$CHROME_BIN" PREVIEW_DIR="$RUNNER_TEMP/do-si-dos-wide-preview" node --input-type=module <<'NODE'
+          import { spawn } from 'node:child_process';
+          import fs from 'node:fs';
+          import os from 'node:os';
+          import path from 'node:path';
+
+          const chrome=process.env.CHROME_BIN;
+          const out=process.env.PREVIEW_DIR;
+          fs.mkdirSync(out,{recursive:true});
+          const profile=fs.mkdtempSync(path.join(os.tmpdir(),'csw-dsd-wide-v2-'));
+          const proc=spawn(chrome,['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--remote-debugging-port=9234',`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','pipe','pipe']});
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function getJson(url){const r=await fetch(url);if(!r.ok)throw new Error(`${url} HTTP ${r.status}`);return r.json();}
+          async function waitFor(fn,label,timeout=15000){const started=Date.now();let last;while(Date.now()-started<timeout){try{last=await fn();if(last)return last;}catch(e){last=e;}await sleep(100);}throw new Error(`Timeout waiting for ${label}: ${last?.message||last||''}`);}
+          class CDP{
+            constructor(url){this.ws=new WebSocket(url);this.id=0;this.pending=new Map();}
+            async open(){await new Promise((resolve,reject)=>{this.ws.addEventListener('open',resolve,{once:true});this.ws.addEventListener('error',reject,{once:true});});this.ws.addEventListener('message',event=>{const m=JSON.parse(event.data);if(!m.id)return;const p=this.pending.get(m.id);if(!p)return;this.pending.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);});}
+            send(method,params={}){const id=++this.id;return new Promise((resolve,reject)=>{this.pending.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}));});}
+            close(){this.ws.close();}
+          }
+          try{
+            await waitFor(async()=>{try{return await getJson('http://127.0.0.1:9234/json/version')}catch{return false}},'chrome');
+            const pages=await getJson('http://127.0.0.1:9234/json/list');
+            const page=pages.find(x=>x.type==='page');if(!page)throw new Error('No page target');
+            const cdp=new CDP(page.webSocketDebuggerUrl);await cdp.open();
+            await cdp.send('Page.enable');await cdp.send('Runtime.enable');
+            await cdp.send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
+            const evalv=async expression=>{const r=await cdp.send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text);return r.result.value;};
+
+            await cdp.send('Page.navigate',{url:'http://127.0.0.1:4173/?strain=do-si-dos'});
+            await waitFor(()=>evalv(`document.readyState==='complete'`),'document');
+            await waitFor(()=>evalv(`window.__CSWLineageCompositionV1?.status==='PASS'&&window.__CSWLineageCompositionV1?.layout==='wide-ribbon'`),'wide composition');
+
+            await evalv(`(()=>{const lineage=document.querySelector('#detail-shell .ucd-lineage');if(!lineage)return false;lineage.open=true;lineage.scrollIntoView({block:'start'});return true;})()`);
+            await sleep(250);
+
+            const state=await evalv(`(()=>{
+              const root=document.querySelector('.ucd-root[data-public-detail-id="do-si-dos"],.detail-public-v1[data-public-detail-id="do-si-dos"]');
+              const lineage=document.querySelector('#detail-shell .ucd-lineage');
+              const composition=lineage?.querySelector('[data-lineage-composition-v1="do-si-dos"]');
+              const ribbon=composition?.querySelector('.csw-lineage-composition-ribbon');
+              if(!root||!lineage||!composition||!ribbon)return null;
+              const rr=ribbon.getBoundingClientRect();
+              const parents=[...composition.querySelectorAll('[data-lineage-composition-parent]')].map(item=>{
+                const r=item.getBoundingClientRect();
+                return {
+                  name:item.querySelector('strong')?.textContent.trim()||'',
+                  context:item.querySelector('.csw-lineage-composition-context')?.textContent.trim()||'',
+                  role:item.querySelector('small')?.textContent.trim()||'',
+                  width:Math.round(r.width),
+                  height:Math.round(r.height)
+                };
+              });
+              const result=composition.querySelector('[data-lineage-composition-result="do-si-dos"]');
+              const resultRect=result?.getBoundingClientRect();
+              return {
+                viewport:window.innerWidth,
+                ribbon:{width:Math.round(rr.width),height:Math.round(rr.height),ratio:Number((rr.width/rr.height).toFixed(2))},
+                parents,
+                result:{name:result?.querySelector('strong')?.textContent.trim()||'',width:Math.round(resultRect?.width||0),height:Math.round(resultRect?.height||0)},
+                crossCount:composition.querySelectorAll('.csw-lineage-composition-cross').length,
+                arrowCount:composition.querySelectorAll('.csw-lineage-composition-arrow').length,
+                genericMapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
+                separateContextPanelCount:composition.querySelectorAll('.csw-lineage-context-v1').length,
+                svgPathCount:composition.querySelectorAll('svg path').length,
+                overflow:root.scrollWidth>root.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1
+              };
+            })()`);
+
+            if(!state||state.viewport!==390||state.parents.length!==2||state.result.name!=='Do-Si-Dos'||state.crossCount!==1||state.arrowCount!==1||state.genericMapCount!==0||state.separateContextPanelCount!==0||state.svgPathCount!==0||state.overflow) throw new Error(`Wide composition state mismatch: ${JSON.stringify(state)}`);
+            if(state.ribbon.width<300||state.ribbon.height>72||state.ribbon.ratio<4.2) throw new Error(`Wide proportion mismatch: ${JSON.stringify(state.ribbon)}`);
+            if(!state.parents.every(x=>x.width>state.result.width&&x.height===state.result.height)) throw new Error(`Parent/result hierarchy mismatch: ${JSON.stringify(state)}`);
+            if(!state.parents.some(x=>x.name==='OGKB'&&x.context==='Cookies / GSC side'&&x.role==='DIRECT PARENT')) throw new Error(`OGKB mismatch: ${JSON.stringify(state.parents)}`);
+            if(!state.parents.some(x=>x.name==='Face Off OG BX1'&&x.context==='OG side'&&x.role==='DIRECT PARENT')) throw new Error(`Face Off mismatch: ${JSON.stringify(state.parents)}`);
+
+            const shot=await cdp.send('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+            fs.writeFileSync(path.join(out,'do-si-dos-lineage-composition-wide-v2-390.png'),Buffer.from(shot.data,'base64'));
+            fs.writeFileSync(path.join(out,'do-si-dos-lineage-composition-wide-v2-390.json'),JSON.stringify(state,null,2)+'\n');
+            console.log(JSON.stringify(state,null,2));
+            cdp.close();
+          } finally {
+            proc.kill('SIGTERM');
+          }
+          NODE
+
+      - name: Upload Do-Si-Dos wide preview
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: do-si-dos-lineage-composition-wide-v2-${{ github.sha }}
+          path: ${{ runner.temp }}/do-si-dos-wide-preview
+          if-no-files-found: error
+          retention-days: 7
