@@ -344,6 +344,12 @@
   const lineageUpstreamLabel = (rootId, parentLabel) =>
     text(LINEAGE_MAP_UPSTREAM_CONTEXT.get(rootId)?.get(normalizeLineageIdentity(parentLabel)));
 
+  const lineageUpstreamContexts = (rootId, parents) =>
+    unique(parents).map(parent => ({
+      parent,
+      label: lineageUpstreamLabel(rootId, parent)
+    })).filter(item => item.label);
+
   const buildLineageResolver = catalog => {
     const index = new Map();
     for (const item of catalog?.cultivars || []) {
@@ -373,7 +379,6 @@
         label: text(label) || text(resolved?.name) || 'Unknown',
         cultivar: resolved,
         isRoot,
-        upstreamLabel: depth === 1 ? lineageUpstreamLabel(cultivar?.id, label) : '',
         parents: []
       };
       if (!resolved || depth >= LINEAGE_MAP_MAX_DEPTH) return node;
@@ -429,15 +434,6 @@
 
     const stack = document.createElement('div');
     stack.className = 'csw-lineage-map-node-stack';
-    if (node.upstreamLabel) {
-      const upstream = document.createElement('div');
-      upstream.className = 'csw-lineage-map-upstream';
-      upstream.dataset.lineageUpstreamFor = node.label;
-      upstream.dataset.lineageUpstreamContext = 'family-side';
-      upstream.textContent = node.upstreamLabel;
-      upstream.setAttribute('aria-label', `${node.label}の上流系統: ${node.upstreamLabel}`);
-      stack.appendChild(upstream);
-    }
     stack.appendChild(makeLineageMapNode(node));
     branch.appendChild(stack);
     return branch;
@@ -455,6 +451,7 @@
     const resolve = buildLineageResolver(catalog);
     const graph = buildLineageMapGraph(cultivar, resolve);
     if (!graph.root.parents.length) return false;
+    const upstreamContexts = lineageUpstreamContexts(id, confirmedLineageParents(cultivar));
 
     const section = document.createElement('section');
     section.className = 'csw-lineage-map-v1';
@@ -485,13 +482,52 @@
     inner.append(svg, tree);
     viewport.appendChild(inner);
 
+    let contextPanel = null;
+    if (upstreamContexts.length) {
+      contextPanel = document.createElement('section');
+      contextPanel.className = 'csw-lineage-context-v1';
+      contextPanel.dataset.lineageContextV1 = id;
+
+      const contextHeading = document.createElement('div');
+      contextHeading.className = 'csw-lineage-context-heading';
+      const contextTitle = document.createElement('span');
+      contextTitle.textContent = 'UPSTREAM CONTEXT / 上流系統';
+      const contextMeta = document.createElement('small');
+      contextMeta.textContent = 'direct parentはそのまま';
+      contextHeading.append(contextTitle, contextMeta);
+
+      const contextPair = document.createElement('div');
+      contextPair.className = 'csw-lineage-context-pair';
+      upstreamContexts.forEach(item => {
+        const contextItem = document.createElement('div');
+        contextItem.className = 'csw-lineage-context-item';
+        contextItem.dataset.lineageContextFor = item.parent;
+        contextItem.dataset.lineageContextKind = 'family-side';
+        contextItem.setAttribute('aria-label', `${item.parent}の上流文脈: ${item.label}`);
+
+        const contextRole = document.createElement('small');
+        contextRole.textContent = 'FAMILY SIDE';
+        const contextParent = document.createElement('strong');
+        contextParent.textContent = item.parent;
+        const contextValue = document.createElement('span');
+        contextValue.className = 'csw-lineage-context-value';
+        contextValue.textContent = item.label;
+        contextItem.append(contextRole, contextParent, contextValue);
+        contextPair.appendChild(contextItem);
+      });
+
+      contextPanel.append(contextHeading, contextPair);
+    }
+
     const note = document.createElement('p');
     note.className = 'csw-lineage-map-note';
-    note.textContent = section.querySelector('.csw-lineage-map-upstream')
-      ? '主線は確認済みのdirect parentのみ。小さな点線ラベルは上流のfamily contextで、parent nodeではありません。'
+    note.textContent = upstreamContexts.length
+      ? '主線は確認済みのdirect parentのみ。UPSTREAM CONTEXTは親を置き換えず、family-side contextとして分離表示しています。'
       : '現在のCSWで確認済みのdirect parentだけを接続。名称や系統イメージだけでは推測接続しません。';
 
-    section.append(heading, viewport, note);
+    section.append(heading, viewport);
+    if (contextPanel) section.appendChild(contextPanel);
+    section.appendChild(note);
     body.prepend(section);
 
     let centered = false;
@@ -542,10 +578,11 @@
       cultivarId: id,
       directParents: confirmedLineageParents(cultivar).length,
       nodeCount: section.querySelectorAll('.csw-lineage-map-node').length,
-      upstreamLabelCount: section.querySelectorAll('.csw-lineage-map-upstream').length,
-      upstreamLabels: [...section.querySelectorAll('.csw-lineage-map-upstream')].map(label => ({
-        parent: label.dataset.lineageUpstreamFor || '',
-        label: label.textContent.trim()
+      upstreamContextCount: section.querySelectorAll('.csw-lineage-context-item').length,
+      upstreamContexts: [...section.querySelectorAll('.csw-lineage-context-item')].map(item => ({
+        parent: item.dataset.lineageContextFor || '',
+        label: item.querySelector('.csw-lineage-context-value')?.textContent.trim() || '',
+        kind: item.dataset.lineageContextKind || ''
       })),
       maxDepth: LINEAGE_MAP_MAX_DEPTH
     };
@@ -652,8 +689,6 @@
       .csw-lineage-map-branch{display:flex;flex:0 0 auto;flex-direction:column;align-items:center;justify-content:flex-end;gap:24px;min-width:134px;padding:0 5px}
       .csw-lineage-map-parents{display:flex;align-items:flex-end;justify-content:center;gap:8px}
       .csw-lineage-map-node-stack{display:flex;flex-direction:column;align-items:center;gap:8px}
-      .csw-lineage-map-upstream{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:24px;max-width:112px;padding:4px 8px;border:1px solid rgba(216,189,98,.18);border-radius:999px;background:rgba(216,189,98,.045);color:#9daa9f;font-size:8.5px;font-weight:760;line-height:1.25;text-align:center;white-space:nowrap}
-      .csw-lineage-map-upstream:after{content:'';position:absolute;left:50%;top:100%;height:8px;border-left:1px dashed rgba(216,189,98,.38);transform:translateX(-.5px)}
       .csw-lineage-map-node{position:relative;z-index:2;display:flex;width:124px;min-height:52px;padding:9px 8px 7px;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#0a1711;color:#edf1e9;text-align:center;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.16)}
       .csw-lineage-map-node strong{display:block;max-width:100%;font-size:11.5px;line-height:1.28;overflow-wrap:anywhere}
       .csw-lineage-map-node small{color:#86978d;font-size:7px;font-weight:850;letter-spacing:.12em}
@@ -663,6 +698,16 @@
       .csw-lineage-map-node.is-linked small{color:#92b79a}
       .csw-lineage-map-edges{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}
       .csw-lineage-map-edges path{fill:none;stroke:rgba(217,182,93,.48);stroke-width:1.35;stroke-linecap:round}
+      .csw-lineage-context-v1{margin:10px 2px 0;padding:9px 10px 10px;border:1px solid rgba(216,189,98,.12);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.024),rgba(216,189,98,.022))}
+      .csw-lineage-context-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+      .csw-lineage-context-heading span{color:#aeb9b2;font-size:8.5px;font-weight:880;letter-spacing:.09em}
+      .csw-lineage-context-heading small{color:#6f8277;font-size:8px;font-weight:720;white-space:nowrap}
+      .csw-lineage-context-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:7px}
+      .csw-lineage-context-item{position:relative;display:grid;gap:2px;min-width:0;padding:8px 9px 8px 11px;border:1px solid rgba(105,169,120,.14);border-radius:10px;background:rgba(8,23,15,.46);overflow:hidden}
+      .csw-lineage-context-item:before{content:'';position:absolute;left:0;top:7px;bottom:7px;width:2px;border-radius:2px;background:linear-gradient(180deg,rgba(216,189,98,.7),rgba(105,169,120,.5))}
+      .csw-lineage-context-item small{color:#6f8277;font-size:7px;font-weight:900;letter-spacing:.11em;line-height:1.15}
+      .csw-lineage-context-item strong{min-width:0;color:#edf0ec;font-size:11px;font-weight:830;line-height:1.28;overflow-wrap:anywhere}
+      .csw-lineage-context-value{min-width:0;color:#9fb0a6;font-size:9.5px;font-weight:700;line-height:1.3;overflow-wrap:anywhere}
       .csw-lineage-map-note{margin:9px 2px 0!important;color:#8f9d95!important;font-size:10px!important;line-height:1.55!important}
       @media(max-width:390px){
         .csw-lineage-map-heading{align-items:flex-start;flex-direction:column;gap:3px}
@@ -671,8 +716,14 @@
         .csw-lineage-map-viewport{padding:7px 6px 11px}
         .csw-lineage-map-inner{padding-inline:10px}
         .csw-lineage-map-branch{min-width:126px;padding-inline:4px}
-        .csw-lineage-map-upstream{max-width:108px;min-height:23px;padding:3px 7px;font-size:8.25px}
         .csw-lineage-map-node{width:116px;min-height:50px;padding:8px 7px 6px}
+        .csw-lineage-context-v1{margin-top:9px;padding:8px}
+        .csw-lineage-context-heading{align-items:flex-start;flex-direction:column;gap:2px}
+        .csw-lineage-context-heading small{font-size:7.75px}
+        .csw-lineage-context-pair{gap:6px;margin-top:6px}
+        .csw-lineage-context-item{padding:7px 7px 7px 9px}
+        .csw-lineage-context-item strong{font-size:10.5px}
+        .csw-lineage-context-value{font-size:9px}
         .csw-lineage-map-node strong{font-size:11px}
         .csw-lineage-map-note{font-size:10.5px!important}
                 .ucd-lineage[data-sitewide-lineage="v1"]>summary>span>small{font-size:8px;letter-spacing:.075em}
