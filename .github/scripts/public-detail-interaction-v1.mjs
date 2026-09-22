@@ -214,6 +214,8 @@ async function main() {
       ready:root.dataset.lineageCompositionV1||'',
       parents,
       crossCount:composition.querySelectorAll('.csw-lineage-composition-cross').length,
+      arrowCount:composition.querySelectorAll('.csw-lineage-composition-arrow').length,
+      ribbonCount:composition.querySelectorAll('.csw-lineage-composition-ribbon').length,
       result:composition.querySelector('[data-lineage-composition-result="do-si-dos"] strong')?.textContent.trim()||'',
       branchPathCount:composition.querySelectorAll('svg path,.csw-lineage-map-edges path').length,
       state:window.__CSWLineageCompositionV1||null,
@@ -229,9 +231,11 @@ async function main() {
     !doSiDosComposition.parents.some(item => item.name === 'OGKB' && item.context === 'Cookies / GSC side' && item.kind === 'family-side' && item.role === 'DIRECT PARENT') ||
     !doSiDosComposition.parents.some(item => item.name === 'Face Off OG BX1' && item.context === 'OG side' && item.kind === 'family-side' && item.role === 'DIRECT PARENT') ||
     doSiDosComposition.crossCount !== 1 ||
+    doSiDosComposition.arrowCount !== 1 ||
+    doSiDosComposition.ribbonCount !== 1 ||
     doSiDosComposition.result !== 'Do-Si-Dos' ||
     doSiDosComposition.branchPathCount !== 0 ||
-    doSiDosComposition.state?.layout !== 'single-composition-strip' ||
+    doSiDosComposition.state?.layout !== 'wide-ribbon' ||
     doSiDosComposition.state?.branchLines !== 0 ||
     doSiDosComposition.documentOverflow
   ) {
