@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T06:40:42.460Z",
+  "generatedAt": "2026-09-22T07:21:38.267Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 81,
-    "sources": 165,
+    "cultivars": 82,
+    "sources": 169,
     "entities": 30
   },
   "explore": {
@@ -63,6 +63,7 @@
       "fat-banana-auto",
       "gmo-cookies",
       "hindu-kush",
+      "ice-cream-cake",
       "la-confidential",
       "mazar",
       "gorilla-glue-4",
@@ -9374,6 +9375,246 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "ice-cream-cake",
+      "status": "review",
+      "name": "Ice Cream Cake",
+      "jp": null,
+      "aliases": [
+        "ICC",
+        "Ice Cream Cookies"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ice-cream-cake",
+          "leafly-ice-cream-cake-highlight",
+          "seedfinder-ice-cream-cake-seed-junky"
+        ],
+        "display": "Wedding Cake × Gelato #33",
+        "parents": [
+          "Wedding Cake",
+          "Gelato #33"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜はWedding Cake × Gelato #33。Seed Junky Genetics系のIce Cream Cakeについて複数の専門資料が一致しています。同名のMad Scientist Genetics版はCheese Cake × Dream Cookieで、別identityとして混ぜていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "leafly-ice-cream-cake-highlight",
+            "seedfinder-ice-cream-cake-seed-junky"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-ice-cream-cake-highlight"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "クリーミー",
+          "スイート",
+          "バニラ",
+          "ガス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "クリーミー",
+            "スイート",
+            "バニラ",
+            "ガス"
+          ],
+          "details": [
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "vanilla",
+              "reviewLabelJa": "バニラ",
+              "plainMeaningJa": "バニラのような甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyのcultivar記事で、クリーミー、甘さ、バニラ、ガス系の香りが確認できます。source側にCORE / ACCENTの階層はないためPROFILEとして保持しています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ice-cream-cake"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。Leafly Certified labs由来の集約情報ですが、個別の分析artifactを直接確認できていないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-ice-cream-cake-highlight",
+          "seedfinder-ice-cream-cake-seed-junky"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "今回の対象はSeed Junky Genetics系のIce Cream Cakeです。Leaflyは同社をLos Angelesのbreeder/growerとして記載していますが、交配そのものが行われた場所までは今回の根拠から断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-ice-cream-cake-highlight",
+          "seedfinder-ice-cream-cake-mad-scientist"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Seed Junky GeneticsがこのICCを当初seedとして販売したとLeaflyは記録しています。2019年にはJosh Dが提出したIce Cream CakeがEmerald Cup Mixed Lightで1位になったとLeaflyが報告しています。一方、正確なrelease年や同名系統どうしの時間的な先後は断定していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ice-cream-cake"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "栽培者報告では、明るい緑〜紫の花色と強いトリコーム被覆が挙げられています。色は固定形質と断定せず、pistil色・密度・葉形など未確認の特徴は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜はWedding Cake × Gelato #33。Seed Junky Genetics系のIce Cream Cakeについて複数の専門資料が一致しています。同名のMad Scientist Genetics版はCheese Cake × Dream Cookieで、別identityとして混ぜていません。",
+          "origin": "今回の対象はSeed Junky Genetics系のIce Cream Cakeです。Leaflyは同社をLos Angelesのbreeder/growerとして記載していますが、交配そのものが行われた場所までは今回の根拠から断定していません。",
+          "history": "Seed Junky GeneticsがこのICCを当初seedとして販売したとLeaflyは記録しています。2019年にはJosh Dが提出したIce Cream CakeがEmerald Cup Mixed Lightで1位になったとLeaflyが報告しています。一方、正確なrelease年や同名系統どうしの時間的な先後は断定していません。",
+          "aromaNote": "Leaflyのcultivar記事で、クリーミー、甘さ、バニラ、ガス系の香りが確認できます。source側にCORE / ACCENTの階層はないためPROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。Leafly Certified labs由来の集約情報ですが、個別の分析artifactを直接確認できていないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。",
+          "morphologyNote": "栽培者報告では、明るい緑〜紫の花色と強いトリコーム被覆が挙げられています。色は固定形質と断定せず、pistil色・密度・葉形など未確認の特徴は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/ice-cream-cake/primary.webp",
+          "alt": "Ice Cream CakeのAI生成参考ビジュアル。トリコームに覆われた主花全体とトップバッズ先端をフレーム内に収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -24510,6 +24751,44 @@
       "publishedAt": null,
       "checkedAt": "2026-09-16"
     },
+    "leafly-ice-cream-cake-highlight": {
+      "schemaVersion": 1,
+      "id": "leafly-ice-cream-cake-highlight",
+      "publisher": "Leafly",
+      "title": "Stay chill with Ice Cream Cake—July’s Leafly HighLight",
+      "url": "https://www.leafly.com/news/strains-products/ice-cream-cake-strain-july-2022-highlight",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "aroma",
+        "history",
+        "awards"
+      ],
+      "checkedAt": "2026-09-22"
+    },
+    "leafly-ice-cream-cake": {
+      "schemaVersion": 1,
+      "id": "leafly-ice-cream-cake",
+      "publisher": "Leafly",
+      "title": "Ice Cream Cake Weed Strain Information",
+      "url": "https://www.leafly.com/strains/ice-cream-cake",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "flavor",
+        "terpenes",
+        "cannabinoids",
+        "effects",
+        "cultivation",
+        "morphology"
+      ],
+      "checkedAt": "2026-09-22"
+    },
     "leafly-la-confidential": {
       "schemaVersion": 1,
       "id": "leafly-la-confidential",
@@ -25109,6 +25388,36 @@
         "awards"
       ],
       "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
+    "seedfinder-ice-cream-cake-mad-scientist": {
+      "schemaVersion": 1,
+      "id": "seedfinder-ice-cream-cake-mad-scientist",
+      "publisher": "SeedFinder",
+      "title": "Ice Cream Cake (Mad Scientist Genetics) :: Cannabis Strain Info",
+      "url": "https://seedfinder.eu/en/strain-info/ice-cream-cake/mad-scientist-genetics",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "history"
+      ],
+      "checkedAt": "2026-09-22"
+    },
+    "seedfinder-ice-cream-cake-seed-junky": {
+      "schemaVersion": 1,
+      "id": "seedfinder-ice-cream-cake-seed-junky",
+      "publisher": "SeedFinder",
+      "title": "Ice Cream Cake (Seed Junky Genetics) :: Cannabis Strain Info",
+      "url": "https://seedfinder.eu/en/strain-info/ice-cream-cake/seed-junky-genetics",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "breeder",
+        "lineage",
+        "classification"
+      ],
       "checkedAt": "2026-09-22"
     },
     "seedfinder-the-og-18": {
