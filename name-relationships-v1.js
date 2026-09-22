@@ -575,7 +575,7 @@
 
     const prose = body.querySelector(':scope > p');
     if (!prose) throw new Error('DO_SI_DOS_LINEAGE_PROSE_MISSING');
-    prose.textContent = 'CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。';
+    prose.textContent = 'OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。';
 
     const fragment = document.createDocumentFragment();
     items.forEach(item => {
