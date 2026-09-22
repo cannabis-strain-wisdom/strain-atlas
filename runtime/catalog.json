@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T11:08:04.215Z",
+  "generatedAt": "2026-09-22T14:35:50.260Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 83,
-    "sources": 175,
-    "entities": 31
+    "cultivars": 84,
+    "sources": 180,
+    "entities": 32
   },
   "explore": {
     "sativa": [
@@ -58,6 +58,7 @@
       "blueberry-muffin",
       "california-octane",
       "cataract-kush",
+      "do-si-dos",
       "double-grape",
       "erdpurt",
       "fat-banana-auto",
@@ -5383,6 +5384,264 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "do-si-dos",
+      "status": "review",
+      "name": "Do-Si-Dos",
+      "jp": null,
+      "aliases": [
+        "Dosidos",
+        "Dosi",
+        "Do Si Dos"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-do-si-dos-root",
+          "willamette-week-do-si-dos-2017"
+        ],
+        "display": "OGKB × Face Off OG BX1",
+        "parents": [
+          "OGKB",
+          "Face Off OG BX1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "直系の親はOGKB × Face Off OG BX1。OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながりますが、CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、direct parent名をそのまま保持しています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "archive-seed-bank",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "archive-do-si-dos-root"
+          ]
+        },
+        {
+          "entityId": "fletcher-watson",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "willamette-week-do-si-dos-2017"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-dosidos"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "パングェント",
+          "スイート",
+          "アーシー",
+          "スライト・フローラルファンク"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "パングェント",
+            "スイート",
+            "アーシー",
+            "スライト・フローラルファンク"
+          ],
+          "details": [
+            {
+              "rawMatch": "pungent",
+              "reviewLabelJa": "パングェント",
+              "plainMeaningJa": "ツンと強い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "刺激"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "slight floral funkiness",
+              "reviewLabelJa": "スライト・フローラルファンク",
+              "plainMeaningJa": "ほのかな花の香りに、独特のファンク感が重なるニュアンス",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花",
+                "フローラル",
+                "ファンク"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyのcultivar profileでは、パングェント、スイート、アーシー、ほのかなフローラルファンクが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないためPROFILEとして保持しています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-dosidos"
+        ],
+        "items": [
+          "limonene",
+          "caryophyllene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはLimonene、Caryophyllene、Linaloolを掲載しています。個別の分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "willamette-week-do-si-dos-2017",
+          "leafly-dosidos-soty-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Do-Si-Dosのroot lineはArchive Seed Bank / Fletcher Watsonの作出として確認できます。ArchiveはPortland, Oregonのbreederとして報じられていますが、交配そのものを行った正確な場所までは今回の根拠から断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "archive-do-si-dos-root",
+          "willamette-week-do-si-dos-2017",
+          "high-times-do-si-dos-2016",
+          "leafly-dosidos-soty-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive Seed Bankは現在の公式ページでDo-Si-Dosのoriginal creatorを明示しています。Fletcher Watson本人は2017年の取材で、OGKB cutを2012年末〜2013年初頭にNorCal ICMagから受け取りFace Off OG maleと交配した流れを説明しています。High Timesは2016年Top 10 Strainsに選出し、Leaflyは2021年Strain of the Yearに選出しました。一方Leaflyの別記事には2012年にbred/selectedとの記述もあるため、正確な作出・release年は一つに固定していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-dosidos",
+          "high-times-do-si-dos-2016"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "専門資料では強いtrichome / resin表現、bright pistils、lime-green〜lavender系の葉色が報告されています。色は固定形質と断定せず、根拠のないbud shapeやleaf morphologyは補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "直系の親はOGKB × Face Off OG BX1。OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながりますが、CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、direct parent名をそのまま保持しています。",
+          "origin": "Do-Si-Dosのroot lineはArchive Seed Bank / Fletcher Watsonの作出として確認できます。ArchiveはPortland, Oregonのbreederとして報じられていますが、交配そのものを行った正確な場所までは今回の根拠から断定していません。",
+          "history": "Archive Seed Bankは現在の公式ページでDo-Si-Dosのoriginal creatorを明示しています。Fletcher Watson本人は2017年の取材で、OGKB cutを2012年末〜2013年初頭にNorCal ICMagから受け取りFace Off OG maleと交配した流れを説明しています。High Timesは2016年Top 10 Strainsに選出し、Leaflyは2021年Strain of the Yearに選出しました。一方Leaflyの別記事には2012年にbred/selectedとの記述もあるため、正確な作出・release年は一つに固定していません。",
+          "aromaNote": "Leaflyのcultivar profileでは、パングェント、スイート、アーシー、ほのかなフローラルファンクが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないためPROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはLimonene、Caryophyllene、Linaloolを掲載しています。個別の分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。",
+          "morphologyNote": "専門資料では強いtrichome / resin表現、bright pistils、lime-green〜lavender系の葉色が報告されています。色は固定形質と断定せず、根拠のないbud shapeやleaf morphologyは補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/do-si-dos/primary.webp",
+          "alt": "Do-Si-DosのAI生成参考ビジュアル。強いtrichome / resin表現を持つ主花全体とトップバッズ先端を、安全余白つきでフレーム内に収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -23544,6 +23803,26 @@
       "publishedAt": "2021-11-12",
       "checkedAt": "2026-09-06"
     },
+    "archive-do-si-dos-root": {
+      "schemaVersion": 1,
+      "id": "archive-do-si-dos-root",
+      "publisher": "Archive Seed Bank",
+      "title": "Do-Si-Dos",
+      "url": "https://archiveseedbank.com/products/do-si-dos",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "breeder",
+        "originator",
+        "lineage",
+        "generationBoundary",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
     "archive-rainbow-belts-2-0": {
       "schemaVersion": 1,
       "id": "archive-rainbow-belts-2-0",
@@ -24621,6 +24900,25 @@
       "publishedAt": "2022-12-27",
       "checkedAt": "2026-09-16"
     },
+    "high-times-do-si-dos-2016": {
+      "schemaVersion": 1,
+      "id": "high-times-do-si-dos-2016",
+      "publisher": "High Times",
+      "title": "The Top 10 Strains of 2016",
+      "url": "https://hightimes.com/grow/the-top-10-strains-of-2016/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "lineage",
+        "aroma",
+        "cultivation",
+        "morphology",
+        "history",
+        "recognition"
+      ],
+      "publishedAt": "2016-11-14",
+      "checkedAt": "2026-09-22"
+    },
     "high-times-gmo-profile": {
       "schemaVersion": 1,
       "id": "high-times-gmo-profile",
@@ -25048,6 +25346,45 @@
       ],
       "publishedAt": "2024-04-09",
       "checkedAt": "2026-09-17"
+    },
+    "leafly-dosidos-soty-2021": {
+      "schemaVersion": 1,
+      "id": "leafly-dosidos-soty-2021",
+      "publisher": "Leafly",
+      "title": "The Leafly Strain of the Year 2021 was Dosidos!",
+      "url": "https://www.leafly.com/news/strains-products/dosidos-2021-leafly-strain-of-the-year",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "history",
+        "recognition",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
+    },
+    "leafly-dosidos": {
+      "schemaVersion": 1,
+      "id": "leafly-dosidos",
+      "publisher": "Leafly",
+      "title": "Dosidos aka Dosi, Do-Si-Dos, Do Si Dos Weed Strain Information",
+      "url": "https://www.leafly.com/strains/do-si-dos",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "cannabinoids",
+        "effects",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-22"
     },
     "leafly-dr-grinspoon": {
       "schemaVersion": 1,
@@ -26301,6 +26638,25 @@
       ],
       "publishedAt": "2017-04-17",
       "checkedAt": "2026-09-21"
+    },
+    "willamette-week-do-si-dos-2017": {
+      "schemaVersion": 1,
+      "id": "willamette-week-do-si-dos-2017",
+      "publisher": "Willamette Week",
+      "title": "The Story of Portland Cannabis As Told Through the Iconic Cultivars of the Pacific Northwest",
+      "url": "https://www.wweek.com/cannabis/2017/10/03/the-story-of-portland-cannabis-as-told-through-the-iconic-cultivars-of-the-pacific-northwest/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "originator",
+        "lineage",
+        "history",
+        "origin",
+        "aroma"
+      ],
+      "publishedAt": "2017-10-03",
+      "checkedAt": "2026-09-22"
     }
   },
   "entities": {
@@ -26459,6 +26815,18 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "fletcher-watson": {
+      "schemaVersion": 1,
+      "id": "fletcher-watson",
+      "name": "Fletcher Watson",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "note": "Archive Seed Bank founder identified in Willamette Week's 2017 direct interview. Watson directly describes receiving OGKB from NorCal ICMag and crossing it to his Face Off OG male to create the line that became Do-Si-Dos."
     },
     "gg-strains": {
       "schemaVersion": 1,

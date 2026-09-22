@@ -475,6 +475,11 @@
       "strainId": "rainbow-sherbert-11",
       "state": "published",
       "publishedAt": "2026-09-22T11:08:03Z"
+    },
+    {
+      "strainId": "do-si-dos",
+      "state": "published",
+      "publishedAt": "2026-09-22T14:35:49Z"
     }
   ]
 }
