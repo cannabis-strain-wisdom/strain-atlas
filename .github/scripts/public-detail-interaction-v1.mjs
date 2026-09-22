@@ -196,6 +196,42 @@ async function main() {
     throw new Error(`Rainbow Belts protected lineage changed under interaction overlay: ${JSON.stringify(rainbow)}`);
   }
 
+  await navigate('do-si-dos');
+  const doSiDosMap = await waitFor(() => evalv(`(()=>{
+    const root=document.querySelector('.ucd-root[data-public-detail-id="do-si-dos"]');
+    const lineage=document.querySelector('#detail-shell .ucd-lineage');
+    const map=lineage?.querySelector('[data-lineage-map-v1="do-si-dos"]');
+    if(!root||!lineage||!map||window.__CSWLineageMapV1?.status!=='PASS') return false;
+    const nodes=[...map.querySelectorAll('.csw-lineage-map-node')].map(node=>({
+      name:node.querySelector('strong')?.textContent.trim()||'',
+      root:node.classList.contains('is-root'),
+      linked:node.classList.contains('is-linked')
+    }));
+    return {
+      mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
+      ready:root.dataset.lineageMapV1||'',
+      names:nodes.map(node=>node.name),
+      rootName:nodes.find(node=>node.root)?.name||'',
+      nodeCount:nodes.length,
+      pathCount:map.querySelectorAll('.csw-lineage-map-edges path').length,
+      state:window.__CSWLineageMapV1||null,
+      documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
+    };
+  })()`), 'Do-Si-Dos lineage map');
+
+  if (
+    doSiDosMap.mapCount !== 1 ||
+    doSiDosMap.ready !== 'ready' ||
+    doSiDosMap.rootName !== 'Do-Si-Dos' ||
+    doSiDosMap.nodeCount < 3 ||
+    !doSiDosMap.names.includes('OGKB') ||
+    !doSiDosMap.names.includes('Face Off OG BX1') ||
+    doSiDosMap.state?.cultivarId !== 'do-si-dos' ||
+    doSiDosMap.documentOverflow
+  ) {
+    throw new Error(`Do-Si-Dos lineage map mismatch: ${JSON.stringify(doSiDosMap)}`);
+  }
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
