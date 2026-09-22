@@ -197,60 +197,64 @@ async function main() {
   }
 
   await navigate('do-si-dos');
-  const doSiDosContext = await waitFor(() => evalv(`(()=>{
+  const doSiDosRail = await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.ucd-root[data-public-detail-id="do-si-dos"]');
     const lineage=document.querySelector('#detail-shell .ucd-lineage');
     const body=lineage?.querySelector(':scope > div');
-    const context=body?.querySelector('[data-lineage-parent-context-v1="do-si-dos"]');
-    if(!root||!lineage||!body||!context||window.__CSWLineageParentContextV1?.status!=='PASS') return false;
-    const rows=[...context.querySelectorAll('.csw-lineage-parent-context-row')].map(row=>({
-      parent:row.dataset.lineageParent||'',
+    const integrated=body?.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
+    if(!root||!lineage||!body||!integrated||window.__CSWDoSiDosUpstreamRailV1?.status!=='PASS') return false;
+    const upstream=[...integrated.querySelectorAll(':scope > [data-upstream-family-context]')].map(row=>({
+      parent:row.dataset.upstreamFamilyContext||'',
       kind:row.dataset.lineageContextKind||'',
-      parentText:row.querySelector('strong')?.textContent.trim()||'',
-      contextText:row.querySelector('span')?.textContent.trim()||'',
-      display:getComputedStyle(row).display
+      title:row.querySelector('.csw-name-rel-name')?.textContent.trim()||'',
+      formula:row.querySelector('.csw-name-rel-lineage')?.textContent.trim()||'',
+      labelJa:row.querySelector('.csw-name-rel-label > span')?.textContent.trim()||'',
+      labelEn:row.querySelector('.csw-name-rel-label > small')?.textContent.trim()||'',
+      hasNode:Boolean(row.querySelector('.csw-name-rel-node'))
     }));
-    const story=body.querySelector('[data-lineage-story-v1="do-si-dos"]');
+    const alias=integrated.querySelector(':scope > .csw-name-rel-alias-row');
     const evidence=body.querySelector(':scope > .ucd-evidence-row');
+    const prose=body.querySelector(':scope > p');
     return {
       lineageValue:lineage.querySelector(':scope > summary strong')?.textContent.trim()||'',
       mapCount:lineage.querySelectorAll('[data-lineage-map-v1="do-si-dos"]').length,
       compositionCount:lineage.querySelectorAll('[data-lineage-composition-v1="do-si-dos"]').length,
-      contextCount:lineage.querySelectorAll('[data-lineage-parent-context-v1="do-si-dos"]').length,
-      storyCount:lineage.querySelectorAll('[data-lineage-story-v1="do-si-dos"]').length,
-      rowCount:rows.length,
-      rows,
-      storyText:story?.querySelector('p')?.textContent.trim()||'',
-      storyKicker:story?.querySelector('.csw-lineage-story-kicker')?.textContent.trim()||'',
-      contextBeforeStory:Boolean(story&&context.compareDocumentPosition(story)&Node.DOCUMENT_POSITION_FOLLOWING),
-      storyBeforeEvidence:Boolean(story&&evidence&&story.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
-      ready:root.dataset.lineageParentContextV1||'',
-      state:window.__CSWLineageParentContextV1||null,
+      oldContextCount:lineage.querySelectorAll('[data-lineage-parent-context-v1="do-si-dos"]').length,
+      oldStoryCount:lineage.querySelectorAll('[data-lineage-story-v1="do-si-dos"]').length,
+      upstreamCount:upstream.length,
+      upstream,
+      aliasPresent:Boolean(alias),
+      aliasStandalone:Boolean(alias?.classList.contains('is-standalone')),
+      aliasTrackDisplay:alias?getComputedStyle(alias.querySelector('.csw-name-rel-track')).display:'',
+      prose:prose?.textContent.trim()||'',
+      evidenceAfterRail:Boolean(evidence&&integrated.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING),
+      ready:root.dataset.doSiDosUpstreamRail||'',
+      state:window.__CSWDoSiDosUpstreamRailV1||null,
       documentOverflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1
     };
-  })()`), 'Do-Si-Dos inline parent context');
+  })()`), 'Do-Si-Dos upstream relationship rail');
 
   if (
-    doSiDosContext.lineageValue !== 'OGKB × Face Off OG BX1' ||
-    doSiDosContext.mapCount !== 0 ||
-    doSiDosContext.compositionCount !== 0 ||
-    doSiDosContext.contextCount !== 1 ||
-    doSiDosContext.storyCount !== 1 ||
-    doSiDosContext.rowCount !== 2 ||
-    doSiDosContext.ready !== 'ready' ||
-    !doSiDosContext.rows.some(item => item.parent === 'OGKB' && item.parentText === 'OGKB' && item.contextText === 'Cookies / GSC side' && item.kind === 'family-side' && item.display === 'grid') ||
-    !doSiDosContext.rows.some(item => item.parent === 'Face Off OG BX1' && item.parentText === 'Face Off OG BX1' && item.contextText === 'OG side' && item.kind === 'family-side' && item.display === 'grid') ||
-    doSiDosContext.storyKicker !== 'BACKGROUND / CONTEXT' ||
-    !doSiDosContext.storyText.includes('OGKB') ||
-    !doSiDosContext.storyText.includes('Face Off OG BX1') ||
-    !doSiDosContext.contextBeforeStory ||
-    !doSiDosContext.storyBeforeEvidence ||
-    doSiDosContext.state?.presentation !== 'polished-inline-inside-existing-lineage' ||
-    doSiDosContext.state?.mapRendered !== false ||
-    doSiDosContext.state?.storyWrapped !== true ||
-    doSiDosContext.documentOverflow
+    doSiDosRail.lineageValue !== 'OGKB × Face Off OG BX1' ||
+    doSiDosRail.mapCount !== 0 ||
+    doSiDosRail.compositionCount !== 0 ||
+    doSiDosRail.oldContextCount !== 0 ||
+    doSiDosRail.oldStoryCount !== 0 ||
+    doSiDosRail.upstreamCount !== 2 ||
+    doSiDosRail.ready !== 'ready' ||
+    !doSiDosRail.upstream.some(item => item.parent === 'OGKB' && item.kind === 'family-side' && item.title === 'Cookies / GSC side' && item.formula === 'OGKB側の上流文脈' && item.labelJa === '系統背景' && item.labelEn === 'FAMILY SIDE' && item.hasNode) ||
+    !doSiDosRail.upstream.some(item => item.parent === 'Face Off OG BX1' && item.kind === 'family-side' && item.title === 'OG side' && item.formula === 'Face Off OG BX1側の上流文脈' && item.labelJa === '系統背景' && item.labelEn === 'FAMILY SIDE' && item.hasNode) ||
+    !doSiDosRail.aliasPresent ||
+    doSiDosRail.aliasStandalone ||
+    doSiDosRail.aliasTrackDisplay === 'none' ||
+    doSiDosRail.prose !== 'CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。' ||
+    !doSiDosRail.evidenceAfterRail ||
+    doSiDosRail.state?.presentation !== 'sitewide-relationship-rail' ||
+    doSiDosRail.state?.mapRendered !== false ||
+    doSiDosRail.state?.duplicateParentSummary !== false ||
+    doSiDosRail.documentOverflow
   ) {
-    throw new Error(`Do-Si-Dos inline parent context mismatch: ${JSON.stringify(doSiDosContext)}`);
+    throw new Error(`Do-Si-Dos upstream relationship rail mismatch: ${JSON.stringify(doSiDosRail)}`);
   }
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
