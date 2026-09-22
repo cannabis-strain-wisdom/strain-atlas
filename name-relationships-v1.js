@@ -7,7 +7,7 @@
   const SITEWIDE_CONTRACT = 'CSW_SITEWIDE_LINEAGE_RELATIONSHIPS_V1';
   const LINEAGE_MAP_CONTRACT = 'CSW_LINEAGE_MAP_V1';
   const LINEAGE_MAP_MAX_DEPTH = 3;
-  const LINEAGE_MAP_UPSTREAM_CONTEXT = new Map([
+  const UPSTREAM_FAMILY_CONTEXT = new Map([
     ['do-si-dos', new Map([
       ['ogkb', 'Cookies / GSC side'],
       ['face off og bx1', 'OG side']
@@ -127,6 +127,22 @@
     const relation = document.createElement('div');
     relation.className = 'csw-name-rel-relation';
     relation.appendChild(makeRelationshipLabel('選抜系統', 'SELECTION', 'selection'));
+    block.append(title, formula, relation);
+    return block;
+  };
+
+  const makeFamilySideBlock = item => {
+    const block = document.createElement('div');
+    block.className = 'csw-name-rel-name-block';
+    const title = document.createElement('strong');
+    title.className = 'csw-name-rel-name';
+    title.textContent = item.context;
+    const formula = document.createElement('p');
+    formula.className = 'csw-name-rel-lineage';
+    formula.textContent = `${item.parent}側の上流文脈`;
+    const relation = document.createElement('div');
+    relation.className = 'csw-name-rel-relation';
+    relation.appendChild(makeRelationshipLabel('系統背景', 'FAMILY SIDE'));
     block.append(title, formula, relation);
     return block;
   };
@@ -342,7 +358,7 @@
   };
 
   const lineageUpstreamLabel = (rootId, parentLabel) =>
-    text(LINEAGE_MAP_UPSTREAM_CONTEXT.get(rootId)?.get(normalizeLineageIdentity(parentLabel)));
+    text(UPSTREAM_FAMILY_CONTEXT.get(rootId)?.get(normalizeLineageIdentity(parentLabel)));
 
   const buildLineageResolver = catalog => {
     const index = new Map();
@@ -552,78 +568,6 @@
     return true;
   };
 
-  const decorateDoSiDosUpstreamRail = ({ id, cultivar, root, lineageCard }) => {
-    if (id !== 'do-si-dos') return false;
-    const body = lineageCard.querySelector(':scope > div');
-    if (!body) return false;
-
-    const integrated = body.querySelector(':scope > [data-sitewide-lineage-integrated="v1"]');
-    if (!integrated) throw new Error('DO_SI_DOS_RELATIONSHIP_RAIL_MISSING');
-    if (integrated.dataset.doSiDosUpstreamRail === 'v1') {
-      root.dataset.doSiDosUpstreamRail = 'ready';
-      return true;
-    }
-
-    const parents = confirmedLineageParents(cultivar);
-    const items = parents.map(parent => ({
-      parent,
-      context: lineageUpstreamLabel(id, parent)
-    })).filter(item => item.context);
-    if (items.length !== parents.length || items.length !== 2) {
-      throw new Error(`DO_SI_DOS_UPSTREAM_RAIL_INCOMPLETE:${items.length}/${parents.length}`);
-    }
-
-    const prose = body.querySelector(':scope > p');
-    if (!prose) throw new Error('DO_SI_DOS_LINEAGE_PROSE_MISSING');
-    prose.textContent = 'OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。';
-
-    const fragment = document.createDocumentFragment();
-    items.forEach(item => {
-      const row = document.createElement('div');
-      row.className = 'csw-name-rel-rail-item';
-      row.dataset.upstreamFamilyContext = item.parent;
-      row.dataset.lineageContextKind = 'family-side';
-
-      const block = document.createElement('div');
-      block.className = 'csw-name-rel-name-block';
-
-      const title = document.createElement('strong');
-      title.className = 'csw-name-rel-name';
-      title.textContent = item.context;
-
-      const relationToParent = document.createElement('p');
-      relationToParent.className = 'csw-name-rel-lineage';
-      relationToParent.textContent = `${item.parent}側の上流文脈`;
-
-      const relation = document.createElement('div');
-      relation.className = 'csw-name-rel-relation';
-      relation.appendChild(makeRelationshipLabel('系統背景', 'FAMILY SIDE'));
-
-      block.append(title, relationToParent, relation);
-      row.append(makeTrack({ node: true }), block);
-      fragment.appendChild(row);
-    });
-
-    const aliasRow = integrated.querySelector(':scope > .csw-name-rel-alias-row');
-    if (aliasRow) aliasRow.classList.remove('is-standalone');
-    integrated.insertBefore(fragment, integrated.firstChild);
-    integrated.dataset.doSiDosUpstreamRail = 'v1';
-
-    const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
-    root.dataset.doSiDosUpstreamRail = 'ready';
-    window.__CSWDoSiDosUpstreamRailV1 = {
-      status: 'PASS',
-      cultivarId: id,
-      directLineage: text(cultivar?.lineage?.display),
-      items,
-      presentation: 'sitewide-relationship-rail',
-      mapRendered: false,
-      duplicateParentSummary: false,
-      evidencePreserved: Boolean(evidence)
-    };
-    return true;
-  };
-
   const decorateUniversal = ({ id, catalog, cultivar, root, lineageCard }) => {
     setIntegratedTitle(lineageCard);
     const body = lineageCard.querySelector(':scope > div');
@@ -633,16 +577,41 @@
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name);
     const childLines = resolveChildLines(catalog, cultivar);
     const selectionLines = resolveSelectionLines(catalog, cultivar);
+    const upstreamLines = confirmedLineageParents(cultivar)
+      .map(parent => ({ parent, context: lineageUpstreamLabel(id, parent) }))
+      .filter(item => item.context);
     const typedRows = [
       ...childLines.map(line => ({ type: 'child-line', line })),
       ...selectionLines.map(line => ({ type: 'selection', line }))
     ];
-    if (!integrated && (aliases.length || typedRows.length)) {
+
+    if (id === 'do-si-dos') {
+      if (upstreamLines.length !== confirmedLineageParents(cultivar).length || upstreamLines.length !== 2) {
+        throw new Error(`DO_SI_DOS_UPSTREAM_RAIL_INCOMPLETE:${upstreamLines.length}/${confirmedLineageParents(cultivar).length}`);
+      }
+      const prose = body.querySelector(':scope > p');
+      if (!prose) throw new Error('DO_SI_DOS_LINEAGE_PROSE_MISSING');
+      prose.textContent = 'OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。';
+    }
+
+    if (!integrated && (upstreamLines.length || aliases.length || typedRows.length)) {
       integrated = document.createElement('section');
       integrated.className = 'csw-name-rel-integrated csw-name-rel-integrated-sitewide';
       integrated.dataset.sitewideLineageIntegrated = 'v1';
-      const aliasRow = makeAliasRow(aliases, { standalone: typedRows.length === 0 });
+
+      upstreamLines.forEach((item, index) => {
+        const row = document.createElement('div');
+        row.className = 'csw-name-rel-rail-item';
+        row.dataset.upstreamFamilyContext = item.parent;
+        row.dataset.lineageContextKind = 'family-side';
+        const lastWithoutFollowingRows = index === upstreamLines.length - 1 && !aliases.length && !typedRows.length;
+        row.append(makeTrack({ node: true, last: lastWithoutFollowingRows }), makeFamilySideBlock(item));
+        integrated.appendChild(row);
+      });
+
+      const aliasRow = makeAliasRow(aliases, { standalone: upstreamLines.length === 0 && typedRows.length === 0 });
       if (aliasRow) integrated.appendChild(aliasRow);
+
       typedRows.forEach((item, index) => {
         const row = document.createElement('div');
         row.className = 'csw-name-rel-rail-item';
@@ -655,6 +624,7 @@
         }
         integrated.appendChild(row);
       });
+
       const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
       if (evidence) body.insertBefore(integrated, evidence);
       else body.appendChild(integrated);
@@ -665,12 +635,16 @@
     root.dataset.sitewideLineageRelationships = 'v1';
     window.__CSWSitewideLineageRelationshipsV1 = {
       status: 'PASS', contract: SITEWIDE_CONTRACT, cultivarId: id,
+      presentation: 'relationship-rail-only',
       lineageStatus: text(cultivar?.lineage?.status) || 'unknown',
+      upstreamLines: upstreamLines.map(item => ({ parent: item.parent, context: item.context })),
+      upstreamCount: upstreamLines.length,
       aliases, aliasCount: aliases.length,
       childLines: childLines.map(line => ({ id: line.id, name: line.name, lineage: line.lineage })),
       childCount: childLines.length,
       selectionLines: selectionLines.map(line => ({ id: line.id, name: line.name, relationshipDisplay: line.relationshipDisplay })),
       selectionCount: selectionLines.length,
+      lineageMapRendered: false,
       evidenceFooterAtBottom
     };
     return true;
@@ -679,10 +653,7 @@
   const decorate = async () => {
     const state = await resolveCurrent();
     if (!state) return false;
-    const relationshipsReady = state.id === RAINBOW_ID ? decorateRainbow(state) : decorateUniversal(state);
-    if (state.id === 'do-si-dos') decorateDoSiDosUpstreamRail(state);
-    else decorateLineageMap(state);
-    return relationshipsReady;
+    return state.id === RAINBOW_ID ? decorateRainbow(state) : decorateUniversal(state);
   };
 
   if (!document.getElementById('csw-name-relationships-v1-style')) {
