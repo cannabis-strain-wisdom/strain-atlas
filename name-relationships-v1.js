@@ -570,10 +570,21 @@
       throw new Error(`DO_SI_DOS_PARENT_CONTEXT_INCOMPLETE:${items.length}/${parents.length}`);
     }
 
-    const context = document.createElement('div');
+    const context = document.createElement('section');
     context.className = 'csw-lineage-parent-context-v1';
     context.dataset.lineageParentContextV1 = id;
 
+    const contextHead = document.createElement('div');
+    contextHead.className = 'csw-lineage-parent-context-head';
+    const contextKicker = document.createElement('span');
+    contextKicker.textContent = 'PARENT CONTEXT / 親の背景';
+    const contextMeta = document.createElement('small');
+    contextMeta.textContent = 'family-side context';
+    contextHead.append(contextKicker, contextMeta);
+    context.appendChild(contextHead);
+
+    const contextRows = document.createElement('div');
+    contextRows.className = 'csw-lineage-parent-context-rows';
     items.forEach(item => {
       const row = document.createElement('div');
       row.className = 'csw-lineage-parent-context-row';
@@ -585,13 +596,24 @@
       const family = document.createElement('span');
       family.textContent = item.context;
       row.append(parent, family);
-      context.appendChild(row);
+      contextRows.appendChild(row);
     });
+    context.appendChild(contextRows);
+
+    const prose = body.querySelector(':scope > p');
+    if (!prose) throw new Error('DO_SI_DOS_LINEAGE_PROSE_MISSING');
+    const story = document.createElement('section');
+    story.className = 'csw-lineage-story-v1';
+    story.dataset.lineageStoryV1 = id;
+    const storyKicker = document.createElement('small');
+    storyKicker.className = 'csw-lineage-story-kicker';
+    storyKicker.textContent = 'BACKGROUND / CONTEXT';
+    body.insertBefore(story, prose);
+    story.append(storyKicker, prose);
+
+    body.insertBefore(context, story);
 
     const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
-    if (evidence?.parentElement === body) body.insertBefore(context, evidence);
-    else body.appendChild(context);
-
     root.dataset.lineageParentContextV1 = 'ready';
     window.__CSWLineageParentContextV1 = {
       status: 'PASS',
@@ -599,7 +621,10 @@
       directLineage: text(cultivar?.lineage?.display),
       items,
       mapRendered: false,
-      presentation: 'inline-inside-existing-lineage'
+      presentation: 'polished-inline-inside-existing-lineage',
+      contextBeforeStory: Boolean(context.compareDocumentPosition(story) & Node.DOCUMENT_POSITION_FOLLOWING),
+      storyWrapped: true,
+      evidencePreserved: Boolean(evidence)
     };
     return true;
   };
@@ -695,10 +720,21 @@
       .csw-name-rel-track:before{content:'';position:absolute;left:10px;top:-10px;bottom:-10px;width:1px;background:linear-gradient(rgba(216,189,98,.42),rgba(216,189,98,.22))}
       .csw-name-rel-track.is-last:before{bottom:calc(100% - 12px)}
       .csw-name-rel-node{position:absolute;left:6px;top:9px;width:9px;height:9px;border:2px solid rgba(216,189,98,.72);border-radius:50%;background:#0a1710;box-shadow:0 0 0 3px rgba(216,189,98,.05)}
-      .csw-lineage-parent-context-v1{display:grid;gap:4px;margin-top:9px;padding-top:8px;border-top:1px solid rgba(216,189,98,.11)}
-      .csw-lineage-parent-context-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px;min-width:0;padding:2px 0}
-      .csw-lineage-parent-context-row strong{min-width:0;color:#dfe6e1;font-size:11px;font-weight:800;line-height:1.3;overflow-wrap:anywhere}
-      .csw-lineage-parent-context-row span{max-width:128px;color:#8fa197;font-size:9.5px;font-weight:700;line-height:1.3;text-align:right;overflow-wrap:anywhere}
+      .csw-lineage-parent-context-v1{display:grid;gap:7px;margin:0 0 10px;padding:9px 10px 8px;border:1px solid rgba(216,189,98,.13);border-radius:11px;background:linear-gradient(145deg,rgba(216,189,98,.045),rgba(16,42,27,.10));box-shadow:inset 0 1px 0 rgba(255,255,255,.018)}
+      .csw-lineage-parent-context-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+      .csw-lineage-parent-context-head span{color:#d8bd62;font-size:8.5px;font-weight:900;letter-spacing:.105em}
+      .csw-lineage-parent-context-head small{color:#6f8277;font-size:7.5px;font-weight:700;white-space:nowrap}
+      .csw-lineage-parent-context-rows{display:grid;gap:0;border-top:1px solid rgba(216,189,98,.08)}
+      .csw-lineage-parent-context-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px;min-width:0;padding:7px 0 6px}
+      .csw-lineage-parent-context-row+.csw-lineage-parent-context-row{border-top:1px solid rgba(255,255,255,.045)}
+      .csw-lineage-parent-context-row:before{content:'';position:absolute;left:-10px;top:9px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(180deg,rgba(216,189,98,.65),rgba(105,169,120,.32))}
+      .csw-lineage-parent-context-row strong{min-width:0;color:#edf1ed;font-size:11.25px;font-weight:830;line-height:1.3;letter-spacing:.005em;overflow-wrap:anywhere}
+      .csw-lineage-parent-context-row span{max-width:128px;color:#95a79d;font-size:9.25px;font-weight:720;line-height:1.3;text-align:right;overflow-wrap:anywhere}
+      .csw-lineage-story-v1{position:relative;margin:0 0 10px;padding:10px 11px 11px 13px;border-left:2px solid rgba(216,189,98,.30);border-radius:0 10px 10px 0;background:linear-gradient(90deg,rgba(216,189,98,.035),rgba(255,255,255,.012) 72%,transparent)}
+      .csw-lineage-story-kicker{display:block;margin-bottom:6px;color:#7f9187;font-size:7.5px;font-weight:900;letter-spacing:.12em;line-height:1.2}
+      .csw-lineage-story-v1>p{margin:0!important;color:#d7dfda;font-size:12.25px;line-height:1.72}
+      .ucd-lineage[data-sitewide-lineage="v1"] .csw-lineage-story-v1+.csw-name-rel-integrated{margin-top:0;padding-top:9px}
+      .ucd-lineage[data-sitewide-lineage="v1"] .csw-lineage-parent-context-v1~.ucd-evidence-row{margin-top:10px}
             .csw-lineage-map-v1{margin:2px 0 14px;padding:2px 0 13px;border-bottom:1px solid rgba(216,189,98,.13)}
       .csw-lineage-map-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 2px 10px}
       .csw-lineage-map-heading span{color:#d8bd62;font-size:10px;font-weight:900;letter-spacing:.09em}
@@ -722,9 +758,16 @@
       .csw-lineage-map-edges path{fill:none;stroke:rgba(217,182,93,.48);stroke-width:1.35;stroke-linecap:round}
       .csw-lineage-map-note{margin:9px 2px 0!important;color:#8f9d95!important;font-size:10px!important;line-height:1.55!important}
       @media(max-width:390px){
-        .csw-lineage-parent-context-row{gap:8px}
+        .csw-lineage-parent-context-v1{padding:8px 9px 7px}
+        .csw-lineage-parent-context-head{align-items:flex-start;flex-direction:column;gap:2px}
+        .csw-lineage-parent-context-head span{font-size:8.25px}
+        .csw-lineage-parent-context-head small{font-size:7.25px}
+        .csw-lineage-parent-context-row{gap:8px;padding:6px 0}
+        .csw-lineage-parent-context-row:before{left:-9px}
         .csw-lineage-parent-context-row strong{font-size:10.75px}
-        .csw-lineage-parent-context-row span{max-width:116px;font-size:9px}
+        .csw-lineage-parent-context-row span{max-width:116px;font-size:8.9px}
+        .csw-lineage-story-v1{padding:9px 9px 10px 11px}
+        .csw-lineage-story-v1>p{font-size:12px;line-height:1.68}
         .csw-lineage-map-heading{align-items:flex-start;flex-direction:column;gap:3px}
         .csw-lineage-map-heading span{font-size:10.5px}
         .csw-lineage-map-heading small{font-size:9.5px}
