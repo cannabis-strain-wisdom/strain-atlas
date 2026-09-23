@@ -134,7 +134,17 @@ async function main() {
           window.__CSWDetailInteractionV1?.cultivarId==='${id}' &&
           window.__CSWDetailInteractionV1?.scope==='all-detail-categories';
       })()`), `${id} full inactive-state contract`);
-      await sleep(80);
+      await waitFor(() => evalv(`(()=>{
+        const shell=document.getElementById('detail-shell');
+        const root=shell?.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');
+        if(!root) return false;
+        const managed=[...new Set([
+          ...root.querySelectorAll('button[data-csw-detail-state],summary[data-csw-detail-state]'),
+          ...shell.querySelectorAll('.ucd-lineage summary[data-csw-detail-state]')
+        ])];
+        return managed.length>0;
+      })()`), `${id} managed detail controls ready`);
+      await sleep(20);
 
       const state = await evalv(`(()=>{
         const shell=document.getElementById('detail-shell');
