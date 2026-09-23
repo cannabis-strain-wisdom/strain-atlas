@@ -262,8 +262,8 @@
     overlay.className = 'csw-family-tree-v1';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', '家系図ビュー');
-    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="家系図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">家系図</strong><span class="csw-ft-direction">↑ 親・祖先　｜　子・派生 ↓</span></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで 親 / 選抜クローン / 選抜個体 / 選抜系統 / S1 / BX / バッグシード などの意味を区別します。</footer>';
+    overlay.setAttribute('aria-label', '系譜図ビュー');
+    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="系譜図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">系譜図</strong><span class="csw-ft-direction">↑ 親・祖先　｜　子・派生 ↓</span></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで 親 / 選抜クローン / 選抜個体 / 選抜系統 / S1 / BX / バッグシード などの意味を区別します。</footer>';
     document.body.appendChild(overlay);
     viewport = overlay.querySelector('.csw-ft-viewport');
     stage = overlay.querySelector('.csw-ft-stage');
@@ -471,7 +471,7 @@
     graphState = graph;
     expanded = new Set(saved?.expanded || []);
     restoreScroll = saved ? { scrollTop: saved.scrollTop || 0, scrollLeft: saved.scrollLeft || 0 } : null;
-    overlay.querySelector('.csw-ft-title').textContent = center.name + ' の家系図';
+    overlay.querySelector('.csw-ft-title').textContent = center.name + ' の系譜図';
     if (!overlay.open) overlay.showModal();
     document.documentElement.classList.add('csw-ft-body-lock');
     document.body.classList.add('csw-ft-body-lock');
@@ -512,7 +512,7 @@
     button.type = 'button';
     button.className = 'csw-ft-entry';
     button.dataset.familyTreeEntry = 'v1';
-    button.innerHTML = '<span>家系図を見る<br><small>FAMILY TREE</small></span>';
+    button.innerHTML = '<span>系譜図を見る<br><small>FAMILY TREE</small></span>';
     button.addEventListener('click', () => openTree(id, null));
     const evidence = body.querySelector(':scope > .ucd-evidence-row') || lineageCard.querySelector('.ucd-evidence-row');
     if (evidence && evidence.parentElement === body) body.insertBefore(button, evidence);
