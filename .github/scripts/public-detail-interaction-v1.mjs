@@ -241,7 +241,7 @@ async function main() {
     doSiDosRail.oldContextCount !== 0 ||
     doSiDosRail.oldStoryCount !== 0 ||
     doSiDosRail.upstreamCount !== 2 ||
-    doSiDosRail.ready !== 'ready' ||
+    doSiDosRail.ready !== 'v1' ||
     !doSiDosRail.upstream.some(item => item.parent === 'OGKB' && item.kind === 'family-side' && item.title === 'Cookies / GSC side' && item.formula === 'OGKB側の上流文脈' && item.labelJa === '系統背景' && item.labelEn === 'FAMILY SIDE' && item.hasNode) ||
     !doSiDosRail.upstream.some(item => item.parent === 'Face Off OG BX1' && item.kind === 'family-side' && item.title === 'OG side' && item.formula === 'Face Off OG BX1側の上流文脈' && item.labelJa === '系統背景' && item.labelEn === 'FAMILY SIDE' && item.hasNode) ||
     !doSiDosRail.aliasPresent ||
