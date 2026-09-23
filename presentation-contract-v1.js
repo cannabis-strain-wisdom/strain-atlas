@@ -132,6 +132,14 @@
       panel.dataset.terpeneNarrativePreserved = 'v1';
       return true;
     }
+    if (terpene.evidenceMode === 'LISTED') {
+      const paragraph = panel.querySelector('.ucd-caveat, p');
+      if (paragraph) {
+        paragraph.textContent = note;
+        panel.dataset.terpeneNarrativePreserved = 'v1';
+        return true;
+      }
+    }
     const host = panel.querySelector('.public-detail-deep') || panel;
     const block = document.createElement('div');
     block.className = 'ucd-note ucd-terpene-source-note';
@@ -329,10 +337,14 @@
   const processed = new WeakSet();
   const govern = async () => {
     const root = shell.querySelector('.ucd-root[data-public-detail-id][data-universal-detail-version="UNIVERSAL_CULTIVAR_DETAIL_V1"]');
-    if (!root || processed.has(root)) return;
-    root.dataset.publicPresentationReady = 'false';
+    if (!root) return;
     const catalog = await loadCatalog(), cultivar = catalog?.cultivars?.find(item => item?.id === root.dataset.publicDetailId);
     if (!cultivar) throw new Error(`PUBLIC_CULTIVAR_MISSING:${root.dataset.publicDetailId}`);
+    if (processed.has(root)) {
+      ensureTerpeneNarrative(root, cultivar);
+      return;
+    }
+    root.dataset.publicPresentationReady = 'false';
     if (cultivar?.publicPresentation?.contractVersion !== CONTRACT) throw new Error(`PUBLIC_CONTRACT_MISSING:${root.dataset.publicDetailId}`);
     let expected = 0, decorated = 0;
     for (const [selector, details] of detailsFor(cultivar?.aromas?.presentation)) { const result = decorateGroup(root, selector, details); expected += result.expected; decorated += result.decorated; }
@@ -390,7 +402,7 @@
   `; document.head.appendChild(style);
   let scheduled = false;
   const schedule = () => { if (scheduled) return; scheduled = true; queueMicrotask(() => { scheduled = false; govern().catch(error => { window.__CSWPublicPresentationContractV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) }; console.error('PUBLIC_PRESENTATION_CONTRACT_V1', error); }); }); };
-  new MutationObserver(schedule).observe(shell, { childList: true }); schedule();
+  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true }); schedule();
 })();
 
 ;(()=>{"use strict";
