@@ -434,7 +434,6 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   }
   const typedFamilyTreeCases = [
     { id: 'triangle-kush-s1', type: 's1', label: 'S1' },
-    { id: 'wedding-cake', type: 'selected-phenotype', label: 'selected phenotype' },
     { id: 'gmo-cookies', type: 'selected-line', label: 'selected line' },
     { id: 'lemon-cherry-gelato', type: 'other', label: 'bagseed' },
     { id: 'og-kush', type: 'selection', label: 'selected line' },

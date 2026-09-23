@@ -26,8 +26,6 @@
     ['face off og>face-off-og-bx1', { type: 'bx', label: 'BX', guard: /backcross family/i }],
     ['sunset sherbert>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
     ['thin mint gsc>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
-    ['triangle kush>wedding-cake', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜個体/i }],
-    ['animal mints>wedding-cake', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜個体/i }],
     ['chem d>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
     ['forum gsc>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
     ['pink guava>rainbow-sherbert-11', { type: 'selected-phenotype', label: 'selected phenotype', guard: /#11.*選抜|選抜.*#11/i }],
