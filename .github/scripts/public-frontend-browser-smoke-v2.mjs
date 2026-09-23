@@ -383,8 +383,6 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const familyTreeSource = fs.readFileSync('family-tree-v1.js', 'utf8');
   const familyTreeInternalRelationInvariants = [
     "type: 'selected-cut', label: 'selected cut'",
-    "type: 'selected-phenotype', label: 'selected phenotype'",
-    "type: 'selected-line', label: 'selected line'",
     "type: 'bx', label: 'BX'",
     "type: 'other', label: 'bagseed'",
     "type: 'selection', label: 'selected line'",
