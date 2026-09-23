@@ -284,10 +284,10 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv(`document.querySelector('[data-csw-staged-ec-parent="v1"]').click()`);
   await evalv(`document.querySelector('[data-csw-staged-ec-sub="effects"]').click()`);
   const blueEffects = await waitFor(() => evalv(`(()=>{const s=document.querySelector('[data-csw-staged-ec-section="effects"]');if(!s||s.hidden)return false;return [...s.querySelectorAll('.csw-staged-effect-terms span')].map(x=>x.textContent.trim())})()`), 'Blue Gelato effects child');
-  for (const term of ['Clear Headed','Energetic','Creative']) if (!blueEffects.includes(term)) throw new Error(`Blue Gelato Effect missing ${term}: ${JSON.stringify(blueEffects)}`);
+  for (const term of ['頭がクリア','活力','創造的']) if (!blueEffects.includes(term)) throw new Error(`Blue Gelato Effect missing ${term}: ${JSON.stringify(blueEffects)}`);
   await evalv(`document.querySelector('[data-csw-staged-ec-sub="cultivation"]').click()`);
   const blueCultivation = await waitFor(() => evalv(`(()=>{const s=document.querySelector('[data-csw-staged-ec-section="cultivation"]');if(!s||s.hidden)return false;return {labels:[...s.querySelectorAll('.csw-staged-cultivation-row small')].map(x=>x.textContent.trim()),values:[...s.querySelectorAll('.csw-staged-cultivation-value')].map(x=>x.textContent.trim())}})()`), 'Blue Gelato cultivation child');
-  for (const value of ['110-150 cm','700-800 gr/㎡','63 - 70 days','150-200 cm','2500-3000 g/plant','10月 第2〜第3週']) if (!blueCultivation.values.includes(value)) throw new Error(`Blue Gelato cultivation missing ${value}: ${JSON.stringify(blueCultivation)}`);
+  for (const value of ['110〜150 cm','700〜800 g/m²','63〜70日','150〜200 cm','2500〜3000 g/株','10月 第2〜第3週']) if (!blueCultivation.values.includes(value)) throw new Error(`Blue Gelato cultivation missing ${value}: ${JSON.stringify(blueCultivation)}`);
   if(!blueCultivation.labels.includes('収穫時期')) throw new Error(`Blue Gelato harvest label missing: ${JSON.stringify(blueCultivation.labels)}`);
   const blueOverflow = await evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return r.scrollWidth>r.clientWidth+1||document.documentElement.scrollWidth>document.documentElement.clientWidth+1})()`);
   if(blueOverflow) throw new Error('Blue Gelato detail has horizontal overflow');
