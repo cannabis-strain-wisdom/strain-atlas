@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T14:35:50.260Z",
+  "generatedAt": "2026-09-23T06:54:49.305Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 84,
-    "sources": 180,
+    "sources": 181,
     "entities": 32
   },
   "explore": {
@@ -4677,8 +4677,67 @@
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 19,
+              "unit": "%",
+              "valueText": "約19%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-chocolope-256"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "product",
+              "evidenceScopeRef": "Chocolope 256 Feminized Cannabis Seeds"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "range",
+              "minValue": 0.5,
+              "maxValue": 1,
+              "unit": "%",
+              "valueText": "約0.5〜1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-chocolope-256"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "product",
+              "evidenceScopeRef": "Chocolope 256 Feminized Cannabis Seeds"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 19,
+              "unit": "%",
+              "valueText": "約19%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-chocolope-256-reg"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "product",
+              "evidenceScopeRef": "Chocolope 256 Regular Cannabis Seeds"
+            }
+          ]
         }
       },
       "origin": {
@@ -4719,8 +4778,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -6220,22 +6279,155 @@
         "status": "confirmed",
         "confidence": "B",
         "sourceRefs": [
-          "dutch-passion-durban-poison"
+          "dutch-passion-durban-poison",
+          "dutch-passion-durban-poison-lab-image"
         ],
         "thc": {
           "status": "unknown",
           "sourceRefs": [
-            "dutch-passion-durban-poison"
+            "dutch-passion-durban-poison",
+            "dutch-passion-durban-poison-lab-image"
           ]
         },
         "cbd": {
           "status": "unknown",
-          "sourceRefs": []
+          "sourceRefs": [
+            "dutch-passion-durban-poison-lab-image"
+          ]
         },
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "DELTA9_THC",
+              "label": "Δ9-THC",
+              "valueKind": "exact",
+              "value": 12.29,
+              "unit": "%",
+              "valueText": "12.29%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 2.65,
+              "unit": "%",
+              "valueText": "2.65%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.52,
+              "unit": "%",
+              "valueText": "0.52%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBC",
+              "label": "CBC",
+              "valueKind": "exact",
+              "value": 0.31,
+              "unit": "%",
+              "valueText": "0.31%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THCV",
+              "label": "THCV",
+              "valueKind": "exact",
+              "value": 0.05,
+              "unit": "%",
+              "valueText": "0.05%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBN",
+              "label": "CBN",
+              "valueKind": "exact",
+              "value": 0.14,
+              "unit": "%",
+              "valueText": "0.14%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison-lab-image"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "Durban P.C / 2020-09-15 / dry bud-flower"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "高い",
+              "confidence": "B",
+              "sourceRefs": [
+                "dutch-passion-durban-poison"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
         }
       },
       "origin": {
@@ -6295,8 +6487,8 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-08",
-      "updatedAt": "2026-09-08",
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -24497,6 +24689,19 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-05"
+    },
+    "dutch-passion-durban-poison-lab-image": {
+      "schemaVersion": 1,
+      "id": "dutch-passion-durban-poison-lab-image",
+      "publisher": "Dutch Passion",
+      "title": "Durban Poison independent lab-test analysis",
+      "url": "https://dutch-passion.com/img/cms/lab-test-results/Durban-Poison-independent-lab-test-analysis-results.webp",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "cannabinoids"
+      ],
+      "publishedAt": "2020-09-15",
+      "checkedAt": "2026-09-23"
     },
     "dutch-passion-durban-poison": {
       "schemaVersion": 1,
