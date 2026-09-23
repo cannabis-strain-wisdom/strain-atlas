@@ -257,6 +257,27 @@ async function main() {
     throw new Error(`Do-Si-Dos upstream relationship rail mismatch: ${JSON.stringify(doSiDosRail)}`);
   }
 
+  const catalog = await getJson(new URL('runtime/catalog.json', baseUrl));
+  const confirmedCultivars = (catalog?.cultivars || []).filter(item => item?.lineage?.status === 'confirmed');
+  for (const cultivar of confirmedCultivars) {
+    const expectedParents = [...new Set((cultivar?.lineage?.parents || []).map(value => typeof value === 'string' ? value.trim() : '').filter(Boolean))];
+    await navigate(cultivar.id);
+    const integrity = await waitFor(() => evalv(`(()=>{
+      const root=document.querySelector('.detail-public-v1[data-public-detail-id="${cultivar.id}"],.ucd-root[data-public-detail-id="${cultivar.id}"]');
+      const state=window.__CSWSitewideLineageRelationshipsV1;
+      if(!root||state?.status!=='PASS'||state?.cultivarId!=='${cultivar.id}') return false;
+      const rendered=[...root.querySelectorAll('[data-direct-lineage-parent]')].map(row=>row.dataset.directLineageParent||'');
+      return {rendered,stateParents:state.directParents||[],overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1};
+    })()`), `${cultivar.id} direct-lineage integrity`);
+    if (
+      JSON.stringify(integrity.rendered) !== JSON.stringify(expectedParents) ||
+      JSON.stringify(integrity.stateParents) !== JSON.stringify(expectedParents) ||
+      integrity.overflow
+    ) {
+      throw new Error(`${cultivar.id} direct-lineage information loss: ${JSON.stringify({expectedParents, ...integrity})}`);
+    }
+  }
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
