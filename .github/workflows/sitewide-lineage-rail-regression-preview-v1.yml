@@ -15,11 +15,25 @@ concurrency:
 jobs:
   regression:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4, 5]
+        cultivar:
+          - ak-47
+          - blue-zushi
+          - cataract-kush
+          - do-si-dos
+          - fat-banana-auto
+          - guawi
+          - kali-mist
+          - lemon-skunk
+          - nevilles-haze
+          - papaya
+          - satori
+          - sour-diesel
+          - t-1000-s1
+          - warlock
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 8
     steps:
       - name: Checkout candidate
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -128,7 +142,7 @@ jobs:
             done
           done
 
-          SHARD='${{ matrix.shard }}' CHROME_BIN="$CHROME_BIN" OUT_DIR="$RUNNER_TEMP/sitewide-lineage-rail-regression" node --input-type=module <<'NODE'
+          CULTIVAR='${{ matrix.cultivar }}' CHROME_BIN="$CHROME_BIN" OUT_DIR="$RUNNER_TEMP/sitewide-lineage-rail-regression" node --input-type=module <<'NODE'
           import { spawn } from 'node:child_process';
           import fs from 'node:fs';
           import os from 'node:os';
@@ -196,11 +210,10 @@ jobs:
             const catalog=await getJson(candUrl+'runtime/catalog.json');
             const allIds=(catalog.cultivars||[]).map(x=>x.id);
             if(allIds.length!==84) throw new Error(`Expected 84 cultivars, got ${allIds.length}`);
-            const shard=Number(process.env.SHARD);
-            const shardCount=6;
-            if(!Number.isInteger(shard)||shard<0||shard>=shardCount) throw new Error(`Invalid shard: ${process.env.SHARD}`);
-            const ids=allIds.filter((_,index)=>index%shardCount===shard);
-            console.log(`SHARD ${shard}/${shardCount}: ${ids.length} cultivars`);
+            const cultivar=String(process.env.CULTIVAR||'').trim();
+            if(!allIds.includes(cultivar)) throw new Error(`Unknown cultivar: ${cultivar}`);
+            const ids=[cultivar];
+            console.log(`CULTIVAR ${cultivar}: START`);
 
             async function snapshot(origin,id,isCandidate){
               await cdp.send('Page.navigate',{url:origin+'?strain='+encodeURIComponent(id)});
@@ -259,8 +272,12 @@ jobs:
 
             const report=[];
             for(const id of ids){
+              console.log(`CULTIVAR ${id}: BASELINE_START`);
               const before=await snapshot(baseUrl,id,false);
+              console.log(`CULTIVAR ${id}: BASELINE_PASS`);
+              console.log(`CULTIVAR ${id}: CANDIDATE_START`);
               const after=await snapshot(candUrl,id,true);
+              console.log(`CULTIVAR ${id}: CANDIDATE_PASS`);
               const stripMap=({mapCount,...rest})=>rest;
               const b=JSON.stringify(stripMap(before));
               const a=JSON.stringify(stripMap(after));
@@ -273,8 +290,9 @@ jobs:
             if(cdp.exceptions.length) throw new Error(`Runtime exceptions: ${JSON.stringify(cdp.exceptions.slice(0,5))}`);
             const baselineMaps=report.reduce((n,x)=>n+x.baselineMapCount,0);
             const candidateMaps=report.reduce((n,x)=>n+x.candidateMapCount,0);
-            fs.writeFileSync(path.join(out,'all-84-regression.json'),JSON.stringify({status:'PASS',cultivars:ids.length,baselineMaps,candidateMaps,report},null,2)+'\n');
-            console.log(JSON.stringify({status:'PASS',cultivars:ids.length,baselineMaps,candidateMaps,runtimeExceptions:0},null,2));
+            fs.writeFileSync(path.join(out,'cultivar-regression.json'),JSON.stringify({status:'PASS',cultivar:ids[0],cultivars:ids.length,baselineMaps,candidateMaps,report},null,2)+'\n');
+            console.log(JSON.stringify({status:'PASS',cultivar:ids[0],cultivars:ids.length,baselineMaps,candidateMaps,runtimeExceptions:0},null,2));
+            console.log(`CULTIVAR ${ids[0]}: PASS`);
             cdp.close();
           } finally {
             proc?.kill('SIGTERM');
@@ -285,7 +303,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: sitewide-lineage-rail-regression-${{ github.sha }}-shard-${{ matrix.shard }}
+          name: sitewide-lineage-rail-regression-${{ github.sha }}-${{ matrix.cultivar }}
           path: ${{ runner.temp }}/sitewide-lineage-rail-regression
           if-no-files-found: warn
           retention-days: 7
