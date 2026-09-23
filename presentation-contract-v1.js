@@ -110,13 +110,40 @@
     section.dataset.ratioUnavailable = 'v1';
     return true;
   };
+  const terpeneNarrative = cultivar => String(cultivar?.terpenes?.presentation?.noteJa || cultivar?.publicContent?.ja?.terpeneNote || '').trim();
   const clarifyListedTerpenes = (root, cultivar) => {
     if (cultivar?.terpenes?.evidenceMode !== 'LISTED') return false;
     const panel = root.querySelector('[data-profile-kind="terpene"]');
-    const paragraph = panel?.querySelector('p');
+    const paragraph = panel?.querySelector('.ucd-caveat, p');
     if (!paragraph) return false;
-    paragraph.textContent = '公式資料で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。';
+    const note = terpeneNarrative(cultivar);
+    paragraph.textContent = note || '公式資料で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。';
     panel.dataset.terpeneListedClarified = 'v1';
+    return true;
+  };
+  const ensureTerpeneNarrative = (root, cultivar) => {
+    const terpene = cultivar?.terpenes;
+    if (!terpene || !['confirmed','disputed'].includes(terpene.status) || terpene?.presentation?.mode === 'hidden') return false;
+    const note = terpeneNarrative(cultivar);
+    if (!note) return false;
+    const panel = root.querySelector('[data-profile-kind="terpene"]');
+    if (!panel) return false;
+    if (String(panel.textContent || '').includes(note)) {
+      panel.dataset.terpeneNarrativePreserved = 'v1';
+      return true;
+    }
+    const host = panel.querySelector('.public-detail-deep') || panel;
+    const block = document.createElement('div');
+    block.className = 'ucd-note ucd-terpene-source-note';
+    block.dataset.terpeneSourceNote = 'v1';
+    const label = document.createElement('small');
+    label.textContent = '公式のテルペン説明';
+    const paragraph = document.createElement('p');
+    paragraph.textContent = note;
+    block.append(label, paragraph);
+    const evidence = host.querySelector(':scope > .ucd-evidence-row');
+    evidence ? host.insertBefore(block, evidence) : host.appendChild(block);
+    panel.dataset.terpeneNarrativePreserved = 'v1';
     return true;
   };
   const unavailableTerpeneReason = cultivar => {
@@ -318,6 +345,7 @@
     const ratioUnavailable = decorateUnavailableRatio(root, cultivar);
     if (typeOnlySection && !root.querySelector('[data-ratio-unavailable="v1"]')) throw new Error(`RATIO_UNAVAILABLE_CONTEXT_MISSING:${cultivar.id}`);
     const terpeneListedClarified = clarifyListedTerpenes(root, cultivar);
+    const terpeneNarrativePreserved = ensureTerpeneNarrative(root, cultivar);
     const terpeneUnavailable = addUnavailableTerpene(root, cultivar);
     const compactNavigation = compactDetailNavigation(root, cultivar);
     const lineageNoteVisible = decorateLineageNote(root, cultivar);
@@ -332,7 +360,7 @@
       }
     }
     root.dataset.publicPresentationReady = 'true'; processed.add(root);
-    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneUnavailable, lineageNoteVisible };
+    window.__CSWPublicPresentationContractV1 = { status: 'PASS', contractVersion: CONTRACT, cultivarId: cultivar.id, aromaTerms: decorated, cannabinoidContext, ratioUnavailable, terpeneListedClarified, terpeneNarrativePreserved, terpeneUnavailable, lineageNoteVisible };
   };
   const style = document.createElement('style'); style.id = 'public-presentation-contract-v1-style'; style.textContent = `
     #detail-shell:not(:has(.ucd-root[data-public-presentation-ready="true"])) > :not(.detail-topbar){visibility:hidden!important}
