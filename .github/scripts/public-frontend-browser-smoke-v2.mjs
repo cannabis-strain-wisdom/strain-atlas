@@ -331,7 +331,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
       return {
         rows,
         state:window.__CSWSitewideLineageRelationshipsV1||null,
-        evidenceLast:!!body&&body.lastElementChild===evidence,
+        evidenceLast:!!body&&(!evidence||body.lastElementChild===evidence),
         overflow:(root?root.scrollWidth>root.clientWidth+1:true)||(document.getElementById('detail-shell')?.scrollWidth>document.getElementById('detail-shell')?.clientWidth+1)
       };
     })()`);
