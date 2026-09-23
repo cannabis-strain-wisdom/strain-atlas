@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T06:54:49.305Z",
+  "generatedAt": "2026-09-23T08:32:00.638Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -242,6 +242,19 @@
           "registryVersion": 1,
           "noteJa": "Barney's Farmの現行Aroma欄では、アーシー、パイン、パングェント、スイートが挙げられています。地域別ページの表記差は独立した裏付けとして数えず、階層や追加香調を推測していません。"
         }
+      },
+      "flavors": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-acapulco-gold",
+          "barneys-farm-acapulco-gold-de"
+        ],
+        "items": [
+          "シトラス",
+          "コーヒー"
+        ]
       },
       "terpenes": {
         "status": "unknown",
@@ -565,6 +578,23 @@
           "registryVersion": 1,
           "noteJa": "ACE SeedsのBouquetでは、約30%の個体で非常に強い可燃性ガス香が優勢で、ソルベント、肉・フォアグラ、レザーのニュアンスを伴う場合があるとされています。残り約70%でもガス香は見られますが、シトラス、フローラル、マンゴー、アーシーさがより前に出ると説明されています。味として記載された湿ったピート、レモン、ハシシなどは香り欄には混ぜていません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-african-gas"
+        ],
+        "items": [
+          "ガス",
+          "溶剤系",
+          "湿ったピート",
+          "レモン",
+          "肉っぽい",
+          "枯れた花",
+          "ハシシ"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -1879,6 +1909,33 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "items": [
+          "スイート",
+          "アーシー",
+          "スパイシー",
+          "刺激的"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-big-bang-current"
+        ],
+        "items": [
+          "リラックス",
+          "穏やか",
+          "バランス型"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "A",
@@ -1891,25 +1948,41 @@
             "field": "floweringTime",
             "environment": "indoor",
             "valueForm": "EXACT",
-            "displayText": "屋内開花は9週間と公式が記載"
+            "displayText": "屋内開花は9週間と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-big-bang-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "屋内収量は最大800 g/m²と公式が記載"
+            "displayText": "屋内収量は最大800 g/m²と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-big-bang-current"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "北半球では9月末ごろ"
+            "displayText": "北半球では9月末ごろ",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-big-bang-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "屋外収量は最大1000 g/株と公式が記載"
+            "displayText": "屋外収量は最大1000 g/株と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-big-bang-current"
+            ]
           },
           {
             "field": "height",
@@ -1918,7 +1991,11 @@
             "displayText": "屋外では平均約160〜180 cmと公式が記載",
             "min": 160,
             "max": 180,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-big-bang-current"
+            ]
           }
         ]
       },
@@ -2252,9 +2329,9 @@
           "barneys-farm-blue-gelato-41"
         ],
         "items": [
-          "Clear Headed",
-          "Energetic",
-          "Creative"
+          "頭がクリア",
+          "活力",
+          "創造的"
         ]
       },
       "cultivation": {
@@ -2269,53 +2346,76 @@
             "field": "height",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "110-150 cm",
+            "displayText": "110〜150 cm",
             "min": 110,
             "max": 150,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "700-800 gr/㎡",
+            "displayText": "700〜800 g/m²",
             "min": 700,
             "max": 800,
-            "unit": "gr/m2"
+            "unit": "gr/m2",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           },
           {
             "field": "floweringTime",
             "environment": "unspecified",
             "valueForm": "RANGE",
-            "displayText": "63 - 70 days",
+            "displayText": "63〜70日",
             "min": 63,
             "max": 70,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           },
           {
             "field": "height",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "150-200 cm",
+            "displayText": "150〜200 cm",
             "min": 150,
             "max": 200,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "2500-3000 g/plant",
+            "displayText": "2500〜3000 g/株",
             "min": 2500,
             "max": 3000,
-            "unit": "g/plant"
+            "unit": "g/plant",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "10月 第2〜第3週",
-            "text": "10月 第2〜第3週"
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-blue-gelato-41"
+            ]
           }
         ]
       },
@@ -2752,6 +2852,29 @@
           "noteJa": "DJ Short公式はBlueberryについてfresh blueberriesのように香ると直接説明しています。原文の複合表現を分割せず、AromaはフラットなPROFILEとして保持しています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-dj-short-blueberry"
+        ],
+        "items": [
+          "ブルーベリー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dj-short-blueberry-official-about"
+        ],
+        "items": [
+          "多幸感",
+          "重いボディハイ"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "C",
@@ -2767,7 +2890,11 @@
             "displayText": "専門資料では屋内開花45〜55日",
             "min": 45,
             "max": 55,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "C",
+            "sourceRefs": [
+              "seedfinder-dj-short-blueberry"
+            ]
           },
           {
             "field": "height",
@@ -2776,13 +2903,21 @@
             "displayText": "専門資料では高さ0.7〜1m",
             "min": 0.7,
             "max": 1,
-            "unit": "m"
+            "unit": "m",
+            "confidence": "C",
+            "sourceRefs": [
+              "seedfinder-dj-short-blueberry"
+            ]
           },
           {
             "field": "yield",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "良条件下では多収量と専門資料が記載"
+            "displayText": "良条件下では多収量と専門資料が記載",
+            "confidence": "C",
+            "sourceRefs": [
+              "seedfinder-dj-short-blueberry"
+            ]
           }
         ]
       },
@@ -3969,6 +4104,19 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cataract-kush"
+        ],
+        "items": [
+          "刺激的",
+          "スカンク",
+          "アーシー"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "C",
@@ -4630,6 +4778,18 @@
           "reviewStatus": "NOT_APPLICABLE",
           "unresolvedCount": 0
         }
+      },
+      "flavors": {
+        "status": "disputed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-chocolope-256",
+          "dna-chocolope-256-reg"
+        ],
+        "items": [
+          "チョコレート"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -5584,6 +5744,69 @@
           "noteJa": "Leaflyのcultivar profileでは、パングェント、スイート、アーシー、ほのかなフローラルファンクが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないためPROFILEとして保持しています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-dosidos"
+        ],
+        "items": [
+          "フローラル",
+          "ペッパー",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-dosidos"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "眠気",
+          "ピリピリ感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-do-si-dos-2016"
+        ],
+        "claimOrigin": "specialist-curation",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "8〜9週間",
+            "min": 8,
+            "max": 9,
+            "unit": "weeks",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-do-si-dos-2016"
+            ]
+          },
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "成長はゆっくりで、ストレッチは非常に少ない",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-do-si-dos-2016"
+            ]
+          }
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -6026,6 +6249,20 @@
           "registryVersion": 1,
           "noteJa": "Barney's Farm現行Aroma欄では、スマック、レモン、タンギー、トロピカルフルーツが並列で掲載されています。主従関係は示されていないため、CORE / ACCENTSには分けていません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-dr-grinspoon"
+        ],
+        "items": [
+          "ハニー",
+          "パイン",
+          "濃厚",
+          "アーシー"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -7297,8 +7534,8 @@
           "rqs-fat-banana-auto"
         ],
         "items": [
-          "Calming",
-          "Clear"
+          "穏やか",
+          "クリア"
         ]
       },
       "cultivation": {
@@ -7313,62 +7550,89 @@
             "field": "yield",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "375 - 450 gr/m2",
+            "displayText": "375〜450 g/m²",
             "min": 375,
             "max": 450,
-            "unit": "gr/m2"
+            "unit": "gr/m2",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "90 - 175 gr/plant",
+            "displayText": "90〜175 g/株",
             "min": 90,
             "max": 175,
-            "unit": "gr/plant"
+            "unit": "gr/plant",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "height",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "70 - 100 cm",
+            "displayText": "70〜100 cm",
             "min": 70,
             "max": 100,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "height",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "80 - 120 cm",
+            "displayText": "80〜120 cm",
             "min": 80,
             "max": 120,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "floweringTime",
             "environment": "unspecified",
             "valueForm": "RANGE",
-            "displayText": "50 - 55 days",
+            "displayText": "50〜55日",
             "min": 50,
             "max": 55,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "harvestFromGermination",
             "environment": "unspecified",
             "valueForm": "RANGE",
-            "displayText": "65 - 70 days after germination",
+            "displayText": "65〜70日（発芽後）",
             "min": 65,
             "max": 70,
-            "unit": "days-after-germination"
+            "unit": "days-after-germination",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           },
           {
             "field": "climate",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "Long Summers",
-            "text": "Long Summers"
+            "displayText": "長い夏",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-fat-banana-auto"
+            ]
           }
         ]
       },
@@ -7974,6 +8238,32 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gsc"
+        ],
+        "items": [
+          "ミント",
+          "スイート",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gsc"
+        ],
+        "items": [
+          "リラックス",
+          "空腹感",
+          "幸福感"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "A",
@@ -7988,13 +8278,25 @@
             "field": "height",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "背が高く細身に育つとoriginatorが説明"
+            "displayText": "背が高く細身に育つとoriginatorが説明",
+            "confidence": "A",
+            "sourceRefs": [
+              "high-times-inside-girl-scout-cookies-2014",
+              "weedmaps-gsc-current",
+              "leafly-gsc"
+            ]
           },
           {
             "field": "yield",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "高収量型ではないとoriginatorが説明"
+            "displayText": "高収量型ではないとoriginatorが説明",
+            "confidence": "A",
+            "sourceRefs": [
+              "high-times-inside-girl-scout-cookies-2014",
+              "weedmaps-gsc-current",
+              "leafly-gsc"
+            ]
           },
           {
             "field": "floweringTime",
@@ -8004,10 +8306,10 @@
             "min": 62,
             "max": 71,
             "unit": "days",
+            "confidence": "B",
             "sourceRefs": [
               "weedmaps-gsc-current"
             ],
-            "confidence": "B",
             "evidenceLevel": "SECONDARY_SPECIALIST",
             "claimOrigin": "specialist-curation"
           },
@@ -8019,10 +8321,10 @@
             "min": 9,
             "max": 10,
             "unit": "weeks",
+            "confidence": "C",
             "sourceRefs": [
               "leafly-gsc"
             ],
-            "confidence": "C",
             "evidenceLevel": "COMMUNITY",
             "claimOrigin": "grower-community-report"
           },
@@ -8034,10 +8336,10 @@
             "min": 25,
             "max": 30,
             "unit": "g/plant",
+            "confidence": "C",
             "sourceRefs": [
               "leafly-gsc"
             ],
-            "confidence": "C",
             "evidenceLevel": "COMMUNITY",
             "claimOrigin": "grower-community-report"
           }
@@ -8357,6 +8659,84 @@
           "registryVersion": 1,
           "noteJa": "High Timesのcultivar profileで、ディーゼル、ニンニク、タマネギ、湿った土、コショウ、スカンク、クッキー系の甘さが同格の香りとして確認できます。source側にCORE / ACCENTの階層はないため、PROFILEとして保持しています。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "items": [
+          "アーシー",
+          "ガス"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "items": [
+          "リラックス",
+          "眠気",
+          "高揚感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "high-times-gmo-profile"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "11〜12週間",
+            "min": 11,
+            "max": 12,
+            "unit": "weeks",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-gmo-profile"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "高収量",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-gmo-profile"
+            ]
+          },
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "背が高く生育旺盛で、ストレッチが大きい",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-gmo-profile"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "長い成熟期間を確保できる屋外環境向き",
+            "confidence": "B",
+            "sourceRefs": [
+              "high-times-gmo-profile"
+            ]
+          }
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -10650,8 +11030,8 @@
           "serious-seeds-kali-mist"
         ],
         "items": [
-          "clarity",
-          "energy boost"
+          "明晰さ",
+          "活力アップ"
         ]
       },
       "cultivation": {
@@ -10666,26 +11046,37 @@
             "field": "floweringTime",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "Indoor flowering: 10 to 13 weeks or 70-90 days",
+            "displayText": "10〜13週間",
             "min": 10,
             "max": 13,
-            "unit": "weeks"
+            "unit": "weeks",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-kali-mist"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "Indoor yield: 300-500g/m²",
+            "displayText": "300〜500 g/m²",
             "min": 300,
             "max": 500,
-            "unit": "g/m²"
+            "unit": "g/m²",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-kali-mist"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "Serious Seeds lists outdoor harvest as late November.",
-            "text": "Serious Seeds lists outdoor harvest as late November."
+            "displayText": "屋外収穫は11月下旬",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-kali-mist"
+            ]
           }
         ]
       },
@@ -11466,6 +11857,77 @@
           "registryVersion": 1,
           "noteJa": "DNA Genetics公式では、earthy、piney、skunky undertonesと明記されています。香りの強弱階層は作らず、公式一次情報のPROFILEとしてそのまま整理しています。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "items": [
+          "スイート",
+          "スパイシーパイン",
+          "アーシー",
+          "ハーバル",
+          "ハッシュ系"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-la-confidential"
+        ],
+        "items": [
+          "眠気",
+          "リラックス",
+          "多幸感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-la-confidential-2025"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "6〜9週間",
+            "min": 6,
+            "max": 9,
+            "unit": "weeks",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-la-confidential-2025"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "安定した日照のある地中海性気候向き",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-la-confidential-2025"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内目安は68〜80°F、湿度は栄養成長期60〜70%、開花期40〜50%",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-la-confidential-2025"
+            ]
+          }
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -12593,9 +13055,9 @@
           "ghsc-lemon-skunk"
         ],
         "items": [
-          "sleepy head buzz",
-          "full-body relaxation",
-          "long-lasting buzz"
+          "眠気を伴うヘッドバズ",
+          "全身のリラックス",
+          "長く続くバズ"
         ]
       },
       "cultivation": {
@@ -12610,42 +13072,61 @@
             "field": "floweringTime",
             "environment": "indoor",
             "valueForm": "EXACT",
-            "displayText": "屋内開花は8週間"
+            "displayText": "屋内開花は8週間",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "TEXT",
             "displayText": "屋内収量は最大800 g/m²と公式が記載",
-            "text": "Green House Seed Co. states indoor yield up to 800 g/m²."
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           },
           {
             "field": "training",
             "environment": "indoor",
             "valueForm": "TEXT",
             "displayText": "SCRoG / LST向きと公式が記載",
-            "text": "Green House Seed Co. says it is good for SCRoG or LST."
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "北半球では9月末ごろ",
-            "text": "Ready at the end of September in the Northern Hemisphere."
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "屋外収量は最大800 g/株と公式が記載",
-            "text": "Green House Seed Co. states outdoor production up to 800 g/plant."
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           },
           {
             "field": "support",
             "environment": "unspecified",
             "valueForm": "TEXT",
             "displayText": "長い栄養成長後は開花終盤に支柱が必要になる場合あり",
-            "text": "May need support late in flowering after long vegetative growth."
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-lemon-skunk"
+            ]
           }
         ]
       },
@@ -12863,7 +13344,11 @@
             "field": "vegetativeStage",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "栄養成長期はやや長め"
+            "displayText": "栄養成長期はやや長め",
+            "confidence": "B",
+            "sourceRefs": [
+              "cannabis-now-return-of-the-mac"
+            ]
           }
         ]
       },
@@ -13415,6 +13900,21 @@
           "noteJa": "Dutch Passion公式では、アフガン・ハッシュ、アーシー、パイニーが中心の香りとして示され、ハーブ、インセンス、シトラス、甘いフローラル系のニュアンスも挙げられています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dutch-passion-mazar",
+          "dutch-passion-us-mazar"
+        ],
+        "items": [
+          "パイニー",
+          "アーシー",
+          "フルーティー",
+          "ガッシー"
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -13644,8 +14144,8 @@
           "rqs-mimosa-current"
         ],
         "items": [
-          "Creative",
-          "Laughter"
+          "創造的",
+          "笑いやすい"
         ]
       },
       "cultivation": {
@@ -13660,60 +14160,86 @@
             "field": "yield",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "350 - 400 gr/m2",
+            "displayText": "350〜400 g/m²",
             "min": 350,
             "max": 400,
-            "unit": "gr/m2"
+            "unit": "gr/m2",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "500 - 550 gr/plant",
+            "displayText": "500〜550 g/株",
             "min": 500,
             "max": 550,
-            "unit": "gr/plant"
+            "unit": "gr/plant",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "height",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "60 - 80 cm",
+            "displayText": "60〜80 cm",
             "min": 60,
             "max": 80,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "height",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "80 - 100 cm",
+            "displayText": "80〜100 cm",
             "min": 80,
             "max": 100,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "floweringTime",
             "environment": "unspecified",
             "valueForm": "RANGE",
-            "displayText": "60 - 65 days",
+            "displayText": "60〜65日",
             "min": 60,
             "max": 65,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "10月中旬",
-            "text": "10月中旬"
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           },
           {
             "field": "climate",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "長い夏",
-            "text": "長い夏"
+            "confidence": "A",
+            "sourceRefs": [
+              "rqs-mimosa-current"
+            ]
           }
         ]
       },
@@ -14351,6 +14877,35 @@
           "noteJa": "Green House現行公式ではspicy、metallic、incense、floral、woodyが香りとして直接確認できます。強弱表現はありますが、CSWでは無理にCORE / ACCENT階層へ変換せず、フラットなAroma profileとして保持しています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mr-nice-nevilles-haze-current"
+        ],
+        "items": [
+          "シトラス",
+          "スパイシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-nevilles-haze-current"
+        ],
+        "items": [
+          "強い精神作用",
+          "内省的",
+          "刺激的",
+          "持続が長い",
+          "高揚感",
+          "笑いやすい",
+          "創造的"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "A",
@@ -14366,37 +14921,61 @@
             "displayText": "屋内開花は詳細説明で約14〜16週間",
             "min": 14,
             "max": 16,
-            "unit": "weeks"
+            "unit": "weeks",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "屋内収量は最大700 g/m²と公式が記載"
+            "displayText": "屋内収量は最大700 g/m²と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           },
           {
             "field": "training",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "ScrOG / LST向きと公式が記載"
+            "displayText": "ScrOG / LST向きと公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "北半球では11月中旬ごろ"
+            "displayText": "北半球では11月中旬ごろ",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "屋外収量は最大1200 g/株と公式が記載"
+            "displayText": "屋外収量は最大1200 g/株と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           },
           {
             "field": "climate",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "赤道・熱帯・亜熱帯・温帯向け、支柱が必要と公式が記載"
+            "displayText": "赤道・熱帯・亜熱帯・温帯向け、支柱が必要と公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-nevilles-haze-current"
+            ]
           }
         ]
       },
@@ -15803,6 +16382,30 @@
           "noteJa": "GG Strainsのroot GG4説明では、土っぽさとサワー系の香りが明記されています。テルペン名から香りを逆算していません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly"
+        ],
+        "items": [
+          "ケミカル",
+          "ディーゼル"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "gg-strains-original-glue-leafly"
+        ],
+        "items": [
+          "強い多幸感",
+          "リラックス"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "A",
@@ -15819,19 +16422,34 @@
             "displayText": "開花目安は58〜63日",
             "min": 58,
             "max": 63,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "A",
+            "sourceRefs": [
+              "gg-strains-original-glue-leafly",
+              "gg-strains-original-glue-cbt-2019"
+            ]
           },
           {
             "field": "climate",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "目安環境は約74〜78°F・相対湿度45%"
+            "displayText": "目安環境は約74〜78°F・相対湿度45%",
+            "confidence": "A",
+            "sourceRefs": [
+              "gg-strains-original-glue-leafly",
+              "gg-strains-original-glue-cbt-2019"
+            ]
           },
           {
             "field": "yield",
             "environment": "unspecified",
             "valueForm": "TEXT",
-            "displayText": "公式記載は屋内・屋外ともHigh Yield"
+            "displayText": "公式記載は屋内・屋外ともHigh Yield",
+            "confidence": "A",
+            "sourceRefs": [
+              "gg-strains-original-glue-leafly",
+              "gg-strains-original-glue-cbt-2019"
+            ]
           }
         ]
       },
@@ -16412,9 +17030,9 @@
           "nirvana-papaya-feminized"
         ],
         "items": [
-          "Sedating",
-          "Euphoric",
-          "Relieving"
+          "鎮静的",
+          "多幸感",
+          "安堵感"
         ]
       },
       "cultivation": {
@@ -16432,7 +17050,11 @@
             "displayText": "屋内では約3〜3.9 ft",
             "min": 3,
             "max": 3.9,
-            "unit": "ft"
+            "unit": "ft",
+            "confidence": "A",
+            "sourceRefs": [
+              "nirvana-papaya-feminized"
+            ]
           },
           {
             "field": "yield",
@@ -16441,7 +17063,11 @@
             "displayText": "屋内収量の公式目安は350〜450 g/m²",
             "min": 350,
             "max": 450,
-            "unit": "g/m²"
+            "unit": "g/m²",
+            "confidence": "A",
+            "sourceRefs": [
+              "nirvana-papaya-feminized"
+            ]
           },
           {
             "field": "height",
@@ -16450,21 +17076,31 @@
             "displayText": "屋外では約4〜6 ft",
             "min": 4,
             "max": 6,
-            "unit": "ft"
+            "unit": "ft",
+            "confidence": "A",
+            "sourceRefs": [
+              "nirvana-papaya-feminized"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "屋外収量は1株あたり最大約17.5 ozと公式が記載",
-            "text": "Nirvana reports up to about 17.5 oz per plant outdoors."
+            "confidence": "A",
+            "sourceRefs": [
+              "nirvana-papaya-feminized"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "5月植えの場合、屋外収穫は10月末ごろ",
-            "text": "Nirvana places outdoor harvest around the end of October when planted in May."
+            "confidence": "A",
+            "sourceRefs": [
+              "nirvana-papaya-feminized"
+            ]
           }
         ]
       },
@@ -16700,6 +17336,36 @@
           "noteJa": "Doja Exclusive公式では、花を割った際の香りとしてfruity berriesとminty earthが明記されています。より広いmarketing上の甘さ・diesel・candy表現をAroma／Flavor／Terpeneへ勝手に分配していません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-permanent-marker"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "アンモニア",
+          "ケミカル",
+          "タバコ"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-permanent-marker"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "ピリピリ感",
+          "リラックス",
+          "多幸感"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "B",
@@ -16716,10 +17382,10 @@
             "min": 8,
             "max": 9,
             "unit": "weeks",
+            "confidence": "B",
             "sourceRefs": [
               "leafly-permanent-marker-grow-2023"
             ],
-            "confidence": "B",
             "evidenceLevel": "SECONDARY_SPECIALIST",
             "claimOrigin": "specialist-curation"
           },
@@ -16728,10 +17394,10 @@
             "environment": "indoor",
             "valueForm": "TEXT",
             "displayText": "中程度の収量とされ、栽培者の技量で変動",
+            "confidence": "B",
             "sourceRefs": [
               "leafly-permanent-marker-grow-2023"
             ],
-            "confidence": "B",
             "evidenceLevel": "SECONDARY_SPECIALIST",
             "claimOrigin": "specialist-curation"
           }
@@ -17172,6 +17838,32 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rainbow-belts"
+        ],
+        "items": [
+          "トロピカル",
+          "ツリーフルーツ",
+          "アプリコット"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rainbow-belts"
+        ],
+        "items": [
+          "笑いやすい",
+          "リラックス",
+          "多幸感"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -17429,6 +18121,56 @@
           "registryVersion": 1,
           "noteJa": "LeaflyはRS11の香りをsweetとspicyが残るaromaとして記載しています。今回はこの2語を同格のPROFILEとして保持し、FlavorやTerpeneから香りを足していません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rs11"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "アプリコット",
+          "ピーチ",
+          "シトラス"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rs11"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "集中",
+          "笑いやすい",
+          "リラックス"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-rs11"
+        ],
+        "claimOrigin": "grower-community-report",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "栽培者報告の平均は10週間",
+            "claimOrigin": "grower-community-report",
+            "confidence": "C",
+            "sourceRefs": [
+              "leafly-rs11"
+            ]
+          }
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -19566,9 +20308,9 @@
           "barneys-farm-sour-diesel-current"
         ],
         "items": [
-          "Energetic",
-          "Uplifting",
-          "Euphoric"
+          "活力",
+          "高揚感",
+          "多幸感"
         ]
       },
       "cultivation": {
@@ -19583,53 +20325,76 @@
             "field": "height",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "100-120 cm",
+            "displayText": "100〜120 cm",
             "min": 100,
             "max": 120,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "indoor",
             "valueForm": "RANGE",
-            "displayText": "600-700 gr/㎡",
+            "displayText": "600〜700 g/m²",
             "min": 600,
             "max": 700,
-            "unit": "gr/m2"
+            "unit": "gr/m2",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           },
           {
             "field": "floweringTime",
             "environment": "unspecified",
             "valueForm": "RANGE",
-            "displayText": "70 - 75 days",
+            "displayText": "70〜75日",
             "min": 70,
             "max": 75,
-            "unit": "days"
+            "unit": "days",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           },
           {
             "field": "height",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "150-200 cm",
+            "displayText": "150〜200 cm",
             "min": 150,
             "max": 200,
-            "unit": "cm"
+            "unit": "cm",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           },
           {
             "field": "yield",
             "environment": "outdoor",
             "valueForm": "RANGE",
-            "displayText": "1500-2000 g/plant",
+            "displayText": "1500〜2000 g/株",
             "min": 1500,
             "max": 2000,
-            "unit": "g/plant"
+            "unit": "g/plant",
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           },
           {
             "field": "harvestWindow",
             "environment": "outdoor",
             "valueForm": "TEXT",
             "displayText": "10月 第2〜第3週",
-            "text": "10月 第2〜第3週"
+            "confidence": "A",
+            "sourceRefs": [
+              "barneys-farm-sour-diesel-current"
+            ]
           }
         ]
       },
@@ -19685,9 +20450,23 @@
           ]
         }
       },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-sour-diesel-authentication",
+          "leafly-sour-diesel"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sour Dieselは1990年代初頭から広く知られるようになった一方、元ブリーダーと正確な遺伝的起源は現在も確定していない。Sour Diesel名義の試料には複数のchemotypeが確認されている。"
+        }
+      },
       "publicContent": {
         "ja": {
           "lineageNote": "Barney's Farmの現行Sour Dieselページでは、GeneticsをSuper Skunk × Chemdawgと記載しています。これはBarney's Farm現行ラインの公式情報として扱い、歴史上のSour Diesel全体へ一般化していません。",
+          "history": "Sour Dieselは1990年代初頭から広く知られるようになった一方、元ブリーダーと正確な遺伝的起源は現在も確定していない。Sour Diesel名義の試料には複数のchemotypeが確認されている。",
           "aromaNote": "Barney's Farmの現行Aroma欄では、Sour、Earthy、Dieselと記載されています。階層は示されていないためフラットな香りプロファイルとして扱い、香りから個別テルペン成分は推定していません。"
         }
       },
@@ -20164,6 +20943,35 @@
           "noteJa": "Weedmapsのroot cultivarページがnoseとしてsweet berries、creamy fruit、bright citrus、earthy funk、peppery spiceを分けて記載しています。専門資料由来のPROFILEとして保持し、テルペンから香りを逆算していません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "items": [
+          "ベリー",
+          "シトラス",
+          "レモン",
+          "オレンジ",
+          "ライム",
+          "スイート"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sherbert"
+        ],
+        "items": [
+          "リラックス",
+          "ピリピリ感",
+          "幸福感"
+        ]
+      },
       "cultivation": {
         "status": "confirmed",
         "confidence": "C",
@@ -20180,10 +20988,10 @@
             "min": 63,
             "max": 72,
             "unit": "days",
+            "confidence": "C",
             "sourceRefs": [
               "leafly-sherbert"
             ],
-            "confidence": "C",
             "evidenceLevel": "COMMUNITY",
             "claimOrigin": "grower-community-report"
           }
@@ -20399,19 +21207,31 @@
             "field": "lightTolerance",
             "environment": "indoor",
             "valueForm": "TEXT",
-            "displayText": "強い光にも耐えるとMobilejayが報告"
+            "displayText": "強い光にも耐えるとMobilejayが報告",
+            "confidence": "B",
+            "sourceRefs": [
+              "leafly-super-boof-strain-of-year-2024"
+            ]
           },
           {
             "field": "outdoorPerformance",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "屋外で良好な生育を示すとMobilejayが報告"
+            "displayText": "屋外で良好な生育を示すとMobilejayが報告",
+            "confidence": "B",
+            "sourceRefs": [
+              "leafly-super-boof-strain-of-year-2024"
+            ]
           },
           {
             "field": "powderyMildewResistance",
             "environment": "outdoor",
             "valueForm": "TEXT",
-            "displayText": "うどんこ病への耐性が非常に高いとMobilejayが報告"
+            "displayText": "うどんこ病への耐性が非常に高いとMobilejayが報告",
+            "confidence": "B",
+            "sourceRefs": [
+              "leafly-super-boof-strain-of-year-2024"
+            ]
           }
         ]
       },
@@ -20596,6 +21416,105 @@
           "reviewStatus": "NOT_APPLICABLE",
           "unresolvedCount": 0
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-lemon-haze"
+        ],
+        "items": [
+          "レモンゼスト",
+          "シトラス",
+          "ウッディ",
+          "パインの清涼感"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-lemon-haze"
+        ],
+        "items": [
+          "立ち上がりが速い",
+          "持続が長い",
+          "身体と頭のバランス型",
+          "ボディハイ",
+          "クリアな創造性"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-lemon-haze"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内開花は10週間",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は最大800 g/m²",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "北半球では10月中旬までに収穫",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は最大1200 g/株",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "赤道・熱帯・亜熱帯・温帯向き",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          },
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "開花中のストレッチが強く、少なくとも株サイズが倍になると公式が記載",
+            "confidence": "A",
+            "sourceRefs": [
+              "ghsc-super-lemon-haze"
+            ]
+          }
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -22916,6 +23835,125 @@
           "registryVersion": 1,
           "noteJa": "High Timesの現行White Widow profileでは、aromaとしてearthy、woody、pepperyが明示されています。専門資料由来のPROFILEとして平坦に保持し、Terpeneから香りの順位は作っていません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "items": [
+          "スパイシー",
+          "ウッディ",
+          "スイート",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "items": [
+          "リラックス感の強いインディカ系体感",
+          "強いサティバ系ハイ"
+        ]
+      },
+      "cultivation": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-white-widow-current"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "8〜9週間",
+            "min": 8,
+            "max": 9,
+            "unit": "weeks",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "公式ページ上部の栽培欄: 最大800 g/m²",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "同じ公式ページの詳細説明: 600 g/m²",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "公式ページ上部の栽培欄: 最大900 g/plant",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "同じ公式ページの詳細説明: 最大950 g/plant",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "height",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "最大170 cm",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "温暖・温帯地域向き",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "北半球では9月末",
+            "confidence": "B",
+            "sourceRefs": [
+              "ghsc-white-widow-current"
+            ]
+          }
+        ]
       },
       "terpenes": {
         "status": "confirmed",
