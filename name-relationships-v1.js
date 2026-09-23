@@ -28,6 +28,13 @@
     'sunset-sherbert',
     'og-kush'
   ]);
+  const EXPLICIT_CHILD_RELATIONSHIPS = new Map([
+    ['ogkb', ['do-si-dos']],
+    ['face-off-og-bx1', ['do-si-dos']],
+    ['chem-d', ['gmo-cookies']],
+    ['forum-gsc', ['gmo-cookies']],
+    ['gelato-33', ['ice-cream-cake', 'lemon-cherry-gelato']]
+  ]);
   const EXPLICIT_TYPED_RELATIONSHIPS = new Map([
     ['og-kush', [
       {
@@ -208,9 +215,24 @@
   };
 
   const resolveChildLines = (catalog, parent) => {
+    const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
+    const explicitChildIds = EXPLICIT_CHILD_RELATIONSHIPS.get(parent?.id) || [];
+    if (explicitChildIds.length) {
+      return explicitChildIds.map(targetId => {
+        const child = (catalog?.cultivars || []).find(item => item?.id === targetId);
+        if (!child) throw new Error(`CHILD_RELATIONSHIP_TARGET_MISSING:${parent.id}:${targetId}`);
+        if (text(child?.lineage?.status) !== 'confirmed') throw new Error(`CHILD_RELATIONSHIP_EVIDENCE_INCOMPLETE:${parent.id}:${targetId}`);
+        if (!Array.isArray(child?.lineage?.sourceRefs) || !child.lineage.sourceRefs.length) throw new Error(`CHILD_RELATIONSHIP_SOURCES_MISSING:${parent.id}:${targetId}`);
+        const parents = unique(child?.lineage?.parents || []).map(normalizeIdentity);
+        if (!parents.some(name => parentNames.has(name))) throw new Error(`CHILD_RELATIONSHIP_PARENT_MISMATCH:${parent.id}:${targetId}`);
+        const name = text(child.name);
+        const lineage = text(child?.lineage?.display);
+        if (!name || !lineage) throw new Error(`CHILD_RELATIONSHIP_DISPLAY_INCOMPLETE:${parent.id}:${targetId}`);
+        return { id: child.id, name, lineage, relationshipType: 'child-line' };
+      });
+    }
     if (!CHILD_RELATIONSHIP_ROOT_IDS.has(parent?.id)) return [];
     const explicitNonChildTargets = new Set(selectionSpecsFor(parent).map(line => text(line?.targetId)).filter(Boolean));
-    const parentNames = new Set(unique([parent?.name, ...(parent?.aliases || [])]).map(normalizeIdentity));
     return (catalog?.cultivars || [])
       .filter(child => {
         if (!child || child.id === parent.id || explicitNonChildTargets.has(child.id)) return false;
