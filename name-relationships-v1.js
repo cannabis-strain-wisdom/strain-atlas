@@ -131,6 +131,19 @@
     return block;
   };
 
+  const makeDirectParentBlock = parent => {
+    const block = document.createElement('div');
+    block.className = 'csw-name-rel-name-block';
+    const title = document.createElement('strong');
+    title.className = 'csw-name-rel-name';
+    title.textContent = parent;
+    const relation = document.createElement('div');
+    relation.className = 'csw-name-rel-relation';
+    relation.appendChild(makeRelationshipLabel('親系統', 'DIRECT PARENT'));
+    block.append(title, relation);
+    return block;
+  };
+
   const makeFamilySideBlock = item => {
     const block = document.createElement('div');
     block.className = 'csw-name-rel-name-block';
@@ -577,7 +590,8 @@
     const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name);
     const childLines = resolveChildLines(catalog, cultivar);
     const selectionLines = resolveSelectionLines(catalog, cultivar);
-    const upstreamLines = confirmedLineageParents(cultivar)
+    const directParents = confirmedLineageParents(cultivar);
+    const upstreamLines = directParents
       .map(parent => ({ parent, context: lineageUpstreamLabel(id, parent) }))
       .filter(item => item.context);
     const typedRows = [
@@ -595,10 +609,20 @@
       if (prose.textContent !== desiredProse) prose.textContent = desiredProse;
     }
 
-    if (!integrated && (upstreamLines.length || aliases.length || typedRows.length)) {
+    if (!integrated && (directParents.length || upstreamLines.length || aliases.length || typedRows.length)) {
       integrated = document.createElement('section');
       integrated.className = 'csw-name-rel-integrated csw-name-rel-integrated-sitewide';
       integrated.dataset.sitewideLineageIntegrated = 'v1';
+
+      directParents.forEach((parent, index) => {
+        const row = document.createElement('div');
+        row.className = 'csw-name-rel-rail-item';
+        row.dataset.directLineageParent = parent;
+        row.dataset.lineageContextKind = 'direct-parent';
+        const lastWithoutFollowingRows = index === directParents.length - 1 && !upstreamLines.length && !aliases.length && !typedRows.length;
+        row.append(makeTrack({ node: true, last: lastWithoutFollowingRows }), makeDirectParentBlock(parent));
+        integrated.appendChild(row);
+      });
 
       upstreamLines.forEach((item, index) => {
         const row = document.createElement('div');
@@ -638,6 +662,8 @@
       status: 'PASS', contract: SITEWIDE_CONTRACT, cultivarId: id,
       presentation: 'relationship-rail-only',
       lineageStatus: text(cultivar?.lineage?.status) || 'unknown',
+      directParents: [...directParents],
+      directParentCount: directParents.length,
       upstreamLines: upstreamLines.map(item => ({ parent: item.parent, context: item.context })),
       upstreamCount: upstreamLines.length,
       aliases, aliasCount: aliases.length,
