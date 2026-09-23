@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - validated/detail-safety-baseline-v1
+      - preview/complete-lineage-relationship-rail-v2
 
 permissions:
   contents: read
