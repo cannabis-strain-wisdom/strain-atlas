@@ -394,6 +394,22 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   for (const invariant of familyTreeInternalRelationInvariants) {
     if (!familyTreeSource.includes(invariant)) throw new Error('Family Tree internal relation semantics changed: ' + invariant);
   }
+  const familyTreeForbiddenMultiParentSelectionEdges = [
+    'sunset sherbert>gelato-33',
+    'thin mint gsc>gelato-33',
+    'chem d>gmo-cookies',
+    'forum gsc>gmo-cookies',
+    'pink guava>rainbow-sherbert-11',
+    'sunset sherbert>rainbow-sherbert-11',
+    'black cherry punch>super-boof',
+    'tropicana cookies>super-boof'
+  ];
+  for (const key of familyTreeForbiddenMultiParentSelectionEdges) {
+    if (familyTreeSource.includes("['" + key + "'")) throw new Error('Family Tree multi-parent selection edge regression: ' + key);
+  }
+  if (!familyTreeSource.includes('FAMILY_TREE_MULTI_PARENT_SELECTION_EDGE_FORBIDDEN')) {
+    throw new Error('Family Tree multi-parent selection guard missing');
+  }
 
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
 
@@ -461,10 +477,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const typedFamilyTreeCases = [
     { id: 'triangle-kush-s1', type: 's1', label: 'S1' },
     { id: 'face-off-og-bx1', type: 'bx', label: 'BX' },
-    { id: 'gmo-cookies', type: 'selected-line', label: '選抜系統' },
     { id: 'lemon-cherry-gelato', type: 'other', label: 'バッグシード' },
-    { id: 'og-kush', type: 'selection', label: '選抜系統' },
-    { id: 'gelato-33', type: 'selected-phenotype', label: '選抜個体', forbiddenName: 'Gelato' }
+    { id: 'og-kush', type: 'selection', label: '選抜系統' }
   ];
   const typedFamilyTreeResults = [];
   for (const testCase of typedFamilyTreeCases) {
