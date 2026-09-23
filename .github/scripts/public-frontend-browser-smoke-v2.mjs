@@ -396,6 +396,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   if (!familyTreeDoSiDos.labels.includes('selected cut') || !familyTreeDoSiDos.labels.includes('BX') || !familyTreeDoSiDos.labels.includes('parent')) throw new Error('Family Tree relation labels incomplete: ' + JSON.stringify(familyTreeDoSiDos.labels));
   if (familyTreeDoSiDos.depths.some(depth => Math.abs(depth) > 2)) throw new Error('Family Tree depth exceeded: ' + JSON.stringify(familyTreeDoSiDos.depths));
   if (familyTreeDoSiDos.pageOverflow) throw new Error('Family Tree causes page-level horizontal overflow at 390px');
+  const doSiIdentityState = await evalv("(()=>{const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());const lineage=document.querySelector('#detail-shell .ucd-lineage > div');const entry=lineage?.querySelector('[data-family-tree-entry=\"v1\"]');const evidence=lineage?.querySelector(':scope > .ucd-evidence-row');return {keys,uniqueKeys:new Set(keys).size,aliasNode:names.includes('GSC'),unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,entryBeforeEvidence:!!entry&&!!evidence&&entry.nextElementSibling===evidence}})()");
+  if (doSiIdentityState.keys.length!==doSiIdentityState.uniqueKeys || doSiIdentityState.aliasNode || doSiIdentityState.unpublishedClickable || !doSiIdentityState.entryBeforeEvidence) throw new Error('Family Tree identity/entry guard mismatch: ' + JSON.stringify(doSiIdentityState));
 
   await evalv("document.querySelector('[data-ft-node-id=\"ogkb\"]').click();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='ogkb' && !!document.querySelector('.detail-public-v1[data-public-detail-id=\"ogkb\"],.ucd-root[data-public-detail-id=\"ogkb\"]')"), 'Family Tree OGKB node navigation');
@@ -411,6 +413,12 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   if (collapsedFamilyBranch !== 'さらに1件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
   await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
   await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 Family Tree branch expansion');
+  const skunkScrollBefore = await evalv("(()=>{const v=document.querySelector('.csw-ft-viewport');v.scrollLeft=Math.min(120,Math.max(0,v.scrollWidth-v.clientWidth));return v.scrollLeft})()");
+  await evalv("document.querySelector('[data-ft-node-id=\"super-skunk\"]').click();true");
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='super-skunk'"), 'Skunk #1 child navigation');
+  await evalv("history.back();true");
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && !document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 expanded-state restoration');
+  await waitFor(() => evalv("Math.abs((document.querySelector('.csw-ft-viewport')?.scrollLeft||0)-" + skunkScrollBefore + ")<=2"), 'Skunk #1 scroll restoration');
 
   const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
   const familyTreeResults = [];
@@ -424,13 +432,42 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     if (!state || state.status !== 'PASS' || state.maxDepth !== 2 || state.branchLimit !== 3) throw new Error(familyId + ' Family Tree state invalid: ' + JSON.stringify(state));
     familyTreeResults.push({ id: familyId, nodes: state.nodeCount, edges: state.edgeCount });
   }
+  const typedFamilyTreeCases = [
+    { id: 'triangle-kush-s1', type: 's1', label: 'S1' },
+    { id: 'wedding-cake', type: 'selected-phenotype', label: 'selected phenotype' },
+    { id: 'gmo-cookies', type: 'selected-line', label: 'selected line' },
+    { id: 'lemon-cherry-gelato', type: 'other', label: 'bagseed' },
+    { id: 'og-kush', type: 'selection', label: 'selected line' },
+    { id: 'gelato-33', type: 'selected-phenotype', label: 'selected phenotype', forbiddenName: 'Gelato' }
+  ];
+  const typedFamilyTreeResults = [];
+  for (const testCase of typedFamilyTreeCases) {
+    await cdp.send('Page.navigate', { url: baseUrl + '?strain=' + encodeURIComponent(testCase.id) });
+    await waitFor(() => evalv("document.readyState==='complete'"), testCase.id + ' typed Family Tree document complete');
+    await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), testCase.id + ' typed Family Tree entry');
+    await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
+    await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='" + testCase.id + "'"), testCase.id + ' typed Family Tree open');
+    const typedState = await evalv("(()=>{const state=window.__CSWFamilyTreeViewV1||null;const labels=[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent);const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());return {state,labels,keys,uniqueKeys:new Set(keys).size,names,unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}})()");
+    if (!typedState.state?.relationTypes?.includes(testCase.type) || !typedState.labels.includes(testCase.label)) throw new Error(testCase.id + ' typed relation missing: ' + JSON.stringify(typedState));
+    if (typedState.keys.length!==typedState.uniqueKeys || typedState.unpublishedClickable || typedState.pageOverflow) throw new Error(testCase.id + ' identity/mobile guard mismatch: ' + JSON.stringify(typedState));
+    if (testCase.forbiddenName && typedState.names.includes(testCase.forbiddenName)) throw new Error(testCase.id + ' invented node detected: ' + testCase.forbiddenName);
+    typedFamilyTreeResults.push({ id:testCase.id, types:typedState.state.relationTypes, labels:typedState.labels });
+  }
+
+  await cdp.send('Page.navigate', { url: baseUrl + '?strain=satori' });
+  await waitFor(() => evalv("document.readyState==='complete'"), 'Satori Family Tree no-context document complete');
+  await waitFor(() => evalv("!!document.querySelector('.detail-public-v1[data-public-detail-id=\"satori\"],.ucd-root[data-public-detail-id=\"satori\"]')"), 'Satori detail open');
+  await sleep(1100);
+  const invalidFamilyTreeEntry = await evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')");
+  if (invalidFamilyTreeEntry) throw new Error('Family Tree entry rendered without a valid lineage graph');
+
   const lineageCardAfterFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
   if (!lineageCardAfterFamilyTree) throw new Error('Lineage card missing after Family Tree interactions');
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,familyTreeDoSiDos,familyTreeResults,runtimeErrors:0}, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,familyTreeDoSiDos,familyTreeResults,typedFamilyTreeResults,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 

@@ -14,18 +14,27 @@
   const normalize = value => String(value || '')
     .normalize('NFKC')
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
     .trim()
     .replace(/\s+/g, ' ');
   const currentId = () => new URL(location.href).searchParams.get('strain');
   const currentRoot = id => shell.querySelector('.detail-public-v1[data-public-detail-id="' + CSS.escape(id) + '"],.ucd-root[data-public-detail-id="' + CSS.escape(id) + '"]');
 
-  const EXPLICIT_RELATION_TYPES = new Map([
-    ['girl scout cookies>ogkb', { type: 'selected-cut', label: 'selected cut' }],
-    ['girl scout cookies>forum-gsc', { type: 'selected-cut', label: 'selected cut' }],
-    ['face off og>face-off-og-bx1', { type: 'bx', label: 'BX' }],
-    ['sunset sherbert>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype' }],
-    ['thin mint gsc>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype' }]
+  const TYPED_RELATION_RULES = new Map([
+    ['girl scout cookies>ogkb', { type: 'selected-cut', label: 'selected cut', guard: /clone-only cut/i }],
+    ['girl scout cookies>forum-gsc', { type: 'selected-cut', label: 'selected cut', guard: /selected GSC cut|Forum cut/i }],
+    ['face off og>face-off-og-bx1', { type: 'bx', label: 'BX', guard: /backcross family/i }],
+    ['sunset sherbert>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
+    ['thin mint gsc>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
+    ['triangle kush>wedding-cake', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜個体/i }],
+    ['animal mints>wedding-cake', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜個体/i }],
+    ['chem d>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
+    ['forum gsc>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
+    ['pink guava>rainbow-sherbert-11', { type: 'selected-phenotype', label: 'selected phenotype', guard: /#11.*選抜|選抜.*#11/i }],
+    ['sunset sherbert>rainbow-sherbert-11', { type: 'selected-phenotype', label: 'selected phenotype', guard: /#11.*選抜|選抜.*#11/i }],
+    ['black cherry punch>super-boof', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜した個体/i }],
+    ['tropicana cookies>super-boof', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜した個体/i }],
+    ['gelato 33>lemon-cherry-gelato', { type: 'other', label: 'bagseed', guard: /bagseed/i }]
   ]);
 
   let catalogPromise;
@@ -63,6 +72,22 @@
     return unique(lineage.parents || []);
   };
 
+  const validateTypedRelations = catalog => {
+    const byId = new Map((catalog?.cultivars || []).map(item => [text(item?.id), item]));
+    for (const [key, rule] of TYPED_RELATION_RULES) {
+      const splitAt = key.lastIndexOf('>');
+      const parentKey = key.slice(0, splitAt);
+      const childId = key.slice(splitAt + 1);
+      const child = byId.get(childId);
+      if (!child) continue;
+      const parentKeys = confirmedParents(child).map(normalize);
+      const lineageText = text(child?.lineage?.presentation?.textJa);
+      if (!parentKeys.includes(parentKey) || !rule.guard.test(lineageText)) {
+        throw new Error('FAMILY_TREE_TYPED_RELATION_GUARD_FAILED:' + key);
+      }
+    }
+  };
+
   const selectionRelationship = (parent, childId) => {
     const selections = parent?.publicPresentation?.nameRelationships?.selections;
     if (!Array.isArray(selections)) return false;
@@ -70,14 +95,14 @@
   };
 
   const relationFor = (parentLabel, parentCultivar, childCultivar) => {
+    const typed = TYPED_RELATION_RULES.get(normalize(parentLabel) + '>' + text(childCultivar?.id));
+    if (typed) return { type: typed.type, label: typed.label };
     if (parentCultivar && selectionRelationship(parentCultivar, childCultivar?.id)) {
       return { type: 'selection', label: 'selected line' };
     }
-    if (text(childCultivar?.breeding?.generation).toUpperCase() === 'S1') {
+    if (text(childCultivar?.breeding?.generation).toUpperCase() === 'S1' && confirmedParents(childCultivar).length === 1) {
       return { type: 's1', label: 'S1' };
     }
-    const explicit = EXPLICIT_RELATION_TYPES.get(normalize(parentLabel) + '>' + text(childCultivar?.id));
-    if (explicit) return explicit;
     return { type: 'parent', label: 'parent' };
   };
 
@@ -85,6 +110,7 @@
   const visualFor = cultivar => (cultivar?.visuals || []).find(visual => visual?.role === 'primary') || (cultivar?.visuals || [])[0] || null;
 
   const buildGraph = (catalog, center) => {
+    validateTypedRelations(catalog);
     const resolve = buildResolver(catalog);
     const nodes = new Map();
     const edges = new Map();
@@ -233,7 +259,7 @@
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', '家系図ビュー');
-    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="家系図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">家系図</strong></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで parent / selected cut / S1 / BX などの意味を区別します。</footer>';
+    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="家系図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">家系図</strong></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで parent / selected cut / selected phenotype / selected line / S1 / BX / bagseed などの意味を区別します。</footer>';
     document.body.appendChild(overlay);
     viewport = overlay.querySelector('.csw-ft-viewport');
     stage = overlay.querySelector('.csw-ft-stage');
@@ -259,7 +285,7 @@
     if (document.getElementById('csw-family-tree-v1-style')) return;
     const style = document.createElement('style');
     style.id = 'csw-family-tree-v1-style';
-    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1[hidden]{display:none}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:126px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:68px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:11px}.csw-ft-edge-label{font-size:7px}}';
+    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1[hidden]{display:none}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype,.csw-ft-svg path.is-selected-line,.csw-ft-svg path.is-other{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:126px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:68px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:11px}.csw-ft-edge-label{font-size:7px}}';
     document.head.appendChild(style);
   };
 
@@ -418,7 +444,10 @@
       edgeCount: visible.edges.length,
       maxDepth: MAX_DEPTH,
       branchLimit: BRANCH_LIMIT,
-      expanded: [...expanded]
+      expanded: [...expanded],
+      relationTypes: unique(visible.edges.map(edge => edge.relation.type)).sort(),
+      unpublishedCount: visible.nodes.filter(node => !node.published).length,
+      overflowBranches: [...visible.hiddenCounts.entries()].map(([token, count]) => ({ token, count }))
     };
   };
 
