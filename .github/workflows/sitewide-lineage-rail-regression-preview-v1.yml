@@ -14,7 +14,12 @@ concurrency:
 
 jobs:
   regression:
+    strategy:
+      fail-fast: true
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout candidate
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -123,7 +128,7 @@ jobs:
             done
           done
 
-          CHROME_BIN="$CHROME_BIN" OUT_DIR="$RUNNER_TEMP/sitewide-lineage-rail-regression" node --input-type=module <<'NODE'
+          SHARD='${{ matrix.shard }}' CHROME_BIN="$CHROME_BIN" OUT_DIR="$RUNNER_TEMP/sitewide-lineage-rail-regression" node --input-type=module <<'NODE'
           import { spawn } from 'node:child_process';
           import fs from 'node:fs';
           import os from 'node:os';
@@ -189,8 +194,13 @@ jobs:
             };
 
             const catalog=await getJson(candUrl+'runtime/catalog.json');
-            const ids=(catalog.cultivars||[]).map(x=>x.id);
-            if(ids.length!==84) throw new Error(`Expected 84 cultivars, got ${ids.length}`);
+            const allIds=(catalog.cultivars||[]).map(x=>x.id);
+            if(allIds.length!==84) throw new Error(`Expected 84 cultivars, got ${allIds.length}`);
+            const shard=Number(process.env.SHARD);
+            const shardCount=6;
+            if(!Number.isInteger(shard)||shard<0||shard>=shardCount) throw new Error(`Invalid shard: ${process.env.SHARD}`);
+            const ids=allIds.filter((_,index)=>index%shardCount===shard);
+            console.log(`SHARD ${shard}/${shardCount}: ${ids.length} cultivars`);
 
             async function snapshot(origin,id,isCandidate){
               await cdp.send('Page.navigate',{url:origin+'?strain='+encodeURIComponent(id)});
@@ -275,7 +285,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: sitewide-lineage-rail-regression-${{ github.sha }}
+          name: sitewide-lineage-rail-regression-${{ github.sha }}-shard-${{ matrix.shard }}
           path: ${{ runner.temp }}/sitewide-lineage-rail-regression
           if-no-files-found: warn
           retention-days: 7
