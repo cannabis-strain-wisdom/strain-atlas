@@ -957,6 +957,10 @@
     if (!panel || !claim || claim.status === 'unknown') return false;
     const label = resolveEvidenceLabel(claim, catalog);
     ensureBadge(evidenceHost(panel), label, 'terpene');
+    const paragraph = panel.querySelector('p');
+    if (paragraph && claim.evidenceMode === 'LISTED' && label && label !== '一次情報') {
+      setTextIfChanged(paragraph, `${label}で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。`);
+    }
     return Boolean(label);
   };
 

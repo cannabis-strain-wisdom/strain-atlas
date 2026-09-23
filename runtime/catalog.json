@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T08:32:00.638Z",
+  "generatedAt": "2026-09-23T12:46:22.822Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 84,
-    "sources": 181,
+    "cultivars": 89,
+    "sources": 193,
     "entities": 32
   },
   "explore": {
@@ -83,13 +83,18 @@
       "auto-cinderella-jack",
       "blue-zushi",
       "bubble-gum",
+      "chem-d",
+      "face-off-og-bx1",
+      "forum-gsc",
       "frisian-duck",
+      "gelato-33",
       "girl-scout-cookies",
       "jack-herer",
       "lemon-cherry-gelato",
       "lemon-skunk",
       "mac-1",
       "og-kush",
+      "ogkb",
       "papaya",
       "rainbow-belts",
       "rainbow-sherbert-11",
@@ -4687,6 +4692,313 @@
     },
     {
       "schemaVersion": 1,
+      "id": "chem-d",
+      "status": "review",
+      "name": "Chem D",
+      "jp": null,
+      "aliases": [
+        "Chem Dog D",
+        "Chemdog D",
+        "CDD"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current",
+          "high-times-chem-d-25-years"
+        ],
+        "display": "",
+        "parents": []
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "パングェント・ケミカルフューエル",
+          "シャープディーゼル",
+          "ラバー",
+          "ラウンチー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "パングェント・ケミカルフューエル",
+            "シャープディーゼル",
+            "ラバー",
+            "ラウンチー"
+          ],
+          "details": [
+            {
+              "rawMatch": "pungent chemical fuel",
+              "reviewLabelJa": "パングェント・ケミカルフューエル",
+              "plainMeaningJa": "ツンとした化学薬品や燃料を思わせる刺激的な香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "化学薬品",
+                "燃料",
+                "フューエル",
+                "刺激"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sharp diesel edge",
+              "reviewLabelJa": "シャープディーゼル",
+              "plainMeaningJa": "鋭さを伴うディーゼル燃料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ディーゼル",
+                "燃料",
+                "シャープ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "rubbery",
+              "reviewLabelJa": "ラバー",
+              "plainMeaningJa": "ゴムを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ゴム",
+                "ラバー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "raunchy",
+              "reviewLabelJa": "ラウンチー",
+              "plainMeaningJa": "荒々しく癖の強いファンク感を伴う香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "ファンク",
+                "荒々しい"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Lucky Dogのcurrent caretaker記述では、pungent chemical fuel、sharp diesel edge、rubbery、raunchyと表現されています。current Aroma contractで成立するCORE／ACCENT階層は確認できないため、原表現を保ったPROFILEとして扱います。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-chem-dog-d"
+        ],
+        "items": [
+          "ディーゼル",
+          "ケミカル",
+          "刺激的"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current"
+        ],
+        "claimOrigin": "caretaker-report",
+        "items": [
+          "多幸感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current"
+        ],
+        "claimOrigin": "caretaker-report",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "63〜70日",
+            "min": 63,
+            "max": 70,
+            "unit": "days",
+            "claimOrigin": "caretaker-report",
+            "confidence": "B",
+            "sourceRefs": [
+              "lucky-dog-chem-d-current"
+            ]
+          },
+          {
+            "field": "difficulty",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "現caretakerは初心者でも扱いやすいと説明",
+            "claimOrigin": "caretaker-report",
+            "confidence": "B",
+            "sourceRefs": [
+              "lucky-dog-chem-d-current"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "姉妹株より収量が良いと掲載",
+            "claimOrigin": "caretaker-report",
+            "confidence": "B",
+            "sourceRefs": [
+              "lucky-dog-chem-d-current"
+            ]
+          },
+          {
+            "field": "branching",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "太めの分枝と、重さを支えやすい強いフレーム",
+            "claimOrigin": "caretaker-report",
+            "confidence": "B",
+            "sourceRefs": [
+              "lucky-dog-chem-d-current"
+            ]
+          },
+          {
+            "field": "resin",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "樹脂量が多いと説明",
+            "claimOrigin": "caretaker-report",
+            "confidence": "B",
+            "sourceRefs": [
+              "lucky-dog-chem-d-current"
+            ]
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-chem-dog-d"
+        ],
+        "items": [
+          "myrcene",
+          "caryophyllene",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Caryophyllene、Limoneneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位にはせずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current",
+          "high-times-chem-d-25-years"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Chem Dは、1991年のDogbud／Chemweedに由来する13粒と同じseed lotから出た別個体として記録されています。High Timesは2001年にC・D・Eが発芽され、Dがkeeperになったと報告しています。Lucky DogのSkunk VAは初期の発芽自体は目撃していないと明示したうえで、Chem DとChem 91は同じ13粒から出た別の姉妹株で、2006年にGregからChem D cutを受け取り現在まで保持していると説明しています。正確な親2株は記録されていないため推測しません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "lucky-dog-chem-d-current"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "history": "Chem Dは、1991年のDogbud／Chemweedに由来する13粒と同じseed lotから出た別個体として記録されています。High Timesは2001年にC・D・Eが発芽され、Dがkeeperになったと報告しています。Lucky DogのSkunk VAは初期の発芽自体は目撃していないと明示したうえで、Chem DとChem 91は同じ13粒から出た別の姉妹株で、2006年にGregからChem D cutを受け取り現在まで保持していると説明しています。正確な親2株は記録されていないため推測しません。",
+          "aromaNote": "Lucky Dogのcurrent caretaker記述では、pungent chemical fuel、sharp diesel edge、rubbery、raunchyと表現されています。current Aroma contractで成立するCORE／ACCENT階層は確認できないため、原表現を保ったPROFILEとして扱います。",
+          "terpeneNote": "LeaflyはMyrcene、Caryophyllene、Limoneneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位にはせずLISTEDとして扱っています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/chem-d/primary.webp",
+          "alt": "Chem DのAI生成参考ビジュアル。現caretakerが記録する厚めの分枝と強い樹脂表現だけを根拠範囲内で反映し、主花全体とトップ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "chocolope-256",
       "status": "review",
       "name": "Chocolope 256",
@@ -7423,6 +7735,166 @@
     },
     {
       "schemaVersion": 1,
+      "id": "face-off-og-bx1",
+      "status": "review",
+      "name": "Face Off OG BX1",
+      "jp": null,
+      "aliases": [
+        "Face Off OG Bx1"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "leafly-face-off-og-bx1",
+          "archive-face-off-og-bx2"
+        ],
+        "display": "Face Off OG",
+        "parents": [
+          "Face Off OG"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Face Off OG BX1はArchiveのFace Off OG backcross familyに属します。LeaflyはFace Off OG × Unknownとし、Archiveの現行BX2ページはFace Off OG #4 × Face Off OG BX1をsecond backcrossとして掲載しています。BX1自身の未確認側parentは推測で埋めず、Face Off OGまでを確認済みdirect lineageとして保持します。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og-bx1"
+        ],
+        "items": [
+          "ベリー",
+          "刺激的",
+          "シトラス"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og-bx1"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "高揚感",
+          "創造的",
+          "幸福感"
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "archive-face-off-og-bx2",
+          "high-times-do-si-dos-2016"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive Seed Bankは、late 1990sのSouthern CaliforniaでFace/Off OG Kushとして流通したflower由来のseedからFace Off OG #4を選抜した経緯を現在の公式BX2ページで説明しています。同ページではBX1を経たBX2をoriginal motherへのsecond backcrossと位置づけています。2016年にはHigh TimesがFaceoff OG Bx1をDo-Si-Dosの親として記録しています。BX1の正確な作出年や完全な交配式は固定していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og-bx1"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyではpurple budsにstark white trichomesが目立つ外観として記載されています。Face Off OG #4、BX2、Do-Si-Dosなど別generation・descendantの形態はBX1へ流用していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Face Off OG BX1はArchiveのFace Off OG backcross familyに属します。LeaflyはFace Off OG × Unknownとし、Archiveの現行BX2ページはFace Off OG #4 × Face Off OG BX1をsecond backcrossとして掲載しています。BX1自身の未確認側parentは推測で埋めず、Face Off OGまでを確認済みdirect lineageとして保持します。",
+          "history": "Archive Seed Bankは、late 1990sのSouthern CaliforniaでFace/Off OG Kushとして流通したflower由来のseedからFace Off OG #4を選抜した経緯を現在の公式BX2ページで説明しています。同ページではBX1を経たBX2をoriginal motherへのsecond backcrossと位置づけています。2016年にはHigh TimesがFaceoff OG Bx1をDo-Si-Dosの親として記録しています。BX1の正確な作出年や完全な交配式は固定していません。",
+          "morphologyNote": "Leaflyではpurple budsにstark white trichomesが目立つ外観として記載されています。Face Off OG #4、BX2、Do-Si-Dosなど別generation・descendantの形態はBX1へ流用していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/face-off-og-bx1/primary.webp",
+          "alt": "Face Off OG BX1のAI生成参考ビジュアル。purple bud colorationとstark white trichome coverageのみを根拠範囲内で反映し、主花全体とトップ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "fat-banana-auto",
       "status": "review",
       "name": "Fat Banana Auto",
@@ -7720,6 +8192,198 @@
       ],
       "checkedAt": "2026-09-12",
       "updatedAt": "2026-09-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "forum-gsc",
+      "status": "review",
+      "name": "Forum GSC",
+      "jp": null,
+      "aliases": [
+        "Forum Cookies",
+        "GSC Forum Cut",
+        "Girl Scout Cookies Forum Cut",
+        "Forum Cut Cookies"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "leafly-forum-cut-cookies",
+          "weedmaps-forum-cookies",
+          "high-times-gmo-profile"
+        ],
+        "display": "Girl Scout Cookies",
+        "parents": [
+          "Girl Scout Cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Forum GSCはGirl Scout Cookiesそのものではなく、そのForum cutとして保持します。Leaflyはoriginal GSC cuttingsの1つ、Weedmapsはwidely sharedなselected GSC cutと説明しています。CSWではGSC rootの内部系譜をこのcut側の二次資料で書き換えません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-forum-cut-cookies",
+          "weedmaps-forum-cookies"
+        ],
+        "items": [
+          "バター",
+          "スイート",
+          "シトラス",
+          "セイボリー",
+          "スイートシトラス",
+          "ガス"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-forum-cut-cookies"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "活力",
+          "多幸感",
+          "幸福感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-forum-cut-cookies"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Myrceneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wide固定順位へは昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "weedmaps-forum-cookies",
+          "leafly-forum-cut-cookies",
+          "high-times-gmo-profile"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "WeedmapsはForum CookiesをICMag周辺で広く共有されたGSC cutとして説明し、Emeryville由来という話も紹介していますが、これは確定originとして扱っていません。Leaflyもoriginal GSC cuttingsの1つと記載しています。後にはHigh TimesがForum GSCをGMO/Chem Cookies系譜のGSC側parentとして記録しており、breeding parentとしての利用も確認できます。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-forum-cut-cookies"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "LeaflyはForum Cut Cookiesをdense purple budsとheavy trichome coverageで説明しています。GSC rootやdescendantの形態情報はForum cutへ流用していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Forum GSCはGirl Scout Cookiesそのものではなく、そのForum cutとして保持します。Leaflyはoriginal GSC cuttingsの1つ、Weedmapsはwidely sharedなselected GSC cutと説明しています。CSWではGSC rootの内部系譜をこのcut側の二次資料で書き換えません。",
+          "history": "WeedmapsはForum CookiesをICMag周辺で広く共有されたGSC cutとして説明し、Emeryville由来という話も紹介していますが、これは確定originとして扱っていません。Leaflyもoriginal GSC cuttingsの1つと記載しています。後にはHigh TimesがForum GSCをGMO/Chem Cookies系譜のGSC側parentとして記録しており、breeding parentとしての利用も確認できます。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Myrceneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wide固定順位へは昇格させずLISTEDとして扱っています。",
+          "morphologyNote": "LeaflyはForum Cut Cookiesをdense purple budsとheavy trichome coverageで説明しています。GSC rootやdescendantの形態情報はForum cutへ流用していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/forum-gsc/primary.webp",
+          "alt": "Forum GSCのAI生成参考ビジュアル。dense purple budとheavy trichome coverageを根拠範囲内で反映し、主花全体とトップ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -8156,6 +8820,288 @@
       ],
       "checkedAt": "2026-09-08",
       "updatedAt": "2026-09-08",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gelato-33",
+      "status": "review",
+      "name": "Gelato #33",
+      "jp": null,
+      "aliases": [
+        "Gelato 33",
+        "G33",
+        "Larry Bird"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024",
+          "leafly-gelato-33",
+          "sherbinskis-gelato-33-weedmaps"
+        ],
+        "display": "Sunset Sherbert × Thin Mint GSC",
+        "parents": [
+          "Sunset Sherbert",
+          "Thin Mint GSC"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Gelato #33は、Gelatoの2014年pheno-huntで残った#33 keeperです。#33固有の現行sourceではSunset Sherbert × Thin Mint GSCとして確認でき、他のGelato番号とは別の選抜個体として保持します。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mario-guzman-sherbinski",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "originatorInterview",
+          "sourceRefs": [
+            "high-times-sherbinski-sunset-sherbert-2018",
+            "leafly-cookies-cakes-sunset-sherbert-2024"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "sherbinskis-gelato-33-weedmaps"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ベリー",
+          "ディーゼル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ベリー",
+            "ディーゼル"
+          ],
+          "details": [
+            {
+              "rawMatch": "berry",
+              "reviewLabelJa": "ベリー",
+              "plainMeaningJa": "ベリー類を思わせる甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "diesel",
+              "reviewLabelJa": "ディーゼル",
+              "plainMeaningJa": "ディーゼル燃料を思わせる燃料香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "SherbinskisのGelato 33掲載では、sweet berryとdieselのnoteがaromaとして明示されています。CORE／ACCENTの階層までは根拠がないため、berry・dieselを同格PROFILEとして保持しています。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gelato-33"
+        ],
+        "items": [
+          "ペッパー",
+          "シトラス",
+          "フローラル"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "conception-nurseries-gelato-33"
+        ],
+        "claimOrigin": "specialist-curation",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "EXACT",
+            "displayText": "60日",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "conception-nurseries-gelato-33"
+            ]
+          },
+          {
+            "field": "plantHabit",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "節間が長く、側枝は少なめで、比較的縦に伸びる草姿と掲載",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "conception-nurseries-gelato-33"
+            ]
+          },
+          {
+            "field": "colaStructure",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "密度があり縦長のcola形成と掲載",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "conception-nurseries-gelato-33"
+            ]
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "leafly-gelato-33",
+          "conception-nurseries-gelato-33"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene",
+          "humulene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "humulene",
+              "labelJa": "フムレン"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene・Limonene・Myrcene、Conception NurseriesはCaryophyllene・Limonene・Humuleneを掲載しています。sourceごとの差を隠さず、含有率や固定順位へ昇格させないLISTED evidenceとして保持しています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "leafly-cookies-cakes-sunset-sherbert-2024",
+          "high-times-sherbinski-sunset-sherbert-2018"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Gelato #33は、サンフランシスコ・ベイエリアのGelato育種・選抜の文脈で確立された#33 keeperです。これは作出・選抜上のoriginを示すもので、祖先系統の地理的起源を意味しません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sherbinski本人のインタビューでは、Gelatoの番号は同じbreeding populationから残した選抜を示し、#33もそのひとつとして挙げられています。Leaflyの歴史記事では2014年6月16日のpheno-hunt後に#33がLarry Birdと呼ばれ、cutが広く配布され、2015年ごろには生産が広がった経緯が記録されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "leafly-gelato-33",
+          "conception-nurseries-gelato-33"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyはcompact buds、orange hairs、dark green〜purpleの色調を報告し、Conception Nurseriesは長めのinternode、少ない側枝、dense elongated colasを掲載しています。環境で変わる表現を固定形質とは断定していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Gelato #33は、Gelatoの2014年pheno-huntで残った#33 keeperです。#33固有の現行sourceではSunset Sherbert × Thin Mint GSCとして確認でき、他のGelato番号とは別の選抜個体として保持します。",
+          "origin": "Gelato #33は、サンフランシスコ・ベイエリアのGelato育種・選抜の文脈で確立された#33 keeperです。これは作出・選抜上のoriginを示すもので、祖先系統の地理的起源を意味しません。",
+          "history": "Sherbinski本人のインタビューでは、Gelatoの番号は同じbreeding populationから残した選抜を示し、#33もそのひとつとして挙げられています。Leaflyの歴史記事では2014年6月16日のpheno-hunt後に#33がLarry Birdと呼ばれ、cutが広く配布され、2015年ごろには生産が広がった経緯が記録されています。",
+          "aromaNote": "SherbinskisのGelato 33掲載では、sweet berryとdieselのnoteがaromaとして明示されています。CORE／ACCENTの階層までは根拠がないため、berry・dieselを同格PROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはCaryophyllene・Limonene・Myrcene、Conception NurseriesはCaryophyllene・Limonene・Humuleneを掲載しています。sourceごとの差を隠さず、含有率や固定順位へ昇格させないLISTED evidenceとして保持しています。",
+          "morphologyNote": "Leaflyはcompact buds、orange hairs、dark green〜purpleの色調を報告し、Conception Nurseriesは長めのinternode、少ない側枝、dense elongated colasを掲載しています。環境で変わる表現を固定形質とは断定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/gelato-33/primary.webp",
+          "alt": "Gelato #33（Larry Bird）のAI生成参考ビジュアル。compactな花、orange hairs、dark green〜purpleの可変的な色調とtrichome表現を根拠範囲内で反映し、主花全体とトップ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -15880,6 +16826,343 @@
           ],
           "noteJa": "The OG #18はDNA Genetics / Reserva Privadaの説明に基づき、OG Kush由来の選抜系統として扱います。S1 / BXの世代表記は競合するため、関係ラベルではS1と断定しません。"
         }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "ogkb",
+      "status": "review",
+      "name": "OGKB",
+      "jp": null,
+      "aliases": [
+        "OG Kush Breath"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "808-genetics-ogkb-gsc",
+          "high-times-do-si-dos-2016"
+        ],
+        "display": "Girl Scout Cookies",
+        "parents": [
+          "Girl Scout Cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "OGKBはGirl Scout Cookiesから選ばれたclone-only cutとして確認できます。808 GeneticsはGSCのcutと明記し、High TimesもDo-Si-Dosの親をGirl Scout Cookies（OGKB Cut）と記録しています。CSWではOGKBを独立した選抜clone identityとして保持し、GSC内部の推測系譜へ置き換えません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "808-genetics-ogkb-gsc",
+          "leafly-ogkb"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ガス",
+          "クッキードウ",
+          "アーシー",
+          "ハーバル",
+          "ナッティー",
+          "ベリー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ガス",
+            "クッキードウ",
+            "アーシー",
+            "ハーバル",
+            "ナッティー",
+            "ベリー"
+          ],
+          "details": [
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "cookie dough",
+              "reviewLabelJa": "クッキードウ",
+              "plainMeaningJa": "焼く前のクッキー生地を思わせる甘く生地感のある香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "クッキー",
+                "生地",
+                "焼き菓子"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "herbal",
+              "reviewLabelJa": "ハーバル",
+              "plainMeaningJa": "ハーブのような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハーブ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "nutty",
+              "reviewLabelJa": "ナッティー",
+              "plainMeaningJa": "ナッツを思わせる香ばしい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ナッツ",
+                "香ばしい"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "berry",
+              "reviewLabelJa": "ベリー",
+              "plainMeaningJa": "ベリー類を思わせる甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "808 Geneticsではgasとcookie dough、Leaflyではearthy・herbalにnutty・berryのニュアンスがOGKBの香りとして掲載されています。どちらにもCORE / ACCENTの明示階層はないため、同格のPROFILEとして保持しています。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ogkb"
+        ],
+        "items": [
+          "ナッティー",
+          "バニラ",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ogkb"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "空腹感",
+          "ピリピリ感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "808-genetics-ogkb-gsc"
+        ],
+        "claimOrigin": "specialist-curation",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "10〜11週間",
+            "min": 10,
+            "max": 11,
+            "unit": "weeks",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "808-genetics-ogkb-gsc"
+            ]
+          },
+          {
+            "field": "vegetativeStage",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "栄養成長は非常に遅い",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "808-genetics-ogkb-gsc"
+            ]
+          },
+          {
+            "field": "training",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "LSTを好むと掲載",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "808-genetics-ogkb-gsc"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "収量は中程度",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "808-genetics-ogkb-gsc"
+            ]
+          },
+          {
+            "field": "environment",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "屋内・経験者向けと掲載",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "808-genetics-ogkb-gsc"
+            ]
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ogkb"
+        ],
+        "items": [
+          "terpinolene",
+          "myrcene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはOGKBにTerpinolene、Myrcene、Caryophylleneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "808-genetics-ogkb-gsc",
+          "high-times-do-si-dos-2016"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "808 GeneticsはOGKBという名称がOGKushBreathという人物／ハンドルに由来し、IC forumsで公開されたcutとして流通した経緯を説明しています。2016年にはHigh TimesがDo-Si-DosのGSC側親をOGKB Cutとして記録しており、OGKBがbreeding parentとして使われていたことを確認できます。正確な作出年・作出場所・originatorは今回の根拠から固定していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "808-genetics-ogkb-gsc",
+          "leafly-ogkb"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "808 Geneticsは独特のleaf-set、非常に詰まったinternode、GSC clone-only cutの中でも大きいcola表現を報告しています。Leaflyはdark green〜purpleの色調、orange hairs、trichome表現を掲載しています。色やcola表現を固定形質とは断定していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "OGKBはGirl Scout Cookiesから選ばれたclone-only cutとして確認できます。808 GeneticsはGSCのcutと明記し、High TimesもDo-Si-Dosの親をGirl Scout Cookies（OGKB Cut）と記録しています。CSWではOGKBを独立した選抜clone identityとして保持し、GSC内部の推測系譜へ置き換えません。",
+          "history": "808 GeneticsはOGKBという名称がOGKushBreathという人物／ハンドルに由来し、IC forumsで公開されたcutとして流通した経緯を説明しています。2016年にはHigh TimesがDo-Si-DosのGSC側親をOGKB Cutとして記録しており、OGKBがbreeding parentとして使われていたことを確認できます。正確な作出年・作出場所・originatorは今回の根拠から固定していません。",
+          "aromaNote": "808 Geneticsではgasとcookie dough、Leaflyではearthy・herbalにnutty・berryのニュアンスがOGKBの香りとして掲載されています。どちらにもCORE / ACCENTの明示階層はないため、同格のPROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはOGKBにTerpinolene、Myrcene、Caryophylleneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位へ昇格させずLISTEDとして扱っています。",
+          "morphologyNote": "808 Geneticsは独特のleaf-set、非常に詰まったinternode、GSC clone-only cutの中でも大きいcola表現を報告しています。Leaflyはdark green〜purpleの色調、orange hairs、trichome表現を掲載しています。色やcola表現を固定形質とは断定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/ogkb/primary.webp",
+          "alt": "OGKBのAI生成参考ビジュアル。dark green〜purpleの可変的な色調、orange hairs、trichome表現を根拠範囲内で反映し、主花全体とトップ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-23",
+      "updatedAt": "2026-09-23",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -24520,6 +25803,25 @@
     }
   ],
   "sources": {
+    "808-genetics-ogkb-gsc": {
+      "schemaVersion": 1,
+      "id": "808-genetics-ogkb-gsc",
+      "publisher": "808 Genetics",
+      "title": "OG KushBreath Cut Girl Scout Cookies",
+      "url": "https://808genetics.com/seeds/ogkb-gsc/",
+      "sourceType": "specialistArticle",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "history",
+        "aroma",
+        "cultivation",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
     "ace-seeds-about-2026": {
       "schemaVersion": 1,
       "id": "ace-seeds-about-2026",
@@ -25053,6 +26355,22 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "archive-face-off-og-bx2": {
+      "schemaVersion": 1,
+      "id": "archive-face-off-og-bx2",
+      "publisher": "Archive Seed Bank",
+      "title": "Face Off OG BX2",
+      "url": "https://archiveseedbank.com/products/face-off-og-bx2",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeding",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
     "archive-rainbow-belts-2-0": {
       "schemaVersion": 1,
       "id": "archive-rainbow-belts-2-0",
@@ -25359,6 +26677,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-13"
+    },
+    "conception-nurseries-gelato-33": {
+      "schemaVersion": 1,
+      "id": "conception-nurseries-gelato-33",
+      "publisher": "Conception Nurseries",
+      "title": "Gelato 33 (aka Larry Bird)",
+      "url": "https://conceptionnurseries.com/library/gelato-33/",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "cultivation",
+        "morphology",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
     },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
@@ -26143,6 +27480,23 @@
       "publishedAt": "2022-12-27",
       "checkedAt": "2026-09-16"
     },
+    "high-times-chem-d-25-years": {
+      "schemaVersion": 1,
+      "id": "high-times-chem-d-25-years",
+      "publisher": "High Times",
+      "title": "25 Years of Chem Dog",
+      "url": "https://hightimes.com/grow/25-years-of-chem-dog/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "aliases",
+        "breeding",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": "2016-09-07",
+      "checkedAt": "2026-09-23"
+    },
     "high-times-do-si-dos-2016": {
       "schemaVersion": 1,
       "id": "high-times-do-si-dos-2016",
@@ -26570,6 +27924,24 @@
       "publishedAt": null,
       "checkedAt": "2026-09-07"
     },
+    "leafly-chem-dog-d": {
+      "schemaVersion": 1,
+      "id": "leafly-chem-dog-d",
+      "publisher": "Leafly",
+      "title": "Chem Dog D Weed Strain Information",
+      "url": "https://www.leafly.com/strains/chem-dog-d",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "effects",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
     "leafly-cookies-cakes-sunset-sherbert-2024": {
       "schemaVersion": 1,
       "id": "leafly-cookies-cakes-sunset-sherbert-2024",
@@ -26644,6 +28016,65 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-07"
+    },
+    "leafly-face-off-og-bx1": {
+      "schemaVersion": 1,
+      "id": "leafly-face-off-og-bx1",
+      "publisher": "Leafly",
+      "title": "Face Off OG Bx1 Weed Strain Information",
+      "url": "https://www.leafly.com/strains/face-off-og-bx1",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "effects",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
+    "leafly-forum-cut-cookies": {
+      "schemaVersion": 1,
+      "id": "leafly-forum-cut-cookies",
+      "publisher": "Leafly",
+      "title": "Forum Cut Cookies Weed Strain Information",
+      "url": "https://www.leafly.com/strains/forum-cut-cookies",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "effects",
+        "terpenes",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
+    "leafly-gelato-33": {
+      "schemaVersion": 1,
+      "id": "leafly-gelato-33",
+      "publisher": "Leafly",
+      "title": "Gelato #33 aka Gelato Kush Weed Strain Information",
+      "url": "https://www.leafly.com/strains/gelato-33",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "effects",
+        "terpenes",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
     },
     "leafly-gsc": {
       "schemaVersion": 1,
@@ -26779,6 +28210,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "leafly-ogkb": {
+      "schemaVersion": 1,
+      "id": "leafly-ogkb",
+      "publisher": "Leafly",
+      "title": "OGKB aka OG Kush Breath, OGKKB Weed Strain Information",
+      "url": "https://www.leafly.com/strains/ogkb",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "aroma",
+        "flavor",
+        "effects",
+        "terpenes",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
     },
     "leafly-permanent-marker-grow-2023": {
       "schemaVersion": 1,
@@ -27036,6 +28487,27 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "lucky-dog-chem-d-current": {
+      "schemaVersion": 1,
+      "id": "lucky-dog-chem-d-current",
+      "publisher": "Lucky Dog Seed Co",
+      "title": "Chem D: the Chemdog sister, and what she actually is",
+      "url": "https://luckydogseedco.com/chem-d-strain-lucky-dog-seed-co/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "breeding",
+        "aroma",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
     },
     "lumpys-apple-fritter-creator": {
       "schemaVersion": 1,
@@ -27741,6 +29213,21 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "sherbinskis-gelato-33-weedmaps": {
+      "schemaVersion": 1,
+      "id": "sherbinskis-gelato-33-weedmaps",
+      "publisher": "Sherbinskis / Weedmaps",
+      "title": "Sherbinskis | Gelato 33 | Live Resin Cartridge | 1g",
+      "url": "https://weedmaps.com/brands/sherbinskis/products/sherbinskis-sherbinskis-gelato-33-live-resin-cartridge-1g",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "aroma"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
+    },
     "soft-secrets-frisian-duck-outdoor-2016": {
       "schemaVersion": 1,
       "id": "soft-secrets-frisian-duck-outdoor-2016",
@@ -27789,6 +29276,24 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "weedmaps-forum-cookies": {
+      "schemaVersion": 1,
+      "id": "weedmaps-forum-cookies",
+      "publisher": "Weedmaps",
+      "title": "Forum Cookies (aka GSC Forum Cut, Girl Scout Cookies Forum Cut, Forum Cut Cookies)",
+      "url": "https://weedmaps.com/strains/forum-cookies",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "history",
+        "flavor"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-23"
     },
     "weedmaps-gsc-current": {
       "schemaVersion": 1,
