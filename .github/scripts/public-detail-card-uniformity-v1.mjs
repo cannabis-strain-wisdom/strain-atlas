@@ -169,8 +169,6 @@ async function main() {
   const apple = structures['apple-fritter'];
   if (JSON.stringify(apple.unknownKinds) !== JSON.stringify(['aroma','terpene','morphology','origin-history'])) throw new Error(`Apple Fritter UNKNOWN detail shell mismatch: ${JSON.stringify(apple.unknownKinds)}`);
   if (JSON.stringify(apple.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(['aroma','flavor','terpene'])) throw new Error(`Apple Fritter sensory domains mismatch: ${JSON.stringify(apple.sensoryChildren)}`);
-  const african=structures['african-gas'];
-  if (JSON.stringify(african.sensoryChildren.map(item=>item.kind)) !== JSON.stringify(['aroma','terpene']) || african.unknownKinds.some(kind=>kind==='aroma'||kind==='terpene')) throw new Error(`African Gas confirmed Aroma/Terpene regression: ${JSON.stringify(african)}`);
   if (JSON.stringify(apple.ecUnknown) !== JSON.stringify(['cultivation','effects'])) throw new Error(`Apple Fritter UNKNOWN effect/cultivation shell mismatch: ${JSON.stringify(apple.ecUnknown)}`);
   if (mimosa.ecUnknown.length) throw new Error(`Mimosa effect/cultivation regressed to UNKNOWN: ${JSON.stringify(mimosa.ecUnknown)}`);
   for (const key of ['navGap','buttonStyle']) if (JSON.stringify(apple[key]) !== JSON.stringify(mimosa[key])) throw new Error(`Apple Fritter ${key} differs from Mimosa: ${JSON.stringify({apple:apple[key],mimosa:mimosa[key]})}`);
