@@ -388,7 +388,9 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const lineageCardBeforeFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
   if (!lineageCardBeforeFamilyTree) throw new Error('Lineage card missing before Family Tree open');
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
-  await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Do-Si-Dos Family Tree open');
+  await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Do-Si-Dos Family Tree open');
+  const familyTreeLayering = await evalv("(()=>{const tree=document.querySelector('.csw-family-tree-v1');const detail=document.getElementById('detail-dialog');const top=document.elementFromPoint(Math.floor(innerWidth/2),40);return {treeOpen:tree?.open===true,detailOpen:detail?.open===true,topInsideTree:!!top?.closest('.csw-family-tree-v1')}})()");
+  if (!familyTreeLayering.treeOpen || !familyTreeLayering.detailOpen || !familyTreeLayering.topInsideTree) throw new Error('Family Tree top-layer visibility guard failed: ' + JSON.stringify(familyTreeLayering));
 
   const familyTreeDoSiDos = await evalv("(()=>({state:window.__CSWFamilyTreeViewV1||null,center:document.querySelector('.csw-ft-node.is-current .csw-ft-copy strong')?.textContent||'',ogkb:!!document.querySelector('[data-ft-node-id=\"ogkb\"]'),faceOffBx1:!!document.querySelector('[data-ft-node-id=\"face-off-og-bx1\"]'),gsc:!!document.querySelector('[data-ft-node-id=\"girl-scout-cookies\"]'),faceOffUnknown:[...document.querySelectorAll('.csw-ft-node.is-unpublished strong')].some(n=>n.textContent==='Face Off OG'),labels:[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent),depths:[...document.querySelectorAll('.csw-ft-level')].map(n=>Number(n.dataset.depth)),pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}))()");
   if (familyTreeDoSiDos.center !== 'Do-Si-Dos') throw new Error('Do-Si-Dos Family Tree center mismatch: ' + JSON.stringify(familyTreeDoSiDos));
@@ -399,16 +401,21 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const doSiIdentityState = await evalv("(()=>{const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());const lineage=document.querySelector('#detail-shell .ucd-lineage > div');const entry=lineage?.querySelector('[data-family-tree-entry=\"v1\"]');const evidence=lineage?.querySelector(':scope > .ucd-evidence-row');return {keys,uniqueKeys:new Set(keys).size,aliasNode:names.includes('GSC'),unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,entryBeforeEvidence:!!entry&&!!evidence&&entry.nextElementSibling===evidence}})()");
   if (doSiIdentityState.keys.length!==doSiIdentityState.uniqueKeys || doSiIdentityState.aliasNode || doSiIdentityState.unpublishedClickable || !doSiIdentityState.entryBeforeEvidence) throw new Error('Family Tree identity/entry guard mismatch: ' + JSON.stringify(doSiIdentityState));
 
+  await evalv("document.querySelector('.csw-ft-close').click();true");
+  await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open!==true && document.getElementById('detail-dialog')?.open===true"), 'Family Tree close returns to detail');
+  await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
+  await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && !!document.elementFromPoint(Math.floor(innerWidth/2),40)?.closest('.csw-family-tree-v1')"), 'Family Tree reopen above detail');
+
   await evalv("document.querySelector('[data-ft-node-id=\"ogkb\"]').click();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='ogkb' && !!document.querySelector('.detail-public-v1[data-public-detail-id=\"ogkb\"],.ucd-root[data-public-detail-id=\"ogkb\"]')"), 'Family Tree OGKB node navigation');
   await evalv("history.back();true");
-  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='do-si-dos' && !document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Family Tree back-state restoration');
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='do-si-dos' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Family Tree back-state restoration');
 
   await cdp.send('Page.navigate', { url: baseUrl + '?strain=skunk-1' });
   await waitFor(() => evalv("document.readyState==='complete'"), 'Skunk #1 family tree document complete');
   await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), 'Skunk #1 family tree entry');
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
-  await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
+  await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
   const collapsedFamilyBranch = await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]')?.textContent||''");
   if (collapsedFamilyBranch !== 'さらに1件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
   await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
@@ -417,7 +424,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv("document.querySelector('[data-ft-node-id=\"super-skunk\"]').click();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='super-skunk'"), 'Skunk #1 child navigation');
   await evalv("history.back();true");
-  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && !document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 expanded-state restoration');
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 expanded-state restoration');
   await waitFor(() => evalv("Math.abs((document.querySelector('.csw-ft-viewport')?.scrollLeft||0)-" + skunkScrollBefore + ")<=2"), 'Skunk #1 scroll restoration');
 
   const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
@@ -427,7 +434,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await waitFor(() => evalv("document.readyState==='complete'"), familyId + ' Family Tree document complete');
     await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), familyId + ' Family Tree entry');
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
-    await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='" + familyId + "'"), familyId + ' Family Tree open');
+    await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='" + familyId + "'"), familyId + ' Family Tree open');
     const state = await evalv("window.__CSWFamilyTreeViewV1");
     if (!state || state.status !== 'PASS' || state.maxDepth !== 2 || state.branchLimit !== 3) throw new Error(familyId + ' Family Tree state invalid: ' + JSON.stringify(state));
     familyTreeResults.push({ id: familyId, nodes: state.nodeCount, edges: state.edgeCount });
@@ -445,7 +452,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await waitFor(() => evalv("document.readyState==='complete'"), testCase.id + ' typed Family Tree document complete');
     await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), testCase.id + ' typed Family Tree entry');
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
-    await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='" + testCase.id + "'"), testCase.id + ' typed Family Tree open');
+    await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='" + testCase.id + "'"), testCase.id + ' typed Family Tree open');
     const typedState = await evalv("(()=>{const state=window.__CSWFamilyTreeViewV1||null;const labels=[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent);const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());return {state,labels,keys,uniqueKeys:new Set(keys).size,names,unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}})()");
     if (!typedState.state?.relationTypes?.includes(testCase.type) || !typedState.labels.includes(testCase.label)) throw new Error(testCase.id + ' typed relation missing: ' + JSON.stringify(typedState));
     if (typedState.keys.length!==typedState.uniqueKeys || typedState.unpublishedClickable || typedState.pageOverflow) throw new Error(testCase.id + ' identity/mobile guard mismatch: ' + JSON.stringify(typedState));
