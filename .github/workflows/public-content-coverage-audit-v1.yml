@@ -1,0 +1,279 @@
+name: Public content coverage audit V1
+
+on:
+  push:
+    branches:
+      - audit/public-content-coverage-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: csw-public-content-coverage-audit-v1
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Stage current public site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _qa/runtime _qa/production _qa/assets
+          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _qa/
+          install -m 0644 runtime/catalog.json _qa/runtime/catalog.json
+          install -m 0644 production/publication.json _qa/production/publication.json
+          rsync -a assets/ _qa/assets/
+          python3 <<'PY'
+          from pathlib import Path
+          path=Path('_qa/index.html')
+          html=path.read_text(encoding='utf-8')
+          scripts=[]
+          for src in ['detail-share-v2.js','detail-interaction-v1.js','name-relationships-v1.js']:
+              if src not in html:
+                  scripts.append(f'  <script defer src="{src}"></script>')
+          if scripts:
+              if html.count('</body>') != 1:
+                  raise SystemExit('Expected exactly one closing body tag')
+              html=html.replace('</body>','\n'.join(scripts)+'\n</body>',1)
+          path.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Audit all 84 cultivars for supported content not presented
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="${CHROME_BIN:-}"
+          if [ -z "$CHROME_BIN" ] || [ ! -x "$CHROME_BIN" ]; then
+            CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || command -v google-chrome-stable || true)"
+          fi
+          test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found' >&2; exit 1; }
+
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/_qa" >"$RUNNER_TEMP/csw-content-audit-http.log" 2>&1 &
+          SERVER_PID=$!
+          cleanup() { kill "$SERVER_PID" 2>/dev/null || true; }
+          trap cleanup EXIT
+          for n in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.25
+          done
+
+          OUT="$RUNNER_TEMP/csw-content-coverage"
+          mkdir -p "$OUT"
+          CHROME_BIN="$CHROME_BIN" OUT_DIR="$OUT" node --input-type=module <<'NODE'
+          import { spawn } from 'node:child_process';
+          import fs from 'node:fs';
+          import os from 'node:os';
+          import path from 'node:path';
+
+          const baseUrl='http://127.0.0.1:4173/';
+          const chrome=process.env.CHROME_BIN;
+          const out=process.env.OUT_DIR;
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function getJson(url){const r=await fetch(url);if(!r.ok)throw new Error(url+' HTTP '+r.status);return r.json()}
+          async function waitFor(fn,label,timeout=20000){
+            const start=Date.now();let last;
+            while(Date.now()-start<timeout){
+              try{last=await fn();if(last)return last}catch(e){last=e}
+              await sleep(80);
+            }
+            throw new Error('Timeout '+label+(last instanceof Error?': '+last.message:''));
+          }
+          class CDP{
+            constructor(url){this.ws=new WebSocket(url);this.id=0;this.pending=new Map();this.exceptions=[]}
+            async open(){
+              await new Promise((resolve,reject)=>{this.ws.addEventListener('open',resolve,{once:true});this.ws.addEventListener('error',reject,{once:true})});
+              this.ws.addEventListener('message',e=>{
+                const m=JSON.parse(e.data);
+                if(m.id){const p=this.pending.get(m.id);if(!p)return;this.pending.delete(m.id);m.error?p.reject(new Error(JSON.stringify(m.error))):p.resolve(m.result);return}
+                if(m.method==='Runtime.exceptionThrown')this.exceptions.push(m)
+              });
+            }
+            send(method,params={}){const id=++this.id;return new Promise((resolve,reject)=>{this.pending.set(id,{resolve,reject});this.ws.send(JSON.stringify({id,method,params}))})}
+            close(){this.ws.close()}
+          }
+
+          const profile=fs.mkdtempSync(path.join(os.tmpdir(),'csw-content-coverage-'));
+          const proc=spawn(chrome,['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--remote-debugging-port=9291',`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','pipe','pipe']});
+          let stderr='';proc.stderr.on('data',d=>stderr+=d.toString());
+
+          const norm=s=>String(s??'').replace(/\s+/g,' ').trim();
+          const supported=x=>x&&['confirmed','disputed'].includes(x.status);
+          const values=x=>Array.isArray(x)?x.filter(v=>norm(v)):[];
+
+          function expectedFor(c){
+            const e=[];
+            const add=(domain,label,value,kind='text')=>{const v=norm(value);if(v)e.push({domain,label,value:v,kind})};
+
+            if(supported(c.lineage)){
+              add('lineage','display',c.lineage.display);
+              if(c.id==='do-si-dos'){
+                add('lineage','narrative','OGKBはCookies / GSC側の系統、Face Off OG BX1はOG側のbreeding lineとして上流につながります。CSWではOGKBをGirl Scout Cookiesへ、Face Off OG BX1をOG Kushへ置き換えず、確認されたdirect parent名をそのまま保持しています。');
+              } else {
+                add('lineage','narrative',c.publicContent?.ja?.lineageNote||c.lineage?.presentation?.textJa);
+              }
+              for(const alias of values(c.aliases)) add('lineage','alias',alias);
+            }
+
+            if(supported(c.aromas) && c.aromas?.presentation?.mode!=='hidden'){
+              add('aroma','note',c.publicContent?.ja?.aromaNote||c.aromas?.presentation?.noteJa);
+              const p=c.aromas?.presentation||{};
+              const details=[...(p.details||[]),...(p.coreDetails||[]),...(p.accentDetails||[])];
+              for(const d of details){
+                add('aroma','rawMatch',d?.rawMatch,'ci');
+                add('aroma','plainMeaningJa',d?.plainMeaningJa);
+              }
+            }
+
+            if(supported(c.flavors) && values(c.flavors.items).length){
+              for(const item of values(c.flavors.items)) add('flavor','item',item);
+              add('flavor','note',c.publicContent?.ja?.flavorNote||c.flavors?.note);
+            }
+
+            if(supported(c.terpenes) && c.terpenes?.presentation?.mode!=='hidden'){
+              for(const item of values(c.terpenes?.presentation?.items)){
+                if(typeof item==='string') add('terpene','item',item);
+                else {
+                  add('terpene','labelJa',item?.labelJa);
+                  add('terpene','valueText',item?.valueText);
+                  add('terpene','levelJa',item?.levelJa);
+                }
+              }
+              add('terpene','note',c.publicContent?.ja?.terpeneNote||c.terpenes?.presentation?.noteJa);
+            }
+
+            const cannabinoidItems=values(c.cannabinoids?.presentation?.items);
+            if(c.cannabinoids?.presentation?.mode==='values' && cannabinoidItems.length){
+              for(const item of cannabinoidItems){
+                add('cannabinoid','label',item?.label);
+                add('cannabinoid','valueText',item?.valueText);
+              }
+            }
+
+            if(supported(c.origin)) add('origin','narrative',c.publicContent?.ja?.origin||c.origin?.presentation?.textJa);
+            if(supported(c.history)) add('history','narrative',c.publicContent?.ja?.history||c.history?.presentation?.textJa);
+            if(supported(c.morphology) && c.morphology?.presentation?.mode==='summary') add('morphology','summary',c.publicContent?.ja?.morphologyNote||c.morphology?.presentation?.textJa);
+            if(supported(c.positioning)) add('positioning','narrative',c.publicContent?.ja?.positioning||c.positioning?.presentation?.textJa);
+
+            if(supported(c.effects) && values(c.effects.items).length){
+              for(const item of values(c.effects.items)) add('effects','item',item);
+            }
+            if(supported(c.cultivation) && values(c.cultivation.observations).length){
+              for(const o of c.cultivation.observations||[]) add('cultivation','displayText',o?.displayText);
+            }
+
+            const ratio=c.classification?.ratio;
+            if(ratio&&supported(ratio)&&ratio.measurement){
+              const m=ratio.measurement;
+              if(Number.isFinite(m.sativa)) add('type','sativa',String(m.sativa),'number');
+              if(Number.isFinite(m.indica)) add('type','indica',String(m.indica),'number');
+            }
+            return e;
+          }
+
+          await waitFor(async()=>{try{return await getJson('http://127.0.0.1:9291/json/version')}catch{return false}},'Chrome');
+          const pages=await getJson('http://127.0.0.1:9291/json/list');
+          const page=pages.find(x=>x.type==='page');if(!page)throw new Error('No page target');
+          const cdp=new CDP(page.webSocketDebuggerUrl);await cdp.open();await cdp.send('Page.enable');await cdp.send('Runtime.enable');
+          await cdp.send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
+          const evalv=async expression=>{const r=await cdp.send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(r.exceptionDetails.text);return r.result.value};
+
+          const catalog=await getJson(baseUrl+'runtime/catalog.json');
+          const cultivars=catalog.cultivars||[];
+          if(cultivars.length!==84)throw new Error('Expected 84 cultivars, got '+cultivars.length);
+          const report=[];
+          let totalExpected=0,totalMissing=0;
+
+          try{
+            for(const c of cultivars){
+              cdp.exceptions.length=0;
+              await cdp.send('Page.navigate',{url:baseUrl+'?strain='+encodeURIComponent(c.id)});
+              await waitFor(()=>evalv(`document.readyState==='complete'`),c.id+' document');
+              await waitFor(()=>evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id="${c.id}"],.ucd-root[data-public-detail-id="${c.id}"]');return !!r&&r.dataset.publicPresentationReady==='true'&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'&&r.dataset.cswStagedEffectCultivation==='v1'})()`),c.id+' presentation');
+
+              const state=await evalv(`(()=>{
+                const root=document.querySelector('.detail-public-v1[data-public-detail-id="${c.id}"],.ucd-root[data-public-detail-id="${c.id}"]');
+                const lineage=document.querySelector('#detail-shell .ucd-lineage');
+                const text=s=>String(s||'').replace(/\\s+/g,' ').trim();
+                const full=text((root?.textContent||'')+' '+(lineage?.textContent||''));
+                const panelText={};
+                for(const kind of ['aroma','flavor','terpene','morphology','origin-history','positioning','effect-cultivation']){
+                  const panels=[...root.querySelectorAll('[data-profile-kind="'+kind+'"],[data-ucd-panel="'+kind+'"]')];
+                  panelText[kind]=text(panels.map(x=>x.textContent||'').join(' '));
+                }
+                panelText.lineage=text(lineage?.textContent||'');
+                const primary={};
+                for(const kind of ['type','cannabinoid']){
+                  const p=root.querySelector('[data-ucd-primary-panel="'+kind+'"]');
+                  primary[kind]=text(p?.textContent||'');
+                }
+                const sensory={};
+                for(const kind of ['aroma','flavor','terpene']){
+                  const b=root.querySelector('[data-csw-staged-sensory-sub="'+kind+'"]');
+                  sensory[kind]=b?{state:b.dataset.cswDetailState||'',disabled:b.disabled===true,ariaDisabled:b.getAttribute('aria-disabled')||''}:null;
+                }
+                return {full,panelText,primary,sensory,overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1};
+              })()`);
+
+              const expected=expectedFor(c);
+              totalExpected+=expected.length;
+              const missing=[];
+              const domainText={
+                lineage:state.panelText.lineage||state.full,
+                aroma:state.panelText.aroma||state.full,
+                flavor:state.panelText.flavor||state.full,
+                terpene:state.panelText.terpene||state.full,
+                cannabinoid:state.primary.cannabinoid||state.full,
+                type:state.primary.type||state.full,
+                origin:state.panelText['origin-history']||state.full,
+                history:state.panelText['origin-history']||state.full,
+                morphology:state.panelText.morphology||state.full,
+                positioning:state.panelText['origin-history']||state.panelText.positioning||state.full,
+                effects:state.panelText['effect-cultivation']||state.full,
+                cultivation:state.panelText['effect-cultivation']||state.full,
+              };
+              for(const x of expected){
+                const hay=norm(domainText[x.domain]||state.full);
+                let ok=false;
+                if(x.kind==='ci') ok=hay.toLowerCase().includes(x.value.toLowerCase());
+                else if(x.kind==='number') ok=new RegExp('(^|[^0-9])'+x.value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^0-9]|$)').test(hay);
+                else ok=hay.includes(x.value);
+                if(!ok)missing.push(x);
+              }
+              for(const kind of ['aroma','flavor','terpene']){
+                const claim=c[kind==='flavor'?'flavors':kind==='aroma'?'aromas':'terpenes'];
+                const shouldActive=supported(claim) && (kind!=='flavor'||values(claim?.items).length>0) && (kind!=='terpene'||claim?.presentation?.mode!=='hidden');
+                if(shouldActive){
+                  const s=state.sensory[kind];
+                  if(!s||s.state!=='active'||s.disabled||s.ariaDisabled==='true')missing.push({domain:kind,label:'ACTIVE_STATE',value:'active'});
+                }
+              }
+              if(state.overflow)missing.push({domain:'layout',label:'390px overflow',value:'false'});
+              if(cdp.exceptions.length)missing.push({domain:'runtime',label:'exceptions',value:String(cdp.exceptions.length)});
+              totalMissing+=missing.length;
+              report.push({id:c.id,expected:expected.length,missing});
+              console.log(JSON.stringify({id:c.id,expected:expected.length,missing:missing.length}));
+            }
+          } finally {
+            cdp.close();proc.kill('SIGTERM');
+          }
+          const failures=report.filter(x=>x.missing.length);
+          const summary={status:failures.length?'GAPS_FOUND':'PASS',cultivars:cultivars.length,totalExpected,totalMissing,cultivarsWithGaps:failures.length,failures,report};
+          fs.writeFileSync(path.join(out,'public-content-coverage-audit.json'),JSON.stringify(summary,null,2)+'\n');
+          console.log(JSON.stringify({status:summary.status,cultivars:summary.cultivars,totalExpected,totalMissing,cultivarsWithGaps:failures.length},null,2));
+          if(stderr)console.error(stderr.slice(-2000));
+          NODE
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: public-content-coverage-audit-${{ github.sha }}
+          path: ${{ runner.temp }}/csw-content-coverage
+          if-no-files-found: error
+          retention-days: 7
