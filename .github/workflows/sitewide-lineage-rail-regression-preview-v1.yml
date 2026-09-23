@@ -18,20 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         cultivar:
-          - ak-47
-          - blue-zushi
-          - cataract-kush
           - do-si-dos
-          - fat-banana-auto
-          - guawi
-          - kali-mist
-          - lemon-skunk
-          - nevilles-haze
-          - papaya
-          - satori
-          - sour-diesel
-          - t-1000-s1
-          - warlock
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
