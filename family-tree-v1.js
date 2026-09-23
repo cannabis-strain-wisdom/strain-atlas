@@ -35,6 +35,17 @@
     ['gelato 33>lemon-cherry-gelato', { type: 'other', label: 'bagseed', guard: /bagseed/i }]
   ]);
 
+  const PUBLIC_RELATION_LABELS = new Map([
+    ['parent', '親'],
+    ['selected cut', '選抜クローン'],
+    ['selected phenotype', '選抜個体'],
+    ['selected line', '選抜系統'],
+    ['S1', 'S1'],
+    ['BX', 'BX'],
+    ['bagseed', 'バッグシード']
+  ]);
+  const publicRelationLabel = relation => PUBLIC_RELATION_LABELS.get(text(relation?.label)) || text(relation?.label);
+
   let catalogPromise;
   const loadCatalog = () => {
     if (window.__CSWRuntimeCatalogPromise && typeof window.__CSWRuntimeCatalogPromise.then === 'function') {
@@ -256,7 +267,7 @@
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', '家系図ビュー');
-    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="家系図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">家系図</strong></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで parent / selected cut / selected phenotype / selected line / S1 / BX / bagseed などの意味を区別します。</footer>';
+    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="家系図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">家系図</strong></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで 親 / 選抜クローン / 選抜個体 / 選抜系統 / S1 / BX / バッグシード などの意味を区別します。</footer>';
     document.body.appendChild(overlay);
     viewport = overlay.querySelector('.csw-ft-viewport');
     stage = overlay.querySelector('.csw-ft-stage');
@@ -349,7 +360,7 @@
       svg.appendChild(path);
       const label = document.createElement('span');
       label.className = 'csw-ft-edge-label';
-      label.textContent = edge.relation.label;
+      label.textContent = publicRelationLabel(edge.relation);
       label.style.left = ((x1 + x2) / 2) + 'px';
       label.style.top = mid + 'px';
       stage.appendChild(label);
@@ -385,7 +396,7 @@
       const name = document.createElement('strong');
       name.textContent = node.label;
       const meta = document.createElement('small');
-      meta.textContent = node.depth === 0 ? 'CURRENT' : 'CSW';
+      meta.textContent = node.depth === 0 ? '現在表示中' : 'CSW';
       copy.append(name, meta);
       control.appendChild(copy);
     } else {

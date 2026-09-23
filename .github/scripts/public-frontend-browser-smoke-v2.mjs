@@ -380,6 +380,21 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   if (!ogRelationshipState.evidenceLast) throw new Error('OG Kush lineage evidence footer not last');
   if (ogRelationshipState.overflow) throw new Error('OG Kush typed relationship presentation overflow');
 
+  const familyTreeSource = fs.readFileSync('family-tree-v1.js', 'utf8');
+  const familyTreeInternalRelationInvariants = [
+    "type: 'selected-cut', label: 'selected cut'",
+    "type: 'selected-phenotype', label: 'selected phenotype'",
+    "type: 'selected-line', label: 'selected line'",
+    "type: 'bx', label: 'BX'",
+    "type: 'other', label: 'bagseed'",
+    "type: 'selection', label: 'selected line'",
+    "type: 's1', label: 'S1'",
+    "type: 'parent', label: 'parent'"
+  ];
+  for (const invariant of familyTreeInternalRelationInvariants) {
+    if (!familyTreeSource.includes(invariant)) throw new Error('Family Tree internal relation semantics changed: ' + invariant);
+  }
+
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
 
   await cdp.send('Page.navigate', { url: baseUrl + '?strain=do-si-dos' });
@@ -392,10 +407,14 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const familyTreeLayering = await evalv("(()=>{const tree=document.querySelector('.csw-family-tree-v1');const detail=document.getElementById('detail-dialog');const top=document.elementFromPoint(Math.floor(innerWidth/2),40);return {treeOpen:tree?.open===true,detailOpen:detail?.open===true,topInsideTree:!!top?.closest('.csw-family-tree-v1')}})()");
   if (!familyTreeLayering.treeOpen || !familyTreeLayering.detailOpen || !familyTreeLayering.topInsideTree) throw new Error('Family Tree top-layer visibility guard failed: ' + JSON.stringify(familyTreeLayering));
 
-  const familyTreeDoSiDos = await evalv("(()=>({state:window.__CSWFamilyTreeViewV1||null,center:document.querySelector('.csw-ft-node.is-current .csw-ft-copy strong')?.textContent||'',ogkb:!!document.querySelector('[data-ft-node-id=\"ogkb\"]'),faceOffBx1:!!document.querySelector('[data-ft-node-id=\"face-off-og-bx1\"]'),gsc:!!document.querySelector('[data-ft-node-id=\"girl-scout-cookies\"]'),faceOffUnknown:[...document.querySelectorAll('.csw-ft-node.is-unpublished strong')].some(n=>n.textContent==='Face Off OG'),labels:[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent),depths:[...document.querySelectorAll('.csw-ft-level')].map(n=>Number(n.dataset.depth)),pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}))()");
+  const familyTreeDoSiDos = await evalv("(()=>({state:window.__CSWFamilyTreeViewV1||null,center:document.querySelector('.csw-ft-node.is-current .csw-ft-copy strong')?.textContent||'',currentMeta:document.querySelector('.csw-ft-node.is-current .csw-ft-copy small')?.textContent||'',cswMetaCount:[...document.querySelectorAll('.csw-ft-node:not(.is-current) .csw-ft-copy small')].filter(n=>n.textContent==='CSW').length,footer:document.querySelector('.csw-ft-footer')?.textContent||'',ogkb:!!document.querySelector('[data-ft-node-id=\"ogkb\"]'),faceOffBx1:!!document.querySelector('[data-ft-node-id=\"face-off-og-bx1\"]'),gsc:!!document.querySelector('[data-ft-node-id=\"girl-scout-cookies\"]'),faceOffUnknown:[...document.querySelectorAll('.csw-ft-node.is-unpublished strong')].some(n=>n.textContent==='Face Off OG'),labels:[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent),depths:[...document.querySelectorAll('.csw-ft-level')].map(n=>Number(n.dataset.depth)),pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}))()");
   if (familyTreeDoSiDos.center !== 'Do-Si-Dos') throw new Error('Do-Si-Dos Family Tree center mismatch: ' + JSON.stringify(familyTreeDoSiDos));
   if (!familyTreeDoSiDos.ogkb || !familyTreeDoSiDos.faceOffBx1 || !familyTreeDoSiDos.gsc || !familyTreeDoSiDos.faceOffUnknown) throw new Error('Do-Si-Dos Family Tree node coverage incomplete: ' + JSON.stringify(familyTreeDoSiDos));
-  if (!familyTreeDoSiDos.labels.includes('selected cut') || !familyTreeDoSiDos.labels.includes('BX') || !familyTreeDoSiDos.labels.includes('parent')) throw new Error('Family Tree relation labels incomplete: ' + JSON.stringify(familyTreeDoSiDos.labels));
+  if (!familyTreeDoSiDos.labels.includes('選抜クローン') || !familyTreeDoSiDos.labels.includes('BX') || !familyTreeDoSiDos.labels.includes('親')) throw new Error('Family Tree relation labels incomplete: ' + JSON.stringify(familyTreeDoSiDos.labels));
+  if (familyTreeDoSiDos.currentMeta !== '現在表示中' || familyTreeDoSiDos.cswMetaCount < 1) throw new Error('Family Tree current/CSW node labels invalid: ' + JSON.stringify(familyTreeDoSiDos));
+  for (const requiredLabel of ['親','選抜クローン','選抜個体','選抜系統','S1','BX','バッグシード']) {
+    if (!familyTreeDoSiDos.footer.includes(requiredLabel)) throw new Error('Family Tree Japanese footer missing: ' + requiredLabel);
+  }
   if (familyTreeDoSiDos.depths.some(depth => Math.abs(depth) > 2)) throw new Error('Family Tree depth exceeded: ' + JSON.stringify(familyTreeDoSiDos.depths));
   if (familyTreeDoSiDos.pageOverflow) throw new Error('Family Tree causes page-level horizontal overflow at 390px');
   const doSiIdentityState = await evalv("(()=>{const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());const lineage=document.querySelector('#detail-shell .ucd-lineage > div');const entry=lineage?.querySelector('[data-family-tree-entry=\"v1\"]');const evidence=lineage?.querySelector(':scope > .ucd-evidence-row');return {keys,uniqueKeys:new Set(keys).size,aliasNode:names.includes('GSC'),unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,entryBeforeEvidence:!!entry&&!!evidence&&entry.parentElement===lineage&&evidence.parentElement===lineage&&lineage.lastElementChild===evidence&&Boolean(entry.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING)}})()");
@@ -441,10 +460,11 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   }
   const typedFamilyTreeCases = [
     { id: 'triangle-kush-s1', type: 's1', label: 'S1' },
-    { id: 'gmo-cookies', type: 'selected-line', label: 'selected line' },
-    { id: 'lemon-cherry-gelato', type: 'other', label: 'bagseed' },
-    { id: 'og-kush', type: 'selection', label: 'selected line' },
-    { id: 'gelato-33', type: 'selected-phenotype', label: 'selected phenotype', forbiddenName: 'Gelato' }
+    { id: 'face-off-og-bx1', type: 'bx', label: 'BX' },
+    { id: 'gmo-cookies', type: 'selected-line', label: '選抜系統' },
+    { id: 'lemon-cherry-gelato', type: 'other', label: 'バッグシード' },
+    { id: 'og-kush', type: 'selection', label: '選抜系統' },
+    { id: 'gelato-33', type: 'selected-phenotype', label: '選抜個体', forbiddenName: 'Gelato' }
   ];
   const typedFamilyTreeResults = [];
   for (const testCase of typedFamilyTreeCases) {
