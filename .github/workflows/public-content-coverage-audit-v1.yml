@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: csw-public-content-coverage-audit-v2
+  group: csw-public-content-coverage-audit-v3
   cancel-in-progress: true
 
 jobs:
