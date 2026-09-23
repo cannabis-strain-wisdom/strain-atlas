@@ -256,7 +256,7 @@ jobs:
               if(state.overflow)missing.push({domain:'layout',label:'390px overflow',value:'false'});
               if(cdp.exceptions.length)missing.push({domain:'runtime',label:'exceptions',value:String(cdp.exceptions.length)});
               totalMissing+=missing.length;
-              report.push({id:c.id,expected:expected.length,missing});
+              report.push({id:c.id,expected:expected.length,missing,terpeneText:state.panelText.terpene||''});
               console.log(JSON.stringify({id:c.id,expected:expected.length,missing:missing.length}));
             }
           } finally {
