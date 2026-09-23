@@ -115,7 +115,8 @@
     const panel = root.querySelector('[data-profile-kind="terpene"]');
     const paragraph = panel?.querySelector('p');
     if (!paragraph) return false;
-    paragraph.textContent = '公式資料で個別のテルペン名が確認されています。個別の含有量や順位は確認できていないため、成分名のみ掲載しています。';
+    const note = String(cultivar?.terpenes?.presentation?.noteJa || cultivar?.publicContent?.ja?.terpeneNote || '').trim();
+    if (note && paragraph.textContent !== note) paragraph.textContent = note;
     panel.dataset.terpeneListedClarified = 'v1';
     return true;
   };
