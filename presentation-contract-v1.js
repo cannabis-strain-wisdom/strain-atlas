@@ -402,7 +402,12 @@
   `; document.head.appendChild(style);
   let scheduled = false;
   const schedule = () => { if (scheduled) return; scheduled = true; queueMicrotask(() => { scheduled = false; govern().catch(error => { window.__CSWPublicPresentationContractV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) }; console.error('PUBLIC_PRESENTATION_CONTRACT_V1', error); }); }); };
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true }); schedule();
+  new MutationObserver(schedule).observe(shell, { childList: true });
+  shell.addEventListener('click', schedule, true);
+  window.addEventListener('popstate', schedule);
+  schedule();
+  setTimeout(schedule, 250);
+  setTimeout(schedule, 1000);
 })();
 
 ;(()=>{"use strict";
