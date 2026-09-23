@@ -380,10 +380,57 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   if (!ogRelationshipState.evidenceLast) throw new Error('OG Kush lineage evidence footer not last');
   if (ogRelationshipState.overflow) throw new Error('OG Kush typed relationship presentation overflow');
 
+  await cdp.send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+
+  await cdp.send('Page.navigate', { url: baseUrl + '?strain=do-si-dos' });
+  await waitFor(() => evalv("document.readyState==='complete'"), 'Do-Si-Dos family tree document complete');
+  await waitFor(() => evalv("!!document.querySelector('.detail-public-v1[data-public-detail-id=\"do-si-dos\"],.ucd-root[data-public-detail-id=\"do-si-dos\"]') && !!document.querySelector('[data-family-tree-entry=\"v1\"]')"), 'Do-Si-Dos family tree entry');
+  const lineageCardBeforeFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
+  if (!lineageCardBeforeFamilyTree) throw new Error('Lineage card missing before Family Tree open');
+  await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
+  await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Do-Si-Dos Family Tree open');
+
+  const familyTreeDoSiDos = await evalv("(()=>({state:window.__CSWFamilyTreeViewV1||null,center:document.querySelector('.csw-ft-node.is-current .csw-ft-copy strong')?.textContent||'',ogkb:!!document.querySelector('[data-ft-node-id=\"ogkb\"]'),faceOffBx1:!!document.querySelector('[data-ft-node-id=\"face-off-og-bx1\"]'),gsc:!!document.querySelector('[data-ft-node-id=\"girl-scout-cookies\"]'),faceOffUnknown:[...document.querySelectorAll('.csw-ft-node.is-unpublished strong')].some(n=>n.textContent==='Face Off OG'),labels:[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent),depths:[...document.querySelectorAll('.csw-ft-level')].map(n=>Number(n.dataset.depth)),pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}))()");
+  if (familyTreeDoSiDos.center !== 'Do-Si-Dos') throw new Error('Do-Si-Dos Family Tree center mismatch: ' + JSON.stringify(familyTreeDoSiDos));
+  if (!familyTreeDoSiDos.ogkb || !familyTreeDoSiDos.faceOffBx1 || !familyTreeDoSiDos.gsc || !familyTreeDoSiDos.faceOffUnknown) throw new Error('Do-Si-Dos Family Tree node coverage incomplete: ' + JSON.stringify(familyTreeDoSiDos));
+  if (!familyTreeDoSiDos.labels.includes('selected cut') || !familyTreeDoSiDos.labels.includes('BX') || !familyTreeDoSiDos.labels.includes('parent')) throw new Error('Family Tree relation labels incomplete: ' + JSON.stringify(familyTreeDoSiDos.labels));
+  if (familyTreeDoSiDos.depths.some(depth => Math.abs(depth) > 2)) throw new Error('Family Tree depth exceeded: ' + JSON.stringify(familyTreeDoSiDos.depths));
+  if (familyTreeDoSiDos.pageOverflow) throw new Error('Family Tree causes page-level horizontal overflow at 390px');
+
+  await evalv("document.querySelector('[data-ft-node-id=\"ogkb\"]').click();true");
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='ogkb' && !!document.querySelector('.detail-public-v1[data-public-detail-id=\"ogkb\"],.ucd-root[data-public-detail-id=\"ogkb\"]')"), 'Family Tree OGKB node navigation');
+  await evalv("history.back();true");
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='do-si-dos' && !document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Family Tree back-state restoration');
+
+  await cdp.send('Page.navigate', { url: baseUrl + '?strain=skunk-1' });
+  await waitFor(() => evalv("document.readyState==='complete'"), 'Skunk #1 family tree document complete');
+  await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), 'Skunk #1 family tree entry');
+  await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
+  await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
+  const collapsedFamilyBranch = await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]')?.textContent||''");
+  if (collapsedFamilyBranch !== 'さらに1件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
+  await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
+  await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 Family Tree branch expansion');
+
+  const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
+  const familyTreeResults = [];
+  for (const familyId of familyTreeCases) {
+    await cdp.send('Page.navigate', { url: baseUrl + '?strain=' + encodeURIComponent(familyId) });
+    await waitFor(() => evalv("document.readyState==='complete'"), familyId + ' Family Tree document complete');
+    await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), familyId + ' Family Tree entry');
+    await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
+    await waitFor(() => evalv("!document.querySelector('.csw-family-tree-v1')?.hidden && window.__CSWFamilyTreeViewV1?.centerId==='" + familyId + "'"), familyId + ' Family Tree open');
+    const state = await evalv("window.__CSWFamilyTreeViewV1");
+    if (!state || state.status !== 'PASS' || state.maxDepth !== 2 || state.branchLimit !== 3) throw new Error(familyId + ' Family Tree state invalid: ' + JSON.stringify(state));
+    familyTreeResults.push({ id: familyId, nodes: state.nodeCount, edges: state.edgeCount });
+  }
+  const lineageCardAfterFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
+  if (!lineageCardAfterFamilyTree) throw new Error('Lineage card missing after Family Tree interactions');
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,runtimeErrors:0}, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,familyTreeDoSiDos,familyTreeResults,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 
