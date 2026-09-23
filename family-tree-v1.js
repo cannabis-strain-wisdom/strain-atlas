@@ -24,14 +24,6 @@
     ['girl scout cookies>ogkb', { type: 'selected-cut', label: 'selected cut', guard: /clone-only cut/i }],
     ['girl scout cookies>forum-gsc', { type: 'selected-cut', label: 'selected cut', guard: /selected GSC cut|Forum cut/i }],
     ['face off og>face-off-og-bx1', { type: 'bx', label: 'BX', guard: /backcross family/i }],
-    ['sunset sherbert>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
-    ['thin mint gsc>gelato-33', { type: 'selected-phenotype', label: 'selected phenotype', guard: /pheno-hunt|keeper|選抜個体/i }],
-    ['chem d>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
-    ['forum gsc>gmo-cookies', { type: 'selected-line', label: 'selected line', guard: /選抜された/i }],
-    ['pink guava>rainbow-sherbert-11', { type: 'selected-phenotype', label: 'selected phenotype', guard: /#11.*選抜|選抜.*#11/i }],
-    ['sunset sherbert>rainbow-sherbert-11', { type: 'selected-phenotype', label: 'selected phenotype', guard: /#11.*選抜|選抜.*#11/i }],
-    ['black cherry punch>super-boof', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜した個体/i }],
-    ['tropicana cookies>super-boof', { type: 'selected-phenotype', label: 'selected phenotype', guard: /選抜した個体/i }],
     ['gelato 33>lemon-cherry-gelato', { type: 'other', label: 'bagseed', guard: /bagseed/i }]
   ]);
 
@@ -89,8 +81,12 @@
       const childId = key.slice(splitAt + 1);
       const child = byId.get(childId);
       if (!child) continue;
-      const parentKeys = confirmedParents(child).map(normalize);
+      const parents = confirmedParents(child);
+      const parentKeys = parents.map(normalize);
       const lineageText = text(child?.lineage?.presentation?.textJa);
+      if ((rule.type === 'selected-phenotype' || rule.type === 'selected-line') && parents.length > 1) {
+        throw new Error('FAMILY_TREE_MULTI_PARENT_SELECTION_EDGE_FORBIDDEN:' + key);
+      }
       if (!parentKeys.includes(parentKey) || !rule.guard.test(lineageText)) {
         throw new Error('FAMILY_TREE_TYPED_RELATION_GUARD_FAILED:' + key);
       }
@@ -106,7 +102,7 @@
   const relationFor = (parentLabel, parentCultivar, childCultivar) => {
     const typed = TYPED_RELATION_RULES.get(normalize(parentLabel) + '>' + text(childCultivar?.id));
     if (typed) return { type: typed.type, label: typed.label };
-    if (parentCultivar && selectionRelationship(parentCultivar, childCultivar?.id)) {
+    if (parentCultivar && selectionRelationship(parentCultivar, childCultivar?.id) && confirmedParents(childCultivar).length === 1) {
       return { type: 'selection', label: 'selected line' };
     }
     if (text(childCultivar?.breeding?.generation).toUpperCase() === 'S1' && confirmedParents(childCultivar).length === 1) {
