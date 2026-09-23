@@ -344,6 +344,8 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     childRelationshipResults.push({parentId:testCase.parentId,childIds:actualIds});
   }
 
+  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=og-kush` });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'OG Kush selection document complete');
   await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="og-kush"],.ucd-root[data-public-detail-id="og-kush"]');
     const lineage=document.querySelector('#detail-shell .ucd-lineage');
