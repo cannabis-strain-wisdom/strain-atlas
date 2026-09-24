@@ -254,6 +254,7 @@
   let expanded = new Set();
   let centerId = '';
   let restoreScroll = null;
+  let centerOnNextRender = false;
   let lastFocus = null;
 
   const ensureOverlay = () => {
@@ -446,7 +447,8 @@
           else persistState();
         };
         applyRestoredScroll();
-      } else {
+      } else if (centerOnNextRender) {
+        centerOnNextRender = false;
         const center = stage.querySelector('[data-ft-node-key="' + CSS.escape(graphState.centerKey) + '"]');
         if (center && viewport.scrollWidth > viewport.clientWidth) {
           viewport.scrollLeft = Math.max(0, center.offsetLeft + center.offsetWidth / 2 - viewport.clientWidth / 2);
@@ -480,6 +482,7 @@
     graphState = graph;
     expanded = new Set(saved?.expanded || []);
     restoreScroll = saved ? { scrollTop: saved.scrollTop || 0, scrollLeft: saved.scrollLeft || 0 } : null;
+    centerOnNextRender = !saved;
     overlay.querySelector('.csw-ft-title').textContent = center.name + ' の系譜図';
     if (!overlay.open) overlay.showModal();
     document.documentElement.classList.add('csw-ft-body-lock');
