@@ -505,6 +505,26 @@
       "strainId": "ogkb",
       "state": "published",
       "publishedAt": "2026-09-23T12:46:20Z"
+    },
+    {
+      "strainId": "a5-haze",
+      "state": "published",
+      "publishedAt": "2026-09-24T00:49:01Z"
+    },
+    {
+      "strainId": "face-off-og",
+      "state": "published",
+      "publishedAt": "2026-09-24T00:49:01Z"
+    },
+    {
+      "strainId": "pink-panties",
+      "state": "published",
+      "publishedAt": "2026-09-24T00:49:01Z"
+    },
+    {
+      "strainId": "thin-mint-gsc",
+      "state": "published",
+      "publishedAt": "2026-09-24T00:49:01Z"
     }
   ]
 }

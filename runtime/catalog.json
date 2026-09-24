@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-23T12:46:22.822Z",
+  "generatedAt": "2026-09-24T00:49:03.395Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 89,
-    "sources": 193,
+    "cultivars": 93,
+    "sources": 197,
     "entities": 32
   },
   "explore": {
@@ -61,6 +61,7 @@
       "do-si-dos",
       "double-grape",
       "erdpurt",
+      "face-off-og",
       "fat-banana-auto",
       "gmo-cookies",
       "hindu-kush",
@@ -69,6 +70,7 @@
       "mazar",
       "gorilla-glue-4",
       "permanent-marker",
+      "pink-panties",
       "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
@@ -80,6 +82,7 @@
       "white-widow"
     ],
     "hybrid": [
+      "a5-haze",
       "auto-cinderella-jack",
       "blue-zushi",
       "bubble-gum",
@@ -102,6 +105,7 @@
       "skunk-1",
       "super-boof",
       "the-og-18",
+      "thin-mint-gsc",
       "wedding-cake"
     ],
     "unclassified": [
@@ -111,6 +115,258 @@
     ]
   },
   "cultivars": [
+    {
+      "schemaVersion": 1,
+      "id": "a5-haze",
+      "status": "review",
+      "name": "A5 Haze",
+      "jp": null,
+      "aliases": [
+        "A5 Haze by Neville",
+        "Neville's A5 Haze",
+        "Neville’s A5 Haze",
+        "A5 Haze by Nevil"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze",
+          "phylos-a5-haze"
+        ],
+        "display": "Northern Lights #5 × Haze A",
+        "parents": [
+          "Northern Lights #5",
+          "Haze A"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜はNorthern Lights #5 × Haze A。ACE公式の複数ページと、ACE提出のPhylos A5 Haze recordで一致しています。Killer A5 Hazeなど後代の交配とは統合しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "nevil-schoenmakers",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-killer-a5-haze"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "インセンス",
+          "オーガニック",
+          "ミーティー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "インセンス",
+            "オーガニック",
+            "ミーティー"
+          ],
+          "details": [
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "organic",
+              "reviewLabelJa": "オーガニック",
+              "plainMeaningJa": "有機物を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "有機物"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "meaty",
+              "reviewLabelJa": "ミーティー",
+              "plainMeaningJa": "肉のような旨味を伴う香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "肉"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE公式はA5 motherをincense、organic、meaty系の香りとして直接説明しています。Aroma PROFILEとして保持します。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "phylos-a5-haze"
+        ],
+        "items": [
+          "myrcene",
+          "alpha-pinene",
+          "trans-ocimene",
+          "limonene",
+          "beta-pinene",
+          "linalool",
+          "beta-caryophyllene",
+          "guaiol"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            },
+            {
+              "id": "trans-ocimene",
+              "labelJa": "トランス-オシメン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール"
+            }
+          ],
+          "noteJa": "Phylos recordにMyrcene、α-Pinene、trans-Ocimene、Limonene、β-Pinene、Linalool、β-Caryophyllene、Guaiolが記録されています。class内の構成比を花全体の絶対含有率には変換せずLISTEDとして扱います。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "A5 HazeはNevil Schoenmakersが1980年代末に作ったDutch elite Haze hybrid群の保存cloneとしてACE Seedsが説明しています。正確な施設や都市までは補っていません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze",
+          "phylos-a5-haze"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "A5 Hazeはcloneとして保存されてきたelite parentです。ACEはKarmaへの謝辞を記し、Phylos recordではYo Sammy経由でKarma由来のcloneを受け取った経緯が記録されています。creatorとpreserverを混同しません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-killer-a5-haze"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACEがoriginal A5 motherに最も忠実と説明するphenotypeでは、roundedで非常にresinousなsilver appearanceとhorn-shaped refloweringが記述されています。比較根拠として限定的に保持します。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜はNorthern Lights #5 × Haze A。ACE公式の複数ページと、ACE提出のPhylos A5 Haze recordで一致しています。Killer A5 Hazeなど後代の交配とは統合しません。",
+          "origin": "A5 HazeはNevil Schoenmakersが1980年代末に作ったDutch elite Haze hybrid群の保存cloneとしてACE Seedsが説明しています。正確な施設や都市までは補っていません。",
+          "history": "A5 Hazeはcloneとして保存されてきたelite parentです。ACEはKarmaへの謝辞を記し、Phylos recordではYo Sammy経由でKarma由来のcloneを受け取った経緯が記録されています。creatorとpreserverを混同しません。",
+          "aromaNote": "ACE公式はA5 motherをincense、organic、meaty系の香りとして直接説明しています。Aroma PROFILEとして保持します。",
+          "terpeneNote": "Phylos recordにMyrcene、α-Pinene、trans-Ocimene、Limonene、β-Pinene、Linalool、β-Caryophyllene、Guaiolが記録されています。class内の構成比を花全体の絶対含有率には変換せずLISTEDとして扱います。",
+          "morphologyNote": "ACEがoriginal A5 motherに最も忠実と説明するphenotypeでは、roundedで非常にresinousなsilver appearanceとhorn-shaped refloweringが記述されています。比較根拠として限定的に保持します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/a5-haze/primary.webp",
+          "alt": "ACEがoriginal A5 motherに最も忠実とする比較記述に基づき、roundedでresinousなsilver appearanceと控えめなhorn-shaped refloweringを安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
     {
       "schemaVersion": 1,
       "id": "acapulco-gold",
@@ -7727,6 +7983,198 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "face-off-og",
+      "status": "review",
+      "name": "Face Off OG",
+      "jp": null,
+      "aliases": [
+        "Faceoff OG Kush",
+        "Face Off",
+        "OG Face Off",
+        "Face/Off OG Kush",
+        "Face Off OG #4"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-face-off-og-bx2"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive公式は、そのflowerから見つかったseed群の中から#4を選抜した経緯を説明しています。親品種の組み合わせは開示されていないため、OG Kush同士などの式を推測で補っていません。BX1・BX2・IXはroot Face Off OGとは別identityです。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "archive-seed-bank",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "archive-face-off-og-bx2"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og"
+        ],
+        "items": [
+          "パイン",
+          "アンモニア",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "眠気",
+          "ピリピリ感",
+          "リラックス"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-face-off-og"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。元の分析artifactを直接確認していないため、含有率や固定順位へ上げずLISTEDとして保持しています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-face-off-og-bx2"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Face Off OGの源流は、Archive Seed Bankが記録する1990年代末のSouthern CaliforniaのFace/Off OG Kush flower / seed contextです。正確な選抜場所までは断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "archive-face-off-og-bx2"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Archive Seed BankはFace Off OG #4をoriginal motherとして後のbackcross familyに使用しています。CSWではroot selectionとBX世代を分離して保持します。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Archive公式は、そのflowerから見つかったseed群の中から#4を選抜した経緯を説明しています。親品種の組み合わせは開示されていないため、OG Kush同士などの式を推測で補っていません。BX1・BX2・IXはroot Face Off OGとは別identityです。",
+          "origin": "Face Off OGの源流は、Archive Seed Bankが記録する1990年代末のSouthern CaliforniaのFace/Off OG Kush flower / seed contextです。正確な選抜場所までは断定していません。",
+          "history": "Archive Seed BankはFace Off OG #4をoriginal motherとして後のbackcross familyに使用しています。CSWではroot selectionとBX世代を分離して保持します。",
+          "terpeneNote": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。元の分析artifactを直接確認していないため、含有率や固定順位へ上げずLISTEDとして保持しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/face-off-og/primary.webp",
+          "alt": "Archive公式で確認できるFace Off OG #4のroot selection identityに基づき、未確認の色・形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -18809,6 +19257,174 @@
     },
     {
       "schemaVersion": 1,
+      "id": "pink-panties",
+      "status": "review",
+      "name": "Pink Panties",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018"
+        ],
+        "display": "Larry OG “Ish Cut” × Burmese",
+        "parents": [
+          "Larry OG “Ish Cut”",
+          "Burmese"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sherbinski本人の説明では、Jiggaが持っていたBurmese pollenをLarry OG “Ish Cut”へ掛けたものがPink Pantiesです。専門DBの簡略化された親名より、この直接証言を優先しています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mario-guzman-sherbinski",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "high-times-sherbinski-sunset-sherbert-2018"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-pink-panties"
+        ],
+        "items": [
+          "アーシー",
+          "スイート",
+          "ディーゼル"
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Pink PantiesはMr. Sherbinskiの初期Cookies / Sherbert familyのbreeding文脈にある品種です。Jigga由来のBurmese pollenが関わったことをSherbinski本人が説明しています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "high-times-sherbinski-sunset-sherbert-2018",
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Pink PantiesはSunset Sherbertの重要な親としてSherbinski本人が明示しています。後のSherbertやGelatoとは別identityのroot parentとして保持します。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-cookies-cakes-sunset-sherbert-2024"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyの歴史記事では、budのpink hairs / pistilsがPink Pantiesという名前の由来として説明されています。それ以外の未確認形態は補っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sherbinski本人の説明では、Jiggaが持っていたBurmese pollenをLarry OG “Ish Cut”へ掛けたものがPink Pantiesです。専門DBの簡略化された親名より、この直接証言を優先しています。",
+          "origin": "Pink PantiesはMr. Sherbinskiの初期Cookies / Sherbert familyのbreeding文脈にある品種です。Jigga由来のBurmese pollenが関わったことをSherbinski本人が説明しています。",
+          "history": "Pink PantiesはSunset Sherbertの重要な親としてSherbinski本人が明示しています。後のSherbertやGelatoとは別identityのroot parentとして保持します。",
+          "morphologyNote": "Leaflyの歴史記事では、budのpink hairs / pistilsがPink Pantiesという名前の由来として説明されています。それ以外の未確認形態は補っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/pink-panties/primary.webp",
+          "alt": "Pink Pantiesの名前の由来として記録されたpink pistilsのみを形態根拠にし、未確認の色や形を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "power-plant",
       "status": "review",
       "name": "Power Plant",
@@ -23831,6 +24447,234 @@
     },
     {
       "schemaVersion": 1,
+      "id": "thin-mint-gsc",
+      "status": "review",
+      "name": "Thin Mint GSC",
+      "jp": null,
+      "aliases": [
+        "Thin Mint",
+        "Thin Mints",
+        "Thin Mint Cookies",
+        "Thin Mint Girl Scout Cookies"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-thin-mint",
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "display": "Girl Scout Cookies",
+        "parents": [
+          "Girl Scout Cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "LeaflyはThin MintをGSCの主要sub-typeの一つとして説明し、Jigga本人の歴史説明にもThin Mint Cookiesという呼称が登場します。CSWではGirl Scout Cookiesからの選抜ノードとして保持し、Thin Mint Girl Scout Cookiesなどはaliasとして統合します。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "jai-jigga-chang",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "weedmaps-strains-that-made-cookies-2021"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-thin-mint"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "ミンティー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "ミンティー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "minty",
+              "reviewLabelJa": "ミンティー",
+              "plainMeaningJa": "ミントのような清涼感のある香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ミント",
+                "清涼"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyがsweet minty smellと明示しているため、sweetとmintyをAromaの平坦なPROFILEとして保持しています。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-thin-mint"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "ピリピリ感",
+          "多幸感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-thin-mint"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。分析artifactを直接確認していないため、数値や固定順位にはせずLISTEDとして保持しています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "weedmaps-strains-that-made-cookies-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Thin Mintは初期Cookies / GSCのSan Francisco文脈にある選抜identityとして扱います。単独の新しい交配式を推測で作っていません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "weedmaps-strains-that-made-cookies-2021",
+          "leafly-thin-mint"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "初期の呼称と、後に広く流通したThin Mint cut / subtypeの境界は完全には標準化されていません。その曖昧さを残したまま、GSC family内のselected identityとして整理しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-thin-mint"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyではdark green、royal purple hues、heavy coat of crystalsが記述されています。色は固定形質ではなく報告された表現として扱います。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "LeaflyはThin MintをGSCの主要sub-typeの一つとして説明し、Jigga本人の歴史説明にもThin Mint Cookiesという呼称が登場します。CSWではGirl Scout Cookiesからの選抜ノードとして保持し、Thin Mint Girl Scout Cookiesなどはaliasとして統合します。",
+          "origin": "Thin Mintは初期Cookies / GSCのSan Francisco文脈にある選抜identityとして扱います。単独の新しい交配式を推測で作っていません。",
+          "history": "初期の呼称と、後に広く流通したThin Mint cut / subtypeの境界は完全には標準化されていません。その曖昧さを残したまま、GSC family内のselected identityとして整理しています。",
+          "aromaNote": "Leaflyがsweet minty smellと明示しているため、sweetとmintyをAromaの平坦なPROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。分析artifactを直接確認していないため、数値や固定順位にはせずLISTEDとして保持しています。",
+          "morphologyNote": "Leaflyではdark green、royal purple hues、heavy coat of crystalsが記述されています。色は固定形質ではなく報告された表現として扱います。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/thin-mint-gsc/primary.webp",
+          "alt": "LeaflyのThin Mint記述に基づき、dark greenと控えめなroyal purple hues、heavy crystal coatを安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "trainwreck-s1",
       "status": "review",
       "name": "TrainWreck S1",
@@ -28036,6 +28880,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-23"
     },
+    "leafly-face-off-og": {
+      "schemaVersion": 1,
+      "id": "leafly-face-off-og",
+      "publisher": "Leafly",
+      "title": "Face Off OG aka Faceoff OG Kush, Face Off, OG Face Off Weed Strain Information",
+      "url": "https://www.leafly.com/strains/face-off-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "terpenes",
+        "effects",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "leafly-forum-cut-cookies": {
       "schemaVersion": 1,
       "id": "leafly-forum-cut-cookies",
@@ -28441,6 +29304,27 @@
       "publishedAt": "2024-12-12",
       "checkedAt": "2026-09-14"
     },
+    "leafly-thin-mint": {
+      "schemaVersion": 1,
+      "id": "leafly-thin-mint",
+      "publisher": "Leafly",
+      "title": "Thin Mint aka Thin Mint GSC, Thin Mints, Thin Mint Cookies, Thin Mint Girl Scout Cookies Weed Strain Information",
+      "url": "https://www.leafly.com/strains/thin-mint",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "effects",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "leafly-warlock": {
       "schemaVersion": 1,
       "id": "leafly-warlock",
@@ -28674,6 +29558,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-15"
+    },
+    "phylos-a5-haze": {
+      "schemaVersion": 1,
+      "id": "phylos-a5-haze",
+      "publisher": "Phylos Bioscience",
+      "title": "A5 Haze",
+      "url": "https://phylos.bio/variety/PGT-243529/a5-haze",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "genotype"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "prime-cuts-rs11": {
       "schemaVersion": 1,
@@ -29310,6 +30213,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-16"
+    },
+    "weedmaps-pink-panties": {
+      "schemaVersion": 1,
+      "id": "weedmaps-pink-panties",
+      "publisher": "Weedmaps",
+      "title": "Pink Panties Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/pink-panties",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "lineage",
+        "flavor",
+        "effects",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "weedmaps-rs11": {
       "schemaVersion": 1,
