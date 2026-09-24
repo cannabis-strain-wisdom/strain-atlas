@@ -191,9 +191,8 @@
             relation: relationFor(childEntry.parentLabel, entry.item, childEntry.child)
           }))
           .sort((a, b) => {
-            const aTyped = a.relation.type === 'parent' ? 1 : 0;
-            const bTyped = b.relation.type === 'parent' ? 1 : 0;
-            return aTyped - bTyped || String(a.child.name).localeCompare(String(b.child.name), 'en');
+            const priority = relation => relation.type === 'selected-cut' ? 2 : relation.type === 'parent' ? 1 : 0;
+            return priority(a.relation) - priority(b.relation) || String(a.child.name).localeCompare(String(b.child.name), 'en');
           });
         for (const childEntry of children) {
           const childNode = addNode(childEntry.child.name, childEntry.child, entry.distance + 1);
