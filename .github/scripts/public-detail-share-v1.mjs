@@ -4,6 +4,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 const baseUrl = process.env.CSW_BASE_URL || 'http://127.0.0.1:4173/';
+const verifyToken = String(process.env.GITHUB_SHA || '').trim();
+const navigationUrl = value => {
+  const url = new URL(value, baseUrl);
+  if (verifyToken) url.searchParams.set('verify', verifyToken);
+  return url.href;
+};
 const chrome = process.env.CHROME_BIN;
 if (!chrome) throw new Error('CHROME_BIN is required');
 
@@ -109,7 +115,7 @@ async function main() {
   url.searchParams.set('strain', 'sunset-sherbert');
   url.searchParams.set('qa', 'share-v1');
   url.hash = 'ignored-fragment';
-  await cdp.send('Page.navigate', { url: url.href });
+  await cdp.send('Page.navigate', { url: navigationUrl(url.href) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'document complete');
   await waitFor(() => evalv(`!!document.querySelector('#detail-shell [data-detail-share="v1"]') && !!document.querySelector('.detail-public-v1[data-public-detail-id="sunset-sherbert"],.ucd-root[data-public-detail-id="sunset-sherbert"]') && window.__CSWDetailShareV2?.contract==='CSW_DETAIL_SHARE_V2'`), 'Sunset Sherbert share V2 ready');
 

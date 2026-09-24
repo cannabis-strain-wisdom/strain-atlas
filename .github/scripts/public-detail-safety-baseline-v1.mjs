@@ -4,6 +4,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 const baseUrl = process.env.CSW_BASE_URL || 'http://127.0.0.1:4173/';
+const verifyToken = String(process.env.GITHUB_SHA || '').trim();
+const navigationUrl = value => {
+  const url = new URL(value, baseUrl);
+  if (verifyToken) url.searchParams.set('verify', verifyToken);
+  return url.href;
+};
 const chrome = process.env.CHROME_BIN;
 if (!chrome) throw new Error('CHROME_BIN is required');
 
@@ -115,7 +121,7 @@ async function main() {
   async function navigate(id) {
     const url = new URL(baseUrl);
     url.searchParams.set('strain', id);
-    await cdp.send('Page.navigate', { url: url.href });
+    await cdp.send('Page.navigate', { url: navigationUrl(url.href) });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} document complete`);
     await waitFor(() => evalv(`document.getElementById('detail-dialog')?.open===true && !!document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]')`), `${id} detail open`);
   }

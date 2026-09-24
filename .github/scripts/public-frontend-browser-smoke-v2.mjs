@@ -4,6 +4,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 const baseUrl = process.env.CSW_BASE_URL || 'http://127.0.0.1:4173/';
+const verifyToken = String(process.env.GITHUB_SHA || '').trim();
+const navigationUrl = value => {
+  const url = new URL(value, baseUrl);
+  if (verifyToken) url.searchParams.set('verify', verifyToken);
+  return url.href;
+};
 const chrome = process.env.CHROME_BIN;
 if (!chrome) throw new Error('CHROME_BIN is required');
 
@@ -93,7 +99,7 @@ async function main() {
   await cdp.open();
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
-  await cdp.send('Page.navigate', { url: baseUrl });
+  await cdp.send('Page.navigate', { url: navigationUrl(baseUrl) });
 
   async function evalv(expression) {
     const result = await cdp.send('Runtime.evaluate', {
@@ -161,7 +167,7 @@ async function main() {
   await evalv(`document.querySelector('#detail-dialog .close-detail').click()`);
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===false && !new URL(location.href).searchParams.has('strain')`), 'all detail close/history');
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=auto-cinderella-jack` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=auto-cinderella-jack`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Auto Cinderella Jack document complete');
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] [data-cannabinoid-source-context="v1"]')`), 'Auto Cinderella Jack source-declared cannabinoid context');
   const autoCollapsed = await evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');const context=card?.querySelector('[data-cannabinoid-source-context="v1"]');return {open:!!card?.open,gridDisplay:grid?getComputedStyle(grid).display:null,context:context?.innerText||'',values:[...grid?.querySelectorAll('strong')||[]].map(n=>n.textContent.trim())}})()`);
@@ -173,7 +179,7 @@ async function main() {
   const autoExpanded = await evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');return {open:!!card?.open,gridDisplay:grid?getComputedStyle(grid).display:null,values:[...grid?.querySelectorAll('strong')||[]].map(n=>n.textContent.trim())}})()`);
   for (const value of ['20.84%','25.94%','21.3%','22.37%','24.28%']) if (!autoExpanded.values.includes(value)) throw new Error(`Auto Cinderella Jack expanded value missing ${value}: ${JSON.stringify(autoExpanded)}`);
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=rush-of-siam` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=rush-of-siam`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Rush document complete');
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]') && document.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]').length===8`), 'Rush universal public presentation');
   const rush = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]');const text=document.getElementById('detail-shell')?.innerText||'';const aroma=[...root.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]')].map(node=>({review:node.querySelector('strong')?.textContent?.trim(),meaning:node.querySelector('small')?.textContent?.trim()}));const cannabinoid=[...root.querySelectorAll('.ucd-cannabinoid-grid strong')].map(node=>node.textContent.trim());const ratio=[...root.querySelectorAll('.ucd-ratio-head strong')].map(node=>node.textContent.trim());return {aroma,cannabinoid,ratio,lineageVisible:/Rush of Siam|ネヴィル|Kali China/.test(text),forbiddenEnglish:['ACE Seeds states a 65%','ACE Seeds lists THC at','ACE Seeds lists CBD at','Aroma hierarchy is source-declared','ACE Seeds lists Rush of Siam as','ACE Seeds developed Rush of Siam after Thai Chi'].filter(value=>text.includes(value)),horizontalOverflow:root.scrollWidth>root.clientWidth+1}})()`);
@@ -185,7 +191,7 @@ async function main() {
   if (rush.forbiddenEnglish.length) throw new Error(`Rush raw English fallback: ${rush.forbiddenEnglish.join(', ')}`);
   if (rush.horizontalOverflow) throw new Error('Rush detail has horizontal overflow');
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=permanent-marker` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=permanent-marker`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Permanent Marker document complete');
   await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="permanent-marker"],.ucd-root[data-public-detail-id="permanent-marker"]');const lineage=document.querySelector('#detail-shell .ucd-lineage');return document.getElementById('detail-dialog').open===true && !!root && !!lineage && root.dataset.permanentMarkerLineageCollapsed==='v1'})()`), 'Permanent Marker collapsed lineage ready');
   const permanentMarkerLineage = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="permanent-marker"],.ucd-root[data-public-detail-id="permanent-marker"]');const shell=document.getElementById('detail-shell');const lineage=shell?.querySelector('.ucd-lineage');const note=lineage?.querySelector(':scope > div > p');const external=shell?.querySelector('[data-lineage-note-v1="true"]');const noteText=note?.textContent?.trim()||'';return {noteText,open:!!lineage?.open,external:!!external,marker:root?.dataset.permanentMarkerLineageCollapsed||'',horizontalOverflow:(root?root.scrollWidth>root.clientWidth+1:true)||(shell?shell.scrollWidth>shell.clientWidth+1:true)}})()`);
@@ -197,7 +203,7 @@ async function main() {
   const permanentMarkerOpened = await evalv(`(()=>{const lineage=document.querySelector('#detail-shell .ucd-lineage');const note=lineage?.querySelector(':scope > div > p');return {open:!!lineage?.open,noteVisible:!!note&&getComputedStyle(note).display!=='none'}})()`);
   if (!permanentMarkerOpened.open || !permanentMarkerOpened.noteVisible) throw new Error(`Permanent Marker lineage did not open on demand: ${JSON.stringify(permanentMarkerOpened)}`);
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=new-caledonia` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=new-caledonia`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'New Caledonia document complete');
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="new-caledonia"]') && document.querySelector('.ucd-lineage summary strong')`), 'New Caledonia universal lineage');
   if (await evalv(`!!document.querySelector('#detail-shell [data-lineage-note-v1="true"]')`)) throw new Error('Permanent Marker lineage note leaked to New Caledonia');
@@ -206,7 +212,7 @@ async function main() {
   if (newCaledonia.generic) throw new Error('New Caledonia generic lineage fallback rendered');
   if (newCaledonia.horizontalOverflow) throw new Error('New Caledonia detail has horizontal overflow');
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=shaman` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=shaman`) });
 await waitFor(() => evalv(`document.readyState==='complete'`), 'Shaman document complete');
 await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="shaman"] [data-ucd-tab="morphology"]')`), 'Shaman Morphology presentation');
 await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="shaman"] [data-ucd-tab="morphology"]').click()`);
@@ -224,7 +230,7 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
   );
   let flavor = null;
   if (flavorTarget) {
-    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(flavorTarget.id)}` });
+    await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=${encodeURIComponent(flavorTarget.id)}`) });
     await waitFor(() => evalv(`document.readyState==='complete'`), 'Flavor target document complete');
     await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-ucd-tab="flavor"]') && document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-profile-kind="flavor"]')`), 'Flavor universal presentation');
     await evalv(`document.querySelector('.detail-public-v1[data-public-detail-id="${flavorTarget.id}"] [data-ucd-tab="flavor"]').click()`);
@@ -236,14 +242,14 @@ if (shamanMorphology.horizontalOverflow) throw new Error('Shaman Morphology deta
     if (flavor.horizontalOverflow) throw new Error(`Flavor detail has horizontal overflow: ${JSON.stringify(flavor)}`);
   }
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=apple-fritter` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=apple-fritter`) });
 await waitFor(() => evalv(`document.readyState==='complete'`), 'Apple Fritter sensory document complete');
 const appleSensory = await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="apple-fritter"]');if(root?.dataset.sensorySemanticPresentation!=='v1'||root.querySelectorAll('[data-csw-staged-sensory-sub]').length!==3)return false;const children=[...root.querySelectorAll('[data-csw-staged-sensory-sub]')].map(button=>({kind:button.dataset.cswStagedSensorySub,label:button.querySelector('span')?.textContent.trim()||'',helper:button.querySelector('small')?.textContent.trim()||''}));const unknown=['aroma','terpene'].filter(kind=>root.querySelector('[data-ucd-panel="'+kind+'"]')?.dataset.unavailableDetailCard==='v1');return {children,unknown,overflow:root.scrollWidth>root.clientWidth+1}})()`), 'Apple Fritter sensory semantic presentation');
 if (JSON.stringify(appleSensory.children)!==JSON.stringify([{kind:'aroma',label:'アロマ',helper:'鼻で感じる香り'},{kind:'flavor',label:'フレーバー',helper:'口に含んだ時に感じる風味'},{kind:'terpene',label:'テルペン',helper:'確認できた成分情報'}])) throw new Error(`Apple Fritter sensory semantics mismatch: ${JSON.stringify(appleSensory)}`);
 if (JSON.stringify(appleSensory.unknown)!==JSON.stringify(['aroma','terpene'])) throw new Error(`Apple Fritter UNKNOWN domain mismatch: ${JSON.stringify(appleSensory)}`);
 if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation has horizontal overflow');
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=blue-gelato-41` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=blue-gelato-41`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Blue Gelato 41 document complete');
   await waitFor(() => evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return !!root && root.querySelectorAll('[data-csw-staged-sensory-parent="v1"]').length===1 && root.querySelectorAll('[data-csw-staged-ec-parent="v1"]').length===1})()`), 'Blue Gelato grouped controls');
   const blueTop = await evalv(`(()=>{const root=document.querySelector('.detail-public-v1[data-public-detail-id="blue-gelato-41"]');return [...root.querySelectorAll('.ucd-profile-nav > [data-ucd-tab]')].filter(x=>x.matches('[data-ucd-tab]')&&getComputedStyle(x).display!=='none').map(x=>x.innerText.trim())})()`);
@@ -309,7 +315,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   ];
   const childRelationshipResults = [];
   for (const testCase of childRelationshipCases) {
-    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(testCase.parentId)}` });
+    await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=${encodeURIComponent(testCase.parentId)}`) });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${testCase.parentId} relationship document complete`);
     await waitFor(() => evalv(`(()=>{
       const root=document.querySelector('.detail-public-v1[data-public-detail-id="${testCase.parentId}"],.ucd-root[data-public-detail-id="${testCase.parentId}"]');
@@ -344,7 +350,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     childRelationshipResults.push({parentId:testCase.parentId,childIds:actualIds});
   }
 
-  await cdp.send('Page.navigate', { url: `${baseUrl}?strain=og-kush` });
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=og-kush`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'OG Kush selection document complete');
   await waitFor(() => evalv(`(()=>{
     const root=document.querySelector('.detail-public-v1[data-public-detail-id="og-kush"],.ucd-root[data-public-detail-id="og-kush"]');
@@ -411,7 +417,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
 
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
 
-  await cdp.send('Page.navigate', { url: baseUrl + '?strain=do-si-dos' });
+  await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=do-si-dos') });
   await waitFor(() => evalv("document.readyState==='complete'"), 'Do-Si-Dos family tree document complete');
   await waitFor(() => evalv("!!document.querySelector('.detail-public-v1[data-public-detail-id=\"do-si-dos\"],.ucd-root[data-public-detail-id=\"do-si-dos\"]') && !!document.querySelector('[data-family-tree-entry=\"v1\"]')"), 'Do-Si-Dos family tree entry');
   const lineageCardBeforeFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
@@ -444,7 +450,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv("history.back();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='do-si-dos' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Family Tree back-state restoration');
 
-  await cdp.send('Page.navigate', { url: baseUrl + '?strain=skunk-1' });
+  await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=skunk-1') });
   await waitFor(() => evalv("document.readyState==='complete'"), 'Skunk #1 family tree document complete');
   await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), 'Skunk #1 family tree entry');
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
@@ -463,7 +469,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
   const familyTreeResults = [];
   for (const familyId of familyTreeCases) {
-    await cdp.send('Page.navigate', { url: baseUrl + '?strain=' + encodeURIComponent(familyId) });
+    await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=' + encodeURIComponent(familyId)) });
     await waitFor(() => evalv("document.readyState==='complete'"), familyId + ' Family Tree document complete');
     await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), familyId + ' Family Tree entry');
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
@@ -480,7 +486,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   ];
   const typedFamilyTreeResults = [];
   for (const testCase of typedFamilyTreeCases) {
-    await cdp.send('Page.navigate', { url: baseUrl + '?strain=' + encodeURIComponent(testCase.id) });
+    await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=' + encodeURIComponent(testCase.id)) });
     await waitFor(() => evalv("document.readyState==='complete'"), testCase.id + ' typed Family Tree document complete');
     await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), testCase.id + ' typed Family Tree entry');
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
@@ -493,7 +499,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     typedFamilyTreeResults.push({ id:testCase.id, types:typedState.state.relationTypes, labels:typedState.labels });
   }
 
-  await cdp.send('Page.navigate', { url: baseUrl + '?strain=satori' });
+  await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=satori') });
   await waitFor(() => evalv("document.readyState==='complete'"), 'Satori Family Tree no-context document complete');
   await waitFor(() => evalv("!!document.querySelector('.detail-public-v1[data-public-detail-id=\"satori\"],.ucd-root[data-public-detail-id=\"satori\"]')"), 'Satori detail open');
   await sleep(1100);

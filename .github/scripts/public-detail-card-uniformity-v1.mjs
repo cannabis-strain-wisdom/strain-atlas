@@ -4,6 +4,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 const baseUrl = process.env.CSW_BASE_URL || 'http://127.0.0.1:4173/';
+const verifyToken = String(process.env.GITHUB_SHA || '').trim();
+const navigationUrl = value => {
+  const url = new URL(value, baseUrl);
+  if (verifyToken) url.searchParams.set('verify', verifyToken);
+  return url.href;
+};
 const chrome = process.env.CHROME_BIN;
 const screenshotDir = String(process.env.CSW_SCREENSHOT_DIR || '').trim();
 if (!chrome) throw new Error('CHROME_BIN is required');
@@ -56,7 +62,7 @@ async function main() {
   const failures = [];
   for (const id of ids) {
     cdp.exceptions.length = 0;
-    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
+    await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=${encodeURIComponent(id)}`) });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} document`);
     await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'})()`), `${id} fixed detail cards`, 20000);
     const expectedSensoryCount=2+(['confirmed','disputed'].includes((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.status)&&Array.isArray((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.items)&&(catalog.cultivars||[]).find(item=>item.id===id).flavors.items.length>0?1:0);
@@ -72,7 +78,7 @@ async function main() {
   const structures = {};
   for (const id of ids) {
     cdp.exceptions.length = 0;
-    await cdp.send('Page.navigate', { url: `${baseUrl}?strain=${encodeURIComponent(id)}` });
+    await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=${encodeURIComponent(id)}`) });
     await waitFor(() => evalv(`document.readyState==='complete'`), `${id} structure document`);
     await waitFor(() => evalv(`(()=>{const r=document.querySelector('.detail-public-v1[data-public-detail-id=${JSON.stringify(id)}],.ucd-root[data-public-detail-id=${JSON.stringify(id)}]');return !!r&&r.dataset.fixedDetailCardsV1==='true'&&r.dataset.fixedPrimaryCardsV1==='true'&&r.dataset.fixedLineageCardV1==='true'&&r.dataset.stagedSensoryGroup==='v1'&&r.dataset.cswStagedEffectCultivation==='v1'})()`), `${id} universal grouping markers`, 20000);
     const expectedSensoryCount=2+(['confirmed','disputed'].includes((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.status)&&Array.isArray((catalog.cultivars||[]).find(item=>item.id===id)?.flavors?.items)&&(catalog.cultivars||[]).find(item=>item.id===id).flavors.items.length>0?1:0);
