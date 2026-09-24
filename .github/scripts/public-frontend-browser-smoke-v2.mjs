@@ -431,7 +431,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   if (familyTreeDoSiDos.center !== 'Do-Si-Dos') throw new Error('Do-Si-Dos Family Tree center mismatch: ' + JSON.stringify(familyTreeDoSiDos));
   if (!familyTreeDoSiDos.ogkb || !familyTreeDoSiDos.faceOffBx1 || !familyTreeDoSiDos.gsc || !familyTreeDoSiDos.faceOffRoot || familyTreeDoSiDos.faceOffUnpublished) throw new Error('Do-Si-Dos Family Tree node coverage incomplete: ' + JSON.stringify(familyTreeDoSiDos));
   if (!familyTreeDoSiDos.labels.includes('選抜クローン') || !familyTreeDoSiDos.labels.includes('BX') || !familyTreeDoSiDos.labels.includes('親')) throw new Error('Family Tree relation labels incomplete: ' + JSON.stringify(familyTreeDoSiDos.labels));
-  if (familyTreeDoSiDos.currentMeta !== '現在表示中' || familyTreeDoSiDos.cswMetaCount < 1) throw new Error('Family Tree current/CSW node labels invalid: ' + JSON.stringify(familyTreeDoSiDos));
+  if (familyTreeDoSiDos.currentMeta !== '現在表示中' || familyTreeDoSiDos.cswMetaCount !== 0) throw new Error('Family Tree current/meta labels invalid: ' + JSON.stringify(familyTreeDoSiDos));
   for (const requiredLabel of ['親','選抜クローン','選抜個体','選抜系統','S1','BX','バッグシード']) {
     if (!familyTreeDoSiDos.footer.includes(requiredLabel)) throw new Error('Family Tree Japanese footer missing: ' + requiredLabel);
   }
