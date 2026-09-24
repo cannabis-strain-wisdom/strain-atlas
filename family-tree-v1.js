@@ -24,7 +24,7 @@
     ['girl scout cookies>ogkb', { type: 'selected-cut', label: 'selected cut', guard: /clone-only cut/i }],
     ['girl scout cookies>forum-gsc', { type: 'selected-cut', label: 'selected cut', guard: /selected GSC cut|Forum cut/i }],
     ['girl scout cookies>thin-mint-gsc', { type: 'selected-cut', label: 'selected cut', guard: /sub-type|選抜ノード/i }],
-    ['og kush>the-og-18', { type: 'selected-line', label: 'selected line', guard: /S1|選抜|再フェミナイズ/i }],
+    ['og kush>the-og-18', { type: 'selection', label: 'selected line', guard: /S1|選抜|再フェミナイズ/i }],
     ['og kush>ghost-og', { type: 'selected-cut', label: 'selected cut', guard: /clone-only cut/i }],
     ['og kush>sfv-og', { type: 'selected-cut', label: 'selected cut', guard: /clone selection/i }],
     ['og kush>tahoe-og', { type: 'selected-cut', label: 'selected cut', guard: /clone selection/i }],
