@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T00:49:03.395Z",
+  "generatedAt": "2026-09-24T01:38:56.511Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 93,
-    "sources": 197,
+    "cultivars": 94,
+    "sources": 200,
     "entities": 32
   },
   "explore": {
@@ -58,6 +58,7 @@
       "blueberry-muffin",
       "california-octane",
       "cataract-kush",
+      "citral-nirvana",
       "do-si-dos",
       "double-grape",
       "erdpurt",
@@ -5728,6 +5729,204 @@
       ],
       "checkedAt": "2026-09-06",
       "updatedAt": "2026-09-06",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "citral-nirvana",
+      "status": "review",
+      "name": "Citral (Nirvana Seeds)",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-citral-nirvana",
+          "weedmaps-citral"
+        ],
+        "display": "親系統は未確定",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Nirvana SeedsのCitralというidentity自体は確認できますが、SeedFinderはSkunk × Hindu Kush、WeedmapsはHindu Kush landrace × unknown second landraceとしており、親系統は未確定です。Green House Lemon Skunk側やPositronicsのCitralとは統合しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "nirvana-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "seedfinder-citral-nirvana",
+            "weedmaps-citral"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "weedmaps-citral"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "クッシュ系",
+          "アーシー",
+          "ムスク"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "クッシュ系",
+            "アーシー",
+            "ムスク"
+          ],
+          "details": [
+            {
+              "rawMatch": "kush",
+              "reviewLabelJa": "クッシュ系",
+              "plainMeaningJa": "クッシュ系と表現される香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "クッシュ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earth",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "musk",
+              "reviewLabelJa": "ムスク",
+              "plainMeaningJa": "ムスクを思わせる重く甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "麝香"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "WeedmapsのNirvana Citral profileではkush、earth、muskがAromaとして報告されています。identity review中のcandidate evidenceとして保持します。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-citral-nirvana",
+          "weedmaps-citral"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Nirvana SeedsのCitralとして確認できるhistorical cultivarです。Hindu Kush / Chitral地域との関連は複数資料で一致しますが、正確な親式は一致していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-citral-nirvana",
+          "weedmaps-citral"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Nirvana Seedsのhistorical Citralとして分離保持します。Papaya側では専門系譜資料がこのNirvana Citralを親として明示するため接続対象になりますが、Green House Lemon Skunk側のCitralは別の未解決identityとして扱います。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-citral"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Weedmapsではshort stature、heavy branching、broad fan leavesが報告されていますが、これを別系統のCitral同定には使いません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Nirvana SeedsのCitralというidentity自体は確認できますが、SeedFinderはSkunk × Hindu Kush、WeedmapsはHindu Kush landrace × unknown second landraceとしており、親系統は未確定です。Green House Lemon Skunk側やPositronicsのCitralとは統合しません。",
+          "origin": "Nirvana SeedsのCitralとして確認できるhistorical cultivarです。Hindu Kush / Chitral地域との関連は複数資料で一致しますが、正確な親式は一致していません。",
+          "history": "Nirvana Seedsのhistorical Citralとして分離保持します。Papaya側では専門系譜資料がこのNirvana Citralを親として明示するため接続対象になりますが、Green House Lemon Skunk側のCitralは別の未解決identityとして扱います。",
+          "aromaNote": "WeedmapsのNirvana Citral profileではkush、earth、muskがAromaとして報告されています。identity review中のcandidate evidenceとして保持します。",
+          "morphologyNote": "Weedmapsではshort stature、heavy branching、broad fan leavesが報告されていますが、これを別系統のCitral同定には使いません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/citral-nirvana/primary.webp",
+          "alt": "Nirvana Seeds Citralについて、専門資料のshort stature・heavy branching・broad fan leavesのみを根拠に安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14361,20 +14560,21 @@
         "generation": "unknown"
       },
       "lineage": {
-        "status": "confirmed",
-        "confidence": "A",
-        "basis": "breederOfficial",
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "historicalSource",
         "sourceRefs": [
-          "ghsc-lemon-skunk"
+          "ghsc-lemon-skunk",
+          "icmag-franco-lemon-skunk-2008"
         ],
-        "display": "Skunk × Citral",
+        "display": "系譜情報に相違あり",
         "parents": [
           "Skunk",
           "Citral"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Green House Seed Co.公式ではSkunk × Citralと記載されています。本文ではClassic Skunkという表現もありますが、Skunk #1へ決め打ちせず、generationもunknownのまま保持します。同名のDNA Genetics版Lemon Skunkとは統合していません。"
+          "textJa": "Green House Seed Co.現行公式はSkunk × Citralと記載しています。一方、2008年にFranco Loja本人の説明として記録された内容では、Lemon Skunkは90年代初頭にCitralと呼ばれていた古い株で、Skunk系であること以外のpedigreeは不明、選抜母株からR1 feminized seedを作ったとされています。両説明は同じ系譜式として両立しないため、CSWではdisputedとして保持し、系譜図でCitralを確定親として接続しません。DNA Genetics版とも統合しません。"
         }
       },
       "relations": [
@@ -14638,7 +14838,7 @@
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Green House Seed Co.公式ではSkunk × Citralと記載されています。本文ではClassic Skunkという表現もありますが、Skunk #1へ決め打ちせず、generationもunknownのまま保持します。同名のDNA Genetics版Lemon Skunkとは統合していません。",
+          "lineageNote": "Green House Seed Co.現行公式はSkunk × Citralと記載しています。一方、2008年にFranco Loja本人の説明として記録された内容では、Lemon Skunkは90年代初頭にCitralと呼ばれていた古い株で、Skunk系であること以外のpedigreeは不明、選抜母株からR1 feminized seedを作ったとされています。両説明は同じ系譜式として両立しないため、CSWではdisputedとして保持し、系譜図でCitralを確定親として接続しません。DNA Genetics版とも統合しません。",
           "history": "Green House Seed Co.公式はLemon Skunkの受賞歴として1st Highlife 2007を掲載しています。主催者一次記録と同じ強さには引き上げず、originator公式の歴史情報として保持します。",
           "aromaNote": "Green House Seed Co.公式がIntense citrus aromaと直接記載しているため、citrusのみをAromaとして採用しています。味として書かれたlemonyやskunkyなどはAromaへ横滑りさせていません。",
           "morphologyNote": "Green House Seed Co.公式では、つる状に伸びる多枝性、中〜長めの節間、濃い緑色、白い樹脂に覆われた硬い花、終盤の赤〜オレンジ色のピストルが説明されています。未記載の形態は補っていません。"
@@ -14656,7 +14856,7 @@
         }
       ],
       "checkedAt": "2026-09-21",
-      "updatedAt": "2026-09-21",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -18638,19 +18838,20 @@
       },
       "lineage": {
         "status": "confirmed",
-        "confidence": "A",
-        "basis": "breederOfficial",
+        "confidence": "B",
+        "basis": "specialistDatabase",
         "sourceRefs": [
-          "nirvana-papaya-feminized"
+          "nirvana-papaya-feminized",
+          "seedfinder-citral-nirvana"
         ],
         "display": "Citral × Ice",
         "parents": [
-          "Citral",
+          "Citral (Nirvana Seeds)",
           "Ice"
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Nirvana Seeds公式では、Papaya Feminizedの遺伝背景をCitral × Iceと記載しています。二次資料にある番号付き親系統や別系譜説は、現在の公式表記へ混ぜていません。"
+          "textJa": "Nirvana Seeds公式の親表記はCitral × Ice。SeedFinderのNirvana Citral系譜ではPapayaをCitral (Nirvana Seeds) × Ice (Nirvana Seeds)として明示しています。表示は公式表記を保ちつつ、系譜図のidentity解決だけNirvana SeedsのCitralへ限定し、Green House Lemon Skunk側やPositronicsのCitralとは統合しません。"
         }
       },
       "relations": [
@@ -18950,7 +19151,7 @@
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "Nirvana Seeds公式では、Papaya Feminizedの遺伝背景をCitral × Iceと記載しています。二次資料にある番号付き親系統や別系譜説は、現在の公式表記へ混ぜていません。",
+          "lineageNote": "Nirvana Seeds公式の親表記はCitral × Ice。SeedFinderのNirvana Citral系譜ではPapayaをCitral (Nirvana Seeds) × Ice (Nirvana Seeds)として明示しています。表示は公式表記を保ちつつ、系譜図のidentity解決だけNirvana SeedsのCitralへ限定し、Green House Lemon Skunk側やPositronicsのCitralとは統合しません。",
           "aromaNote": "Nirvana Seeds公式では、甘さ、フレッシュマンゴー、ペッパー系スパイス、パパイヤ果実を思わせる香りが記述されています。香りの語からテルペン成分を推定していません。",
           "terpeneNote": "Nirvana Seeds公式はDominant TerpenesとしてMyrcene、Limonene、Caryophylleneを明記しています。割合や含有量は示されていないため、数値は補っていません。",
           "morphologyNote": "Nirvana Seeds公式では、きらめくような厚みのある花と明るいオレンジ色のピストル、低めにまとまる生育傾向が記述されています。未確認の固定色や葉の特徴は補っていません。"
@@ -18968,7 +19169,7 @@
         }
       ],
       "checkedAt": "2026-09-15",
-      "updatedAt": "2026-09-15",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -28637,6 +28838,22 @@
       "publishedAt": null,
       "checkedAt": "2026-08-17"
     },
+    "icmag-franco-lemon-skunk-2008": {
+      "schemaVersion": 1,
+      "id": "icmag-franco-lemon-skunk-2008",
+      "publisher": "International Cannagraphic Magazine Forums",
+      "title": "Green House Seed Co. Trainwreck, Cheese & Lemon Skunk — 2008 Franco Loja account",
+      "url": "https://www.icmag.com/threads/green-house-seed-co-trainwreck-cheese-lemon-skunk.71990/page-15",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "generationBoundary"
+      ],
+      "publishedAt": "2008-04-15",
+      "checkedAt": "2026-09-24"
+    },
     "josh-d-og-kush-full-strain-breakdown-2026": {
       "schemaVersion": 1,
       "id": "josh-d-og-kush-full-strain-breakdown-2026",
@@ -29656,6 +29873,24 @@
       "publishedAt": null,
       "checkedAt": "2026-08-30"
     },
+    "seedfinder-citral-nirvana": {
+      "schemaVersion": 1,
+      "id": "seedfinder-citral-nirvana",
+      "publisher": "SeedFinder",
+      "title": "Citral (Nirvana Seeds)",
+      "url": "https://seedfinder.eu/en/strain-info/citral/nirvana-seeds",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "history",
+        "classification",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "seedfinder-destroyer-cannabiogen": {
       "schemaVersion": 1,
       "id": "seedfinder-destroyer-cannabiogen",
@@ -30179,6 +30414,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "weedmaps-citral": {
+      "schemaVersion": 1,
+      "id": "weedmaps-citral",
+      "publisher": "Weedmaps",
+      "title": "Citral Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/citral",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "classification",
+        "aroma",
+        "flavor",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "weedmaps-forum-cookies": {
       "schemaVersion": 1,

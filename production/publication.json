@@ -525,6 +525,11 @@
       "strainId": "thin-mint-gsc",
       "state": "published",
       "publishedAt": "2026-09-24T00:49:01Z"
+    },
+    {
+      "strainId": "citral-nirvana",
+      "state": "published",
+      "publishedAt": "2026-09-24T01:38:55Z"
     }
   ]
 }
