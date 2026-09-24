@@ -459,9 +459,12 @@
     }
     const name = document.createElement('strong');
     name.textContent = node.label;
-    const meta = document.createElement('small');
-    meta.textContent = node.isRoot ? 'CURRENT' : linked ? 'CSW' : 'PARENT';
-    element.append(name, meta);
+    element.appendChild(name);
+    if (node.isRoot || !linked) {
+      const meta = document.createElement('small');
+      meta.textContent = node.isRoot ? 'CURRENT' : 'PARENT';
+      element.appendChild(meta);
+    }
     return element;
   };
 
