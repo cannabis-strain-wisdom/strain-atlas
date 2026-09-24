@@ -434,9 +434,18 @@
     requestAnimationFrame(() => {
       drawEdges(visible);
       if (restoreScroll) {
-        viewport.scrollTop = restoreScroll.scrollTop || 0;
-        viewport.scrollLeft = restoreScroll.scrollLeft || 0;
+        const target = restoreScroll;
         restoreScroll = null;
+        let remainingFrames = 3;
+        const applyRestoredScroll = () => {
+          if (!overlay?.open || !viewport) return;
+          viewport.scrollTop = target.scrollTop || 0;
+          viewport.scrollLeft = target.scrollLeft || 0;
+          remainingFrames -= 1;
+          if (remainingFrames > 0) requestAnimationFrame(applyRestoredScroll);
+          else persistState();
+        };
+        applyRestoredScroll();
       } else {
         const center = stage.querySelector('[data-ft-node-key="' + CSS.escape(graphState.centerKey) + '"]');
         if (center && viewport.scrollWidth > viewport.clientWidth) {
