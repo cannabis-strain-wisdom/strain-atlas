@@ -6,6 +6,14 @@
   const NAV_KEY = '__cswFamilyTreeFrom';
   const MAX_DEPTH = 2;
   const BRANCH_LIMIT = 3;
+  const HOME_FAMILY_ANCHORS = Object.freeze([
+    { id: 'og-kush', label: 'OG Kush系', note: 'OG Kushを起点' },
+    { id: 'girl-scout-cookies', label: 'Cookies / GSC系', note: 'Girl Scout Cookiesを起点' },
+    { id: 'gelato-33', label: 'Gelato系', note: 'Gelato #33を起点' },
+    { id: 'sunset-sherbert', label: 'Sherbert系', note: 'Sunset Sherbertを起点' },
+    { id: 'skunk-1', label: 'Skunk #1系', note: 'Skunk #1を起点' },
+    { id: 'a5-haze', label: 'A5 Haze系', note: 'A5 Hazeを起点' }
+  ]);
   const shell = document.getElementById('detail-shell');
   if (!shell) return;
 
@@ -267,6 +275,209 @@
   let restoreScroll = null;
   let centerOnNextRender = false;
   let lastFocus = null;
+  let familyExplorer;
+  let familyExplorerCatalog = null;
+  let familyExplorerAnchorId = '';
+
+  const familyMembers = (catalog, anchorId) => {
+    const anchor = (catalog?.cultivars || []).find(item => item?.id === anchorId);
+    if (!anchor) return [];
+    const resolve = buildResolver(catalog);
+    const childIndex = new Map();
+    for (const child of catalog?.cultivars || []) {
+      if (text(child?.lineage?.status) !== 'confirmed') continue;
+      for (const parentLabel of confirmedParents(child)) {
+        const parent = resolve(parentLabel);
+        if (!parent?.id) continue;
+        const list = childIndex.get(parent.id) || [];
+        if (!list.some(item => item.id === child.id)) list.push(child);
+        childIndex.set(parent.id, list);
+      }
+    }
+    const distance = new Map([[anchor.id, 0]]);
+    const queue = [anchor.id];
+    while (queue.length) {
+      const id = queue.shift();
+      const nextDistance = (distance.get(id) || 0) + 1;
+      for (const child of childIndex.get(id) || []) {
+        if (distance.has(child.id)) continue;
+        distance.set(child.id, nextDistance);
+        queue.push(child.id);
+      }
+    }
+    return [...distance.entries()]
+      .map(([id, depth]) => ({ cultivar: (catalog?.cultivars || []).find(item => item?.id === id), depth }))
+      .filter(item => item.cultivar)
+      .sort((a, b) => a.depth - b.depth || String(a.cultivar.name).localeCompare(String(b.cultivar.name), 'en'));
+  };
+
+  const familyAnchor = id => HOME_FAMILY_ANCHORS.find(item => item.id === id) || null;
+
+  const renderFamilyExplorer = () => {
+    if (!familyExplorer || !familyExplorerCatalog) return;
+    const body = familyExplorer.querySelector('.csw-fx-body');
+    const title = familyExplorer.querySelector('.csw-fx-title');
+    const sub = familyExplorer.querySelector('.csw-fx-subtitle');
+    const back = familyExplorer.querySelector('.csw-fx-back');
+    body.replaceChildren();
+
+    if (!familyExplorerAnchorId) {
+      title.textContent = '系譜から探す';
+      sub.textContent = '確認済みの系譜を起点別に見る';
+      back.setAttribute('aria-label', '系譜探索を閉じる');
+      const intro = document.createElement('p');
+      intro.className = 'csw-fx-intro';
+      intro.textContent = '系統を選ぶ';
+      const grid = document.createElement('div');
+      grid.className = 'csw-fx-grid';
+      let rendered = 0;
+      for (const anchorSpec of HOME_FAMILY_ANCHORS) {
+        const members = familyMembers(familyExplorerCatalog, anchorSpec.id);
+        if (members.length < 2) continue;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'csw-fx-family';
+        button.dataset.ftFamilyAnchor = anchorSpec.id;
+        const copy = document.createElement('span');
+        const name = document.createElement('strong');
+        name.textContent = anchorSpec.label;
+        const note = document.createElement('small');
+        note.textContent = anchorSpec.note;
+        copy.append(name, note);
+        const count = document.createElement('b');
+        count.textContent = members.length + '品種';
+        button.append(copy, count);
+        grid.appendChild(button);
+        rendered += 1;
+      }
+      body.append(intro, grid);
+      window.__CSWFamilyExplorerV1 = {
+        status: 'PASS',
+        mode: 'families',
+        familyCount: rendered,
+        anchors: HOME_FAMILY_ANCHORS.map(item => item.id)
+      };
+      return;
+    }
+
+    const spec = familyAnchor(familyExplorerAnchorId);
+    const members = familyMembers(familyExplorerCatalog, familyExplorerAnchorId);
+    title.textContent = spec?.label || '系譜から探す';
+    sub.textContent = spec?.note || '確認済みの系譜';
+    back.setAttribute('aria-label', '系統一覧へ戻る');
+    const intro = document.createElement('p');
+    intro.className = 'csw-fx-intro';
+    intro.textContent = '品種を選ぶと、その品種を中心に系譜図を開きます';
+    const list = document.createElement('div');
+    list.className = 'csw-fx-member-list';
+    for (const member of members) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'csw-fx-member';
+      button.dataset.ftFamilyMember = member.cultivar.id;
+      const visual = visualFor(member.cultivar);
+      const media = document.createElement('span');
+      media.className = 'csw-fx-member-media';
+      if (visual?.src) {
+        const img = document.createElement('img');
+        img.src = visual.src;
+        img.alt = '';
+        img.loading = 'lazy';
+        media.appendChild(img);
+      }
+      const copy = document.createElement('span');
+      copy.className = 'csw-fx-member-copy';
+      const name = document.createElement('strong');
+      name.textContent = member.cultivar.name;
+      const depth = document.createElement('small');
+      depth.textContent = member.depth === 0 ? '起点' : member.depth + '世代下';
+      copy.append(name, depth);
+      const arrow = document.createElement('span');
+      arrow.className = 'csw-fx-member-arrow';
+      arrow.textContent = '›';
+      arrow.setAttribute('aria-hidden', 'true');
+      button.append(media, copy, arrow);
+      list.appendChild(button);
+    }
+    body.append(intro, list);
+    window.__CSWFamilyExplorerV1 = {
+      status: 'PASS',
+      mode: 'members',
+      familyId: familyExplorerAnchorId,
+      memberCount: members.length,
+      members: members.map(item => item.cultivar.id)
+    };
+  };
+
+  const closeFamilyExplorer = () => {
+    if (!familyExplorer?.open) return;
+    familyExplorer.close();
+    familyExplorerAnchorId = '';
+    if (!overlay?.open) {
+      document.documentElement.classList.remove('csw-ft-body-lock');
+      document.body.classList.remove('csw-ft-body-lock');
+    }
+  };
+
+  const ensureFamilyExplorer = () => {
+    if (familyExplorer) return familyExplorer;
+    familyExplorer = document.createElement('dialog');
+    familyExplorer.className = 'csw-family-explorer-v1';
+    familyExplorer.setAttribute('role', 'dialog');
+    familyExplorer.setAttribute('aria-modal', 'true');
+    familyExplorer.setAttribute('aria-label', '系譜から探す');
+    familyExplorer.innerHTML = '<header class="csw-fx-header"><button type="button" class="csw-fx-back" aria-label="系譜探索を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-fx-title">系譜から探す</strong><span class="csw-fx-subtitle">確認済みの系譜を起点別に見る</span></div></header><div class="csw-fx-body"></div><footer class="csw-fx-footer">系統は確認済みの系譜を起点に表示します。同じ品種が複数の系統に含まれる場合があります。</footer>';
+    document.body.appendChild(familyExplorer);
+    familyExplorer.querySelector('.csw-fx-back').addEventListener('click', () => {
+      if (familyExplorerAnchorId) {
+        familyExplorerAnchorId = '';
+        renderFamilyExplorer();
+      } else {
+        closeFamilyExplorer();
+      }
+    });
+    familyExplorer.addEventListener('cancel', event => {
+      event.preventDefault();
+      closeFamilyExplorer();
+    });
+    familyExplorer.addEventListener('click', event => {
+      const familyButton = event.target.closest('[data-ft-family-anchor]');
+      if (familyButton) {
+        familyExplorerAnchorId = familyButton.dataset.ftFamilyAnchor;
+        renderFamilyExplorer();
+        familyExplorer.querySelector('.csw-fx-back').focus({ preventScroll: true });
+        return;
+      }
+      const memberButton = event.target.closest('[data-ft-family-member]');
+      if (memberButton) {
+        const id = memberButton.dataset.ftFamilyMember;
+        closeFamilyExplorer();
+        openTree(id, null).catch(failClosed);
+      }
+    });
+    return familyExplorer;
+  };
+
+  const openFamilyExplorer = async () => {
+    familyExplorerCatalog = await loadCatalog();
+    validateTypedRelations(familyExplorerCatalog);
+    ensureFamilyExplorer();
+    familyExplorerAnchorId = '';
+    renderFamilyExplorer();
+    if (!familyExplorer.open) familyExplorer.showModal();
+    document.documentElement.classList.add('csw-ft-body-lock');
+    document.body.classList.add('csw-ft-body-lock');
+    familyExplorer.querySelector('.csw-fx-back').focus({ preventScroll: true });
+    return true;
+  };
+
+  const bindHomeFamilyEntry = () => {
+    const button = document.querySelector('[data-family-tree-home-entry="v1"]');
+    if (!button || button.dataset.familyTreeBound === 'v1') return false;
+    button.dataset.familyTreeBound = 'v1';
+    button.addEventListener('click', () => openFamilyExplorer().catch(failClosed));
+    return true;
+  };
 
   const ensureOverlay = () => {
     if (overlay) return overlay;
@@ -305,7 +516,7 @@
     if (document.getElementById('csw-family-tree-v1-style')) return;
     const style = document.createElement('style');
     style.id = 'csw-family-tree-v1-style';
-    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1:not([open]){display:none}.csw-family-tree-v1::backdrop{background:rgba(0,0,0,.72)}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-direction{color:#aab7af;font-size:9.5px;font-weight:800;line-height:1.25;white-space:nowrap}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level:before{content:attr(data-level-label);position:absolute;left:50%;top:-27px;z-index:4;transform:translateX(-50%);padding:3px 9px;border:1px solid rgba(216,189,98,.12);border-radius:999px;background:#06100c;color:#819188;font-size:8.5px;font-weight:850;letter-spacing:.08em;line-height:1.2;white-space:nowrap}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-level[data-depth="0"]:before{color:#cdb766;border-color:rgba(216,189,98,.2)}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype,.csw-ft-svg path.is-selected-line,.csw-ft-svg path.is-other{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:132px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:74px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:12.5px;line-height:1.3}.csw-ft-copy small{font-size:8.5px}.csw-ft-edge-label{font-size:8.5px;padding:2px 6px}.csw-ft-footer{font-size:10px;line-height:1.55}.csw-ft-direction{font-size:10px}.csw-ft-depth{font-size:9.5px}}';
+    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1:not([open]){display:none}.csw-family-tree-v1::backdrop{background:rgba(0,0,0,.72)}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-direction{color:#aab7af;font-size:9.5px;font-weight:800;line-height:1.25;white-space:nowrap}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level:before{content:attr(data-level-label);position:absolute;left:50%;top:-27px;z-index:4;transform:translateX(-50%);padding:3px 9px;border:1px solid rgba(216,189,98,.12);border-radius:999px;background:#06100c;color:#819188;font-size:8.5px;font-weight:850;letter-spacing:.08em;line-height:1.2;white-space:nowrap}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-level[data-depth="0"]:before{color:#cdb766;border-color:rgba(216,189,98,.2)}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype,.csw-ft-svg path.is-selected-line,.csw-ft-svg path.is-other{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.home-family-tree-entry{display:flex;width:100%;min-height:72px;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 15px;padding:11px 13px;border:1px solid rgba(216,189,98,.22);border-radius:13px;background:linear-gradient(145deg,rgba(216,189,98,.075),rgba(10,29,19,.68));color:#e9e2c9;text-align:left;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}.home-family-tree-copy{display:grid;gap:3px;min-width:0}.home-family-tree-copy>span{color:#d8bd62;font-size:7px;font-weight:950;letter-spacing:.15em}.home-family-tree-copy strong{font-size:12px;line-height:1.2}.home-family-tree-copy small{color:#87988e;font-size:8px;line-height:1.35}.home-family-tree-arrow{flex:0 0 auto;color:#d8bd62;font-size:22px;line-height:1}.home-family-tree-entry:active{transform:scale(.99)}.csw-family-explorer-v1{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;z-index:998;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-explorer-v1:not([open]){display:none}.csw-family-explorer-v1::backdrop{background:rgba(0,0,0,.72)}.csw-fx-header{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-fx-back{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-fx-header>div{display:grid;gap:2px}.csw-fx-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-fx-title{font-size:16px;line-height:1.2}.csw-fx-subtitle{color:#87988e;font-size:9px;font-weight:750;line-height:1.3}.csw-fx-body{overflow:auto;padding:20px 16px 34px;-webkit-overflow-scrolling:touch}.csw-fx-intro{margin:0 0 12px;color:#94a39a;font-size:10px;font-weight:750;line-height:1.5}.csw-fx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.csw-fx-family{display:flex;min-height:88px;align-items:flex-end;justify-content:space-between;gap:8px;padding:11px;border:1px solid rgba(216,189,98,.16);border-radius:13px;background:linear-gradient(145deg,rgba(22,48,32,.72),rgba(5,15,10,.92));color:#edf1e9;text-align:left}.csw-fx-family>span{display:grid;gap:4px;min-width:0}.csw-fx-family strong{font-size:12px;line-height:1.25}.csw-fx-family small{color:#829188;font-size:8px;line-height:1.3}.csw-fx-family b{flex:0 0 auto;padding:3px 6px;border:1px solid rgba(216,189,98,.18);border-radius:999px;color:#d8bd62;font-size:7px;white-space:nowrap}.csw-fx-member-list{display:grid;gap:8px}.csw-fx-member{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:10px;min-height:62px;padding:9px 10px;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.025);color:#edf1e9;text-align:left}.csw-fx-member-media{display:grid;width:42px;height:42px;place-items:center;overflow:hidden;border-radius:9px;background:rgba(255,255,255,.035)}.csw-fx-member-media img{width:100%;height:100%;object-fit:cover}.csw-fx-member-copy{display:grid;gap:3px;min-width:0}.csw-fx-member-copy strong{font-size:12px;line-height:1.25}.csw-fx-member-copy small{color:#87988e;font-size:8px;font-weight:800}.csw-fx-member-arrow{color:#d8bd62;font-size:18px}.csw-fx-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:132px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:74px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:12.5px;line-height:1.3}.csw-ft-copy small{font-size:8.5px}.csw-ft-edge-label{font-size:8.5px;padding:2px 6px}.csw-ft-footer{font-size:10px;line-height:1.55}.csw-ft-direction{font-size:10px}.csw-ft-depth{font-size:9.5px}}';
     document.head.appendChild(style);
   };
 
@@ -594,8 +805,11 @@
 
   injectStyles();
   ensureOverlay();
+  ensureFamilyExplorer();
+  bindHomeFamilyEntry();
   let queued = false;
   const schedule = () => {
+    bindHomeFamilyEntry();
     if (queued || !currentId()) return;
     queued = true;
     queueMicrotask(() => {

@@ -115,6 +115,25 @@ async function main() {
   await waitFor(() => evalv(`document.querySelectorAll('#latest-grid [data-strain-id]').length>=1 && document.querySelectorAll('#cultivar-grid [data-strain-id]').length>=1`), 'cultivar cards');
   const initial = await evalv(`({latest:document.querySelectorAll('#latest-grid [data-strain-id]').length,all:document.querySelectorAll('#cultivar-grid [data-strain-id]').length})`);
 
+  await waitFor(() => evalv(`!!document.querySelector('[data-family-tree-home-entry="v1"]')`), 'home family tree entry');
+  await evalv(`document.querySelector('[data-family-tree-home-entry="v1"]').click();true`);
+  await waitFor(() => evalv(`document.querySelector('.csw-family-explorer-v1')?.open===true && window.__CSWFamilyExplorerV1?.mode==='families'`), 'home family explorer open');
+  const homeFamilyExplorer = await evalv(`(()=>({familyCount:window.__CSWFamilyExplorerV1?.familyCount||0,anchors:[...document.querySelectorAll('[data-ft-family-anchor]')].map(n=>n.dataset.ftFamilyAnchor)}))()`);
+  for (const required of ['og-kush','girl-scout-cookies','gelato-33']) {
+    if (!homeFamilyExplorer.anchors.includes(required)) throw new Error('Home Family Tree anchor missing: ' + required);
+  }
+  if (homeFamilyExplorer.familyCount < 6) throw new Error('Home Family Tree family count incomplete: ' + JSON.stringify(homeFamilyExplorer));
+  await evalv(`document.querySelector('[data-ft-family-anchor="og-kush"]').click();true`);
+  await waitFor(() => evalv(`window.__CSWFamilyExplorerV1?.mode==='members' && window.__CSWFamilyExplorerV1?.familyId==='og-kush' && !!document.querySelector('[data-ft-family-member="ghost-og"]')`), 'OG family member list');
+  const ogFamilyMembers = await evalv(`window.__CSWFamilyExplorerV1?.members||[]`);
+  for (const required of ['og-kush','ghost-og','the-og-18']) {
+    if (!ogFamilyMembers.includes(required)) throw new Error('OG Family Tree member missing: ' + required);
+  }
+  await evalv(`document.querySelector('[data-ft-family-member="og-kush"]').click();true`);
+  await waitFor(() => evalv(`document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='og-kush'`), 'OG family tree from home');
+  await evalv(`document.querySelector('.csw-ft-close').click();true`);
+  await waitFor(() => evalv(`document.querySelector('.csw-family-tree-v1')?.open!==true && !new URL(location.href).searchParams.has('strain')`), 'home family tree close');
+
   await evalv(`(()=>{const e=document.getElementById('search');e.value='Bubble Gum';e.dispatchEvent(new Event('input',{bubbles:true}));return true})()`);
   await waitFor(() => evalv(`document.querySelectorAll('#cultivar-grid [data-strain-id]').length>=1`), 'search results');
   const searchCount = await evalv(`document.querySelectorAll('#cultivar-grid [data-strain-id]').length`);
