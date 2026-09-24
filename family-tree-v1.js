@@ -181,11 +181,18 @@
       const next = [];
       for (const entry of downstreamFrontier) {
         const children = (childIndex.get(entry.item.id) || [])
-          .slice()
-          .sort((a, b) => String(a.child.name).localeCompare(String(b.child.name), 'en'));
+          .map(childEntry => ({
+            ...childEntry,
+            relation: relationFor(childEntry.parentLabel, entry.item, childEntry.child)
+          }))
+          .sort((a, b) => {
+            const aTyped = a.relation.type === 'parent' ? 1 : 0;
+            const bTyped = b.relation.type === 'parent' ? 1 : 0;
+            return aTyped - bTyped || String(a.child.name).localeCompare(String(b.child.name), 'en');
+          });
         for (const childEntry of children) {
           const childNode = addNode(childEntry.child.name, childEntry.child, entry.distance + 1);
-          addEdge(entry.node, childNode, relationFor(childEntry.parentLabel, entry.item, childEntry.child));
+          addEdge(entry.node, childNode, childEntry.relation);
           next.push({ item: childEntry.child, node: childNode, distance: entry.distance + 1 });
         }
       }
