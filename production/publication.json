@@ -530,6 +530,31 @@
       "strainId": "citral-nirvana",
       "state": "published",
       "publishedAt": "2026-09-24T01:38:55Z"
+    },
+    {
+      "strainId": "fire-og-cali-connection",
+      "state": "published",
+      "publishedAt": "2026-09-24T08:56:03Z"
+    },
+    {
+      "strainId": "ghost-og",
+      "state": "published",
+      "publishedAt": "2026-09-24T08:56:03Z"
+    },
+    {
+      "strainId": "sfv-og",
+      "state": "published",
+      "publishedAt": "2026-09-24T08:56:03Z"
+    },
+    {
+      "strainId": "tahoe-og",
+      "state": "published",
+      "publishedAt": "2026-09-24T08:56:03Z"
+    },
+    {
+      "strainId": "triangle-kush",
+      "state": "published",
+      "publishedAt": "2026-09-24T08:56:03Z"
     }
   ]
 }

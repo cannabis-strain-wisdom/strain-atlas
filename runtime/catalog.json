@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T01:38:56.511Z",
+  "generatedAt": "2026-09-24T08:56:06.264Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 94,
-    "sources": 200,
-    "entities": 32
+    "cultivars": 99,
+    "sources": 214,
+    "entities": 34
   },
   "explore": {
     "sativa": [
@@ -44,6 +44,7 @@
       "power-plant",
       "rush-of-siam",
       "satori",
+      "sfv-og",
       "shaman",
       "sour-diesel",
       "super-lemon-haze",
@@ -77,6 +78,7 @@
       "strawberry-banana-s1",
       "sunset-sherbert",
       "super-skunk",
+      "triangle-kush",
       "triangle-kush-s1",
       "violeta",
       "warlock",
@@ -89,9 +91,11 @@
       "bubble-gum",
       "chem-d",
       "face-off-og-bx1",
+      "fire-og-cali-connection",
       "forum-gsc",
       "frisian-duck",
       "gelato-33",
+      "ghost-og",
       "girl-scout-cookies",
       "jack-herer",
       "lemon-cherry-gelato",
@@ -105,6 +109,7 @@
       "serious-happiness",
       "skunk-1",
       "super-boof",
+      "tahoe-og",
       "the-og-18",
       "thin-mint-gsc",
       "wedding-cake"
@@ -8847,6 +8852,140 @@
     },
     {
       "schemaVersion": 1,
+      "id": "fire-og-cali-connection",
+      "status": "review",
+      "name": "Fire OG (The Cali Connection)",
+      "jp": null,
+      "aliases": [
+        "Fire OG",
+        "Fire OG Kush",
+        "The Cali Connection Fire OG"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-fire-og-cali-connection"
+        ],
+        "display": "Raskal's OG Kush × SFV OG Kush",
+        "parents": [
+          "Raskal's OG Kush",
+          "SFV OG Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Fire OGは同名の複数版が確認できるため、今回はThe Cali Connection版として分離します。SeedFinderのbreeder-specific recordではRaskal's OG Kush × SFV OG Kushです。Humboldt Seed CompanyやPurple Caper等の同名版、root Fire cutの歴史は混ぜません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "the-cali-connection",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "seedfinder-fire-og-cali-connection"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-fire-og-cali-connection",
+          "weedmaps-fire-og"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Fire OGという名称には複数のbreeder版があるため、このページはThe Cali Connection版だけに限定します。同名の別版をひとつの品種として平均・統合しません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Fire OGは同名の複数版が確認できるため、今回はThe Cali Connection版として分離します。SeedFinderのbreeder-specific recordではRaskal's OG Kush × SFV OG Kushです。Humboldt Seed CompanyやPurple Caper等の同名版、root Fire cutの歴史は混ぜません。",
+          "history": "Fire OGという名称には複数のbreeder版があるため、このページはThe Cali Connection版だけに限定します。同名の別版をひとつの品種として平均・統合しません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/fire-og-cali-connection/primary.webp",
+          "alt": "Fire OG (The Cali Connection)について、確認できるidentity境界を守り、未確認の形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "forum-gsc",
       "status": "review",
       "name": "Forum GSC",
@@ -9749,6 +9888,163 @@
       ],
       "checkedAt": "2026-09-23",
       "updatedAt": "2026-09-23",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "ghost-og",
+      "status": "review",
+      "name": "Ghost OG",
+      "jp": null,
+      "aliases": [
+        "Ghost OG Kush",
+        "OG Ghost",
+        "Ghost Cut"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ghost-og",
+          "seedfinder-ghost-og-clone-only",
+          "weedmaps-ghost-og"
+        ],
+        "display": "OG Kush",
+        "parents": [
+          "OG Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Ghost OGはOG Kushのclone-only cutとして保持します。ORGNKIDからOverGrowのGhostへ渡り広まったとする専門資料があり、後のApothecary Genetics等のseed lineとは分離します。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ghost-og"
+        ],
+        "items": [
+          "シトラス",
+          "パイン",
+          "アーシー"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-ghost-og"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "seedfinder-ghost-og-clone-only",
+          "weedmaps-ghost-og"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "専門資料では、ORGNKIDからOverGrowのGhostへOG cutが渡り、その名前で広まった経緯が記録されています。後発seed lineはroot Ghost cutへ統合しません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Ghost OGはOG Kushのclone-only cutとして保持します。ORGNKIDからOverGrowのGhostへ渡り広まったとする専門資料があり、後のApothecary Genetics等のseed lineとは分離します。",
+          "history": "専門資料では、ORGNKIDからOverGrowのGhostへOG cutが渡り、その名前で広まった経緯が記録されています。後発seed lineはroot Ghost cutへ統合しません。",
+          "terpeneNote": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/ghost-og/primary.webp",
+          "alt": "Ghost OGについて、確認できるidentity境界を守り、未確認の形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -21581,6 +21877,174 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sfv-og",
+      "status": "review",
+      "name": "SFV OG",
+      "jp": null,
+      "aliases": [
+        "San Fernando Valley OG",
+        "San Fernando Valley Kush",
+        "San Fernando Valley",
+        "SFV O.G.",
+        "SFVOG"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sfv-og",
+          "weedmaps-sfv-og"
+        ],
+        "display": "OG Kush",
+        "parents": [
+          "OG Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "SFV OGはSan Fernando Valleyで流通したOG Kush系clone selectionとして扱います。The Cali Connection公式のSFV OG KushはSan Fernando Valley OG × Afghaniのseed lineなので、root SFV OGとは別identityです。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sfv-og"
+        ],
+        "items": [
+          "パイン",
+          "アーシー",
+          "ウッディ"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sfv-og"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-sfv-og",
+          "weedmaps-sfv-og"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "米国カリフォルニア州サンフェルナンド・バレー"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-sfv-og",
+          "cali-connection-sfv-og-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "SFV OGはCaliforniaのSan Fernando Valleyに結び付くclone-only OG系統として保持します。後のThe Cali Connection seed lineは別に扱います。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "SFV OGはSan Fernando Valleyで流通したOG Kush系clone selectionとして扱います。The Cali Connection公式のSFV OG KushはSan Fernando Valley OG × Afghaniのseed lineなので、root SFV OGとは別identityです。",
+          "origin": "米国カリフォルニア州サンフェルナンド・バレー",
+          "history": "SFV OGはCaliforniaのSan Fernando Valleyに結び付くclone-only OG系統として保持します。後のThe Cali Connection seed lineは別に扱います。",
+          "terpeneNote": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sfv-og/primary.webp",
+          "alt": "SFV OGについて、確認できるidentity境界を守り、未確認の形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "shaman",
       "status": "review",
       "name": "Shaman",
@@ -24178,6 +24642,161 @@
     },
     {
       "schemaVersion": 1,
+      "id": "tahoe-og",
+      "status": "review",
+      "name": "Tahoe OG",
+      "jp": null,
+      "aliases": [
+        "Tahoe OG Kush",
+        "Tahoe Kush"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tahoe-og",
+          "weedmaps-tahoe-og"
+        ],
+        "display": "OG Kush",
+        "parents": [
+          "OG Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Tahoe OGはOG Kush系のclone selectionとして扱います。The Cali ConnectionのTahoe OG Kush seed lineはTahoe Kush clone × SFV OG IBLと公式に示される別identityのため、root Tahoe OGへ混ぜません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tahoe-og"
+        ],
+        "items": [
+          "パイン",
+          "アーシー",
+          "ウッディ"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tahoe-og"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないため、含有率や固定順位へ上げずLISTEDとして保持します。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-tahoe-og",
+          "cali-connection-tahoe-og-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Tahoe OGは古いOG系clone identityとして保持し、The Cali Connectionが公式に示すTahoe Kush clone × SFV OG IBLのseed lineとは分離します。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Tahoe OGはOG Kush系のclone selectionとして扱います。The Cali ConnectionのTahoe OG Kush seed lineはTahoe Kush clone × SFV OG IBLと公式に示される別identityのため、root Tahoe OGへ混ぜません。",
+          "history": "Tahoe OGは古いOG系clone identityとして保持し、The Cali Connectionが公式に示すTahoe Kush clone × SFV OG IBLのseed lineとは分離します。",
+          "terpeneNote": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないため、含有率や固定順位へ上げずLISTEDとして保持します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/tahoe-og/primary.webp",
+          "alt": "Tahoe OGについて、確認できるidentity境界を守り、未確認の形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "thai-chiang-mai",
       "status": "review",
       "name": "Thai Chiang Mai",
@@ -25006,6 +25625,187 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "triangle-kush",
+      "status": "review",
+      "name": "Triangle Kush",
+      "jp": null,
+      "aliases": [
+        "Triangle OG",
+        "OG Triangle",
+        "TK"
+      ],
+      "classification": {
+        "type": "indica"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "stupiddope-marty-calabrese-2023"
+        ],
+        "display": "Emerald Triangle × Hindu Kush (creator testimony)",
+        "parents": [
+          "Emerald Triangle",
+          "Hindu Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Marty Calabrese本人の取材発言では、FloridaでEmerald TriangleにHindu Kushのpollenが偶発的にかかってできたseed群からTriangle Kushが見つかったと説明されています。CSWではcreator testimonyとして保持し、既存Triangle Kush S1とは分離します。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "marty-calabrese",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "stupiddope-marty-calabrese-2023",
+            "origins-tk-triangle-kush"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-triangle-kush"
+        ],
+        "items": [
+          "アーシー",
+          "スカンク",
+          "ウッディ"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-triangle-kush"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-triangle-kush",
+          "stupiddope-marty-calabrese-2023"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "米国フロリダ州"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "stupiddope-marty-calabrese-2023",
+          "origins-tk-triangle-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Triangle Kushはearly-1990s Floridaのseeded materialから生まれたroot cultivarとして整理します。Marty Calabreseの直接取材とOrigins TKの現行資料を根拠にし、S1/BX/後発seed版は別identityです。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Marty Calabrese本人の取材発言では、FloridaでEmerald TriangleにHindu Kushのpollenが偶発的にかかってできたseed群からTriangle Kushが見つかったと説明されています。CSWではcreator testimonyとして保持し、既存Triangle Kush S1とは分離します。",
+          "origin": "米国フロリダ州",
+          "history": "Triangle Kushはearly-1990s Floridaのseeded materialから生まれたroot cultivarとして整理します。Marty Calabreseの直接取材とOrigins TKの現行資料を根拠にし、S1/BX/後発seed版は別identityです。",
+          "terpeneNote": "LeaflyはMyrcene、Limonene、Caryophylleneを掲載しています。個別分析artifactを直接確認していないためLISTEDとして保持します。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/triangle-kush/primary.webp",
+          "alt": "Triangle Kushについて、確認できるidentity境界を守り、未確認の形態を足さず安全余白つきで表現するAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed. Source material is used only as bounded cultivar-specific evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -27689,6 +28489,36 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "cali-connection-sfv-og-kush": {
+      "schemaVersion": 1,
+      "id": "cali-connection-sfv-og-kush",
+      "publisher": "The Cali Connection",
+      "title": "SFV OG Kush — Cannabis Seeds",
+      "url": "https://thecaliconnection.com/seeds/sfv-og-kush",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
+    "cali-connection-tahoe-og-kush": {
+      "schemaVersion": 1,
+      "id": "cali-connection-tahoe-og-kush",
+      "publisher": "The Cali Connection",
+      "title": "Tahoe OG Kush — Cannabis Seeds",
+      "url": "https://thecaliconnection.com/seeds/tahoe-og-kush",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "cannabis-now-return-of-the-mac": {
       "schemaVersion": 1,
       "id": "cannabis-now-return-of-the-mac",
@@ -29156,6 +29986,24 @@
       "publishedAt": null,
       "checkedAt": "2026-09-23"
     },
+    "leafly-ghost-og": {
+      "schemaVersion": 1,
+      "id": "leafly-ghost-og",
+      "publisher": "Leafly",
+      "title": "Ghost OG aka Ghost OG Kush, OG Ghost Weed Strain Information",
+      "url": "https://www.leafly.com/strains/ghost-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "leafly-gsc": {
       "schemaVersion": 1,
       "id": "leafly-gsc",
@@ -29425,6 +30273,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "leafly-sfv-og": {
+      "schemaVersion": 1,
+      "id": "leafly-sfv-og",
+      "publisher": "Leafly",
+      "title": "SFV OG aka San Fernando Valley OG Weed Strain Information",
+      "url": "https://www.leafly.com/strains/sfv-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "origin",
+        "flavor",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "leafly-sherbert": {
       "schemaVersion": 1,
       "id": "leafly-sherbert",
@@ -29521,6 +30388,24 @@
       "publishedAt": "2024-12-12",
       "checkedAt": "2026-09-14"
     },
+    "leafly-tahoe-og": {
+      "schemaVersion": 1,
+      "id": "leafly-tahoe-og",
+      "publisher": "Leafly",
+      "title": "Tahoe OG aka Tahoe OG Kush Weed Strain Information",
+      "url": "https://www.leafly.com/strains/tahoe-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "leafly-thin-mint": {
       "schemaVersion": 1,
       "id": "leafly-thin-mint",
@@ -29538,6 +30423,24 @@
         "terpenes",
         "effects",
         "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
+    "leafly-triangle-kush": {
+      "schemaVersion": 1,
+      "id": "leafly-triangle-kush",
+      "publisher": "Leafly",
+      "title": "Triangle Kush aka OG Triangle, Triangle OG Weed Strain Information",
+      "url": "https://www.leafly.com/strains/triangle-kush",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "origin",
+        "flavor",
+        "terpenes"
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-24"
@@ -29776,6 +30679,21 @@
       "publishedAt": null,
       "checkedAt": "2026-09-15"
     },
+    "origins-tk-triangle-kush": {
+      "schemaVersion": 1,
+      "id": "origins-tk-triangle-kush",
+      "publisher": "Origins TK",
+      "title": "Origins Triangle Kush",
+      "url": "https://originstk.com/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "originator",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "phylos-a5-haze": {
       "schemaVersion": 1,
       "id": "phylos-a5-haze",
@@ -29938,6 +30856,39 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "seedfinder-fire-og-cali-connection": {
+      "schemaVersion": 1,
+      "id": "seedfinder-fire-og-cali-connection",
+      "publisher": "SeedFinder",
+      "title": "Fire OG (The Cali Connection)",
+      "url": "https://seedfinder.eu/index.php/en/strain-info/fire-og/the-cali-connection",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "classification",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
+    "seedfinder-ghost-og-clone-only": {
+      "schemaVersion": 1,
+      "id": "seedfinder-ghost-og-clone-only",
+      "publisher": "SeedFinder",
+      "title": "Ghost OG (Clone Only Strains)",
+      "url": "https://seedfinder.eu/en/strain-info/ghost-og/clone-only-strains",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "seedfinder-ghsc-white-widow": {
       "schemaVersion": 1,
@@ -30399,6 +31350,23 @@
       "publishedAt": "2019-07-29",
       "checkedAt": "2026-09-22"
     },
+    "stupiddope-marty-calabrese-2023": {
+      "schemaVersion": 1,
+      "id": "stupiddope-marty-calabrese-2023",
+      "publisher": "stupidDOPE",
+      "title": "Exploring the Roots of Classic Cannabis Strains with Origins TK Selects' Marty Calabrese",
+      "url": "https://stupiddope.com/2023/08/interview-with-with-origins-tk-selects-marty-calabrese/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "originator",
+        "lineage",
+        "history",
+        "origin"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "thseeds-bubblegum": {
       "schemaVersion": 1,
       "id": "thseeds-bubblegum",
@@ -30435,6 +31403,20 @@
       "publishedAt": null,
       "checkedAt": "2026-09-24"
     },
+    "weedmaps-fire-og": {
+      "schemaVersion": 1,
+      "id": "weedmaps-fire-og",
+      "publisher": "Weedmaps",
+      "title": "Fire OG Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/fire-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "weedmaps-forum-cookies": {
       "schemaVersion": 1,
       "id": "weedmaps-forum-cookies",
@@ -30452,6 +31434,21 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-23"
+    },
+    "weedmaps-ghost-og": {
+      "schemaVersion": 1,
+      "id": "weedmaps-ghost-og",
+      "publisher": "Weedmaps",
+      "title": "Ghost OG Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/ghost-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "weedmaps-gsc-current": {
       "schemaVersion": 1,
@@ -30506,6 +31503,22 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "weedmaps-sfv-og": {
+      "schemaVersion": 1,
+      "id": "weedmaps-sfv-og",
+      "publisher": "Weedmaps",
+      "title": "SFV OG Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/sfv-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "origin"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
+    },
     "weedmaps-sherbet": {
       "schemaVersion": 1,
       "id": "weedmaps-sherbet",
@@ -30545,6 +31558,22 @@
       ],
       "publishedAt": "2021-09-10",
       "checkedAt": "2026-09-16"
+    },
+    "weedmaps-tahoe-og": {
+      "schemaVersion": 1,
+      "id": "weedmaps-tahoe-og",
+      "publisher": "Weedmaps",
+      "title": "Tahoe OG Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/tahoe-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "origin"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-24"
     },
     "willamette-week-blueberry-origins-2017": {
       "schemaVersion": 1,
@@ -30861,6 +31890,18 @@
       "updatedAt": "2026-09-17",
       "note": "Direct High Times and Leafly interviews identify Mario Guzman / Mr. Sherbinski as the creator/breeder of Sunset Sherbert and describe the breeding event in his own words."
     },
+    "marty-calabrese": {
+      "schemaVersion": 1,
+      "id": "marty-calabrese",
+      "name": "Marty Calabrese",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "note": "Origins TK / Origins TK Selects founder associated by direct interview and current Origins TK material with the early Florida OG Kush and Triangle Kush seed history."
+    },
     "mephisto-genetics": {
       "schemaVersion": 1,
       "id": "mephisto-genetics",
@@ -30969,6 +32010,18 @@
       "checkedAt": "2026-08-14",
       "updatedAt": "2026-08-15",
       "note": "Created from the existing Bubble Gum source attribution during MASTER migration."
+    },
+    "the-cali-connection": {
+      "schemaVersion": 1,
+      "id": "the-cali-connection",
+      "name": "The Cali Connection",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "checkedAt": "2026-09-24",
+      "updatedAt": "2026-09-24",
+      "note": "California seed company. In this stock transaction the entity is introduced only for the breeder-qualified Fire OG record; Tahoe/SFV root clones are not attributed to it as original creations."
     }
   }
 }
