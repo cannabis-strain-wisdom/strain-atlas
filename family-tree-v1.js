@@ -278,6 +278,7 @@
   let familyExplorer;
   let familyExplorerCatalog = null;
   let familyExplorerAnchorId = '';
+  let familyTreeReturnAnchorId = '';
 
   const familyMembers = (catalog, anchorId) => {
     const anchor = (catalog?.cultivars || []).find(item => item?.id === anchorId);
@@ -451,24 +452,37 @@
       const memberButton = event.target.closest('[data-ft-family-member]');
       if (memberButton) {
         const id = memberButton.dataset.ftFamilyMember;
+        const returnAnchorId = familyExplorerAnchorId;
         closeFamilyExplorer();
-        openTree(id, null).catch(failClosed);
+        openTree(id, null, returnAnchorId).catch(failClosed);
       }
     });
     return familyExplorer;
   };
 
-  const openFamilyExplorer = async () => {
-    familyExplorerCatalog = await loadCatalog();
-    validateTypedRelations(familyExplorerCatalog);
+  const showFamilyExplorer = anchorId => {
+    if (!familyExplorerCatalog) return false;
     ensureFamilyExplorer();
-    familyExplorerAnchorId = '';
+    familyExplorerAnchorId = text(anchorId);
     renderFamilyExplorer();
     if (!familyExplorer.open) familyExplorer.showModal();
     document.documentElement.classList.add('csw-ft-body-lock');
     document.body.classList.add('csw-ft-body-lock');
     familyExplorer.querySelector('.csw-fx-back').focus({ preventScroll: true });
     return true;
+  };
+
+  const openFamilyExplorer = async () => {
+    familyExplorerCatalog = await loadCatalog();
+    validateTypedRelations(familyExplorerCatalog);
+    return showFamilyExplorer('');
+  };
+
+  const returnToFamilyExplorer = () => {
+    const anchorId = familyTreeReturnAnchorId;
+    familyTreeReturnAnchorId = '';
+    if (!anchorId || !familyExplorerCatalog) return false;
+    return showFamilyExplorer(anchorId);
   };
 
   const bindHomeFamilyEntry = () => {
@@ -490,10 +504,16 @@
     document.body.appendChild(overlay);
     viewport = overlay.querySelector('.csw-ft-viewport');
     stage = overlay.querySelector('.csw-ft-stage');
-    overlay.querySelector('.csw-ft-close').addEventListener('click', () => closeOverlay(true));
+    overlay.querySelector('.csw-ft-close').addEventListener('click', () => {
+      const shouldReturn = Boolean(familyTreeReturnAnchorId);
+      closeOverlay(true);
+      if (shouldReturn) returnToFamilyExplorer();
+    });
     overlay.addEventListener('cancel', event => {
       event.preventDefault();
+      const shouldReturn = Boolean(familyTreeReturnAnchorId);
       closeOverlay(true);
+      if (shouldReturn) returnToFamilyExplorer();
     });
     overlay.addEventListener('click', event => {
       const expandButton = event.target.closest('[data-ft-expand]');
@@ -507,7 +527,11 @@
       if (nodeButton) navigateToNode(nodeButton.dataset.ftNodeId);
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && overlay && overlay.open) closeOverlay(true);
+      if (event.key === 'Escape' && overlay && overlay.open) {
+        const shouldReturn = Boolean(familyTreeReturnAnchorId);
+        closeOverlay(true);
+        if (shouldReturn) returnToFamilyExplorer();
+      }
     });
     return overlay;
   };
@@ -723,7 +747,8 @@
     };
   };
 
-  const openTree = async (id, saved) => {
+  const openTree = async (id, saved, returnAnchorId = '') => {
+    familyTreeReturnAnchorId = text(returnAnchorId);
     const catalog = await loadCatalog();
     const center = (catalog?.cultivars || []).find(item => item?.id === id);
     if (!center) return false;
@@ -748,6 +773,7 @@
 
   const navigateToNode = id => {
     if (!id || id === centerId) return;
+    familyTreeReturnAnchorId = '';
     persistState();
     const url = new URL(location.href);
     url.searchParams.set('strain', id);

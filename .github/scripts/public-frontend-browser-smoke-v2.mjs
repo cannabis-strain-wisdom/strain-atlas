@@ -132,7 +132,11 @@ async function main() {
   await evalv(`document.querySelector('[data-ft-family-member="og-kush"]').click();true`);
   await waitFor(() => evalv(`document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='og-kush'`), 'OG family tree from home');
   await evalv(`document.querySelector('.csw-ft-close').click();true`);
-  await waitFor(() => evalv(`document.querySelector('.csw-family-tree-v1')?.open!==true && !new URL(location.href).searchParams.has('strain')`), 'home family tree close');
+  await waitFor(() => evalv(`document.querySelector('.csw-family-tree-v1')?.open!==true && document.querySelector('.csw-family-explorer-v1')?.open===true && window.__CSWFamilyExplorerV1?.mode==='members' && window.__CSWFamilyExplorerV1?.familyId==='og-kush' && !new URL(location.href).searchParams.has('strain')`), 'home family tree returns to OG member list');
+  await evalv(`document.querySelector('.csw-fx-back').click();true`);
+  await waitFor(() => evalv(`window.__CSWFamilyExplorerV1?.mode==='families'`), 'home family explorer returns to family list');
+  await evalv(`document.querySelector('.csw-fx-back').click();true`);
+  await waitFor(() => evalv(`document.querySelector('.csw-family-explorer-v1')?.open!==true`), 'home family explorer close');
 
   await evalv(`(()=>{const e=document.getElementById('search');e.value='Bubble Gum';e.dispatchEvent(new Event('input',{bubbles:true}));return true})()`);
   await waitFor(() => evalv(`document.querySelectorAll('#cultivar-grid [data-strain-id]').length>=1`), 'search results');
