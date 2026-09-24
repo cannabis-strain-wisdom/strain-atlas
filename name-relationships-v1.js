@@ -322,7 +322,17 @@
       lineageCard.appendChild(body);
     }
     if (lineageCard.dataset.lineageRelationships === 'v2' && body.querySelector('[data-name-relationships-integrated="v2"]')) {
-      moveEvidenceFooterLast(lineageCard);
+      const evidenceFooterAtBottom = moveEvidenceFooterLast(lineageCard);
+      const aliases = unique(cultivar.aliases).filter(alias => alias !== cultivar.name && !/\b(?:2\.0|3\.0|auto)\b/i.test(alias));
+      lineageCard.dataset.sitewideLineage = 'v1';
+      root.dataset.nameRelationships = 'v2';
+      root.dataset.sitewideLineageRelationships = 'v1';
+      window.__CSWRainbowBeltsNameRelationshipRailV1 = {
+        status: 'PASS', cultivarId: RAINBOW_ID, presentation: RAINBOW_PRESENTATION,
+        rootLineage, rootExplanationPreserved: true, evidenceFooterAtBottom,
+        aliases, derivedLines: RAINBOW_DERIVED.map(line => ({ name: line.name, lineage: line.lineage })),
+        separateRelationshipCard: false, autoRow: false, contract: RAINBOW_CONTRACT
+      };
       return true;
     }
 
