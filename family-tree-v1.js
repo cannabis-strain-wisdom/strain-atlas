@@ -275,7 +275,7 @@
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', '系譜図ビュー');
-    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="系譜図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">系譜図</strong><span class="csw-ft-direction">↑ 親・祖先　｜　子・派生 ↓</span></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。線のラベルで 親 / 選抜クローン / 選抜個体 / 選抜系統 / S1 / BX / バッグシード などの意味を区別します。</footer>';
+    overlay.innerHTML = '<header class="csw-ft-header"><button type="button" class="csw-ft-close" aria-label="系譜図を閉じる">←</button><div><small>FAMILY TREE</small><strong class="csw-ft-title">系譜図</strong><span class="csw-ft-direction">↑ 親・祖先　｜　子・派生 ↓</span></div><span class="csw-ft-depth">上下2世代</span></header><div class="csw-ft-viewport" tabindex="0"><div class="csw-ft-stage"></div></div><footer class="csw-ft-footer">確認済みの系譜だけを表示。上から下へ系譜がつながります。通常の線は親子関係で、選抜クローン / 選抜個体 / 選抜系統 / S1 / BX / バッグシードなど特殊な関係だけ線にラベルを表示します。</footer>';
     document.body.appendChild(overlay);
     viewport = overlay.querySelector('.csw-ft-viewport');
     stage = overlay.querySelector('.csw-ft-stage');
@@ -305,7 +305,7 @@
     if (document.getElementById('csw-family-tree-v1-style')) return;
     const style = document.createElement('style');
     style.id = 'csw-family-tree-v1-style';
-    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1:not([open]){display:none}.csw-family-tree-v1::backdrop{background:rgba(0,0,0,.72)}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-direction{color:#aab7af;font-size:9.5px;font-weight:800;line-height:1.25;white-space:nowrap}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype,.csw-ft-svg path.is-selected-line,.csw-ft-svg path.is-other{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:132px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:74px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:12.5px;line-height:1.3}.csw-ft-copy small{font-size:8.5px}.csw-ft-edge-label{font-size:8.5px;padding:2px 6px}.csw-ft-footer{font-size:10px;line-height:1.55}.csw-ft-direction{font-size:10px}.csw-ft-depth{font-size:9.5px}}';
+    style.textContent = '.csw-ft-entry{display:flex;width:100%;min-height:44px;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;padding:10px 12px;border:1px solid rgba(216,189,98,.2);border-radius:12px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(255,255,255,.018));color:#e6d58f;font:800 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left}.csw-ft-entry small{color:#7f9187;font-size:9px;font-weight:800;letter-spacing:.1em}.csw-ft-entry:after{content:"›";font-size:20px;color:#b9a257}.csw-family-tree-v1{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;z-index:999;background:#06100c;color:#edf1e9;display:grid;grid-template-rows:auto minmax(0,1fr) auto}.csw-family-tree-v1:not([open]){display:none}.csw-family-tree-v1::backdrop{background:rgba(0,0,0,.72)}.csw-ft-header{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid rgba(216,189,98,.16);background:rgba(4,12,8,.98)}.csw-ft-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.025);color:#edf1e9;font-size:22px}.csw-ft-header>div{display:grid;gap:2px}.csw-ft-header small{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em}.csw-ft-title{font-size:16px;line-height:1.2}.csw-ft-direction{color:#aab7af;font-size:9.5px;font-weight:800;line-height:1.25;white-space:nowrap}.csw-ft-depth{color:#829087;font-size:9px;font-weight:750}.csw-ft-viewport{position:relative;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:22px 16px 40px}.csw-ft-stage{position:relative;display:grid;gap:62px;min-width:max-content;min-height:100%;padding:12px 18px 32px}.csw-ft-level{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;min-height:92px}.csw-ft-level:before{content:attr(data-level-label);position:absolute;left:50%;top:-27px;z-index:4;transform:translateX(-50%);padding:3px 9px;border:1px solid rgba(216,189,98,.12);border-radius:999px;background:#06100c;color:#819188;font-size:8.5px;font-weight:850;letter-spacing:.08em;line-height:1.2;white-space:nowrap}.csw-ft-level[data-depth="0"]{min-height:108px}.csw-ft-level[data-depth="0"]:before{color:#cdb766;border-color:rgba(216,189,98,.2)}.csw-ft-node-wrap{display:grid;justify-items:center;gap:7px;width:138px}.csw-ft-node{display:grid;width:138px;min-height:72px;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:8px;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0a1711;color:#edf1e9;text-align:left;box-shadow:0 10px 26px rgba(0,0,0,.2)}.csw-ft-node.is-current{border-color:rgba(216,189,98,.62);background:linear-gradient(145deg,rgba(216,189,98,.16),rgba(43,86,56,.28))}.csw-ft-node.is-unpublished{display:flex;justify-content:center;min-height:58px;background:rgba(255,255,255,.018);border-style:dashed;color:#9baa9f;text-align:center}.csw-ft-thumb{width:36px;height:36px;border-radius:9px;object-fit:cover;background:#111}.csw-ft-copy{display:grid;gap:3px;min-width:0}.csw-ft-copy strong{font-size:11.5px;line-height:1.25;overflow-wrap:anywhere}.csw-ft-copy small{color:#84958b;font-size:7.5px;font-weight:850;letter-spacing:.08em}.csw-ft-expand{min-height:28px;padding:4px 8px;border:1px solid rgba(216,189,98,.17);border-radius:999px;background:rgba(216,189,98,.04);color:#bdaa6b;font-size:9px;font-weight:800}.csw-ft-svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}.csw-ft-svg path{fill:none;stroke:rgba(216,189,98,.42);stroke-width:1.25;stroke-linecap:round}.csw-ft-svg path.is-selected-cut,.csw-ft-svg path.is-selection,.csw-ft-svg path.is-selected-phenotype,.csw-ft-svg path.is-selected-line,.csw-ft-svg path.is-other{stroke-dasharray:4 4}.csw-ft-svg path.is-s1,.csw-ft-svg path.is-bx{stroke-width:1.7}.csw-ft-edge-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 5px;border:1px solid rgba(216,189,98,.16);border-radius:999px;background:#07120d;color:#aab7af;font-size:7.5px;font-weight:850;line-height:1.1;white-space:nowrap;pointer-events:none}.csw-ft-footer{padding:10px 14px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(216,189,98,.12);background:rgba(4,12,8,.98);color:#7f9187;font-size:9px;line-height:1.5}.csw-ft-body-lock{overflow:hidden!important}@media(max-width:390px){.csw-ft-viewport{padding-inline:10px}.csw-ft-stage{gap:56px;padding-inline:10px}.csw-ft-level{gap:12px}.csw-ft-node-wrap,.csw-ft-node{width:132px}.csw-ft-node{grid-template-columns:32px minmax(0,1fr);min-height:74px;padding:7px}.csw-ft-thumb{width:32px;height:32px}.csw-ft-copy strong{font-size:12.5px;line-height:1.3}.csw-ft-copy small{font-size:8.5px}.csw-ft-edge-label{font-size:8.5px;padding:2px 6px}.csw-ft-footer{font-size:10px;line-height:1.55}.csw-ft-direction{font-size:10px}.csw-ft-depth{font-size:9.5px}}';
     document.head.appendChild(style);
   };
 
@@ -347,6 +347,21 @@
     svg.setAttribute('width', String(width));
     svg.setAttribute('height', String(height));
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+    marker.setAttribute('id', 'csw-ft-arrow-v1');
+    marker.setAttribute('viewBox', '0 0 6 6');
+    marker.setAttribute('refX', '5.5');
+    marker.setAttribute('refY', '3');
+    marker.setAttribute('markerWidth', '5');
+    marker.setAttribute('markerHeight', '5');
+    marker.setAttribute('orient', 'auto');
+    const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    arrow.setAttribute('d', 'M 0 0 L 6 3 L 0 6 z');
+    arrow.setAttribute('fill', 'rgba(216,189,98,.56)');
+    marker.appendChild(arrow);
+    defs.appendChild(marker);
+    svg.appendChild(defs);
     stage.prepend(svg);
     const stageRect = stage.getBoundingClientRect();
     for (const edge of visible.edges) {
@@ -364,14 +379,17 @@
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', 'M ' + x1 + ' ' + y1 + ' C ' + x1 + ' ' + mid + ', ' + x2 + ' ' + mid + ', ' + x2 + ' ' + y2);
       path.setAttribute('vector-effect', 'non-scaling-stroke');
+      path.setAttribute('marker-end', 'url(#csw-ft-arrow-v1)');
       path.classList.add('is-' + edge.relation.type);
       svg.appendChild(path);
-      const label = document.createElement('span');
-      label.className = 'csw-ft-edge-label';
-      label.textContent = publicRelationLabel(edge.relation);
-      label.style.left = ((x1 + x2) / 2) + 'px';
-      label.style.top = mid + 'px';
-      stage.appendChild(label);
+      if (edge.relation.type !== 'parent') {
+        const label = document.createElement('span');
+        label.className = 'csw-ft-edge-label';
+        label.textContent = publicRelationLabel(edge.relation);
+        label.style.left = ((x1 + x2) / 2) + 'px';
+        label.style.top = mid + 'px';
+        stage.appendChild(label);
+      }
     }
   };
 
@@ -435,6 +453,13 @@
     const visible = visibleGraph(graphState, expanded);
     stage.replaceChildren();
     const depths = [-2, -1, 0, 1, 2];
+    const levelLabels = new Map([
+      [-2, '祖先（2世代前）'],
+      [-1, '親'],
+      [0, '現在'],
+      [1, '子・派生'],
+      [2, '子・派生（2世代先）']
+    ]);
     for (const depth of depths) {
       const items = visible.nodes
         .filter(node => node.depth === depth)
@@ -443,6 +468,9 @@
       const level = document.createElement('div');
       level.className = 'csw-ft-level';
       level.dataset.depth = String(depth);
+      const levelLabel = levelLabels.get(depth) || '';
+      level.dataset.levelLabel = levelLabel;
+      if (levelLabel) level.setAttribute('aria-label', levelLabel);
       items.forEach(node => level.appendChild(makeNode(node, visible.hiddenCounts)));
       stage.appendChild(level);
     }
