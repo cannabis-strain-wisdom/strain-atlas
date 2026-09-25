@@ -1055,6 +1055,114 @@
 })();
 </script>
 <!-- CSW_PUBLIC_EVIDENCE_BADGE_V1_END -->
+  <!-- CSW_CANNABINOID_SAMPLE_SCOPE_V1_START -->
+<script id="csw-cannabinoid-sample-scope-v1">
+(() => {
+  'use strict';
+
+  const CONTRACT = 'CSW_CANNABINOID_SAMPLE_SCOPE_V1';
+  const shell = document.getElementById('detail-shell');
+  if (!shell) return;
+
+  let catalogPromise;
+  const loadCatalog = () => {
+    if (window.__CSWRuntimeCatalogPromise && typeof window.__CSWRuntimeCatalogPromise.then === 'function') {
+      return Promise.resolve(window.__CSWRuntimeCatalogPromise);
+    }
+    catalogPromise ||= fetch('runtime/catalog.json', { cache: 'no-store' }).then(response => {
+      if (!response.ok) throw new Error(`catalog HTTP ${response.status}`);
+      return response.json();
+    });
+    return catalogPromise;
+  };
+
+  const decorate = async () => {
+    const id = new URL(location.href).searchParams.get('strain');
+    if (!id) return;
+
+    const catalog = await loadCatalog();
+    const cultivar = (catalog?.cultivars || []).find(item => item?.id === id);
+    const root = shell.querySelector(`.ucd-root[data-public-detail-id="${CSS.escape(id)}"]`);
+    if (!cultivar || !root) return;
+
+    const items = Array.isArray(cultivar?.cannabinoids?.presentation?.items)
+      ? cultivar.cannabinoids.presentation.items
+      : [];
+    const grid = root.querySelector('.ucd-cannabinoid-grid');
+    if (!grid || !items.length) return;
+
+    const cells = [...grid.children];
+    cells.forEach((cell, index) => {
+      const item = items[index];
+      const existing = cell.querySelector('[data-csw-cannabinoid-sample-scope="v1"]');
+      const isSample = item?.evidenceType === 'SAMPLE_MEASUREMENT';
+
+      if (!isSample) {
+        existing?.remove();
+        return;
+      }
+
+      const label = String(item?.contextLabel || '確認検体1件').trim();
+      if (!label) return;
+
+      const scope = existing || document.createElement('span');
+      scope.className = 'csw-cannabinoid-sample-scope-v1';
+      scope.dataset.cswCannabinoidSampleScope = 'v1';
+      scope.textContent = label;
+
+      if (!existing) {
+        const value = cell.querySelector('strong');
+        if (value) value.insertAdjacentElement('afterend', scope);
+        else cell.appendChild(scope);
+      }
+    });
+
+    root.dataset.cswCannabinoidSampleScope = 'v1';
+    window.__CSWCannabinoidSampleScopeV1 = { status: 'PASS', cultivarId: id, contract: CONTRACT };
+  };
+
+  if (!document.getElementById('csw-cannabinoid-sample-scope-v1-style')) {
+    const style = document.createElement('style');
+    style.id = 'csw-cannabinoid-sample-scope-v1-style';
+    style.textContent = `
+      .csw-cannabinoid-sample-scope-v1{
+        display:block;
+        margin-top:1px;
+        color:#839188;
+        font-size:8.5px;
+        font-weight:760;
+        line-height:1.25;
+        letter-spacing:.025em;
+        text-align:center;
+        white-space:nowrap
+      }
+      @media(max-width:390px){
+        .csw-cannabinoid-sample-scope-v1{font-size:8px}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  let queued = false;
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(() => {
+      queued = false;
+      decorate().catch(error => {
+        window.__CSWCannabinoidSampleScopeV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) };
+        console.error(CONTRACT, error);
+      });
+    });
+  };
+
+  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  shell.addEventListener('click', schedule, true);
+  window.addEventListener('popstate', schedule);
+  schedule();
+})();
+</script>
+<!-- CSW_CANNABINOID_SAMPLE_SCOPE_V1_END -->
   <!-- CSW_RAINBOW_BELTS_IDENTITY_FAMILY_PILOT_V1_START -->
 <script id="csw-rainbow-belts-identity-family-pilot-v1">
 (() => {
