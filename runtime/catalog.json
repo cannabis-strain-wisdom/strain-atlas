@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T01:48:44.565Z",
+  "generatedAt": "2026-09-25T02:26:40.455Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -233,6 +233,20 @@
           "registryVersion": 1,
           "noteJa": "ACE公式はA5 motherをincense、organic、meaty系の香りとして直接説明しています。Aroma PROFILEとして保持します。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "phylos-a5-haze"
+        ],
+        "items": [
+          "レバー",
+          "インセンス",
+          "腐敗した有機物と花",
+          "腐敗したトロピカルフルーツ"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -1342,18 +1356,21 @@
         "generation": "unknown"
       },
       "lineage": {
-        "status": "disputed",
+        "status": "confirmed",
         "confidence": "B",
         "basis": "specialistDatabase",
         "sourceRefs": [
           "leafly-animal-mints",
           "weedmaps-animal-mints"
         ],
-        "display": "親系統は未確定",
-        "parents": [],
+        "display": "Animal Cookies × SinMint Cookies",
+        "parents": [
+          "Animal Cookies",
+          "SinMint Cookies"
+        ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "系譜は現在DISPUTEDです。LeaflyはAnimal Cookies × SinMint Cookies、WeedmapsはAnimal Cookies × (GSC × Blue Power)としており、片方へ寄せたり平均したりせず両説を分離して保持しています。"
+          "textJa": "直系はAnimal Cookies × SinMint Cookies。Weedmapsの親欄もこの2系統を示しており、本文のGSC × Blue PowerはSinMint Cookies側の上流構成を展開した記述です。上流系譜を別の直系説として扱わず、named direct parentを保持しています。"
         }
       },
       "relations": [
@@ -1414,6 +1431,19 @@
           "registryVersion": 1,
           "noteJa": "LeaflyはAromaをsweet / pungentと明記しています。mintyはon the exhaleという文脈なので、FlavorからAromaへ自動変換せず、原文脈を残しています。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints"
+        ],
+        "items": [
+          "メンソール",
+          "ミント",
+          "アップル"
+        ]
       },
       "effects": {
         "status": "confirmed",
@@ -1502,7 +1532,7 @@
         ],
         "presentation": {
           "schemaVersion": 1,
-          "textJa": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係は専門資料で一致します。一方、親系統には現在の主要専門資料間で差があるため、root cultivarの系譜は確定扱いにしていません。"
+          "textJa": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係が専門資料で確認できます。LeaflyとWeedmapsは直系をAnimal Cookies × SinMint Cookiesとして一致させており、Weedmaps本文はSinMint Cookies側をGSC × Blue Powerとして展開しています。"
         }
       },
       "morphology": {
@@ -1522,9 +1552,9 @@
       },
       "publicContent": {
         "ja": {
-          "lineageNote": "系譜は現在DISPUTEDです。LeaflyはAnimal Cookies × SinMint Cookies、WeedmapsはAnimal Cookies × (GSC × Blue Power)としており、片方へ寄せたり平均したりせず両説を分離して保持しています。",
+          "lineageNote": "直系はAnimal Cookies × SinMint Cookies。Weedmapsの親欄もこの2系統を示しており、本文のGSC × Blue PowerはSinMint Cookies側の上流構成を展開した記述です。上流系譜を別の直系説として扱わず、named direct parentを保持しています。",
           "origin": "Animal MintsはSeed Junky Geneticsのbreeding workとして扱え、WeedmapsはSouthern Californiaの文脈を示しています。正確な交配・selection地点までは断定していません。",
-          "history": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係は専門資料で一致します。一方、親系統には現在の主要専門資料間で差があるため、root cultivarの系譜は確定扱いにしていません。",
+          "history": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係が専門資料で確認できます。LeaflyとWeedmapsは直系をAnimal Cookies × SinMint Cookiesとして一致させており、Weedmaps本文はSinMint Cookies側をGSC × Blue Powerとして展開しています。",
           "aromaNote": "LeaflyはAromaをsweet / pungentと明記しています。mintyはon the exhaleという文脈なので、FlavorからAromaへ自動変換せず、原文脈を残しています。",
           "terpeneNote": "LeaflyはCaryophyllene、Myrcene、Limoneneを掲載しています。分析artifactを直接確認していないためLISTEDとして扱っています。",
           "morphologyNote": "Morphologyも資料差があります。Leaflyはbright green / brownと軽いfrost、Weedmapsはgreen / tealとsparkling trichome layerを報告しているため、1つの固定外観へ合成していません。"
@@ -5454,13 +5484,19 @@
         "sourceRefs": [
           "lucky-dog-chem-d-current"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Lucky Dogのcurrent caretaker記述では、Chem Dは太めのbranchingと高いresin productionが報告されています。leaf shape、pistil color、purple colorationなど未確認の形態は補っていません。"
+        }
       },
       "publicContent": {
         "ja": {
           "history": "Chem Dは、1991年のDogbud／Chemweedに由来する13粒と同じseed lotから出た別個体として記録されています。High Timesは2001年にC・D・Eが発芽され、Dがkeeperになったと報告しています。Lucky DogのSkunk VAは初期の発芽自体は目撃していないと明示したうえで、Chem DとChem 91は同じ13粒から出た別の姉妹株で、2006年にGregからChem D cutを受け取り現在まで保持していると説明しています。正確な親2株は記録されていないため推測しません。",
           "aromaNote": "Lucky Dogのcurrent caretaker記述では、pungent chemical fuel、sharp diesel edge、rubbery、raunchyと表現されています。current Aroma contractで成立するCORE／ACCENT階層は確認できないため、原表現を保ったPROFILEとして扱います。",
-          "terpeneNote": "LeaflyはMyrcene、Caryophyllene、Limoneneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位にはせずLISTEDとして扱っています。"
+          "terpeneNote": "LeaflyはMyrcene、Caryophyllene、Limoneneを掲載しています。元の分析artifactとsample setを直接確認していないため、含有率やcultivar-wideの固定順位にはせずLISTEDとして扱っています。",
+          "morphologyNote": "Lucky Dogのcurrent caretaker記述では、Chem Dは太めのbranchingと高いresin productionが報告されています。leaf shape、pistil color、purple colorationなど未確認の形態は補っていません。"
         }
       },
       "visuals": [
@@ -5474,17 +5510,12 @@
           "sourceType": "aiGenerated"
         }
       ],
-      "checkedAt": "2026-09-23",
-      "updatedAt": "2026-09-23",
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -6068,6 +6099,19 @@
           "registryVersion": 1,
           "noteJa": "WeedmapsのNirvana Citral profileではkush、earth、muskがAromaとして報告されています。Nirvana Seeds Citralの専門profile evidenceとして保持し、別系統のCitralには流用しません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-citral"
+        ],
+        "items": [
+          "クッシュ",
+          "新鮮な土",
+          "ケミカル"
+        ]
       },
       "terpenes": {
         "status": "unknown",
@@ -9943,6 +9987,19 @@
           "noteJa": "Cookies公式ではGasとSweetが直接のdescriptorとして示され、本文にはfuel / spice系の表現もあります。構造化Aromaは原表現を勝手に別語へ正規化せず、確認できたapproved raw termだけをPROFILEとして保持しています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gary-payton"
+        ],
+        "items": [
+          "アプリコット",
+          "ペッパー",
+          "ラベンダー"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "C",
@@ -10186,6 +10243,20 @@
           "ペッパー",
           "シトラス",
           "フローラル"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gelato-33"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "幸福感",
+          "興奮"
         ]
       },
       "cultivation": {
@@ -13444,6 +13515,33 @@
           "noteJa": "専門資料ではスイート、ベリー、クリーミー、ガッシーを軸に、シトラス、アーシー、ペッパー、パイン、ディーゼルまで同格の香り表現が確認できます。CORE / ACCENTの階層は作っていません。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-jealousy"
+        ],
+        "items": [
+          "ペッパー",
+          "プラム",
+          "アプリコット"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-jealousy"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "笑いやすい",
+          "リラックス",
+          "おしゃべり"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -14480,6 +14578,33 @@
           "registryVersion": 1,
           "noteJa": "Leaflyはminty / cookie-likeのAroma・Flavorとgas / pineのhintを記載しています。構造化Aromaではminty、gas、pineを原表現のまま保持し、cookie-likeを別のapproved termへ勝手に正規化していません。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kush-mints"
+        ],
+        "items": [
+          "メンソール",
+          "ミント",
+          "アンモニア"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kush-mints"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "興奮",
+          "リラックス",
+          "多幸感"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -20793,6 +20918,20 @@
           "ディーゼル"
         ]
       },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-pink-panties"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "興奮",
+          "幸福感"
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -26329,6 +26468,19 @@
           "noteJa": "Leaflyがsweet minty smellと明示しているため、sweetとmintyをAromaの平坦なPROFILEとして保持しています。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-thin-mint"
+        ],
+        "items": [
+          "ミント",
+          "メンソール",
+          "スイート"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "C",
@@ -28673,6 +28825,19 @@
           "reviewStatus": "NOT_APPLICABLE",
           "unresolvedCount": 0
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-zoap"
+        ],
+        "items": [
+          "アプリコット",
+          "ケミカル",
+          "アップル"
+        ]
       },
       "effects": {
         "status": "confirmed",
