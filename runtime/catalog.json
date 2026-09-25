@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T02:26:40.455Z",
+  "generatedAt": "2026-09-25T11:37:03.542Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 104,
-    "sources": 224,
-    "entities": 36
+    "cultivars": 105,
+    "sources": 227,
+    "entities": 37
   },
   "explore": {
     "sativa": [
@@ -116,6 +116,7 @@
       "tahoe-og",
       "the-og-18",
       "thin-mint-gsc",
+      "tropicana-cookies",
       "wedding-cake",
       "zoap"
     ],
@@ -27079,6 +27080,249 @@
     },
     {
       "schemaVersion": 1,
+      "id": "tropicana-cookies",
+      "status": "review",
+      "name": "Tropicana Cookies",
+      "jp": null,
+      "aliases": [
+        "Tropicanna Cookies"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-tangie-family-2024",
+          "leafly-tropicana-cookies"
+        ],
+        "display": "Forum GSC × Tangie",
+        "parents": [
+          "Forum GSC",
+          "Tangie"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "直系はForum GSC × Tangie。Leaflyの系譜記事ではForum Cut CookiesとTangieの交配として説明されており、CSWでは既存のForum GSCノードへ接続します。Forum GSCをgenericなGSCへ置き換えず、Tangieもその上流系統へ勝手に展開していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "harry-palms",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-tangie-family-2024",
+            "leafly-tropicana-cookies"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "C",
+        "sourceRefs": [
+          "weedmaps-tropicana-cookies"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "スイート"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "スイート"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "AromaはWeedmapsが明示するearthy / sweetのscentだけを採用しています。Orange、Tropical、CitrusはFlavor側の掲載語なので、Aromaへ自動転記していません。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tropicana-cookies",
+          "weedmaps-tropicana-cookies"
+        ],
+        "items": [
+          "オレンジ",
+          "トロピカル",
+          "シトラス"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tropicana-cookies"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "集中",
+          "活力",
+          "高揚感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tropicana-cookies"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-tangie-family-2024",
+          "leafly-tropicana-cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Tropicana Cookiesのroot crossはHarry Palmsの作出として確認でき、LeaflyはBloom Seed Co.との関係も記載しています。Coloradoで広がったMTN Tropや、Oni Seed Co.が後に展開したF2とは区別し、元の交配を行った正確な場所までは断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-tangie-family-2024",
+          "leafly-tropicana-cookies"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Harry PalmsがTangieとForum Cut Cookiesを交配して元のTropicanna Cookiesを作り、その系統からMTN Tropと呼ばれるselectionがColoradoで広まりました。Oni Seed Co.は後に別段階としてTropicanna Cookies F2を開発し、Leaflyは2017年のreleaseを記録しています。root、selection、F2を同一名の別名としてまとめていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tropicana-cookies",
+          "weedmaps-tropicana-cookies"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyではpurpleにdark-greenのhintとorange hairs、Weedmapsではpurple系とgreen系のphenotypeが報告されています。色を固定形質として断定せず、large / dense / resin-coatedという報告もsource範囲内で保持しています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "直系はForum GSC × Tangie。Leaflyの系譜記事ではForum Cut CookiesとTangieの交配として説明されており、CSWでは既存のForum GSCノードへ接続します。Forum GSCをgenericなGSCへ置き換えず、Tangieもその上流系統へ勝手に展開していません。",
+          "origin": "Tropicana Cookiesのroot crossはHarry Palmsの作出として確認でき、LeaflyはBloom Seed Co.との関係も記載しています。Coloradoで広がったMTN Tropや、Oni Seed Co.が後に展開したF2とは区別し、元の交配を行った正確な場所までは断定していません。",
+          "history": "Harry PalmsがTangieとForum Cut Cookiesを交配して元のTropicanna Cookiesを作り、その系統からMTN Tropと呼ばれるselectionがColoradoで広まりました。Oni Seed Co.は後に別段階としてTropicanna Cookies F2を開発し、Leaflyは2017年のreleaseを記録しています。root、selection、F2を同一名の別名としてまとめていません。",
+          "aromaNote": "AromaはWeedmapsが明示するearthy / sweetのscentだけを採用しています。Orange、Tropical、CitrusはFlavor側の掲載語なので、Aromaへ自動転記していません。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。",
+          "morphologyNote": "Leaflyではpurpleにdark-greenのhintとorange hairs、Weedmapsではpurple系とgreen系のphenotypeが報告されています。色を固定形質として断定せず、large / dense / resin-coatedという報告もsource範囲内で保持しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/tropicana-cookies/primary.webp",
+          "alt": "Tropicana CookiesのAI生成参考ビジュアル。purple / green双方のphenotype報告を固定形質化せず、orange pistilsと自然なresin表現を持つ主花全体を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific textual morphology evidence; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "violeta",
       "status": "review",
       "name": "Violeta",
@@ -31875,6 +32119,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-24"
     },
+    "leafly-tangie-family-2024": {
+      "schemaVersion": 1,
+      "id": "leafly-tangie-family-2024",
+      "publisher": "Leafly",
+      "title": "Citrus dynasty: A Tangie family genealogy",
+      "url": "https://www.leafly.com/news/strains-products/tangie-marijuana-family-strains-appreciation",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "originator",
+        "lineage",
+        "history",
+        "generationBoundary",
+        "parentContext"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
     "leafly-thin-mint": {
       "schemaVersion": 1,
       "id": "leafly-thin-mint",
@@ -31913,6 +32176,29 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-24"
+    },
+    "leafly-tropicana-cookies": {
+      "schemaVersion": 1,
+      "id": "leafly-tropicana-cookies",
+      "publisher": "Leafly",
+      "title": "Tropicana Cookies aka Tropicanna Cookies, Tropicanna Cookies F2, MTN Trop Weed Strain Information",
+      "url": "https://www.leafly.com/strains/tropicana-cookies",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "flavor",
+        "terpenes",
+        "effects",
+        "morphology",
+        "history",
+        "origin",
+        "visualReference"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
     },
     "leafly-warlock": {
       "schemaVersion": 1,
@@ -33085,6 +33371,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-24"
     },
+    "weedmaps-tropicana-cookies": {
+      "schemaVersion": 1,
+      "id": "weedmaps-tropicana-cookies",
+      "publisher": "Weedmaps",
+      "title": "Tropicana Cookies (aka Trop Cookies) Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/tropicana-cookies",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "aroma",
+        "flavor",
+        "effects",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
     "willamette-week-blueberry-origins-2017": {
       "schemaVersion": 1,
       "id": "willamette-week-blueberry-origins-2017",
@@ -33315,6 +33621,18 @@
       "checkedAt": "2026-08-14",
       "updatedAt": "2026-08-15",
       "note": "Created from the existing Super Lemon Haze source attribution during MASTER migration."
+    },
+    "harry-palms": {
+      "schemaVersion": 1,
+      "id": "harry-palms",
+      "name": "Harry Palms",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "note": "Breeder credited by Leafly with first breeding Tropicanna Cookies from Tangie and Forum Cut Cookies. Leafly also associates him with Bloom Seed Co. This entity record does not merge Oni Seed Co.'s later Tropicanna Cookies F2 work into the root cultivar."
     },
     "hi-elevation-genetics": {
       "schemaVersion": 1,

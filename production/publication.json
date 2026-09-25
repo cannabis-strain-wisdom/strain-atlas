@@ -580,6 +580,11 @@
       "strainId": "zoap",
       "state": "published",
       "publishedAt": "2026-09-25T01:48:41Z"
+    },
+    {
+      "strainId": "tropicana-cookies",
+      "state": "published",
+      "publishedAt": "2026-09-25T11:37:03Z"
     }
   ]
 }
