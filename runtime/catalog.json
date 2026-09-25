@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T08:56:06.264Z",
+  "generatedAt": "2026-09-25T01:48:44.565Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 99,
-    "sources": 214,
-    "entities": 34
+    "cultivars": 104,
+    "sources": 224,
+    "entities": 36
   },
   "explore": {
     "sativa": [
@@ -86,6 +86,7 @@
     ],
     "hybrid": [
       "a5-haze",
+      "animal-mints",
       "auto-cinderella-jack",
       "blue-zushi",
       "bubble-gum",
@@ -94,10 +95,13 @@
       "fire-og-cali-connection",
       "forum-gsc",
       "frisian-duck",
+      "gary-payton",
       "gelato-33",
       "ghost-og",
       "girl-scout-cookies",
       "jack-herer",
+      "jealousy",
+      "kush-mints",
       "lemon-cherry-gelato",
       "lemon-skunk",
       "mac-1",
@@ -112,7 +116,8 @@
       "tahoe-og",
       "the-og-18",
       "thin-mint-gsc",
-      "wedding-cake"
+      "wedding-cake",
+      "zoap"
     ],
     "unclassified": [
       "freakshow",
@@ -1315,6 +1320,229 @@
       ],
       "checkedAt": "2026-09-08",
       "updatedAt": "2026-09-08",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "animal-mints",
+      "status": "review",
+      "name": "Animal Mints",
+      "jp": null,
+      "aliases": [
+        "Animal Mintz"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints",
+          "weedmaps-animal-mints"
+        ],
+        "display": "親系統は未確定",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "系譜は現在DISPUTEDです。LeaflyはAnimal Cookies × SinMint Cookies、WeedmapsはAnimal Cookies × (GSC × Blue Power)としており、片方へ寄せたり平均したりせず両説を分離して保持しています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "weedmaps-animal-mints"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-animal-mints"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "パングェント"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "パングェント"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pungent",
+              "reviewLabelJa": "パングェント",
+              "plainMeaningJa": "ツンと強い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "刺激"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "LeaflyはAromaをsweet / pungentと明記しています。mintyはon the exhaleという文脈なので、FlavorからAromaへ自動変換せず、原文脈を残しています。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "リラックス",
+          "空腹感",
+          "ピリピリ感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints"
+        ],
+        "items": [
+          "caryophyllene",
+          "myrcene",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Myrcene、Limoneneを掲載しています。分析artifactを直接確認していないためLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-animal-mints"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Animal MintsはSeed Junky Geneticsのbreeding workとして扱え、WeedmapsはSouthern Californiaの文脈を示しています。正確な交配・selection地点までは断定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints",
+          "weedmaps-animal-mints"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係は専門資料で一致します。一方、親系統には現在の主要専門資料間で差があるため、root cultivarの系譜は確定扱いにしていません。"
+        }
+      },
+      "morphology": {
+        "status": "disputed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-animal-mints",
+          "weedmaps-animal-mints"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Morphologyも資料差があります。Leaflyはbright green / brownと軽いfrost、Weedmapsはgreen / tealとsparkling trichome layerを報告しているため、1つの固定外観へ合成していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "系譜は現在DISPUTEDです。LeaflyはAnimal Cookies × SinMint Cookies、WeedmapsはAnimal Cookies × (GSC × Blue Power)としており、片方へ寄せたり平均したりせず両説を分離して保持しています。",
+          "origin": "Animal MintsはSeed Junky Geneticsのbreeding workとして扱え、WeedmapsはSouthern Californiaの文脈を示しています。正確な交配・selection地点までは断定していません。",
+          "history": "Animal MintsはAnimal Mintzの別表記でも確認でき、Seed Junky Geneticsとの関係は専門資料で一致します。一方、親系統には現在の主要専門資料間で差があるため、root cultivarの系譜は確定扱いにしていません。",
+          "aromaNote": "LeaflyはAromaをsweet / pungentと明記しています。mintyはon the exhaleという文脈なので、FlavorからAromaへ自動変換せず、原文脈を残しています。",
+          "terpeneNote": "LeaflyはCaryophyllene、Myrcene、Limoneneを掲載しています。分析artifactを直接確認していないためLISTEDとして扱っています。",
+          "morphologyNote": "Morphologyも資料差があります。Leaflyはbright green / brownと軽いfrost、Weedmapsはgreen / tealとsparkling trichome layerを報告しているため、1つの固定外観へ合成していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/animal-mints/primary.webp",
+          "alt": "Animal MintsのAI生成参考ビジュアル。外観資料の差を勝手に統合せず、固定色や過剰なfrostを避け、トップバッズ先端まで安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific evidence and/or cultivar-associated reference imagery; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -9614,6 +9842,243 @@
     },
     {
       "schemaVersion": 1,
+      "id": "gary-payton",
+      "status": "review",
+      "name": "Gary Payton",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cookies-gary-payton",
+          "leafly-gary-payton"
+        ],
+        "display": "Y Life × Snowman",
+        "parents": [
+          "Y Life",
+          "Snowman"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "直系はY Life × Snowman。Cookies公式ではこの組み合わせからphenotype #20が際立ち、Gary Paytonとして命名された流れが説明されています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "powerzzzup-genetics",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "cookies-gary-payton",
+            "leafly-gary-payton-highlight-2023"
+          ]
+        },
+        {
+          "entityId": "kenny-dumetz",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-gary-payton-highlight-2023"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "cookies-gary-payton"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ガス",
+          "スイート"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ガス",
+            "スイート"
+          ],
+          "details": [
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Cookies公式ではGasとSweetが直接のdescriptorとして示され、本文にはfuel / spice系の表現もあります。構造化Aromaは原表現を勝手に別語へ正規化せず、確認できたapproved raw termだけをPROFILEとして保持しています。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gary-payton"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "笑いやすい",
+          "リラックス",
+          "多幸感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gary-payton"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。個別分析artifactを直接確認していないためLISTEDとして扱い、含有率へ昇格させていません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-gary-payton-highlight-2023",
+          "cookies-gary-payton"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Gary PaytonはPowerzzzup Genetics / Kenny Dumetzのbreeding workとして確認できます。LeaflyはSan Franciscoのbreeder文脈を報じ、Cookiesはco-selection / brand collaboration側として分けて扱っています。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cookies-gary-payton",
+          "leafly-gary-payton-highlight-2023"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Cookies公式はPowerzzzup Geneticsをbreederとして明記し、#20 phenotypeとGary Paytonの背番号20を結び付けています。LeaflyはKenny Dumetzがbreeding、Berner / Cookiesがco-selectionに関わり、2019年にreleaseされたと報じています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cookies-gary-payton"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Cookies公式ではdense green buds、purple accents、burnt orange pistilsが報告されています。ロットや個体差を越えた固定形質とは断定していません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "直系はY Life × Snowman。Cookies公式ではこの組み合わせからphenotype #20が際立ち、Gary Paytonとして命名された流れが説明されています。",
+          "origin": "Gary PaytonはPowerzzzup Genetics / Kenny Dumetzのbreeding workとして確認できます。LeaflyはSan Franciscoのbreeder文脈を報じ、Cookiesはco-selection / brand collaboration側として分けて扱っています。",
+          "history": "Cookies公式はPowerzzzup Geneticsをbreederとして明記し、#20 phenotypeとGary Paytonの背番号20を結び付けています。LeaflyはKenny Dumetzがbreeding、Berner / Cookiesがco-selectionに関わり、2019年にreleaseされたと報じています。",
+          "aromaNote": "Cookies公式ではGasとSweetが直接のdescriptorとして示され、本文にはfuel / spice系の表現もあります。構造化Aromaは原表現を勝手に別語へ正規化せず、確認できたapproved raw termだけをPROFILEとして保持しています。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Linaloolを掲載しています。個別分析artifactを直接確認していないためLISTEDとして扱い、含有率へ昇格させていません。",
+          "morphologyNote": "Cookies公式ではdense green buds、purple accents、burnt orange pistilsが報告されています。ロットや個体差を越えた固定形質とは断定していません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/gary-payton/primary.webp",
+          "alt": "Gary PaytonのAI生成参考ビジュアル。公式に報告されたdense green・purple accents・burnt orange pistilsを範囲内で反映し、トップバッズ先端まで安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific evidence and/or cultivar-associated reference imagery; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "gelato-33",
       "status": "review",
       "name": "Gelato #33",
@@ -12804,6 +13269,301 @@
     },
     {
       "schemaVersion": 1,
+      "id": "jealousy",
+      "status": "review",
+      "name": "Jealousy",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-jealousy-soty-2022",
+          "leafly-jealousy"
+        ],
+        "display": "Sherb bx1 × Gelato #41",
+        "parents": [
+          "Sherb bx1",
+          "Gelato #41"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "root JealousyはSherb bx1 × Gelato #41。bx1はSherb側parentの表記です。2021年に出たJealousy bx1は後発のrefined versionとして分離し、rootへ統合していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-jealousy-soty-2022"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-jealousy-soty-2022"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "ベリー",
+          "クリーミー",
+          "ガッシー",
+          "シトラス",
+          "アーシー",
+          "コショウ",
+          "パイン",
+          "ディーゼル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "ベリー",
+            "クリーミー",
+            "ガッシー",
+            "シトラス",
+            "アーシー",
+            "コショウ",
+            "パイン",
+            "ディーゼル"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "berry",
+              "reviewLabelJa": "ベリー",
+              "plainMeaningJa": "ベリー類を思わせる甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "gassy",
+              "reviewLabelJa": "ガッシー",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "citrus",
+              "reviewLabelJa": "シトラス",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pepper",
+              "reviewLabelJa": "コショウ",
+              "plainMeaningJa": "コショウを思わせるスパイシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "コショウ",
+                "胡椒",
+                "ペッパー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pine",
+              "reviewLabelJa": "パイン",
+              "plainMeaningJa": "松を思わせる樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "diesel",
+              "reviewLabelJa": "ディーゼル",
+              "plainMeaningJa": "ディーゼル燃料を思わせる燃料香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "専門資料ではスイート、ベリー、クリーミー、ガッシーを軸に、シトラス、アーシー、ペッパー、パイン、ディーゼルまで同格の香り表現が確認できます。CORE / ACCENTの階層は作っていません。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-jealousy"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Myrceneを掲載しています。元の分析artifactを直接確認していないためLISTEDとして保持し、含有率や固定順位へ昇格させていません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-jealousy-soty-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "JealousyはSeed Junky Geneticsのbreeding workとして確認できます。Los Angeles / Northridgeの活動文脈は確認できますが、交配を行った正確な物理地点までは固定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-jealousy-soty-2022"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "J Beezyの説明では、2018年にSherb bx1へCookies/Jigga側から得たGelato #41 cutを合わせてJealousyが作られました。2019年末にThe MinntzからCaliforniaのadult-use marketへ登場し、2021年には別versionのJealousy bx1がreleaseされています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-jealousy-soty-2022"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "専門資料ではdark purple〜near-blackにbright greenが混じる色調、大きくdenseな花、electric orange pistils、強いtrichome表現が報告されています。全個体で固定される形質とは扱っていません。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "root JealousyはSherb bx1 × Gelato #41。bx1はSherb側parentの表記です。2021年に出たJealousy bx1は後発のrefined versionとして分離し、rootへ統合していません。",
+          "origin": "JealousyはSeed Junky Geneticsのbreeding workとして確認できます。Los Angeles / Northridgeの活動文脈は確認できますが、交配を行った正確な物理地点までは固定していません。",
+          "history": "J Beezyの説明では、2018年にSherb bx1へCookies/Jigga側から得たGelato #41 cutを合わせてJealousyが作られました。2019年末にThe MinntzからCaliforniaのadult-use marketへ登場し、2021年には別versionのJealousy bx1がreleaseされています。",
+          "aromaNote": "専門資料ではスイート、ベリー、クリーミー、ガッシーを軸に、シトラス、アーシー、ペッパー、パイン、ディーゼルまで同格の香り表現が確認できます。CORE / ACCENTの階層は作っていません。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Myrceneを掲載しています。元の分析artifactを直接確認していないためLISTEDとして保持し、含有率や固定順位へ昇格させていません。",
+          "morphologyNote": "専門資料ではdark purple〜near-blackにbright greenが混じる色調、大きくdenseな花、electric orange pistils、強いtrichome表現が報告されています。全個体で固定される形質とは扱っていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/jealousy/primary.webp",
+          "alt": "JealousyのAI生成参考ビジュアル。報告された濃色・bright green・orange pistils・trichome表現を範囲内で反映し、トップバッズ先端まで安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific evidence and/or cultivar-associated reference imagery; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "kali-mist",
       "status": "review",
       "name": "Kali Mist",
@@ -13610,6 +14370,215 @@
       ],
       "checkedAt": "2026-09-07",
       "updatedAt": "2026-09-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "kush-mints",
+      "status": "review",
+      "name": "Kush Mints",
+      "jp": null,
+      "aliases": [
+        "Kush Mintz"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-buzz-kush-mints-2021",
+          "leafly-kush-mints"
+        ],
+        "display": "Animal Mints × Bubba Kush",
+        "parents": [
+          "Animal Mints",
+          "Bubba Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "直系はAnimal Mints × Bubba Kush。Kush Mints #11などのnumbered selectionや後発のS1 / Auto / reproductionはrootへ統合していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "leafly-buzz-kush-mints-2021"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-kush-mints"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ミンティー",
+          "ガス",
+          "パイン"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ミンティー",
+            "ガス",
+            "パイン"
+          ],
+          "details": [
+            {
+              "rawMatch": "minty",
+              "reviewLabelJa": "ミンティー",
+              "plainMeaningJa": "ミントのような清涼感のある香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ミント",
+                "清涼"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pine",
+              "reviewLabelJa": "パイン",
+              "plainMeaningJa": "松を思わせる樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyはminty / cookie-likeのAroma・Flavorとgas / pineのhintを記載しています。構造化Aromaではminty、gas、pineを原表現のまま保持し、cookie-likeを別のapproved termへ勝手に正規化していません。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kush-mints"
+        ],
+        "items": [
+          "limonene",
+          "caryophyllene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "LeaflyはLimonene、Caryophyllene、Linaloolを掲載しています。分析artifactを直接確認していないためLISTEDとして扱い、含有率へ昇格させていません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-buzz-kush-mints-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Kush MintsはLeaflyの専用historical featureでSeed Junky Genetics of LAのbreeding workとして確認できます。正確な交配・selection地点までは固定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "leafly-buzz-kush-mints-2021",
+          "leafly-kush-mints"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Leaflyの2021年特集はSeed Junky GeneticsがAnimal Mints × Bubba KushからKush Mintsを作ったと記録しています。一方、現行cultivar page本文にはMr. Nice Seedsという矛盾したbreeder表記があるため、その一文で強い専用記事の帰属を上書きせず、矛盾自体を記録しています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "直系はAnimal Mints × Bubba Kush。Kush Mints #11などのnumbered selectionや後発のS1 / Auto / reproductionはrootへ統合していません。",
+          "origin": "Kush MintsはLeaflyの専用historical featureでSeed Junky Genetics of LAのbreeding workとして確認できます。正確な交配・selection地点までは固定していません。",
+          "history": "Leaflyの2021年特集はSeed Junky GeneticsがAnimal Mints × Bubba KushからKush Mintsを作ったと記録しています。一方、現行cultivar page本文にはMr. Nice Seedsという矛盾したbreeder表記があるため、その一文で強い専用記事の帰属を上書きせず、矛盾自体を記録しています。",
+          "aromaNote": "Leaflyはminty / cookie-likeのAroma・Flavorとgas / pineのhintを記載しています。構造化Aromaではminty、gas、pineを原表現のまま保持し、cookie-likeを別のapproved termへ勝手に正規化していません。",
+          "terpeneNote": "LeaflyはLimonene、Caryophyllene、Linaloolを掲載しています。分析artifactを直接確認していないためLISTEDとして扱い、含有率へ昇格させていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/kush-mints/primary.webp",
+          "alt": "Kush MintsのAI生成参考ビジュアル。rootの固定外観を推測せず、主花全体とトップバッズ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific evidence and/or cultivar-associated reference imagery; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -27645,6 +28614,183 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "zoap",
+      "status": "review",
+      "name": "Zoap",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "la-weekly-deo-farms-rs11-2021"
+        ],
+        "display": "Rainbow Sherbert #16 F2 line",
+        "parents": [
+          "Rainbow Sherbert #16 F2 line"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DEO本人の説明では、ZoapはRainbow Sherbert #16のF2 lineから選ばれた#21 phenotypeです。Pink Guava × Sunset SherbertはRS lineの上流形成を説明する情報であり、Zoapの直系を単純な2親交配へ置き換えていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "deo-farms",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "la-weekly-deo-farms-rs11-2021",
+            "deo-farms-about-rs11"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-zoap"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "笑いやすい",
+          "リラックス",
+          "空腹感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-zoap"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "humulene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "humulene",
+              "labelJa": "フムレン"
+            }
+          ],
+          "noteJa": "LeaflyはCaryophyllene、Limonene、Humuleneを掲載しています。分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "deo-farms-about-rs11",
+          "la-weekly-deo-farms-rs11-2021"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ZoapはDEO Farms / Deep East Oakland Farmsのbreeding lineとして確認できます。DEOはOaklandを拠点とする文脈まで確認できますが、Zoapの選抜を行った正確な物理地点までは固定していません。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "la-weekly-deo-farms-rs11-2021",
+          "deo-farms-about-rs11"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DEOはPink GuavaとSunset SherbertからRainbow Sherbert lineを育て、選抜したRS phenotypeを分岐させました。ZoapはRS #16 F2 lineの#21 phenotypeとして選ばれ、その後RS lineをF3へ進めるfemaleにも使われたと説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "DEO本人の説明では、ZoapはRainbow Sherbert #16のF2 lineから選ばれた#21 phenotypeです。Pink Guava × Sunset SherbertはRS lineの上流形成を説明する情報であり、Zoapの直系を単純な2親交配へ置き換えていません。",
+          "origin": "ZoapはDEO Farms / Deep East Oakland Farmsのbreeding lineとして確認できます。DEOはOaklandを拠点とする文脈まで確認できますが、Zoapの選抜を行った正確な物理地点までは固定していません。",
+          "history": "DEOはPink GuavaとSunset SherbertからRainbow Sherbert lineを育て、選抜したRS phenotypeを分岐させました。ZoapはRS #16 F2 lineの#21 phenotypeとして選ばれ、その後RS lineをF3へ進めるfemaleにも使われたと説明されています。",
+          "terpeneNote": "LeaflyはCaryophyllene、Limonene、Humuleneを掲載しています。分析artifactを直接確認していないため、含有率や固定順位へ昇格させずLISTEDとして扱っています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/zoap/primary.webp",
+          "alt": "ZoapのAI生成参考ビジュアル。根拠外の固定的な色・形を作らず、主花全体とトップバッズ先端を安全余白つきで収めた構図。",
+          "rights": "AI-generated project reference visual based only on bounded cultivar-specific evidence and/or cultivar-associated reference imagery; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -28571,6 +29717,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-23"
+    },
+    "cookies-gary-payton": {
+      "schemaVersion": 1,
+      "id": "cookies-gary-payton",
+      "publisher": "Cookies",
+      "title": "Gary Payton",
+      "url": "https://cookies.co/strains/gary-payton/",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "generationBoundary",
+        "history",
+        "aroma",
+        "morphology",
+        "visualReference"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
     },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
@@ -29783,6 +30949,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-08"
     },
+    "leafly-animal-mints": {
+      "schemaVersion": 1,
+      "id": "leafly-animal-mints",
+      "publisher": "Leafly",
+      "title": "Animal Mints aka Animal Mintz Weed Strain Information",
+      "url": "https://www.leafly.com/strains/animal-mints",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "effects",
+        "morphology",
+        "visualReference"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
     "leafly-bubble-gum": {
       "schemaVersion": 1,
       "id": "leafly-bubble-gum",
@@ -29799,6 +30987,24 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-14"
+    },
+    "leafly-buzz-kush-mints-2021": {
+      "schemaVersion": 1,
+      "id": "leafly-buzz-kush-mints-2021",
+      "publisher": "Leafly",
+      "title": "Leafly Buzz: 8 weed strains trending up in 2021",
+      "url": "https://www.leafly.com/news/strains-products/8-top-weed-strains-2021",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "history",
+        "origin",
+        "generationBoundary"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
     },
     "leafly-cataract-kush": {
       "schemaVersion": 1,
@@ -29966,6 +31172,44 @@
       "publishedAt": null,
       "checkedAt": "2026-09-23"
     },
+    "leafly-gary-payton-highlight-2023": {
+      "schemaVersion": 1,
+      "id": "leafly-gary-payton-highlight-2023",
+      "publisher": "Leafly",
+      "title": "Slam dunk 2023 with the Gary Payton strain—January’s Leafly HighLight",
+      "url": "https://www.leafly.com/news/strains-products/gary-payton-strain-january-2023-highlight",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "collaboration",
+        "history",
+        "origin",
+        "releaseHistory"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
+    "leafly-gary-payton": {
+      "schemaVersion": 1,
+      "id": "leafly-gary-payton",
+      "publisher": "Leafly",
+      "title": "Gary Payton Weed Strain Information",
+      "url": "https://www.leafly.com/strains/gary-payton",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "lineage",
+        "breeder",
+        "collaboration",
+        "flavor",
+        "terpenes",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
     "leafly-gelato-33": {
       "schemaVersion": 1,
       "id": "leafly-gelato-33",
@@ -30061,6 +31305,66 @@
         "morphology"
       ],
       "checkedAt": "2026-09-22"
+    },
+    "leafly-jealousy-soty-2022": {
+      "schemaVersion": 1,
+      "id": "leafly-jealousy-soty-2022",
+      "publisher": "Leafly",
+      "title": "2022’s Leafly Strain of the Year is—Jealousy!",
+      "url": "https://www.leafly.com/news/strains-products/jealousy-2022-leafly-strain-of-the-year",
+      "sourceType": "historicalSource",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "generationBoundary",
+        "history",
+        "origin",
+        "aroma",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
+    "leafly-jealousy": {
+      "schemaVersion": 1,
+      "id": "leafly-jealousy",
+      "publisher": "Leafly",
+      "title": "Jealousy Weed Strain Information",
+      "url": "https://www.leafly.com/strains/jealousy",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "lineage",
+        "breeder",
+        "flavor",
+        "terpenes",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
+    "leafly-kush-mints": {
+      "schemaVersion": 1,
+      "id": "leafly-kush-mints",
+      "publisher": "Leafly",
+      "title": "Kush Mints aka Kush Mintz Weed Strain Information",
+      "url": "https://www.leafly.com/strains/kush-mints",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "lineage",
+        "aroma",
+        "flavor",
+        "terpenes",
+        "effects",
+        "visualReference"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
     },
     "leafly-la-confidential": {
       "schemaVersion": 1,
@@ -30491,6 +31795,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "leafly-zoap": {
+      "schemaVersion": 1,
+      "id": "leafly-zoap",
+      "publisher": "Leafly",
+      "title": "Zoap Weed Strain Information",
+      "url": "https://www.leafly.com/strains/zoap",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "lineageContext",
+        "flavor",
+        "terpenes",
+        "effects",
+        "history",
+        "visualReference"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
     },
     "lucky-dog-chem-d-current": {
       "schemaVersion": 1,
@@ -31383,6 +32707,27 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "weedmaps-animal-mints": {
+      "schemaVersion": 1,
+      "id": "weedmaps-animal-mints",
+      "publisher": "Weedmaps",
+      "title": "Animal Mints (aka Animal Mintz) Weed Strain Near Me",
+      "url": "https://weedmaps.com/strains/animal-mints",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "breeder",
+        "lineage",
+        "origin",
+        "morphology",
+        "cultivation",
+        "flavor",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-09-25"
+    },
     "weedmaps-citral": {
       "schemaVersion": 1,
       "id": "weedmaps-citral",
@@ -31854,6 +33199,17 @@
       "updatedAt": "2026-09-16",
       "note": "Weedmaps' 2021 direct interview identifies Jai “Jigga” Chang as GSC breeder and Cookies co-founder."
     },
+    "kenny-dumetz": {
+      "schemaVersion": 1,
+      "id": "kenny-dumetz",
+      "name": "Kenny Dumetz",
+      "roles": [
+        "breeder"
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "note": "Individual breeder identified by Leafly as the Powerzzzup Genetics breeder behind Gary Payton; Cookies/Berner co-selection context is retained separately in cultivar history."
+    },
     "lumpys-flowers": {
       "schemaVersion": 1,
       "id": "lumpys-flowers",
@@ -31937,6 +33293,17 @@
       "status": "confirmed",
       "checkedAt": "2026-09-15",
       "updatedAt": "2026-09-15"
+    },
+    "powerzzzup-genetics": {
+      "schemaVersion": 1,
+      "id": "powerzzzup-genetics",
+      "name": "Powerzzzup Genetics",
+      "roles": [
+        "breeder"
+      ],
+      "checkedAt": "2026-09-25",
+      "updatedAt": "2026-09-25",
+      "note": "Breeder organization explicitly credited by Cookies' official Gary Payton cultivar page and specialist historical reporting."
     },
     "reserva-privada": {
       "schemaVersion": 1,

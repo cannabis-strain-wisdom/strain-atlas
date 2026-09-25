@@ -555,6 +555,31 @@
       "strainId": "triangle-kush",
       "state": "published",
       "publishedAt": "2026-09-24T08:56:03Z"
+    },
+    {
+      "strainId": "animal-mints",
+      "state": "published",
+      "publishedAt": "2026-09-25T01:48:41Z"
+    },
+    {
+      "strainId": "gary-payton",
+      "state": "published",
+      "publishedAt": "2026-09-25T01:48:41Z"
+    },
+    {
+      "strainId": "jealousy",
+      "state": "published",
+      "publishedAt": "2026-09-25T01:48:41Z"
+    },
+    {
+      "strainId": "kush-mints",
+      "state": "published",
+      "publishedAt": "2026-09-25T01:48:41Z"
+    },
+    {
+      "strainId": "zoap",
+      "state": "published",
+      "publishedAt": "2026-09-25T01:48:41Z"
     }
   ]
 }
