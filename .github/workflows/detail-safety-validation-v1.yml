@@ -26,6 +26,7 @@ jobs:
           node --check app.min.js
           node --check presentation-contract-v1.js
           node --check name-relationships-v1.js
+          node --check family-tree-v1.js
           node --check detail-interaction-v1.js
           node --check detail-share-v2.js
           node --check .github/scripts/public-current-runtime-authority-v1.mjs
@@ -41,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _qa/runtime _qa/production _qa/assets
-          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _qa/
+          install -m 0644 index.html app.min.js presentation-contract-v1.js name-relationships-v1.js family-tree-v1.js detail-interaction-v1.js detail-share-v2.js styles.min.css site-updates.json .nojekyll _qa/
           install -m 0644 runtime/catalog.json _qa/runtime/catalog.json
           install -m 0644 production/publication.json _qa/production/publication.json
           rsync -a assets/ _qa/assets/
@@ -57,6 +58,8 @@ jobs:
               scripts.append('  <script defer src="detail-interaction-v1.js"></script>')
           if 'name-relationships-v1.js' not in html:
               scripts.append('  <script defer src="name-relationships-v1.js"></script>')
+          if 'family-tree-v1.js' not in html:
+              scripts.append('  <script defer src="family-tree-v1.js"></script>')
           if scripts:
               if html.count('</body>') != 1:
                   raise SystemExit('Expected exactly one closing body tag')
@@ -67,9 +70,11 @@ jobs:
           grep -Fq 'detail-share-v2.js' _qa/index.html
           grep -Fq 'detail-interaction-v1.js' _qa/index.html
           grep -Fq 'name-relationships-v1.js' _qa/index.html
+          grep -Fq 'family-tree-v1.js' _qa/index.html
           grep -Fq 'CSW_DETAIL_SHARE_V2' _qa/detail-share-v2.js
           grep -Fq 'CSW_DETAIL_INTERACTION_V1' _qa/detail-interaction-v1.js
           grep -Fq 'RAINBOW_BELTS_NAME_RELATIONSHIP_RAIL_V1' _qa/name-relationships-v1.js
+          grep -Fq 'CSW_FAMILY_TREE_VIEW_V1' _qa/family-tree-v1.js
 
       - name: Local browser safety baseline
         shell: bash
