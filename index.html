@@ -1108,7 +1108,7 @@
       const scope = existing || document.createElement('span');
       scope.className = 'csw-cannabinoid-sample-scope-v1';
       scope.dataset.cswCannabinoidSampleScope = 'v1';
-      scope.textContent = label;
+      if (scope.textContent !== label) scope.textContent = label;
 
       if (!existing) {
         const value = cell.querySelector('strong');
