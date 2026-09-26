@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T11:37:03.542Z",
+  "generatedAt": "2026-09-26T02:29:24.201Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 105,
-    "sources": 227,
+    "sources": 228,
     "entities": 37
   },
   "explore": {
@@ -28494,23 +28494,146 @@
         }
       },
       "cannabinoids": {
-        "status": "unknown",
-        "confidence": "unknown",
+        "status": "confirmed",
+        "confidence": "A",
         "sourceRefs": [
-          "ghsc-white-widow-current"
+          "ghsc-white-widow-current",
+          "eurofins-ghsc-white-widow-az13481476"
         ],
         "thc": {
-          "status": "unknown",
-          "sourceRefs": []
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "laboratoryReport",
+          "sourceRefs": [
+            "eurofins-ghsc-white-widow-az13481476"
+          ],
+          "measurement": {
+            "kind": "less-than",
+            "unit": "%",
+            "value": 0.01,
+            "approximate": false
+          }
         },
         "cbd": {
-          "status": "unknown",
-          "sourceRefs": []
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "laboratoryReport",
+          "sourceRefs": [
+            "eurofins-ghsc-white-widow-az13481476"
+          ],
+          "measurement": {
+            "kind": "single",
+            "unit": "%",
+            "value": 0.51,
+            "approximate": false
+          }
         },
         "presentation": {
           "schemaVersion": 1,
           "mode": "values",
           "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.51,
+              "unit": "%",
+              "valueText": "0.51%",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "less-than",
+              "boundaryValue": 0.01,
+              "unit": "%",
+              "valueText": "0.01%未満",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBGA",
+              "label": "CBGA",
+              "valueKind": "less-than",
+              "boundaryValue": 0.01,
+              "unit": "%",
+              "valueText": "0.01%未満",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.31,
+              "unit": "%",
+              "valueText": "0.31%",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THCA",
+              "label": "THCA",
+              "valueKind": "exact",
+              "value": 0.01,
+              "unit": "%",
+              "valueText": "0.01%",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBDA",
+              "label": "CBDA",
+              "valueKind": "exact",
+              "value": 0.89,
+              "unit": "%",
+              "valueText": "0.89%",
+              "confidence": "A",
+              "sourceRefs": [
+                "eurofins-ghsc-white-widow-az13481476"
+              ],
+              "evidenceType": "SAMPLE_MEASUREMENT",
+              "contextLabel": "確認検体1件",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "ghsc-white-widow-az13481476"
+            },
             {
               "targetType": "ANALYTE",
               "targetId": "THC_UNSPECIFIED",
@@ -28633,7 +28756,7 @@
         }
       ],
       "checkedAt": "2026-09-22",
-      "updatedAt": "2026-09-22",
+      "updatedAt": "2026-09-26",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -33427,6 +33550,18 @@
       ],
       "publishedAt": "2017-10-03",
       "checkedAt": "2026-09-22"
+    },
+    "eurofins-ghsc-white-widow-az13481476": {
+      "schemaVersion": 1,
+      "id": "eurofins-ghsc-white-widow-az13481476",
+      "publisher": "Eurofins Scientific Inc. / Eurofins QTA",
+      "title": "Certification of Analysis - GHSC - White Widow",
+      "url": "https://shop.greenhouseseeds.us/images/coa/GHSC_White_Widow_COA.pdf",
+      "sourceType": "coa",
+      "supports": [
+        "cannabinoids"
+      ],
+      "checkedAt": "2026-09-26"
     }
   },
   "entities": {
