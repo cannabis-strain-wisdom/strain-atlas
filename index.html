@@ -1716,6 +1716,13 @@
     const root = shell.querySelector('.ucd-root[data-public-detail-id]');
     if (!root || root.querySelector('[data-csw-evidence-guide-detail-v1]')) return;
 
+    const cultivarId = root.dataset.publicDetailId || '';
+    if (
+      root.dataset.cswDetailInteraction !== 'v1' ||
+      window.__CSWDetailInteractionV1?.status !== 'PASS' ||
+      window.__CSWDetailInteractionV1?.cultivarId !== cultivarId
+    ) return;
+
     const sources = root.querySelector('.ucd-sources');
     if (!sources) return;
 
@@ -1726,12 +1733,12 @@
 
     const body = sourceBody.cloneNode(true);
     guide.appendChild(body);
-    sources.before(guide);
+    sources.after(guide);
 
     window.__CSWEvidenceReadingGuideV1 = {
       contract: CONTRACT,
       status: 'PASS',
-      detailCultivarId: root.dataset.publicDetailId || ''
+      detailCultivarId: cultivarId
     };
   };
 
@@ -1748,6 +1755,8 @@
   new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
   window.addEventListener('popstate', queue);
   queue();
+  setTimeout(queue, 300);
+  setTimeout(queue, 1200);
 })();
 </script>
 <!-- CSW_EVIDENCE_READING_GUIDE_V1_DETAIL_END -->
