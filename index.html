@@ -112,6 +112,50 @@
   .filter-group-heading{justify-content:start!important}
   .alphabet-browse-heading{display:block!important}
 </style>
+
+  <!-- CSW_EVIDENCE_READING_GUIDE_V1_START -->
+  <style id="csw-evidence-reading-guide-v1-styles">
+    .evidence-reading-guide{margin-top:14px;border:1px solid rgba(216,189,98,.16);border-radius:16px;background:linear-gradient(145deg,rgba(216,189,98,.055),rgba(255,255,255,.018));overflow:hidden}
+    .evidence-reading-guide>summary,.csw-evidence-guide-detail>summary{display:flex;align-items:center;gap:12px;min-height:58px;padding:12px 14px;list-style:none;cursor:pointer}
+    .evidence-reading-guide>summary::-webkit-details-marker,.csw-evidence-guide-detail>summary::-webkit-details-marker,.evidence-guide-item>summary::-webkit-details-marker{display:none}
+    .evidence-guide-summary-copy{display:grid;min-width:0;gap:3px}
+    .evidence-guide-summary-copy>.section-kicker{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em;line-height:1.2}
+    .evidence-guide-summary-copy>strong{color:#edf2ef;font-size:15px;line-height:1.3}
+    .evidence-guide-summary-copy>small{color:#8f9d95;font-size:11px;line-height:1.45}
+    .evidence-guide-chevron{margin-left:auto;color:#b8aa72;font-size:17px;line-height:1;transition:transform .16s ease}
+    .evidence-reading-guide[open]>.evidence-guide-summary .evidence-guide-chevron,.csw-evidence-guide-detail[open]>.evidence-guide-summary .evidence-guide-chevron{transform:rotate(180deg)}
+    .evidence-guide-body{padding:0 14px 14px}
+    .evidence-guide-intro{margin:0 0 10px;color:#cfd8d2;font-size:13px;line-height:1.7}
+    .evidence-guide-items{display:grid;gap:7px}
+    .evidence-guide-item{border:1px solid rgba(255,255,255,.075);border-radius:12px;background:rgba(255,255,255,.018);overflow:hidden}
+    .evidence-guide-item>summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 11px;list-style:none;cursor:pointer;color:#e8eee9;font-size:13px;font-weight:800}
+    .evidence-guide-item>summary::after{content:"＋";margin-left:auto;color:#9b8b5e;font-size:14px;font-weight:500}
+    .evidence-guide-item[open]>summary::after{content:"−"}
+    .evidence-guide-item-copy{padding:0 11px 11px;color:#aebbb3;font-size:12px;line-height:1.72}
+    .evidence-guide-item-copy p{margin:0 0 8px}
+    .evidence-guide-item-copy p:last-child{margin-bottom:0}
+    .evidence-guide-item-copy strong{color:#e8eee9}
+    .evidence-guide-example{margin:8px 0;padding:8px 9px;border-left:2px solid rgba(216,189,98,.42);border-radius:0 9px 9px 0;background:rgba(216,189,98,.045)}
+    .evidence-guide-example span{display:block;margin:0 0 4px;color:#dcc978;font-size:11px;font-weight:850}
+    .evidence-guide-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);color:#84958b;font-size:11px;line-height:1.6}
+    .csw-evidence-guide-detail{margin:12px 0;border:1px solid rgba(216,189,98,.14);border-radius:14px;background:rgba(216,189,98,.025);overflow:hidden}
+    .csw-evidence-guide-detail>summary{min-height:50px;padding:9px 11px}
+    .csw-evidence-guide-detail .evidence-guide-summary-copy>strong{font-size:14px}
+    .csw-evidence-guide-detail .evidence-guide-summary-copy>small{font-size:10.5px}
+    .csw-evidence-guide-detail .evidence-guide-body{padding:0 11px 11px}
+    .csw-evidence-guide-detail .evidence-guide-intro{font-size:12px}
+    .csw-evidence-guide-detail .evidence-guide-item>summary{font-size:12.5px}
+    .csw-evidence-guide-detail .evidence-guide-item-copy{font-size:11.5px}
+    @media(max-width:699px){
+      .evidence-reading-guide{margin-top:12px}
+      .evidence-reading-guide>summary{min-height:56px;padding:11px 12px}
+      .evidence-guide-summary-copy>strong{font-size:14.5px}
+      .evidence-guide-summary-copy>small{font-size:10.5px}
+      .evidence-guide-body{padding:0 12px 12px}
+    }
+  </style>
+  <!-- CSW_EVIDENCE_READING_GUIDE_V1_END -->
+
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -179,6 +223,56 @@
       <details class="legal-alert" id="legal-alert"><summary><span class="legal-alert-icon" aria-hidden="true">i</span><span class="legal-alert-copy"><strong>重要なお知らせ</strong><small>Cannabis Strain Wisdom は教育・資料目的の情報アーカイブです。違法な所持・施用・栽培・輸入・購入等を推奨しません。</small></span><span class="legal-alert-action">詳細を読む</span></summary><div class="legal-alert-body"><p class="legal-alert-lead">法規・製品基準は変更されることがあります。以下は2026年8月15日時点で公的情報を確認した要点です。</p><ul><li>2024年12月12日から、大麻等の不正な施用についても麻薬及び向精神薬取締法の禁止規定・罰則が適用されています。</li><li>製品等に残留するΔ9-THCには区分別の残留限度値があり、油脂・粉末は10ppm、水溶液は0.10ppm、その他は1ppmです。限度値を超える製品等は「麻薬」に該当します。</li><li>大麻を原料とする製品は、残留限度値を超えるΔ9-THCを含む場合、原則として輸入できません。CBD関連製品では、麻薬に該当しないことの確認手続きが必要になる場合があります。</li><li>厚生労働省は、市場流通するCBD製品から残留限度値を超えるΔ9-THCが検出された事例について継続して注意喚起しています。</li></ul><p class="legal-alert-note">本サイトは品種・歴史・系譜・香り・資料等を整理する情報アーカイブです。違法な所持・施用・栽培・輸入・購入を推奨するものではありません。未成年者を対象とした使用・入手等の推奨も目的としていません。年齢にかかわらず、日本国内の法令に反する行為を推奨しません。</p><div class="legal-alert-sources"><span>公式情報</span><a href="https://www.mhlw.go.jp/stf/newpage_43079.html" target="_blank" rel="noopener noreferrer">厚生労働省｜改正法・残留限度値</a><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/yakubuturanyou/" target="_blank" rel="noopener noreferrer">厚生労働省｜CBD製品等の注意喚起</a><a href="https://www.customs.go.jp/tetsuzuki/c-answer/kinseihin/2005_jr.htm" target="_blank" rel="noopener noreferrer">税関｜大麻を原料とする製品の輸入規制</a></div></div></details>
 
     <div class="home-content" id="home-content">
+
+      <!-- CSW_EVIDENCE_READING_GUIDE_V1_HOME_START -->
+      <details class="home-section evidence-reading-guide" id="evidence-reading-guide" data-csw-evidence-reading-guide-v1>
+        <summary class="evidence-guide-summary">
+          <span class="evidence-guide-summary-copy">
+            <span class="section-kicker">HOW TO READ</span>
+            <strong>根拠の読み方</strong>
+            <small>情報だけでなく、「どうしてそう分かったのか」まで確認できます</small>
+          </span>
+          <span class="evidence-guide-chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="evidence-guide-body">
+          <p class="evidence-guide-intro">CSWでは、品種情報を出典や確認できた範囲と切り離して扱いません。必要なところだけ開いて読むことができます。</p>
+          <div class="evidence-guide-items">
+            <details class="evidence-guide-item">
+              <summary>資料の種類と A / B / C</summary>
+              <div class="evidence-guide-item-copy">
+                <p>参照する資料には、ブリーダー／オリジネーターの公式情報、本人に帰属できる直接取材、専門資料、販売資料、利用者報告などがあります。</p>
+                <p><strong>A / B / C</strong> は、根拠や確認状況を区別するための表示です。単純な点数や、資料そのものの順位としては扱いません。実際の出典と一緒に確認してください。</p>
+              </div>
+            </details>
+            <details class="evidence-guide-item">
+              <summary>未確認 / UNKNOWN とは</summary>
+              <div class="evidence-guide-item-copy">
+                <p><strong>「存在しない」「0」という意味ではありません。</strong></p>
+                <p>現時点で、CSWの基準を満たす根拠を十分に確認できていない状態を示します。分からない項目を推測で埋めることはしません。</p>
+              </div>
+            </details>
+            <details class="evidence-guide-item">
+              <summary>数値は「どの範囲の値か」を見る</summary>
+              <div class="evidence-guide-item-copy">
+                <div class="evidence-guide-example"><span>公式情報 18〜24%</span>公開元が18〜24%という範囲で示している情報です。</div>
+                <div class="evidence-guide-example"><span>21.7% / 確認検体1件</span>その1検体で確認された値です。この品種全体が常に21.7%という意味ではありません。</div>
+                <p><strong>0.1%未満</strong>、<strong>最大25%</strong>、<strong>検出されず</strong>も、それぞれ境界・上限・非検出の意味を保ったまま表示します。0%や固定値には置き換えません。</p>
+              </div>
+            </details>
+            <details class="evidence-guide-item">
+              <summary>資料が食い違うとき</summary>
+              <div class="evidence-guide-item-copy">
+                <p>異なる資料の内容を多数決や平均でひとつにまとめません。</p>
+                <div class="evidence-guide-example"><span>例</span>8〜9週間という資料と9〜10週間という資料があっても、CSWが8.5〜9.5週間という新しい値を作ることはしません。</div>
+                <p>必要な場合は、それぞれの情報と出典を分けて扱います。</p>
+              </div>
+            </details>
+          </div>
+          <p class="evidence-guide-note">さらに確かめたいときは、各品種詳細の <strong>SOURCES</strong> から実際に参照した資料を確認できます。</p>
+        </div>
+      </details>
+      <!-- CSW_EVIDENCE_READING_GUIDE_V1_HOME_END -->
+
       <details class="home-section latest-section latest-disclosure" id="latest-disclosure" aria-labelledby="latest-title">
         <summary class="latest-summary">
           <span class="latest-summary-copy"><span class="section-kicker">RECENTLY PUBLISHED</span><strong id="latest-title">新着の品種</strong><small>最近アーカイブに追加された品種</small></span>
@@ -1606,5 +1700,56 @@
 })();
 </script>
 <!-- CSW_REVIEWED_AT_V1_END -->
+
+
+<!-- CSW_EVIDENCE_READING_GUIDE_V1_DETAIL_START -->
+<script>
+(() => {
+  'use strict';
+  const CONTRACT = 'CSW_EVIDENCE_READING_GUIDE_V1';
+  const shell = document.getElementById('detail-shell');
+  const homeGuide = document.querySelector('[data-csw-evidence-reading-guide-v1]');
+  const sourceBody = homeGuide?.querySelector(':scope > .evidence-guide-body');
+  if (!shell || !sourceBody) return;
+
+  const decorate = () => {
+    const root = shell.querySelector('.ucd-root[data-public-detail-id]');
+    if (!root || root.querySelector('[data-csw-evidence-guide-detail-v1]')) return;
+
+    const sources = root.querySelector('.ucd-sources');
+    if (!sources) return;
+
+    const guide = document.createElement('details');
+    guide.className = 'csw-evidence-guide-detail';
+    guide.dataset.cswEvidenceGuideDetailV1 = 'true';
+    guide.innerHTML = '<summary class="evidence-guide-summary"><span class="evidence-guide-summary-copy"><span class="section-kicker">HOW TO READ</span><strong>根拠の読み方</strong><small>SOURCESを見る前に、表示の意味を確認</small></span><span class="evidence-guide-chevron" aria-hidden="true">⌄</span></summary>';
+
+    const body = sourceBody.cloneNode(true);
+    guide.appendChild(body);
+    sources.before(guide);
+
+    window.__CSWEvidenceReadingGuideV1 = {
+      contract: CONTRACT,
+      status: 'PASS',
+      detailCultivarId: root.dataset.publicDetailId || ''
+    };
+  };
+
+  let queued = false;
+  const queue = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(() => {
+      queued = false;
+      decorate();
+    });
+  };
+
+  new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
+  window.addEventListener('popstate', queue);
+  queue();
+})();
+</script>
+<!-- CSW_EVIDENCE_READING_GUIDE_V1_DETAIL_END -->
 
 </body></html>
