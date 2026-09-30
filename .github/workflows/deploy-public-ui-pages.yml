@@ -179,7 +179,7 @@ jobs:
           }
           const allowedUpdateCategories = new Set(['SITE', 'EVIDENCE', 'DATA', 'CULTIVAR']);
           for (const entry of updates.entries) {
-            if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(entry?.date || ''))) {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(entry?.date || ''))) {
               throw new Error('Invalid site update date');
             }
             if (!allowedUpdateCategories.has(entry?.category)) {
