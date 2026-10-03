@@ -156,6 +156,33 @@
   </style>
   <!-- CSW_EVIDENCE_READING_GUIDE_V1_END -->
 
+  <style id="csw-latest-date-archive-v1-styles">
+    .latest-date-archive{margin:15px 3px 2px;padding-top:14px;border-top:1px solid rgba(217,182,93,.13)}
+    .latest-date-archive-head{display:grid;gap:3px}
+    .latest-date-archive-head>.section-kicker{color:#d8bd62;font-size:9px;font-weight:900;letter-spacing:.13em;line-height:1.2}
+    .latest-date-archive-head>strong{color:#e7ede9;font-size:14px;line-height:1.3}
+    .latest-date-archive-head>small{color:#7f9086;font-size:9px;line-height:1.5}
+    .latest-date-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+    .latest-date-button{display:flex;min-width:0;min-height:43px;align-items:center;justify-content:space-between;gap:7px;padding:8px 10px;border:1px solid rgba(255,255,255,.085);border-radius:11px;background:rgba(255,255,255,.022);color:#c7d1cb;font:800 10px/1.25 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left;cursor:pointer}
+    .latest-date-button>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .latest-date-button>strong{flex:0 0 auto;color:#ad9d6b;font-size:8px;font-weight:900}
+    .latest-date-button.is-active{border-color:rgba(216,189,98,.48);background:linear-gradient(135deg,rgba(216,189,98,.12),rgba(50,99,67,.1));color:#f0e3b4;box-shadow:inset 0 0 0 1px rgba(216,189,98,.04)}
+    .latest-date-button.is-active>strong{color:#e1cb7e}
+    .latest-date-result{margin-top:14px}
+    .latest-date-result[hidden]{display:none}
+    .latest-date-result-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;padding:0 1px}
+    .latest-date-result-head>strong{color:#e7ede9;font-size:13px;line-height:1.3}
+    .latest-date-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
+    @media(min-width:700px){
+      .latest-date-archive{margin-top:19px;padding-top:17px}
+      .latest-date-archive-head>strong{font-size:16px}
+      .latest-date-archive-head>small{font-size:10px}
+      .latest-date-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .latest-date-button{min-height:46px;padding:9px 11px;font-size:11px}
+      .latest-date-button>strong{font-size:9px}
+      .latest-date-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+  </style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -282,6 +309,21 @@
         <div class="latest-body">
           <div class="latest-state" id="latest-state">新着情報を確認しています</div>
           <section class="cultivar-grid latest-grid" id="latest-grid" aria-live="polite"></section>
+          <section class="latest-date-archive" id="latest-date-archive" aria-labelledby="latest-date-archive-title">
+            <div class="latest-date-archive-head">
+              <span class="section-kicker">UPDATE ARCHIVE</span>
+              <strong id="latest-date-archive-title">更新日から見る</strong>
+              <small>日付を選ぶと、その日に更新された品種をすべて表示</small>
+            </div>
+            <div class="latest-date-list" id="latest-date-list" aria-label="更新日一覧"></div>
+            <div class="latest-date-result" id="latest-date-result" hidden>
+              <div class="latest-date-result-head">
+                <strong id="latest-date-result-title"></strong>
+                <span class="section-count" id="latest-date-result-count"></span>
+              </div>
+              <section class="cultivar-grid latest-date-grid" id="latest-date-grid" aria-live="polite"></section>
+            </div>
+          </section>
         </div>
       </details>
       <details class="content-panel home-section all-cultivars-section all-disclosure" id="all-disclosure" data-content-panel="cultivars" aria-labelledby="all-cultivars-title">
