@@ -585,6 +585,26 @@
       "strainId": "tropicana-cookies",
       "state": "published",
       "publishedAt": "2026-09-25T11:37:03Z"
+    },
+    {
+      "strainId": "amnesia-haze",
+      "state": "published",
+      "publishedAt": "2026-10-03T13:51:20Z"
+    },
+    {
+      "strainId": "blue-cheese",
+      "state": "published",
+      "publishedAt": "2026-10-03T13:51:20Z"
+    },
+    {
+      "strainId": "kosher-kush",
+      "state": "published",
+      "publishedAt": "2026-10-03T13:51:20Z"
+    },
+    {
+      "strainId": "satellite-og",
+      "state": "published",
+      "publishedAt": "2026-10-03T13:51:20Z"
     }
   ]
 }

@@ -1,21 +1,22 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-26T02:29:24.201Z",
+  "generatedAt": "2026-10-03T13:51:22.204Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 105,
-    "sources": 228,
-    "entities": 37
+    "cultivars": 109,
+    "sources": 236,
+    "entities": 40
   },
   "explore": {
     "sativa": [
       "acapulco-gold",
       "african-gas",
       "ak-47",
+      "amnesia-haze",
       "bangi-haze",
       "c5-haze-x-kali-china",
       "cbd-1",
@@ -54,6 +55,7 @@
     "indica": [
       "apple-fritter",
       "big-bang",
+      "blue-cheese",
       "blue-gelato-41",
       "blueberry",
       "blueberry-muffin",
@@ -68,11 +70,13 @@
       "gmo-cookies",
       "hindu-kush",
       "ice-cream-cake",
+      "kosher-kush",
       "la-confidential",
       "mazar",
       "gorilla-glue-4",
       "permanent-marker",
       "pink-panties",
+      "satellite-og",
       "sensi-skunk",
       "shiva-skunk",
       "strawberry-banana-s1",
@@ -1335,6 +1339,212 @@
       ],
       "checkedAt": "2026-09-08",
       "updatedAt": "2026-09-08",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "amnesia-haze",
+      "status": "review",
+      "name": "Amnesia Haze",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "soma-seeds-amnesia-haze"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "soma-seeds-amnesia-haze"
+        ],
+        "display": "Thai sticks / Cambodian / Laotian + Jamaican Haze + Afghani-Hawaiian",
+        "parents": [
+          "Thai sticks",
+          "Cambodian",
+          "Laotian",
+          "Jamaican Haze",
+          "Afghani-Hawaiian"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Soma's Sacred Seedsは、Thai sticks・Cambodian・Laotianの東南アジア系統に、Jamaican HazeとAfghani-Hawaiianの遺伝背景が組み合わさった複雑な系譜として説明している。単純な交配順序には置き換えていない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "somas-sacred-seeds",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "soma-seeds-amnesia-haze"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-amnesia-haze"
+        ],
+        "claimOrigin": "specialist-curation",
+        "items": [
+          "シトラス",
+          "レモン",
+          "ライム"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-amnesia-haze"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "笑いやすい",
+          "多幸感",
+          "おしゃべり"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-amnesia-haze"
+        ],
+        "items": [
+          "myrcene",
+          "caryophyllene",
+          "limonene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            }
+          ],
+          "noteJa": "Leaflyではmyrcene / caryophyllene / limoneneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、分析値は作らない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "soma-seeds-amnesia-haze"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Soma's Sacred Seedsの代表的なHaze系統。公式説明は2004年および2012年のHigh Times Cannabis Cupに関する受賞歴を記録している。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Soma's Sacred Seedsは、Thai sticks・Cambodian・Laotianの東南アジア系統に、Jamaican HazeとAfghani-Hawaiianの遺伝背景が組み合わさった複雑な系譜として説明している。単純な交配順序には置き換えていない。",
+          "history": "Soma's Sacred Seedsの代表的なHaze系統。公式説明は2004年および2012年のHigh Times Cannabis Cupに関する受賞歴を記録している。",
+          "terpeneNote": "Leaflyではmyrcene / caryophyllene / limoneneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、分析値は作らない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/amnesia-haze/primary.webp",
+          "alt": "Amnesia Hazeの形態を推測で固定せず、成熟した主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -2697,6 +2907,240 @@
       ],
       "checkedAt": "2026-09-22",
       "updatedAt": "2026-09-22",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "blue-cheese",
+      "status": "review",
+      "name": "Blue Cheese",
+      "jp": null,
+      "aliases": [
+        "Big Buddha Blue Cheese"
+      ],
+      "classification": {
+        "type": "indica"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "big-buddha-blue-cheese"
+        ],
+        "display": "Blueberry × Big Buddha Cheese",
+        "parents": [
+          "Blueberry",
+          "Big Buddha Cheese"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Big Buddha Seedsの公式説明では、Blueberry系統の雄株とOriginal Big Buddha Cheeseを基礎に作出。現行シードの75% Cheese / 25% Blueberryという構成は、ルート品種の普遍的な比率としては扱っていない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "big-buddha-seeds",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "big-buddha-blue-cheese"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "big-buddha-blue-cheese"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フルーティー",
+          "ターティー",
+          "ベリー",
+          "ムスキー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フルーティー",
+            "ターティー",
+            "ベリー",
+            "ムスキー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "tarty",
+              "reviewLabelJa": "ターティー",
+              "plainMeaningJa": "酸味を思わせる、甘酸っぱく鋭い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味",
+                "甘酸っぱい"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "berry",
+              "reviewLabelJa": "ベリー",
+              "plainMeaningJa": "ベリー類を思わせる甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "musky",
+              "reviewLabelJa": "ムスキー",
+              "plainMeaningJa": "ムスクのような重く甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "麝香"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式資料では、sweet / fruity / tarty / berryに、Original Big Buddha Cheese由来とされるmuskyなニュアンスが重なる。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-blue-cheese"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "眠気",
+          "リラックス",
+          "空腹感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-blue-cheese"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "Leaflyではmyrcene / limonene / caryophylleneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、含有量は推測しない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "big-buddha-blue-cheese"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Big Buddha Seedsが作出したBlue Cheese。公式ページは2006年のHigh Times Cannabis Cup「Sativa Seed Bank Cup」受賞を記録している。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Big Buddha Seedsの公式説明では、Blueberry系統の雄株とOriginal Big Buddha Cheeseを基礎に作出。現行シードの75% Cheese / 25% Blueberryという構成は、ルート品種の普遍的な比率としては扱っていない。",
+          "history": "Big Buddha Seedsが作出したBlue Cheese。公式ページは2006年のHigh Times Cannabis Cup「Sativa Seed Bank Cup」受賞を記録している。",
+          "aromaNote": "公式資料では、sweet / fruity / tarty / berryに、Original Big Buddha Cheese由来とされるmuskyなニュアンスが重なる。",
+          "terpeneNote": "Leaflyではmyrcene / limonene / caryophylleneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、含有量は推測しない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blue-cheese/primary.webp",
+          "alt": "Blue Cheeseの品種固有形態を推測せず、成熟した主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14477,6 +14921,232 @@
     },
     {
       "schemaVersion": 1,
+      "id": "kosher-kush",
+      "status": "review",
+      "name": "Kosher Kush",
+      "jp": null,
+      "aliases": [
+        "Kosher OG",
+        "Jewish Gold"
+      ],
+      "classification": {
+        "type": "indica"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "display": "",
+        "parents": []
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "dna-genetics-kosher-kush"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "DNA Geneticsの品種資料ではearthyな香りが明示されている。compound表現を勝手に分割せず、確認できる語だけを正式化した。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-kosher-kush"
+        ],
+        "claimOrigin": "breeder-official",
+        "items": [
+          "スイート",
+          "フルーティー",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kosher-kush"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "眠気",
+          "リラックス",
+          "空腹感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-kosher-kush"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "9〜10週間",
+            "min": 9,
+            "max": 10,
+            "unit": "weeks",
+            "claimOrigin": "breeder-official",
+            "confidence": "B",
+            "sourceRefs": [
+              "dna-genetics-kosher-kush"
+            ]
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-kosher-kush"
+        ],
+        "items": [
+          "limonene",
+          "myrcene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "DNA Geneticsはlimonene / myrcene / caryophylleneを挙げている。含有率は提示せず、定性的なLISTED情報として扱う。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kosher-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Los Angelesでclone-onlyとして流通した系統とLeaflyが記録している。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-kosher-kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Kosher KushはKosher OGの別名でも知られる。歴史的なclone-onlyルートと、DNA Geneticsが現在扱うKosher Kush × Kosher Kushのシード再現は区別している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-kosher-kush"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "DNA Geneticsの品種資料では、bushyな生育構造とdense / resinousな花が記述されている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "origin": "Los Angelesでclone-onlyとして流通した系統とLeaflyが記録している。",
+          "history": "Kosher KushはKosher OGの別名でも知られる。歴史的なclone-onlyルートと、DNA Geneticsが現在扱うKosher Kush × Kosher Kushのシード再現は区別している。",
+          "aromaNote": "DNA Geneticsの品種資料ではearthyな香りが明示されている。compound表現を勝手に分割せず、確認できる語だけを正式化した。",
+          "terpeneNote": "DNA Geneticsはlimonene / myrcene / caryophylleneを挙げている。含有率は提示せず、定性的なLISTED情報として扱う。",
+          "morphologyNote": "DNA Geneticsの品種資料では、bushyな生育構造とdense / resinousな花が記述されている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/kosher-kush/primary.webp",
+          "alt": "Kosher Kushのbushyな構造とdense・resinousな花の記述に基づき、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "kush-mints",
       "status": "review",
       "name": "Kush Mints",
@@ -22442,6 +23112,258 @@
     },
     {
       "schemaVersion": 1,
+      "id": "satellite-og",
+      "status": "review",
+      "name": "Satellite OG",
+      "jp": null,
+      "aliases": [
+        "Satellite",
+        "Satellite OG Kush"
+      ],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-satellite-og",
+          "weedmaps-satellite-og"
+        ],
+        "display": "OG Kush × SFV OG",
+        "parents": [
+          "OG Kush",
+          "SFV OG"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "LeaflyとWeedmapsはいずれもOG Kush × SFV OGを直接親として掲載している。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "satellite",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "leafly-satellite-og"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "weedmaps-satellite-og"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイートパイン",
+          "スパイス",
+          "ソイル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイートパイン",
+            "スパイス",
+            "ソイル"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet pine",
+              "reviewLabelJa": "スイートパイン",
+              "plainMeaningJa": "甘さを伴う松・針葉樹を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "パイン",
+                "松",
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spices",
+              "reviewLabelJa": "スパイス",
+              "plainMeaningJa": "複数の香辛料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "soil",
+              "reviewLabelJa": "ソイル",
+              "plainMeaningJa": "土を思わせるアーシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土",
+                "アーシー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Weedmapsではsweet pine / spices / soilが香りとして報告されている。専門資料由来であることを保持し、強さの順位は追加しない。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-satellite-og"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "ピリピリ感",
+          "リラックス",
+          "集中"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-satellite-og"
+        ],
+        "claimOrigin": "specialist-curation",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "49〜63日",
+            "min": 49,
+            "max": 63,
+            "unit": "days",
+            "claimOrigin": "specialist-curation",
+            "confidence": "B",
+            "sourceRefs": [
+              "weedmaps-satellite-og"
+            ]
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-satellite-og"
+        ],
+        "items": [
+          "myrcene",
+          "limonene",
+          "pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "Leaflyではmyrcene / limonene / pineneが掲載されている。LISTED情報として保持し、含有率は推測しない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-satellite-og"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "WeedmapsはLos Angelesのbreederによる系統として記録している。originator公式資料は今回のbounded researchでは確認できなかった。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-satellite-og"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Weedmapsはshort・stockyな生育とlarge・denseな花を報告している。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "LeaflyとWeedmapsはいずれもOG Kush × SFV OGを直接親として掲載している。",
+          "origin": "WeedmapsはLos Angelesのbreederによる系統として記録している。originator公式資料は今回のbounded researchでは確認できなかった。",
+          "aromaNote": "Weedmapsではsweet pine / spices / soilが香りとして報告されている。専門資料由来であることを保持し、強さの順位は追加しない。",
+          "terpeneNote": "Leaflyではmyrcene / limonene / pineneが掲載されている。LISTED情報として保持し、含有率は推測しない。",
+          "morphologyNote": "Weedmapsはshort・stockyな生育とlarge・denseな花を報告している。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/satellite-og/primary.webp",
+          "alt": "Satellite OGのshort・stockyな構造とlarge・denseな花の記述に基づき、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "satori",
       "status": "review",
       "name": "Satori",
@@ -30130,6 +31052,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "big-buddha-blue-cheese": {
+      "schemaVersion": 1,
+      "id": "big-buddha-blue-cheese",
+      "publisher": "Big Buddha Seeds",
+      "title": "Big Buddha Blue Cheese 10 Pack",
+      "url": "https://www.bigbuddhaseeds.com/shop/seed-all-catergories/blue-cheese-10-pack-detail",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "breeding",
+        "aromas",
+        "flavor",
+        "cultivation",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "brothers-grimm-cinderella-99-history": {
       "schemaVersion": 1,
       "id": "brothers-grimm-cinderella-99-history",
@@ -30515,6 +31459,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-07"
     },
+    "dna-genetics-kosher-kush": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-kosher-kush",
+      "publisher": "DNA Genetics",
+      "title": "Kosher Kush Marijuana Strain",
+      "url": "https://dnagenetics.com/kosher-kush/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "history",
+        "origin",
+        "aromas",
+        "terpenes",
+        "morphology",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "dna-genetics-la-confidential-2025": {
       "schemaVersion": 1,
       "id": "dna-genetics-la-confidential-2025",
@@ -30794,6 +31757,18 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "eurofins-ghsc-white-widow-az13481476": {
+      "schemaVersion": 1,
+      "id": "eurofins-ghsc-white-widow-az13481476",
+      "publisher": "Eurofins Scientific Inc. / Eurofins QTA",
+      "title": "Certification of Analysis - GHSC - White Widow",
+      "url": "https://shop.greenhouseseeds.us/images/coa/GHSC_White_Widow_COA.pdf",
+      "sourceType": "coa",
+      "supports": [
+        "cannabinoids"
+      ],
+      "checkedAt": "2026-09-26"
     },
     "fischedick-og-kush-terpenoids-2017": {
       "schemaVersion": 1,
@@ -31481,6 +32456,24 @@
       "publishedAt": null,
       "checkedAt": "2026-09-08"
     },
+    "leafly-amnesia-haze": {
+      "schemaVersion": 1,
+      "id": "leafly-amnesia-haze",
+      "publisher": "Leafly",
+      "title": "Amnesia Haze strain",
+      "url": "https://www.leafly.com/strains/amnesia-haze",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "terpenes",
+        "effects",
+        "flavor",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "leafly-animal-mints": {
       "schemaVersion": 1,
       "id": "leafly-animal-mints",
@@ -31502,6 +32495,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-25"
+    },
+    "leafly-blue-cheese": {
+      "schemaVersion": 1,
+      "id": "leafly-blue-cheese",
+      "publisher": "Leafly",
+      "title": "Blue Cheese strain",
+      "url": "https://www.leafly.com/strains/blue-cheese",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "classification",
+        "terpenes",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
     },
     "leafly-bubble-gum": {
       "schemaVersion": 1,
@@ -31877,6 +32886,24 @@
       "publishedAt": null,
       "checkedAt": "2026-09-25"
     },
+    "leafly-kosher-kush": {
+      "schemaVersion": 1,
+      "id": "leafly-kosher-kush",
+      "publisher": "Leafly",
+      "title": "Kosher Kush strain",
+      "url": "https://www.leafly.com/strains/kosher-kush",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "history",
+        "origin",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "leafly-kush-mints": {
       "schemaVersion": 1,
       "id": "leafly-kush-mints",
@@ -32108,6 +33135,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-22"
+    },
+    "leafly-satellite-og": {
+      "schemaVersion": 1,
+      "id": "leafly-satellite-og",
+      "publisher": "Leafly",
+      "title": "Satellite OG strain",
+      "url": "https://www.leafly.com/strains/satellite-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "breeder",
+        "classification",
+        "terpenes",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
     },
     "leafly-sfv-og": {
       "schemaVersion": 1,
@@ -33248,6 +34294,24 @@
       "publishedAt": "2019-07-29",
       "checkedAt": "2026-09-22"
     },
+    "soma-seeds-amnesia-haze": {
+      "schemaVersion": 1,
+      "id": "soma-seeds-amnesia-haze",
+      "publisher": "Soma's Sacred Seeds",
+      "title": "Amnesia Haze Soma Seeds Originals",
+      "url": "https://www.somaseeds.nl/product/amnesia-haze",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "breeding",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "stupiddope-marty-calabrese-2023": {
       "schemaVersion": 1,
       "id": "stupiddope-marty-calabrese-2023",
@@ -33422,6 +34486,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "weedmaps-satellite-og": {
+      "schemaVersion": 1,
+      "id": "weedmaps-satellite-og",
+      "publisher": "Weedmaps",
+      "title": "Satellite OG",
+      "url": "https://weedmaps.com/strains/satellite-og",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "classification",
+        "origin",
+        "aromas",
+        "flavor",
+        "morphology",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-03"
+    },
     "weedmaps-sfv-og": {
       "schemaVersion": 1,
       "id": "weedmaps-sfv-og",
@@ -33550,18 +34634,6 @@
       ],
       "publishedAt": "2017-10-03",
       "checkedAt": "2026-09-22"
-    },
-    "eurofins-ghsc-white-widow-az13481476": {
-      "schemaVersion": 1,
-      "id": "eurofins-ghsc-white-widow-az13481476",
-      "publisher": "Eurofins Scientific Inc. / Eurofins QTA",
-      "title": "Certification of Analysis - GHSC - White Widow",
-      "url": "https://shop.greenhouseseeds.us/images/coa/GHSC_White_Widow_COA.pdf",
-      "sourceType": "coa",
-      "supports": [
-        "cannabinoids"
-      ],
-      "checkedAt": "2026-09-26"
     }
   },
   "entities": {
@@ -33613,6 +34685,19 @@
       "status": "confirmed",
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
+    },
+    "big-buddha-seeds": {
+      "schemaVersion": 1,
+      "id": "big-buddha-seeds",
+      "name": "Big Buddha Seeds",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03"
     },
     "blockhead": {
       "schemaVersion": 1,
@@ -33948,6 +35033,17 @@
       "checkedAt": "2026-09-12",
       "updatedAt": "2026-09-12"
     },
+    "satellite": {
+      "schemaVersion": 1,
+      "id": "satellite",
+      "name": "Satellite",
+      "roles": [
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03"
+    },
     "seed-junky-genetics": {
       "schemaVersion": 1,
       "id": "seed-junky-genetics",
@@ -33983,6 +35079,19 @@
       "checkedAt": "2026-08-14",
       "updatedAt": "2026-08-15",
       "note": "Created from the existing Bubble Gum source attribution during MASTER migration."
+    },
+    "somas-sacred-seeds": {
+      "schemaVersion": 1,
+      "id": "somas-sacred-seeds",
+      "name": "Soma's Sacred Seeds",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-03",
+      "updatedAt": "2026-10-03"
     },
     "th-seeds": {
       "schemaVersion": 1,
