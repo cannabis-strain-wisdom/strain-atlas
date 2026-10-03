@@ -39,15 +39,28 @@ jobs:
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
 
-          # Generate a fail-closed search surface from PUBLIC runtime only.
+          # Generate the explicitly activated search surface from PUBLIC runtime only.
           node .github/scripts/generate-search-surface-v1.mjs \
             --catalog=runtime/catalog.json \
             --out=_site \
-            --indexing=closed
+            --indexing=open \
+            --activation-token=SEARCH_INDEXING_OPEN_V1
           node .github/scripts/validate-search-surface-v1.mjs \
             --catalog=runtime/catalog.json \
             --out=_site \
-            --indexing=closed
+            --indexing=open
+
+          # Open indexing only in the deploy artifact; repository source remains fail-closed.
+          python3 <<'PY'
+          from pathlib import Path
+          path = Path("_site/index.html")
+          html = path.read_text(encoding="utf-8")
+          old = '<meta name="robots" content="noindex,nofollow,noarchive">'
+          new = '<meta name="robots" content="index,follow,max-image-preview:large">'
+          if html.count(old) != 1:
+              raise SystemExit(f"Expected exactly one closed root robots meta, found {html.count(old)}")
+          path.write_text(html.replace(old, new, 1), encoding="utf-8")
+          PY
 
           # Generate public update history into the staged artifact only.
           # Existing cultivar/detail/runtime files remain read-only.
@@ -144,10 +157,11 @@ jobs:
           test -f _site/sitemap.xml
           test -f _site/search-surface-manifest.json
           test -f _site/cultivars/index.html
-          grep -Fq '<meta name="robots" content="noindex,nofollow,noarchive">' _site/index.html
+          grep -Fq '<meta name="robots" content="index,follow,max-image-preview:large">' _site/index.html
+          ! grep -Fq '<meta name="robots" content="noindex,nofollow,noarchive">' _site/index.html
           grep -Fxq 'User-agent: *' _site/robots.txt
           grep -Fxq 'Allow: /' _site/robots.txt
-          ! grep -q '^Sitemap:' _site/robots.txt
+          grep -Fxq 'Sitemap: https://cannabis-strain-wisdom.github.io/strain-atlas/sitemap.xml' _site/robots.txt
           grep -q 'Cannabis Strain Wisdom' _site/index.html
           grep -q '新着の品種' _site/index.html
           grep -q 'すべての品種' _site/index.html
@@ -346,11 +360,12 @@ jobs:
           node .github/scripts/generate-search-surface-v1.mjs \
             --catalog=runtime/catalog.json \
             --out="$EXPECTED_SEARCH" \
-            --indexing=closed
+            --indexing=open \
+            --activation-token=SEARCH_INDEXING_OPEN_V1
           node .github/scripts/validate-search-surface-v1.mjs \
             --catalog=runtime/catalog.json \
             --out="$EXPECTED_SEARCH" \
-            --indexing=closed
+            --indexing=open
 
           node .github/scripts/generate-site-updates-v1.mjs \
             --baseline site-updates.json \
@@ -361,6 +376,7 @@ jobs:
 
           fetch_live() {
             nonce="$(date +%s%N)"
+            curl -fsSL "${BASE_URL}/?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/index.html"
             curl -fsSL "${BASE_URL}/app.min.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/app.min.js"
             curl -fsSL "${BASE_URL}/presentation-contract-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/presentation-contract-v1.js"
             curl -fsSL "${BASE_URL}/name-relationships-v1.js?verify=${GITHUB_SHA}-${nonce}" -o "$LIVE_DIR/name-relationships-v1.js"
@@ -411,10 +427,13 @@ jobs:
           grep -Fq 'CSW_FAMILY_TREE_VIEW_V1' "$LIVE_DIR/family-tree-v1.js"
           grep -Fq 'CSW_DETAIL_INTERACTION_V1' "$LIVE_DIR/detail-interaction-v1.js"
           grep -Fq 'CSW_DETAIL_SHARE_V2' "$LIVE_DIR/detail-share-v2.js"
-          grep -Fq '<meta name="robots" content="noindex,nofollow,noarchive">' "$LIVE_DIR/cultivars/$FIRST_CULTIVAR_ID/index.html"
+          grep -Fq '<meta name="robots" content="index,follow,max-image-preview:large">' "$LIVE_DIR/index.html"
+          ! grep -Fq '<meta name="robots" content="noindex,nofollow,noarchive">' "$LIVE_DIR/index.html"
+          grep -Fq '<meta name="robots" content="index,follow,max-image-preview:large">' "$LIVE_DIR/cultivars/$FIRST_CULTIVAR_ID/index.html"
+          ! grep -Fq '<meta name="robots" content="noindex,nofollow,noarchive">' "$LIVE_DIR/cultivars/$FIRST_CULTIVAR_ID/index.html"
           grep -Fxq 'User-agent: *' "$LIVE_DIR/robots.txt"
           grep -Fxq 'Allow: /' "$LIVE_DIR/robots.txt"
-          ! grep -q '^Sitemap:' "$LIVE_DIR/robots.txt"
+          grep -Fxq 'Sitemap: https://cannabis-strain-wisdom.github.io/strain-atlas/sitemap.xml' "$LIVE_DIR/robots.txt"
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const catalog = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/csw-live/runtime/catalog.json', 'utf8'));
