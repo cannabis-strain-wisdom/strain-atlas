@@ -333,13 +333,13 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
 
   const childRelationshipCases = [
     { parentId: 'acapulco-gold', childIds: ['skunk-1'] },
-    { parentId: 'ak-47', childIds: ['serious-happiness'] },
+    { parentId: 'ak-47', childIds: ['serious-happiness', 'white-russian'] },
     { parentId: 'warlock', childIds: ['serious-happiness'] },
     { parentId: 'papaya', childIds: ['california-octane'] },
-    { parentId: 'skunk-1', childIds: ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk'] },
+    { parentId: 'skunk-1', childIds: ['mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk', 'tangie'] },
     { parentId: 'super-skunk', childIds: ['sour-diesel'] },
     { parentId: 'sunset-sherbert', childIds: ['blue-gelato-41'] },
-    { parentId: 'og-kush', childIds: ['cataract-kush'] },
+    { parentId: 'og-kush', childIds: ['bruce-banner-3', 'cataract-kush'] },
     { parentId: 'ogkb', childIds: ['do-si-dos'] },
     { parentId: 'face-off-og-bx1', childIds: ['do-si-dos'] },
     { parentId: 'chem-d', childIds: ['gmo-cookies'] },
@@ -410,12 +410,12 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
       overflow:(root?root.scrollWidth>root.clientWidth+1:true)||(document.getElementById('detail-shell')?.scrollWidth>document.getElementById('detail-shell')?.clientWidth+1)
     };
   })()`);
-  if (JSON.stringify(ogRelationshipState.childRows)!==JSON.stringify(['cataract-kush'])) throw new Error(`OG Kush CHILD LINE must contain only Cataract Kush: ${JSON.stringify(ogRelationshipState)}`);
+  if (JSON.stringify(ogRelationshipState.childRows)!==JSON.stringify(['bruce-banner-3', 'cataract-kush'])) throw new Error(`OG Kush CHILD LINE must contain only Cataract Kush: ${JSON.stringify(ogRelationshipState)}`);
   if (ogRelationshipState.selectionRows.length!==1) throw new Error(`OG Kush selection row count invalid: ${JSON.stringify(ogRelationshipState)}`);
   const ogSelection=ogRelationshipState.selectionRows[0];
   if (ogSelection.id!=='the-og-18'||ogSelection.name!=='The OG #18'||!ogSelection.relationship||!ogSelection.label.includes('選抜系統')||!ogSelection.label.includes('SELECTION')) throw new Error(`OG Kush selection relationship content invalid: ${JSON.stringify(ogRelationshipState)}`);
   if (/\\b(?:S1|BX)\\b/i.test(ogSelection.relationship)||/\\b(?:S1|BX)\\b/i.test(ogSelection.label)) throw new Error(`The OG #18 selection rail must not resolve the S1/BX generation conflict: ${JSON.stringify(ogRelationshipState)}`);
-  if (ogRelationshipState.state?.status!=='PASS'||ogRelationshipState.state?.cultivarId!=='og-kush'||ogRelationshipState.state?.childCount!==1||ogRelationshipState.state?.selectionCount!==1) throw new Error(`OG Kush typed relationship state invalid: ${JSON.stringify(ogRelationshipState)}`);
+  if (ogRelationshipState.state?.status!=='PASS'||ogRelationshipState.state?.cultivarId!=='og-kush'||ogRelationshipState.state?.childCount!==2||ogRelationshipState.state?.selectionCount!==1) throw new Error(`OG Kush typed relationship state invalid: ${JSON.stringify(ogRelationshipState)}`);
   if (!ogRelationshipState.evidenceLast) throw new Error('OG Kush lineage evidence footer not last');
   if (ogRelationshipState.overflow) throw new Error('OG Kush typed relationship presentation overflow');
 
@@ -494,14 +494,14 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
   await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
   const collapsedFamilyBranch = await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]')?.textContent||''");
-  if (collapsedFamilyBranch !== 'さらに1件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
+  if (collapsedFamilyBranch !== 'さらに2件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
   await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
-  await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 Family Tree branch expansion');
+  await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===5"), 'Skunk #1 Family Tree branch expansion');
   const skunkScrollBefore = await evalv("(()=>{const v=document.querySelector('.csw-ft-viewport');v.scrollLeft=Math.min(120,Math.max(0,v.scrollWidth-v.clientWidth));return v.scrollLeft})()");
   await evalv("document.querySelector('[data-ft-node-id=\"super-skunk\"]').click();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='super-skunk'"), 'Skunk #1 child navigation');
   await evalv("history.back();true");
-  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===4"), 'Skunk #1 expanded-state restoration');
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===5"), 'Skunk #1 expanded-state restoration');
   await waitFor(() => evalv("Math.abs((document.querySelector('.csw-ft-viewport')?.scrollLeft||0)-" + skunkScrollBefore + ")<=2"), 'Skunk #1 scroll restoration');
 
   const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
