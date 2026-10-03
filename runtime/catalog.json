@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T13:51:22.204Z",
+  "generatedAt": "2026-10-03T22:45:32.175Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 109,
-    "sources": 236,
-    "entities": 40
+    "cultivars": 114,
+    "sources": 245,
+    "entities": 42
   },
   "explore": {
     "sativa": [
@@ -29,6 +29,7 @@
       "ethiopia",
       "golden-tiger",
       "guawi",
+      "hella-jelly",
       "honduras",
       "jamaican-pearl",
       "kali-mist",
@@ -49,6 +50,7 @@
       "shaman",
       "sour-diesel",
       "super-lemon-haze",
+      "tangie",
       "thai-chiang-mai",
       "zamaldelica"
     ],
@@ -86,6 +88,7 @@
       "triangle-kush-s1",
       "violeta",
       "warlock",
+      "white-russian",
       "white-widow"
     ],
     "hybrid": [
@@ -93,6 +96,7 @@
       "animal-mints",
       "auto-cinderella-jack",
       "blue-zushi",
+      "bruce-banner-3",
       "bubble-gum",
       "chem-d",
       "face-off-og-bx1",
@@ -114,6 +118,7 @@
       "papaya",
       "rainbow-belts",
       "rainbow-sherbert-11",
+      "runtz",
       "serious-happiness",
       "skunk-1",
       "super-boof",
@@ -4153,6 +4158,200 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "bruce-banner-3",
+      "status": "review",
+      "name": "Bruce Banner #3",
+      "jp": "ブルース・バナー #3",
+      "aliases": [
+        "BB3",
+        "Bruce Banner 3"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dark-horse-original-bruce-banner-3"
+        ],
+        "display": "OG Kush × Strawberry Diesel",
+        "parents": [
+          "OG Kush",
+          "Strawberry Diesel"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dark Horse Geneticsの一次資料では、Original Bruce BannerはOG Kush × Strawberry Dieselの交配で、Bruce Banner #3はその中から選抜された表現型として説明されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dark-horse-genetics",
+          "roles": [
+            "originator",
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dark-horse-original-bruce-banner-3"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-bruce-banner-3"
+        ],
+        "claimOrigin": "specialist-curation",
+        "items": [
+          "ディーゼル",
+          "スイート",
+          "アーシー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-bruce-banner-3"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "多幸感",
+          "創造的",
+          "ピリピリ感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-bruce-banner-3"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dark-horse-original-bruce-banner-3"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dark Horse Geneticsは、Original Bruce Bannerの少数の種子からBB3とBB5という際立った表現型が見つかったと記録している。BB5や他社の同名再現系統とは分けて扱う。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dark-horse-original-bruce-banner-3"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Dark Horse Geneticsの一次資料では、Original Bruce BannerはOG Kush × Strawberry Dieselの交配で、Bruce Banner #3はその中から選抜された表現型として説明されている。",
+          "history": "Dark Horse Geneticsは、Original Bruce Bannerの少数の種子からBB3とBB5という際立った表現型が見つかったと記録している。BB5や他社の同名再現系統とは分けて扱う。",
+          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/bruce-banner-3/primary.webp",
+          "alt": "Dark Horse GeneticsのBruce Banner #3について確認できたresin-richな特徴だけを反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -12452,6 +12651,238 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "hella-jelly",
+      "status": "review",
+      "name": "Hella Jelly",
+      "jp": "ヘラ・ジェリー",
+      "aliases": [
+        "Jelly Rancher"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "display": "Very Cherry × Notorious T.H.C.",
+        "parents": [
+          "Very Cherry",
+          "Notorious T.H.C."
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Companyの一次資料では、Very CherryとNotorious T.H.C.から作られた系統として説明されている。資料内で親の記載順が入れ替わるため、母系・父系の方向性は補っていない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-hella-jelly"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティー",
+          "マンゴー",
+          "ストロベリー",
+          "グレープ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティー",
+            "マンゴー",
+            "ストロベリー",
+            "グレープ"
+          ],
+          "details": [
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "mango",
+              "reviewLabelJa": "マンゴー",
+              "plainMeaningJa": "マンゴーのような南国果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "南国果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "strawberry",
+              "reviewLabelJa": "ストロベリー",
+              "plainMeaningJa": "いちごのような甘い果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "いちご"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "grape",
+              "reviewLabelJa": "グレープ",
+              "plainMeaningJa": "ぶどうのような果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ぶどう"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "幸福感",
+          "笑いやすい"
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 26,
+              "maxValue": 30,
+              "unit": "%",
+              "valueText": "26〜30%",
+              "confidence": "B",
+              "sourceRefs": [
+                "hsc-hella-jelly"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Companyでは、Hella Jellyの旧名をJelly Rancherと記録しており、2019年の同社Phenotype Mega-Huntで選ばれた系統として説明している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Humboldt Seed Companyの一次資料では、Very CherryとNotorious T.H.C.から作られた系統として説明されている。資料内で親の記載順が入れ替わるため、母系・父系の方向性は補っていない。",
+          "history": "Humboldt Seed Companyでは、Hella Jellyの旧名をJelly Rancherと記録しており、2019年の同社Phenotype Mega-Huntで選ばれた系統として説明している。",
+          "aromaNote": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/hella-jelly/primary.webp",
+          "alt": "Hella Jellyのbranchy・robustな植物構造の記述を踏まえつつ、花の形態を推測で固定せず主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -22472,6 +22903,220 @@
     },
     {
       "schemaVersion": 1,
+      "id": "runtz",
+      "status": "review",
+      "name": "Runtz",
+      "jp": "ランツ",
+      "aliases": [
+        "Runtz OG"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "runtz-crew-runtz"
+        ],
+        "display": "Gelato × Zkittlez",
+        "parents": [
+          "Gelato",
+          "Zkittlez"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Runtz Crewの一次資料では、GelatoとZkittlezを組み合わせた系統として説明されている。親の方向性までは資料から補っていない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "runtz-crew",
+          "roles": [
+            "originator",
+            "breeder",
+            "brand"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "runtz-crew-runtz"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-runtz"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "キャンディ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "キャンディ"
+          ],
+          "details": [
+            {
+              "rawMatch": "candy",
+              "reviewLabelJa": "キャンディ",
+              "plainMeaningJa": "キャンディのような甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyでは、砂糖菓子を思わせるcandy系の香りとして説明されている。フレーバー情報とは分けて扱っている。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-runtz"
+        ],
+        "claimOrigin": "specialist-curation",
+        "items": [
+          "ツリーフルーツ",
+          "アプリコット",
+          "スイート"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-runtz"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "おしゃべり",
+          "笑いやすい",
+          "リラックス"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-runtz"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "runtz-crew-runtz",
+          "leafly-runtz"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Runtz Crewの代表的な品種として展開されたRuntz。Leaflyでは2020年のStrain of the Yearとして記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-runtz"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Runtz Crewの一次資料では、GelatoとZkittlezを組み合わせた系統として説明されている。親の方向性までは資料から補っていない。",
+          "history": "Runtz Crewの代表的な品種として展開されたRuntz。Leaflyでは2020年のStrain of the Yearとして記録されている。",
+          "aromaNote": "Leaflyでは、砂糖菓子を思わせるcandy系の香りとして説明されている。フレーバー情報とは分けて扱っている。",
+          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/runtz/primary.webp",
+          "alt": "Runtzのresin-richな花と色幅の記述に基づき、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "rush-of-siam",
       "status": "review",
       "name": "Rush of Siam",
@@ -26828,6 +27473,236 @@
     },
     {
       "schemaVersion": 1,
+      "id": "tangie",
+      "status": "review",
+      "name": "Tangie",
+      "jp": "タンジー",
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "display": "California Orange × Skunk #1",
+        "parents": [
+          "California Orange",
+          "Skunk #1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsの一次資料では、California Orange（Cali-O）× Skunk #1の交配として説明されている。これより深い系譜は今回の直接資料から補っていない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dna-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "dna-genetics-tangie"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "シトラス",
+          "アーシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "シトラス",
+            "アーシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "citrus",
+              "reviewLabelJa": "シトラス",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "DNA Geneticsではcitrusを中心に、earthyな下支えを伴う香りとして説明されている。tangerine表現は原資料に残し、未承認語を勝手に正規化していない。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-tangie"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "活力",
+          "集中",
+          "高揚感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "items": [
+          "myrcene",
+          "beta-caryophyllene",
+          "alpha-pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            }
+          ],
+          "noteJa": "DNA Geneticsではmyrcene / beta-caryophyllene / alpha-pineneが記載されている。CSWでは一次資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 19,
+              "maxValue": 32,
+              "unit": "%",
+              "valueText": "19〜32%",
+              "confidence": "B",
+              "sourceRefs": [
+                "dna-genetics-tangie"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "DNA Geneticsの現行資料で継続して扱われている、柑橘系の個性で知られる系統。受賞歴はブリーダー側の記録として保持している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "DNA Geneticsの一次資料では、California Orange（Cali-O）× Skunk #1の交配として説明されている。これより深い系譜は今回の直接資料から補っていない。",
+          "history": "DNA Geneticsの現行資料で継続して扱われている、柑橘系の個性で知られる系統。受賞歴はブリーダー側の記録として保持している。",
+          "aromaNote": "DNA Geneticsではcitrusを中心に、earthyな下支えを伴う香りとして説明されている。tangerine表現は原資料に残し、未承認語を勝手に正規化していない。",
+          "terpeneNote": "DNA Geneticsではmyrcene / beta-caryophyllene / alpha-pineneが記載されている。CSWでは一次資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/tangie/primary.webp",
+          "alt": "Tangieの形態を推測で固定せず、成熟した主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "thai-chiang-mai",
       "status": "review",
       "name": "Thai Chiang Mai",
@@ -29136,6 +30011,236 @@
     },
     {
       "schemaVersion": 1,
+      "id": "white-russian",
+      "status": "review",
+      "name": "White Russian",
+      "jp": "ホワイト・ロシアン",
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "display": "AK-47 × White Widow",
+        "parents": [
+          "AK-47",
+          "White Widow"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsの一次資料では、同社のoriginal AK-47と1990年代のWhite Widowクローンを組み合わせたF1系統として説明されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "serious-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "serious-seeds-white-russian"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-white-russian"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティー",
+          "スイート"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティー",
+            "スイート"
+          ],
+          "details": [
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-white-russian"
+        ],
+        "claimOrigin": "user-report",
+        "items": [
+          "多幸感",
+          "高揚感",
+          "幸福感"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-white-russian"
+        ],
+        "items": [
+          "myrcene",
+          "caryophyllene",
+          "pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "Leaflyではmyrcene / caryophyllene / pineneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 22,
+              "unit": "%",
+              "valueText": "22%",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-white-russian"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "sample",
+              "evidenceScopeRef": "serious-seeds-independent-seed-comparison-1990s"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Serious Seedsは1996年のHigh Times Cannabis Cup初参加以降の受賞歴を記録している。過去の比較試験で報告された22% THCは、品種全体の固定値ではなく、その試験文脈のsource-declared値として保持している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Serious Seedsの一次資料では、同社のoriginal AK-47と1990年代のWhite Widowクローンを組み合わせたF1系統として説明されている。",
+          "history": "Serious Seedsは1996年のHigh Times Cannabis Cup初参加以降の受賞歴を記録している。過去の比較試験で報告された22% THCは、品種全体の固定値ではなく、その試験文脈のsource-declared値として保持している。",
+          "aromaNote": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。",
+          "terpeneNote": "Leaflyではmyrcene / caryophyllene / pineneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/white-russian/primary.webp",
+          "alt": "White Russianのdense・resinousで葉の少ない花の記述に基づき、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "white-widow",
       "status": "review",
       "name": "White Widow",
@@ -31214,6 +32319,25 @@
       "publishedAt": null,
       "checkedAt": "2026-09-25"
     },
+    "dark-horse-original-bruce-banner-3": {
+      "schemaVersion": 1,
+      "id": "dark-horse-original-bruce-banner-3",
+      "publisher": "Dark Horse Genetics",
+      "title": "The Original Bruce Banner #3 — Current Catalog",
+      "url": "https://www.darkhorsegenetics.com/current-catalog",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "breeding",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "david-downs-wedding-cake-2026": {
       "schemaVersion": 1,
       "id": "david-downs-wedding-cake-2026",
@@ -31501,6 +32625,29 @@
       ],
       "publishedAt": "2025-03-31",
       "checkedAt": "2026-09-20"
+    },
+    "dna-genetics-tangie": {
+      "schemaVersion": 1,
+      "id": "dna-genetics-tangie",
+      "publisher": "DNA Genetics",
+      "title": "Tangie Marijuana Strain: A Citrus-Fueled Experience Information",
+      "url": "https://dnagenetics.com/tangie/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "aromas",
+        "flavor",
+        "terpenes",
+        "cannabinoids",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": "2024-02-05",
+      "checkedAt": "2026-10-04"
     },
     "dna-strawberry-banana-s1": {
       "schemaVersion": 1,
@@ -32274,6 +33421,30 @@
       "publishedAt": null,
       "checkedAt": "2026-09-05"
     },
+    "hsc-hella-jelly": {
+      "schemaVersion": 1,
+      "id": "hsc-hella-jelly",
+      "publisher": "Humboldt Seed Company",
+      "title": "Hella Jelly Feminized Seeds",
+      "url": "https://humboldtseedcompany.es/product/hella-jelly/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "classification",
+        "aromas",
+        "flavor",
+        "cannabinoids",
+        "morphology",
+        "history",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "humboldt-csi-t-1000-s1": {
       "schemaVersion": 1,
       "id": "humboldt-csi-t-1000-s1",
@@ -32511,6 +33682,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-03"
+    },
+    "leafly-bruce-banner-3": {
+      "schemaVersion": 1,
+      "id": "leafly-bruce-banner-3",
+      "publisher": "Leafly",
+      "title": "Bruce Banner #3 aka BB3, Bruce Banner 3 Weed Strain Information",
+      "url": "https://www.leafly.com/strains/bruce-banner-3",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "flavor",
+        "terpenes",
+        "effects",
+        "breeder"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "leafly-bubble-gum": {
       "schemaVersion": 1,
@@ -33136,6 +34326,27 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "leafly-runtz": {
+      "schemaVersion": 1,
+      "id": "leafly-runtz",
+      "publisher": "Leafly",
+      "title": "Runtz aka Runtz OG Weed Strain Information",
+      "url": "https://www.leafly.com/strains/runtz",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "classification",
+        "aromas",
+        "flavor",
+        "terpenes",
+        "effects",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "leafly-satellite-og": {
       "schemaVersion": 1,
       "id": "leafly-satellite-og",
@@ -33307,6 +34518,20 @@
       "publishedAt": null,
       "checkedAt": "2026-09-25"
     },
+    "leafly-tangie": {
+      "schemaVersion": 1,
+      "id": "leafly-tangie",
+      "publisher": "Leafly",
+      "title": "Tangie Weed Strain Information",
+      "url": "https://www.leafly.com/strains/tangie",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "leafly-thin-mint": {
       "schemaVersion": 1,
       "id": "leafly-thin-mint",
@@ -33415,6 +34640,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-08"
+    },
+    "leafly-white-russian": {
+      "schemaVersion": 1,
+      "id": "leafly-white-russian",
+      "publisher": "Leafly",
+      "title": "White Russian Weed Strain Information",
+      "url": "https://www.leafly.com/strains/white-russian",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aromas",
+        "terpenes",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "leafly-zoap": {
       "schemaVersion": 1,
@@ -33720,6 +34961,23 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-12"
+    },
+    "runtz-crew-runtz": {
+      "schemaVersion": 1,
+      "id": "runtz-crew-runtz",
+      "publisher": "The Runtz Crew",
+      "title": "The Runtz Crew — Runtz",
+      "url": "https://www.runtzcrew.com/service/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "seed-junky-official": {
       "schemaVersion": 1,
@@ -34246,6 +35504,27 @@
       "publishedAt": null,
       "checkedAt": "2026-09-09"
     },
+    "serious-seeds-white-russian": {
+      "schemaVersion": 1,
+      "id": "serious-seeds-white-russian",
+      "publisher": "Serious Seeds",
+      "title": "White Russian Strain Created by Serious Seeds",
+      "url": "https://www.seriousseeds.com/cannabis-seeds/white-russian",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "flavor",
+        "cannabinoids",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "sherbinskis-gelato-33-weedmaps": {
       "schemaVersion": 1,
       "id": "sherbinskis-gelato-33-weedmaps",
@@ -34758,6 +36037,20 @@
       "updatedAt": "2026-09-16",
       "note": "High Times' 2014 direct interview identifies the Cookie Family as the breeders/originators of genuine Girl Scout Cookies."
     },
+    "dark-horse-genetics": {
+      "schemaVersion": 1,
+      "id": "dark-horse-genetics",
+      "name": "Dark Horse Genetics",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "Dark Horse Genetics' current catalog identifies the company as the breeder of the original Bruce Banner cross and Bruce Banner #3 selection."
+    },
     "deo-farms": {
       "schemaVersion": 1,
       "id": "deo-farms",
@@ -35032,6 +36325,20 @@
       "status": "confirmed",
       "checkedAt": "2026-09-12",
       "updatedAt": "2026-09-12"
+    },
+    "runtz-crew": {
+      "schemaVersion": 1,
+      "id": "runtz-crew",
+      "name": "Runtz Crew",
+      "roles": [
+        "originator",
+        "breeder",
+        "brand"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "First-party Runtz Crew materials identify the organization/crew behind the flagship Runtz cultivar."
     },
     "satellite": {
       "schemaVersion": 1,

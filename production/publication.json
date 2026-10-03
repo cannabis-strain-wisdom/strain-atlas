@@ -605,6 +605,31 @@
       "strainId": "satellite-og",
       "state": "published",
       "publishedAt": "2026-10-03T13:51:20Z"
+    },
+    {
+      "strainId": "bruce-banner-3",
+      "state": "published",
+      "publishedAt": "2026-10-03T22:45:29Z"
+    },
+    {
+      "strainId": "hella-jelly",
+      "state": "published",
+      "publishedAt": "2026-10-03T22:45:29Z"
+    },
+    {
+      "strainId": "runtz",
+      "state": "published",
+      "publishedAt": "2026-10-03T22:45:29Z"
+    },
+    {
+      "strainId": "tangie",
+      "state": "published",
+      "publishedAt": "2026-10-03T22:45:29Z"
+    },
+    {
+      "strainId": "white-russian",
+      "state": "published",
+      "publishedAt": "2026-10-03T22:45:29Z"
     }
   ]
 }
