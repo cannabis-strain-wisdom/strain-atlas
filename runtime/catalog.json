@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T11:23:51.681Z",
+  "generatedAt": "2026-10-04T12:14:29.712Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -8,7 +8,7 @@
   },
   "counts": {
     "cultivars": 119,
-    "sources": 255,
+    "sources": 256,
     "entities": 46
   },
   "explore": {
@@ -4469,6 +4469,28 @@
           "ピリピリ感"
         ]
       },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dark-horse-original-bruce-banner-3"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "10週間",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dark-horse-original-bruce-banner-3"
+            ]
+          }
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -4539,13 +4561,19 @@
         "sourceRefs": [
           "dark-horse-original-bruce-banner-3"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Dark Horse Genetics公式では、Bruce Banner #3は高い樹脂生成が特徴として記録されている。色や花の形など、同じ資料で確認できない形態は補っていない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Dark Horse Geneticsの一次資料では、Original Bruce BannerはOG Kush × Strawberry Dieselの交配で、Bruce Banner #3はその中から選抜された表現型として説明されている。",
           "history": "Dark Horse Geneticsは、Original Bruce Bannerの少数の種子からBB3とBB5という際立った表現型が見つかったと記録している。BB5や他社の同名再現系統とは分けて扱う。",
-          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。",
+          "morphologyNote": "Dark Horse Genetics公式では、Bruce Banner #3は高い樹脂生成が特徴として記録されている。色や花の形など、同じ資料で確認できない形態は補っていない。"
         }
       },
       "visuals": [
@@ -4563,13 +4591,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -13664,6 +13687,21 @@
           "noteJa": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "ブルーコットンキャンディ",
+          "ストロベリー",
+          "甘いグレープ",
+          "キャラメル"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "B",
@@ -13677,15 +13715,92 @@
           "笑いやすい"
         ]
       },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-hella-jelly"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内開花は最大45日",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "hsc-hella-jelly"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収穫は9月15〜30日",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "hsc-hella-jelly"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は中程度",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "hsc-hella-jelly"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は高いと記載",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "hsc-hella-jelly"
+            ]
+          }
+        ]
+      },
       "terpenes": {
-        "status": "unknown",
-        "sourceRefs": [],
-        "items": [],
-        "evidenceMode": "UNKNOWN",
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-jelly-rancher"
+        ],
+        "items": [
+          "caryophyllene",
+          "myrcene",
+          "humulene"
+        ],
+        "evidenceMode": "LISTED",
         "presentation": {
           "schemaVersion": 1,
-          "mode": "hidden",
-          "items": []
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "humulene",
+              "labelJa": "フムレン"
+            }
+          ],
+          "noteJa": "LeaflyのJelly Rancher（Hella Jelly）現行ページではcaryophyllene / myrcene / humuleneが掲載されている。専門DB由来のLISTED情報として保持し、割合は作らない。"
         }
       },
       "cannabinoids": {
@@ -13747,13 +13862,20 @@
         "sourceRefs": [
           "hsc-hella-jelly"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Humboldt Seed Companyでは、Hella Jellyは枝分かれしやすく、しっかりした植物構造として記録されている。花の形や色、樹脂量など同じ一次資料で確認できない特徴は補っていない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Humboldt Seed Companyの一次資料では、Very CherryとNotorious T.H.C.から作られた系統として説明されている。資料内で親の記載順が入れ替わるため、母系・父系の方向性は補っていない。",
           "history": "Humboldt Seed Companyでは、Hella Jellyの旧名をJelly Rancherと記録しており、2019年の同社Phenotype Mega-Huntで選ばれた系統として説明している。",
-          "aromaNote": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。"
+          "aromaNote": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。",
+          "terpeneNote": "LeaflyのJelly Rancher（Hella Jelly）現行ページではcaryophyllene / myrcene / humuleneが掲載されている。専門DB由来のLISTED情報として保持し、割合は作らない。",
+          "morphologyNote": "Humboldt Seed Companyでは、Hella Jellyは枝分かれしやすく、しっかりした植物構造として記録されている。花の形や色、樹脂量など同じ一次資料で確認できない特徴は補っていない。"
         }
       },
       "visuals": [
@@ -13771,13 +13893,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -28457,6 +28574,20 @@
           "noteJa": "DNA Geneticsではcitrusを中心に、earthyな下支えを伴う香りとして説明されている。tangerine表現は原資料に残し、未承認語を勝手に正規化していない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "甘く酸味のあるシトラス",
+          "トロピカルフルーツ",
+          "アーシー"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "C",
@@ -28469,6 +28600,72 @@
           "活力",
           "集中",
           "高揚感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "dna-genetics-tangie"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内開花は約9〜10週間",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-tangie"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は16〜19 oz./m²",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-tangie"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収量は最大21 oz./株",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-tangie"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収穫は9月下旬〜10月上旬",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-tangie"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "日照のある地中海性気候向き",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "dna-genetics-tangie"
+            ]
+          }
         ]
       },
       "terpenes": {
@@ -28563,14 +28760,20 @@
         "sourceRefs": [
           "dna-genetics-tangie"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "DNA Geneticsでは、Tangieは縦方向に伸びやすい生育傾向が記録されている。花の形や色、ピストル色など同じ資料で確認できない特徴は補っていない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "DNA Geneticsの一次資料では、California Orange（Cali-O）× Skunk #1の交配として説明されている。これより深い系譜は今回の直接資料から補っていない。",
           "history": "DNA Geneticsの現行資料で継続して扱われている、柑橘系の個性で知られる系統。受賞歴はブリーダー側の記録として保持している。",
           "aromaNote": "DNA Geneticsではcitrusを中心に、earthyな下支えを伴う香りとして説明されている。tangerine表現は原資料に残し、未承認語を勝手に正規化していない。",
-          "terpeneNote": "DNA Geneticsではmyrcene / beta-caryophyllene / alpha-pineneが記載されている。CSWでは一次資料由来のLISTED情報として保持し、割合は作らない。"
+          "terpeneNote": "DNA Geneticsではmyrcene / beta-caryophyllene / alpha-pineneが記載されている。CSWでは一次資料由来のLISTED情報として保持し、割合は作らない。",
+          "morphologyNote": "DNA Geneticsでは、Tangieは縦方向に伸びやすい生育傾向が記録されている。花の形や色、ピストル色など同じ資料で確認できない特徴は補っていない。"
         }
       },
       "visuals": [
@@ -28588,13 +28791,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -31231,6 +31429,23 @@
           "noteJa": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "スイート",
+          "フルーティー",
+          "フローラル",
+          "シトラス",
+          "オレンジ",
+          "スパイシー"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "C",
@@ -31243,6 +31458,50 @@
           "多幸感",
           "高揚感",
           "幸福感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "serious-seeds-white-russian"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内開花は53〜63日（約8〜9週間）",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-white-russian"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "屋内収量は350〜500 g/m²",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-white-russian"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "屋外収穫は10月中旬〜下旬",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "serious-seeds-white-russian"
+            ]
+          }
         ]
       },
       "terpenes": {
@@ -31312,6 +31571,42 @@
               "contextLabel": "公式掲載値（分析未確認）",
               "analysisVerified": false,
               "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 1,
+              "unit": "%",
+              "valueText": "1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-white-russian"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 22,
+              "unit": "%",
+              "valueText": "22%",
+              "confidence": "B",
+              "sourceRefs": [
+                "serious-seeds-white-russian"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
               "evidenceScope": "sample",
               "evidenceScopeRef": "serious-seeds-independent-seed-comparison-1990s"
             }
@@ -31337,14 +31632,20 @@
         "sourceRefs": [
           "serious-seeds-white-russian"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Serious Seedsでは、中型で葉が多すぎず、密で樹脂の多い花穂をつけ、花穂周りの葉が少ない形態として記録されている。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Serious Seedsの一次資料では、同社のoriginal AK-47と1990年代のWhite Widowクローンを組み合わせたF1系統として説明されている。",
           "history": "Serious Seedsは1996年のHigh Times Cannabis Cup初参加以降の受賞歴を記録している。過去の比較試験で報告された22% THCは、品種全体の固定値ではなく、その試験文脈のsource-declared値として保持している。",
           "aromaNote": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。",
-          "terpeneNote": "Leaflyではmyrcene / caryophyllene / pineneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+          "terpeneNote": "Leaflyではmyrcene / caryophyllene / pineneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。",
+          "morphologyNote": "Serious Seedsでは、中型で葉が多すぎず、密で樹脂の多い花穂をつけ、花穂周りの葉が少ない形態として記録されている。"
         }
       },
       "visuals": [
@@ -31362,13 +31663,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -33499,7 +33795,9 @@
         "breeder",
         "breeding",
         "history",
-        "morphology"
+        "morphology",
+        "classification",
+        "cultivation"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-04"
@@ -33810,7 +34108,8 @@
         "terpenes",
         "cannabinoids",
         "history",
-        "morphology"
+        "morphology",
+        "cultivation"
       ],
       "publishedAt": "2024-02-05",
       "checkedAt": "2026-10-04"
@@ -34606,7 +34905,8 @@
         "cannabinoids",
         "morphology",
         "history",
-        "effects"
+        "effects",
+        "cultivation"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-04"
@@ -35324,6 +35624,21 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-25"
+    },
+    "leafly-jelly-rancher": {
+      "schemaVersion": 1,
+      "id": "leafly-jelly-rancher",
+      "publisher": "Leafly",
+      "title": "Jelly Rancher aka Hella jelly Weed Strain Information",
+      "url": "https://www.leafly.com/strains/jelly-rancher",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "leafly-kosher-kush": {
       "schemaVersion": 1,
@@ -36833,7 +37148,8 @@
         "flavor",
         "cannabinoids",
         "morphology",
-        "history"
+        "history",
+        "cultivation"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-04"
