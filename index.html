@@ -1136,9 +1136,10 @@
     claim.observations.forEach((observation, index) => {
       const row = rows[index];
       const fieldLabel = fieldLabels[observation.field];
-      if (row && fieldLabel) {
+      const fieldNode = row?.querySelector(':scope > small');
+      if (fieldNode && fieldLabel && fieldNode.textContent === observation.field) {
         const environment = environments[observation.environment];
-        setTextIfChanged(row.querySelector(':scope > small'), `${fieldLabel}${environment ? `・${environment}` : ''}`);
+        setTextIfChanged(fieldNode, `${fieldLabel}${environment ? `・${environment}` : ''}`);
       }
       if (row && observation.field === 'height' && observation.displayText === '背丈はTallと記載') {
         setTextIfChanged(row.querySelector('.csw-staged-cultivation-value'), '背丈は高いと記載');
