@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T12:14:29.712Z",
+  "generatedAt": "2026-10-04T18:36:35.335Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -3053,6 +3053,18 @@
           "noteJa": "公式資料では、sweet / fruity / tarty / berryに、Original Big Buddha Cheese由来とされるmuskyなニュアンスが重なる。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "big-buddha-blue-cheese"
+        ],
+        "claimOrigin": "breeder-official",
+        "items": [
+          "酸味のあるブルーベリー"
+        ]
+      },
       "effects": {
         "status": "confirmed",
         "confidence": "C",
@@ -3065,6 +3077,42 @@
           "眠気",
           "リラックス",
           "空腹感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "big-buddha-blue-cheese"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "RANGE",
+            "displayText": "8〜10週間",
+            "min": 8,
+            "max": 10,
+            "unit": "weeks",
+            "claimOrigin": "breeder-official",
+            "confidence": "B",
+            "sourceRefs": [
+              "big-buddha-blue-cheese"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "10月下旬",
+            "claimOrigin": "breeder-official",
+            "confidence": "B",
+            "sourceRefs": [
+              "big-buddha-blue-cheese"
+            ]
+          }
         ]
       },
       "terpenes": {
@@ -24875,6 +24923,20 @@
           "registryVersion": 1,
           "noteJa": "Weedmapsではsweet pine / spices / soilが香りとして報告されている。専門資料由来であることを保持し、強さの順位は追加しない。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "weedmaps-satellite-og"
+        ],
+        "claimOrigin": "specialist-curation",
+        "items": [
+          "キャンディ",
+          "アーシー",
+          "パイン"
+        ]
       },
       "effects": {
         "status": "confirmed",
