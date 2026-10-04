@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T05:01:59.705Z",
+  "generatedAt": "2026-10-04T11:23:51.681Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -3571,6 +3571,33 @@
           "noteJa": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "umma-blue-lobster"
+        ],
+        "claimOrigin": "brand-description",
+        "items": [
+          "甘いキャンディフルーツ",
+          "ガッシーな後味"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "brandOfficial",
+        "sourceRefs": [
+          "umma-blue-lobster"
+        ],
+        "claimOrigin": "brand-description",
+        "items": [
+          "多幸感",
+          "創造的",
+          "穏やかな全身のリラックス"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -3642,14 +3669,20 @@
         "sourceRefs": [
           "leafly-blue-lobster"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyでは、濃いグリーンの花に暗いペリウィンクル系のアンダートーンと、強いフロストが記録されている。花形やピストル色など未確認の特徴は固定していない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "UMMA SonomaとLeaflyでは、Blue LobsterはApples & Bananas × Eye Candyとして一致している。Maine Treesは著名なcutを選抜・普及した主体として扱い、元のseed cross作成者と自動的に同一視しない。",
           "history": "Blue LobsterはMaine Treesが選抜・普及したcutとして記録され、2023 East Coast ZalympixでBest TerpsやGassiest Flowerなどの評価を受けた。breederとselectorの役割は分離して保持する。",
           "aromaNote": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。",
-          "terpeneNote": "UMMA SonomaではLimonene、β-Caryophyllene、β-PineneがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。"
+          "terpeneNote": "UMMA SonomaではLimonene、β-Caryophyllene、β-PineneがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。",
+          "morphologyNote": "Leaflyでは、濃いグリーンの花に暗いペリウィンクル系のアンダートーンと、強いフロストが記録されている。花形やピストル色など未確認の特徴は固定していない。"
         }
       },
       "visuals": [
@@ -3667,13 +3700,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -5499,6 +5527,30 @@
             ],
             "evidenceLevel": "SECONDARY_SPECIALIST",
             "claimOrigin": "specialist-curation"
+          },
+          {
+            "field": "stretch",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "ストレッチは中〜大きめ",
+            "confidence": "B",
+            "sourceRefs": [
+              "segra-candy-fumez"
+            ],
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          },
+          {
+            "field": "yield",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "収量は多いと記載",
+            "confidence": "B",
+            "sourceRefs": [
+              "segra-candy-fumez"
+            ],
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
           }
         ]
       },
@@ -5560,12 +5612,18 @@
         "sourceRefs": [
           "segra-candy-fumez"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Segraでは、大きく密な花、強いカリックスの積層、厚い樹脂被覆が記録されている。今回の根拠から色やピストル形状は固定していない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Bloom Seed Coの系譜表示とSegra/Leaflyのcultivar資料では、Candy FumezはZkittlez × Sherbangerとして一致している。Candy Fumez #6などのphenotypeはroot cultivarと分けて扱う。",
-          "terpeneNote": "Segraのcultivar資料ではLimonene、Caryophyllene、Myrceneがelevated terpenesとして掲載される。LISTED evidenceとして保持し、各成分の割合は補っていない。"
+          "terpeneNote": "Segraのcultivar資料ではLimonene、Caryophyllene、Myrceneがelevated terpenesとして掲載される。LISTED evidenceとして保持し、各成分の割合は補っていない。",
+          "morphologyNote": "Segraでは、大きく密な花、強いカリックスの積層、厚い樹脂被覆が記録されている。今回の根拠から色やピストル形状は固定していない。"
         }
       },
       "visuals": [
@@ -5583,13 +5641,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -5775,13 +5828,19 @@
         "sourceRefs": [
           "leafly-cap-junky"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyでは、よく育った花は非常に厚いトライコームに覆われると記録されている。花形や色については今回の根拠から固定していない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Leaflyでは、Cap JunkyはCapulatorとSeed Junky Geneticsの共同プロジェクトで、Alien Cookies × Kush Mints #11として記録されている。Miracle Mintsはaliasとして保持するが、名前だけで別個体や別系統を同一視しない。",
           "history": "Leaflyの専門資料では、Cap Junkyのcloneは2021年に流通し、2022年にはCaliforniaのadult-use市場でflowerが展開されたと記録されている。",
-          "aromaNote": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。"
+          "aromaNote": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。",
+          "morphologyNote": "Leaflyでは、よく育った花は非常に厚いトライコームに覆われると記録されている。花形や色については今回の根拠から固定していない。"
         }
       },
       "visuals": [
@@ -5799,13 +5858,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -11797,6 +11851,18 @@
           "registryVersion": 1,
           "noteJa": "Connected Cannabis Co公式では、香りはtangy、floral、gassyと明記されている。source内にCORE/ACCENTの階層はないため、flat profileとして表示する。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "connected-gelonade"
+        ],
+        "claimOrigin": "brand-description",
+        "items": [
+          "シトラス系フローラル"
+        ]
       },
       "effects": {
         "status": "confirmed",
@@ -29799,6 +29865,34 @@
           "noteJa": "Relentless Genetics公式では、香りはよりsourで、sharp citrusのオーバートーンを持つと説明されている。Flavor欄のcherryやnutty表現はAromaへ横滑りさせていない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "甘酸っぱいシトラス",
+          "熟しきったチェリー",
+          "アーシーなナッツ感"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "claimOrigin": "breeder-description",
+        "items": [
+          "活力",
+          "多幸感",
+          "頭の刺激感"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -29879,13 +29973,19 @@
         "sourceRefs": [
           "relentless-tropicana-cherry"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Relentless Genetics公式では、大きめで丸みのあるフォレストグリーンの花に深い紫のアンダートーン、淡い琥珀色のピストル、白いトライコームが記録されている。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Relentless Genetics公式では、Tropicana CherryはTropicana Cookies × Cherry Cookies F3として記録されている。Trop Cherryなどの短縮名はaliasとして保持し、正式表示はfull nameを優先する。",
           "aromaNote": "Relentless Genetics公式では、香りはよりsourで、sharp citrusのオーバートーンを持つと説明されている。Flavor欄のcherryやnutty表現はAromaへ横滑りさせていない。",
-          "terpeneNote": "LeaflyではCaryophyllene、Limonene、PineneがTerpenesとして掲載される。専門資料由来のLISTED evidenceとして保持し、割合や順位は補っていない。"
+          "terpeneNote": "LeaflyではCaryophyllene、Limonene、PineneがTerpenesとして掲載される。専門資料由来のLISTED evidenceとして保持し、割合や順位は補っていない。",
+          "morphologyNote": "Relentless Genetics公式では、大きめで丸みのあるフォレストグリーンの花に深い紫のアンダートーン、淡い琥珀色のピストル、白いトライコームが記録されている。"
         }
       },
       "visuals": [
@@ -29903,13 +30003,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
