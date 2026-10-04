@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T02:07:10.980Z",
+  "generatedAt": "2026-10-04T05:01:59.705Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -23910,14 +23910,20 @@
         "sourceRefs": [
           "leafly-runtz"
         ],
-        "scope": "cultivar"
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Leaflyでは、樹脂に覆われた花と、濃い紫からライムグリーンまで幅のある色合いが記録されている。特定の単一色には固定していない。"
+        }
       },
       "publicContent": {
         "ja": {
           "lineageNote": "Runtz Crewの一次資料では、GelatoとZkittlezを組み合わせた系統として説明されている。親の方向性までは資料から補っていない。",
           "history": "Runtz Crewの代表的な品種として展開されたRuntz。Leaflyでは2020年のStrain of the Yearとして記録されている。",
           "aromaNote": "Leaflyでは、砂糖菓子を思わせるcandy系の香りとして説明されている。フレーバー情報とは分けて扱っている。",
-          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。"
+          "terpeneNote": "Leaflyではcaryophyllene / limonene / myrceneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。",
+          "morphologyNote": "Leaflyでは、樹脂に覆われた花と、濃い紫からライムグリーンまで幅のある色合いが記録されている。特定の単一色には固定していない。"
         }
       },
       "visuals": [
@@ -23935,13 +23941,8 @@
       "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
-        "state": "HELD_FIELDS",
-        "heldFields": [
-          {
-            "field": "morphologyNote",
-            "state": "MISSING_APPROVED_PUBLIC_PROSE"
-          }
-        ]
+        "state": "CURRENT",
+        "heldFields": []
       }
     },
     {
@@ -36170,7 +36171,8 @@
         "canonicalName",
         "lineage",
         "breeder",
-        "history"
+        "history",
+        "classification"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-04"
