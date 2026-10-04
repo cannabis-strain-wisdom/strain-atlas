@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T19:27:50.956Z",
+  "generatedAt": "2026-10-04T20:24:24.196Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -3594,13 +3594,21 @@
         ],
         "evidenceMode": "PROFILE",
         "items": [
-          "グレープ"
+          "グレープ",
+          "果実とガス",
+          "ブルーベリーキャンディ",
+          "ライムの皮",
+          "クリーミーなガス感"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
-            "グレープ"
+            "グレープ",
+            "果実とガス",
+            "ブルーベリーキャンディ",
+            "ライムの皮",
+            "クリーミーなガス感"
           ],
           "details": [
             {
@@ -3612,11 +3620,51 @@
                 "ぶどう"
               ],
               "registryVersion": 1
+            },
+            {
+              "rawMatch": "fruit-gas",
+              "reviewLabelJa": "果実とガス",
+              "plainMeaningJa": "果実香とガスを思わせる香りが重なる表現",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実とガス"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "blueberry candy",
+              "reviewLabelJa": "ブルーベリーキャンディ",
+              "plainMeaningJa": "ブルーベリーのキャンディを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ブルーベリーキャンディ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lime zest",
+              "reviewLabelJa": "ライムの皮",
+              "plainMeaningJa": "ライムの皮を思わせる柑橘の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ライムの皮"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy gas",
+              "reviewLabelJa": "クリーミーなガス感",
+              "plainMeaningJa": "クリーミーさを伴うガス系の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "クリーミーなガス感"
+              ],
+              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。"
+          "noteJa": "UMMA Sonomaでは、果実とガスが重なる香りを、ブルーベリーキャンディ、グレープ、ライムの皮、クリーミーなガス感と記載している。複合表現を個別の成分や香りの主従関係へ分解していない。"
         }
       },
       "flavors": {
@@ -3728,7 +3776,7 @@
         "ja": {
           "lineageNote": "UMMA SonomaとLeaflyでは、Blue LobsterはApples & Bananas × Eye Candyとして一致している。Maine Treesは著名なcutを選抜・普及した主体として扱い、元のseed cross作成者と自動的に同一視しない。",
           "history": "Blue LobsterはMaine Treesが選抜・普及したcutとして記録され、2023 East Coast ZalympixでBest TerpsやGassiest Flowerなどの評価を受けた。breederとselectorの役割は分離して保持する。",
-          "aromaNote": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。",
+          "aromaNote": "UMMA Sonomaでは、果実とガスが重なる香りを、ブルーベリーキャンディ、グレープ、ライムの皮、クリーミーなガス感と記載している。複合表現を個別の成分や香りの主従関係へ分解していない。",
           "terpeneNote": "UMMA SonomaではLimonene、β-Caryophyllene、β-PineneがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。",
           "morphologyNote": "Leaflyでは、濃いグリーンの花に暗いペリウィンクル系のアンダートーンと、強いフロストが記録されている。花形やピストル色など未確認の特徴は固定していない。"
         }
@@ -3745,7 +3793,7 @@
         }
       ],
       "checkedAt": "2026-10-04",
-      "updatedAt": "2026-10-04",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -5783,14 +5831,18 @@
         "evidenceMode": "PROFILE",
         "items": [
           "コショウ",
-          "ガス"
+          "ガス",
+          "酸味のある果実の皮",
+          "ダンク"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
             "コショウ",
-            "ガス"
+            "ガス",
+            "酸味のある果実の皮",
+            "ダンク"
           ],
           "details": [
             {
@@ -5814,11 +5866,31 @@
                 "燃料"
               ],
               "registryVersion": 1
+            },
+            {
+              "rawMatch": "sour fruit rind",
+              "reviewLabelJa": "酸味のある果実の皮",
+              "plainMeaningJa": "酸味のある果実の皮を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "酸味のある果実の皮"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "dank",
+              "reviewLabelJa": "ダンク",
+              "plainMeaningJa": "原資料に記載されたダンクという香り表現",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ダンク"
+              ],
+              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。"
+          "noteJa": "Leaflyでは、酸味のある果実の皮に、ペッパー、ガス、ダンクのニュアンスが重なる香りと記載されている。ダンクは原文の香り表現として保持し、別の香りや成分へ置き換えていない。"
         }
       },
       "flavors": {
@@ -5910,7 +5982,7 @@
         "ja": {
           "lineageNote": "Leaflyでは、Cap JunkyはCapulatorとSeed Junky Geneticsの共同プロジェクトで、Alien Cookies × Kush Mints #11として記録されている。Miracle Mintsはaliasとして保持するが、名前だけで別個体や別系統を同一視しない。",
           "history": "Leaflyの専門資料では、Cap Junkyのcloneは2021年に流通し、2022年にはCaliforniaのadult-use市場でflowerが展開されたと記録されている。",
-          "aromaNote": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。",
+          "aromaNote": "Leaflyでは、酸味のある果実の皮に、ペッパー、ガス、ダンクのニュアンスが重なる香りと記載されている。ダンクは原文の香り表現として保持し、別の香りや成分へ置き換えていない。",
           "morphologyNote": "Leaflyでは、よく育った花は非常に厚いトライコームに覆われると記録されている。花形や色については今回の根拠から固定していない。"
         }
       },
@@ -5926,7 +5998,7 @@
         }
       ],
       "checkedAt": "2026-10-04",
-      "updatedAt": "2026-10-04",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13677,7 +13749,8 @@
           "フルーティー",
           "マンゴー",
           "ストロベリー",
-          "グレープ"
+          "グレープ",
+          "チェリー"
         ],
         "presentation": {
           "schemaVersion": 1,
@@ -13686,7 +13759,8 @@
             "フルーティー",
             "マンゴー",
             "ストロベリー",
-            "グレープ"
+            "グレープ",
+            "チェリー"
           ],
           "details": [
             {
@@ -13728,11 +13802,21 @@
                 "ぶどう"
               ],
               "registryVersion": 1
+            },
+            {
+              "rawMatch": "cherry",
+              "reviewLabelJa": "チェリー",
+              "plainMeaningJa": "チェリーを思わせる果実の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "チェリー"
+              ],
+              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。"
+          "noteJa": "Humboldt Seed Companyの公式ページは、マンゴー、ストロベリー、グレープ、チェリーを含むフルーティーな香りを記載している。原文の香り表現を個別に保持し、香りの主従関係は補っていない。"
         }
       },
       "flavors": {
@@ -13921,7 +14005,7 @@
         "ja": {
           "lineageNote": "Humboldt Seed Companyの一次資料では、Very CherryとNotorious T.H.C.から作られた系統として説明されている。資料内で親の記載順が入れ替わるため、母系・父系の方向性は補っていない。",
           "history": "Humboldt Seed Companyでは、Hella Jellyの旧名をJelly Rancherと記録しており、2019年の同社Phenotype Mega-Huntで選ばれた系統として説明している。",
-          "aromaNote": "Humboldt Seed Companyではfruity / mango / strawberry / grapeに加えてcherry系の香りも記載されている。cherryは原資料には保持しているが、現在のPUBLIC Aroma承認語彙に完全一致がないため今回の正式表示には無理に変換していない。",
+          "aromaNote": "Humboldt Seed Companyの公式ページは、マンゴー、ストロベリー、グレープ、チェリーを含むフルーティーな香りを記載している。原文の香り表現を個別に保持し、香りの主従関係は補っていない。",
           "terpeneNote": "LeaflyのJelly Rancher（Hella Jelly）現行ページではcaryophyllene / myrcene / humuleneが掲載されている。専門DB由来のLISTED情報として保持し、割合は作らない。",
           "morphologyNote": "Humboldt Seed Companyでは、Hella Jellyは枝分かれしやすく、しっかりした植物構造として記録されている。花の形や色、樹脂量など同じ一次資料で確認できない特徴は補っていない。"
         }
@@ -13938,7 +14022,7 @@
         }
       ],
       "checkedAt": "2026-10-04",
-      "updatedAt": "2026-10-04",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -31481,14 +31565,16 @@
         "evidenceMode": "PROFILE",
         "items": [
           "フルーティー",
-          "スイート"
+          "スイート",
+          "スカンク系"
         ],
         "presentation": {
           "schemaVersion": 1,
           "mode": "profile",
           "items": [
             "フルーティー",
-            "スイート"
+            "スイート",
+            "スカンク系"
           ],
           "details": [
             {
@@ -31510,11 +31596,21 @@
                 "甘い"
               ],
               "registryVersion": 1
+            },
+            {
+              "rawMatch": "skunky",
+              "reviewLabelJa": "スカンク系",
+              "plainMeaningJa": "原資料がスカンク系と表現する強い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スカンク系"
+              ],
+              "registryVersion": 1
             }
           ],
           "reviewStatus": "APPROVED",
           "registryVersion": 1,
-          "noteJa": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。"
+          "noteJa": "Leaflyでは、フルーティー、スイート、スカンク系の香りが記載されている。専門データベースの品種記述として掲載し、公式の香り分類へ格上げしていない。"
         }
       },
       "flavors": {
@@ -31731,7 +31827,7 @@
         "ja": {
           "lineageNote": "Serious Seedsの一次資料では、同社のoriginal AK-47と1990年代のWhite Widowクローンを組み合わせたF1系統として説明されている。",
           "history": "Serious Seedsは1996年のHigh Times Cannabis Cup初参加以降の受賞歴を記録している。過去の比較試験で報告された22% THCは、品種全体の固定値ではなく、その試験文脈のsource-declared値として保持している。",
-          "aromaNote": "Leaflyではfruity / sweetを含む香りとして説明されている。追加のskunky表現は原資料に保持し、未承認語を別語へ勝手に置換していない。",
+          "aromaNote": "Leaflyでは、フルーティー、スイート、スカンク系の香りが記載されている。専門データベースの品種記述として掲載し、公式の香り分類へ格上げしていない。",
           "terpeneNote": "Leaflyではmyrcene / caryophyllene / pineneが掲載されている。CSWでは専門資料由来のLISTED情報として保持し、割合は作らない。",
           "morphologyNote": "Serious Seedsでは、中型で葉が多すぎず、密で樹脂の多い花穂をつけ、花穂周りの葉が少ない形態として記録されている。"
         }
@@ -31748,7 +31844,7 @@
         }
       ],
       "checkedAt": "2026-10-04",
-      "updatedAt": "2026-10-04",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
