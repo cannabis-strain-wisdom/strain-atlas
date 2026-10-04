@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T22:45:32.175Z",
+  "generatedAt": "2026-10-04T02:07:10.980Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 114,
-    "sources": 245,
-    "entities": 42
+    "cultivars": 119,
+    "sources": 255,
+    "entities": 46
   },
   "explore": {
     "sativa": [
@@ -27,6 +27,7 @@
       "dr-grinspoon",
       "durban-poison",
       "ethiopia",
+      "gelonade",
       "golden-tiger",
       "guawi",
       "hella-jelly",
@@ -52,6 +53,7 @@
       "super-lemon-haze",
       "tangie",
       "thai-chiang-mai",
+      "tropicana-cherry",
       "zamaldelica"
     ],
     "indica": [
@@ -95,9 +97,12 @@
       "a5-haze",
       "animal-mints",
       "auto-cinderella-jack",
+      "blue-lobster",
       "blue-zushi",
       "bruce-banner-3",
       "bubble-gum",
+      "candy-fumez",
+      "cap-junky",
       "chem-d",
       "face-off-og-bx1",
       "fire-og-cali-connection",
@@ -3488,6 +3493,191 @@
     },
     {
       "schemaVersion": 1,
+      "id": "blue-lobster",
+      "status": "review",
+      "name": "Blue Lobster",
+      "jp": "ブルー・ロブスター",
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "umma-blue-lobster",
+          "leafly-blue-lobster"
+        ],
+        "display": "Apples & Bananas × Eye Candy",
+        "parents": [
+          "Apples & Bananas",
+          "Eye Candy"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "UMMA SonomaとLeaflyでは、Blue LobsterはApples & Bananas × Eye Candyとして一致している。Maine Treesは著名なcutを選抜・普及した主体として扱い、元のseed cross作成者と自動的に同一視しない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "maine-trees",
+          "roles": [
+            "producer",
+            "brand"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "mixedFormalEvidence",
+          "sourceRefs": [
+            "umma-blue-lobster",
+            "leafly-blue-lobster"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "umma-blue-lobster"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "グレープ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "グレープ"
+          ],
+          "details": [
+            {
+              "rawMatch": "grape",
+              "reviewLabelJa": "グレープ",
+              "plainMeaningJa": "ぶどうのような果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ぶどう"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "umma-blue-lobster"
+        ],
+        "items": [
+          "limonene",
+          "beta-caryophyllene",
+          "beta-pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン"
+            }
+          ],
+          "noteJa": "UMMA SonomaではLimonene、β-Caryophyllene、β-PineneがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "umma-blue-lobster",
+          "leafly-blue-lobster"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Blue LobsterはMaine Treesが選抜・普及したcutとして記録され、2023 East Coast ZalympixでBest TerpsやGassiest Flowerなどの評価を受けた。breederとselectorの役割は分離して保持する。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-blue-lobster"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "UMMA SonomaとLeaflyでは、Blue LobsterはApples & Bananas × Eye Candyとして一致している。Maine Treesは著名なcutを選抜・普及した主体として扱い、元のseed cross作成者と自動的に同一視しない。",
+          "history": "Blue LobsterはMaine Treesが選抜・普及したcutとして記録され、2023 East Coast ZalympixでBest TerpsやGassiest Flowerなどの評価を受けた。breederとselectorの役割は分離して保持する。",
+          "aromaNote": "UMMA SonomaのAromaではblueberry candy、grape、lime zest、creamy gasなどが記載される。PUBLIC承認語彙へ安全に一致するgrapeだけを正式投影し、複合表現を勝手に分割していない。",
+          "terpeneNote": "UMMA SonomaではLimonene、β-Caryophyllene、β-PineneがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/blue-lobster/primary.webp",
+          "alt": "Blue Lobsterの濃緑、暗いperiwinkle系の色味、強いフロストという資料記述を反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "blue-zushi",
       "status": "review",
       "name": "Blue Zushi",
@@ -5185,6 +5375,437 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "candy-fumez",
+      "status": "review",
+      "name": "Candy Fumez",
+      "jp": "キャンディ・フュームズ",
+      "aliases": [],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "mixedFormalEvidence",
+        "sourceRefs": [
+          "bloom-candy-fumez",
+          "segra-candy-fumez",
+          "leafly-candy-fumez"
+        ],
+        "display": "Zkittlez × Sherbanger",
+        "parents": [
+          "Zkittlez",
+          "Sherbanger"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Bloom Seed Coの系譜表示とSegra/Leaflyのcultivar資料では、Candy FumezはZkittlez × Sherbangerとして一致している。Candy Fumez #6などのphenotypeはroot cultivarと分けて扱う。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "bloom-seed-co",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "bloom-candy-fumez"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-candy-fumez"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "ケミカル",
+          "スイート",
+          "トロピカル"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-candy-fumez"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "集中",
+          "創造的",
+          "多幸感"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "segra-candy-fumez"
+        ],
+        "observations": [
+          {
+            "field": "floweringTime",
+            "environment": "indoor",
+            "valueForm": "EXACT",
+            "displayText": "屋内開花の目安は約63日",
+            "confidence": "B",
+            "sourceRefs": [
+              "segra-candy-fumez"
+            ],
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          },
+          {
+            "field": "height",
+            "environment": "indoor",
+            "valueForm": "TEXT",
+            "displayText": "背丈はTallと記載",
+            "confidence": "B",
+            "sourceRefs": [
+              "segra-candy-fumez"
+            ],
+            "evidenceLevel": "SECONDARY_SPECIALIST",
+            "claimOrigin": "specialist-curation"
+          }
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "segra-candy-fumez"
+        ],
+        "items": [
+          "limonene",
+          "caryophyllene",
+          "myrcene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            }
+          ],
+          "noteJa": "Segraのcultivar資料ではLimonene、Caryophyllene、Myrceneがelevated terpenesとして掲載される。LISTED evidenceとして保持し、各成分の割合は補っていない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "segra-candy-fumez"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Bloom Seed Coの系譜表示とSegra/Leaflyのcultivar資料では、Candy FumezはZkittlez × Sherbangerとして一致している。Candy Fumez #6などのphenotypeはroot cultivarと分けて扱う。",
+          "terpeneNote": "Segraのcultivar資料ではLimonene、Caryophyllene、Myrceneがelevated terpenesとして掲載される。LISTED evidenceとして保持し、各成分の割合は補っていない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/candy-fumez/primary.webp",
+          "alt": "Candy Fumezの大きく密な花、強いカリックスの積層、厚い樹脂被覆という資料記述を反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "cap-junky",
+      "status": "review",
+      "name": "Cap Junky",
+      "jp": "キャップ・ジャンキー",
+      "aliases": [
+        "Miracle Mints"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "display": "Alien Cookies × Kush Mints #11",
+        "parents": [
+          "Alien Cookies",
+          "Kush Mints #11"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Leaflyでは、Cap JunkyはCapulatorとSeed Junky Geneticsの共同プロジェクトで、Alien Cookies × Kush Mints #11として記録されている。Miracle Mintsはaliasとして保持するが、名前だけで別個体や別系統を同一視しない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "capulator",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "leafly-cap-junky"
+          ]
+        },
+        {
+          "entityId": "seed-junky-genetics",
+          "roles": [
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "specialistDatabase",
+          "sourceRefs": [
+            "leafly-cap-junky"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "コショウ",
+          "ガス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "コショウ",
+            "ガス"
+          ],
+          "details": [
+            {
+              "rawMatch": "pepper",
+              "reviewLabelJa": "コショウ",
+              "plainMeaningJa": "コショウを思わせるスパイシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "コショウ",
+                "胡椒",
+                "ペッパー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "アプリコット",
+          "メンソール",
+          "アップル"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "笑いやすい",
+          "ピリピリ感",
+          "リラックス"
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Leaflyの専門資料では、Cap Junkyのcloneは2021年に流通し、2022年にはCaliforniaのadult-use市場でflowerが展開されたと記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-cap-junky"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Leaflyでは、Cap JunkyはCapulatorとSeed Junky Geneticsの共同プロジェクトで、Alien Cookies × Kush Mints #11として記録されている。Miracle Mintsはaliasとして保持するが、名前だけで別個体や別系統を同一視しない。",
+          "history": "Leaflyの専門資料では、Cap Junkyのcloneは2021年に流通し、2022年にはCaliforniaのadult-use市場でflowerが展開されたと記録されている。",
+          "aromaNote": "Leaflyのcultivar説明ではpepperとgasを含む強い香りが記録されている。sour fruit rindなどの複合表現は原資料の文脈には残すが、承認済みPUBLIC Aroma語彙へ無理に分解していない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/cap-junky/primary.webp",
+          "alt": "Cap Junkyの強いトライコーム被覆という根拠を反映しつつ、未確認の花形・色を固定せず主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -11068,6 +11689,214 @@
       ],
       "checkedAt": "2026-09-23",
       "updatedAt": "2026-09-23",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gelonade",
+      "status": "review",
+      "name": "Gelonade",
+      "jp": "ジェロネード",
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "connected-gelonade"
+        ],
+        "display": "Lemon Tree × Gelato #41",
+        "parents": [
+          "Lemon Tree",
+          "Gelato #41"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Connected Cannabis Co公式では、GelonadeはLemon Tree × Gelato #41として記録されている。公式表示はSativa Dominant Hybridだが、TYPE V1は別のevidence admission経路で判断する。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "connected-cannabis-co",
+          "roles": [
+            "producer",
+            "brand"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "officialCultivarPage",
+          "sourceRefs": [
+            "connected-gelonade"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "connected-gelonade"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "タンギー",
+          "フローラル",
+          "ガッシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "タンギー",
+            "フローラル",
+            "ガッシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "tangy",
+              "reviewLabelJa": "タンギー",
+              "plainMeaningJa": "キュッとした酸味を思わせる、シャープな香りの印象",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味",
+                "シャープ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "gassy",
+              "reviewLabelJa": "ガッシー",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Connected Cannabis Co公式では、香りはtangy、floral、gassyと明記されている。source内にCORE/ACCENTの階層はないため、flat profileとして表示する。"
+        }
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-gelonade"
+        ],
+        "claimOrigin": "community-report",
+        "evidenceLevel": "COMMUNITY",
+        "items": [
+          "活力",
+          "おしゃべり",
+          "集中"
+        ]
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "connected-gelonade"
+        ],
+        "items": [
+          "d-limonene",
+          "beta-caryophyllene",
+          "linalool"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "d-limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール"
+            }
+          ],
+          "noteJa": "ConnectedではD-Limonene、β-Caryophyllene、LinaloolがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "officialCultivarPage",
+        "sourceRefs": [
+          "connected-gelonade"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Connected Cannabis Coの現在ページでは、GelonadeはCannabis CupのBest Sativa flower受賞品種として紹介されている。受賞年など、今回の一次ページに明示されない細部は補っていない。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Connected Cannabis Co公式では、GelonadeはLemon Tree × Gelato #41として記録されている。公式表示はSativa Dominant Hybridだが、TYPE V1は別のevidence admission経路で判断する。",
+          "history": "Connected Cannabis Coの現在ページでは、GelonadeはCannabis CupのBest Sativa flower受賞品種として紹介されている。受賞年など、今回の一次ページに明示されない細部は補っていない。",
+          "aromaNote": "Connected Cannabis Co公式では、香りはtangy、floral、gassyと明記されている。source内にCORE/ACCENTの階層はないため、flat profileとして表示する。",
+          "terpeneNote": "ConnectedではD-Limonene、β-Caryophyllene、LinaloolがProminent Terpenesとして掲載される。割合は補わずLISTED evidenceとして扱う。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/gelonade/primary.webp",
+          "alt": "Gelonadeの公式identityとlineageを基礎に、未確認の花形や色を固定せず主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -28877,6 +29706,213 @@
     },
     {
       "schemaVersion": 1,
+      "id": "tropicana-cherry",
+      "status": "review",
+      "name": "Tropicana Cherry",
+      "jp": "トロピカーナ・チェリー",
+      "aliases": [
+        "Trop Cherry",
+        "Tropiccana Cherry",
+        "Cherry Trop"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "display": "Tropicana Cookies × Cherry Cookies F3",
+        "parents": [
+          "Tropicana Cookies",
+          "Cherry Cookies F3"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Relentless Genetics公式では、Tropicana CherryはTropicana Cookies × Cherry Cookies F3として記録されている。Trop Cherryなどの短縮名はaliasとして保持し、正式表示はfull nameを優先する。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "relentless-genetics",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "relentless-tropicana-cherry"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "サワー",
+          "シトラス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "サワー",
+            "シトラス"
+          ],
+          "details": [
+            {
+              "rawMatch": "sour",
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "citrus",
+              "reviewLabelJa": "シトラス",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Relentless Genetics公式では、香りはよりsourで、sharp citrusのオーバートーンを持つと説明されている。Flavor欄のcherryやnutty表現はAromaへ横滑りさせていない。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-trop-cherry"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "LeaflyではCaryophyllene、Limonene、PineneがTerpenesとして掲載される。専門資料由来のLISTED evidenceとして保持し、割合や順位は補っていない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 16,
+              "maxValue": 24,
+              "unit": "%",
+              "valueText": "16〜24%",
+              "confidence": "B",
+              "sourceRefs": [
+                "relentless-tropicana-cherry"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "relentless-tropicana-cherry"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Relentless Genetics公式では、Tropicana CherryはTropicana Cookies × Cherry Cookies F3として記録されている。Trop Cherryなどの短縮名はaliasとして保持し、正式表示はfull nameを優先する。",
+          "aromaNote": "Relentless Genetics公式では、香りはよりsourで、sharp citrusのオーバートーンを持つと説明されている。Flavor欄のcherryやnutty表現はAromaへ横滑りさせていない。",
+          "terpeneNote": "LeaflyではCaryophyllene、Limonene、PineneがTerpenesとして掲載される。専門資料由来のLISTED evidenceとして保持し、割合や順位は補っていない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/tropicana-cherry/primary.webp",
+          "alt": "Tropicana Cherryの公式形態記述に基づく緑と紫の花、淡い琥珀色のピストル、白いトライコームを反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "tropicana-cookies",
       "status": "review",
       "name": "Tropicana Cookies",
@@ -32179,6 +33215,20 @@
       "publishedAt": null,
       "checkedAt": "2026-10-03"
     },
+    "bloom-candy-fumez": {
+      "schemaVersion": 1,
+      "id": "bloom-candy-fumez",
+      "publisher": "Bloom Seed Co",
+      "title": "Sour D x Candy Fumez",
+      "url": "https://bloomseed.co/product/sour_d_x_candy_fumez/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "brothers-grimm-cinderella-99-history": {
       "schemaVersion": 1,
       "id": "brothers-grimm-cinderella-99-history",
@@ -32298,6 +33348,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-23"
+    },
+    "connected-gelonade": {
+      "schemaVersion": 1,
+      "id": "connected-gelonade",
+      "publisher": "Connected Cannabis Co",
+      "title": "Gelonade",
+      "url": "https://connectedcannabisco.com/collections/flower/products/gelonade",
+      "sourceType": "brandOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "classification",
+        "aromas",
+        "flavor",
+        "terpenes",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "cookies-gary-payton": {
       "schemaVersion": 1,
@@ -33683,6 +34753,27 @@
       "publishedAt": null,
       "checkedAt": "2026-10-03"
     },
+    "leafly-blue-lobster": {
+      "schemaVersion": 1,
+      "id": "leafly-blue-lobster",
+      "publisher": "Leafly",
+      "title": "Blue Lobster Weed Strain Information",
+      "url": "https://www.leafly.com/strains/blue-lobster",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "classification",
+        "terpenes",
+        "flavor",
+        "effects",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "leafly-bruce-banner-3": {
       "schemaVersion": 1,
       "id": "leafly-bruce-banner-3",
@@ -33736,6 +34827,49 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-25"
+    },
+    "leafly-candy-fumez": {
+      "schemaVersion": 1,
+      "id": "leafly-candy-fumez",
+      "publisher": "Leafly",
+      "title": "Candy Fumez Weed Strain Information",
+      "url": "https://www.leafly.com/strains/candy-fumez",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "breeder",
+        "classification",
+        "flavor",
+        "effects",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
+    "leafly-cap-junky": {
+      "schemaVersion": 1,
+      "id": "leafly-cap-junky",
+      "publisher": "Leafly",
+      "title": "Cap Junky aka Miracle Mints Weed Strain Information",
+      "url": "https://www.leafly.com/strains/cap-junky",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "classification",
+        "aromas",
+        "flavor",
+        "effects",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "leafly-cataract-kush": {
       "schemaVersion": 1,
@@ -33960,6 +35094,25 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-23"
+    },
+    "leafly-gelonade": {
+      "schemaVersion": 1,
+      "id": "leafly-gelonade",
+      "publisher": "Leafly",
+      "title": "Gelonade Weed Strain Information",
+      "url": "https://www.leafly.com/strains/gelonade",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "lineage",
+        "classification",
+        "terpenes",
+        "flavor",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "leafly-ghost-og": {
       "schemaVersion": 1,
@@ -34571,6 +35724,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-24"
     },
+    "leafly-trop-cherry": {
+      "schemaVersion": 1,
+      "id": "leafly-trop-cherry",
+      "publisher": "Leafly",
+      "title": "Trop Cherry aka Tropicana Cherry Weed Strain Information",
+      "url": "https://www.leafly.com/strains/trop-cherry",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "breeder",
+        "classification",
+        "terpenes",
+        "flavor",
+        "effects"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "leafly-tropicana-cookies": {
       "schemaVersion": 1,
       "id": "leafly-tropicana-cookies",
@@ -34915,6 +36088,29 @@
       "publishedAt": null,
       "checkedAt": "2026-09-22"
     },
+    "relentless-tropicana-cherry": {
+      "schemaVersion": 1,
+      "id": "relentless-tropicana-cherry",
+      "publisher": "Relentless Genetics",
+      "title": "Tropicana Cherry",
+      "url": "https://relentless-genetics.com/our-strains/event/tropicana-cherry",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "canonicalName",
+        "aliases",
+        "lineage",
+        "breeder",
+        "classification",
+        "aromas",
+        "flavor",
+        "cannabinoids",
+        "morphology",
+        "effects"
+      ],
+      "publishedAt": "2022-02-22",
+      "checkedAt": "2026-10-04"
+    },
     "rqs-fat-banana-auto": {
       "schemaVersion": 1,
       "id": "rqs-fat-banana-auto",
@@ -35186,6 +36382,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-09"
+    },
+    "segra-candy-fumez": {
+      "schemaVersion": 1,
+      "id": "segra-candy-fumez",
+      "publisher": "Segra",
+      "title": "Candy Fumez | Segra Cultivar Catalogue",
+      "url": "https://www.segra-intl.com/cultivars/candy-fumez",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "terpenes",
+        "cannabinoids",
+        "cultivation",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
     },
     "sensi-seeds-hindu-kush": {
       "schemaVersion": 1,
@@ -35624,6 +36840,26 @@
       "publishedAt": null,
       "checkedAt": "2026-09-06"
     },
+    "umma-blue-lobster": {
+      "schemaVersion": 1,
+      "id": "umma-blue-lobster",
+      "publisher": "UMMA Sonoma",
+      "title": "Blue Lobster",
+      "url": "https://ummasonoma.com/blue-lobster",
+      "sourceType": "brandOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "classification",
+        "aromas",
+        "flavor",
+        "effects",
+        "terpenes",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-04"
+    },
     "weedmaps-animal-mints": {
       "schemaVersion": 1,
       "id": "weedmaps-animal-mints",
@@ -35989,6 +37225,20 @@
       "checkedAt": "2026-09-14",
       "updatedAt": "2026-09-14"
     },
+    "bloom-seed-co": {
+      "schemaVersion": 1,
+      "id": "bloom-seed-co",
+      "name": "Bloom Seed Co",
+      "roles": [
+        "originator",
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "Breeder/originator entity created from current Bloom Seed Co genealogy and cultivar materials."
+    },
     "brothers-grimm-seeds": {
       "schemaVersion": 1,
       "id": "brothers-grimm-seeds",
@@ -36024,6 +37274,19 @@
       "status": "confirmed",
       "checkedAt": "2026-09-13",
       "updatedAt": "2026-09-13"
+    },
+    "connected-cannabis-co": {
+      "schemaVersion": 1,
+      "id": "connected-cannabis-co",
+      "name": "Connected Cannabis Co",
+      "roles": [
+        "producer",
+        "brand"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "Current first-party brand/producer entity for Gelonade materials."
     },
     "cookie-family": {
       "schemaVersion": 1,
@@ -36218,6 +37481,19 @@
       "checkedAt": "2026-09-13",
       "updatedAt": "2026-09-13"
     },
+    "maine-trees": {
+      "schemaVersion": 1,
+      "id": "maine-trees",
+      "name": "Maine Trees",
+      "roles": [
+        "producer",
+        "brand"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "Cultivator/brand entity associated with the selected and popularized Blue Lobster cut; this record does not claim Maine Trees created the original seed cross."
+    },
     "mandala-seeds": {
       "schemaVersion": 1,
       "id": "mandala-seeds",
@@ -36300,6 +37576,19 @@
       "checkedAt": "2026-09-25",
       "updatedAt": "2026-09-25",
       "note": "Breeder organization explicitly credited by Cookies' official Gary Payton cultivar page and specialist historical reporting."
+    },
+    "relentless-genetics": {
+      "schemaVersion": 1,
+      "id": "relentless-genetics",
+      "name": "Relentless Genetics",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-04",
+      "updatedAt": "2026-10-04",
+      "note": "Breeder/originator entity created from current first-party Tropicana Cherry material."
     },
     "reserva-privada": {
       "schemaVersion": 1,

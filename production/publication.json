@@ -630,6 +630,31 @@
       "strainId": "white-russian",
       "state": "published",
       "publishedAt": "2026-10-03T22:45:29Z"
+    },
+    {
+      "strainId": "blue-lobster",
+      "state": "published",
+      "publishedAt": "2026-10-04T02:07:08Z"
+    },
+    {
+      "strainId": "candy-fumez",
+      "state": "published",
+      "publishedAt": "2026-10-04T02:07:08Z"
+    },
+    {
+      "strainId": "cap-junky",
+      "state": "published",
+      "publishedAt": "2026-10-04T02:07:08Z"
+    },
+    {
+      "strainId": "gelonade",
+      "state": "published",
+      "publishedAt": "2026-10-04T02:07:08Z"
+    },
+    {
+      "strainId": "tropicana-cherry",
+      "state": "published",
+      "publishedAt": "2026-10-04T02:07:08Z"
     }
   ]
 }
