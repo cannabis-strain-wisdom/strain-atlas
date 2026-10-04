@@ -1051,16 +1051,35 @@
 
     const declared = items.filter(item => item?.evidenceType === 'SOURCE_DECLARED_NUMERIC');
     if (declared.length) {
+      const mixedScopes = declared.some(item => item.evidenceScope === 'cultivar') && declared.some(item => item.evidenceScope === 'sample');
       const declaredLabels = [...new Set(declared.map(item => resolveEvidenceLabel(item, catalog)).filter(Boolean))];
       const contextTitle = root.querySelector('[data-cannabinoid-source-context="v1"] .ucd-cannabinoid-source-context-top strong');
-      if (contextTitle && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
+      if (contextTitle && mixedScopes) {
+        setTextIfChanged(contextTitle, '品種情報と個別試験の掲載値');
+      } else if (contextTitle && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
         setTextIfChanged(contextTitle, `${declaredLabels[0]}の掲載値`);
       } else if (contextTitle && declaredLabels.length > 1) {
         setTextIfChanged(contextTitle, '出典別の掲載値');
       }
 
       const isGsc = cultivar?.id === 'girl-scout-cookies' && declared.length > 1;
-      if (isGsc) {
+      if (mixedScopes) {
+        const contextParagraph = root.querySelector('[data-cannabinoid-source-context="v1"] p');
+        const verificationNote = declared.every(item => item.analysisVerified === false) ? '元の分析書は直接確認できていないため、分析確認済みの測定値としては扱っていません。' : '';
+        setTextIfChanged(contextParagraph, `品種についての掲載値と、個別の検体・試験についての掲載値を分けて表示しています。対象や時期が異なる値を平均化したり、品種全体の固定値へ統合したりしていません。${verificationNote}`);
+        items.forEach((item, index) => {
+          if (item.evidenceType !== 'SOURCE_DECLARED_NUMERIC' || !cells[index]) return;
+          const scopeLabel = item.evidenceScope === 'cultivar' ? '品種についての掲載値' : item.evidenceScopeRef === 'serious-seeds-independent-seed-comparison-1990s' ? '過去の比較試験（1990年代）' : item.evidenceScope === 'sample' ? '個別検体・試験の掲載値' : '';
+          if (!scopeLabel) return;
+          let scope = cells[index].querySelector('[data-cannabinoid-scope-label]');
+          if (!scope) {
+            scope = document.createElement('small');
+            scope.dataset.cannabinoidScopeLabel = 'v1';
+            cells[index].appendChild(scope);
+          }
+          setTextIfChanged(scope, scopeLabel);
+        });
+      } else if (isGsc) {
         const sourceValues = declared.map(item => {
           const ref = Array.isArray(item?.sourceRefs) ? item.sourceRefs.find(Boolean) : null;
           const publisher = ref ? normalized(catalog?.sources?.[ref]?.publisher) : '';
@@ -1078,7 +1097,9 @@
       }
 
       const explanation = root.querySelector('.ucd-cannabinoid-source-explanation');
-      if (explanation && isGsc) {
+      if (explanation && mixedScopes) {
+        setTextIfChanged(explanation, '同じ出典でも、品種情報と個別検体・試験の記録は別の根拠です。個別試験の値を現在の品種全体へ一般化していません。');
+      } else if (explanation && isGsc) {
         setTextIfChanged(explanation, 'LeaflyとWeedmapsで異なるTHC値が掲載されているため、出典ごとの差を残して別々に表示しています。');
       } else if (explanation && declaredLabels.length === 1 && declaredLabels[0] !== '一次情報') {
         setTextIfChanged(explanation, declared.length > 1
@@ -1110,7 +1131,18 @@
     if (!section || !Array.isArray(claim?.observations)) return false;
     const rows = [...section.querySelectorAll('.csw-staged-cultivation-row')];
     let decorated = false;
+    const fieldLabels = { floweringTime: '開花期間', yield: '収量', height: '高さ', harvestWindow: '収穫時期', harvestFromGermination: '発芽から収穫', climate: '気候', vegetativeStage: '栄養成長期', stretch: '伸長' };
+    const environments = { indoor: '屋内', outdoor: '屋外' };
     claim.observations.forEach((observation, index) => {
+      const row = rows[index];
+      const fieldLabel = fieldLabels[observation.field];
+      if (row && fieldLabel) {
+        const environment = environments[observation.environment];
+        setTextIfChanged(row.querySelector(':scope > small'), `${fieldLabel}${environment ? `・${environment}` : ''}`);
+      }
+      if (row && observation.field === 'height' && observation.displayText === '背丈はTallと記載') {
+        setTextIfChanged(row.querySelector('.csw-staged-cultivation-value'), '背丈は高いと記載');
+      }
       const label = resolveEvidenceLabel(observation, catalog);
       if (rows[index] && label) decorated = ensureBadge(rows[index], label, `cultivation-${index}`) || decorated;
     });
@@ -1120,6 +1152,11 @@
       setTextIfChanged(helper, '採用資料・報告に記載された値');
     }
     return decorated;
+  };
+
+  const decorateRatioStatus = root => {
+    const note = root.querySelector('[data-ratio-unavailable="v1"].ucd-ratio-unavailable');
+    setTextIfChanged(note, 'サティバ／インディカの数値比率は、現在の公開データには採用されていません。');
   };
 
   const decorateOriginHistory = (root, cultivar, catalog) => {
@@ -1145,6 +1182,7 @@
     if (!cultivar || !root) return;
 
     decorateCannabinoids(root, cultivar, catalog);
+    decorateRatioStatus(root);
     decorateTerpenes(root, cultivar, catalog);
     decorateCultivation(root, cultivar, catalog);
     decorateOriginHistory(root, cultivar, catalog);
