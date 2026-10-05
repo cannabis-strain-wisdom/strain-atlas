@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T22:05:32.636Z",
+  "generatedAt": "2026-10-05T07:39:08.486Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 119,
-    "sources": 256,
-    "entities": 46
+    "cultivars": 122,
+    "sources": 261,
+    "entities": 48
   },
   "explore": {
     "sativa": [
@@ -45,6 +45,7 @@
       "orient-express",
       "panama",
       "power-plant",
+      "purple-tangie",
       "rush-of-siam",
       "satori",
       "sfv-og",
@@ -77,6 +78,7 @@
       "kosher-kush",
       "la-confidential",
       "mazar",
+      "nova-og",
       "gorilla-glue-4",
       "permanent-marker",
       "pink-panties",
@@ -121,6 +123,7 @@
       "og-kush",
       "ogkb",
       "papaya",
+      "purple-punch",
       "rainbow-belts",
       "rainbow-sherbert-11",
       "runtz",
@@ -8964,7 +8967,7 @@
         }
       ],
       "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13404,7 +13407,7 @@
         }
       ],
       "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -14726,7 +14729,7 @@
         }
       ],
       "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -19067,7 +19070,7 @@
         }
       ],
       "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -20473,7 +20476,7 @@
         }
       ],
       "checkedAt": "2026-09-22",
-      "updatedAt": "2026-09-22",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -20950,6 +20953,192 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "nova-og",
+      "status": "review",
+      "name": "Nova OG",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "anesia-nova-og"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 20,
+            "indica": 80,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 20,
+              "indica": 80,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "display": "",
+        "parents": []
+      },
+      "relations": [
+        {
+          "entityId": "anesia-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "anesia-nova-og"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "コーヒー",
+          "レモン"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "コーヒー",
+            "レモン"
+          ],
+          "details": [
+            {
+              "rawMatch": "coffee",
+              "reviewLabelJa": "コーヒー",
+              "plainMeaningJa": "焙煎したコーヒー豆のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "焙煎"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemon",
+              "reviewLabelJa": "レモン",
+              "plainMeaningJa": "レモンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Anesia Seeds公式ではcoffee aroma with lemon undertonesと記載される。コーヒーとレモンをフラットな香りプロファイルとして保持し、テルペン成分へは変換していない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Anesia Seeds公式では、Nova OGはカナダから得たelite cutを基に、2年間の交配・backcross・stabilizationを経て仕上げたと記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "Anesia Seeds公式では、Nova OGはvery thick and heavy budsを形成すると記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "history": "Anesia Seeds公式では、Nova OGはカナダから得たelite cutを基に、2年間の交配・backcross・stabilizationを経て仕上げたと記録されている。",
+          "aromaNote": "Anesia Seeds公式ではcoffee aroma with lemon undertonesと記載される。コーヒーとレモンをフラットな香りプロファイルとして保持し、テルペン成分へは変換していない。",
+          "morphologyNote": "Anesia Seeds公式では、Nova OGはvery thick and heavy budsを形成すると記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/nova-og/primary.webp",
+          "alt": "Nova OGの厚く重いフラワー構造を公式記述の範囲で反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -22601,7 +22790,7 @@
         }
       ],
       "checkedAt": "2026-09-06",
-      "updatedAt": "2026-09-06",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -23667,6 +23856,341 @@
       ],
       "checkedAt": "2026-09-09",
       "updatedAt": "2026-09-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "purple-punch",
+      "status": "review",
+      "name": "Purple Punch",
+      "jp": null,
+      "aliases": [
+        "Punch"
+      ],
+      "classification": {
+        "type": "hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-punch",
+          "cannabis-now-purple-punch"
+        ],
+        "display": "Larry OG × Granddaddy Purple",
+        "parents": [
+          "Larry OG",
+          "Granddaddy Purple"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "LeaflyとCannabis Nowでは、Purple PunchはLarry OG × Granddaddy Purpleとして一致している。Cannabis Nowは元のcrossをSupernova Gardensに帰属している。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "supernova-gardens",
+          "roles": [
+            "originator",
+            "breeder"
+          ],
+          "status": "confirmed",
+          "confidence": "C",
+          "basis": "historicalSource",
+          "sourceRefs": [
+            "cannabis-now-purple-punch"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-punch"
+        ],
+        "items": [
+          "caryophyllene",
+          "limonene",
+          "pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "pinene",
+              "labelJa": "ピネン"
+            }
+          ],
+          "noteJa": "LeaflyではCaryophyllene、Limonene、Pineneが掲載される。専門資料由来のLISTED evidenceとして保持し、割合は補っていない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "cannabis-now-purple-punch"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Cannabis Nowでは、元のPurple Punch crossはSupernova Gardensによるものとされ、その後The Village／Symbiotic Genetics側で大規模生産と普及が進んだ経緯が記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-punch"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "LeaflyではPurple Punchをtrichome-ladenと記載している。品種名から紫色などの外観を自動推定せず、直接支持された強いトライコーム被覆だけを保持する。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "LeaflyとCannabis Nowでは、Purple PunchはLarry OG × Granddaddy Purpleとして一致している。Cannabis Nowは元のcrossをSupernova Gardensに帰属している。",
+          "history": "Cannabis Nowでは、元のPurple Punch crossはSupernova Gardensによるものとされ、その後The Village／Symbiotic Genetics側で大規模生産と普及が進んだ経緯が記録されている。",
+          "terpeneNote": "LeaflyではCaryophyllene、Limonene、Pineneが掲載される。専門資料由来のLISTED evidenceとして保持し、割合は補っていない。",
+          "morphologyNote": "LeaflyではPurple Punchをtrichome-ladenと記載している。品種名から紫色などの外観を自動推定せず、直接支持された強いトライコーム被覆だけを保持する。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/purple-punch/primary.webp",
+          "alt": "Purple Punchの強いトライコーム被覆を直接記述の範囲で反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "purple-tangie",
+      "status": "review",
+      "name": "Purple Tangie",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-tangie",
+          "james-loud-purple-tangie"
+        ],
+        "display": "Tangie",
+        "parents": [
+          "Tangie"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Purple Tangieは、LeaflyではTangieを親として示し、James Loud GeneticsではTangieのseed stockから選抜されたphenotypeとして記録される。別の未確認crossへ置き換えず、Tangieの選抜系統として保持する。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "C",
+        "sourceRefs": [
+          "james-loud-purple-tangie"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "オレンジ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "オレンジ"
+          ],
+          "details": [
+            {
+              "rawMatch": "orange",
+              "reviewLabelJa": "オレンジ",
+              "plainMeaningJa": "オレンジのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "James Loud Geneticsではfresh squeezed orangeとorange blossomの香りが記載される。公開Aromaでは現行用語レジストリで直接解決できるorangeだけを保持し、orange blossomを別語へ置換しない。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-tangie"
+        ],
+        "items": [
+          "limonene",
+          "myrcene",
+          "caryophyllene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "caryophyllene",
+              "labelJa": "カリオフィレン"
+            }
+          ],
+          "noteJa": "LeaflyではLimonene、Myrcene、Caryophylleneが掲載される。専門資料由来のLISTED evidenceとして保持し、割合は補っていない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "james-loud-purple-tangie"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "James Loud Geneticsでは、OG Steveが2014年にDNA Geneticsのseed packからPurple Tangieの選抜個体を見つけたと記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "C",
+        "basis": "historicalSource",
+        "sourceRefs": [
+          "james-loud-purple-tangie"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "James Loud Geneticsでは強い紫色の花が特徴として記載される。色の強さを固定値のように扱わず、支持された紫系の形態特徴として保持する。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Purple Tangieは、LeaflyではTangieを親として示し、James Loud GeneticsではTangieのseed stockから選抜されたphenotypeとして記録される。別の未確認crossへ置き換えず、Tangieの選抜系統として保持する。",
+          "history": "James Loud Geneticsでは、OG Steveが2014年にDNA Geneticsのseed packからPurple Tangieの選抜個体を見つけたと記録されている。",
+          "aromaNote": "James Loud Geneticsではfresh squeezed orangeとorange blossomの香りが記載される。公開Aromaでは現行用語レジストリで直接解決できるorangeだけを保持し、orange blossomを別語へ置換しない。",
+          "terpeneNote": "LeaflyではLimonene、Myrcene、Caryophylleneが掲載される。専門資料由来のLISTED evidenceとして保持し、割合は補っていない。",
+          "morphologyNote": "James Loud Geneticsでは強い紫色の花が特徴として記載される。色の強さを固定値のように扱わず、支持された紫系の形態特徴として保持する。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/purple-tangie/primary.webp",
+          "alt": "Purple Tangieの紫系フラワー形態を根拠範囲内で反映し、主花全体を安全余白つきで収めたAI生成参考ビジュアル",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom; no official or third-party image is copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -32942,7 +33466,7 @@
         }
       ],
       "checkedAt": "2026-09-07",
-      "updatedAt": "2026-09-07",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -33673,6 +34197,25 @@
       "publishedAt": "2021-11-12",
       "checkedAt": "2026-09-06"
     },
+    "anesia-nova-og": {
+      "schemaVersion": 1,
+      "id": "anesia-nova-og",
+      "publisher": "Anesia Seeds",
+      "title": "Nova OG",
+      "url": "https://anesiaseeds.com/product/nova-og/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "history",
+        "aroma",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
     "archive-do-si-dos-root": {
       "schemaVersion": 1,
       "id": "archive-do-si-dos-root",
@@ -34047,6 +34590,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-24"
+    },
+    "cannabis-now-purple-punch": {
+      "schemaVersion": 1,
+      "id": "cannabis-now-purple-punch",
+      "publisher": "Cannabis Now",
+      "title": "Strain Review: Purple Punch Swings for the Fences",
+      "url": "https://cannabisnow.com/strain-review-purple-punch-swings-for-the-fences/",
+      "sourceType": "editorialHistorical",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "history"
+      ],
+      "publishedAt": "2018-11-12",
+      "checkedAt": "2026-10-05"
     },
     "cannabis-now-return-of-the-mac": {
       "schemaVersion": 1,
@@ -35354,6 +35913,23 @@
       "publishedAt": "2008-04-15",
       "checkedAt": "2026-09-24"
     },
+    "james-loud-purple-tangie": {
+      "schemaVersion": 1,
+      "id": "james-loud-purple-tangie",
+      "publisher": "James Loud Genetics",
+      "title": "Purple Tangie Collection",
+      "url": "https://jamesloudgenetics.com/product-category/curated-collections/purple-tangie-collection/",
+      "sourceType": "editorialHistorical",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "aroma",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
     "josh-d-og-kush-full-strain-breakdown-2026": {
       "schemaVersion": 1,
       "id": "josh-d-og-kush-full-strain-breakdown-2026",
@@ -36190,6 +36766,42 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-16"
+    },
+    "leafly-purple-punch": {
+      "schemaVersion": 1,
+      "id": "leafly-purple-punch",
+      "publisher": "Leafly",
+      "title": "Purple Punch aka Punch Weed Strain Information",
+      "url": "https://www.leafly.com/strains/purple-punch",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "aliases",
+        "lineage",
+        "classification",
+        "terpenes",
+        "aroma",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
+    "leafly-purple-tangie": {
+      "schemaVersion": 1,
+      "id": "leafly-purple-tangie",
+      "publisher": "Leafly",
+      "title": "Purple Tangie Weed Strain Information",
+      "url": "https://www.leafly.com/strains/purple-tangie",
+      "sourceType": "specialistDatabase",
+      "supports": [
+        "identity",
+        "lineage",
+        "classification",
+        "terpenes",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
     },
     "leafly-rainbow-belts": {
       "schemaVersion": 1,
@@ -37937,6 +38549,19 @@
       "checkedAt": "2026-08-17",
       "updatedAt": "2026-08-17"
     },
+    "anesia-seeds": {
+      "schemaVersion": 1,
+      "id": "anesia-seeds",
+      "name": "Anesia Seeds",
+      "roles": [
+        "breeder",
+        "seedCompany"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "note": "Breeder/seed-company entity proposed from the current first-party Nova OG cultivar page."
+    },
     "archive-seed-bank": {
       "schemaVersion": 1,
       "id": "archive-seed-bank",
@@ -38461,6 +39086,19 @@
       "status": "confirmed",
       "checkedAt": "2026-10-03",
       "updatedAt": "2026-10-03"
+    },
+    "supernova-gardens": {
+      "schemaVersion": 1,
+      "id": "supernova-gardens",
+      "name": "Supernova Gardens",
+      "roles": [
+        "originator",
+        "breeder"
+      ],
+      "status": "confirmed",
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "note": "Historical originator/breeder entity proposed from Cannabis Now's Purple Punch reporting; confidence remains bounded to the historical source."
     },
     "th-seeds": {
       "schemaVersion": 1,

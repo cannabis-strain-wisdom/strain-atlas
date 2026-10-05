@@ -655,6 +655,21 @@
       "strainId": "tropicana-cherry",
       "state": "published",
       "publishedAt": "2026-10-04T02:07:08Z"
+    },
+    {
+      "strainId": "nova-og",
+      "state": "published",
+      "publishedAt": "2026-10-05T07:39:06Z"
+    },
+    {
+      "strainId": "purple-punch",
+      "state": "published",
+      "publishedAt": "2026-10-05T07:39:06Z"
+    },
+    {
+      "strainId": "purple-tangie",
+      "state": "published",
+      "publishedAt": "2026-10-05T07:39:06Z"
     }
   ]
 }
