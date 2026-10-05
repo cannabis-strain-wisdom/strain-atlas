@@ -1034,9 +1034,6 @@
   const decorateClaimPanel = (root, selector, claim, catalog, key) => {
     const panel = root.querySelector(selector);
     const label = resolveEvidenceLabel(claim, catalog);
-    if (panel && label && (key === 'flavor' || key === 'effects')) {
-      setTextIfChanged(panel.querySelector('.ucd-sensory-head small'), label);
-    }
     return ensureBadge(evidenceHost(panel), label, key);
   };
 
