@@ -223,6 +223,13 @@ async function main() {
   const autoExpanded = await evalv(`(()=>{const card=document.querySelector('.detail-public-v1[data-public-detail-id="auto-cinderella-jack"] .ucd-cannabinoid-card');const grid=card?.querySelector('[data-source-declared-individual-values="v1"]');return {open:!!card?.open,gridDisplay:grid?getComputedStyle(grid).display:null,values:[...grid?.querySelectorAll('strong')||[]].map(n=>n.textContent.trim())}})()`);
   for (const value of ['20.84%','25.94%','21.3%','22.37%','24.28%']) if (!autoExpanded.values.includes(value)) throw new Error(`Auto Cinderella Jack expanded value missing ${value}: ${JSON.stringify(autoExpanded)}`);
 
+  await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=nova-og`) });
+  await waitFor(() => evalv(`document.readyState==='complete'`), 'Nova OG document complete');
+  await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && !!document.querySelector('.detail-public-v1[data-public-detail-id="nova-og"],.ucd-root[data-public-detail-id="nova-og"]')`), 'Nova OG detail open');
+  await waitFor(() => evalv(`(()=>{const card=document.querySelector('#detail-shell .ucd-lineage[data-lineage-unavailable="v1"]');return card?.querySelector('summary strong')?.textContent?.trim()==='親品種名は確認できていません'&&card?.querySelector(':scope > div > p')?.textContent?.includes('カナダ由来のelite cut')&&card?.dataset.lineageContext==='nova-og-v1'})()`), 'Nova OG unknown lineage context');
+  const novaLineage = await evalv(`(()=>{const card=document.querySelector('#detail-shell .ucd-lineage[data-lineage-unavailable="v1"]');return {headline:card?.querySelector('summary strong')?.textContent?.trim()||'',body:card?.querySelector(':scope > div > p')?.textContent?.trim()||'',context:card?.dataset.lineageContext||''}})()`);
+  if (novaLineage.headline !== '親品種名は確認できていません' || !novaLineage.body.includes('カナダ由来のelite cut') || novaLineage.context !== 'nova-og-v1') throw new Error(`Nova OG lineage context mismatch: ${JSON.stringify(novaLineage)}`);
+
   await cdp.send('Page.navigate', { url: navigationUrl(`${baseUrl}?strain=rush-of-siam`) });
   await waitFor(() => evalv(`document.readyState==='complete'`), 'Rush document complete');
   await waitFor(() => evalv(`document.getElementById('detail-dialog').open===true && document.querySelector('.detail-public-v1[data-public-detail-id="rush-of-siam"]') && document.querySelectorAll('.ucd-aroma-terms [data-aroma-public-term="v1"]').length===8`), 'Rush universal public presentation');
@@ -571,7 +578,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
-  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,rush,newCaledonia,childRelationshipResults,ogRelationshipState,familyTreeDoSiDos,familyTreeResults,typedFamilyTreeResults,runtimeErrors:0}, null, 2));
+  console.log(JSON.stringify({status:'PASS',initial,searchCount,sativaCount,generation,generationCount,cbdCount,breeder,breederCount,latestId,latestTitle,allId,allTitle,autoCollapsed,autoExpanded,novaLineage,rush,newCaledonia,childRelationshipResults,ogRelationshipState,familyTreeDoSiDos,familyTreeResults,typedFamilyTreeResults,runtimeErrors:0}, null, 2));
   cdp.close();
 }
 
