@@ -296,13 +296,13 @@ jobs:
             sleep 0.25
           done
           curl -fsS http://127.0.0.1:4173/runtime/catalog.json >/dev/null
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-current-runtime-authority-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-safety-baseline-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-interaction-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-share-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' node .github/scripts/public-detail-all-cultivars-390-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-detail-interaction-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-detail-share-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' timeout --kill-after=10s 180s node .github/scripts/public-detail-all-cultivars-390-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='http://127.0.0.1:4173/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-screenshots" timeout --kill-after=10s 180s node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC FRONTEND BROWSER SMOKE PASS"
 
       - name: Upload 390px grouped-detail QA screenshots
@@ -460,13 +460,13 @@ jobs:
           fi
           test -n "$CHROME_BIN" || { echo 'Chrome/Chromium not found on runner' >&2; exit 1; }
           "$CHROME_BIN" --version
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-current-runtime-authority-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-frontend-browser-smoke-v2.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-safety-baseline-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-interaction-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-share-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' node .github/scripts/public-detail-all-cultivars-390-v1.mjs
-          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-live-screenshots" node .github/scripts/public-detail-card-uniformity-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-current-runtime-authority-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-frontend-browser-smoke-v2.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-detail-safety-baseline-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-detail-interaction-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-detail-share-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' timeout --kill-after=10s 180s node .github/scripts/public-detail-all-cultivars-390-v1.mjs
+          CHROME_BIN="$CHROME_BIN" CSW_BASE_URL='https://cannabis-strain-wisdom.github.io/strain-atlas/' CSW_SCREENSHOT_DIR="$RUNNER_TEMP/csw-live-screenshots" timeout --kill-after=10s 180s node .github/scripts/public-detail-card-uniformity-v1.mjs
           echo "PUBLIC LIVE BROWSER SMOKE PASS"
 
       - name: Upload live 390px grouped-detail QA screenshots
