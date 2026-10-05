@@ -553,9 +553,10 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     const heroCopy=shell.querySelector('.ucd-hero .detail-hero-copy,.public-detail-hero .public-hero-copy');
     if(!heroCopy)return false;
     if(!heroCopy.querySelector('.ucd-lineage')){
-      const details=document.createElement('details');details.className='ucd-lineage';details.dataset.lineageUnavailable='v1';
-      const summary=document.createElement('summary');const span=document.createElement('span');const small=document.createElement('small');small.textContent='LINEAGE / 系譜';const strong=document.createElement('strong');strong.textContent='系譜情報は確認できていません';const chevron=document.createElement('i');chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';span.append(small,strong);summary.append(span,chevron);
-      const body=document.createElement('div');const text=document.createElement('p');text.textContent='現在の採用資料では、この品種の直接系譜を十分な根拠で確認できていません。近縁品種や一般的な情報から親品種を推測して補うことはしていません。';body.append(text);details.append(summary,body);heroCopy.append(details);
+      const isNovaOg=root.dataset.publicDetailId==='nova-og';
+      const details=document.createElement('details');details.className='ucd-lineage';details.dataset.lineageUnavailable='v1';if(isNovaOg)details.dataset.lineageContext='nova-og-v1';
+      const summary=document.createElement('summary');const span=document.createElement('span');const small=document.createElement('small');small.textContent='LINEAGE / 系譜';const strong=document.createElement('strong');strong.textContent=isNovaOg?'親品種名は確認できていません':'系譜情報は確認できていません';const chevron=document.createElement('i');chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';span.append(small,strong);summary.append(span,chevron);
+      const body=document.createElement('div');const text=document.createElement('p');text.textContent=isNovaOg?'Anesia Seeds公式では、カナダ由来のelite cutを基に、交配・backcross・stabilizationを経て開発されたとされています。':'現在の採用資料では、この品種の直接系譜を十分な根拠で確認できていません。近縁品種や一般的な情報から親品種を推測して補うことはしていません。';body.append(text);details.append(summary,body);heroCopy.append(details);
     }
     root.dataset.fixedLineageCardV1='true';return true;
   }
