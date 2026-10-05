@@ -22,7 +22,7 @@ const proc = spawn(chrome, [
   '--remote-debugging-port=9222',
   `--user-data-dir=${profile}`,
   'about:blank',
-], { stdio: ['ignore', 'pipe', 'pipe'] });
+], { stdio: ['ignore', 'ignore', 'pipe'] });
 
 let stderr = '';
 proc.stderr.on('data', data => { stderr += String(data); });
@@ -56,17 +56,21 @@ class CDP {
     this.pending = new Map();
     this.events = [];
   }
-  async open() {
-    await new Promise((resolve, reject) => {
-      this.ws.addEventListener('open', resolve, { once: true });
-      this.ws.addEventListener('error', reject, { once: true });
-    });
+  async open(timeout = 20000) {
+    await Promise.race([
+      new Promise((resolve, reject) => {
+        this.ws.addEventListener('open', resolve, { once: true });
+        this.ws.addEventListener('error', reject, { once: true });
+      }),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('CDP websocket open timeout')), timeout)),
+    ]);
     this.ws.addEventListener('message', event => {
       const message = JSON.parse(event.data);
       if (message.id) {
         const pending = this.pending.get(message.id);
         if (!pending) return;
         this.pending.delete(message.id);
+        clearTimeout(pending.timer);
         message.error
           ? pending.reject(new Error(JSON.stringify(message.error)))
           : pending.resolve(message.result);
@@ -75,14 +79,31 @@ class CDP {
       }
     });
   }
-  send(method, params = {}) {
+  send(method, params = {}, timeout = 20000) {
     const id = ++this.id;
     return new Promise((resolve, reject) => {
-      this.pending.set(id, { resolve, reject });
-      this.ws.send(JSON.stringify({ id, method, params }));
+      const timer = setTimeout(() => {
+        this.pending.delete(id);
+        reject(new Error(`CDP command timeout: ${method}`));
+      }, timeout);
+      this.pending.set(id, { resolve, reject, timer });
+      try {
+        this.ws.send(JSON.stringify({ id, method, params }));
+      } catch (error) {
+        clearTimeout(timer);
+        this.pending.delete(id);
+        reject(error);
+      }
     });
   }
-  close() { this.ws.close(); }
+  close() {
+    for (const pending of this.pending.values()) {
+      clearTimeout(pending.timer);
+      pending.reject(new Error('CDP closed'));
+    }
+    this.pending.clear();
+    this.ws.close();
+  }
 }
 
 async function main() {
@@ -554,6 +575,25 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   cdp.close();
 }
 
+const stopChrome = async () => {
+  if (proc.exitCode !== null || proc.signalCode !== null) return;
+  try { proc.kill('SIGTERM'); } catch {}
+  const exited = await Promise.race([
+    new Promise(resolve => proc.once('exit', () => resolve(true))),
+    sleep(1500).then(() => false),
+  ]);
+  if (!exited && proc.exitCode === null && proc.signalCode === null) {
+    try { proc.kill('SIGKILL'); } catch {}
+    await Promise.race([
+      new Promise(resolve => proc.once('exit', resolve)),
+      sleep(1000),
+    ]);
+  }
+};
+
 try { await main(); }
 catch (error) { console.error('CSW_BROWSER_SMOKE_FAIL', error.stack || error); console.error(stderr.slice(-3000)); process.exitCode = 1; }
-finally { try { proc.kill('SIGTERM'); } catch {} await sleep(100); try { fs.rmSync(profile, { recursive: true, force: true }); } catch {} }
+finally {
+  await stopChrome();
+  try { fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch {}
+}
