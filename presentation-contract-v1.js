@@ -548,25 +548,14 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
   const shell=document.getElementById('detail-shell');
   if(!shell)return;
   function decorate(){
-    const currentId=new URL(location.href).searchParams.get('strain')||'';
-    const roots=[...shell.querySelectorAll('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]')];
-    const root=roots.find(node=>node.dataset.publicDetailId===currentId)||roots.at(-1)||roots[0];
+    const root=shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
     if(!root||root.dataset.publicPresentationReady!=='true'||root.dataset.fixedPrimaryCardsV1!=='true')return false;
-    const hero=root.previousElementSibling?.matches('.ucd-hero,.public-detail-hero')?root.previousElementSibling:null;
-    const heroCopy=hero?.querySelector('.detail-hero-copy,.public-hero-copy')||shell.querySelector('.ucd-hero .detail-hero-copy,.public-detail-hero .public-hero-copy');
+    const heroCopy=shell.querySelector('.ucd-hero .detail-hero-copy,.public-detail-hero .public-hero-copy');
     if(!heroCopy)return false;
-    const isNovaOg=currentId==='nova-og'||root.dataset.publicDetailId==='nova-og';
-    let details=heroCopy.querySelector('.ucd-lineage');
-    if(!details){
-      details=document.createElement('details');details.className='ucd-lineage';details.dataset.lineageUnavailable='v1';
-      const summary=document.createElement('summary');const span=document.createElement('span');const small=document.createElement('small');small.textContent='LINEAGE / 系譜';const strong=document.createElement('strong');const chevron=document.createElement('i');chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';span.append(small,strong);summary.append(span,chevron);
-      const body=document.createElement('div');const text=document.createElement('p');body.append(text);details.append(summary,body);heroCopy.append(details);
-    }
-    if(details.dataset.lineageUnavailable==='v1'){
-      const strong=details.querySelector('summary strong');const text=details.querySelector(':scope > div > p');
-      if(strong)strong.textContent=isNovaOg?'親品種名は確認できていません':'系譜情報は確認できていません';
-      if(text)text.textContent=isNovaOg?'Anesia Seeds公式では、カナダ由来のelite cutを基に、交配・backcross・stabilizationを経て開発されたとされています。':'現在の採用資料では、この品種の直接系譜を十分な根拠で確認できていません。近縁品種や一般的な情報から親品種を推測して補うことはしていません。';
-      if(isNovaOg)details.dataset.lineageContext='nova-og-v1';else delete details.dataset.lineageContext;
+    if(!heroCopy.querySelector('.ucd-lineage')){
+      const details=document.createElement('details');details.className='ucd-lineage';details.dataset.lineageUnavailable='v1';
+      const summary=document.createElement('summary');const span=document.createElement('span');const small=document.createElement('small');small.textContent='LINEAGE / 系譜';const strong=document.createElement('strong');strong.textContent='系譜情報は確認できていません';const chevron=document.createElement('i');chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';span.append(small,strong);summary.append(span,chevron);
+      const body=document.createElement('div');const text=document.createElement('p');text.textContent='現在の採用資料では、この品種の直接系譜を十分な根拠で確認できていません。近縁品種や一般的な情報から親品種を推測して補うことはしていません。';body.append(text);details.append(summary,body);heroCopy.append(details);
     }
     root.dataset.fixedLineageCardV1='true';return true;
   }
