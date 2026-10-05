@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T07:39:08.486Z",
+  "generatedAt": "2026-10-05T09:55:25.011Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
@@ -21064,6 +21064,124 @@
           "noteJa": "Anesia Seeds公式ではcoffee aroma with lemon undertonesと記載される。コーヒーとレモンをフラットな香りプロファイルとして保持し、テルペン成分へは変換していない。"
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "claimOrigin": "breeder-official",
+        "items": [
+          "キャンディ",
+          "バブルガム",
+          "非常に甘い",
+          "フルーティー",
+          "ペッパー系",
+          "フローラル"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "claimOrigin": "breeder-official",
+        "items": [
+          "活力",
+          "集中",
+          "高揚感",
+          "深いボディリラックス"
+        ]
+      },
+      "cultivation": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "anesia-nova-og"
+        ],
+        "claimOrigin": "breeder-official",
+        "observations": [
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "500〜550 g/m²",
+            "min": 500,
+            "max": 550,
+            "unit": "g/m²",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          },
+          {
+            "field": "yield",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "550〜650 g/株",
+            "min": 550,
+            "max": 650,
+            "unit": "g/plant",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          },
+          {
+            "field": "floweringTime",
+            "environment": "unspecified",
+            "valueForm": "RANGE",
+            "displayText": "8〜9週間",
+            "min": 8,
+            "max": 9,
+            "unit": "weeks",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          },
+          {
+            "field": "harvestWindow",
+            "environment": "outdoor",
+            "valueForm": "TEXT",
+            "displayText": "9月末",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          },
+          {
+            "field": "height",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "90〜120 cm・150〜200 cm",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          },
+          {
+            "field": "climate",
+            "environment": "unspecified",
+            "valueForm": "TEXT",
+            "displayText": "涼しい・穏やかな気候",
+            "claimOrigin": "breeder-official",
+            "confidence": "A",
+            "sourceRefs": [
+              "anesia-nova-og"
+            ]
+          }
+        ]
+      },
       "terpenes": {
         "status": "unknown",
         "sourceRefs": [],
@@ -23924,6 +24042,34 @@
           "unresolvedCount": 0
         }
       },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-punch"
+        ],
+        "claimOrigin": "community-report",
+        "items": [
+          "グレープ",
+          "プラム",
+          "ベリー"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-punch"
+        ],
+        "claimOrigin": "community-report",
+        "items": [
+          "眠気",
+          "リラックス",
+          "空腹感"
+        ]
+      },
       "terpenes": {
         "status": "confirmed",
         "confidence": "B",
@@ -24091,6 +24237,34 @@
           "registryVersion": 1,
           "noteJa": "James Loud Geneticsではfresh squeezed orangeとorange blossomの香りが記載される。公開Aromaでは現行用語レジストリで直接解決できるorangeだけを保持し、orange blossomを別語へ置換しない。"
         }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-tangie"
+        ],
+        "claimOrigin": "community-report",
+        "items": [
+          "シトラス",
+          "オレンジ",
+          "グレープフルーツ"
+        ]
+      },
+      "effects": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "specialistDatabase",
+        "sourceRefs": [
+          "leafly-purple-tangie"
+        ],
+        "claimOrigin": "community-report",
+        "items": [
+          "活力",
+          "高揚感",
+          "集中"
+        ]
       },
       "terpenes": {
         "status": "confirmed",
@@ -34211,7 +34385,10 @@
         "history",
         "aroma",
         "morphology",
-        "visual"
+        "visual",
+        "flavors",
+        "effects",
+        "cultivation"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-05"
@@ -36781,7 +36958,9 @@
         "classification",
         "terpenes",
         "aroma",
-        "morphology"
+        "morphology",
+        "flavors",
+        "effects"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-05"
@@ -36798,7 +36977,9 @@
         "lineage",
         "classification",
         "terpenes",
-        "awards"
+        "awards",
+        "flavors",
+        "effects"
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-05"
