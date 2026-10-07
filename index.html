@@ -696,8 +696,8 @@
       for (const panel of root.querySelectorAll('[data-profile-kind="flavor"]')) {
         const heading = panel.querySelector('.ucd-sensory-head span');
         if (heading && /FLAVOR/i.test(heading.textContent || '') && heading.textContent !== 'FLAVOR PROFILE / フレーバー') heading.textContent = 'FLAVOR PROFILE / フレーバー';
-        const helper = panel.querySelector('.ucd-sensory-head small');
-        if (helper && !panel.querySelector('[data-evidence-badge-v1="flavor"]') && helper.textContent !== sensorySpec.flavor.helper) helper.textContent = sensorySpec.flavor.helper;
+        // Flavor helper text is owned by flavor presentation/evidence decoration.
+        // Rewriting it here can create a MutationObserver feedback loop.
         const noteLabel = panel.querySelector('.ucd-note small');
         if (noteLabel && /味わい/.test(noteLabel.textContent || '')) noteLabel.textContent = '公式のフレーバー説明';
       }
