@@ -1,0 +1,64 @@
+name: Cleanup absorbed PUBLIC branches 2026-10-07
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/cleanup-absorbed-public-branches-20261007.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  delete-absorbed-branches:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete only branches with zero commits ahead of main
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          work="$(mktemp -d)"
+          cd "$work"
+          git init -q
+          git remote add origin "$remote"
+
+          targets=(
+            "lineage-map-v1"
+            "tmp/universal-readability-aroma-en-v2-20260907"
+          )
+
+          git fetch --no-tags origin main
+          for branch in "${targets[@]}"; do
+            if ! git ls-remote --exit-code --heads "$remote" "refs/heads/$branch" >/dev/null 2>&1; then
+              echo "Target already absent: $branch"
+              continue
+            fi
+
+            git fetch --no-tags origin "refs/heads/$branch:refs/remotes/origin/$branch"
+            ahead="$(git rev-list --count "origin/main..origin/$branch")"
+            echo "$branch ahead_of_main=$ahead"
+            if [[ "$ahead" != "0" ]]; then
+              echo "SAFE-STOP: $branch contains commits not reachable from main"
+              exit 23
+            fi
+          done
+
+          for branch in "${targets[@]}"; do
+            if git ls-remote --exit-code --heads "$remote" "refs/heads/$branch" >/dev/null 2>&1; then
+              git push "$remote" --delete "$branch"
+            fi
+          done
+
+          for branch in "${targets[@]}"; do
+            if git ls-remote --exit-code --heads "$remote" "refs/heads/$branch" >/dev/null 2>&1; then
+              echo "Deletion verification failed: $branch still exists"
+              exit 24
+            fi
+            echo "Deleted/absent verified: $branch"
+          done
