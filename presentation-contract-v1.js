@@ -1,3 +1,15 @@
+;(()=>{"use strict";
+const shell=document.getElementById("detail-shell");if(!shell)return;
+if(window.__CSWPresentationObserverHubV1)return;
+const callbacks=new Set();let queued=false;
+const flush=()=>{queued=false;for(const fn of [...callbacks]){try{fn()}catch(error){console.error("CSW_PRESENTATION_OBSERVER_HUB_V1",error)}}};
+const schedule=()=>{if(queued)return;queued=true;queueMicrotask(flush)};
+window.__CSWPresentationObserverHubV1={register(fn){if(typeof fn!=="function")return false;callbacks.add(fn);schedule();return true},schedule};
+new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});
+shell.addEventListener("click",schedule,true);
+window.addEventListener("popstate",schedule);
+})();
+
 (() => {
   'use strict';
   const CONTRACT = 'UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1';
@@ -363,7 +375,7 @@
   `; document.head.appendChild(style);
   let scheduled = false;
   const schedule = () => { if (scheduled) return; scheduled = true; queueMicrotask(() => { scheduled = false; govern().catch(error => { window.__CSWPublicPresentationContractV1 = { status: 'FAIL_CLOSED', error: String(error?.message || error) }; console.error('PUBLIC_PRESENTATION_CONTRACT_V1', error); }); }); };
-  new MutationObserver(schedule).observe(shell, { childList: true }); schedule();
+  window.__CSWPresentationObserverHubV1?.register(schedule);
 })();
 
 ;(()=>{"use strict";
@@ -382,7 +394,7 @@ function evidence(cat,claim){const ref=Array.isArray(claim?.sourceRefs)?claim.so
 function bind(root,button,panel){if(button.dataset.flavorBound===CONTRACT)return;button.dataset.flavorBound=CONTRACT;button.addEventListener("click",ev=>{ev.preventDefault();const wasOpen=button.getAttribute("aria-expanded")==="true"&&!panel.hidden;root.querySelectorAll("[data-ucd-tab]").forEach(b=>{b.setAttribute("aria-expanded","false");b.classList.remove("is-active")});root.querySelectorAll("[data-ucd-panel]").forEach(p=>p.hidden=true);if(!wasOpen){button.setAttribute("aria-expanded","true");button.classList.add("is-active");panel.hidden=false}})}
 async function decorate(){const id=new URL(location.href).searchParams.get("strain");if(!id)return;const cat=await catalog(),cultivar=(cat?.cultivars||[]).find(x=>x?.id===id),claim=cultivar?.flavors;if(!cultivar||!["confirmed","disputed"].includes(claim?.status)||!Array.isArray(claim?.items)||!claim.items.length)return;const root=shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(id)}"]`),profile=root?.querySelector('.ucd-profile'),nav=profile?.querySelector('.ucd-profile-nav'),panels=profile?.querySelector('.ucd-profile-panels');if(!(root&&profile&&nav&&panels)){window.__CSWFlavorPresentationV1Error=`FLAVOR_CONTEXT_MISSING:${id}`;return}if(root.dataset.flavorPresentationReady==='v1'&&nav.querySelector('[data-ucd-tab="flavor"]')&&panels.querySelector('[data-ucd-panel="flavor"]'))return;let button=nav.querySelector('[data-ucd-tab="flavor"]'),panel=panels.querySelector('[data-ucd-panel="flavor"]');if(!button){button=document.createElement('button');button.type='button';button.dataset.ucdTab='flavor';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls',`ucd-${id}-flavor`);button.innerHTML='<span>フレーバー</span><i aria-hidden="true">⌄</i>';nav.appendChild(button)}if(!panel){panel=document.createElement('section');panel.id=`ucd-${id}-flavor`;panel.dataset.ucdPanel='flavor';panel.dataset.profileKind='flavor';panel.hidden=true;panels.appendChild(panel)}const note=String(cultivar?.publicContent?.ja?.flavorNote||claim?.note||'').trim();panel.innerHTML=`<div class="ucd-flavor-profile" data-flavor-presentation="v1"><div class="ucd-sensory-head"><span>FLAVOR PROFILE / フレーバー</span><small>口に含んだ時に感じる風味</small></div><div class="ucd-flavor-terms">${claim.items.map(x=>flavorTermMarkup(id,x)).join('')}</div>${note?`<div class="ucd-note"><small>公式の味わい説明</small><p>${esc(note)}</p></div>`:''}${evidence(cat,claim)}</div>`;bind(root,button,panel);root.dataset.flavorPresentationReady='v1';markBilingualFlavor(root,id);nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length)}
 const style=document.createElement('style');style.id='universal-flavor-presentation-v1-style';style.textContent='.ucd-flavor-profile{display:grid;gap:12px}.ucd-flavor-terms{display:flex;flex-wrap:wrap;gap:8px}.ucd-flavor-terms span{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border:1px solid rgba(216,189,98,.22);border-radius:999px;background:linear-gradient(135deg,rgba(216,189,98,.08),rgba(43,85,55,.07));color:#e5e7dc;font-size:11px;font-weight:780}.ucd-flavor-profile .ucd-note{margin-top:1px}@media(max-width:390px){.ucd-flavor-terms{gap:6px}.ucd-flavor-terms span{min-height:32px;padding:6px 9px;font-size:10px}}';document.head.appendChild(style);
-new MutationObserver(()=>queueMicrotask(()=>decorate().catch(e=>{window.__CSWFlavorPresentationV1Error=String(e?.message||e)}))).observe(shell,{childList:true,subtree:true});shell.addEventListener('click',()=>queueMicrotask(()=>decorate().catch(()=>{})),true);window.addEventListener('popstate',()=>queueMicrotask(()=>decorate().catch(()=>{})));queueMicrotask(()=>decorate().catch(e=>{window.__CSWFlavorPresentationV1Error=String(e?.message||e)}));
+const schedule=()=>queueMicrotask(()=>decorate().catch(e=>{window.__CSWFlavorPresentationV1Error=String(e?.message||e)}));window.__CSWPresentationObserverHubV1?.register(schedule);
 })();
 ;(()=>{"use strict";
 const CONTRACT="UNIVERSAL_MORPHOLOGY_PRESENTATION_V1";
@@ -394,7 +406,7 @@ function evidence(cat,claim){const ref=Array.isArray(claim?.sourceRefs)?claim.so
 function bind(root,button,panel){if(button.dataset.morphologyBound===CONTRACT)return;button.dataset.morphologyBound=CONTRACT;button.addEventListener("click",ev=>{ev.preventDefault();const wasOpen=button.getAttribute("aria-expanded")==="true"&&!panel.hidden;root.querySelectorAll("[data-ucd-tab]").forEach(b=>{b.setAttribute("aria-expanded","false");b.classList.remove("is-active")});root.querySelectorAll("[data-ucd-panel]").forEach(p=>p.hidden=true);if(!wasOpen){button.setAttribute("aria-expanded","true");button.classList.add("is-active");panel.hidden=false}})}
 async function decorate(){const id=new URL(location.href).searchParams.get("strain");if(!id)return;const cat=await catalog(),cultivar=(cat?.cultivars||[]).find(x=>x?.id===id),claim=cultivar?.morphology,presentation=claim?.presentation,text=String(presentation?.textJa||"").trim();if(!cultivar||!["confirmed","disputed"].includes(claim?.status)||presentation?.mode!=="summary"||!text)return;const root=shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(id)}"],.ucd-root[data-public-detail-id="${CSS.escape(id)}"]`),profile=root?.querySelector('.ucd-profile'),nav=profile?.querySelector('.ucd-profile-nav'),panels=profile?.querySelector('.ucd-profile-panels');if(!(root&&profile&&nav&&panels)){window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:`MORPHOLOGY_CONTEXT_MISSING:${id}`};return}if(root.dataset.morphologyPresentationReady==='v1'&&nav.querySelector('[data-ucd-tab="morphology"]')&&panels.querySelector('[data-ucd-panel="morphology"]'))return;let button=nav.querySelector('[data-ucd-tab="morphology"]'),panel=panels.querySelector('[data-ucd-panel="morphology"]');if(!button){button=document.createElement('button');button.type='button';button.dataset.ucdTab='morphology';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls',`ucd-${id}-morphology`);button.innerHTML='<span>形態</span><i aria-hidden="true">⌄</i>';const before=nav.querySelector('[data-ucd-tab="origin-history"]');before?nav.insertBefore(button,before):nav.appendChild(button)}if(!panel){panel=document.createElement('section');panel.id=`ucd-${id}-morphology`;panel.dataset.ucdPanel='morphology';panel.dataset.profileKind='morphology';panel.hidden=true;const before=panels.querySelector('[data-ucd-panel="origin-history"]');before?panels.insertBefore(panel,before):panels.appendChild(panel)}panel.innerHTML=`<div class="ucd-morphology-profile" data-morphology-presentation="v1"><div class="ucd-sensory-head"><span>MORPHOLOGY / 形態</span><small>情報源で確認できる株・花の形態</small></div><div class="ucd-morphology-summary"><p>${esc(text)}</p></div>${evidence(cat,claim)}</div>`;bind(root,button,panel);root.dataset.morphologyPresentationReady='v1';nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);window.__CSWMorphologyPresentationV1={status:'PASS',contractVersion:CONTRACT,cultivarId:id}}
 const style=document.createElement('style');style.id='universal-morphology-presentation-v1-style';style.textContent='.ucd-morphology-profile{display:grid;gap:12px}.ucd-morphology-summary{padding:14px 15px;border:1px solid rgba(216,189,98,.16);border-radius:14px;background:rgba(255,255,255,.018)}.ucd-morphology-summary p{margin:0;color:#dfe7e1;font-size:11px;line-height:1.8}';document.head.appendChild(style);
-let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate().catch(error=>{window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:String(error?.message||error)};console.error(CONTRACT,error)})})};new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});schedule();
+let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate().catch(error=>{window.__CSWMorphologyPresentationV1={status:'FAIL_CLOSED',error:String(error?.message||error)};console.error(CONTRACT,error)})})};window.__CSWPresentationObserverHubV1?.register(schedule);
 })();
 
 
@@ -471,7 +483,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     reorder(nav,panels);nav.dataset.count=String(nav.querySelectorAll('[data-ucd-tab]').length);root.dataset.fixedDetailCardsV1='true';return true;
   }
   let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}));};
-  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
+  window.__CSWPresentationObserverHubV1?.register(schedule);setTimeout(schedule,250);setTimeout(schedule,1000);
 })();
 
 
@@ -544,7 +556,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     reorder(controls);root.dataset.fixedPrimaryCardsV1='true';return true;
   }
   let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}));};
-  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
+  window.__CSWPresentationObserverHubV1?.register(schedule);setTimeout(schedule,250);setTimeout(schedule,1000);
 })();
 
 
@@ -566,7 +578,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
     root.dataset.fixedLineageCardV1='true';return true;
   }
   let queued=false;const schedule=()=>{if(queued)return;queued=true;queueMicrotask(()=>requestAnimationFrame(()=>{queued=false;decorate()}));};
-  new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});shell.addEventListener('click',schedule,true);window.addEventListener('popstate',schedule);schedule();setTimeout(schedule,250);setTimeout(schedule,1000);
+  window.__CSWPresentationObserverHubV1?.register(schedule);setTimeout(schedule,250);setTimeout(schedule,1000);
 })();
 
 (() => {
@@ -845,10 +857,7 @@ let scheduled=false;const schedule=()=>{if(scheduled)return;scheduled=true;queue
       decorate().catch(error => { window.__CSWStagedEffectCultivationV1 = { marker: MARK, status: 'FAIL_CLOSED', error: String(error?.message || error) }; });
     });
   };
-  new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
-  shell.addEventListener('click', queue, true);
-  window.addEventListener('popstate', queue);
-  queue();
+  window.__CSWPresentationObserverHubV1?.register(queue);
 })();
 
 
