@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T09:55:25.011Z",
+  "generatedAt": "2026-10-07T01:51:45.463Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 122,
-    "sources": 261,
+    "cultivars": 127,
+    "sources": 269,
     "entities": 48
   },
   "explore": {
@@ -47,11 +47,13 @@
       "power-plant",
       "purple-tangie",
       "rush-of-siam",
+      "sage",
       "satori",
       "sfv-og",
       "shaman",
       "sour-diesel",
       "super-lemon-haze",
+      "super-silver-haze",
       "tangie",
       "thai-chiang-mai",
       "tropicana-cherry",
@@ -60,6 +62,7 @@
     "indica": [
       "apple-fritter",
       "big-bang",
+      "black-domina",
       "blue-cheese",
       "blue-gelato-41",
       "blueberry",
@@ -73,11 +76,13 @@
       "face-off-og",
       "fat-banana-auto",
       "gmo-cookies",
+      "hash-plant",
       "hindu-kush",
       "ice-cream-cake",
       "kosher-kush",
       "la-confidential",
       "mazar",
+      "northern-lights",
       "nova-og",
       "gorilla-glue-4",
       "permanent-marker",
@@ -2920,6 +2925,232 @@
       ],
       "checkedAt": "2026-09-22",
       "updatedAt": "2026-09-22",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "black-domina",
+      "status": "review",
+      "name": "Black Domina",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-black-domina"
+          ],
+          "measurement": {
+            "kind": "indica-single",
+            "unit": "%",
+            "value": 95,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "indica-single",
+              "unit": "%",
+              "value": 95,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-black-domina",
+          "sensi-black-domina-history"
+        ],
+        "display": "Northern Lights × Ortega × Hash Plant × Afghani SA",
+        "parents": [
+          "Northern Lights",
+          "Ortega",
+          "Hash Plant",
+          "Afghani SA"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Black DominaはNorthern Lights × Ortega × Hash Plant × Afghani SAの4系統を組み合わせた品種として記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-black-domina"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-black-domina"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "コショウ",
+          "ハシシ",
+          "ブラックベリー",
+          "アーシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "コショウ",
+            "ハシシ",
+            "ブラックベリー",
+            "アーシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "pepper",
+              "reviewLabelJa": "コショウ",
+              "plainMeaningJa": "コショウを思わせるスパイシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "コショウ",
+                "胡椒",
+                "ペッパー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "hashish",
+              "reviewLabelJa": "ハシシ",
+              "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "blackberry",
+              "reviewLabelJa": "ブラックベリー",
+              "plainMeaningJa": "ブラックベリーのような甘酸っぱい果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式では、ペッパー、ハシシ、ブラックベリー、アーシーなニュアンスが記載される。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-black-domina-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsの歴史資料では、Black Dominaは1996年に登場した4-way indica hybridとして記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-black-domina"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、非常に暗い葉色、紫の筋が入る花、中央コーラ、強いトライコーム被覆が特徴として記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Black DominaはNorthern Lights × Ortega × Hash Plant × Afghani SAの4系統を組み合わせた品種として記録されている。",
+          "history": "Sensi Seedsの歴史資料では、Black Dominaは1996年に登場した4-way indica hybridとして記録されている。",
+          "aromaNote": "公式では、ペッパー、ハシシ、ブラックベリー、アーシーなニュアンスが記載される。",
+          "morphologyNote": "公式では、非常に暗い葉色、紫の筋が入る花、中央コーラ、強いトライコーム被覆が特徴として記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/black-domina/primary.webp",
+          "alt": "Black Dominaの暗い葉色と紫の花色、強いトライコーム被覆を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-07",
+      "updatedAt": "2026-10-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -13746,6 +13977,217 @@
     },
     {
       "schemaVersion": 1,
+      "id": "hash-plant",
+      "status": "review",
+      "name": "Hash Plant",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-hash-plant"
+          ],
+          "measurement": {
+            "kind": "indica-single",
+            "unit": "%",
+            "value": 90,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "single-side",
+            "measurement": {
+              "kind": "indica-single",
+              "unit": "%",
+              "value": 90,
+              "approximate": false
+            },
+            "noteJa": "未記載側の数値は推定していません。"
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-hash-plant",
+          "sensi-hash-plant-history"
+        ],
+        "display": "Original Hash Plant × Northern Lights #1 (cross/backcross-derived)",
+        "parents": [
+          "Original Hash Plant",
+          "Northern Lights #1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式では、Hash Plantはアフガン系のOriginal Hash PlantをNorthern Lights #1との交配・バッククロスで仕上げた系統として記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-hash-plant"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-hash-plant"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "ハシシ",
+          "スパイシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "ハシシ",
+            "スパイシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "hashish",
+              "reviewLabelJa": "ハシシ",
+              "plainMeaningJa": "ハシシを思わせる濃い樹脂香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式では、甘いアフガン系ハシシ香とスパイシーな鋭さが記載される。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-hash-plant",
+          "sensi-hash-plant-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは、アフガン由来のHash Plant系統がクローンでオランダへ渡り、Northern Lights #1との交配を経てseed lineとして完成したと説明している。公式には2002年と2004年の受賞歴も記録される。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-hash-plant"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、非常にコンパクトな株姿と樹脂に覆われた重い花が特徴として記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式では、Hash Plantはアフガン系のOriginal Hash PlantをNorthern Lights #1との交配・バッククロスで仕上げた系統として記録されている。",
+          "history": "Sensi Seedsは、アフガン由来のHash Plant系統がクローンでオランダへ渡り、Northern Lights #1との交配を経てseed lineとして完成したと説明している。公式には2002年と2004年の受賞歴も記録される。",
+          "aromaNote": "公式では、甘いアフガン系ハシシ香とスパイシーな鋭さが記載される。",
+          "morphologyNote": "公式では、非常にコンパクトな株姿と樹脂に覆われた重い花が特徴として記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/hash-plant/primary.webp",
+          "alt": "Hash Plantの超コンパクトな株姿と樹脂に覆われた重い花を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-07",
+      "updatedAt": "2026-10-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "hella-jelly",
       "status": "review",
       "name": "Hella Jelly",
@@ -20961,6 +21403,228 @@
     },
     {
       "schemaVersion": 1,
+      "id": "northern-lights",
+      "status": "review",
+      "name": "Northern Lights",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-northern-lights"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 10,
+            "indica": 90,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 10,
+              "indica": 90,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-northern-lights-history"
+        ],
+        "display": "Afghani × Thai",
+        "parents": [
+          "Afghani",
+          "Thai"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsの歴史資料では、Northern LightsはAfghani × Thaiのハイブリッドとして記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-northern-lights"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sensi-northern-lights"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ムスキー",
+          "スイート",
+          "アーシー",
+          "ハチミツ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ムスキー",
+            "スイート",
+            "アーシー",
+            "ハチミツ"
+          ],
+          "details": [
+            {
+              "rawMatch": "musky",
+              "reviewLabelJa": "ムスキー",
+              "plainMeaningJa": "ムスクのような重く甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "麝香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "honey",
+              "reviewLabelJa": "ハチミツ",
+              "plainMeaningJa": "ハチミツのような甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "蜂蜜"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "現行公式ページでは、ムスキー、甘さ、アーシー、ハチミツを思わせる香りが記載されている。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-northern-lights-history"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは、Northern Lightsが太平洋岸北西部のNorthern Lights Crewで安定化され、1980年代初頭にNevil Schoenmakersへ渡った系統として記録している。#5は1989年Cannabis Cup受賞歴がある。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-northern-lights"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、コンパクトな株姿と大きく樹脂に覆われた花が特徴として記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seedsの歴史資料では、Northern LightsはAfghani × Thaiのハイブリッドとして記録されている。",
+          "history": "Sensi Seedsは、Northern Lightsが太平洋岸北西部のNorthern Lights Crewで安定化され、1980年代初頭にNevil Schoenmakersへ渡った系統として記録している。#5は1989年Cannabis Cup受賞歴がある。",
+          "aromaNote": "現行公式ページでは、ムスキー、甘さ、アーシー、ハチミツを思わせる香りが記載されている。",
+          "morphologyNote": "公式では、コンパクトな株姿と大きく樹脂に覆われた花が特徴として記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/northern-lights/primary.webp",
+          "alt": "Northern Lightsのコンパクトな株姿と大きな樹脂被覆花を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-07",
+      "updatedAt": "2026-10-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "nova-og",
       "status": "review",
       "name": "Nova OG",
@@ -25751,6 +26415,148 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sage",
+      "status": "review",
+      "name": "S.A.G.E.",
+      "jp": null,
+      "aliases": [
+        "SAGE"
+      ],
+      "classification": {
+        "type": "sativa-dominant-hybrid"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "thseeds-sage"
+        ],
+        "display": "Big Sur Holy × Afghani",
+        "parents": [
+          "Big Sur Holy",
+          "Afghani"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "T.H.Seeds公式では、S.A.G.E.はBig Sur Holy × Afghaniとして記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "th-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "thseeds-sage"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "thseeds-sage"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "T.H.Seedsは、S.A.G.E.を約25年にわたりbreeding programの基幹品種として位置づけ、2000年のハッシュ1位と2001年High Times Cannabis Cupブラインドテスト2位を記録している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "thseeds-sage"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では高さ120〜140cmとされ、開花後半に大きな花がさらに膨らむ特徴が記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "T.H.Seeds公式では、S.A.G.E.はBig Sur Holy × Afghaniとして記録されている。",
+          "history": "T.H.Seedsは、S.A.G.E.を約25年にわたりbreeding programの基幹品種として位置づけ、2000年のハッシュ1位と2001年High Times Cannabis Cupブラインドテスト2位を記録している。",
+          "morphologyNote": "公式では高さ120〜140cmとされ、開花後半に大きな花がさらに膨らむ特徴が記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sage/primary.webp",
+          "alt": "S.A.G.E.の高めの株姿と開花後半に膨らむ大きな花を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-07",
+      "updatedAt": "2026-10-07",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "satellite-og",
       "status": "review",
       "name": "Satellite OG",
@@ -28948,6 +29754,196 @@
       ],
       "checkedAt": "2026-09-20",
       "updatedAt": "2026-09-20",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "super-silver-haze",
+      "status": "review",
+      "name": "Super Silver Haze",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-super-silver-haze"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-silver-haze"
+        ],
+        "display": "Skunk × Northern Lights × Haze",
+        "parents": [
+          "Skunk",
+          "Northern Lights",
+          "Haze"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Green House Seed Company公式では、Super Silver HazeはSkunk × Northern Lights × Hazeとして記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "green-house-seed-co",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ghsc-super-silver-haze"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-silver-haze"
+        ],
+        "items": [
+          "myrcene",
+          "d-limonene",
+          "alpha-pinene"
+        ],
+        "evidenceMode": "LISTED",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "listed-chips",
+          "items": [
+            {
+              "id": "myrcene",
+              "labelJa": "ミルセン"
+            },
+            {
+              "id": "d-limonene",
+              "labelJa": "リモネン"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン"
+            }
+          ],
+          "noteJa": "公式ページではMyrcene、D-Limonene、alpha-Pineneが主要なテルペンとして列挙される。数値濃度は推定しない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-silver-haze"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では1990年代末にArjanが作出したと説明され、HTCC 1997・1998・1999の1位受賞歴が記載されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ghsc-super-silver-haze"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、長い枝、強いストレッチ、鮮やかな緑色、大きく樹脂に覆われた花が記載される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Green House Seed Company公式では、Super Silver HazeはSkunk × Northern Lights × Hazeとして記録されている。",
+          "history": "公式では1990年代末にArjanが作出したと説明され、HTCC 1997・1998・1999の1位受賞歴が記載されている。",
+          "terpeneNote": "公式ページではMyrcene、D-Limonene、alpha-Pineneが主要なテルペンとして列挙される。数値濃度は推定しない。",
+          "morphologyNote": "公式では、長い枝、強いストレッチ、鮮やかな緑色、大きく樹脂に覆われた花が記載される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/super-silver-haze/primary.webp",
+          "alt": "Super Silver Hazeの鮮やかな緑色と大きな樹脂被覆花を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-07",
+      "updatedAt": "2026-10-07",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -35662,6 +36658,31 @@
       "publishedAt": null,
       "checkedAt": "2026-09-20"
     },
+    "ghsc-super-silver-haze": {
+      "schemaVersion": 1,
+      "id": "ghsc-super-silver-haze",
+      "publisher": "Green House Seed Company",
+      "title": "Super Silver Haze (Feminised)",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/super-silver-haze/?variation_id=633",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "terpenes",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history",
+        "awards",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
     "ghsc-white-widow-awards": {
       "schemaVersion": 1,
       "id": "ghsc-white-widow-awards",
@@ -37968,6 +38989,125 @@
       "publishedAt": null,
       "checkedAt": "2026-10-04"
     },
+    "sensi-black-domina-history": {
+      "schemaVersion": 1,
+      "id": "sensi-black-domina-history",
+      "publisher": "Sensi Seeds",
+      "title": "Black Domina: With the power of the four indica hearts",
+      "url": "https://sensiseeds.com/en/blog/black-domina-with-the-power-of-the-four-indica-hearts/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "morphology"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
+    "sensi-black-domina": {
+      "schemaVersion": 1,
+      "id": "sensi-black-domina",
+      "publisher": "Sensi Seeds",
+      "title": "Black Domina Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/black-domina",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visual",
+        "aliasesNaming"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
+    "sensi-hash-plant-history": {
+      "schemaVersion": 1,
+      "id": "sensi-hash-plant-history",
+      "publisher": "Sensi Seeds",
+      "title": "Cannabis Strain Focus: Hash Plant from Sensi Seeds",
+      "url": "https://sensiseeds.com/en/blog/cannabis-strain-focus-hash-plant-sensi-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "origin",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
+    "sensi-hash-plant": {
+      "schemaVersion": 1,
+      "id": "sensi-hash-plant",
+      "publisher": "Sensi Seeds",
+      "title": "Hash Plant Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/hash-plant",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history",
+        "awards",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
+    "sensi-northern-lights-history": {
+      "schemaVersion": 1,
+      "id": "sensi-northern-lights-history",
+      "publisher": "Sensi Seeds",
+      "title": "Sensi Seeds at 40: The Roots of Dutch Cannabis History",
+      "url": "https://sensiseeds.com/en/blog/40-years-sensi-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "history",
+        "origin",
+        "aliasesNaming",
+        "awards"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
+    "sensi-northern-lights": {
+      "schemaVersion": 1,
+      "id": "sensi-northern-lights",
+      "publisher": "Sensi Seeds",
+      "title": "Northern Lights Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/northern-lights",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "aroma",
+        "effects",
+        "cultivation",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
+    },
     "sensi-seeds-hindu-kush": {
       "schemaVersion": 1,
       "id": "sensi-seeds-hindu-kush",
@@ -38405,6 +39545,31 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-06"
+    },
+    "thseeds-sage": {
+      "schemaVersion": 1,
+      "id": "thseeds-sage",
+      "publisher": "T.H.Seeds",
+      "title": "S.A.G.E. Feminized",
+      "url": "https://www.thseeds.com/en/sage-feminized.html",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "flavor",
+        "effects",
+        "cultivation",
+        "morphology",
+        "history",
+        "aliasesNaming",
+        "awards",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-07"
     },
     "umma-blue-lobster": {
       "schemaVersion": 1,

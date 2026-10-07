@@ -670,6 +670,31 @@
       "strainId": "purple-tangie",
       "state": "published",
       "publishedAt": "2026-10-05T07:39:06Z"
+    },
+    {
+      "strainId": "black-domina",
+      "state": "published",
+      "publishedAt": "2026-10-07T01:51:42Z"
+    },
+    {
+      "strainId": "hash-plant",
+      "state": "published",
+      "publishedAt": "2026-10-07T01:51:42Z"
+    },
+    {
+      "strainId": "northern-lights",
+      "state": "published",
+      "publishedAt": "2026-10-07T01:51:42Z"
+    },
+    {
+      "strainId": "sage",
+      "state": "published",
+      "publishedAt": "2026-10-07T01:51:42Z"
+    },
+    {
+      "strainId": "super-silver-haze",
+      "state": "published",
+      "publishedAt": "2026-10-07T01:51:42Z"
     }
   ]
 }
