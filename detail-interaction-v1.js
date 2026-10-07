@@ -317,7 +317,7 @@
     });
   };
 
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(schedule);
   shell.addEventListener('click', event => {
     const inactive = event.target?.closest?.('[data-csw-detail-state="inactive"]');
     if (inactive) {

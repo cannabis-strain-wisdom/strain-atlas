@@ -784,7 +784,7 @@
     });
   };
 
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(schedule);
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();

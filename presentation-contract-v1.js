@@ -5,7 +5,7 @@ const callbacks=new Set();let queued=false;
 const flush=()=>{queued=false;for(const fn of [...callbacks]){try{fn()}catch(error){console.error("CSW_PRESENTATION_OBSERVER_HUB_V1",error)}}};
 const schedule=()=>{if(queued)return;queued=true;queueMicrotask(flush)};
 window.__CSWPresentationObserverHubV1={register(fn){if(typeof fn!=="function")return false;callbacks.add(fn);schedule();return true},schedule};
-new MutationObserver(schedule).observe(shell,{childList:true,subtree:true});
+window.__CSWDetailShellObserverHubV1?.register(schedule);
 shell.addEventListener("click",schedule,true);
 window.addEventListener("popstate",schedule);
 })();
