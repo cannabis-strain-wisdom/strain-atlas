@@ -115,6 +115,22 @@ async function main() {
     return result.result.value;
   }
 
+  async function waitForStableLayout(id, timeout = 3000) {
+    const started = Date.now();
+    let stableSamples = 0;
+    while (Date.now() - started < timeout) {
+      const stable = await evalv(`(()=>{
+        const root=document.querySelector('.detail-public-v1[data-public-detail-id="${id}"],.ucd-root[data-public-detail-id="${id}"]');
+        if(!root) return false;
+        return root.scrollWidth<=root.clientWidth+1 &&
+          document.documentElement.scrollWidth<=document.documentElement.clientWidth+1;
+      })()`);
+      stableSamples = stable ? stableSamples + 1 : 0;
+      if (stableSamples >= 3) return;
+      await sleep(75);
+    }
+    throw new Error(`Timeout waiting for ${id} stable 390px layout`);
+  }
   const failures = [];
   const summaries = [];
 
@@ -150,7 +166,7 @@ async function main() {
         ])];
         return managed.length>0;
       })()`), `${id} managed detail controls ready`);
-      await sleep(20);
+      await waitForStableLayout(id);
 
       const state = await evalv(`(()=>{
         const shell=document.getElementById('detail-shell');
