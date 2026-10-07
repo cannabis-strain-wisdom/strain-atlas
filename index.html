@@ -1256,7 +1256,7 @@
     });
   };
 
-  window.__CSWDetailShellObserverHubV1?.register(schedule);
+  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();
@@ -1732,7 +1732,7 @@
     }
   }, true);
 
-  window.__CSWDetailShellObserverHubV1?.register(enhance);
+  new MutationObserver(enhance).observe(shell, { childList: true });
   enhance();
 
   window.__CSWCultivarLeafV1 = {

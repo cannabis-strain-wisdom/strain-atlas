@@ -695,6 +695,31 @@
       "strainId": "super-silver-haze",
       "state": "published",
       "publishedAt": "2026-10-07T01:51:42Z"
+    },
+    {
+      "strainId": "garlic-budder",
+      "state": "published",
+      "publishedAt": "2026-10-07T15:27:21Z"
+    },
+    {
+      "strainId": "golden-sands",
+      "state": "published",
+      "publishedAt": "2026-10-07T15:27:21Z"
+    },
+    {
+      "strainId": "granny-candy",
+      "state": "published",
+      "publishedAt": "2026-10-07T15:27:21Z"
+    },
+    {
+      "strainId": "orange-creampop",
+      "state": "published",
+      "publishedAt": "2026-10-07T15:27:21Z"
+    },
+    {
+      "strainId": "sour-stomper",
+      "state": "published",
+      "publishedAt": "2026-10-07T15:27:21Z"
     }
   ]
 }

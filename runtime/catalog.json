@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T01:51:45.463Z",
+  "generatedAt": "2026-10-07T15:27:24.717Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 127,
-    "sources": 269,
+    "cultivars": 132,
+    "sources": 274,
     "entities": 48
   },
   "explore": {
@@ -42,6 +42,7 @@
       "nepal-jam",
       "nevilles-haze",
       "new-caledonia",
+      "orange-creampop",
       "orient-express",
       "panama",
       "power-plant",
@@ -75,7 +76,9 @@
       "erdpurt",
       "face-off-og",
       "fat-banana-auto",
+      "garlic-budder",
       "gmo-cookies",
+      "golden-sands",
       "hash-plant",
       "hindu-kush",
       "ice-cream-cake",
@@ -144,6 +147,8 @@
     ],
     "unclassified": [
       "freakshow",
+      "granny-candy",
+      "sour-stomper",
       "t-1000-s1",
       "trainwreck-s1"
     ]
@@ -11607,6 +11612,218 @@
     },
     {
       "schemaVersion": 1,
+      "id": "garlic-budder",
+      "status": "review",
+      "name": "Garlic Budder",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-garlic-budder"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 30,
+            "indica": 70,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 30,
+              "indica": 70,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "BX4"
+      },
+      "lineage": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "display": "",
+        "parents": []
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-garlic-budder"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-garlic-budder"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スパイシー",
+          "ニンニク",
+          "クリーミー",
+          "ナッティー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スパイシー",
+            "ニンニク",
+            "クリーミー",
+            "ナッティー"
+          ],
+          "details": [
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "garlic",
+              "reviewLabelJa": "ニンニク",
+              "plainMeaningJa": "ニンニクを思わせるセイボリーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ニンニク",
+                "ガーリック"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "nutty",
+              "reviewLabelJa": "ナッティー",
+              "plainMeaningJa": "ナッツを思わせる香ばしい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ナッツ",
+                "香ばしい"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式では、スパイシーなガーリック、クリーミーなバター、ナッティーなニュアンスが記載される。香り語からテルペン成分へは変換していない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-garlic-budder"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company公式では、Garlic Budderは2019年の大規模なphenotype huntで際立ったラインとして記録されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-garlic-budder"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式記述では、密度のあるフラワー、非常に強いトライコーム被覆、背が高くブッシーな形態が挙げられている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "history": "Humboldt Seed Company公式では、Garlic Budderは2019年の大規模なphenotype huntで際立ったラインとして記録されている。",
+          "aromaNote": "公式では、スパイシーなガーリック、クリーミーなバター、ナッティーなニュアンスが記載される。香り語からテルペン成分へは変換していない。",
+          "morphologyNote": "公式記述では、密度のあるフラワー、非常に強いトライコーム被覆、背が高くブッシーな形態が挙げられている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/garlic-budder/primary.webp",
+          "alt": "Garlic Budderの密度と強いトライコーム被覆を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "gary-payton",
       "status": "review",
       "name": "Gary Payton",
@@ -13227,6 +13444,205 @@
     },
     {
       "schemaVersion": 1,
+      "id": "golden-sands",
+      "status": "review",
+      "name": "Golden Sands",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "indica-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-golden-sands"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 20,
+            "indica": 80,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 20,
+              "indica": 80,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "BX3"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-golden-sands"
+        ],
+        "display": "GMO × Kashmir OG × BlackBerry Kush",
+        "parents": [
+          "GMO",
+          "Kashmir OG",
+          "BlackBerry Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company公式では、Golden SandsはGMO × Kashmir OG × BlackBerry Kushとして記録され、BX3と表示されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-golden-sands"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-golden-sands"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ガス",
+          "フローラル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ガス",
+            "フローラル"
+          ],
+          "details": [
+            {
+              "rawMatch": "gas",
+              "reviewLabelJa": "ガス",
+              "plainMeaningJa": "ガス燃料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のFlavor / Taste / Smell欄ではOG Gas、Funk、Floralと記載される。公開Aromaではレジストリで安全に解決できるガスとフローラルを保持し、Funkを別語へ置き換えない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-golden-sands"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では、Golden Sandsは樹脂の多い花を狙い、長年の選抜とバッククロスを経て仕上げたラインとして説明されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-golden-sands"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、樹脂に覆われた密なフラワー、明るい緑と紫の円錐〜スピア状の外観、紫の差し色が記載されている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Humboldt Seed Company公式では、Golden SandsはGMO × Kashmir OG × BlackBerry Kushとして記録され、BX3と表示されている。",
+          "history": "公式では、Golden Sandsは樹脂の多い花を狙い、長年の選抜とバッククロスを経て仕上げたラインとして説明されている。",
+          "aromaNote": "公式のFlavor / Taste / Smell欄ではOG Gas、Funk、Floralと記載される。公開Aromaではレジストリで安全に解決できるガスとフローラルを保持し、Funkを別語へ置き換えない。",
+          "morphologyNote": "公式では、樹脂に覆われた密なフラワー、明るい緑と紫の円錐〜スピア状の外観、紫の差し色が記載されている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/golden-sands/primary.webp",
+          "alt": "Golden Sandsの緑と紫のスピア状フラワーと強い樹脂被覆を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "golden-tiger",
       "status": "review",
       "name": "Golden Tiger",
@@ -13638,6 +14054,204 @@
         }
       ],
       "checkedAt": "2026-09-07",
+      "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "granny-candy",
+      "status": "review",
+      "name": "Granny Candy",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-granny-candy"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 80,
+            "indica": 20,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 80,
+              "indica": 20,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-granny-candy"
+        ],
+        "display": "Mountaintop Mint × W. Runtz Muffin",
+        "parents": [
+          "Mountaintop Mint",
+          "W. Runtz Muffin"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company公式では、Granny CandyはMountaintop Mint × W. Runtz Muffinとして記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-granny-candy"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-granny-candy"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "サワー",
+          "ミント"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "サワー",
+            "ミント"
+          ],
+          "details": [
+            {
+              "rawMatch": "sour",
+              "reviewLabelJa": "サワー",
+              "plainMeaningJa": "酸味を思わせる鋭い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "酸味"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "mint",
+              "reviewLabelJa": "ミント",
+              "plainMeaningJa": "ミントのような清涼感のある香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "清涼"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のFlavor / Taste / Smell欄にはサワー系とミントのニュアンスが明示される。表記を勝手に単数化・同義語化せず、レジストリで安全に解決できる語だけを公開Aromaへ載せる。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-granny-candy"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では、Granny Candy #65は2020年にFire Mountainで600株超の中から選抜され、その後の試験とライン調整を経たと説明されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-granny-candy"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、強く霜をまとった紫〜赤のスピア状フラワーと、条件により緑が残る発色、強いトライコーム被覆が記載されている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Humboldt Seed Company公式では、Granny CandyはMountaintop Mint × W. Runtz Muffinとして記録されている。",
+          "history": "公式では、Granny Candy #65は2020年にFire Mountainで600株超の中から選抜され、その後の試験とライン調整を経たと説明されている。",
+          "aromaNote": "公式のFlavor / Taste / Smell欄にはサワー系とミントのニュアンスが明示される。表記を勝手に単数化・同義語化せず、レジストリで安全に解決できる語だけを公開Aromaへ載せる。",
+          "morphologyNote": "公式では、強く霜をまとった紫〜赤のスピア状フラワーと、条件により緑が残る発色、強いトライコーム被覆が記載されている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/granny-candy/primary.webp",
+          "alt": "Granny Candyの紫〜赤のスピア状フラワーと強いトライコーム被覆を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
       "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
@@ -22548,6 +23162,216 @@
     },
     {
       "schemaVersion": 1,
+      "id": "orange-creampop",
+      "status": "review",
+      "name": "Orange Creampop",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "sativa-dominant-hybrid",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-orange-creampop"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 70,
+            "indica": 30,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 70,
+              "indica": 30,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-orange-creampop"
+        ],
+        "display": "Hella Jelly × Orange Creamsicle Bx3",
+        "parents": [
+          "Hella Jelly",
+          "Orange Creamsicle Bx3"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company公式では、Orange CreampopはHella Jelly × Orange Creamsicle Bx3として記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "hsc-orange-creampop"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "hsc-orange-creampop"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "オレンジ",
+          "クリーミー",
+          "スカンク系"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "オレンジ",
+            "クリーミー",
+            "スカンク系"
+          ],
+          "details": [
+            {
+              "rawMatch": "orange",
+              "reviewLabelJa": "オレンジ",
+              "plainMeaningJa": "オレンジのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "creamy",
+              "reviewLabelJa": "クリーミー",
+              "plainMeaningJa": "クリームのようにまろやかな香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "まろやか"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "skunky",
+              "reviewLabelJa": "スカンク系",
+              "plainMeaningJa": "原資料がスカンク系と表現する強い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スカンク系"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のFlavor / Taste / Smell欄では、オレンジ、クリーミー、スカンク系のニュアンスが記載される。カテゴリを分解しすぎず、公開Aromaではフラットな感覚プロファイルとして保持する。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-orange-creampop"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では、2020年に始まった交配を2021〜2022年にBurr’s Placeと選抜し、さらにCasa FlorとのR&Dを経て現在のラインへ進めたと説明されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "hsc-orange-creampop"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では、強く霜をまとった緑色のスピア状フラワー、条件によりわずかな紫、コーラ型の花形成が記載されている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Humboldt Seed Company公式では、Orange CreampopはHella Jelly × Orange Creamsicle Bx3として記録されている。",
+          "history": "公式では、2020年に始まった交配を2021〜2022年にBurr’s Placeと選抜し、さらにCasa FlorとのR&Dを経て現在のラインへ進めたと説明されている。",
+          "aromaNote": "公式のFlavor / Taste / Smell欄では、オレンジ、クリーミー、スカンク系のニュアンスが記載される。カテゴリを分解しすぎず、公開Aromaではフラットな感覚プロファイルとして保持する。",
+          "morphologyNote": "公式では、強く霜をまとった緑色のスピア状フラワー、条件によりわずかな紫、コーラ型の花形成が記載されている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/orange-creampop/primary.webp",
+          "alt": "Orange Creampopの霜をまとった緑色スピア状フラワーを反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "orient-express",
       "status": "review",
       "name": "Orient Express",
@@ -28537,6 +29361,216 @@
       ],
       "checkedAt": "2026-09-12",
       "updatedAt": "2026-09-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "sour-stomper",
+      "status": "review",
+      "name": "Sour Stomper",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "mephisto-sour-stomper-product"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 50,
+            "indica": 50,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 50,
+              "indica": 50,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "F7"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mephisto-sour-stomper-product"
+        ],
+        "display": "GrapeStomper OG × Sour Crack F5",
+        "parents": [
+          "GrapeStomper OG",
+          "Sour Crack F5"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mephisto Genetics公式では、Sour StomperはGrapeStomper OG × Sour Crack F5、F7 Feminised Automaticとして記録されている。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mephisto-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "mephisto-sour-stomper-product"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "mephisto-sour-stomper-product"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "グレープ",
+          "ミーティー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "グレープ",
+            "ミーティー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "grape",
+              "reviewLabelJa": "グレープ",
+              "plainMeaningJa": "ぶどうのような果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ぶどう"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "meaty",
+              "reviewLabelJa": "ミーティー",
+              "plainMeaningJa": "肉のような旨味を伴う香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "肉"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のAroma and Flavour欄では、甘い赤ブドウを軸に、ミーティーなエッジを含む複合的な感覚表現が記載される。公開Aromaは用語レジストリで安全に解決できる要素だけをフラットに保持する。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mephisto-sour-stomper-product"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mephisto Genetics公式の来歴では、Sour Stomperは外部協力者GBDが初期交配を行い、その後Mephistoが選抜・固定を進めたプロジェクトとして説明されている。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mephisto-sour-stomper-product"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式記述では、非常に強いトライコーム被覆と、一部で紫から暗色へ寄る発色、高い花比率が記録されている。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Mephisto Genetics公式では、Sour StomperはGrapeStomper OG × Sour Crack F5、F7 Feminised Automaticとして記録されている。",
+          "history": "Mephisto Genetics公式の来歴では、Sour Stomperは外部協力者GBDが初期交配を行い、その後Mephistoが選抜・固定を進めたプロジェクトとして説明されている。",
+          "aromaNote": "公式のAroma and Flavour欄では、甘い赤ブドウを軸に、ミーティーなエッジを含む複合的な感覚表現が記載される。公開Aromaは用語レジストリで安全に解決できる要素だけをフラットに保持する。",
+          "morphologyNote": "公式記述では、非常に強いトライコーム被覆と、一部で紫から暗色へ寄る発色、高い花比率が記録されている。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/sour-stomper/primary.webp",
+          "alt": "Sour Stomperの強いトライコーム被覆と紫系の発色可能性を反映したAI生成参考画像",
+          "rights": "AI-generated project asset. No official or third-party image is copied or redistributed; prompt traits are bounded to cited text evidence.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-05",
+      "updatedAt": "2026-10-05",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -37003,6 +38037,67 @@
       "publishedAt": null,
       "checkedAt": "2026-09-05"
     },
+    "hsc-garlic-budder": {
+      "schemaVersion": 1,
+      "id": "hsc-garlic-budder",
+      "publisher": "Humboldt Seed Company",
+      "title": "Garlic Budder Seeds",
+      "url": "https://californiahempseeds.com/product/garlic-budder-feminized/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
+    "hsc-golden-sands": {
+      "schemaVersion": 1,
+      "id": "hsc-golden-sands",
+      "publisher": "Humboldt Seed Company",
+      "title": "Golden Sands Seeds",
+      "url": "https://californiahempseeds.com/product/golden-sands-feminized-cannabis-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
+    "hsc-granny-candy": {
+      "schemaVersion": 1,
+      "id": "hsc-granny-candy",
+      "publisher": "Humboldt Seed Company",
+      "title": "Granny Candy Seeds",
+      "url": "https://californiahempseeds.com/product/granny-candy-feminized-cannabis-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
+    },
     "hsc-hella-jelly": {
       "schemaVersion": 1,
       "id": "hsc-hella-jelly",
@@ -37027,6 +38122,26 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-04"
+    },
+    "hsc-orange-creampop": {
+      "schemaVersion": 1,
+      "id": "hsc-orange-creampop",
+      "publisher": "Humboldt Seed Company",
+      "title": "Orange Creampop Seeds",
+      "url": "https://californiahempseeds.com/product/orange-creampop-feminized-cannabis-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
     },
     "humboldt-csi-t-1000-s1": {
       "schemaVersion": 1,
@@ -38543,6 +39658,27 @@
       ],
       "publishedAt": "2024-01-09",
       "checkedAt": "2026-09-05"
+    },
+    "mephisto-sour-stomper-product": {
+      "schemaVersion": 1,
+      "id": "mephisto-sour-stomper-product",
+      "publisher": "Mephisto Genetics",
+      "title": "Sour Stomper",
+      "url": "https://mephistogenetics.com/products/sour-stomper",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "generation",
+        "classification",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-05"
     },
     "mr-nice-black-widow-origin-account": {
       "schemaVersion": 1,
