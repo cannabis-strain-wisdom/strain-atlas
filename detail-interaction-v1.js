@@ -211,7 +211,10 @@
 
   const decorate = () => {
     ensureStyle();
-    const root = shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
+    const currentId = new URL(location.href).searchParams.get('strain');
+    const root = currentId
+      ? shell.querySelector(`.detail-public-v1[data-public-detail-id="${CSS.escape(currentId)}"],.ucd-root[data-public-detail-id="${CSS.escape(currentId)}"]`)
+      : shell.querySelector('.detail-public-v1[data-public-detail-id],.ucd-root[data-public-detail-id]');
     if (!root) return false;
 
     const reasonMap = new Map();
