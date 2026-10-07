@@ -827,7 +827,8 @@
           reconciledSubnav.appendChild(button);
         }
         button.dataset.cswSensoryHelper = spec.helper;
-        button.setAttribute('aria-label', `${spec.label}：${spec.helper}`);
+        const unavailable = button.dataset.cswDetailState === 'inactive' || button.getAttribute('aria-disabled') === 'true';
+        button.setAttribute('aria-label', unavailable ? `${spec.label}：未確認` : `${spec.label}：${spec.helper}`);
         const currentLabel = button.querySelector('span')?.textContent || '';
         const currentHelper = button.querySelector('small')?.textContent || '';
         if (currentLabel !== spec.label || currentHelper !== spec.helper) {
