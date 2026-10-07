@@ -557,7 +557,36 @@
     });
   })();
   </script>
-  <script id="csw-detail-share-v1-script">
+  <script id="csw-detail-shell-observer-hub-v1">
+(() => {
+  'use strict';
+  const shell = document.getElementById('detail-shell');
+  if (!shell || window.__CSWDetailShellObserverHubV1) return;
+  const callbacks = new Set();
+  let queued = false;
+  const flush = () => {
+    queued = false;
+    for (const callback of [...callbacks]) {
+      try { callback(); } catch (error) { console.error('CSW_DETAIL_SHELL_OBSERVER_HUB_V1', error); }
+    }
+  };
+  const dispatchMutation = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(flush);
+  };
+  window.__CSWDetailShellObserverHubV1 = {
+    register(callback) {
+      if (typeof callback !== 'function') return false;
+      callbacks.add(callback);
+      dispatchMutation();
+      return true;
+    }
+  };
+  new MutationObserver(dispatchMutation).observe(shell, { childList: true, subtree: true });
+})();
+</script>
+<script id="csw-detail-share-v1-script">
   (() => {
     'use strict';
     const shell = document.getElementById('detail-shell');
@@ -645,7 +674,7 @@
       }
     }, true);
 
-    new MutationObserver(enhance).observe(shell, { childList: true });
+    window.__CSWDetailShellObserverHubV1?.register(enhance);
     enhance();
   })();
   </script>
@@ -879,7 +908,7 @@
         try { decorate(); } catch (error) { window.__CSWStagedSensoryGroupV1Error = String(error?.message || error); }
       });
     };
-    new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
+    window.__CSWDetailShellObserverHubV1?.register(queue);
     shell.addEventListener('click', queue, true);
     window.addEventListener('popstate', queue);
     queue();
@@ -1226,7 +1255,7 @@
     });
   };
 
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(schedule);
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();
@@ -1334,7 +1363,7 @@
     });
   };
 
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(schedule);
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();
@@ -1542,7 +1571,7 @@
     });
   };
 
-  new MutationObserver(schedule).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(schedule);
   shell.addEventListener('click', schedule, true);
   window.addEventListener('popstate', schedule);
   schedule();
@@ -1702,7 +1731,7 @@
     }
   }, true);
 
-  new MutationObserver(enhance).observe(shell, { childList: true });
+  window.__CSWDetailShellObserverHubV1?.register(enhance);
   enhance();
 
   window.__CSWCultivarLeafV1 = {
@@ -1778,7 +1807,7 @@
     });
   };
 
-  new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(queue);
   window.addEventListener('popstate', queue);
   queue();
 })();
@@ -1836,7 +1865,7 @@
     });
   };
 
-  new MutationObserver(queue).observe(shell, { childList: true, subtree: true });
+  window.__CSWDetailShellObserverHubV1?.register(queue);
   window.addEventListener('popstate', queue);
   queue();
   setTimeout(queue, 300);
