@@ -725,6 +725,26 @@
       "strainId": "think-fast",
       "state": "published",
       "publishedAt": "2026-10-11T19:43:42Z"
+    },
+    {
+      "strainId": "frisian-dew",
+      "state": "published",
+      "publishedAt": "2026-10-11T21:56:58Z"
+    },
+    {
+      "strainId": "jelly-donutz",
+      "state": "published",
+      "publishedAt": "2026-10-11T21:56:58Z"
+    },
+    {
+      "strainId": "mango-smile",
+      "state": "published",
+      "publishedAt": "2026-10-11T21:56:58Z"
+    },
+    {
+      "strainId": "super-malawi-haze",
+      "state": "published",
+      "publishedAt": "2026-10-11T21:56:58Z"
     }
   ]
 }

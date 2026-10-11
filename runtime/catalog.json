@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T19:43:43.075Z",
+  "generatedAt": "2026-10-11T21:57:00.772Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 133,
-    "sources": 275,
+    "cultivars": 137,
+    "sources": 280,
     "entities": 48
   },
   "explore": {
@@ -147,8 +147,12 @@
     ],
     "unclassified": [
       "freakshow",
+      "frisian-dew",
       "granny-candy",
+      "jelly-donutz",
+      "mango-smile",
       "sour-stomper",
+      "super-malawi-haze",
       "t-1000-s1",
       "think-fast",
       "trainwreck-s1"
@@ -11367,6 +11371,241 @@
     },
     {
       "schemaVersion": 1,
+      "id": "frisian-dew",
+      "status": "review",
+      "name": "Frisian Dew",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-frisian-dew-20261012"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式の交配記述はSuper SkunkとPurple Star。親の正式IDや新しい系譜線は今回追加していない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dutch-passion",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-frisian-dew-20261012"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-frisian-dew-20261012"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "フルーティー",
+          "フローラル",
+          "フォレストフルーツ",
+          "レモン",
+          "パイン",
+          "ラベンダー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "フルーティー",
+            "フローラル",
+            "フォレストフルーツ",
+            "レモン",
+            "パイン",
+            "ラベンダー"
+          ],
+          "details": [
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "forest fruits",
+              "reviewLabelJa": "フォレストフルーツ",
+              "plainMeaningJa": "森のベリー類を思わせる果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ベリー"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemon",
+              "reviewLabelJa": "レモン",
+              "plainMeaningJa": "レモンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pine",
+              "reviewLabelJa": "パイン",
+              "plainMeaningJa": "松を思わせる樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lavender",
+              "reviewLabelJa": "ラベンダー",
+              "plainMeaningJa": "ラベンダーの花や葉を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ラベンダー",
+                "花"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式には果実、花、レモン、松、ラベンダーの香りが記載され、一部の表現型では土やアンモニア、ハーブの香りも挙げられる。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-frisian-dew-20261012"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "高い",
+              "confidence": "A",
+              "sourceRefs": [
+                "official-frisian-dew-20261012"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-frisian-dew-20261012"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch Passionがオランダで屋外選抜を重ねた品種。公式では2008年Highlife Cupでの優勝を記録している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-frisian-dew-20261012"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では大きな花と紫色の表現の個体差が説明される。紫色が全個体に現れるとは扱わない。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "公式の交配記述はSuper SkunkとPurple Star。親の正式IDや新しい系譜線は今回追加していない。",
+          "history": "Dutch Passionがオランダで屋外選抜を重ねた品種。公式では2008年Highlife Cupでの優勝を記録している。",
+          "aromaNote": "公式には果実、花、レモン、松、ラベンダーの香りが記載され、一部の表現型では土やアンモニア、ハーブの香りも挙げられる。",
+          "morphologyNote": "公式では大きな花と紫色の表現の個体差が説明される。紫色が全個体に現れるとは扱わない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/frisian-dew/primary.webp",
+          "alt": "Frisian Dewの公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference. No source image copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "updatedAt": "2026-10-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "frisian-duck",
       "status": "review",
       "name": "Frisian Duck",
@@ -16817,6 +17056,238 @@
     },
     {
       "schemaVersion": 1,
+      "id": "jelly-donutz",
+      "status": "review",
+      "name": "Jelly Donutz",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-jelly-donutz-20261012"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "BX2"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-jelly-donutz-20261012"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式にはJelly Donutz (#160x#17)、Hella Jelly、White Runtzが列記される。直接親の組み合わせと交配順は未確定のため、系譜線は追加していない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-seed-company",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-jelly-donutz-20261012"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-jelly-donutz-20261012"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ピンク・コットンキャンディ",
+          "キャラメル",
+          "フューエル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ピンク・コットンキャンディ",
+            "キャラメル",
+            "フューエル"
+          ],
+          "details": [
+            {
+              "rawMatch": "Pink Cotton Candy",
+              "reviewLabelJa": "ピンク・コットンキャンディ",
+              "plainMeaningJa": "ピンク色の綿あめを思わせる甘い菓子香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "綿あめ",
+                "キャンディ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "Caramel",
+              "reviewLabelJa": "キャラメル",
+              "plainMeaningJa": "キャラメル菓子を思わせる甘く香ばしい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "キャラメル",
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "Fuel",
+              "reviewLabelJa": "フューエル",
+              "plainMeaningJa": "燃料を思わせる刺激的な香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料",
+                "フューエル"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "米国公式のFlavor / Taste / Smell欄にはピンクコットンキャンディ、キャラメル、燃料系の記述がある。EUの味だけの表記から香りを推測していない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "official-jelly-donutz-eu-20261012"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 30,
+              "maxValue": 35,
+              "unit": "%",
+              "valueText": "30〜35%",
+              "confidence": "A",
+              "sourceRefs": [
+                "official-jelly-donutz-eu-20261012"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-jelly-donutz-20261012"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt Seed Company公式では、2020年秋の選抜、同年冬の戻し交配、2021年の2回の選抜、その後の安定化を説明している。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-jelly-donutz-20261012"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では強いトライコーム被覆が特徴として説明される。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "公式にはJelly Donutz (#160x#17)、Hella Jelly、White Runtzが列記される。直接親の組み合わせと交配順は未確定のため、系譜線は追加していない。",
+          "history": "Humboldt Seed Company公式では、2020年秋の選抜、同年冬の戻し交配、2021年の2回の選抜、その後の安定化を説明している。",
+          "aromaNote": "米国公式のFlavor / Taste / Smell欄にはピンクコットンキャンディ、キャラメル、燃料系の記述がある。EUの味だけの表記から香りを推測していない。",
+          "morphologyNote": "公式では強いトライコーム被覆が特徴として説明される。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/jelly-donutz/primary.webp",
+          "alt": "Jelly Donutzの公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference. No source image copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "updatedAt": "2026-10-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "kali-mist",
       "status": "review",
       "name": "Kali Mist",
@@ -20128,6 +20599,202 @@
       ],
       "checkedAt": "2026-09-06",
       "updatedAt": "2026-10-05",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "mango-smile",
+      "status": "review",
+      "name": "Mango Smile",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-mango-smile-20261012"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 80,
+            "indica": 20,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 80,
+              "indica": 20,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "F6"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-mango-smile-20261012"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式の素材表記はMr. Nice SeedsのMango HazeとToof Decay F5。親のF5と製品のF6を区別して保持する。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "mephisto-genetics",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-mango-smile-20261012"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-mango-smile-20261012"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スパイシー",
+          "フルーティー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スパイシー",
+            "フルーティー"
+          ],
+          "details": [
+            {
+              "rawMatch": "Spicey",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料を思わせるスパイシーな香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スパイス",
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fruity",
+              "reviewLabelJa": "フルーティー",
+              "plainMeaningJa": "果実全般を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のAroma and Flavour欄にはスパイシー、フルーティーの記述がある。マンゴー、トロピカルフルーツ、スカンクは味として明記されるため、香りへ自動転用しない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-mango-smile-20261012"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mephisto Geneticsの2019年Artisanalプロジェクトとして説明される。Mango HazeとToof Decay F5を用い、現行製品はF6のオートフラワーとして表記される。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-mango-smile-20261012"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では比較的まとまりのある花、積み重なる萼、条件が整った際の白い樹脂被覆を記載している。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "公式の素材表記はMr. Nice SeedsのMango HazeとToof Decay F5。親のF5と製品のF6を区別して保持する。",
+          "history": "Mephisto Geneticsの2019年Artisanalプロジェクトとして説明される。Mango HazeとToof Decay F5を用い、現行製品はF6のオートフラワーとして表記される。",
+          "aromaNote": "公式のAroma and Flavour欄にはスパイシー、フルーティーの記述がある。マンゴー、トロピカルフルーツ、スカンクは味として明記されるため、香りへ自動転用しない。",
+          "morphologyNote": "公式では比較的まとまりのある花、積み重なる萼、条件が整った際の白い樹脂被覆を記載している。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/mango-smile/primary.webp",
+          "alt": "Mango Smileの公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference. No source image copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "updatedAt": "2026-10-12",
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
@@ -30797,6 +31464,460 @@
     },
     {
       "schemaVersion": 1,
+      "id": "super-malawi-haze",
+      "status": "review",
+      "name": "Super Malawi Haze",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-super-malawi-haze-20261012"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 90,
+            "indica": 10,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 90,
+              "indica": 10,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式では初期1990年代のNeville’s Haze選抜母株とMalawi Killer素材の交配。選抜株の記述を既存の親IDに自動で同一化していない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-super-malawi-haze-20261012"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フローラル",
+          "インセンス",
+          "ウッディ",
+          "レジナス",
+          "ファーメンテッド"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フローラル",
+            "インセンス",
+            "ウッディ",
+            "レジナス",
+            "ファーメンテッド"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral",
+              "reviewLabelJa": "フローラル",
+              "plainMeaningJa": "花のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incensed",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "resinous",
+              "reviewLabelJa": "レジナス",
+              "plainMeaningJa": "樹脂質で濃い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fermented",
+              "reviewLabelJa": "ファーメンテッド",
+              "plainMeaningJa": "発酵したものを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "発酵"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式のブーケ記述には甘い花、インセンス、木質香に加え、樹脂や発酵を思わせる背景がある。表現型ごとの違いも記載される。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "items": [
+          "beta-pinene",
+          "beta-caryophyllene",
+          "alpha-humelene",
+          "alpha-pinene",
+          "beta-myrcene",
+          "limonene",
+          "guaiol",
+          "beta-ocimene",
+          "linalool",
+          "isopulegol",
+          "camphene",
+          "eucalyptol",
+          "terpinolene",
+          "gamma-terpinene",
+          "delta-3-carene",
+          "bisabolol",
+          "trans-nerolidol",
+          "caryophyllene-oxide"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-ocimene",
+              "labelJa": "β-オシメン",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "linalool",
+              "labelJa": "リナロール",
+              "qualitativeLevel": "small",
+              "levelJa": "少量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "isopulegol",
+              "labelJa": "イソプレゴール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "camphene",
+              "labelJa": "カンフェン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "eucalyptol",
+              "labelJa": "ユーカリプトール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "gamma-terpinene",
+              "labelJa": "γ-テルピネン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "delta-3-carene",
+              "labelJa": "δ-3-カレン",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "alpha-humelene",
+              "labelJa": "α-フムレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "visualRole": "support"
+            },
+            {
+              "id": "guaiol",
+              "labelJa": "グアイオール",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "visualRole": "support"
+            },
+            {
+              "id": "bisabolol",
+              "labelJa": "ビサボロール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "trans-nerolidol",
+              "labelJa": "トランス-ネロリドール",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            },
+            {
+              "id": "caryophyllene-oxide",
+              "labelJa": "カリオフィレンオキシド",
+              "qualitativeLevel": "trace",
+              "levelJa": "ごく微量",
+              "visualRole": "trace"
+            }
+          ],
+          "noteJa": "公式にはβピネン、βカリオフィレンなどの成分名と定性的な量の記述がある。商品説明の量区分を分析サンプルの数値とは扱わない。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "less-than",
+              "boundaryValue": 0.15,
+              "unit": "%",
+              "valueText": "0.15%未満",
+              "confidence": "B",
+              "sourceRefs": [
+                "official-super-malawi-haze-20261012"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 23,
+              "maxValue": 28,
+              "unit": "%",
+              "valueText": "23〜28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "official-super-malawi-haze-20261012"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 0,
+              "maxValue": 1.5,
+              "unit": "%",
+              "valueText": "0〜1.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "official-super-malawi-haze-20261012"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsが、Neville本人の1990年代初めの選抜母株とMalawi Killer系統を組み合わせたポリハイブリッドとして説明する。均一なF1とは扱わない。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-super-malawi-haze-20261012"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "大型で樹脂の多い花と分枝のある姿が説明される。公式には3つの主要な表現型があり、各表現型の特徴は全個体へ一般化していない。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "公式では初期1990年代のNeville’s Haze選抜母株とMalawi Killer素材の交配。選抜株の記述を既存の親IDに自動で同一化していない。",
+          "history": "ACE Seedsが、Neville本人の1990年代初めの選抜母株とMalawi Killer系統を組み合わせたポリハイブリッドとして説明する。均一なF1とは扱わない。",
+          "aromaNote": "公式のブーケ記述には甘い花、インセンス、木質香に加え、樹脂や発酵を思わせる背景がある。表現型ごとの違いも記載される。",
+          "terpeneNote": "公式にはβピネン、βカリオフィレンなどの成分名と定性的な量の記述がある。商品説明の量区分を分析サンプルの数値とは扱わない。",
+          "morphologyNote": "大型で樹脂の多い花と分枝のある姿が説明される。公式には3つの主要な表現型があり、各表現型の特徴は全個体へ一般化していない。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/super-malawi-haze/primary.webp",
+          "alt": "Super Malawi Hazeの公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference. No source image copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "updatedAt": "2026-10-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "super-silver-haze",
       "status": "review",
       "name": "Super Silver Haze",
@@ -39994,6 +41115,112 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-15"
+    },
+    "official-frisian-dew-20261012": {
+      "schemaVersion": 1,
+      "id": "official-frisian-dew-20261012",
+      "publisher": "Dutch Passion",
+      "title": "Frisian Dew official cultivar page",
+      "url": "https://dutch-passion.com/en/cannabis-seeds/frisian-dew",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "aroma",
+        "history",
+        "morphology",
+        "visual",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
+    },
+    "official-jelly-donutz-20261012": {
+      "schemaVersion": 1,
+      "id": "official-jelly-donutz-20261012",
+      "publisher": "Humboldt Seed Company",
+      "title": "Jelly Donutz official cultivar page",
+      "url": "https://californiahempseeds.com/product/jelly-donutz-feminized/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "aroma",
+        "history",
+        "morphology",
+        "visual",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
+    },
+    "official-jelly-donutz-eu-20261012": {
+      "schemaVersion": 1,
+      "id": "official-jelly-donutz-eu-20261012",
+      "publisher": "Humboldt Seed Company",
+      "title": "Jelly Donutz EU official cultivar page",
+      "url": "https://humboldtseedcompany.es/product/jelly-donutz/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
+    },
+    "official-mango-smile-20261012": {
+      "schemaVersion": 1,
+      "id": "official-mango-smile-20261012",
+      "publisher": "Mephisto Genetics",
+      "title": "Mango Smile official cultivar page",
+      "url": "https://mephistogenetics.com/products/mango-smile",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "aroma",
+        "history",
+        "morphology",
+        "visual",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
+    },
+    "official-super-malawi-haze-20261012": {
+      "schemaVersion": 1,
+      "id": "official-super-malawi-haze-20261012",
+      "publisher": "ACE Seeds",
+      "title": "Super Malawi Haze official cultivar page",
+      "url": "https://www.aceseeds.org/en/seeds/super-malawi-haze-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "aroma",
+        "history",
+        "morphology",
+        "visual",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
     },
     "official-think-fast-20261012": {
       "schemaVersion": 1,
