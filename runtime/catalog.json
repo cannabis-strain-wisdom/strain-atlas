@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T15:27:24.717Z",
+  "generatedAt": "2026-10-11T19:43:43.075Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 132,
-    "sources": 274,
+    "cultivars": 133,
+    "sources": 275,
     "entities": 48
   },
   "explore": {
@@ -150,6 +150,7 @@
       "granny-candy",
       "sour-stomper",
       "t-1000-s1",
+      "think-fast",
       "trainwreck-s1"
     ]
   },
@@ -32533,6 +32534,240 @@
     },
     {
       "schemaVersion": 1,
+      "id": "think-fast",
+      "status": "review",
+      "name": "Think Fast",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-think-fast-20261012"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式の交配素材はAuto Think DifferentとPower Plant。オート系の素材を含むが、製品そのものは光周期依存型。親IDや系譜線は今回確定していない。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "dutch-passion",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-think-fast-20261012"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-think-fast-20261012"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "シトラス",
+          "ディーゼル",
+          "ハーブ",
+          "パイン",
+          "アーシー"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "シトラス",
+            "ディーゼル",
+            "ハーブ",
+            "パイン",
+            "アーシー"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "citrus",
+              "reviewLabelJa": "シトラス",
+              "plainMeaningJa": "柑橘類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "diesel",
+              "reviewLabelJa": "ディーゼル",
+              "plainMeaningJa": "ディーゼル燃料を思わせる燃料香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "herbs",
+              "reviewLabelJa": "ハーブ",
+              "plainMeaningJa": "ハーブ類を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハーブ"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pine",
+              "reviewLabelJa": "パイン",
+              "plainMeaningJa": "松を思わせる樹木香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "松"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "earth",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式には甘い柑橘、ディーゼル、ハーブ、松、土を思わせる香りがある。一部の個体では果実や花の側面が説明され、全個体で同じ香りとは扱わない。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-think-fast-20261012"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "qualitative",
+              "valueText": "非常に高い",
+              "confidence": "A",
+              "sourceRefs": [
+                "official-think-fast-20261012"
+              ],
+              "evidenceType": "QUALITATIVE_CLAIM",
+              "contextLabel": "公式定性情報",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-think-fast-20261012"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Dutch PassionがAuto Think Differentと選抜したPower Plantクローンを組み合わせた、開花の早い光周期依存型として説明する。オートフラワー品種とは扱わない。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-think-fast-20261012"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では厚い白い樹脂被覆と短めから中程度の節間を説明している。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "公式の交配素材はAuto Think DifferentとPower Plant。オート系の素材を含むが、製品そのものは光周期依存型。親IDや系譜線は今回確定していない。",
+          "history": "Dutch PassionがAuto Think Differentと選抜したPower Plantクローンを組み合わせた、開花の早い光周期依存型として説明する。オートフラワー品種とは扱わない。",
+          "aromaNote": "公式には甘い柑橘、ディーゼル、ハーブ、松、土を思わせる香りがある。一部の個体では果実や花の側面が説明され、全個体で同じ香りとは扱わない。",
+          "morphologyNote": "公式では厚い白い樹脂被覆と短めから中程度の節間を説明している。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/think-fast/primary.webp",
+          "alt": "Think Fastの公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference. No source image copied or redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "updatedAt": "2026-10-12",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "trainwreck-s1",
       "status": "review",
       "name": "TrainWreck S1",
@@ -37277,10 +37512,11 @@
         "history",
         "aroma",
         "morphology",
-        "visual"
+        "visual",
+        "lineage"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-16"
+      "checkedAt": "2026-10-08"
     },
     "dutch-passion-auto-cinderella-jack-lab-article": {
       "schemaVersion": 1,
@@ -37786,10 +38022,11 @@
         "identityBoundary",
         "selection",
         "history",
-        "workingName"
+        "workingName",
+        "lineage"
       ],
-      "publishedAt": "2022-12-27",
-      "checkedAt": "2026-09-16"
+      "publishedAt": "2022-12-29",
+      "checkedAt": "2026-10-08"
     },
     "high-times-chem-d-25-years": {
       "schemaVersion": 1,
@@ -39758,6 +39995,28 @@
       "publishedAt": null,
       "checkedAt": "2026-09-15"
     },
+    "official-think-fast-20261012": {
+      "schemaVersion": 1,
+      "id": "official-think-fast-20261012",
+      "publisher": "Dutch Passion",
+      "title": "Think Fast official cultivar page",
+      "url": "https://dutch-passion.com/en/cannabis-seeds/think-fast",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "classification",
+        "generation",
+        "lineage",
+        "aroma",
+        "history",
+        "morphology",
+        "visual",
+        "cannabinoids"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-10-12"
+    },
     "origins-tk-triangle-kush": {
       "schemaVersion": 1,
       "id": "origins-tk-triangle-kush",
@@ -40398,10 +40657,11 @@
         "history",
         "flavor",
         "morphology",
-        "visual"
+        "visual",
+        "lineage"
       ],
       "publishedAt": null,
-      "checkedAt": "2026-09-06"
+      "checkedAt": "2026-10-08"
     },
     "sensi-seeds-skunk-guide": {
       "schemaVersion": 1,

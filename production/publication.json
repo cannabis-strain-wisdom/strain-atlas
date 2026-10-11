@@ -720,6 +720,11 @@
       "strainId": "sour-stomper",
       "state": "published",
       "publishedAt": "2026-10-07T15:27:21Z"
+    },
+    {
+      "strainId": "think-fast",
+      "state": "published",
+      "publishedAt": "2026-10-11T19:43:42Z"
     }
   ]
 }
