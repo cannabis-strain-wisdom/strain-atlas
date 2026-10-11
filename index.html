@@ -183,6 +183,18 @@
       .latest-date-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
   </style>
+<style id="csw-owner-month-archive-style">
+#latest-date-list.latest-date-list{grid-template-columns:minmax(0,1fr)!important;gap:8px}
+.csw-latest-month{border:1px solid rgba(217,182,93,.21);border-radius:12px;background:rgba(255,255,255,.018);overflow:hidden}
+.csw-latest-month>summary{display:flex;align-items:center;justify-content:space-between;min-height:46px;padding:10px 14px;cursor:pointer;list-style:none;color:#e2e9df}
+.csw-latest-month>summary::-webkit-details-marker{display:none}
+.csw-latest-month>summary:after{content:'⌄';color:#d8bd62;font-size:15px;margin-left:8px}
+.csw-latest-month[open]>summary:after{content:'⌃'}
+.csw-latest-month>summary>strong{font-size:13px;font-weight:800}
+.csw-latest-month>summary>span{font-size:10px;color:#cdb573;margin-left:auto}
+.csw-latest-month-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 10px 12px}
+.csw-latest-month-days>.latest-date-button{width:100%}
+</style>
 </head>
 <body>
   <div class="data-state" id="data-state" hidden>LOADING</div>
@@ -201,7 +213,7 @@
       <section class="home-search" aria-labelledby="search-title">
         <div class="home-search-heading"><span>FIND A CULTIVAR</span><h2 id="search-title">品種を探す</h2></div>
         <button type="button" class="home-family-tree-entry" data-family-tree-home-entry="v1" aria-haspopup="dialog">
-          <span class="home-family-tree-copy"><span>FAMILY TREE</span><strong>系譜から探す</strong><small>OG / Cookies / Gelato など、確認済みの系譜から見る</small></span>
+          <span class="home-family-tree-copy"><span>FAMILY TREE</span><strong>系譜から探す</strong><small>OG / Cookies / Gelato など、掲載情報から系譜を探す</small></span>
           <span class="home-family-tree-arrow" aria-hidden="true">›</span>
         </button>
         <section class="alphabet-browse" aria-label="品種名の頭文字から探す">
@@ -311,7 +323,7 @@
             <div class="latest-date-archive-head">
               <span class="section-kicker">UPDATE ARCHIVE</span>
               <strong id="latest-date-archive-title">更新日から見る</strong>
-              <small>日付を選ぶと、その日に更新された品種をすべて表示</small>
+              <small>月を選び、日付を押すとその日の品種を表示</small>
             </div>
             <div class="latest-date-list" id="latest-date-list" aria-label="更新日一覧"></div>
             <div class="latest-date-result" id="latest-date-result" hidden>
@@ -1875,4 +1887,58 @@
 </script>
 <!-- CSW_EVIDENCE_READING_GUIDE_V1_DETAIL_END -->
 
+<script id="csw-owner-month-archive-trial">
+(function(){
+ 'use strict';
+ const root=document.getElementById('latest-date-list');
+ if(!root)return;
+ let selectedMonth='';
+ let refreshing=false;
+ const apply=()=>{
+   if(refreshing)return;
+   const buttons=[...root.children].filter(el=>el.matches?.('button.latest-date-button[data-update-date]'));
+   if(!buttons.length)return;
+   refreshing=true;
+   try{
+     const buckets=new Map();
+     for(const button of buttons){
+       const day=button.dataset.updateDate||'';
+       if(!/^\d{4}-\d{2}-\d{2}$/.test(day))continue;
+       const month=day.slice(0,7);
+       if(!buckets.has(month))buckets.set(month,[]);
+       buckets.get(month).push(button);
+     }
+     if(!buckets.size)return;
+     const fragment=document.createDocumentFragment();
+     for(const [month,days] of buckets){
+       const details=document.createElement('details');
+       details.className='csw-latest-month';
+       details.dataset.updateMonth=month;
+       details.open=month===selectedMonth;
+       const summary=document.createElement('summary');
+       const name=document.createElement('strong');
+       name.textContent=month.slice(0,4)+'年'+Number(month.slice(5,7))+'月';
+       const count=document.createElement('span');
+       const total=days.reduce((n,day)=>n+(Number.parseInt(day.querySelector('strong')?.textContent||'0',10)||0),0);
+       count.textContent=total+'件';
+       summary.append(name,count);
+       const grid=document.createElement('div');
+       grid.className='csw-latest-month-days';
+       days.forEach(button=>grid.appendChild(button));
+       details.append(summary,grid);
+       fragment.appendChild(details);
+     }
+     root.replaceChildren(fragment);
+     root.setAttribute('aria-label','更新月一覧');
+     window.__CSWLatestMonthArchiveTrial={status:'READY',monthCount:buckets.size,dateCount:[...buckets.values()].reduce((n,x)=>n+x.length,0),source:'existing-published-date-buttons'};
+   }finally{refreshing=false}
+ };
+ root.addEventListener('click',event=>{
+   const day=event.target.closest('button[data-update-date]');
+   if(day)selectedMonth=(day.dataset.updateDate||'').slice(0,7);
+ },true);
+ new MutationObserver(apply).observe(root,{childList:true});
+ apply();
+})();
+</script>
 </body></html>
