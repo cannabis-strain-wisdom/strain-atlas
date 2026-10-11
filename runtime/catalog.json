@@ -8677,7 +8677,57 @@
       "publicPresentation": {
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
-        "heldFields": []
+        "heldFields": [],
+        "lineageExplorerV1": {
+          "schemaVersion": 1,
+          "claims": [
+            {
+              "id": "csw-lineage-claim-do-si-dos-direct-parents-v1",
+              "kind": "direct-parent-set",
+              "status": "confirmed",
+              "confidence": "A",
+              "summaryJa": "Do-Si-Dosの直接親はOGKBとFace Off OG BX1。",
+              "evidenceLabel": "一次情報",
+              "contributors": [
+                {
+                  "cultivarId": "ogkb",
+                  "name": "OGKB"
+                },
+                {
+                  "cultivarId": "face-off-og-bx1",
+                  "name": "Face Off OG BX1"
+                }
+              ],
+              "sources": [
+                {
+                  "id": "csw-lineage-source-archive-do-si-dos-v1",
+                  "publisher": "Archive Seed Bank",
+                  "title": "Do-Si-Dos",
+                  "evidenceLabel": "一次情報",
+                  "url": "https://archiveseedbank.com/products/do-si-dos"
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "csw-lineage-edge-ogkb-do-si-dos-v1",
+              "fromCultivarId": "ogkb",
+              "toCultivarId": "do-si-dos",
+              "relationKind": "direct-parent",
+              "claimId": "csw-lineage-claim-do-si-dos-direct-parents-v1",
+              "contributorIndex": 0
+            },
+            {
+              "id": "csw-lineage-edge-face-off-og-bx1-do-si-dos-v1",
+              "fromCultivarId": "face-off-og-bx1",
+              "toCultivarId": "do-si-dos",
+              "relationKind": "direct-parent",
+              "claimId": "csw-lineage-claim-do-si-dos-direct-parents-v1",
+              "contributorIndex": 1
+            }
+          ]
+        }
       }
     },
     {
