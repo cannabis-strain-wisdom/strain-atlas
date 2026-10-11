@@ -571,9 +571,12 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=satori') });
   await waitFor(() => evalv("document.readyState==='complete'"), 'Satori Family Tree no-context document complete');
   await waitFor(() => evalv("!!document.querySelector('.detail-public-v1[data-public-detail-id=\"satori\"],.ucd-root[data-public-detail-id=\"satori\"]')"), 'Satori detail open');
-  await sleep(1100);
-  const invalidFamilyTreeEntry = await evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')");
-  if (invalidFamilyTreeEntry) throw new Error('Family Tree entry rendered without a valid lineage graph');
+  // B15 approved contract: an isolated published cultivar is still explorable, but never gains invented relationships.
+  await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=v1]')"), 'Satori isolated family tree entry');
+  await evalv("document.querySelector('[data-family-tree-entry=v1]').click();true");
+  await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='satori'"), 'Satori isolated family tree opens');
+  const isolatedSatori = await evalv("(()=>{const svg=document.querySelector('.csw-ft-svg');return {state:window.__CSWFamilyTreeViewV1||null,centerCount:document.querySelectorAll('.csw-ft-node.is-current').length,relationPaths:svg?.querySelectorAll('path[data-ft-admission],path[data-ft-approved-pair]').length||0,evidenceButtons:document.querySelectorAll('[data-ft-evidence-claim]').length}})()");
+  if (isolatedSatori.state?.status!=='PASS' || isolatedSatori.state?.nodeCount!==1 || isolatedSatori.state?.edgeCount!==0 || isolatedSatori.state?.formallyAdmittedEdges!==0 || isolatedSatori.state?.heldDisplayEdges!==0 || isolatedSatori.centerCount!==1 || isolatedSatori.relationPaths!==0 || isolatedSatori.evidenceButtons!==0) throw new Error('Satori isolated lineage invented edges or evidence: ' + JSON.stringify(isolatedSatori));
 
   const lineageCardAfterFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
   if (!lineageCardAfterFamilyTree) throw new Error('Lineage card missing after Family Tree interactions');
