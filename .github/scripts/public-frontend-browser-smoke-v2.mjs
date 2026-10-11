@@ -480,24 +480,34 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='do-si-dos'"), 'Do-Si-Dos Family Tree open');
   const familyTreeLayering = await evalv("(()=>{const tree=document.querySelector('.csw-family-tree-v1');const detail=document.getElementById('detail-dialog');const top=document.elementFromPoint(Math.floor(innerWidth/2),40);return {treeOpen:tree?.open===true,detailOpen:detail?.open===true,topInsideTree:!!top?.closest('.csw-family-tree-v1')}})()");
   if (!familyTreeLayering.treeOpen || !familyTreeLayering.detailOpen || !familyTreeLayering.topInsideTree) throw new Error('Family Tree top-layer visibility guard failed: ' + JSON.stringify(familyTreeLayering));
-  await waitFor(() => evalv("(()=>{const labels=[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent);return labels.includes('選抜クローン')&&labels.includes('BX')})()"), 'Do-Si-Dos Family Tree edge labels');
+  await waitFor(() => evalv("(()=>{const labels=[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent);return labels.includes('選抜クローン · 表示のみ')&&labels.includes('BX · 表示のみ')})()"), 'Do-Si-Dos Family Tree edge labels');
 
   const familyTreeDoSiDos = await evalv("(()=>({state:window.__CSWFamilyTreeViewV1||null,center:document.querySelector('.csw-ft-node.is-current .csw-ft-copy strong')?.textContent||'',currentMeta:document.querySelector('.csw-ft-node.is-current .csw-ft-copy small')?.textContent||'',cswMetaCount:[...document.querySelectorAll('.csw-ft-node:not(.is-current) .csw-ft-copy small')].filter(n=>n.textContent==='CSW').length,footer:document.querySelector('.csw-ft-footer')?.textContent||'',ogkb:!!document.querySelector('[data-ft-node-id=\"ogkb\"]'),faceOffBx1:!!document.querySelector('[data-ft-node-id=\"face-off-og-bx1\"]'),gsc:!!document.querySelector('[data-ft-node-id=\"girl-scout-cookies\"]'),faceOffRoot:!!document.querySelector('[data-ft-node-id=\"face-off-og\"]'),faceOffUnpublished:[...document.querySelectorAll('.csw-ft-node.is-unpublished strong')].some(n=>n.textContent==='Face Off OG'),labels:[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent),levelLabels:[...document.querySelectorAll('.csw-ft-level')].map(n=>n.dataset.levelLabel||''),arrowedPathCount:[...document.querySelectorAll('.csw-ft-svg path')].filter(n=>n.getAttribute('marker-end')==='url(#csw-ft-arrow-v1)').length,depths:[...document.querySelectorAll('.csw-ft-level')].map(n=>Number(n.dataset.depth)),pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}))()");
   if (familyTreeDoSiDos.center !== 'Do-Si-Dos') throw new Error('Do-Si-Dos Family Tree center mismatch: ' + JSON.stringify(familyTreeDoSiDos));
+  const approvedLineageProof = await evalv("(()=>{const svg=document.querySelector('.csw-ft-svg');const segments=[...svg.querySelectorAll('path[data-ft-approved-pair=do-si-dos]')];return {jointCount:svg.querySelectorAll('circle[data-ft-pair-junction=do-si-dos]').length,joinedSegments:segments.length,joinedArrows:segments.filter(p=>p.getAttribute('marker-end')==='url(#csw-ft-arrow-v1)').length,evidenceButtons:document.querySelectorAll('.csw-ft-evidence-button[data-ft-evidence-claim=csw-lineage-claim-do-si-dos-direct-parents-v1]').length,heldEdges:svg.querySelectorAll('path[data-ft-admission=held]').length};})()");
+  if (approvedLineageProof.jointCount !== 1 || approvedLineageProof.joinedSegments !== 3 || approvedLineageProof.joinedArrows !== 1 || approvedLineageProof.evidenceButtons !== 1 || !approvedLineageProof.heldEdges) throw new Error('Approved paired direct parents / separate held legacy relationships failed: ' + JSON.stringify(approvedLineageProof));
+
   if (!familyTreeDoSiDos.ogkb || !familyTreeDoSiDos.faceOffBx1 || !familyTreeDoSiDos.gsc || !familyTreeDoSiDos.faceOffRoot || familyTreeDoSiDos.faceOffUnpublished) throw new Error('Do-Si-Dos Family Tree node coverage incomplete: ' + JSON.stringify(familyTreeDoSiDos));
-  if (!familyTreeDoSiDos.labels.includes('選抜クローン') || !familyTreeDoSiDos.labels.includes('BX') || familyTreeDoSiDos.labels.includes('親')) throw new Error('Family Tree special-only relation labels invalid: ' + JSON.stringify(familyTreeDoSiDos.labels));
+  if (!familyTreeDoSiDos.labels.includes('選抜クローン · 表示のみ') || !familyTreeDoSiDos.labels.includes('BX · 表示のみ') || familyTreeDoSiDos.labels.includes('親')) throw new Error('Family Tree special-only relation labels invalid: ' + JSON.stringify(familyTreeDoSiDos.labels));
   for (const requiredLevelLabel of ['祖先（2世代前）','親','現在']) {
     if (!familyTreeDoSiDos.levelLabels.includes(requiredLevelLabel)) throw new Error('Family Tree generation level label missing: ' + requiredLevelLabel);
   }
-  if (familyTreeDoSiDos.arrowedPathCount !== familyTreeDoSiDos.state?.edgeCount) throw new Error('Family Tree directional arrows incomplete: ' + JSON.stringify(familyTreeDoSiDos));
+  if (familyTreeDoSiDos.arrowedPathCount !== familyTreeDoSiDos.state?.edgeCount - 1 || familyTreeDoSiDos.state?.formallyAdmittedEdges !== 2) throw new Error('Family Tree paired-parent arrow/count mismatch: ' + JSON.stringify(familyTreeDoSiDos));
   if (familyTreeDoSiDos.currentMeta !== '現在表示中' || familyTreeDoSiDos.cswMetaCount !== 0) throw new Error('Family Tree current/meta labels invalid: ' + JSON.stringify(familyTreeDoSiDos));
-  for (const requiredLabel of ['親','選抜クローン','選抜個体','選抜系統','S1','BX','バッグシード']) {
+  for (const requiredLabel of ['実線：根拠確認済み','破線：掲載情報のみ（未審査）']) {
     if (!familyTreeDoSiDos.footer.includes(requiredLabel)) throw new Error('Family Tree Japanese footer missing: ' + requiredLabel);
   }
   if (familyTreeDoSiDos.depths.some(depth => Math.abs(depth) > 2)) throw new Error('Family Tree depth exceeded: ' + JSON.stringify(familyTreeDoSiDos.depths));
   if (familyTreeDoSiDos.pageOverflow) throw new Error('Family Tree causes page-level horizontal overflow at 390px');
   const doSiIdentityState = await evalv("(()=>{const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());const lineage=document.querySelector('#detail-shell .ucd-lineage > div');const entry=lineage?.querySelector('[data-family-tree-entry=\"v1\"]');const evidence=lineage?.querySelector(':scope > .ucd-evidence-row');return {keys,uniqueKeys:new Set(keys).size,aliasNode:names.includes('GSC'),unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,entryBeforeEvidence:!!entry&&!!evidence&&entry.parentElement===lineage&&evidence.parentElement===lineage&&lineage.lastElementChild===evidence&&Boolean(entry.compareDocumentPosition(evidence)&Node.DOCUMENT_POSITION_FOLLOWING)}})()");
   if (doSiIdentityState.keys.length!==doSiIdentityState.uniqueKeys || doSiIdentityState.aliasNode || doSiIdentityState.unpublishedClickable || !doSiIdentityState.entryBeforeEvidence) throw new Error('Family Tree identity/entry guard mismatch: ' + JSON.stringify(doSiIdentityState));
+
+  await evalv("document.querySelector('.csw-ft-evidence-button').click();true");
+  await waitFor(() => evalv("document.querySelector('.csw-ft-evidence-sheet')?.open===true"), 'Do-Si-Dos approved source opened');
+  const actualSource = await evalv("document.querySelector('.csw-ft-evidence-source')?.href||''");
+  if (actualSource !== 'https://archiveseedbank.com/products/do-si-dos') throw new Error('Do-Si-Dos approved source URL drift: ' + actualSource);
+  await evalv("document.querySelector('.csw-ft-evidence-close').click();true");
+  await waitFor(() => evalv("document.querySelector('.csw-ft-evidence-sheet')?.open!==true"), 'Do-Si-Dos approved source closes');
 
   await evalv("document.querySelector('.csw-ft-close').click();true");
   await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open!==true && document.getElementById('detail-dialog')?.open===true"), 'Family Tree close returns to detail');
@@ -515,7 +525,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
   await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
   const collapsedFamilyBranch = await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]')?.textContent||''");
-  if (collapsedFamilyBranch !== 'さらに2件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
+  if (collapsedFamilyBranch !== 'さらに1件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
   await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
   await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===5"), 'Skunk #1 Family Tree branch expansion');
   const skunkScrollBefore = await evalv("(()=>{const v=document.querySelector('.csw-ft-viewport');v.scrollLeft=Math.min(120,Math.max(0,v.scrollWidth-v.clientWidth));return v.scrollLeft})()");
@@ -534,7 +544,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
     await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='" + familyId + "'"), familyId + ' Family Tree open');
     const state = await evalv("window.__CSWFamilyTreeViewV1");
-    if (!state || state.status !== 'PASS' || state.maxDepth !== 2 || state.branchLimit !== 3) throw new Error(familyId + ' Family Tree state invalid: ' + JSON.stringify(state));
+    if (!state || state.status !== 'PASS' || state.maxDepth !== 2 || state.branchLimit !== 4 || state.directParentsUncapped !== true) throw new Error(familyId + ' Family Tree state invalid: ' + JSON.stringify(state));
     familyTreeResults.push({ id: familyId, nodes: state.nodeCount, edges: state.edgeCount });
   }
   const typedFamilyTreeCases = [
@@ -550,9 +560,9 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     await waitFor(() => evalv("!!document.querySelector('[data-family-tree-entry=\"v1\"]')"), testCase.id + ' typed Family Tree entry');
     await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
     await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='" + testCase.id + "'"), testCase.id + ' typed Family Tree open');
-    await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.relationTypes?.includes('" + testCase.type + "') && [...document.querySelectorAll('.csw-ft-edge-label')].some(n=>n.textContent==='" + testCase.label + "')"), testCase.id + ' typed Family Tree labels ready');
+    await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.relationTypes?.includes('" + testCase.type + "') && [...document.querySelectorAll('.csw-ft-edge-label')].some(n=>n.textContent==='" + testCase.label + " · 表示のみ')"), testCase.id + ' typed Family Tree labels ready');
     const typedState = await evalv("(()=>{const state=window.__CSWFamilyTreeViewV1||null;const labels=[...document.querySelectorAll('.csw-ft-edge-label')].map(n=>n.textContent);const keys=[...document.querySelectorAll('[data-ft-node-key]')].map(n=>n.dataset.ftNodeKey);const names=[...document.querySelectorAll('.csw-ft-node strong')].map(n=>n.textContent.trim());return {state,labels,keys,uniqueKeys:new Set(keys).size,names,unpublishedClickable:document.querySelectorAll('.csw-ft-node.is-unpublished[data-ft-node-id]').length,pageOverflow:document.documentElement.scrollWidth>window.innerWidth+1}})()");
-    if (!typedState.state?.relationTypes?.includes(testCase.type) || !typedState.labels.includes(testCase.label)) throw new Error(testCase.id + ' typed relation missing: ' + JSON.stringify(typedState));
+    if (!typedState.state?.relationTypes?.includes(testCase.type) || !typedState.labels.includes(testCase.label + ' · 表示のみ')) throw new Error(testCase.id + ' typed relation missing: ' + JSON.stringify(typedState));
     if (typedState.keys.length!==typedState.uniqueKeys || typedState.unpublishedClickable || typedState.pageOverflow) throw new Error(testCase.id + ' identity/mobile guard mismatch: ' + JSON.stringify(typedState));
     if (testCase.forbiddenName && typedState.names.includes(testCase.forbiddenName)) throw new Error(testCase.id + ' invented node detected: ' + testCase.forbiddenName);
     typedFamilyTreeResults.push({ id:testCase.id, types:typedState.state.relationTypes, labels:typedState.labels });
