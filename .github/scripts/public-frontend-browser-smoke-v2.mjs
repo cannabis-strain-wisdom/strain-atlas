@@ -603,9 +603,17 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     if(card.value!==tc.value || card.label!==tc.label || card.overflow) throw new Error('Newest10 type summary mismatch: '+tc.id+' '+JSON.stringify(card));
     if(card.hasRatio!==Boolean(tc.ratio)) throw new Error('Newest10 official ratio presence mismatch: '+tc.id+' '+JSON.stringify(card));
     if(tc.ratio && JSON.stringify(card.sides)!==JSON.stringify(tc.ratio)) throw new Error('Newest10 official ratio amount mismatch: '+tc.id+' '+JSON.stringify(card));
-    const tap=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');const before={expanded:b?.getAttribute('aria-expanded'),hidden:p?.hidden,connected:b?.isConnected,root:document.querySelector('[data-public-detail-id]')?.dataset.publicDetailId};b?.click();return {before,after:{expanded:b?.getAttribute('aria-expanded'),hidden:p?.hidden,connected:b?.isConnected},navBound:b?.closest('.ucd-primary-nav')?.dataset.fixedPrimaryFallbackBound||'none'};})()");
-    const open=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return b?.getAttribute('aria-expanded')==='true' && !!p && !p.hidden})()");
-    if(!open) throw new Error('Newest10 TYPE tap expansion failed: '+tc.id+' '+JSON.stringify(tap));
+    await waitFor(() => evalv("window.__CSWDetailInteractionV1?.cultivarId==='" + tc.id + "' && window.__CSWDetailInteractionV1?.status==='PASS'"), tc.id+' interaction contract ready');
+    const unavailable=tc.value==='未確認' && tc.ratio===null;
+    const interaction=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return {state:b?.dataset.cswDetailState,disabled:b?.disabled,ariaDisabled:b?.getAttribute('aria-disabled'),expanded:b?.getAttribute('aria-expanded'),panelHidden:p?.hidden}})()");
+    if(unavailable) {
+      if(interaction.state!=='inactive'||interaction.disabled!==true||interaction.ariaDisabled!=='true'||interaction.panelHidden!==true) throw new Error('Newest10 truly UNKNOWN must remain safely inactive: '+tc.id+' '+JSON.stringify(interaction));
+      continue;
+    }
+    if(interaction.state!=='active'||interaction.disabled!==false||interaction.ariaDisabled!=='false') throw new Error('Newest10 verified TYPE/ratio must be active: '+tc.id+' '+JSON.stringify(interaction));
+    await evalv("document.querySelector('[data-ucd-primary-tab=type]').click();true");
+    await waitFor(() => evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return b?.getAttribute('aria-expanded')==='true' && !!p && !p.hidden})()"), tc.id+' TYPE tap expansion');
+
   }
   // Pin this published 10-cultivar cohort without blocking the next production batch.
   const newestTenIds = newestType10.map(item=>item.id);
