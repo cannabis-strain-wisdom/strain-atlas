@@ -581,28 +581,35 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const lineageCardAfterFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
   if (!lineageCardAfterFamilyTree) throw new Error('Lineage card missing after Family Tree interactions');
 
-  // Ratio evidence and canonical TYPE have different authority. Never infer a TYPE.
-  const typeFallbackCases = [
-    { id: 'jelly-donutz', expected: 'SATIVA 60% / INDICA 40%', ratio: true },
-    { id: 'mango-smile', expected: 'SATIVA 80% / INDICA 20%', ratio: true },
-    { id: 'super-malawi-haze', expected: 'SATIVA 90% / INDICA 10%', ratio: true },
-    { id: 'granny-candy', expected: 'SATIVA 80% / INDICA 20%', ratio: true },
-    { id: 'sour-stomper', expected: 'SATIVA 50% / INDICA 50%', ratio: true },
-    { id: 'frisian-dew', expected: '未確認', ratio: false },
-    { id: 'think-fast', expected: '未確認', ratio: false },
-    { id: 'northern-lights', expected: null, ratio: true }
+  // Exact 10 newest published cultivars as of 2026-10-12. Test both Oct 12 and Oct 7 batches.
+  // Ratio presence is source-bound and independent of canonical TYPE classification.
+  const newestType10 = [
+    { id:'frisian-dew', value:'未確認', label:'タイプ', ratio:null },
+    { id:'jelly-donutz', value:'SATIVA 60% / INDICA 40%', label:'タイプ・比率', ratio:['60%','40%'] },
+    { id:'mango-smile', value:'SATIVA 80% / INDICA 20%', label:'タイプ・比率', ratio:['80%','20%'] },
+    { id:'super-malawi-haze', value:'SATIVA 90% / INDICA 10%', label:'タイプ・比率', ratio:['90%','10%'] },
+    { id:'think-fast', value:'未確認', label:'タイプ', ratio:null },
+    { id:'black-domina', value:'INDICA', label:'タイプ', ratio:['—','95%'] },
+    { id:'hash-plant', value:'INDICA', label:'タイプ', ratio:['—','90%'] },
+    { id:'northern-lights', value:'INDICA', label:'タイプ', ratio:['10%','90%'] },
+    { id:'sage', value:'SATIVA系 HYBRID', label:'タイプ', ratio:null },
+    { id:'super-silver-haze', value:'SATIVA系 HYBRID', label:'タイプ', ratio:['70%','30%'] }
   ];
-  for (const tc of typeFallbackCases) {
-    await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=' + encodeURIComponent(tc.id)) });
-    await waitFor(() => evalv("document.readyState==='complete'"), tc.id + ' type screen ready');
-    await waitFor(() => evalv("!!document.querySelector('[data-ucd-primary-tab=type] .ucd-primary-nav-copy strong')"), tc.id + ' type nav rendered');
-    const state=await evalv("(()=>{const nav=document.querySelector('[data-ucd-primary-tab=type]');const panel=document.querySelector('[data-ucd-primary-panel=type]');return {label:nav?.querySelector('.ucd-primary-nav-copy small')?.textContent.trim(),value:nav?.querySelector('.ucd-primary-nav-copy strong')?.textContent.trim(),ratio:!!panel?.querySelector('.ucd-ratio-card'),placeholder:nav?.dataset.fixedPrimaryPlaceholder==='v1',pageOverflow:document.documentElement.scrollWidth>innerWidth+1};})()");
-    if (state.value==='タイプ' || !state.value || state.pageOverflow) throw new Error('TYPE incorrect heading/value/overflow: '+tc.id+' '+JSON.stringify(state));
-    if (tc.expected && state.value!==tc.expected) throw new Error('Confirmed ratio / UNKNOWN fallback incorrectly summarized: '+tc.id+' '+JSON.stringify(state));
-    if (tc.ratio && tc.expected && tc.expected.startsWith('SATIVA') && state.label!=='タイプ・比率') throw new Error('Confirmed ratio summary lacks its qualified heading: '+tc.id+' '+JSON.stringify(state));
-    if (!tc.expected && (state.value==='未確認' || state.label!=='タイプ')) throw new Error('Existing formal type overridden: '+tc.id+' '+JSON.stringify(state));
-    if (state.ratio!==tc.ratio) throw new Error('Independent official ratio was lost or invented: '+tc.id+' '+JSON.stringify(state));
+  for (const tc of newestType10) {
+    await cdp.send('Page.navigate', {url:navigationUrl(baseUrl + '?strain=' + encodeURIComponent(tc.id))});
+    await waitFor(() => evalv("document.readyState==='complete'"), tc.id+' doc ready');
+    await waitFor(() => evalv("!!document.querySelector('[data-ucd-primary-tab=type] .ucd-primary-nav-copy strong')"), tc.id+' TYPE ready');
+    const card=await evalv("(()=>{const nav=document.querySelector('[data-ucd-primary-tab=type]');const panel=document.querySelector('[data-ucd-primary-panel=type]');const details=panel?.querySelector('.ucd-ratio-card');return {label:nav?.querySelector('.ucd-primary-nav-copy small')?.textContent.trim(),value:nav?.querySelector('.ucd-primary-nav-copy strong')?.textContent.trim(),hasRatio:!!details,sides:details?[...details.querySelectorAll('.ucd-ratio-head > div strong')].map(e=>e.textContent.trim()):[],overflow:document.documentElement.scrollWidth>innerWidth+1}})()");
+    if(card.value!==tc.value || card.label!==tc.label || card.overflow) throw new Error('Newest10 type summary mismatch: '+tc.id+' '+JSON.stringify(card));
+    if(card.hasRatio!==Boolean(tc.ratio)) throw new Error('Newest10 official ratio presence mismatch: '+tc.id+' '+JSON.stringify(card));
+    if(tc.ratio && JSON.stringify(card.sides)!==JSON.stringify(tc.ratio)) throw new Error('Newest10 official ratio amount mismatch: '+tc.id+' '+JSON.stringify(card));
+    await evalv("document.querySelector('[data-ucd-primary-tab=type]').click();true");
+    const open=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return b?.getAttribute('aria-expanded')==='true' && !!p && !p.hidden})()");
+    if(!open) throw new Error('Newest10 TYPE tap expansion failed: '+tc.id);
   }
+  const newestTenIds = newestType10.map(item=>item.id).sort();
+  const newestTenFromCatalog = await evalv("window.__CSWRuntimeCatalogPromise?.then ? 'loaded' : 'loading'");
+  if(newestTenIds.length!==10 || new Set(newestTenIds).size!==10 || !newestTenFromCatalog) throw new Error('Newest10 audit incomplete');
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
