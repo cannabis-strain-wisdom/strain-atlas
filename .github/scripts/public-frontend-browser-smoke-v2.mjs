@@ -581,6 +581,28 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   const lineageCardAfterFamilyTree = await evalv("document.querySelectorAll('#detail-shell .ucd-lineage').length");
   if (!lineageCardAfterFamilyTree) throw new Error('Lineage card missing after Family Tree interactions');
 
+  // Keep display-only TYPE UNKNOWN distinct from the section title. Ratios are separate evidence.
+  const typeFallbackCases = [
+    { id: 'jelly-donutz', expected: '未確認', ratio: true },
+    { id: 'mango-smile', expected: '未確認', ratio: true },
+    { id: 'super-malawi-haze', expected: '未確認', ratio: true },
+    { id: 'granny-candy', expected: '未確認', ratio: true },
+    { id: 'sour-stomper', expected: '未確認', ratio: true },
+    { id: 'frisian-dew', expected: '未確認', ratio: false },
+    { id: 'think-fast', expected: '未確認', ratio: false },
+    { id: 'northern-lights', expected: null, ratio: true }
+  ];
+  for (const tc of typeFallbackCases) {
+    await cdp.send('Page.navigate', { url: navigationUrl(baseUrl + '?strain=' + encodeURIComponent(tc.id)) });
+    await waitFor(() => evalv("document.readyState==='complete'"), tc.id + ' type screen ready');
+    await waitFor(() => evalv("!!document.querySelector('[data-ucd-primary-tab=type] .ucd-primary-nav-copy strong')"), tc.id + ' type nav rendered');
+    const state=await evalv("(()=>{const nav=document.querySelector('[data-ucd-primary-tab=type]');const panel=document.querySelector('[data-ucd-primary-panel=type]');return {value:nav?.querySelector('.ucd-primary-nav-copy strong')?.textContent.trim(),ratio:!!panel?.querySelector('.ucd-ratio-card'),placeholder:nav?.dataset.fixedPrimaryPlaceholder==='v1'};})()");
+    if (state.value==='タイプ' || !state.value) throw new Error('TYPE label used as data value: '+tc.id+' '+JSON.stringify(state));
+    if (tc.expected && state.value!==tc.expected) throw new Error('TYPE UNKNOWN fallback incorrect: '+tc.id+' '+JSON.stringify(state));
+    if (!tc.expected && state.value==='未確認') throw new Error('Confirmed TYPE replaced with UNKNOWN: '+tc.id+' '+JSON.stringify(state));
+    if (state.ratio!==tc.ratio) throw new Error('Independent breeder ratio was lost or invented: '+tc.id+' '+JSON.stringify(state));
+  }
+
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
 
