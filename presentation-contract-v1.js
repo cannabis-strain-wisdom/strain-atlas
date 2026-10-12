@@ -202,12 +202,26 @@ window.addEventListener("popstate",schedule);
       };
 
       const typeValue = typeCard?.querySelector('.ucd-ratio-head > b, :scope > strong')?.textContent?.trim() || '';
+      // A confirmed breeder ratio is displayable evidence even when the separate
+      // canonical TYPE category is UNKNOWN. Mirror the two rendered ratio values;
+      // never reverse-infer a TYPE from their proportions.
+      const formalRatio = cultivar?.classification?.ratio;
+      const confirmedRatioCard = !typeValue && typeCard?.classList.contains('ucd-ratio-card')
+        && formalRatio?.status === 'confirmed' && formalRatio?.measurement;
+      const ratioValueText = confirmedRatioCard
+        ? [...typeCard.querySelectorAll('.ucd-ratio-head > div')].map(side => {
+            const name = side.querySelector('small')?.textContent?.trim();
+            const value = side.querySelector('strong')?.textContent?.trim();
+            return (name === 'SATIVA' || name === 'INDICA') && value && value !== '—'
+              ? name + ' ' + value : '';
+          }).filter(Boolean).join(' / ')
+        : '';
       const cannabinoidItems = Array.isArray(cultivar?.cannabinoids?.presentation?.items) ? cultivar.cannabinoids.presentation.items : [];
       const preferredCannabinoid = cannabinoidItems.find(item => item?.label === 'THC') || cannabinoidItems[0];
       const cannabinoidValue = preferredCannabinoid?.valueText
         ? `${preferredCannabinoid.label || ''} ${preferredCannabinoid.valueText}`.trim()
         : cannabinoidItems.length ? `${cannabinoidItems.length}件` : '';
-      addPrimary('type', 'タイプ', typeValue, typeCard);
+      addPrimary('type', ratioValueText ? 'タイプ・比率' : 'タイプ', typeValue || ratioValueText, typeCard);
       addPrimary('cannabinoid', 'カンナビノイド', cannabinoidValue, cannabinoidCard);
       nav.dataset.count = String(nav.querySelectorAll('[data-ucd-primary-tab]').length);
 
