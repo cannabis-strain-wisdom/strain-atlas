@@ -607,9 +607,10 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     const open=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return b?.getAttribute('aria-expanded')==='true' && !!p && !p.hidden})()");
     if(!open) throw new Error('Newest10 TYPE tap expansion failed: '+tc.id);
   }
-  const newestTenIds = newestType10.map(item=>item.id).sort();
-  const newestTenFromCatalog = await evalv("window.__CSWRuntimeCatalogPromise?.then ? 'loaded' : 'loading'");
-  if(newestTenIds.length!==10 || new Set(newestTenIds).size!==10 || !newestTenFromCatalog) throw new Error('Newest10 audit incomplete');
+  // Pin this published 10-cultivar cohort without blocking the next production batch.
+  const newestTenIds = newestType10.map(item=>item.id);
+  const currentlyPublished = JSON.parse(fs.readFileSync('runtime/catalog.json','utf8')).cultivars;
+  if(newestTenIds.length!==10 || new Set(newestTenIds).size!==10 || newestTenIds.some(id=>!currentlyPublished.some(item=>item.id===id))) throw new Error('Published 10-cultivar cohort audit incomplete');
 
   const runtimeErrors = cdp.events.filter(event => event.method === 'Runtime.exceptionThrown');
   if (runtimeErrors.length) throw new Error(`Runtime exceptions: ${JSON.stringify(runtimeErrors.slice(0, 3))}`);
