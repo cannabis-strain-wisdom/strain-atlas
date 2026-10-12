@@ -589,11 +589,11 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     { id:'mango-smile', value:'SATIVA 80% / INDICA 20%', label:'タイプ・比率', ratio:['80%','20%'] },
     { id:'super-malawi-haze', value:'SATIVA 90% / INDICA 10%', label:'タイプ・比率', ratio:['90%','10%'] },
     { id:'think-fast', value:'未確認', label:'タイプ', ratio:null },
-    { id:'black-domina', value:'INDICA', label:'タイプ', ratio:['—','95%'] },
-    { id:'hash-plant', value:'INDICA', label:'タイプ', ratio:['—','90%'] },
-    { id:'northern-lights', value:'INDICA', label:'タイプ', ratio:['10%','90%'] },
-    { id:'sage', value:'SATIVA系 HYBRID', label:'タイプ', ratio:null },
-    { id:'super-silver-haze', value:'SATIVA系 HYBRID', label:'タイプ', ratio:['70%','30%'] }
+    { id:'black-domina', value:'インディカ', label:'タイプ', ratio:['—','95%'] },
+    { id:'hash-plant', value:'インディカ', label:'タイプ', ratio:['—','90%'] },
+    { id:'northern-lights', value:'インディカ', label:'タイプ', ratio:['10%','90%'] },
+    { id:'sage', value:'サティバ優勢ハイブリッド', label:'タイプ', ratio:null },
+    { id:'super-silver-haze', value:'サティバ優勢ハイブリッド', label:'タイプ', ratio:['70%','30%'] }
   ];
   for (const tc of newestType10) {
     await cdp.send('Page.navigate', {url:navigationUrl(baseUrl + '?strain=' + encodeURIComponent(tc.id))});
