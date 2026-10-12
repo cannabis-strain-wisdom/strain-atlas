@@ -183,7 +183,7 @@ window.addEventListener("popstate",schedule);
         const label = document.createElement('small');
         label.textContent = labelText;
         const value = document.createElement('strong');
-        value.textContent = valueText || labelText;
+        value.textContent = valueText || (kind === 'type' ? '未確認' : labelText);
         const chevron = document.createElement('i');
         chevron.setAttribute('aria-hidden', 'true');
         chevron.textContent = '⌄';
