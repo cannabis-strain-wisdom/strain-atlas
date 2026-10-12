@@ -603,9 +603,9 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     if(card.value!==tc.value || card.label!==tc.label || card.overflow) throw new Error('Newest10 type summary mismatch: '+tc.id+' '+JSON.stringify(card));
     if(card.hasRatio!==Boolean(tc.ratio)) throw new Error('Newest10 official ratio presence mismatch: '+tc.id+' '+JSON.stringify(card));
     if(tc.ratio && JSON.stringify(card.sides)!==JSON.stringify(tc.ratio)) throw new Error('Newest10 official ratio amount mismatch: '+tc.id+' '+JSON.stringify(card));
-    await evalv("document.querySelector('[data-ucd-primary-tab=type]').click();true");
+    const tap=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');const before={expanded:b?.getAttribute('aria-expanded'),hidden:p?.hidden,connected:b?.isConnected,root:document.querySelector('[data-public-detail-id]')?.dataset.publicDetailId};b?.click();return {before,after:{expanded:b?.getAttribute('aria-expanded'),hidden:p?.hidden,connected:b?.isConnected},navBound:b?.closest('.ucd-primary-nav')?.dataset.fixedPrimaryFallbackBound||'none'};})()");
     const open=await evalv("(()=>{const b=document.querySelector('[data-ucd-primary-tab=type]');const p=document.querySelector('[data-ucd-primary-panel=type]');return b?.getAttribute('aria-expanded')==='true' && !!p && !p.hidden})()");
-    if(!open) throw new Error('Newest10 TYPE tap expansion failed: '+tc.id);
+    if(!open) throw new Error('Newest10 TYPE tap expansion failed: '+tc.id+' '+JSON.stringify(tap));
   }
   // Pin this published 10-cultivar cohort without blocking the next production batch.
   const newestTenIds = newestType10.map(item=>item.id);
