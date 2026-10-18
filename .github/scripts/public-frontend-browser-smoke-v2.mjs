@@ -585,14 +585,14 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   // October 7 regression anchors. TYPE must never be inferred from RATIO.
   // A verified ratio stays available inside details, not as a TYPE summary.
   const newestType10 = [
-    { id:'frisian-dew', value:'未確認', label:'タイプ', ratio:null },
-    { id:'jelly-donutz', value:'未確認', label:'タイプ', ratio:['60%','40%'] },
+    { id:'frisian-dew', value:'ハイブリッド', label:'タイプ', ratio:null },
+    { id:'jelly-donutz', value:'ハイブリッド', label:'タイプ', ratio:['60%','40%'] },
     { id:'mango-smile', value:'未確認', label:'タイプ', ratio:['80%','20%'] },
-    { id:'super-malawi-haze', value:'未確認', label:'タイプ', ratio:['90%','10%'] },
-    { id:'think-fast', value:'未確認', label:'タイプ', ratio:null },
+    { id:'super-malawi-haze', value:'ハイブリッド', label:'タイプ', ratio:['90%','10%'] },
+    { id:'think-fast', value:'サティバ優勢ハイブリッド', label:'タイプ', ratio:null },
     { id:'garlic-budder', value:'インディカ', label:'タイプ', ratio:['30%','70%'] },
     { id:'golden-sands', value:'インディカ優勢ハイブリッド', label:'タイプ', ratio:['20%','80%'] },
-    { id:'granny-candy', value:'未確認', label:'タイプ', ratio:['80%','20%'] },
+    { id:'granny-candy', value:'サティバ優勢ハイブリッド', label:'タイプ', ratio:['80%','20%'] },
     { id:'orange-creampop', value:'サティバ優勢ハイブリッド', label:'タイプ', ratio:['70%','30%'] },
     { id:'sour-stomper', value:'未確認', label:'タイプ', ratio:['50%','50%'] }
   ];
