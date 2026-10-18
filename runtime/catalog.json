@@ -11427,7 +11427,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown"
+        "type": "hybrid"
       },
       "breeding": {
         "generation": "unknown"
@@ -14359,7 +14359,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown",
+        "type": "sativa-dominant-hybrid",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -17112,7 +17112,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown",
+        "type": "hybrid",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -31520,7 +31520,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown",
+        "type": "hybrid",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -33711,7 +33711,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "unknown"
+        "type": "sativa-dominant-hybrid"
       },
       "breeding": {
         "generation": "unknown"
