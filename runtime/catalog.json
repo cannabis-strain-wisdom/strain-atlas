@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T21:57:00.772Z",
+  "generatedAt": "2026-11-10T21:52:01.403Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 137,
-    "sources": 280,
+    "cultivars": 138,
+    "sources": 281,
     "entities": 48
   },
   "explore": {
@@ -151,6 +151,7 @@
       "granny-candy",
       "jelly-donutz",
       "mango-smile",
+      "panama-haze",
       "sour-stomper",
       "super-malawi-haze",
       "t-1000-s1",
@@ -11427,7 +11428,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "hybrid"
+        "type": "unknown"
       },
       "breeding": {
         "generation": "unknown"
@@ -14359,7 +14360,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid",
+        "type": "unknown",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -17112,7 +17113,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "hybrid",
+        "type": "unknown",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -25123,6 +25124,228 @@
     },
     {
       "schemaVersion": 1,
+      "id": "panama-haze",
+      "status": "review",
+      "name": "Panama Haze",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-panama-haze-20261109"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsはレギュラー版を、Purple Haze #23とGreen Haze #19の母株にPanamaの親株を掛け合わせたF1として紹介しています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "official-panama-haze-20261109"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "official-panama-haze-20261109"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "レモン系",
+          "スパイス",
+          "インセンス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "レモン系",
+            "スパイス",
+            "インセンス"
+          ],
+          "details": [
+            {
+              "rawMatch": "lemony",
+              "reviewLabelJa": "レモン系",
+              "plainMeaningJa": "レモンを思わせる柑橘系の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "レモン",
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spices",
+              "reviewLabelJa": "スパイス",
+              "plainMeaningJa": "複数の香辛料を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incensey",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE Seedsはレギュラー版の香りとして、レモンを思わせる香り、スパイス、香を焚いたような香りを挙げています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "official-panama-haze-20261109"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "maximum",
+              "boundaryValue": 1.5,
+              "unit": "%",
+              "valueText": "最大1.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "official-panama-haze-20261109"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 18,
+              "maxValue": 23,
+              "unit": "%",
+              "valueText": "18〜23%",
+              "confidence": "B",
+              "sourceRefs": [
+                "official-panama-haze-20261109"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-panama-haze-20261109"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、Hazeの香りを保ちながら花の密度を高めるため、Panamaを交配に用いたと説明しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "official-panama-haze-20261109"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "育成元の記述では、背が高くしなやかで、横枝が強く伸びる構造です。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "ACE Seedsはレギュラー版を、Purple Haze #23とGreen Haze #19の母株にPanamaの親株を掛け合わせたF1として紹介しています。",
+          "history": "ACE Seedsは、Hazeの香りを保ちながら花の密度を高めるため、Panamaを交配に用いたと説明しています。",
+          "aromaNote": "ACE Seedsはレギュラー版の香りとして、レモンを思わせる香り、スパイス、香を焚いたような香りを挙げています。",
+          "morphologyNote": "育成元の記述では、背が高くしなやかで、横枝が強く伸びる構造です。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/panama-haze/primary.webp",
+          "alt": "Panama HazeのAI参考画像の準備案",
+          "rights": "AI project reference; no source image redistribution.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "updatedAt": "2026-11-09",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
       "id": "papaya",
       "status": "review",
       "name": "Papaya",
@@ -31520,7 +31743,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "hybrid",
+        "type": "unknown",
         "ratio": {
           "status": "confirmed",
           "confidence": "A",
@@ -33711,7 +33934,7 @@
       "jp": null,
       "aliases": [],
       "classification": {
-        "type": "sativa-dominant-hybrid"
+        "type": "unknown"
       },
       "breeding": {
         "generation": "unknown"
@@ -41249,6 +41472,29 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-10-12"
+    },
+    "official-panama-haze-20261109": {
+      "schemaVersion": 1,
+      "id": "official-panama-haze-20261109",
+      "publisher": "ACE Seeds",
+      "title": "Panama Haze official cultivar page (Regular)",
+      "url": "https://www.aceseeds.org/en/seeds/panama-haze-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "generation",
+        "lineage",
+        "history",
+        "morphology",
+        "visual",
+        "classification",
+        "aroma",
+        "cannabinoids",
+        "terpenes"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-11"
     },
     "official-super-malawi-haze-20261012": {
       "schemaVersion": 1,
