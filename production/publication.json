@@ -750,6 +750,11 @@
       "strainId": "panama-haze",
       "state": "published",
       "publishedAt": "2026-11-10T21:52:00Z"
+    },
+    {
+      "strainId": "cream-caramel",
+      "state": "published",
+      "publishedAt": "2026-11-11T16:38:14Z"
     }
   ]
 }

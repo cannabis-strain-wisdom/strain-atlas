@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T21:52:01.403Z",
+  "generatedAt": "2026-11-11T16:38:15.489Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 138,
-    "sources": 281,
+    "cultivars": 139,
+    "sources": 283,
     "entities": 48
   },
   "explore": {
@@ -146,6 +146,7 @@
       "zoap"
     ],
     "unclassified": [
+      "cream-caramel",
       "freakshow",
       "frisian-dew",
       "granny-candy",
@@ -8189,6 +8190,230 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "cream-caramel",
+      "status": "review",
+      "name": "Cream Caramel",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sweet-seeds-2022-catalog",
+            "sweet-seeds-2024-catalog"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 10,
+            "indica": 90,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 10,
+              "indica": 90,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sweet Seeds公式カタログに掲載されたCream Caramel（SWS04）は、Blue Black、Maple Leaf Indica、White Rhinoの交配に由来します。Auto版やF1 Fast Versionとは区別します。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "カラメル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "カラメル"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "caramelized",
+              "reviewLabelJa": "カラメル",
+              "plainMeaningJa": "加熱して焦がした砂糖を思わせる甘く香ばしい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "焦がし砂糖",
+                "カラメル"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式資料では、甘くキャラメルを思わせる香りに土っぽいニュアンスが重なると説明しています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "sweet-seeds-2024-catalog"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 1.6,
+              "unit": "%",
+              "valueText": "1.6%",
+              "confidence": "B",
+              "sourceRefs": [
+                "sweet-seeds-2024-catalog"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 15,
+              "maxValue": 20,
+              "unit": "%",
+              "valueText": "15〜20%",
+              "confidence": "B",
+              "sourceRefs": [
+                "sweet-seeds-2024-catalog"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog",
+          "sweet-seeds-2024-catalog"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sweet Seedsは本品種を、Blue Black、Maple Leaf Indica、White Rhinoを用いた交配品種として紹介しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog",
+          "sweet-seeds-2024-catalog"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sweet Seeds公式カタログに掲載されたCream Caramel（SWS04）は、Blue Black、Maple Leaf Indica、White Rhinoの交配に由来します。Auto版やF1 Fast Versionとは区別します。",
+          "history": "Sweet Seedsは本品種を、Blue Black、Maple Leaf Indica、White Rhinoを用いた交配品種として紹介しています。",
+          "aromaNote": "公式資料では、甘くキャラメルを思わせる香りに土っぽいニュアンスが重なると説明しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/cream-caramel/primary.webp",
+          "alt": "Cream Caramel SWS04の公式形態記述を参考にしたAI生成画像",
+          "rights": "AI-generated project reference; no official source photograph redistributed.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-11",
+      "updatedAt": "2026-11-11",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
@@ -42448,6 +42673,48 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-09-24"
+    },
+    "sweet-seeds-2022-catalog": {
+      "schemaVersion": 1,
+      "id": "sweet-seeds-2022-catalog",
+      "publisher": "Sweet Seeds",
+      "title": "Sweet Seeds 2022 Collection, English catalog",
+      "url": "https://sweetseeds.es/upload/catalogos/2022/en.pdf",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "classification",
+        "aroma",
+        "morphology",
+        "visual",
+        "history",
+        "ratio"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-11"
+    },
+    "sweet-seeds-2024-catalog": {
+      "schemaVersion": 1,
+      "id": "sweet-seeds-2024-catalog",
+      "publisher": "Sweet Seeds",
+      "title": "Sweet Seeds 2024 Spanish Collection, Cream Caramel SWS04",
+      "url": "https://sweetseeds.es/upload/catalogos/2024/es.pdf",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "classification",
+        "ratio",
+        "cannabinoids",
+        "aroma",
+        "morphology",
+        "history"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-11"
     },
     "thseeds-bubblegum": {
       "schemaVersion": 1,
