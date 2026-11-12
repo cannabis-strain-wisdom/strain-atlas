@@ -755,6 +755,11 @@
       "strainId": "cream-caramel",
       "state": "published",
       "publishedAt": "2026-11-11T16:38:14Z"
+    },
+    {
+      "strainId": "jack-47",
+      "state": "published",
+      "publishedAt": "2026-11-12T19:09:27Z"
     }
   ]
 }

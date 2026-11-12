@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T16:38:15.489Z",
+  "generatedAt": "2026-11-12T19:09:28.681Z",
   "sourceOfTruth": {
     "cultivars": "strains/<id>/strain.json",
     "sources": "sources/*.json",
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 139,
+    "cultivars": 140,
     "sources": 283,
     "entities": 48
   },
@@ -150,6 +150,7 @@
       "freakshow",
       "frisian-dew",
       "granny-candy",
+      "jack-47",
       "jelly-donutz",
       "mango-smile",
       "panama-haze",
@@ -16621,6 +16622,251 @@
         "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
         "state": "CURRENT",
         "heldFields": []
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "jack-47",
+      "status": "review",
+      "name": "Jack 47",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sweet-seeds-2022-catalog"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 75,
+            "indica": 25,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 75,
+              "indica": 25,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sweet Seedsの公式カタログでは、Jack 47（SWS08）の交配にJack Herer × AK 47を記載しています。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "A",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "フレッシュ",
+          "レモン系",
+          "インセンス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "フレッシュ",
+            "レモン系",
+            "インセンス"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fresh",
+              "reviewLabelJa": "フレッシュ",
+              "plainMeaningJa": "新鮮で軽やかな印象の香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "新鮮"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemony",
+              "reviewLabelJa": "レモン系",
+              "plainMeaningJa": "レモンを思わせる柑橘系の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "レモン",
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "Sweet Seedsの公式カタログは、甘く爽やかな香りに、レモンやインセンスを思わせるニュアンスがあると記載しています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "sweet-seeds-2024-catalog"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 1.6,
+              "unit": "%",
+              "valueText": "1.6%",
+              "confidence": "B",
+              "sourceRefs": [
+                "sweet-seeds-2024-catalog"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 18,
+              "maxValue": 24,
+              "unit": "%",
+              "valueText": "18〜24%",
+              "confidence": "B",
+              "sourceRefs": [
+                "sweet-seeds-2024-catalog"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sweet Seedsの公式カタログにはJack 47（SWS08）の交配情報と、過去のコンテスト受賞歴が記載されています。受賞情報は育種元が掲載した履歴として扱います。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sweet-seeds-2022-catalog"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sweet Seedsの公式カタログでは、Jack 47（SWS08）の交配にJack Herer × AK 47を記載しています。",
+          "history": "Sweet Seedsの公式カタログにはJack 47（SWS08）の交配情報と、過去のコンテスト受賞歴が記載されています。受賞情報は育種元が掲載した履歴として扱います。",
+          "aromaNote": "Sweet Seedsの公式カタログは、甘く爽やかな香りに、レモンやインセンスを思わせるニュアンスがあると記載しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/jack-47/primary.webp",
+          "alt": "Jack 47のAI参考画像の準備案",
+          "rights": "AI project reference; no source image redistribution.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "updatedAt": "2026-11-13",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
       }
     },
     {
