@@ -1941,4 +1941,23 @@
  apply();
 })();
 </script>
-</body></html>
+<!-- CSW_DURBAN_S1_PARENT_REFERENCE -->
+  <script>
+  (() => {
+    const shell = document.getElementById('detail-shell');
+    if (!shell) return;
+    const referenceId = 'csw-durban-s1-parent-reference';
+    function update() {
+      const heading = Array.from(shell.querySelectorAll('h2')).find(node => node.textContent.trim() === 'Durban Poison S1');
+      if (!heading || document.getElementById(referenceId)) return;
+      const link = document.createElement('a');
+      link.id = referenceId;
+      link.href = '?strain=durban-poison';
+      link.textContent = '親品種の参考情報：Durban Poison';
+      heading.insertAdjacentElement('afterend', link);
+    }
+    new MutationObserver(update).observe(shell, {childList:true, subtree:true});
+    update();
+  })();
+  </script>
+  </body></html>
