@@ -158,8 +158,8 @@
     },
     {
       "strainId": "bubblegum-s1",
-      "state": "pending",
-      "publishedAt": "2026-08-19T12:35:32Z"
+      "state": "published",
+      "publishedAt": "2026-11-22T21:15:42.171Z"
     },
     {
       "strainId": "chemdog-d-s1",
