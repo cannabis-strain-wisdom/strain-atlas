@@ -103,8 +103,8 @@
     },
     {
       "strainId": "gorilla-glue-4-s1",
-      "state": "pending",
-      "publishedAt": "2026-08-19T09:30:35Z"
+      "state": "published",
+      "publishedAt": "2026-11-22T20:43:13.837Z"
     },
     {
       "strainId": "jager-s1",
