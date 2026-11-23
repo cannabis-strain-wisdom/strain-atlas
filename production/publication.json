@@ -118,7 +118,8 @@
     },
     {
       "strainId": "chemdog-1-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-23T15:27:30Z"
     },
     {
       "strainId": "chemdog-4-s1",
