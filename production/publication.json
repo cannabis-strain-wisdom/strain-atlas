@@ -128,7 +128,8 @@
     },
     {
       "strainId": "granddaddy-purple-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-23T15:43:05Z"
     },
     {
       "strainId": "hp13-s1",
