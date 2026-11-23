@@ -133,7 +133,8 @@
     },
     {
       "strainId": "hp13-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-23T15:50:51Z"
     },
     {
       "strainId": "laughing-buddha",
