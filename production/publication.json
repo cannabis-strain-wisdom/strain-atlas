@@ -113,7 +113,8 @@
     },
     {
       "strainId": "apple-fritter-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-23T15:18:42Z"
     },
     {
       "strainId": "chemdog-1-s1",
