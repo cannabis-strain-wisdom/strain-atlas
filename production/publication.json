@@ -123,7 +123,8 @@
     },
     {
       "strainId": "chemdog-4-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-23T15:35:09Z"
     },
     {
       "strainId": "granddaddy-purple-s1",
