@@ -60,7 +60,8 @@
     },
     {
       "strainId": "wedding-cake-s1",
-      "state": "pending"
+      "state": "published",
+      "publishedAt": "2026-11-24T20:09:12Z"
     },
     {
       "strainId": "zamaldelica",

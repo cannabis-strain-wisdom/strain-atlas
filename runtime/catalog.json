@@ -39611,6 +39611,110 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "wedding-cake-s1",
+      "status": "review",
+      "name": "Wedding Cake S1",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "S1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "humboldt-csi-wedding-cake-s1"
+        ],
+        "display": "Wedding Cake（S1）",
+        "parents": [
+          "Wedding Cake"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt CSI公式ではWedding Cake × Wedding Cakeと記載され、S1表記に基づくセルフ化したS1ラインとして扱われています。ただし、使用されたWedding Cake cutの由来やSeed Junky / Triangle Mints #23との同一性は公式ページでは特定されていません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "humboldt-csi",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "humboldt-csi-wedding-cake-s1"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "humboldt-csi-wedding-cake-s1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Humboldt CSIがWedding Cake × Wedding Cakeとして展開するfeminized S1ラインです。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Humboldt CSI公式ではWedding Cake × Wedding Cakeと記載され、S1表記に基づくセルフ化したS1ラインとして扱われています。ただし、使用されたWedding Cake cutの由来やSeed Junky / Triangle Mints #23との同一性は公式ページでは特定されていません。",
+          "origin": "Humboldt CSIがWedding Cake × Wedding Cakeとして展開するfeminized S1ラインです。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/wedding-cake-s1/primary.webp",
+          "alt": "Wedding Cake S1の公式同定情報に基づき、未確認の品種固有形態を加えず新規生成した植物学的参考画像",
+          "rights": "AI-generated project asset for Cannabis Strain Wisdom. Generated from text only; the legacy PNG is not used as an input.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-08-16",
+      "updatedAt": "2026-11-24",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -45198,6 +45302,22 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-19"
+    },
+    "humboldt-csi-wedding-cake-s1": {
+      "schemaVersion": 1,
+      "id": "humboldt-csi-wedding-cake-s1",
+      "publisher": "Humboldt CSI",
+      "title": "Wedding Cake S1",
+      "url": "https://humboldtcsi.com/product/wedding-cake-s1/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "lineage",
+        "breeder",
+        "generation",
+        "origin"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-08-16"
     }
   },
   "entities": {
