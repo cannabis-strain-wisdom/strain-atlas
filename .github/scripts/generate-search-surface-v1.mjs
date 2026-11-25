@@ -93,6 +93,44 @@ function summaryRows(cultivar) {
   return rows;
 }
 
+const proseSections = [
+  ['lineageNote', '系譜'], ['origin', '起源'], ['history', '歴史'],
+  ['aromaNote', '香り'], ['terpeneNote', 'テルペン'],
+  ['morphologyNote', '形態'], ['positioning', '品種の位置づけ']
+];
+
+function publicProse(cultivar) {
+  const prose = cultivar?.publicContent?.ja || {};
+  const sections = proseSections.map(([key, label]) => [label, cleanText(prose[key])]).filter(([, value]) => value);
+  // Some published S1 entries have no approved prose yet. State only their
+  // confirmed public lineage, without filling unknown aroma/history fields.
+  if (!sections.length && cultivar?.lineage?.status === 'confirmed' && cleanText(cultivar.lineage.display)) {
+    sections.push(['系譜', `確認された系譜：${cleanText(cultivar.lineage.display)}。`]);
+  }
+  return sections;
+}
+
+function sourceRows(cultivar) {
+  const refs = new Set();
+  const visit = value => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value.sourceRefs)) {
+      for (const ref of value.sourceRefs) if (typeof ref === 'string') refs.add(ref);
+    }
+    for (const [key, child] of Object.entries(value)) {
+      if (key !== 'publicPresentation' && key !== 'visuals') visit(child);
+    }
+  };
+  visit(cultivar);
+  return [...refs].sort().map(ref => {
+    const source = catalog.sources?.[ref];
+    if (!source) throw new Error(`public source missing: ${cultivar.id}:${ref}`);
+    const url = cleanText(source.url);
+    if (!/^https:\/\/[^\s<>"']+$/.test(url)) throw new Error(`invalid public source URL: ${cultivar.id}:${ref}`);
+    return { publisher: cleanText(source.publisher), title: cleanText(source.title), url };
+  });
+}
+
 function pageFor(cultivar) {
   const id = cleanText(cultivar?.id);
   const name = cleanText(cultivar?.name);
@@ -102,16 +140,22 @@ function pageFor(cultivar) {
   const jp = cleanText(cultivar?.jp);
   const canonical = `${siteRoot}cultivars/${encodeURIComponent(id)}/`;
   const interactive = `${siteRoot}?strain=${encodeURIComponent(id)}`;
-  const description = `${name}の系譜・香り・成分・歴史を、確認できる出典とともに整理するCannabis Strain Wisdomの品種ページ。`;
+  const prose = publicProse(cultivar);
+  const description = `${name}：${(prose[0]?.[1] || `${name}の公開情報と出典を掲載しています。`).slice(0, 145)}`;
   const robots = indexing === 'open' ? 'index,follow,max-image-preview:large' : 'noindex,nofollow,noarchive';
   const visual = visualFor(cultivar);
   const rows = summaryRows(cultivar);
+  const sources = sourceRows(cultivar);
   const rowsHtml = rows.length
     ? `<dl class="facts">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('')}</dl>`
     : '<p class="muted">公開情報を整理中です。</p>';
   const visualHtml = visual
     ? `<figure><img src="../../${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}" loading="eager" decoding="async"></figure>`
     : '';
+  const proseHtml = prose.map(([label, value]) => `<section class="prose"><h2>${escapeHtml(label)}</h2><p>${escapeHtml(value)}</p></section>`).join('\n    ');
+  const sourcesHtml = sources.map(({ publisher, title, url }) =>
+    `<li><a href="${escapeHtml(url)}" rel="noopener noreferrer">${escapeHtml(publisher || title || url)}${publisher && title ? ` — ${escapeHtml(title)}` : ''}</a></li>`
+  ).join('\n      ');
 
   return `<!doctype html>
 <html lang="ja">
@@ -128,7 +172,7 @@ function pageFor(cultivar) {
   <meta property="og:url" content="${escapeHtml(canonical)}">
   <title>${escapeHtml(name)} | Cannabis Strain Wisdom</title>
   <style>
-    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#06100c;color:#e7eee9;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}main{width:min(760px,calc(100% - 32px));margin:0 auto;padding:38px 0 54px}a{color:#e7cc78}.kicker{color:#d8bd62;font-size:12px;font-weight:800;letter-spacing:.12em}h1{margin:.3rem 0 0;font-size:clamp(2rem,8vw,4rem);line-height:1.05}.jp{margin:.45rem 0 0;color:#91a198}.lead{margin:1.2rem 0 1.4rem;color:#becac2}.facts{display:grid;gap:10px;margin:22px 0}.facts div{padding:12px 14px;border:1px solid #24352c;border-radius:14px;background:#0a1711}.facts dt{color:#bba45e;font-size:11px;font-weight:800;letter-spacing:.1em}.facts dd{margin:4px 0 0}figure{margin:22px 0}img{display:block;width:100%;height:auto;border-radius:18px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.actions a{display:inline-flex;min-height:44px;align-items:center;padding:0 14px;border:1px solid #3b4b42;border-radius:999px;text-decoration:none}.muted{color:#7f9187}
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#06100c;color:#e7eee9;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}main{width:min(760px,calc(100% - 32px));margin:0 auto;padding:38px 0 54px}a{color:#e7cc78;overflow-wrap:anywhere}.kicker{color:#d8bd62;font-size:12px;font-weight:800;letter-spacing:.12em}h1{margin:.3rem 0 0;font-size:clamp(2rem,8vw,4rem);line-height:1.05}.jp{margin:.45rem 0 0;color:#91a198}.lead{margin:1.2rem 0 1.4rem;color:#becac2}.facts{display:grid;gap:10px;margin:22px 0}.facts div{padding:12px 14px;border:1px solid #24352c;border-radius:14px;background:#0a1711}.facts dt{color:#bba45e;font-size:11px;font-weight:800;letter-spacing:.1em}.facts dd{margin:4px 0 0}figure{margin:22px 0}img{display:block;width:100%;height:auto;border-radius:18px}.prose{margin:24px 0}.prose h2,.sources h2{font-size:1.2rem;color:#d8bd62}.sources{margin-top:34px}.sources li{margin:9px 0}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.actions a{display:inline-flex;min-height:44px;align-items:center;padding:0 14px;border:1px solid #3b4b42;border-radius:999px;text-decoration:none}.muted{color:#7f9187}
   </style>
 </head>
 <body>
@@ -136,9 +180,12 @@ function pageFor(cultivar) {
     <div class="kicker">CULTIVAR</div>
     <h1>${escapeHtml(name)}</h1>
     ${jp ? `<p class="jp">${escapeHtml(jp)}</p>` : ''}
-    <p class="lead">Cannabis Strain Wisdomで公開している品種情報の検索入口です。系譜・香り・成分・歴史は、公開済みの情報㇠けを使㇣て整理しています。</p>
+    <p class="lead">${escapeHtml(description)}</p>
     ${visualHtml}
+    ${visual?.src && (cultivar.visuals || []).some(item => item.src === visual.src && item.aiGenerated) ? '<p class="muted">画像はAI生成による参考ビジュアルです。実物の写真や品種の同定資料ではありません。</p>' : ''}
     ${rowsHtml}
+    ${proseHtml}
+    <section class="sources"><h2>出典</h2><ol>${sourcesHtml}</ol></section>
     <nav class="actions" aria-label="関連リンク">
       <a href="${escapeHtml(interactive)}">図鑑の詳細表示で見る</a>
       <a href="../../cultivars/">品種一覧へ</a>
@@ -175,6 +222,18 @@ const indexRobots = indexing === 'open' ? 'index,follow' : 'noindex,nofollow,noa
 const listItems = cultivars.map(({ id, name }) =>
   `<li><a href="./${escapeHtml(id)}/">${escapeHtml(name)}</a></li>`
 ).join('\n      ');
+
+// The home catalog also exposes ordinary HTML links for crawlers and readers without JS.
+// Only the staged Pages artifact is changed; the interactive overlay remains untouched.
+const homePath = path.join(outDir, 'index.html');
+if (fs.existsSync(homePath)) {
+  let home = fs.readFileSync(homePath, 'utf8');
+  const anchor = '<section class="cultivar-grid" id="cultivar-grid" aria-live="polite"></section>';
+  if (home.split(anchor).length !== 2) throw new Error('home catalog anchor missing or duplicated');
+  const homeLinks = cultivars.map(({ id, name }) => `<li><a href="cultivars/${escapeHtml(id)}/">${escapeHtml(name)}</a></li>`).join('');
+  home = home.replace(anchor, `${anchor}\n          <nav aria-label="品種ごとの静的ページ"><details><summary>品種ページ一覧</summary><ul>${homeLinks}</ul></details></nav>`);
+  fs.writeFileSync(homePath, home);
+}
 
 fs.writeFileSync(path.join(cultivarRoot, 'index.html'), `<!doctype html>
 <html lang="ja">
