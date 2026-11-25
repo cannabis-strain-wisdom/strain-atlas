@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 157,
-    "sources": 301,
+    "cultivars": 158,
+    "sources": 303,
     "entities": 48
   },
   "explore": {
@@ -151,6 +151,7 @@
       "chemdog-d-s1",
       "cherry-pie-s1",
       "cream-caramel",
+      "critical-mass",
       "durban-poison-s1",
       "f1-durb-s1",
       "freakshow",
@@ -39971,6 +39972,134 @@
           }
         ]
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "critical-mass",
+      "status": "review",
+      "name": "Critical Mass",
+      "jp": "クリティカル・マス",
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mr-nice-critical-mass",
+          "mr-nice-shop-critical-mass"
+        ],
+        "display": "Afghan × Skunk #1",
+        "parents": [
+          "Afghani",
+          "Skunk #1"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mr. Niceの公式資料では、AfghaniとオリジナルのSkunk #1に由来する系統として説明されています。親品種レコードとの同一性までは推定していません。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "evidenceMode": "UNKNOWN",
+        "items": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": [],
+          "reviewStatus": "NOT_APPLICABLE",
+          "unresolvedCount": 0
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mr-nice-critical-mass",
+          "mr-nice-shop-critical-mass"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Mr. Niceは、古いBig Bud系統を再構成した品種としてCritical Massを紹介しています。Big Budを同一品種の別名とは扱いません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "mr-nice-critical-mass",
+          "mr-nice-shop-critical-mass"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Mr. Niceの公式資料では、AfghaniとオリジナルのSkunk #1に由来する系統として説明されています。親品種レコードとの同一性までは推定していません。",
+          "history": "Mr. Niceは、古いBig Bud系統を再構成した品種としてCritical Massを紹介しています。Big Budを同一品種の別名とは扱いません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/critical-mass/primary.webp",
+          "alt": "Critical Massの公式形態記述の範囲で作成したAI生成の植物参考画像",
+          "rights": "AI-generated original project reference; no official photograph reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-25",
+      "updatedAt": "2026-11-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
     }
   ],
   "sources": {
@@ -45615,6 +45744,42 @@
         "flavor",
         "effects",
         "morphology",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-25"
+    },
+    "mr-nice-critical-mass": {
+      "schemaVersion": 1,
+      "id": "mr-nice-critical-mass",
+      "publisher": "Mr. Nice Seedbank",
+      "title": "Critical Mass first-party archive",
+      "url": "https://mrnice.nl/dhtml/strains.php?id=17",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "morphology",
+        "history",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-25"
+    },
+    "mr-nice-shop-critical-mass": {
+      "schemaVersion": 1,
+      "id": "mr-nice-shop-critical-mass",
+      "publisher": "Mr. Nice Seedbank",
+      "title": "Critical Mass official shop cultivar page",
+      "url": "https://shop.mrnice.nl/products/critical-mass",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "morphology",
+        "history",
         "cultivation"
       ],
       "publishedAt": null,

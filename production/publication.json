@@ -771,6 +771,11 @@
       "strainId": "tropicanna-banana",
       "state": "published",
       "publishedAt": "2026-11-25T00:27:26Z"
+    },
+    {
+      "strainId": "critical-mass",
+      "state": "published",
+      "publishedAt": "2026-11-25T10:19:38Z"
     }
   ]
 }
