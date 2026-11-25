@@ -144,6 +144,13 @@ function pageFor(cultivar) {
   const description = `${name}：${(prose[0]?.[1] || `${name}の公開情報と出典を掲載しています。`).slice(0, 145)}`;
   const robots = indexing === 'open' ? 'index,follow,max-image-preview:large' : 'noindex,nofollow,noarchive';
   const visual = visualFor(cultivar);
+  if (!visual) throw new Error(`cultivar image missing: ${id}`);
+  // SVGs remain in the page body, but crawlers receive the WebP rendered by
+  // the Pages build. Both paths live under the existing public asset boundary.
+  const shareImage = visual.src.toLowerCase().endsWith('.svg')
+    ? `assets/cultivars/${id}/share.webp` : visual.src;
+  if (!fs.existsSync(path.join(outDir, shareImage))) throw new Error(`share image missing: ${id}:${shareImage}`);
+  const imageUrl = new URL(shareImage, siteRoot).href;
   const rows = summaryRows(cultivar);
   const sources = sourceRows(cultivar);
   const rowsHtml = rows.length
@@ -170,6 +177,12 @@ function pageFor(cultivar) {
   <meta property="og:title" content="${escapeHtml(name)} | Cannabis Strain Wisdom">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(canonical)}">
+  <meta property="og:image" content="${escapeHtml(imageUrl)}">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="${escapeHtml(visual.alt || name)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${escapeHtml(imageUrl)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(visual.alt || name)}">
   <title>${escapeHtml(name)} | Cannabis Strain Wisdom</title>
   <style>
     :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#06100c;color:#e7eee9;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}main{width:min(760px,calc(100% - 32px));margin:0 auto;padding:38px 0 54px}a{color:#e7cc78;overflow-wrap:anywhere}.kicker{color:#d8bd62;font-size:12px;font-weight:800;letter-spacing:.12em}h1{margin:.3rem 0 0;font-size:clamp(2rem,8vw,4rem);line-height:1.05}.jp{margin:.45rem 0 0;color:#91a198}.lead{margin:1.2rem 0 1.4rem;color:#becac2}.facts{display:grid;gap:10px;margin:22px 0}.facts div{padding:12px 14px;border:1px solid #24352c;border-radius:14px;background:#0a1711}.facts dt{color:#bba45e;font-size:11px;font-weight:800;letter-spacing:.1em}.facts dd{margin:4px 0 0}figure{margin:22px 0}img{display:block;width:100%;height:auto;border-radius:18px}.prose{margin:24px 0}.prose h2,.sources h2{font-size:1.2rem;color:#d8bd62}.sources{margin-top:34px}.sources li{margin:9px 0}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.actions a{display:inline-flex;min-height:44px;align-items:center;padding:0 14px;border:1px solid #3b4b42;border-radius:999px;text-decoration:none}.muted{color:#7f9187}

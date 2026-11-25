@@ -30,6 +30,13 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
 
+      - name: Ensure SVG card renderer
+        run: |
+          if ! command -v rsvg-convert >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq librsvg2-bin
+          fi
+
       - name: Stage public UI artifact
         shell: bash
         run: |
@@ -39,6 +46,11 @@ jobs:
           install -m 0644 runtime/catalog.json _site/runtime/catalog.json
           install -m 0644 production/publication.json _site/production/publication.json
           rsync -a assets/ _site/assets/
+
+          # Crawlers do not reliably render SVG card images. Convert only SVG
+          # primary images into WebP inside the existing allowed asset tree.
+          node .github/scripts/render-share-images-v1.mjs \
+            --catalog=runtime/catalog.json --out=_site
 
           # Generate the explicitly activated search surface from PUBLIC runtime only.
           node .github/scripts/generate-search-surface-v1.mjs \

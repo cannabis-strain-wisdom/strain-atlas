@@ -88,6 +88,23 @@ for (const id of ids) {
   if (!/<h2>出典<\/h2><ol><li><a href="https:\/\//.test(html)) problems.push(`SOURCES_MISSING:${id}`);
   const primary = (cultivar?.visuals || []).find(item => item?.role === 'primary') || cultivar?.visuals?.[0];
   if (primary?.src && !html.includes(`../../${primary.src}`)) problems.push(`IMAGE_MISSING:${id}`);
+  const sharePath = primary?.src?.endsWith('.svg') ? `assets/cultivars/${id}/share.webp` : primary?.src;
+  const shareUrl = sharePath ? `${siteRoot}${sharePath}` : '';
+  if (!sharePath?.endsWith('.webp') || !html.includes(`<meta property="og:image" content="${shareUrl}">`) ||
+      !html.includes(`<meta name="twitter:image" content="${shareUrl}">`) ||
+      !html.includes('<meta property="og:image:type" content="image/webp">') ||
+      !html.includes('<meta name="twitter:card" content="summary_large_image">')) {
+    problems.push(`SHARE_META_MISMATCH:${id}`);
+  }
+  const imagePath = path.join(outDir, sharePath || 'missing');
+  if (!fs.existsSync(imagePath)) problems.push(`SHARE_IMAGE_MISSING:${id}`);
+  else {
+    const header = Buffer.alloc(12);
+    const file = fs.openSync(imagePath, 'r');
+    try { fs.readSync(file, header, 0, 12, 0); } finally { fs.closeSync(file); }
+    if (header.toString('ascii', 0, 4) !== 'RIFF' || header.toString('ascii', 8, 12) !== 'WEBP' ||
+        fs.statSync(imagePath).size >= 5_000_000) problems.push(`SHARE_IMAGE_INVALID:${id}`);
+  }
   if (!html.includes(`?strain=${id}`)) problems.push(`INTERACTIVE_LINK_MISSING:${id}`);
   if (!cultivarIndex.includes(`href="./${id}/"`)) problems.push(`INDEX_LINK_MISSING:${id}`);
   if (home && !home.includes(`href="cultivars/${id}/"`)) problems.push(`HOME_LINK_MISSING:${id}`);
