@@ -776,6 +776,11 @@
       "strainId": "critical-mass",
       "state": "published",
       "publishedAt": "2026-11-25T10:19:38Z"
+    },
+    {
+      "strainId": "malawi-x-panama",
+      "state": "published",
+      "publishedAt": "2026-11-25T23:02:37Z"
     }
   ]
 }

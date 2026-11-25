@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 158,
-    "sources": 303,
+    "cultivars": 159,
+    "sources": 304,
     "entities": 48
   },
   "explore": {
@@ -161,6 +161,7 @@
       "jack-47",
       "jager-s1",
       "jelly-donutz",
+      "malawi-x-panama",
       "mango-smile",
       "panama-haze",
       "sour-stomper",
@@ -40100,6 +40101,355 @@
           }
         ]
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "malawi-x-panama",
+      "status": "review",
+      "name": "Malawi x Panama",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown"
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125"
+        ],
+        "display": "Old Malawi Killer × later-generation Panama parent plants",
+        "parents": [
+          "Old Malawi Killer",
+          "later-generation Panama parent plants"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Malawi x Panamaは、ACE Seedsの公式資料でOld Malawi Killer × later-generation Panama parent plantsと説明されています。親レコードとの同一性は推測していません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-malawi-x-panama-20261125"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "レジナス",
+          "オイリー",
+          "スパイシー",
+          "ウッディ",
+          "レモン系",
+          "インセンス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "レジナス",
+            "オイリー",
+            "スパイシー",
+            "ウッディ",
+            "レモン系",
+            "インセンス"
+          ],
+          "details": [
+            {
+              "rawMatch": "resinous",
+              "reviewLabelJa": "レジナス",
+              "plainMeaningJa": "樹脂質で濃い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "樹脂"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "oily",
+              "reviewLabelJa": "オイリー",
+              "plainMeaningJa": "油のような重さを感じる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "油"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemony",
+              "reviewLabelJa": "レモン系",
+              "plainMeaningJa": "レモンを思わせる柑橘系の香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "レモン",
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incensey",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式には樹脂、油、スパイス、木を主調とし、レモンとインセンスの要素も記されています。"
+        }
+      },
+      "terpenes": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125"
+        ],
+        "items": [
+          "alpha-pinene",
+          "terpinolene",
+          "beta-pinene",
+          "limonene",
+          "beta-myrcene",
+          "beta-caryophyllene"
+        ],
+        "evidenceMode": "QUALITATIVE",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "qualitative-profile",
+          "items": [
+            {
+              "id": "beta-caryophyllene",
+              "labelJa": "β-カリオフィレン",
+              "qualitativeLevel": "main",
+              "levelJa": "主要",
+              "sourceValueText": "30%",
+              "visualRole": "lead-primary",
+              "badge": "MAIN"
+            },
+            {
+              "id": "alpha-pinene",
+              "labelJa": "α-ピネン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "sourceValueText": "30%",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            },
+            {
+              "id": "terpinolene",
+              "labelJa": "テルピノレン",
+              "qualitativeLevel": "high",
+              "levelJa": "多い",
+              "sourceValueText": "30%",
+              "visualRole": "lead-secondary",
+              "badge": "HIGH"
+            },
+            {
+              "id": "beta-pinene",
+              "labelJa": "β-ピネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "sourceValueText": "17%",
+              "visualRole": "support"
+            },
+            {
+              "id": "limonene",
+              "labelJa": "リモネン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "sourceValueText": "10%",
+              "visualRole": "support"
+            },
+            {
+              "id": "beta-myrcene",
+              "labelJa": "β-ミルセン",
+              "qualitativeLevel": "moderate",
+              "levelJa": "中程度",
+              "sourceValueText": "8%",
+              "visualRole": "support"
+            }
+          ],
+          "noteJa": "公式のテルペン欄はαピネンとテルピノレンを各30%、βピネン17%、リモネン10%、βミルセン8%などと記します。分析図版の試料帰属は未検証で、相対比と絶対濃度を混同しません。"
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.2,
+              "unit": "%",
+              "valueText": "0.2%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-malawi-x-panama-20261125"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 1.1,
+              "unit": "%",
+              "valueText": "1.1%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-malawi-x-panama-20261125"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 21,
+              "maxValue": 26,
+              "unit": "%",
+              "valueText": "21〜26%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-malawi-x-panama-20261125"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125",
+          "ace-seeds-about-2026"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは2018年にこの系統を導入したと記しています。Panama x Malawiは交配順が異なり、同じ品種の別名とは扱いません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-malawi-x-panama-20261125"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式説明には旺盛な分枝、密な樹脂質の花、大きなトリコームが記されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Malawi x Panamaは、ACE Seedsの公式資料でOld Malawi Killer × later-generation Panama parent plantsと説明されています。親レコードとの同一性は推測していません。",
+          "history": "ACE Seedsは2018年にこの系統を導入したと記しています。Panama x Malawiは交配順が異なり、同じ品種の別名とは扱いません。",
+          "aromaNote": "公式には樹脂、油、スパイス、木を主調とし、レモンとインセンスの要素も記されています。",
+          "terpeneNote": "公式のテルペン欄はαピネンとテルピノレンを各30%、βピネン17%、リモネン10%、βミルセン8%などと記します。分析図版の試料帰属は未検証で、相対比と絶対濃度を混同しません。",
+          "morphologyNote": "公式説明には旺盛な分枝、密な樹脂質の花、大きなトリコームが記されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/malawi-x-panama/primary.webp",
+          "alt": "Malawi x Panamaの公式形態記述に基づくAI生成参考画像の準備案",
+          "rights": "AI-generated original project reference; no ACE Seeds photograph reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-25",
+      "updatedAt": "2026-11-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -45781,6 +46131,27 @@
         "morphology",
         "history",
         "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-25"
+    },
+    "ace-seeds-malawi-x-panama-20261125": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-malawi-x-panama-20261125",
+      "publisher": "ACE Seeds",
+      "title": "Malawi x Panama official cultivar page",
+      "url": "https://www.aceseeds.org/en/seeds/malawixpanama-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aromas",
+        "terpenes",
+        "visualMorphology",
+        "history"
       ],
       "publishedAt": null,
       "checkedAt": "2026-11-25"
