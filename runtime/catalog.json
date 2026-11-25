@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 148,
-    "sources": 291,
+    "cultivars": 157,
+    "sources": 301,
     "entities": 48
   },
   "explore": {
@@ -166,7 +166,8 @@
       "super-malawi-haze",
       "t-1000-s1",
       "think-fast",
-      "trainwreck-s1"
+      "trainwreck-s1",
+      "tropicanna-banana"
     ]
   },
   "cultivars": [
@@ -39715,6 +39716,261 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "tropicanna-banana",
+      "status": "review",
+      "name": "Tropicanna Banana",
+      "jp": "トロピカーナ・バナナ",
+      "aliases": [
+        "Tropicana Banana"
+      ],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "barneys-farm-tropicanna-banana",
+            "barneys-farm-us-tropicanna-banana"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 60,
+            "indica": 40,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 60,
+              "indica": 40,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "other"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana",
+          "barneys-farm-us-tropicanna-banana"
+        ],
+        "display": "Tropicanna × Banana Kush",
+        "parents": [
+          "Tropicanna",
+          "Banana Kush"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Barney’s Farm公式では、TropicannaとBanana Kushの交配として紹介されています。Tropicana Bananaという別表記は同じ育種元・親系統を示す専門データベースに限って記録します。"
+        }
+      },
+      "relations": [],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "パングェント",
+          "バナナ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "パングェント",
+            "バナナ"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "pungent",
+              "reviewLabelJa": "パングェント",
+              "plainMeaningJa": "ツンと強い香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "刺激"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "banana",
+              "reviewLabelJa": "バナナ",
+              "plainMeaningJa": "バナナのような甘く熟した果実香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "バナナ"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式ページは香りを土っぽさ、刺激的なニュアンス、バナナと記載しています。香りの表現を成分値に読み替えていません。"
+        }
+      },
+      "flavors": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana",
+          "barneys-farm-us-tropicanna-banana"
+        ],
+        "claimOrigin": "brand-description",
+        "items": [
+          "フルーティー",
+          "バナナ",
+          "トロピカル"
+        ]
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana",
+          "barneys-farm-us-tropicanna-banana"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 26,
+              "unit": "%",
+              "valueText": "26%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-tropicanna-banana"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 28,
+              "unit": "%",
+              "valueText": "28%",
+              "confidence": "B",
+              "sourceRefs": [
+                "barneys-farm-us-tropicanna-banana"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Barney’s FarmはCaliコレクションの品種として紹介しています。発表年や受賞歴は確認できていません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "barneys-farm-tropicanna-banana",
+          "barneys-farm-us-tropicanna-banana"
+        ],
+        "scope": "cultivar"
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Barney’s Farm公式では、TropicannaとBanana Kushの交配として紹介されています。Tropicana Bananaという別表記は同じ育種元・親系統を示す専門データベースに限って記録します。",
+          "history": "Barney’s FarmはCaliコレクションの品種として紹介しています。発表年や受賞歴は確認できていません。",
+          "aromaNote": "公式ページは香りを土っぽさ、刺激的なニュアンス、バナナと記載しています。香りの表現を成分値に読み替えていません。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/tropicanna-banana/primary.webp",
+          "alt": "Tropicanna Bananaの公式記述の範囲で作成したAI生成の植物参考画像",
+          "rights": "AI-generated original project reference; no official photograph reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-25",
+      "updatedAt": "2026-11-25",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "HELD_FIELDS",
+        "heldFields": [
+          {
+            "field": "morphologyNote",
+            "state": "MISSING_APPROVED_PUBLIC_PROSE"
+          }
+        ]
+      }
     }
   ],
   "sources": {
@@ -45318,6 +45574,51 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-08-16"
+    },
+    "barneys-farm-tropicanna-banana": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-tropicanna-banana",
+      "publisher": "Barney's Farm",
+      "title": "Tropicanna Banana official cultivar page",
+      "url": "https://www.barneysfarm.com/tropicanna-banana-500",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "breeder",
+        "lineage",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "morphology",
+        "cultivation",
+        "history",
+        "naming"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-25"
+    },
+    "barneys-farm-us-tropicanna-banana": {
+      "schemaVersion": 1,
+      "id": "barneys-farm-us-tropicanna-banana",
+      "publisher": "Barney's Farm",
+      "title": "Tropicanna Banana US official cultivar page",
+      "url": "https://www.barneysfarm.com/us/tropicanna-banana-weed-strain-500",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "flavor",
+        "effects",
+        "morphology",
+        "cultivation"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-25"
     }
   },
   "entities": {

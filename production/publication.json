@@ -766,6 +766,11 @@
       "strainId": "jack-47",
       "state": "published",
       "publishedAt": "2026-11-12T19:09:27Z"
+    },
+    {
+      "strainId": "tropicanna-banana",
+      "state": "published",
+      "publishedAt": "2026-11-25T00:27:26Z"
     }
   ]
 }
