@@ -30,11 +30,11 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
 
-      - name: Ensure SVG card renderer
+      - name: Ensure SVG card renderer and WebP converter
         run: |
-          if ! command -v rsvg-convert >/dev/null; then
+          if ! command -v rsvg-convert >/dev/null || ! command -v convert >/dev/null; then
             sudo apt-get update -qq
-            sudo apt-get install -y -qq librsvg2-bin
+            sudo apt-get install -y -qq librsvg2-bin imagemagick
           fi
 
       - name: Stage public UI artifact
