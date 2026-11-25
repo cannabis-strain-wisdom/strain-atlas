@@ -50,6 +50,8 @@ else {
 const cultivarIndexPath = path.join(outDir, 'cultivars', 'index.html');
 if (!fs.existsSync(cultivarIndexPath)) problems.push('CULTIVAR_INDEX_MISSING');
 const cultivarIndex = fs.existsSync(cultivarIndexPath) ? fs.readFileSync(cultivarIndexPath, 'utf8') : '';
+const homePath = path.join(outDir, 'index.html');
+const home = fs.existsSync(homePath) ? fs.readFileSync(homePath, 'utf8') : '';
 
 const expectedRobotsMeta = indexing === 'open'
   ? '<meta name="robots" content="index,follow,max-image-preview:large">'
@@ -77,8 +79,18 @@ for (const id of ids) {
   if (!html.includes(`<link rel="canonical" href="${canonical}">`)) problems.push(`CANONICAL_MISMATCH:${id}`);
   if (!html.includes(`<title>${name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')} | Cannabis Strain Wisdom</title>`)) problems.push(`TITLE_MISMATCH:${id}`);
   if (!/<h1>[^<]+<\/h1>/.test(html)) problems.push(`H1_MISSING:${id}`);
+  if (!html.includes('<meta name="description" content="') || !html.includes(`${name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}：`)) problems.push(`DESCRIPTION_MISSING:${id}`);
+  for (const text of Object.values(cultivar?.publicContent?.ja || {})) {
+    if (typeof text !== 'string' || !text.trim()) continue;
+    const escaped = text.trim().replace(/\s+/g, ' ').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    if (!html.includes(escaped)) problems.push(`PUBLIC_PROSE_MISSING:${id}`);
+  }
+  if (!/<h2>出典<\/h2><ol><li><a href="https:\/\//.test(html)) problems.push(`SOURCES_MISSING:${id}`);
+  const primary = (cultivar?.visuals || []).find(item => item?.role === 'primary') || cultivar?.visuals?.[0];
+  if (primary?.src && !html.includes(`../../${primary.src}`)) problems.push(`IMAGE_MISSING:${id}`);
   if (!html.includes(`?strain=${id}`)) problems.push(`INTERACTIVE_LINK_MISSING:${id}`);
   if (!cultivarIndex.includes(`href="./${id}/"`)) problems.push(`INDEX_LINK_MISSING:${id}`);
+  if (home && !home.includes(`href="cultivars/${id}/"`)) problems.push(`HOME_LINK_MISSING:${id}`);
   for (const key of forbidden) if (html.includes(key)) problems.push(`PRIVATE_FIELD_LEAK:${id}:${key}`);
 }
 
