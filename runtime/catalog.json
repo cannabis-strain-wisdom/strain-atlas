@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 162,
-    "sources": 307,
+    "cultivars": 163,
+    "sources": 308,
     "entities": 48
   },
   "explore": {
@@ -166,6 +166,7 @@
       "jelly-donutz",
       "malawi-x-panama",
       "mango-smile",
+      "nepal-mist",
       "panama-haze",
       "sour-stomper",
       "super-malawi-haze",
@@ -41170,6 +41171,303 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "nepal-mist",
+      "status": "review",
+      "name": "Nepal Mist",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-nepal-mist-20261126"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 80,
+            "indica": 20,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 80,
+              "indica": 20,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "F3"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-nepal-mist-20261126"
+        ],
+        "display": "Nepalese Kathmandu × Old Kali Mist",
+        "parents": [
+          "Nepalese Kathmandu",
+          "Old Kali Mist"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Nepal Mistの系譜は育種元公式の表記を保ち、親の順序や個体の同一性を推測していません。Nepalese Kathmandu × Old Kali Mist"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-nepal-mist-20261126"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "ace-seeds-nepal-mist-20261126"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "ウッディ",
+          "インセンス",
+          "ネパール産ハシシのような香り",
+          "果実（一部の個体）",
+          "ストロベリー（一部の個体）"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "ウッディ",
+            "インセンス",
+            "ネパール産ハシシのような香り",
+            "果実（一部の個体）",
+            "ストロベリー（一部の個体）"
+          ],
+          "details": [
+            {
+              "rawMatch": "woody",
+              "reviewLabelJa": "ウッディ",
+              "plainMeaningJa": "木のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "木"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "Nepalese hashish",
+              "reviewLabelJa": "ネパール産ハシシのような香り",
+              "plainMeaningJa": "ネパール産ハシシを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ハシシ",
+                "ネパール"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "fruit (some phenotypes)",
+              "reviewLabelJa": "果実（一部の個体）",
+              "plainMeaningJa": "一部の個体で現れる果実を思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "果実"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "strawberry (some phenotypes)",
+              "reviewLabelJa": "ストロベリー（一部の個体）",
+              "plainMeaningJa": "一部の個体で現れるいちごを思わせる香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "いちご",
+                "ストロベリー"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE Seedsは木やインセンス、ネパール産ハシシを思わせる香りを記しています。果実やイチゴの香りは一部の表現型に限る記述です。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-nepal-mist-20261126"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "exact",
+              "value": 12,
+              "unit": "%",
+              "valueText": "12%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-mist-20261126"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBD",
+              "label": "CBD",
+              "valueKind": "exact",
+              "value": 0.5,
+              "unit": "%",
+              "valueText": "0.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-mist-20261126"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "exact",
+              "value": 0.5,
+              "unit": "%",
+              "valueText": "0.5%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-nepal-mist-20261126"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-nepal-mist-20261126"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは、1990年代末の最初の交配と、その後の周年記念での再生産を説明し、沿革には2020年の再登場を記しています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-nepal-mist-20261126"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seedsは背が高くしなやかな株、長い節間、細い枝を記しています。紫色やピンク色の発色は低温時の条件付きです。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Nepal Mistの系譜は育種元公式の表記を保ち、親の順序や個体の同一性を推測していません。Nepalese Kathmandu × Old Kali Mist",
+          "history": "ACE Seedsは、1990年代末の最初の交配と、その後の周年記念での再生産を説明し、沿革には2020年の再登場を記しています。",
+          "aromaNote": "ACE Seedsは木やインセンス、ネパール産ハシシを思わせる香りを記しています。果実やイチゴの香りは一部の表現型に限る記述です。",
+          "morphologyNote": "ACE Seedsは背が高くしなやかな株、長い節間、細い枝を記しています。紫色やピンク色の発色は低温時の条件付きです。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/nepal-mist/primary.webp",
+          "alt": "Nepal Mistの公式形態記述に基づくAI生成参考画像",
+          "rights": "AI-generated original project reference; no official photo reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-26",
+      "updatedAt": "2026-11-26",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -46924,6 +47222,27 @@
       "publisher": "ACE Seeds",
       "title": "Honduras x Panama official cultivar page",
       "url": "https://www.aceseeds.org/en/seeds/hondurasxpanama-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aroma",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-26"
+    },
+    "ace-seeds-nepal-mist-20261126": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-nepal-mist-20261126",
+      "publisher": "ACE Seeds",
+      "title": "Nepal Mist official cultivar page",
+      "url": "https://www.aceseeds.org/en/seeds/nepal-mist-regular-seeds/",
       "sourceType": "breederOfficial",
       "supports": [
         "identity",

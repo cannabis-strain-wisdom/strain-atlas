@@ -796,6 +796,11 @@
       "strainId": "honduras-x-panama",
       "state": "published",
       "publishedAt": "2026-11-26T06:38:07Z"
+    },
+    {
+      "strainId": "nepal-mist",
+      "state": "published",
+      "publishedAt": "2026-11-26T06:38:07Z"
     }
   ]
 }
