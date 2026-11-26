@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 159,
-    "sources": 304,
+    "cultivars": 160,
+    "sources": 305,
     "entities": 48
   },
   "explore": {
@@ -146,6 +146,7 @@
       "zoap"
     ],
     "unclassified": [
+      "big-bud",
       "bubba-kush-s1",
       "bubblegum-s1",
       "chemdog-d-s1",
@@ -40450,6 +40451,227 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "big-bud",
+      "status": "review",
+      "name": "Big Bud",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-big-bud-20261126"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 15,
+            "indica": 85,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 15,
+              "indica": 85,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-big-bud-20261126"
+        ],
+        "display": "系譜情報",
+        "parents": [],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは初期のBig Budを米国でAfghanicaとSkunkから開発したと説明し、現行ラインにはSkunk #1とNorthern Lightsが含まれると記しています。初期と現行の記述を単一の確定親ペアにまとめません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-big-bud-20261126"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "sensi-seeds-big-bud-20261126"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "糖蜜のような香り",
+          "ほのかなスパイス"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "糖蜜のような香り",
+            "ほのかなスパイス"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "molasses-like",
+              "reviewLabelJa": "糖蜜のような香り",
+              "plainMeaningJa": "糖蜜を思わせる香りとの比較表現",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "糖蜜"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "hint of spice",
+              "reviewLabelJa": "ほのかなスパイス",
+              "plainMeaningJa": "香辛料を思わせる香りがほのかに感じられる表現",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "スパイス",
+                "香辛料"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式では甘く糖蜜を思わせる香りに、ほのかなスパイスがあると説明されています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-big-bud-20261126"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "公式によれば1980年代に米国で開発され、後にオランダで安定化されました。"
+        }
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-big-bud-20261126"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi SeedsはBig Budのインディカ部門でのCannabis Cup受賞を記しています。対象ページでは受賞年を確認できないため記載しません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-big-bud-20261126"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では葉が比較的少なく細身の株と、大きく密で樹脂に覆われた花を説明しています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seedsは初期のBig Budを米国でAfghanicaとSkunkから開発したと説明し、現行ラインにはSkunk #1とNorthern Lightsが含まれると記しています。初期と現行の記述を単一の確定親ペアにまとめません。",
+          "origin": "公式によれば1980年代に米国で開発され、後にオランダで安定化されました。",
+          "history": "Sensi SeedsはBig Budのインディカ部門でのCannabis Cup受賞を記しています。対象ページでは受賞年を確認できないため記載しません。",
+          "aromaNote": "公式では甘く糖蜜を思わせる香りに、ほのかなスパイスがあると説明されています。",
+          "morphologyNote": "公式では葉が比較的少なく細身の株と、大きく密で樹脂に覆われた花を説明しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/big-bud/primary.webp",
+          "alt": "Big Budの公式形態記述をもとにしたAI生成植物参考画像",
+          "rights": "AI-generated original project reference; no breeder photograph reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-26",
+      "updatedAt": "2026-11-26",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -46155,6 +46377,27 @@
       ],
       "publishedAt": null,
       "checkedAt": "2026-11-25"
+    },
+    "sensi-seeds-big-bud-20261126": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-big-bud-20261126",
+      "publisher": "Sensi Seeds",
+      "title": "Big Bud Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/big-bud",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "flavor",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-26"
     }
   },
   "entities": {
