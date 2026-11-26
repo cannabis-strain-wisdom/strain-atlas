@@ -525,14 +525,14 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
   await evalv("document.querySelector('[data-family-tree-entry=\"v1\"]').click();true");
   await waitFor(() => evalv("document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1'"), 'Skunk #1 Family Tree open');
   const collapsedFamilyBranch = await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]')?.textContent||''");
-  if (collapsedFamilyBranch !== 'さらに2件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
+  if (collapsedFamilyBranch !== 'さらに3件') throw new Error('Family Tree branch guard mismatch: ' + collapsedFamilyBranch);
   await evalv("document.querySelector('[data-ft-expand=\"down:p:skunk-1\"]').click();true");
-  await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===6"), 'Skunk #1 Family Tree branch expansion');
+  await waitFor(() => evalv("window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===7"), 'Skunk #1 Family Tree branch expansion');
   const skunkScrollBefore = await evalv("(()=>{const v=document.querySelector('.csw-ft-viewport');v.scrollLeft=Math.min(120,Math.max(0,v.scrollWidth-v.clientWidth));return v.scrollLeft})()");
   await evalv("document.querySelector('[data-ft-node-id=\"super-skunk\"]').click();true");
   await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='super-skunk'"), 'Skunk #1 child navigation');
   await evalv("history.back();true");
-  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===6"), 'Skunk #1 expanded-state restoration');
+  await waitFor(() => evalv("new URL(location.href).searchParams.get('strain')==='skunk-1' && document.querySelector('.csw-family-tree-v1')?.open===true && window.__CSWFamilyTreeViewV1?.centerId==='skunk-1' && window.__CSWFamilyTreeViewV1?.expanded?.includes('down:p:skunk-1') && document.querySelectorAll('.csw-ft-level[data-depth=\"1\"] [data-ft-node-id]').length===7"), 'Skunk #1 expanded-state restoration');
   await waitFor(() => evalv("Math.abs((document.querySelector('.csw-ft-viewport')?.scrollLeft||0)-" + skunkScrollBefore + ")<=2"), 'Skunk #1 scroll restoration');
 
   const familyTreeCases = ['ogkb','girl-scout-cookies','gelato-33','sunset-sherbert','ice-cream-cake'];
