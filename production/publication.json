@@ -786,6 +786,11 @@
       "strainId": "big-bud",
       "state": "published",
       "publishedAt": "2026-11-26T06:38:07Z"
+    },
+    {
+      "strainId": "early-skunk",
+      "state": "published",
+      "publishedAt": "2026-11-26T06:38:07Z"
     }
   ]
 }

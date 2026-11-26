@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 160,
-    "sources": 305,
+    "cultivars": 161,
+    "sources": 306,
     "entities": 48
   },
   "explore": {
@@ -154,6 +154,7 @@
       "cream-caramel",
       "critical-mass",
       "durban-poison-s1",
+      "early-skunk",
       "f1-durb-s1",
       "freakshow",
       "frisian-dew",
@@ -40672,6 +40673,235 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "early-skunk",
+      "status": "review",
+      "name": "Early Skunk",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-early-skunk-20261126"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 35,
+            "indica": 65,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 35,
+              "indica": 65,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "unknown"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-early-skunk-20261126"
+        ],
+        "display": "Skunk #1 × Early Pearl",
+        "parents": [
+          "Skunk #1",
+          "Early Pearl"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seeds公式はSkunk #1とEarly Pearlの交配と記しています。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "sensi-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "sensi-seeds-early-skunk-20261126"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "sensi-seeds-early-skunk-20261126"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "アーシー",
+          "スパイシー",
+          "ディーゼル（一部の報告）",
+          "熟成後のフローラル"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "アーシー",
+            "スパイシー",
+            "ディーゼル（一部の報告）",
+            "熟成後のフローラル"
+          ],
+          "details": [
+            {
+              "rawMatch": "earthy",
+              "reviewLabelJa": "アーシー",
+              "plainMeaningJa": "土っぽい香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "土"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "spicy",
+              "reviewLabelJa": "スパイシー",
+              "plainMeaningJa": "香辛料のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "香辛料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "diesel (some say)",
+              "reviewLabelJa": "ディーゼル（一部の報告）",
+              "plainMeaningJa": "一部の人がディーゼル燃料に似ていると表現する香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "ディーゼル",
+                "燃料"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "floral after curing",
+              "reviewLabelJa": "熟成後のフローラル",
+              "plainMeaningJa": "熟成後に花のような香りへ変化するという表現",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "花",
+                "フローラル",
+                "熟成"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "公式は土とスパイスの香りを基本とし、ディーゼルは一部の表現、熟成後の花の香りは条件付きとして記します。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-early-skunk-20261126"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "Sensi Seedsは屋外向けの系統として紹介しています。受賞年はこの公式ページのみでは確定していません。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "sensi-seeds-early-skunk-20261126"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "公式では背の高い株と広がる枝、大きく密な樹脂質の花を説明しています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "Sensi Seeds公式はSkunk #1とEarly Pearlの交配と記しています。",
+          "history": "Sensi Seedsは屋外向けの系統として紹介しています。受賞年はこの公式ページのみでは確定していません。",
+          "aromaNote": "公式は土とスパイスの香りを基本とし、ディーゼルは一部の表現、熟成後の花の香りは条件付きとして記します。",
+          "morphologyNote": "公式では背の高い株と広がる枝、大きく密な樹脂質の花を説明しています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/early-skunk/primary.webp",
+          "alt": "Early Skunkの公式形態情報に基づくAI生成参考画像",
+          "rights": "AI-generated original project reference; no breeder photograph reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-26",
+      "updatedAt": "2026-11-26",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -46384,6 +46614,27 @@
       "publisher": "Sensi Seeds",
       "title": "Big Bud Regular Seeds",
       "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/big-bud",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "aroma",
+        "flavor",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-26"
+    },
+    "sensi-seeds-early-skunk-20261126": {
+      "schemaVersion": 1,
+      "id": "sensi-seeds-early-skunk-20261126",
+      "publisher": "Sensi Seeds",
+      "title": "Early Skunk Regular Seeds",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/early-skunk",
       "sourceType": "breederOfficial",
       "supports": [
         "identity",
