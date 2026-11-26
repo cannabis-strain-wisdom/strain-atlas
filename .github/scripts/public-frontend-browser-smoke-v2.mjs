@@ -357,7 +357,7 @@ if (appleSensory.overflow) throw new Error('Apple Fritter sensory presentation h
     { parentId: 'ak-47', childIds: ['serious-happiness', 'white-russian'] },
     { parentId: 'warlock', childIds: ['serious-happiness'] },
     { parentId: 'papaya', childIds: ['california-octane'] },
-    { parentId: 'skunk-1', childIds: ['critical-mass', 'mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk', 'tangie'] },
+    { parentId: 'skunk-1', childIds: ['critical-mass', 'early-skunk', 'mazar', 'sensi-skunk', 'shiva-skunk', 'super-skunk', 'tangie'] },
     { parentId: 'super-skunk', childIds: ['sour-diesel'] },
     { parentId: 'sunset-sherbert', childIds: ['blue-gelato-41'] },
     { parentId: 'og-kush', childIds: ['bruce-banner-3', 'cataract-kush'] },
