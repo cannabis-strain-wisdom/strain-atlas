@@ -7,8 +7,8 @@
     "entities": "entities/*.json"
   },
   "counts": {
-    "cultivars": 161,
-    "sources": 306,
+    "cultivars": 162,
+    "sources": 307,
     "entities": 48
   },
   "explore": {
@@ -160,6 +160,7 @@
       "frisian-dew",
       "gorilla-glue-4-s1",
       "granny-candy",
+      "honduras-x-panama",
       "jack-47",
       "jager-s1",
       "jelly-donutz",
@@ -40902,6 +40903,273 @@
         "state": "CURRENT",
         "heldFields": []
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "honduras-x-panama",
+      "status": "review",
+      "name": "Honduras x Panama",
+      "jp": null,
+      "aliases": [],
+      "classification": {
+        "type": "unknown",
+        "ratio": {
+          "status": "confirmed",
+          "confidence": "B",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-honduras-x-panama-20261126"
+          ],
+          "measurement": {
+            "kind": "pair",
+            "unit": "%",
+            "sativa": 100,
+            "indica": 0,
+            "approximate": false
+          },
+          "presentation": {
+            "schemaVersion": 1,
+            "mode": "exact-pair",
+            "measurement": {
+              "kind": "pair",
+              "unit": "%",
+              "sativa": 100,
+              "indica": 0,
+              "approximate": false
+            }
+          }
+        }
+      },
+      "breeding": {
+        "generation": "F1"
+      },
+      "lineage": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras-x-panama-20261126"
+        ],
+        "display": "First-generation Honduras parental plants (purple high yielding Colombian phenotype) × Panama Goddess elite F10",
+        "parents": [
+          "Honduras first-generation selection",
+          "Panama Goddess elite F10"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsは初代ホンジュラス親株（多収の紫色を示すコロンビア系の表現型）と第10世代のPanama Goddess選抜株との交配と記しています。親株の個体同一性は推測しません。"
+        }
+      },
+      "relations": [
+        {
+          "entityId": "ace-seeds",
+          "roles": [
+            "breeder",
+            "seedCompany"
+          ],
+          "status": "confirmed",
+          "confidence": "A",
+          "basis": "breederOfficial",
+          "sourceRefs": [
+            "ace-seeds-honduras-x-panama-20261126"
+          ]
+        }
+      ],
+      "aromas": {
+        "status": "confirmed",
+        "confidence": "B",
+        "sourceRefs": [
+          "ace-seeds-honduras-x-panama-20261126"
+        ],
+        "evidenceMode": "PROFILE",
+        "items": [
+          "スイート",
+          "レモン",
+          "インセンス",
+          "バニラ"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "profile",
+          "items": [
+            "スイート",
+            "レモン",
+            "インセンス",
+            "バニラ"
+          ],
+          "details": [
+            {
+              "rawMatch": "sweet",
+              "reviewLabelJa": "スイート",
+              "plainMeaningJa": "甘さを感じる香り",
+              "presentationRole": "CHARACTER",
+              "searchAliasesJa": [
+                "甘い"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "lemon",
+              "reviewLabelJa": "レモン",
+              "plainMeaningJa": "レモンのような柑橘香",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "柑橘"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "incense",
+              "reviewLabelJa": "インセンス",
+              "plainMeaningJa": "お香のような香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "お香"
+              ],
+              "registryVersion": 1
+            },
+            {
+              "rawMatch": "vanilla",
+              "reviewLabelJa": "バニラ",
+              "plainMeaningJa": "バニラのような甘い香り",
+              "presentationRole": "NOTE",
+              "searchAliasesJa": [
+                "甘い香り"
+              ],
+              "registryVersion": 1
+            }
+          ],
+          "reviewStatus": "APPROVED",
+          "registryVersion": 1,
+          "noteJa": "ACE Seedsは甘さ、レモン、インセンス、バニラの香りを記しています。"
+        }
+      },
+      "terpenes": {
+        "status": "unknown",
+        "sourceRefs": [],
+        "items": [],
+        "evidenceMode": "UNKNOWN",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "hidden",
+          "items": []
+        }
+      },
+      "cannabinoids": {
+        "status": "unknown",
+        "confidence": "unknown",
+        "sourceRefs": [
+          "ace-seeds-honduras-x-panama-20261126"
+        ],
+        "thc": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "cbd": {
+          "status": "unknown",
+          "sourceRefs": []
+        },
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "values",
+          "items": [
+            {
+              "targetType": "ANALYTE",
+              "targetId": "THC_UNSPECIFIED",
+              "label": "THC",
+              "valueKind": "range",
+              "minValue": 14,
+              "maxValue": 18,
+              "unit": "%",
+              "valueText": "14〜18%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-honduras-x-panama-20261126"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            },
+            {
+              "targetType": "ANALYTE",
+              "targetId": "CBG",
+              "label": "CBG",
+              "valueKind": "range",
+              "minValue": 1.4,
+              "maxValue": 2,
+              "unit": "%",
+              "valueText": "1.4〜2%",
+              "confidence": "B",
+              "sourceRefs": [
+                "ace-seeds-honduras-x-panama-20261126"
+              ],
+              "evidenceType": "SOURCE_DECLARED_NUMERIC",
+              "contextLabel": "公式掲載値（分析未確認）",
+              "analysisVerified": false,
+              "verificationLabel": "分析確認 未確認",
+              "evidenceScope": "cultivar"
+            }
+          ]
+        }
+      },
+      "origin": {
+        "status": "unknown",
+        "sourceRefs": []
+      },
+      "history": {
+        "status": "confirmed",
+        "confidence": "A",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras-x-panama-20261126"
+        ],
+        "presentation": {
+          "schemaVersion": 1,
+          "textJa": "ACE Seedsの沿革では、このF1系統を2020年に導入したと記されています。"
+        }
+      },
+      "morphology": {
+        "status": "confirmed",
+        "confidence": "B",
+        "basis": "breederOfficial",
+        "sourceRefs": [
+          "ace-seeds-honduras-x-panama-20261126"
+        ],
+        "scope": "cultivar",
+        "presentation": {
+          "schemaVersion": 1,
+          "mode": "summary",
+          "textJa": "ACE Seedsはトウヒのような樹形、大きな主枝と側枝を記しています。紫色の花と赤・ピンク色の雌しべは、低温条件で現れる特徴として説明されています。"
+        }
+      },
+      "publicContent": {
+        "ja": {
+          "lineageNote": "ACE Seedsは初代ホンジュラス親株（多収の紫色を示すコロンビア系の表現型）と第10世代のPanama Goddess選抜株との交配と記しています。親株の個体同一性は推測しません。",
+          "history": "ACE Seedsの沿革では、このF1系統を2020年に導入したと記されています。",
+          "aromaNote": "ACE Seedsは甘さ、レモン、インセンス、バニラの香りを記しています。",
+          "morphologyNote": "ACE Seedsはトウヒのような樹形、大きな主枝と側枝を記しています。紫色の花と赤・ピンク色の雌しべは、低温条件で現れる特徴として説明されています。"
+        }
+      },
+      "visuals": [
+        {
+          "role": "primary",
+          "src": "assets/cultivars/honduras-x-panama/primary.webp",
+          "alt": "Honduras x Panamaの公式形態記述に基づくAI生成参考画像",
+          "rights": "AI-generated original project reference; no official photo reused.",
+          "scope": "cultivar",
+          "aiGenerated": true,
+          "sourceType": "aiGenerated"
+        }
+      ],
+      "checkedAt": "2026-11-26",
+      "updatedAt": "2026-11-26",
+      "publicPresentation": {
+        "contractVersion": "UNIVERSAL_PUBLIC_PRESENTATION_CONTRACT_V1",
+        "state": "CURRENT",
+        "heldFields": []
+      }
     }
   ],
   "sources": {
@@ -46643,6 +46911,27 @@
         "classification",
         "aroma",
         "flavor",
+        "history",
+        "morphology",
+        "visual"
+      ],
+      "publishedAt": null,
+      "checkedAt": "2026-11-26"
+    },
+    "ace-seeds-honduras-x-panama-20261126": {
+      "schemaVersion": 1,
+      "id": "ace-seeds-honduras-x-panama-20261126",
+      "publisher": "ACE Seeds",
+      "title": "Honduras x Panama official cultivar page",
+      "url": "https://www.aceseeds.org/en/seeds/hondurasxpanama-regular-seeds/",
+      "sourceType": "breederOfficial",
+      "supports": [
+        "identity",
+        "lineage",
+        "breeder",
+        "classification",
+        "cannabinoids",
+        "aroma",
         "history",
         "morphology",
         "visual"
