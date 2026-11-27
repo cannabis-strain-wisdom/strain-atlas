@@ -204,6 +204,7 @@ function pageFor(cultivar) {
       <a href="../../cultivars/">品種一覧へ</a>
       <a href="../../">ホームへ</a>
     </nav>
+    <p class="muted">本サイトは品種・歴史・系譜等の情報アーカイブです。違法な所持・施用・栽培・輸入・購入を推奨するものではありません。 <a href="../../">法規・注意喚起の詳細</a></p>
   </main>
 </body>
 </html>
